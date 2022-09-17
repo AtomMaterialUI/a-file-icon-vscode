@@ -205,10 +205,10 @@ const createIconDefinitions = (
   const configIconDefinitions = config.iconDefinitions;
   if (configIconDefinitions) {
     configIconDefinitions[iconName + appendix] = {
-      iconPath: `${iconFolderPath}${iconName}${appendix}${fileConfigHash}.svg`,
+      iconPath: `${iconFolderPath}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
     };
     configIconDefinitions[`${iconName}${openedFolder}${appendix}`] = {
-      iconPath: `${iconFolderPath}${iconName}${openedFolder}${appendix}${fileConfigHash}.svg`,
+      iconPath: `${iconFolderPath}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
     };
   }
   return config;

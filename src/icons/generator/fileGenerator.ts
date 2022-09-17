@@ -187,7 +187,7 @@ const setIconDefinition = (
   if (config.options) {
     const fileConfigHash = getFileConfigHash(config.options);
     obj.iconDefinitions![`${iconName}${appendix}`] = {
-      iconPath: `${iconFolderPath}${iconName}${appendix}${fileConfigHash}.svg`,
+      iconPath: `${iconFolderPath}/files/${iconName}${appendix}${fileConfigHash}.svg`,
     };
   }
   return obj;

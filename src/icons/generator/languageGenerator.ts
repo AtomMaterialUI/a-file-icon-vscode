@@ -87,7 +87,7 @@ const createIconDefinitions = (config: IconConfiguration, iconName: string) => {
   const fileConfigHash = getFileConfigHash(config.options ?? {});
   if (config.iconDefinitions) {
     config.iconDefinitions[iconName] = {
-      iconPath: `${iconFolderPath}${iconName}${fileConfigHash}.svg`,
+      iconPath: `${iconFolderPath}/files/${iconName}${fileConfigHash}.svg`,
     };
   }
   return config;
