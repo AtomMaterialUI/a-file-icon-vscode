@@ -2,7 +2,7 @@
   <br>
     <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/logo.png" alt="logo" width="200">
   <br><br>
-  Material Icon Theme
+  Atom Material Icons
   <br>
   <br>
 </h1>
@@ -10,10 +10,10 @@
 <h4 align="center">Get the Material Design icons into your VS Code.</h4>
 
 <p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/version-short/pkief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=VERSION" alt="Version"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/rating-short/pkief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Rating" alt="Rating"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/installs-short/PKief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Installs" alt="Installs"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme"><img src="https://vsmarketplacebadge.apphb.com/downloads-short/PKief.material-icon-theme.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Downloads" alt="Downloads"></a>
+    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/version-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=VERSION" alt="Version"></a>&nbsp;
+    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/rating-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Rating" alt="Rating"></a>&nbsp;
+    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/installs-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Installs" alt="Installs"></a>&nbsp;
+    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/downloads-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Downloads" alt="Downloads"></a>
 </p>
 
 <p align="center"><br>

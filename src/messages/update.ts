@@ -28,7 +28,7 @@ const handleUpdateMessageActions = (value: string | undefined) => {
     case translate('readChangelog'):
       vscode.env.openExternal(
         vscode.Uri.parse(
-          'https://marketplace.visualstudio.com/items/PKief.material-icon-theme/changelog'
+          'https://marketplace.visualstudio.com/items/mallowigi.a-file-icon/changelog'
         )
       );
       break;
