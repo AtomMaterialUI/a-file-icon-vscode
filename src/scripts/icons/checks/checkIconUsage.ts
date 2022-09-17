@@ -58,12 +58,12 @@ const handleErrors = () => {
   const amountOfUnusedIcons = Object.keys(availableIcons).length;
   if (amountOfUnusedIcons === 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.green('Passed icon usage checks!')
     );
   } else {
     console.log(
-      '> Material Icon Theme: ' +
+      '> Atom Material Icons: ' +
         painter.red(`${amountOfUnusedIcons} unused icon(s):`)
     );
     Object.keys(availableIcons).forEach((icon) => {

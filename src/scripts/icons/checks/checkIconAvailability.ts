@@ -151,12 +151,12 @@ const handleErrors = () => {
     wrongIconNames.languageIcons.length;
   if (amountOfErrors > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`)
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.green('Passed icon availability checks!')
     );
   }

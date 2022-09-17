@@ -46,7 +46,7 @@ const fetchContributors = (
         res.headers?.link?.toString() ?? ''
       );
       console.log(
-        '> Material Icon Theme:',
+        '> Atom Material Icons:',
         painter.yellow(
           `[${page}/${
             lastPage ? lastPage[1] : +prevPage[1] + 1
@@ -108,12 +108,12 @@ const init = async () => {
 
   if (contributorsList.length > 0) {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.green('Successfully fetched all contributors from GitHub!')
     );
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.red('Error: Could not fetch contributors from GitHub!')
     );
     throw Error();
@@ -121,12 +121,12 @@ const init = async () => {
   const outputPath = createContributorsList(contributorsList);
 
   // create the image
-  console.log('> Material Icon Theme:', painter.yellow('Creating image...'));
+  console.log('> Atom Material Icons:', painter.yellow('Creating image...'));
   const fileName = 'contributors';
   createScreenshot(outputPath, fileName)
     .then(() => {
       console.log(
-        '> Material Icon Theme:',
+        '> Atom Material Icons:',
         painter.green(`Successfully created ${fileName} image!`)
       );
     })

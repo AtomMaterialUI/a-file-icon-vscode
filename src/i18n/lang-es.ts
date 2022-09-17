@@ -1,12 +1,12 @@
 import { Translation } from '../models';
 
 export const translation: Translation = {
-  themeInstalled: 'Material Icon Theme se ha instalado.',
+  themeInstalled: 'Atom Material Icons se ha instalado.',
   howToActivate: 'Cómo activar los iconos',
   activate: 'Activar',
-  activated: 'Material Icon Theme está activado.',
+  activated: 'Atom Material Icons está activado.',
   neverShowAgain: 'No mostrar más',
-  themeUpdated: 'Material Icon Theme se ha actualizado.',
+  themeUpdated: 'Atom Material Icons se ha actualizado.',
   readChangelog: 'Leer changelog',
   iconPacks: {
     selectPack: 'Seleccione un paquete de iconos',

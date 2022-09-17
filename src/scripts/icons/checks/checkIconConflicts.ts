@@ -119,7 +119,7 @@ const handleErrors = () => {
       ...Object.keys(allConflicts.languageIcons),
     ].length > 0
   ) {
-    console.log('> Material Icon Theme:', painter.red('Icon conflicts:'));
+    console.log('> Atom Material Icons:', painter.red('Icon conflicts:'));
     console.log(painter.red('--------------------------------------'));
 
     printErrorMessage(allConflicts.fileIcons.fileExtensions, 'fileExtension');
@@ -133,7 +133,7 @@ const handleErrors = () => {
     process.exit(1);
   } else {
     console.log(
-      '> Material Icon Theme:',
+      '> Atom Material Icons:',
       painter.green('Passed icon conflict checks!')
     );
   }
