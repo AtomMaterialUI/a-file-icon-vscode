@@ -13,7 +13,7 @@ import {
   folderIcons,
   highContrastColorFileEnding,
   languageIcons,
-  lightColorFileEnding,
+  darkFileEnding,
   openedFolder,
 } from './../../../icons';
 
@@ -84,7 +84,7 @@ const isIconAvailable = (
 ) => {
   let iconName = `${icon.name}${hasOpenedFolder ? openedFolder : ''}`;
   if (icon.light && iconColor === IconColor.light) {
-    iconName += lightColorFileEnding;
+    iconName += darkFileEnding;
   }
   if (icon.highContrast && iconColor === IconColor.highContrast) {
     iconName += highContrastColorFileEnding;
@@ -172,7 +172,9 @@ const handleErrors = () => {
 };
 
 const logIconInformation = (wrongIcons: string[], title: string) => {
-  if (wrongIcons.length === 0) return;
+  if (wrongIcons.length === 0) {
+    return;
+  }
   console.log(`\n${title}:\n--------------------------------`);
   wrongIcons.forEach((icon) => {
     const suggestion = Object.keys(availableIcons).find((i) => {
@@ -181,7 +183,7 @@ const logIconInformation = (wrongIcons: string[], title: string) => {
     const suggestionString = suggestion
       ? ` (Did you mean ${painter.green(suggestion)}?)`
       : '';
-    const isWrongLightVersion = icon.endsWith(lightColorFileEnding);
+    const isWrongLightVersion = icon.endsWith(darkFileEnding);
     const isWrongLightVersionString = isWrongLightVersion
       ? ` (There is no light icon for ${painter.green(
           icon.slice(0, -6)

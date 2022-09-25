@@ -16,7 +16,7 @@ export const openedFolder: string = '-open';
 /**
  * File ending for light icons.
  */
-export const lightColorFileEnding: string = '_light';
+export const darkFileEnding: string = '_dark';
 
 /**
  * File ending for high contrast icons.

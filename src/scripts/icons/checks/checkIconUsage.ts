@@ -6,7 +6,7 @@ import {
   folderIcons,
   highContrastColorFileEnding,
   languageIcons,
-  lightColorFileEnding,
+  darkFileEnding,
   openedFolder,
 } from './../../../icons';
 import * as painter from './../../helpers/painter';
@@ -80,7 +80,7 @@ const getAllUsedFileIcons = (): string[] => {
   return [
     fileIcons.defaultIcon.name,
     fileIcons.defaultIcon.light
-      ? fileIcons.defaultIcon.name + lightColorFileEnding
+      ? fileIcons.defaultIcon.name + darkFileEnding
       : '',
     fileIcons.defaultIcon.highContrast
       ? fileIcons.defaultIcon.name + highContrastColorFileEnding
@@ -88,7 +88,7 @@ const getAllUsedFileIcons = (): string[] => {
     ...fileIcons.icons.map((icon) => icon.name),
     ...fileIcons.icons
       .filter((icon) => icon.light)
-      .map((icon) => icon.name + lightColorFileEnding),
+      .map((icon) => icon.name + darkFileEnding),
     ...fileIcons.icons
       .filter((icon) => icon.highContrast)
       .map((icon) => icon.name + highContrastColorFileEnding),
@@ -104,8 +104,8 @@ const getAllUsedFolderIcons = (): string[] => {
       return [
         icon.name,
         icon.name + openedFolder,
-        icon.light ? icon.name + lightColorFileEnding : '',
-        icon.light ? icon.name + openedFolder + lightColorFileEnding : '',
+        icon.light ? icon.name + darkFileEnding : '',
+        icon.light ? icon.name + openedFolder + darkFileEnding : '',
         icon.highContrast ? icon.name + highContrastColorFileEnding : '',
         icon.highContrast
           ? icon.name + openedFolder + highContrastColorFileEnding
@@ -132,7 +132,7 @@ const getAllUsedLanguageIcons = (): string[] => {
     ...languageIcons.map((lang) => lang.icon.name),
     ...languageIcons
       .filter((lang) => lang.icon.light)
-      .map((lang) => lang.icon.name + lightColorFileEnding),
+      .map((lang) => lang.icon.name + darkFileEnding),
     ...languageIcons
       .filter((lang) => lang.icon.highContrast)
       .map((lang) => lang.icon.name + highContrastColorFileEnding),

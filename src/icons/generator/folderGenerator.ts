@@ -13,7 +13,7 @@ import {
 import {
   highContrastColorFileEnding,
   iconFolderPath,
-  lightColorFileEnding,
+  darkFileEnding,
   openedFolder,
 } from './constants';
 
@@ -43,14 +43,16 @@ export const loadFolderIconDefinitions = (
   }
 
   allIcons.forEach((icon) => {
-    if (icon.disabled) return;
+    if (icon.disabled) {
+      return;
+    }
     config = setIconDefinitions(config, icon);
     config = merge({}, config, setFolderNames(icon.name, icon.folderNames));
     config.light = icon.light
       ? merge(
           {},
           config.light,
-          setFolderNames(icon.name, icon.folderNames, lightColorFileEnding)
+          setFolderNames(icon.name, icon.folderNames, darkFileEnding)
         )
       : config.light;
     config.highContrast = icon.highContrast
@@ -92,11 +94,7 @@ const setDefaultFolderIcons = (
     ? merge(
         {},
         config.light,
-        createDefaultIconConfigObject(
-          hasFolderIcons,
-          theme,
-          lightColorFileEnding
-        )
+        createDefaultIconConfigObject(hasFolderIcons, theme, darkFileEnding)
       )
     : config.light;
   config.highContrast = theme.defaultIcon.highContrast
@@ -122,11 +120,7 @@ const setDefaultFolderIcons = (
       ? merge(
           {},
           config.light,
-          createRootIconConfigObject(
-            hasFolderIcons,
-            theme,
-            lightColorFileEnding
-          )
+          createRootIconConfigObject(hasFolderIcons, theme, darkFileEnding)
         )
       : config.light;
     config.highContrast = theme.rootFolder.highContrast
@@ -182,7 +176,7 @@ const setIconDefinitions = (
     config = merge(
       {},
       config,
-      createIconDefinitions(config, icon.name, lightColorFileEnding)
+      createIconDefinitions(config, icon.name, darkFileEnding)
     );
   }
   if (icon.highContrast) {
@@ -275,7 +269,9 @@ const createRootIconConfigObject = (
 };
 
 const getCustomIcons = (folderAssociations: IconAssociations | undefined) => {
-  if (!folderAssociations) return [];
+  if (!folderAssociations) {
+    return [];
+  }
 
   const icons: FolderIcon[] = Object.keys(folderAssociations).map((fa) => ({
     // use default folder if icon name is empty

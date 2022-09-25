@@ -10,7 +10,7 @@ import {
 import {
   highContrastColorFileEnding,
   iconFolderPath,
-  lightColorFileEnding,
+  darkFileEnding,
 } from './constants';
 
 /**
@@ -30,7 +30,9 @@ export const loadLanguageIconDefinitions = (
   const allLanguageIcons = [...enabledLanguages, ...customIcons];
 
   allLanguageIcons.forEach((lang) => {
-    if (lang.disabled) return;
+    if (lang.disabled) {
+      return;
+    }
     config = setIconDefinitions(config, lang.icon);
     config = merge(
       {},
@@ -41,10 +43,7 @@ export const loadLanguageIconDefinitions = (
       ? merge(
           {},
           config.light,
-          setLanguageIdentifiers(
-            lang.icon.name + lightColorFileEnding,
-            lang.ids
-          )
+          setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids)
         )
       : config.light;
     config.highContrast = lang.icon.highContrast
@@ -69,7 +68,7 @@ const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon) => {
     {},
     config,
     icon.light
-      ? createIconDefinitions(config, icon.name + lightColorFileEnding)
+      ? createIconDefinitions(config, icon.name + darkFileEnding)
       : config.light
   );
   config = merge(
@@ -102,7 +101,9 @@ const setLanguageIdentifiers = (iconName: string, languageIds: string[]) => {
 };
 
 const getCustomIcons = (languageAssociations: IconAssociations | undefined) => {
-  if (!languageAssociations) return [];
+  if (!languageAssociations) {
+    return [];
+  }
 
   const icons: LanguageIcon[] = Object.keys(languageAssociations).map((fa) => ({
     icon: { name: languageAssociations[fa].toLowerCase() },

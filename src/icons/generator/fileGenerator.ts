@@ -10,7 +10,7 @@ import {
 import {
   highContrastColorFileEnding,
   iconFolderPath,
-  lightColorFileEnding,
+  darkFileEnding,
   wildcardPattern,
 } from './constants';
 
@@ -31,14 +31,16 @@ export const loadFileIconDefinitions = (
   const allFileIcons = [...enabledIcons, ...customIcons];
 
   allFileIcons.forEach((icon) => {
-    if (icon.disabled) return;
+    if (icon.disabled) {
+      return;
+    }
     config = merge({}, config, setIconDefinition(config, icon.name));
 
     if (icon.light) {
       config = merge(
         {},
         config,
-        setIconDefinition(config, icon.name, lightColorFileEnding)
+        setIconDefinition(config, icon.name, darkFileEnding)
       );
     }
     if (icon.highContrast) {
@@ -81,14 +83,11 @@ export const loadFileIconDefinitions = (
     config = merge(
       {},
       config,
-      setIconDefinition(
-        config,
-        fileIcons.defaultIcon.name,
-        lightColorFileEnding
-      )
+      setIconDefinition(config, fileIcons.defaultIcon.name, darkFileEnding)
     );
     if (config.light) {
-      config.light.file = fileIcons.defaultIcon.name + lightColorFileEnding;
+      config.file = fileIcons.defaultIcon.name + darkFileEnding;
+      config.light.file = fileIcons.defaultIcon.name;
     }
   }
 
@@ -129,7 +128,9 @@ const mapSpecificFileIcons = (
     const shouldOverwriteFileNames = Object.keys(customFileAssociation).some(
       (key) => {
         // overwrite is enabled if there are two asterisks in the wildcard
-        if (!/^\*{2}\./.test(key)) return false;
+        if (!/^\*{2}\./.test(key)) {
+          return false;
+        }
         const fileExtension = key.replace(wildcardPattern, '.');
 
         // check if the file name contains the particular file extension
@@ -148,12 +149,14 @@ const mapSpecificFileIcons = (
       !configMappingType ||
       !configLightMappingType ||
       !configHighContrastMappingType
-    )
+    ) {
       return;
+    }
 
     configMappingType[name] = icon.name;
     if (icon.light) {
-      configLightMappingType[name] = `${icon.name}${lightColorFileEnding}`;
+      configMappingType[name] = `${icon.name}${darkFileEnding}`;
+      configLightMappingType[name] = `${icon.name}`;
     }
     if (icon.highContrast) {
       configHighContrastMappingType[
@@ -194,7 +197,9 @@ const setIconDefinition = (
 };
 
 const getCustomIcons = (fileAssociations: IconAssociations | undefined) => {
-  if (!fileAssociations) return [];
+  if (!fileAssociations) {
+    return [];
+  }
 
   const icons: FileIcon[] = Object.keys(fileAssociations).map((fa) => {
     const icon: Partial<FileIcon> = {
