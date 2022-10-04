@@ -10,18 +10,18 @@ export const fileIcons: FileIcons = {
     {
       name: 'githubActions',
       fileNames: [
-        '.github/workflow.yml',
-        '.github/workflow.yaml',
-        '.github/main.yml',
-        '.github/main.yaml',
-        '.github/ci.yml',
-        '.github/ci.yaml',
-        '.github/release.yml',
-        '.github/release.yaml',
-        '.github/build.yml',
         '.github/build.yaml',
-        '.github/config.yml',
+        '.github/build.yml',
+        '.github/ci.yaml',
+        '.github/ci.yml',
         '.github/config.yaml',
+        '.github/config.yml',
+        '.github/main.yaml',
+        '.github/main.yml',
+        '.github/release.yaml',
+        '.github/release.yml',
+        '.github/workflow.yaml',
+        '.github/workflow.yml',
       ],
     },
     {
@@ -35,23 +35,23 @@ export const fileIcons: FileIcons = {
     {
       name: 'github',
       fileNames: [
-        'TEMPLATE.md',
-        'TEMPLATE.txt',
         'COMMIT_MESSAGE_TEMPLATE.md',
         'COMMIT_MESSAGE_TEMPLATE.txt',
         'PULL_REQUEST_TEMPLATE.md',
         'PULL_REQUEST_TEMPLATE.txt',
+        'TEMPLATE.md',
+        'TEMPLATE.txt',
       ],
       light: true,
     },
     {
       name: 'readme',
       fileNames: [
-        'readme',
         'README',
         'README.md',
-        'readme.md',
         'README.txt',
+        'readme',
+        'readme.md',
         'readme.txt',
       ],
       light: true,
@@ -75,34 +75,34 @@ export const fileIcons: FileIcons = {
       name: 'install',
       fileNames: [
         'INSTALL',
-        'install',
         'INSTALL.md',
-        'install.md',
-        'INSTALL.txt',
-        'install.txt',
         'INSTALL.sh',
-        'install.sh',
-        'INSTALL.yml',
-        'install.yml',
+        'INSTALL.txt',
         'INSTALL.yaml',
+        'INSTALL.yml',
+        'install',
+        'install.md',
+        'install.sh',
+        'install.txt',
         'install.yaml',
+        'install.yml',
       ],
     },
     {
       name: 'funding',
       fileNames: [
         'FUNDING',
-        'funding',
         'FUNDING.md',
-        'funding.md',
-        'FUNDING.txt',
-        'funding.txt',
         'FUNDING.sh',
-        'funding.sh',
-        'FUNDING.yml',
-        'funding.yml',
+        'FUNDING.txt',
         'FUNDING.yaml',
+        'FUNDING.yml',
+        'funding',
+        'funding.md',
+        'funding.sh',
+        'funding.txt',
         'funding.yaml',
+        'funding.yml',
       ],
     },
     {
@@ -126,6 +126,216 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['bundle.kt', 'messages/kt'],
     },
     // endregion [Custom]
+
+    // region [0-9]
+    {
+      name: '11ty',
+      fileNames: [
+        '.11ty.cjs',
+        '.11ty.js',
+        '.11ty.mjs',
+        '.11ty.ts',
+        '.11tyignore',
+        '.eleventy.cjs',
+        '.eleventy.js',
+        '.eleventy.mjs',
+        '.eleventy.ts',
+        '.eleventyignore',
+      ],
+      light: true,
+    },
+    {
+      name: '1c',
+      fileExtensions: ['bsl', 'mdo', 'sdbl', 'os'],
+    },
+    {
+      name: '3d',
+      fileExtensions: [
+        'ac',
+        'c4d',
+        'cginc',
+        'dxf',
+        'geo',
+        'obj',
+        'shader',
+        'stl',
+        'tesc',
+        'tese',
+        'x',
+      ],
+    },
+    {
+      name: '3dsmax',
+      fileExtensions: ['osl', 'dwg', '3ds'],
+    },
+    {
+      name: '4d',
+      fileExtensions: ['4dm', '4db'],
+    },
+
+    // endregion [0-9]
+
+    // region [A]
+    {
+      name: 'aplus',
+      fileExtensions: [
+        'a+',
+        'a',
+      ],
+    },
+    {
+      name: 'access',
+      fileExtensions: [
+        'accda',
+        'accdb',
+        'accde',
+        'accdr',
+        'accdt',
+        'adn',
+        'laccdb',
+        'maf',
+        'mam',
+        'maq',
+        'mar',
+        'mdw',
+      ],
+    },
+    {
+      name: 'abap',
+      fileExtensions: [
+        'abap',
+        'abp',
+      ],
+    },
+    {
+      name: 'abc',
+      fileExtensions: [
+        'abc',
+      ],
+    },
+    {
+      name: 'abif',
+      fileExtensions: [
+        'ab1',
+        'abif',
+        'fsa',
+      ],
+    },
+    {
+      name: 'acre',
+      fileNames: [
+        'acre.config',
+      ],
+    },
+    {
+      name: 'actionscript',
+      fileExtensions: [
+        'as',
+        'as3',
+        'jsfl',
+      ],
+    },
+    {
+      name: 'ada',
+      fileExtensions: [
+        'ada',
+        'adb',
+        'ads',
+      ],
+    },
+    {
+      name: 'animate',
+      fileExtensions: [
+        'fla',
+        'xfl',
+      ],
+    },
+    {
+      name: 'ae',
+      fileExtensions: [
+        'aep',
+        'aet',
+      ],
+    },
+    {
+      name: 'ai',
+      fileExtensions: [
+        'ai',
+        'aia',
+        'ait',
+      ],
+    },
+    {
+      name: 'indesign',
+      fileExtensions: [
+        'id',
+        'idml',
+        'indb',
+        'indd',
+        'indl',
+        'indt',
+      ],
+    },
+    {
+      name: 'psd',
+      fileExtensions: [
+        'atn',
+        'psb',
+        'psd',
+      ],
+    },
+    {
+      name: 'premiere',
+      fileExtensions: [
+        'prel',
+        'prproj',
+        'psq',
+      ],
+    },
+    {
+      name: 'advpl',
+      fileExtensions: [
+        'ahu',
+        'aph',
+        'prw',
+        'tlpp',
+      ],
+    },
+    {
+      name: 'affectscript',
+      fileExtensions: [
+        'affect',
+      ],
+    },
+    {
+      name: 'affinity',
+      fileExtensions: [
+        'afdesign',
+        'afphoto',
+        'afpub',
+      ],
+    },
+    {
+      name: 'agda',
+      fileExtensions: [
+        'agda',
+        'lagda',
+      ],
+    },
+    {
+      name: 'akka',
+      fileExtensions: [
+        'akka',
+      ],
+    },
+    {
+      name: 'al',
+      fileExtensions: [
+        'al',
+      ],
+    },
+
+    // endregion
 
     //
     // {
