@@ -33,7 +33,7 @@ const createHTMLTableBodyRows = (items: IconDefinition[][]) => {
         }">
             </td>
             <td class="iconName">${toTitleCase(icon.label)}</td>
-        `
+        `,
       )
       .join('');
     const tableRow = `
@@ -59,7 +59,7 @@ const createPreviewTable = (icons: IconDefinition[][], size: number) => {
     styling +
     createHTMLTable(
       createHTMLTableHeadRow(size),
-      createHTMLTableBodyRows(icons)
+      createHTMLTableBodyRows(icons),
     );
   return table;
 };
@@ -67,7 +67,7 @@ const createPreviewTable = (icons: IconDefinition[][], size: number) => {
 const savePreview = (
   fileName: string,
   size: number,
-  icons: IconDefinition[][]
+  icons: IconDefinition[][],
 ) => {
   const filePath = path.join(__dirname, fileName + '.html');
 
@@ -79,12 +79,12 @@ const savePreview = (
     .then(() => {
       console.log(
         '> Atom Material Icons:',
-        painter.green(`Successfully created ${fileName} preview image!`)
+        painter.green(`Successfully created ${fileName} preview image!`),
       );
     })
     .catch(() => {
       throw Error(
-        painter.red(`Error while creating ${fileName} preview image`)
+        painter.red(`Error while creating ${fileName} preview image`),
       );
     });
 };
@@ -92,7 +92,7 @@ const savePreview = (
 const getIconDefinitionsMatrix = (
   icons: IconDefinition[],
   size: number,
-  excluded: string[] = []
+  excluded: string[] = [],
 ): IconDefinition[][] => {
   const iconList = icons.sort((a, b) => a.label.localeCompare(b.label));
   trimIconListToSize(iconList, size, excluded);
@@ -129,12 +129,12 @@ export const generatePreview = (
   name: string,
   icons: IconDefinition[],
   size: number,
-  trimmableIcons: string[] = []
+  trimmableIcons: string[] = [],
 ) => {
   savePreview(
     name,
     size,
-    getIconDefinitionsMatrix(icons, size, trimmableIcons)
+    getIconDefinitionsMatrix(icons, size, trimmableIcons),
   );
 };
 
@@ -152,14 +152,14 @@ interface IconDefinition {
 const trimIconListToSize = (
   iconList: IconDefinition[],
   size: number,
-  trimmableIcons: string[]
+  trimmableIcons: string[],
 ) => {
   while (iconList.length % size !== 0) {
     iconList.splice(
       iconList.findIndex(
-        (i) => i.iconName === trimmableIcons[iconList.length % size]
+        (i) => i.iconName === trimmableIcons[iconList.length % size],
       ),
-      1
+      1,
     );
   }
 };

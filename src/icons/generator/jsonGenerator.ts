@@ -24,30 +24,30 @@ import {
  * Generate the complete icon configuration object that can be written as JSON file.
  */
 export const generateIconConfigurationObject = (
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   const iconConfig = merge({}, new IconConfiguration(), { options });
   const languageIconDefinitions = loadLanguageIconDefinitions(
     languageIcons,
     iconConfig,
-    options
+    options,
   );
   const fileIconDefinitions = loadFileIconDefinitions(
     fileIcons,
     iconConfig,
-    options
+    options,
   );
   const folderIconDefinitions = loadFolderIconDefinitions(
     folderIcons,
     iconConfig,
-    options
+    options,
   );
 
   return merge(
     {},
     languageIconDefinitions,
     fileIconDefinitions,
-    folderIconDefinitions
+    folderIconDefinitions,
   );
 };
 
@@ -58,13 +58,13 @@ export const generateIconConfigurationObject = (
  */
 export const createIconFile = (
   updatedConfigs?: IconJsonOptions,
-  updatedJSONConfig: IconJsonOptions = {}
+  updatedJSONConfig: IconJsonOptions = {},
 ) => {
   // override the default options with the new options
   const options: IconJsonOptions = merge(
     {},
     getDefaultIconOptions(),
-    updatedJSONConfig
+    updatedJSONConfig,
   );
   const json = generateIconConfigurationObject(options);
 
@@ -73,19 +73,19 @@ export const createIconFile = (
     updatedConfigs?.opacity &&
     !validateOpacityValue(updatedConfigs?.opacity)
   ) {
-    throw Error('Material Icons: Invalid opacity value!');
+    throw Error('Atom Material Icons: Invalid opacity value!');
   }
   if (
     updatedConfigs?.saturation &&
     !validateSaturationValue(updatedConfigs?.saturation)
   ) {
-    throw Error('Material Icons: Invalid saturation value!');
+    throw Error('Atom Material Icons: Invalid saturation value!');
   }
   if (
     updatedConfigs?.folders?.color &&
     !validateHEXColorCode(updatedConfigs?.folders?.color)
   ) {
-    throw Error('Material Icons: Invalid folder color value!');
+    throw Error('Atom Material Icons: Invalid folder color value!');
   }
 
   try {
@@ -112,7 +112,8 @@ export const createIconFile = (
       setIconSaturation(options);
     }
     renameIconFiles(iconJsonPath, options);
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error('Failed to update icons: ' + error);
   }
 
@@ -125,9 +126,10 @@ export const createIconFile = (
     fs.writeFileSync(
       path.join(iconJsonPath, iconJsonName),
       JSON.stringify(json, undefined, 2),
-      'utf-8'
+      'utf-8',
     );
-  } catch (error) {
+  }
+  catch (error) {
     throw new Error('Failed to create icon file: ' + error);
   }
 
@@ -173,13 +175,14 @@ const renameIconFiles = (iconJsonPath: string, options: IconJsonOptions) => {
         // append file config to file name
         const newFilePath = path.join(
           iconPath,
-          f.replace(/(^[^\.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`)
+          f.replace(/(^[^\.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`),
         );
 
         // if generated files are already in place, do not overwrite them
         if (filePath !== newFilePath && fs.existsSync(newFilePath)) {
           fs.unlinkSync(filePath);
-        } else {
+        }
+        else {
           fs.renameSync(filePath, newFilePath);
         }
       });

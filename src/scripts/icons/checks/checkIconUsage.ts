@@ -26,7 +26,7 @@ const availableIcons: { [s: string]: string } = {};
  */
 const fsReadAllIconFiles = (
   error: NodeJS.ErrnoException | null,
-  files: string[]
+  files: string[],
 ) => {
   if (error) {
     throw Error(error.message);
@@ -50,7 +50,7 @@ const checkUsageOfAllIcons = () => {
   [...usedFileIcons, ...usedFolderIcons, ...usedLanguageIcons].forEach(
     (icon) => {
       delete availableIcons[icon];
-    }
+    },
   );
 };
 
@@ -59,12 +59,13 @@ const handleErrors = () => {
   if (amountOfUnusedIcons === 0) {
     console.log(
       '> Atom Material Icons:',
-      painter.green('Passed icon usage checks!')
+      painter.green('Passed icon usage checks!'),
     );
-  } else {
+  }
+  else {
     console.log(
       '> Atom Material Icons: ' +
-        painter.red(`${amountOfUnusedIcons} unused icon(s):`)
+      painter.red(`${amountOfUnusedIcons} unused icon(s):`),
     );
     Object.keys(availableIcons).forEach((icon) => {
       console.log(painter.red(`- ${availableIcons[icon]}`));
@@ -117,7 +118,7 @@ const getAllUsedFolderIcons = (): string[] => {
 };
 
 const getAllFolderIcons = (
-  theme: FolderTheme
+  theme: FolderTheme,
 ): (FolderIcon | DefaultIcon)[] => {
   const icons = theme.icons || [];
   const allFolderIcons = [theme.defaultIcon, ...icons];

@@ -65,7 +65,8 @@ You can set a custom opacity for the icons:
 
 ## Custom icon saturation
 
-If colors do not make you happy you can change the icons to have less saturation making them look grayish or completely grayscale by setting saturation to 0:
+If colors do not make you happy you can change the icons to have less saturation making them look grayish or completely
+grayscale by setting saturation to 0:
 
 ```json
 "material-icon-theme.saturation": 0.5
@@ -77,23 +78,29 @@ You can customize the icon associations directly in the user settings.
 
 ### File associations
 
-With the `*.[extension]` pattern you can define custom file icon associations. For example you could define an icon for `*.sample` and every file that ends with `.sample` will have the defined icon. However, not all files with the same file extension always have the same icon. For some specific file names there is a special icon. In order to overwrite all the specific file icons as well, two asterisks must be set instead of one, i.e. `**.[extension]`.
+With the `*.[extension]` pattern you can define custom file icon associations. For example you could define an icon
+for `*.sample` and every file that ends with `.sample` will have the defined icon. However, not all files with the same
+file extension always have the same icon. For some specific file names there is a special icon. In order to overwrite
+all the specific file icons as well, two asterisks must be set instead of one, i.e. `**.[extension]`.
 
 If there's no leading `*` it will be automatically configured as filename and not as file extension.
 
 ```json
 "material-icon-theme.files.associations": {
-    "*.ts": "typescript",
-    "**.json": "json",
-    "fileName.ts": "angular"
+"*.ts": "typescript",
+"**.json": "json",
+"fileName.ts": "angular"
 }
 ```
 
 #### Custom SVG icons
 
-It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist folder. However, the restriction applies that the directory in which the custom icons are located must be within the `extensions` directory of the `.vscode` folder in the user directory.
+It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist
+folder. However, the restriction applies that the directory in which the custom icons are located must be within
+the `extensions` directory of the `.vscode` folder in the user directory.
 
-For example a custom SVG file called `sample.svg` can be placed in an `icons` folder inside of VS Code's `extensions` folder:
+For example a custom SVG file called `sample.svg` can be placed in an `icons` folder inside of VS Code's `extensions`
+folder:
 
 ```
 .vscode
@@ -106,26 +113,32 @@ In the settings.json the icon can be associated to a file name or file extension
 
 ```json
 "material-icon-theme.files.associations": {
-    "fileName.ts": "../../icons/sample"
+"fileName.ts": "../../icons/sample"
 }
 ```
 
-_Note: The custom file name must be configured in the settings without the file ending `.svg` as shown in the example above._
+_Note: The custom file name must be configured in the settings without the file ending `.svg` as shown in the example
+above._
 
 ### Folder associations
 
-The following configuration can customize the folder icons. It is also possible to overwrite existing associations and create nice combinations. For example you could change the folder theme to "classic" and define icons only for the folder names you like.
+The following configuration can customize the folder icons. It is also possible to overwrite existing associations and
+create nice combinations. For example you could change the folder theme to "classic" and define icons only for the
+folder names you like.
 
 ```json
 "material-icon-theme.folders.associations": {
-    "customFolderName": "src",
-    "sample": "dist"
+"customFolderName": "src",
+"sample": "dist"
 }
 ```
 
 #### Custom SVG folder icons
 
-Similar to the files, it is also possible to reference your own SVG icons for folder icons. Here it's important to provide two SVG files: one for the folder if it's closed and another one for the opened state. These two files - let's call them "folder-sample.svg" and "folder-sample-open.svg" - have to be placed into a directory which is relative to the extensions dist folder. This directory has to be somewhere inside of the `.vscode/extensions` folder.
+Similar to the files, it is also possible to reference your own SVG icons for folder icons. Here it's important to
+provide two SVG files: one for the folder if it's closed and another one for the opened state. These two files - let's
+call them "folder-sample.svg" and "folder-sample-open.svg" - have to be placed into a directory which is relative to the
+extensions dist folder. This directory has to be somewhere inside of the `.vscode/extensions` folder.
 
 In our example we place them into an `icons` folder inside of the `.vscode/extensions` folder:
 
@@ -141,18 +154,19 @@ In the settings.json the folder icons can be associated to a folder name (e.g. "
 
 ```json
 "material-icon-theme.folders.associations": {
-    "src": "../../../../icons/folder-sample"
+"src": "../../../../icons/folder-sample"
 }
 ```
 
 ### Language associations
 
-With the following configuration you can customize the language icons. It is also possible to overwrite existing associations.
+With the following configuration you can customize the language icons. It is also possible to overwrite existing
+associations.
 
 ```json
 "material-icon-theme.languages.associations": {
-    "languageId": "iconName",
-    "json": "json"
+"languageId": "iconName",
+"json": "json"
 }
 ```
 
@@ -164,20 +178,21 @@ You can see the available icon names in the overview above.
 
 ## One-click activation
 
-After installation or update you can click on the 'Activate'-button to activate the icon theme, if you haven't already. The icons will be visible immediately.
+After installation or update you can click on the 'Activate'-button to activate the icon theme, if you haven't already.
+The icons will be visible immediately.
 
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/oneclickactivation.png" alt="activation">
 
 ## Commands
 
-Press `Ctrl-Shift-P` to open the command palette and type `Material Icons`.
+Press `Ctrl-Shift-P` to open the command palette and type `Atom Material Icons`.
 
 <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/commandPalette.png" alt="commands">
 
 <p></p>
 
 | Command                           | Description                                                                        |
-| --------------------------------- | ---------------------------------------------------------------------------------- |
+|-----------------------------------|------------------------------------------------------------------------------------|
 | **Activate Icon Theme**           | Activate the icon theme.                                                           |
 | **Change Folder Color**           | Change the color of the folder icons.                                              |
 | **Change Folder Theme**           | Change the design of the folder icons.                                             |
@@ -201,7 +216,10 @@ Press `Ctrl-Shift-P` to open the command palette and type `Material Icons`.
 
 **Would you like to contribute?**
 
-Take a look at the [contribution guidelines](https://github.com/PKief/vscode-material-icon-theme/blob/main/CONTRIBUTING.md) and open a [new issue](https://github.com/PKief/vscode-material-icon-theme/issues) or [pull request](https://github.com/PKief/vscode-material-icon-theme/pulls) on GitHub.
+Take a look at
+the [contribution guidelines](https://github.com/PKief/vscode-material-icon-theme/blob/main/CONTRIBUTING.md) and open
+a [new issue](https://github.com/PKief/vscode-material-icon-theme/issues)
+or [pull request](https://github.com/PKief/vscode-material-icon-theme/pulls) on GitHub.
 
 ## Related extensions
 

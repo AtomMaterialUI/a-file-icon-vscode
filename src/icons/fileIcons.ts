@@ -1,4 +1,4 @@
-import { FileIcons } from '../models/index';
+import { FileIcons, IconPack } from '../models/index';
 
 /**
  * Defines file icons
@@ -379,6 +379,7 @@ export const fileIcons: FileIcons = {
         'comp.ts',
         'comp.dart',
       ],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularcontroller',
@@ -390,18 +391,22 @@ export const fileIcons: FileIcons = {
         'ctrl.ts',
         'ctrl.dart',
       ],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angulardirective',
       fileExtensions: ['directive.js', 'directive.ts', 'directive.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularguard',
       fileExtensions: ['guard.js', 'guard.ts', 'guard.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularinterceptor',
       fileExtensions: ['interceptor.js', 'interceptor.ts', 'interceptor.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularrouting',
@@ -414,6 +419,7 @@ export const fileIcons: FileIcons = {
         'angular_routing.dart',
       ],
       fileExtensions: ['routing.js', 'routing.ts', 'routing.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularapprouting',
@@ -422,30 +428,37 @@ export const fileIcons: FileIcons = {
         'app-routing.module.ts',
         'app-routing.module.dart',
       ],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularmodule',
       fileExtensions: ['module.js', 'module.ts', 'module.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularservice',
       fileExtensions: ['service.js', 'service.ts', 'service.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'ionic',
       fileExtensions: ['page.js', 'page.ts', 'page.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularpipe',
       fileExtensions: ['pipe.js', 'pipe.ts', 'pipe.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularresolver',
       fileExtensions: ['resolver.js', 'resolver.ts', 'resolver.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angulartailwind',
       fileNames: ['ng-tailwind.js', 'ng-tailwind.ts', 'ng-tailwind.dart'],
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'animestudio',
@@ -822,6 +835,156 @@ export const fileIcons: FileIcons = {
         'azure-pipelines.release.yml',
         'azure-pipelines.release.yaml',
       ],
+    },
+
+    // endregion
+
+    // region [N]
+    {
+      name: 'n64',
+      fileExtensions: ['n64'],
+    },
+    {
+      name: 'nant',
+      fileExtensions: ['build'],
+    },
+    {
+      name: 'nano',
+      fileExtensions: ['nano', 'nanorc'],
+    },
+    {
+      name: 'nasm',
+      fileExtensions: ['nasm'],
+    },
+    {
+      name: 'ncu',
+      fileNames: [
+        '.ncurc',
+        '.ncurc.json',
+        '.ncurc.yml',
+        '.ncurc.yaml',
+        '.ncurc.js',
+        '.ncurc.ts',
+        '.ncurc.cjs',
+        '.ncurc.mjs',
+      ],
+    },
+    {
+      name: 'ndproj',
+      fileExtensions: ['ndproj'],
+    },
+    {
+      name: 'ne',
+      fileExtensions: ['ne'],
+    },
+    {
+      name: 'neko',
+      fileExtensions: ['n', 'neko'],
+    },
+    {
+      name: 'neo4j',
+      fileExtensions: ['cyp', 'cypher'],
+    },
+    {
+      name: 'neon',
+      fileExtensions: ['neon'],
+      light: true,
+    },
+    {
+      name: 'nessus',
+      fileExtensions: ['nasl'],
+    },
+    {
+      name: 'nestland',
+      fileNames: ['egg.json', 'egg.yaml', 'egg.yml'],
+    },
+    {
+      name: 'nest',
+      fileNames: ['.nest-cli.json', 'nest-cli.json'],
+    },
+    {
+      name: 'nestconfig',
+      fileNames: ['.nestconfig.json', 'nestconfig.json'],
+    },
+    {
+      name: 'nestadapter',
+      fileExtensions: ['adapter.ts', 'adapter.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestcontroller',
+      fileExtensions: ['controller.ts', 'controller.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestdecorator',
+      fileExtensions: ['decorator.ts', 'decorator.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestdto',
+      fileExtensions: ['dto.ts', 'dto.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestfilter',
+      fileExtensions: ['filter.ts', 'filter.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestgateway',
+      fileExtensions: ['gateway.ts', 'gateway.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestguard',
+      fileExtensions: ['guard.ts', 'guard.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestinterceptor',
+      fileExtensions: ['interceptor.ts', 'interceptor.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestmiddleware',
+      fileExtensions: ['middleware.ts', 'middleware.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestmodule',
+      fileExtensions: ['module.ts', 'module.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestpipe',
+      fileExtensions: ['pipe.ts', 'pipe.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestprovider',
+      fileExtensions: ['provider.ts', 'provider.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestschema',
+      fileExtensions: ['schema.ts', 'schema.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestrepository',
+      fileExtensions: ['repository.ts', 'repository.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'nestservice',
+      fileExtensions: ['service.ts', 'service.js'],
+      enabledFor: [IconPack.Nest],
+    },
+    {
+      name: 'neststrategy',
+      fileExtensions: ['strategy.ts', 'strategy.js'],
+      enabledFor: [IconPack.Nest],
     },
 
     // endregion

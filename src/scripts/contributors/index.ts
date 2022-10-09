@@ -26,7 +26,7 @@ const parseLinkHeader = (linkHeader: string) => {
  * Get all contributors from GitHub API.
  */
 const fetchContributors = (
-  page: string
+  page: string,
 ): Promise<{ contributorsOfPage: Contributor[]; nextPage: string }> => {
   return new Promise((resolve, reject) => {
     const requestOptions: https.RequestOptions = {
@@ -43,15 +43,15 @@ const fetchContributors = (
 
     const req = https.request(requestOptions, (res) => {
       const { nextPage, lastPage, prevPage } = parseLinkHeader(
-        res.headers?.link?.toString() ?? ''
+        res.headers?.link?.toString() ?? '',
       );
       console.log(
         '> Atom Material Icons:',
         painter.yellow(
           `[${page}/${
             lastPage ? lastPage[1] : +prevPage[1] + 1
-          }] Loading contributors from GitHub...`
-        )
+          }] Loading contributors from GitHub...`,
+        ),
       );
       const result: Uint8Array[] = [];
       res.on('data', (data: Buffer) => {
@@ -64,7 +64,8 @@ const fetchContributors = (
           const bufferAsString = buffer.toString('utf8');
           const contributorsOfPage = JSON.parse(bufferAsString);
           resolve({ contributorsOfPage, nextPage: nextPage?.[1] });
-        } catch (error) {
+        }
+        catch (error) {
           reject(error);
         }
       });
@@ -82,7 +83,7 @@ const fetchContributors = (
 const createContributorsList = (contributors: Contributor[]) => {
   const list = contributors
     .map((c) => {
-      return `<li title="${c.login}"><img src="${c.avatar_url}" alt="${c.login}"/></li>`;
+      return `<li title='${c.login}'><img src='${c.avatar_url}' alt='${c.login}'/></li>`;
     })
     .join('\n');
 
@@ -109,12 +110,13 @@ const init = async () => {
   if (contributorsList.length > 0) {
     console.log(
       '> Atom Material Icons:',
-      painter.green('Successfully fetched all contributors from GitHub!')
+      painter.green('Successfully fetched all contributors from GitHub!'),
     );
-  } else {
+  }
+  else {
     console.log(
       '> Atom Material Icons:',
-      painter.red('Error: Could not fetch contributors from GitHub!')
+      painter.red('Error: Could not fetch contributors from GitHub!'),
     );
     throw Error();
   }
@@ -127,7 +129,7 @@ const init = async () => {
     .then(() => {
       console.log(
         '> Atom Material Icons:',
-        painter.green(`Successfully created ${fileName} image!`)
+        painter.green(`Successfully created ${fileName} image!`),
       );
     })
     .catch(() => {

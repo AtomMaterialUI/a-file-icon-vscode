@@ -34,11 +34,13 @@ const checkFileIcons = () => {
 };
 
 const checkForConflictsInFileIcons = (
-  fileIconDefinitionType: 'fileExtensions' | 'fileNames'
+  fileIconDefinitionType: 'fileExtensions' | 'fileNames',
 ) => {
   const icons: Record<string, string> = {};
   fileIcons.icons.forEach((icon) => {
-    if (!icon[fileIconDefinitionType]) return;
+    if (!icon[fileIconDefinitionType]) {
+      return;
+    }
     (icon[fileIconDefinitionType] ?? [])
       .map((d) => d.toLowerCase())
       .forEach((definition) => {
@@ -47,15 +49,17 @@ const checkForConflictsInFileIcons = (
           (icon.enabledFor && icon.enabledFor.length > 0)
         ) {
           icons[definition] = icon.name;
-        } else {
+        }
+        else {
           if (!allConflicts.fileIcons[fileIconDefinitionType][definition]) {
             allConflicts.fileIcons[fileIconDefinitionType][definition] = [
               icons[definition],
               icon.name,
             ];
-          } else {
+          }
+          else {
             allConflicts.fileIcons[fileIconDefinitionType][definition].push(
-              icon.name
+              icon.name,
             );
           }
         }
@@ -65,7 +69,9 @@ const checkForConflictsInFileIcons = (
 
 const checkFolderIcons = () => {
   folderIcons.forEach((theme) => {
-    if (!theme.icons) return;
+    if (!theme.icons) {
+      return;
+    }
     const icons: Record<string, string> = {};
     theme.icons.forEach((icon) => {
       icon.folderNames
@@ -76,13 +82,15 @@ const checkFolderIcons = () => {
             (icon.enabledFor && icon.enabledFor.length > 0)
           ) {
             icons[folderName] = icon.name;
-          } else {
+          }
+          else {
             if (!allConflicts.folderIcons[folderName]) {
               allConflicts.folderIcons[folderName] = [
                 icons[folderName],
                 icon.name,
               ];
-            } else {
+            }
+            else {
               allConflicts.folderIcons[folderName].push(icon.name);
             }
           }
@@ -99,10 +107,12 @@ const checkLanguageIcons = () => {
       .forEach((id) => {
         if (!icons[id]) {
           icons[id] = langIcon.icon.name;
-        } else {
+        }
+        else {
           if (!allConflicts.languageIcons[id]) {
             allConflicts.languageIcons[id] = [icons[id], langIcon.icon.name];
-          } else {
+          }
+          else {
             allConflicts.languageIcons[id].push(langIcon.icon.name);
           }
         }
@@ -128,13 +138,14 @@ const handleErrors = () => {
     printErrorMessage(allConflicts.languageIcons, 'languageId');
 
     console.log(
-      '\n' + painter.red('Please check the wrong icon configurations!\n')
+      '\n' + painter.red('Please check the wrong icon configurations!\n'),
     );
     process.exit(1);
-  } else {
+  }
+  else {
     console.log(
       '> Atom Material Icons:',
-      painter.green('Passed icon conflict checks!')
+      painter.green('Passed icon conflict checks!'),
     );
   }
 };
@@ -147,7 +158,7 @@ const printErrorMessage = (icons: any, definitionType: string) => {
       painter.red(
         `For ${definitionType} "${key}" are ${
           conflictIcons.length
-        } icons defined: [${conflictIcons.join(', ')}]`
+        } icons defined: [${conflictIcons.join(', ')}]`,
       )
     );
   });
