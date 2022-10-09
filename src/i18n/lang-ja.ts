@@ -10,7 +10,7 @@ export const translation: Translation = {
   readChangelog: '変更履歴を読む',
   iconPacks: {
     selectPack: 'アイコンパックを選択する',
-    description: "アイコンパック '%0' を選択する",
+    description: 'アイコンパック \'%0\' を選択する',
     disabled: 'アイコンパックを無効化する',
   },
   folders: {
@@ -20,7 +20,7 @@ export const translation: Translation = {
     wrongHexCode: '無効な HEX カラーコードです！',
     disabled: 'フォルダーアイコンを表示しない',
     theme: {
-      description: "フォルダーテーマ '%0' を選択する",
+      description: 'フォルダーテーマ \'%0\' を選択する',
     },
   },
   opacity: {

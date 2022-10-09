@@ -874,7 +874,7 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['ndproj'],
     },
     {
-      name: 'ne',
+      name: 'nearley',
       fileExtensions: ['ne'],
     },
     {
@@ -986,8 +986,374 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['strategy.ts', 'strategy.js'],
       enabledFor: [IconPack.Nest],
     },
+    {
+      name: 'netlify',
+      fileNames: ['netlify.toml'],
+    },
+    {
+      name: 'netlify_headers',
+      fileNames: ['_headers'],
+    },
+    {
+      name: 'netlify_redirects',
+      fileNames: ['_redirects'],
+    },
+    {
+      name: 'netlinx',
+      fileExtensions: ['axs', 'axi'],
+    },
+    {
+      name: 'netlogo',
+      fileExtensions: ['nlogo'],
+    },
+    {
+      name: 'newrelic',
+      fileNames: ['newrelic.yml', 'newrelic.yaml'],
+    },
+    {
+      name: 'nextflow',
+      fileExtensions: ['nf', 'nextflow'],
+    },
+    {
+      name: 'nextflowconfig',
+      fileNames: [
+        'nextflow.config.js',
+        'nextflow.config.cjs',
+        'nextflow.config.mjs',
+      ],
+    },
+    {
+      name: 'nextjs',
+      fileNames: ['next.config.js', 'next.config.cjs', 'next.config.mjs'],
+    },
+    {
+      name: 'ngrx-actions',
+      fileExtensions: [
+        'action.ts',
+        'action.js',
+        'action.tsx',
+        'action.jsx',
+        'actions.ts',
+        'actions.js',
+        'actions.tsx',
+        'actions.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-effects',
+      fileExtensions: [
+        'effects.ts',
+        'effects.js',
+        'effects.tsx',
+        'effects.jsx',
+        'effect.ts',
+        'effect.js',
+        'effect.tsx',
+        'effect.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-entities',
+      fileExtensions: [
+        'entity.ts',
+        'entity.js',
+        'entity.tsx',
+        'entity.jsx',
+        'entities.ts',
+        'entities.js',
+        'entities.tsx',
+        'entities.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-reducers',
+      fileExtensions: [
+        'reducer.ts',
+        'reducer.js',
+        'reducer.tsx',
+        'reducer.jsx',
+        'reducers.ts',
+        'reducers.js',
+        'reducers.tsx',
+        'reducers.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-repo',
+      fileExtensions: [
+        'repo.ts',
+        'repo.js',
+        'repo.tsx',
+        'repo.jsx',
+        'repos.ts',
+        'repos.js',
+        'repos.tsx',
+        'repos.jsx',
+        'repository.ts',
+        'repository.js',
+        'repository.tsx',
+        'repository.jsx',
+        'repositories.ts',
+        'repositories.js',
+        'repositories.tsx',
+        'repositories.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-state',
+      fileExtensions: [
+        'state.ts',
+        'state.js',
+        'state.tsx',
+        'state.jsx',
+        'states.ts',
+        'states.js',
+        'states.tsx',
+        'states.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'ngrx-selectors',
+      fileExtensions: [
+        'selector.ts',
+        'selector.js',
+        'selector.tsx',
+        'selector.jsx',
+        'selectors.ts',
+        'selectors.js',
+        'selectors.tsx',
+        'selectors.jsx',
+      ],
+      enabledFor: [IconPack.Ngrx],
+    },
+    {
+      name: 'nib',
+      fileExtensions: ['nib'],
+    },
+    {
+      name: 'nickle',
+      fileExtensions: ['5c'],
+    },
+    {
+      name: 'nightwatch',
+      fileNames: [
+        'nightwatch.conf.js',
+        'nightwatch.conf.cjs',
+        'nightwatch.conf.mjs',
+        'nightwatch.config.js',
+        'nightwatch.config.cjs',
+        'nightwatch.config.mjs',
+        'nightwatch.json',
+      ],
+    },
+    {
+      name: 'nimble',
+      fileExtensions: ['nimble'],
+    },
+    {
+      name: 'nimrod',
+      fileExtensions: ['nim', 'nimrod'],
+    },
+    {
+      name: 'nit',
+      fileExtensions: ['nit'],
+    },
+    {
+      name: 'shuriken',
+      fileExtensions: ['ninja', 'ninja.d'],
+    },
+    {
+      name: 'nix',
+      fileExtensions: ['nix'],
+    },
+    {
+      name: 'nmap',
+      fileExtensions: ['nmap', 'nse'],
+    },
+    {
+      name: 'noc',
+      fileExtensions: ['noc'],
+    },
+    {
+      name: 'nodejs',
+      fileNames: [
+        'server.js',
+        'server.cjs',
+        'server.mjs',
+        'server.ts',
+        'app.js',
+        'app.cjs',
+        'app.mjs',
+        'app.ts',
+        'main.js',
+        'main.cjs',
+        'main.mjs',
+        'main.ts',
+      ],
+    },
+    {
+      name: 'nodeversion',
+      fileExtensions: ['node', 'njs'],
+      fileNames: ['.node-version'],
+    },
+    {
+      name: 'nodemon',
+      fileNames: ['nodemon.json', '.nodemon.json'],
+    },
+    {
+      name: 'nodemonignore',
+      fileNames: ['.nodemonignore'],
+    },
+    {
+      name: 'nokogiri',
+      fileNames: ['.nokogiri', '.nokogirirc'],
+    },
+    {
+      name: 'nomad',
+      fileExtensions: ['nomad', 'hcl'],
+    },
+    {
+      name: 'noon',
+      fileExtensions: ['noon'],
+    },
+    {
+      name: 'normalize',
+      fileNames: [
+        'normalize.css',
+        'normalize.scss',
+        'normalize.sass',
+        'normalize.less',
+        'normalize.styl',
+        'normalize.stylus',
+        'normalize.postcss',
+        'normalize-min.css',
+        'normalize-min.scss',
+        'normalize-min.sass',
+        'normalize-min.less',
+        'normalize-min.styl',
+        'normalize-min.stylus',
+        'normalize-min.postcss',
+      ],
+    },
+    {
+      name: 'note',
+      fileExtensions: ['scratch', 'note', 'notes'],
+    },
+    {
+      name: 'now',
+      fileNames: ['now.json'],
+    },
+    {
+      name: 'nowignore',
+      fileNames: ['.nowignore'],
+    },
+    {
+      name: 'npm',
+      fileNames: ['package.json', '.npmrc'],
+    },
+    {
+      name: 'npmignore',
+      fileNames: ['.npmignore'],
+    },
+    {
+      name: 'npmlock',
+      fileNames: ['package-lock.json'],
+    },
+    {
+      name: 'npmshrinkwrap',
+      fileNames: ['npm-shrinkwrap.json'],
+    },
+    {
+      name: 'nsis',
+      fileExtensions: ['nsi', 'nsh', 'nsis'],
+    },
+    {
+      name: 'nsri',
+      fileNames: [
+        '.nsrirc',
+        '.integrityrc',
+        '.nsrirc.json',
+        '.nsrirc.config.js',
+        '.nsrirc.config.yaml',
+        '.nsrirc.config.yml',
+        '.nsrirc.config.cjs',
+        '.nsrirc.config.mjs',
+        '.integrity.json',
+        '.integrity.config.js',
+        '.integrity.config.yaml',
+        '.integrity.config.yml',
+        '.integrity.config.cjs',
+        '.integrity.config.mjs',
+      ],
+    },
+    {
+      name: 'nsriignore',
+      fileNames: ['.nsriignore'],
+    },
+    {
+      name: 'nu',
+      fileExtensions: ['nu'],
+      fileNames: ['Nukefile'],
+    },
+    {
+      name: 'numpy',
+      fileExtensions: ['npy', 'npz', 'numpy', 'numpyw', 'numsc'],
+    },
+    {
+      name: 'nuclide',
+      fileExtensions: ['nuclide', 'nuc'],
+    },
+    {
+      name: 'numpy',
+      fileExtensions: ['npy', 'npz', 'numpy', 'numpyw', 'numsc'],
+    },
+    {
+      name: 'nuget',
+      fileExtensions: ['nupkg', 'nuspec', 'snupkg', 'psmdcp'],
+    },
+    {
+      name: 'nugetconfig',
+      fileNames: ['nuget.config'],
+    },
+    {
+      name: 'nunjucks',
+      fileExtensions: ['njk', 'nunjucks', 'nunj'],
+    },
+    {
+      name: 'nuxt',
+      fileNames: [
+        'nuxt.config.js',
+        'nuxt.config.ts',
+        'nuxt.config.cjs',
+        'nuxt.config.mjs',
+      ],
+    },
+    {
+      name: 'nvm',
+      fileExtensions: ['nvmrc', 'esmrc'],
+      fileNames: ['.nvmrc', '.esmrc'],
+    },
+    {
+      name: 'nwscript',
+      fileExtensions: ['nss', 'ncs', 'ndb'],
+    },
+    {
+      name: 'nx',
+      fileNames: ['nx.json', 'workspace.json', 'project.json'],
+      light: true,
+    },
+    {
+      name: 'nxc',
+      fileExtensions: ['nxc'],
+    },
 
-    // endregion
+    // endregion [N]
 
     // region [U]
     {
