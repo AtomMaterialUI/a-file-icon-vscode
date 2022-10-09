@@ -826,8 +826,136 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
-    // region [B]
+    // region [U]
+    {
+      name: 'ufo',
+      fileExtensions: ['ufo', 'ufoz', 'glif'],
+    },
+    {
+      name: 'uikit',
+      fileNames: [
+        'uikit.js',
+        'uikit.min.js',
+        'uikit.cjs',
+        'uikit.min.cjs',
+        'uikit.mjs',
+        'uikit.min.mjs',
+      ],
+    },
+    {
+      name: 'uml',
+      fileExtensions: ['uml', 'iuml', 'puml', 'pu', 'plantuml', 'wsd'],
+    },
+    {
+      name: 'unicode',
+      fileExtensions: ['ldml', 'unicode'],
+    },
+    {
+      name: 'unibeautify',
+      fileNames: [
+        'unibeautify.config.js',
+        'unibeautify.config.cjs',
+        'unibeautify.config.mjs',
+        'unibeautify.config.ts',
+        'unibeautify.config.yaml',
+        'unibeautify.config.yml',
+        'unibeautify.config.json',
+      ],
+    },
+    {
+      name: 'unibeautifyrc',
+      fileNames: [
+        '.unibeautifyrc',
+        'unibeautifyrc.config.js',
+        'unibeautifyrc.config.cjs',
+        'unibeautifyrc.config.mjs',
+        'unibeautifyrc.config.ts',
+        'unibeautifyrc.config.yaml',
+        'unibeautifyrc.config.yml',
+        'unibeautifyrc.config.json',
+      ],
+    },
+    {
+      name: 'unity',
+      fileExtensions: [
+        'unity',
+        'unitypackage',
+        'unity3d',
+        'unityproj',
+        'u3d',
+        'ply',
+        'fbx',
+        'anim',
+        'asset',
+        'mat',
+        'prefab',
+        'meta',
+        'cubemap',
+      ],
+    },
+    {
+      name: 'uos',
+      fileExtensions: ['uos', 'uof', 'uop', 'uot'],
+    },
+    {
+      name: 'unison',
+      fileExtensions: ['u'],
+    },
+    {
+      name: 'unlicense',
+      fileNames: [
+        'unlicense',
+        'unlicense.txt',
+        'unlicense.md',
+        'unlicense.rst',
+        'unlicence',
+        'unlicence.txt',
+        'unlicence.md',
+        'unlicence.rst',
+      ],
+    },
+    {
+      name: 'uno',
+      fileExtensions: ['uno', 'unoproj'],
+    },
+    {
+      name: 'unocss',
+      fileNames: [
+        'uno.config.js',
+        'uno.config.cjs',
+        'uno.config.mjs',
+        'uno.config.ts',
+        'unocss.config.js',
+        'unocss.config.cjs',
+        'unocss.config.mjs',
+        'unocss.config.ts',
+      ],
+    },
+    {
+      name: 'unreal',
+      fileExtensions: [
+        'uplugin',
+        'uproject',
+        'umap',
+        'uasset',
+        'unr',
+        'utx',
+        'umx',
+        'uax',
+        'ukx',
+        'uz',
+        'upkg',
+        'uc',
+        'upl',
+        'asc',
+        'lwo',
+      ],
+    },
+    {
+      name: 'urweb',
+      fileExtensions: ['ur', 'urs'],
+    },
 
-    // endregion [B]
+    // endregion [U]
   ],
 };
