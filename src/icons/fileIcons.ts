@@ -159,6 +159,10 @@ export const fileIcons: FileIcons = {
       name: 'i18nKotlin',
       fileExtensions: ['bundle.kt', 'messages/kt'],
     },
+    {
+      name: 'spray',
+      fileNames: ['spray.conf', 'reference.conf', 'application.conf'],
+    },
     // endregion [Custom]
 
     // region [0-9]
@@ -1590,7 +1594,16 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'sapper',
-      fileNames: ['sapper.config.js', 'sapper.config.cjs', 'sapper.config.mjs'],
+      fileNames: [
+        'sapper.js',
+        'sapper.ts',
+        'sapper.cjs',
+        'sapper.mjs',
+        'sapper.config.js',
+        'sapper.config.ts',
+        'sapper.config.cjs',
+        'sapper.config.mjs',
+      ],
     },
     {
       name: 'sbt',
@@ -1599,6 +1612,636 @@ export const fileIcons: FileIcons = {
     {
       name: 'scala',
       fileExtensions: ['kojo', 'sc'],
+    },
+    {
+      name: 'scheme',
+      fileExtensions: ['scm', 'scheme', 'sch', 'sps', 'sld', 'xtm'],
+    },
+    {
+      name: 'scilla',
+      fileExtensions: ['scilla'],
+    },
+    {
+      name: 'scilab',
+      fileExtensions: ['sci', 'sce', 'tst'],
+    },
+    {
+      name: 'scratch',
+      fileExtensions: ['sb2', 'sb3'],
+    },
+    {
+      name: 'scrutinizer',
+      fileNames: ['.scrutinizer.yml', '.scrutinizer.yaml'],
+    },
+    {
+      name: 'sdlang',
+      fileExtensions: ['sdl'],
+    },
+    {
+      name: 'secret',
+      fileExtensions: ['secret', 'secrets', 'safe'],
+    },
+    {
+      name: 'self',
+      fileExtensions: ['self'],
+    },
+    {
+      name: 'sencha',
+      fileNames: [
+        'sencha.js',
+        'sencha.cjs',
+        'sencha.mjs',
+        'sencha.min.js',
+        'sencha.min.cjs',
+        'sencha.min.mjs',
+        'sencha-touch.js',
+        'sencha-touch.min.js',
+      ],
+    },
+    {
+      name: 'sentry',
+      fileNames: ['.sentryclirc'],
+    },
+    {
+      name: 'semantic-release',
+      fileNames: [
+        '.releaserc',
+        '.releaserc.json',
+        '.releaserc.yaml',
+        '.releaserc.yml',
+        '.releaserc.js',
+        '.releaserc.cjs',
+        '.releaserc.mjs',
+        'release.config.js',
+        'release.config.cjs',
+        'release.config.mjs',
+        'semantic-release.config.js',
+        'semantic-release.config.cjs',
+        'semantic-release.config.mjs',
+      ],
+    },
+    {
+      name: 'semgrep',
+      fileExtensions: ['semgrep', 'semgrepignore'],
+    },
+    {
+      name: 'serverless',
+      fileNames: [
+        '.serverless.yml',
+        '.serverless.yaml',
+        '.serverless.json',
+        '.serverless.js',
+        '.serverless.ts',
+        '.serverless.cjs',
+        '.serverless.mjs',
+        'serverless.yml',
+        'serverless.yaml',
+        'serverless.json',
+        'serverless.js',
+        'serverless.ts',
+        'serverless.cjs',
+        'serverless.mjs',
+      ],
+    },
+    {
+      name: 'servicefabric',
+      fileExtensions: ['sfproj'],
+    },
+    {
+      name: 'settings',
+      fileExtensions: ['settings', 'setting', 'options', 'option', 'opt', 'opts'],
+    },
+    {
+      name: 'sequelize',
+      fileNames: ['.sequelizerc', '.sequelizerc.js', '.sequelizerc.cjs', '.sequelizerc.mjs', '.sequelizerc.json'],
+    },
+    {
+      name: 'shadowcljs',
+      fileNames: ['shadow-cljs.edn'],
+    },
+    {
+      name: 'shen',
+      fileExtensions: ['shen'],
+    },
+    {
+      name: 'shellcheck',
+      fileNames: ['.shellcheckrc', 'shellcheckrc'],
+    },
+    {
+      name: 'shell',
+      fileNames: [
+        '.bash_profile',
+        '.bashrc',
+        '.bash_aliases',
+        '.bash_functions',
+        '.zshrc',
+        '.zshenv',
+        '.zprofile',
+        '.fishrc',
+        '.tcshrc',
+        '.cshrc',
+        '.kshrc',
+      ],
+      fileExtensions: [
+        'bash',
+        'zsh',
+        'fish',
+        'ksh',
+        'csh',
+        'tcsh',
+        'ash',
+        'dash',
+        'scsh',
+        'mksh',
+        'elvish',
+        'ion',
+        'nu',
+        'oksh',
+        'osh',
+        'shar',
+        'xiki',
+        'xonsh',
+        'yash',
+      ],
+    },
+    {
+      name: 'history',
+      fileExtensions: [
+        'bash_history',
+        'zsh_history',
+        'fish_history',
+        'ksh_history',
+        'csh_history',
+        'tcsh_history',
+        'irb-history',
+        'lesshst',
+      ],
+    },
+    {
+      name: 'shipit',
+      fileNames: ['shipitfile.js', 'shipitfile.cjs', 'shipitfile.mjs', 'shipitfile.babel.js', 'shipitfile.ts'],
+    },
+    {
+      name: 'shippable',
+      fileNames: ['shippable.yml', 'shippable.yaml'],
+    },
+    {
+      name: 'sigils',
+      fileExtensions: ['sigils'],
+    },
+    {
+      name: 'silverstripe',
+      fileExtensions: ['ss'],
+    },
+    {
+      name: 'siyuan',
+      fileExtensions: ['siyuan', 'sy'],
+    },
+    {
+      name: 'sketch',
+      fileExtensions: ['sketch'],
+    },
+    {
+      name: 'sketchup',
+      fileExtensions: ['layout', 'sketchup', 'skm', 'skd', 'sketchupproj'],
+    },
+    {
+      name: 'sketchmake',
+      fileExtensions: ['skp', 'style'],
+    },
+    {
+      name: 'skipper',
+      fileExtensions: ['eskip'],
+    },
+    {
+      name: 'skript',
+      fileExtensions: ['sk', 'skript'],
+      light: true,
+    },
+    {
+      name: 'slang',
+      fileExtensions: ['slang'],
+    },
+    {
+      name: 'slash',
+      fileExtensions: ['slash', 'sl'],
+    },
+    {
+      name: 'slice',
+      fileExtensions: ['ice'],
+    },
+    {
+      name: 'slim',
+      fileExtensions: ['slim'],
+    },
+    {
+      name: 'slug',
+      fileNames: [
+        'slugignore',
+        'slugs/js',
+        'slugs/jsx',
+        'slugs/ts',
+        'slugs/tsx',
+        'slugs/php',
+        '[slug].js',
+        '[slug].jsx',
+        '[slug].ts',
+        '[slug].tsx',
+        '[slug].php',
+      ],
+    },
+    {
+      name: 'smartos',
+      fileNames: ['smartos.iso', 'smartos.img', 'smartos.deb'],
+    },
+    {
+      name: 'smarty',
+      fileExtensions: ['tpl', 'smarty'],
+    },
+    {
+      name: 'smithy',
+      fileExtensions: ['smithy'],
+    },
+    {
+      name: 'sml',
+      fileExtensions: ['mlb', 'mlton', 'sml', 'sig', 'fun', 'cm', 'grm'],
+    },
+    {
+      name: 'snakemake',
+      fileExtensions: ['smk', 'rule', 'rules', 'bam'],
+    },
+    {
+      name: 'snakefile',
+      fileNames: ['Snakefile', 'snakefile'],
+    },
+    {
+      name: 'snapcraft',
+      fileNames: ['snapcraft.yaml', 'snapcraft.yml'],
+    },
+    {
+      name: 'snapsvg',
+      fileNames: [
+        'snap.svg.js',
+        'snap.svg.cjs',
+        'snap.svg.mjs',
+        'snap.svg-min.js',
+        'snap.svg.min.js',
+      ],
+    },
+    {
+      name: 'snapshot',
+      fileExtensions: ['snap'],
+    },
+    {
+      name: 'snort',
+      fileExtensions: ['snort'],
+    },
+    {
+      name: 'snowpack',
+      fileNames: [
+        'snowpack.config.js',
+        'snowpack.config.ts',
+        'snowpack.config.cjs',
+        'snowpack.config.mjs',
+        'snowpack.config.json',
+        'snowpack.config.yaml',
+        'snowpack.config.yml',
+      ],
+    },
+    {
+      name: 'snyk',
+      fileExtensions: ['snyk'],
+    },
+    {
+      name: 'solidity',
+      fileExtensions: ['sol', 'solidity'],
+    },
+    {
+      name: 'solidarity',
+      fileNames: [
+        '.solidarity',
+        '.solidarity.json',
+      ],
+    },
+    {
+      name: 'sonar',
+      fileExtensions: ['sonar', 'sonarqube', 'sonarlint', 'sonarlintignore', 'sonarrc'],
+    },
+    {
+      name: 'sonarcloud',
+      fileNames: [
+        'sonar-project.properties',
+        'sonar-project.json',
+        'sonar-project.yml',
+        'sonar-project.yaml',
+        'sonarcloud.properties',
+        'sonarcloud.json',
+        'sonarcloud.yml',
+        'sonarcloud.yaml',
+      ],
+    },
+    {
+      name: 'sophia',
+      fileExtensions: ['aesl', 'aes'],
+    },
+    {
+      name: 'sorbet',
+      fileExtensions: ['rbi'],
+    },
+    {
+      name: 'sourcemap',
+      fileExtensions: ['map', 'mapping', 'enigma', 'cidmap', 'tiny', 'tinyv2', 'match'],
+    },
+    {
+      name: 'spaceengine',
+      fileExtensions: ['spe'],
+    },
+    {
+      name: 'spacemacs',
+      fileNames: ['.spacemacs', 'spacemacs'],
+    },
+    {
+      name: 'sparql',
+      fileExtensions: ['rq', 'sparql'],
+    },
+    {
+      name: 'spectral',
+      fileNames: ['.spectral.yml', '.spectral.yaml'],
+    },
+    {
+      name: 'spring',
+      fileExtensions: ['spring'],
+    },
+    {
+      name: 'sqf',
+      fileExtensions: ['sqf', 'hqf'],
+    },
+    {
+      name: 'sql',
+      fileExtensions: [
+        'pdb',
+        'pgsql',
+        'mysql',
+        'hql',
+        'qml',
+        'psql',
+        'pkb',
+        'xql',
+        'xqm',
+        'xqy',
+        'cql',
+        'prc',
+        'viw',
+      ],
+    },
+    {
+      name: 'sqlite',
+      fileExtensions: ['sqlite', 'sqlite3', 'db', 'db3', 'sqlite3-journal'],
+    },
+    {
+      name: 'squarespace',
+      fileExtensions: ['jsont'],
+    },
+    {
+      name: 'squirrel',
+      fileExtensions: ['nut', 'nutf', 'gnut'],
+    },
+    {
+      name: 'stan',
+      fileExtensions: ['stan'],
+    },
+    {
+      name: 'stata',
+      fileExtensions: ['stata', 'do', 'ado', 'doh', 'ihlp', 'mata', 'matah', 'sthlp'],
+    },
+    {
+      name: 'stdlib',
+      fileNames: ['stdlib.js', 'stdlib.min.js', 'stdlib.mjs', 'stdlib.cjs', 'stdlib.conf.js'],
+    },
+    {
+      name: 'stencilconfig',
+      fileNames: ['stencil.config.js', 'stencil.config.ts'],
+    },
+    {
+      name: 'stencil',
+      fileExtensions: ['stencil'],
+    },
+    {
+      name: 'steadybit',
+      fileNames: ['steadybit.yml', 'steadybit.yaml', '.steadybit.yml', '.steadybit.yaml'],
+    },
+    {
+      name: 'stitches',
+      fileNames: ['stitches.config.js', 'stitches.config.ts', 'stitches.config.cjs', 'stitches.config.mjs'],
+    },
+    {
+      name: 'storyboard',
+      fileExtensions: ['storyboard'],
+    },
+    {
+      name: 'storyist',
+      fileExtensions: ['story'],
+    },
+    {
+      name: 'storybook',
+      fileExtensions: [
+        'stories.js',
+        'stories.jsx',
+        'stories.ts',
+        'stories.tsx',
+        'stories.mdx',
+        'story.js',
+        'story.jsx',
+        'story.ts',
+        'story.tsx',
+        'story.mdx',
+      ],
+    },
+    {
+      name: 'stylelint',
+      fileNames: [
+        '.stylelintrc',
+        '.stylelintrc.json',
+        '.stylelintrc.yaml',
+        '.stylelintrc.yml',
+        '.stylelintrc.js',
+        '.stylelintrc.cjs',
+        '.stylelintrc.mjs',
+        'stylelint.config.js',
+        'stylelint.config.ts',
+        'stylelint.config.cjs',
+        'stylelint.config.mjs',
+        'stylelint.config.json',
+        'stylelint.config.yaml',
+        'stylelint.config.yml',
+      ],
+    },
+    {
+      name: 'stylelintignore',
+      fileNames: [
+        '.stylelintignore',
+        '.stylelintignore.json',
+      ],
+    },
+    {
+      name: 'styleguidist',
+      fileNames: [
+        'styleguide.config.js',
+        'styleguide.config.ts',
+        'styleguide.config.cjs',
+        'styleguide.config.mjs',
+        'styleguide.config.json',
+        'styleguide.config.yaml',
+        'styleguide.config.yml',
+        '.styleguiderc',
+        '.styleguiderc.json',
+        '.styleguiderc.yaml',
+        '.styleguiderc.yml',
+        '.styleguiderc.js',
+        '.styleguiderc.cjs',
+        '.styleguiderc.mjs',
+      ],
+    },
+    {
+      name: 'stylable',
+      fileExtensions: ['st.css'],
+    },
+    {
+      name: 'styledcomponents',
+      fileExtensions: [
+        'styled',
+        'styled.js',
+        'styled.cjs',
+        'styled.mjs',
+        'styled.jsx',
+        'styled.ts',
+        'styled.tsx',
+        'styled.mdx',
+        'styles.ts',
+        'styles.js',
+        'styles.cjs',
+        'styles.mjs',
+        'styles.jsx',
+        'styles.tsx',
+        'styles.mdx',
+        'sc.ts',
+        'sc.js',
+        'sc.cjs',
+        'sc.mjs',
+        'sc.jsx',
+        'sc.tsx',
+        'sc.mdx',
+      ],
+    },
+    {
+      name: 'stylishhaskell',
+      fileNames: ['.stylish-haskell.yaml', '.stylish-haskell.yml'],
+    },
+    {
+      name: 'stylus',
+      fileExtensions: ['styl'],
+    },
+    {
+      name: 'sublime',
+      fileExtensions: ['sublime-project', 'sublime-workspace', 'sublime-package', 'sublime-macro'],
+    },
+    {
+      name: 'subtitle',
+      fileExtensions: ['sub', 'sbv', 'srt', 'vtt'],
+    },
+    {
+      name: 'scd',
+      fileExtensions: ['sc', 'scd', 'scsyndef', 'scsynthdef', 'scx', 'scxt', 'scz'],
+    },
+    {
+      name: 'sss',
+      fileExtensions: ['sss'],
+    },
+    {
+      name: 'supabase',
+      fileNames: ['supabase.json', 'supabase.yml', 'supabase.yaml', 'supabase.py', 'supabase.js', 'supabase.ts'],
+    },
+    {
+      name: 'svelte',
+      fileExtensions: ['svelte', 'svelte-kit'],
+    },
+    {
+      name: 'svelte_config',
+      fileNames: [
+        'svelte.config.js',
+        'svelte.config.ts',
+        'svelte.config.cjs',
+        'svelte.config.mjs',
+        'svelte.config.json',
+        'svelte.config.yaml',
+        'svelte.config.yml',
+      ],
+    },
+    {
+      name: 'svgo',
+      fileNames: [
+        '.svgo.yml',
+        '.svgo.yaml',
+        '.svgo.json',
+        '.svgo.js',
+        '.svgo.cjs',
+        '.svgo.mjs',
+        'svgo.config.js',
+        'svgo.config.ts',
+        'svgo.config.cjs',
+        'svgo.config.mjs',
+        'svgo.config.json',
+        'svgo.config.yaml',
+        'svgo.config.yml',
+      ],
+    },
+    {
+      name: 'svgr',
+      fileNames: [
+        '.svgrrc',
+        'svgr.config.js',
+        'svgr.config.ts',
+        'svgr.config.cjs',
+        'svgr.config.mjs',
+        'svgr.config.json',
+        'svgr.config.yaml',
+        'svgr.config.yml',
+      ],
+    },
+    {
+      name: 'svx',
+      fileExtensions: ['svx', 'mdsvex'],
+    },
+    {
+      name: 'svn',
+      fileExtensions: ['svn', 'svnignore'],
+    },
+    {
+      name: 'swagger',
+      fileNames: ['swagger.json', 'swagger.yaml', 'swagger.yml', 'api.yml', 'api.yaml', 'api.json'],
+      fileExtensions: ['swagger', 'swag'],
+    },
+    {
+      name: 'swc',
+      fileExtensions: ['swc'],
+    },
+    {
+      name: 'swiftlock',
+      fileNames: [
+        'package.pins',
+        'package.resolved',
+        'Package.resolved',
+        'Package.pins',
+      ],
+    },
+    {
+      name: 'swig',
+      fileExtensions: ['swig'],
+    },
+    {
+      name: 'symfony',
+      fileNames: ['symfony.lock'],
+      light: true,
     },
 
     // endregion
@@ -1734,5 +2377,31 @@ export const fileIcons: FileIcons = {
     },
 
     // endregion [U]
+
+    // region [Languages]
+    {
+      name: 'scala',
+      fileExtensions: ['scala'],
+    },
+    {
+      name: 'shell',
+      fileExtensions: [
+        'sh',
+      ],
+    },
+    {
+      name: 'sql',
+      fileExtensions: [
+        'sql',
+      ],
+    },
+    {
+      name: 'swift',
+      fileExtensions: [
+        'swift',
+      ],
+    },
+
+    // endregion
   ],
 };
