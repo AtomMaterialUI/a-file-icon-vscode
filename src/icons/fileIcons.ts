@@ -8,6 +8,40 @@ export const fileIcons: FileIcons = {
   icons: [
     // region [Custom]
     {
+      name: 'indexhtml',
+      fileNames: [
+        'index.html',
+        'index.htm',
+        'index.phtml',
+        'index.pug',
+        'index.jade',
+        'index.hbs',
+        'index.handlebars',
+        'index.twig',
+        'index.php',
+        'index.jsp',
+        'index.ejs',
+      ],
+    },
+    {
+      name: 'index',
+      fileNames: [
+        'index.js',
+        'index.cjs',
+        'index.mjs',
+        'index.ts',
+        'index.jsx',
+        'index.tsx',
+        'index.coffee',
+        'index.es6',
+        'index.dart',
+        'index.svelte',
+        'index.vue',
+        'index.css',
+        'index.scss',
+      ],
+    },
+    {
       name: 'githubActions',
       fileNames: [
         '.github/build.yaml',
@@ -835,6 +869,172 @@ export const fileIcons: FileIcons = {
         'azure-pipelines.release.yml',
         'azure-pipelines.release.yaml',
       ],
+    },
+
+    // endregion
+
+    // region [I]
+    {
+      name: 'i18n',
+      fileExtensions: ['po', 'pot', 'mo', 'strings'],
+    },
+    {
+      name: 'i18nlang',
+      fileExtensions: [
+        'translation/js',
+        'translation/json',
+        'translation/yaml',
+        'translation/yml',
+        'translation/ts',
+        'translation/rst',
+        'translation/md',
+        'translations/js',
+        'translations/json',
+        'translations/yaml',
+        'translations/yml',
+        'translations/ts',
+        'translations/rst',
+        'translations/md',
+        'lang/js',
+        'lang/json',
+        'lang/yaml',
+        'lang/yml',
+        'lang/ts',
+        'lang/rst',
+        'lang/md',
+        'locale/js',
+        'locale/json',
+        'locale/yaml',
+        'locale/yml',
+        'locale/ts',
+        'locale/rst',
+        'locale/md',
+        'locales/js',
+        'locales/json',
+        'locales/yaml',
+        'locales/yml',
+        'locales/ts',
+        'locales/rst',
+        'locales/md',
+      ],
+    },
+    {
+      name: 'icl',
+      fileExtensions: ['icl'],
+    },
+    {
+      name: 'icomoon',
+      fileNames: ['icomoon.json', 'icomoon.dev.json', 'icomoon.prod.json'],
+    },
+    {
+      name: 'icu',
+      fileExtensions: ['icu', 'nrm'],
+    },
+    {
+      name: 'idea',
+      fileExtensions: ['iml', 'icls'],
+    },
+    {
+      name: 'idris',
+      fileExtensions: ['idr', 'lidr', 'ipkg', 'ibc', 'idris'],
+    },
+    {
+      name: 'idl',
+      fileExtensions: ['dlm', 'idl'],
+    },
+    {
+      name: 'igor',
+      fileExtensions: ['ipf'],
+    },
+    {
+      name: 'imba',
+      fileExtensions: ['imba', 'imba2'],
+    },
+    {
+      name: 'imgbot',
+      fileExtensions: ['imgbotconfig'],
+    },
+    {
+      name: 'informix',
+      fileExtensions: ['4gl'],
+    },
+    {
+      name: 'indexpy',
+      fileNames: ['__init__.py'],
+    },
+    {
+      name: 'infopath',
+      fileExtensions: ['xsn', 'xsf', 'xtp2', 'infopathxml'],
+    },
+    {
+      name: 'inform',
+      fileExtensions: ['ni', 'i7x'],
+    },
+    {
+      name: 'ink',
+      fileExtensions: ['ink', 'ink2'],
+    },
+    {
+      name: 'inkscape',
+      fileExtensions: ['inx'],
+      light: true,
+    },
+    {
+      name: 'inno',
+      fileExtensions: ['iss', 'isl'],
+    },
+    {
+      name: 'iso',
+      fileExtensions: ['iso', 'udf', 'img', 'nrg', 'cda', 'cdr'],
+    },
+    {
+      name: 'istanbul',
+      fileExtensions: [
+        'nycrc.json',
+        'nycrc.yml',
+        'nycrc.yaml',
+        'nycrc',
+      ],
+    },
+    {
+      name: 'istanbulconf',
+      fileNames: [
+        'nyc.config.js',
+        'nyc.config.cjs',
+        'nyc.config.mjs',
+        'nyc.config.ts',
+        'nyc.config.json',
+        'nyc.config.yaml',
+        'nyc.config.yml',
+      ],
+    },
+    {
+      name: 'io',
+      fileExtensions: ['io'],
+    },
+    {
+      name: 'iodine',
+      fileExtensions: ['iodine'],
+    },
+    {
+      name: 'ioke',
+      fileExtensions: ['ik'],
+    },
+    {
+      name: 'ionic',
+      fileNames: [
+        'ionic.config.json',
+        'ionic.config.js',
+        'ionic.config',
+        'ionic.project',
+        'ionic.project.json',
+        'ionic.project.js',
+      ],
+    },
+    {
+      name: 'isabelle',
+      fileExtensions: ['thy'],
+      light: true,
     },
 
     // endregion
