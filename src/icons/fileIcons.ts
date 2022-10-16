@@ -1555,6 +1555,54 @@ export const fileIcons: FileIcons = {
 
     // endregion [N]
 
+    // region [S]
+    {
+      name: 'sac',
+      fileExtensions: ['sac'],
+    },
+    {
+      name: 'safari',
+      fileExtensions: ['safariextz', 'safariext', 'binarycookies', 'webarchive'],
+    },
+    {
+      name: 'sage',
+      fileExtensions: ['sage', 'sagews'],
+    },
+    {
+      name: 'sails',
+      fileNames: ['.sailsrc'],
+    },
+    {
+      name: 'saltstack',
+      fileExtensions: ['sls'],
+    },
+    {
+      name: 'san',
+      fileExtensions: ['san'],
+    },
+    {
+      name: 'sandbox',
+      fileExtensions: ['sb'],
+    },
+    {
+      name: 'sas',
+      fileExtensions: ['sas'],
+    },
+    {
+      name: 'sapper',
+      fileNames: ['sapper.config.js', 'sapper.config.cjs', 'sapper.config.mjs'],
+    },
+    {
+      name: 'sbt',
+      fileExtensions: ['sbt'],
+    },
+    {
+      name: 'scala',
+      fileExtensions: ['kojo', 'sc'],
+    },
+
+    // endregion
+
     // region [U]
     {
       name: 'ufo',

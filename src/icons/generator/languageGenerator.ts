@@ -1,17 +1,7 @@
 import merge from 'lodash.merge';
 import { getFileConfigHash } from '../../helpers/fileConfig';
-import {
-  DefaultIcon,
-  IconAssociations,
-  IconConfiguration,
-  IconJsonOptions,
-  LanguageIcon,
-} from '../../models/index';
-import {
-  highContrastColorFileEnding,
-  iconFolderPath,
-  darkFileEnding,
-} from './constants';
+import { DefaultIcon, IconAssociations, IconConfiguration, IconJsonOptions, LanguageIcon } from '../../models/index';
+import { highContrastColorFileEnding, iconFolderPath, darkFileEnding } from './constants';
 
 /**
  * Get all file icons that can be used in this theme.
@@ -19,12 +9,12 @@ import {
 export const loadLanguageIconDefinitions = (
   languages: LanguageIcon[],
   config: IconConfiguration,
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   config = merge({}, config);
   const enabledLanguages = disableLanguagesByPack(
     languages,
-    options.activeIconPack
+    options.activeIconPack,
   );
   const customIcons = getCustomIcons(options.languages?.associations);
   const allLanguageIcons = [...enabledLanguages, ...customIcons];
@@ -34,28 +24,38 @@ export const loadLanguageIconDefinitions = (
       return;
     }
     config = setIconDefinitions(config, lang.icon);
-    config = merge(
-      {},
-      config,
-      setLanguageIdentifiers(lang.icon.name, lang.ids)
-    );
-    config.light = lang.icon.light
-      ? merge(
-          {},
-          config.light,
-          setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids)
-        )
-      : config.light;
-    config.highContrast = lang.icon.highContrast
-      ? merge(
-          {},
-          config.highContrast,
-          setLanguageIdentifiers(
-            lang.icon.name + highContrastColorFileEnding,
-            lang.ids
-          )
-        )
-      : config.highContrast;
+
+    if (lang.icon.light) {
+      config = merge(
+        {},
+        config,
+        setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids),
+      );
+      config.light = merge(
+        {},
+        config.light,
+        setLanguageIdentifiers(lang.icon.name, lang.ids),
+      );
+    }
+    else {
+      config = merge(
+        {},
+        config,
+        setLanguageIdentifiers(lang.icon.name, lang.ids),
+      );
+    }
+
+    if (lang.icon.highContrast) {
+      config.highContrast = merge(
+        {},
+        config.highContrast,
+        setLanguageIdentifiers(
+          lang.icon.name + highContrastColorFileEnding,
+          lang.ids,
+        ),
+      );
+    }
+
   });
 
   return config;
@@ -64,20 +64,23 @@ export const loadLanguageIconDefinitions = (
 const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon) => {
   config = merge({}, config);
   config = createIconDefinitions(config, icon.name);
-  config = merge(
-    {},
-    config,
-    icon.light
-      ? createIconDefinitions(config, icon.name + darkFileEnding)
-      : config.light
-  );
-  config = merge(
-    {},
-    config,
-    icon.highContrast
-      ? createIconDefinitions(config, icon.name + highContrastColorFileEnding)
-      : config.highContrast
-  );
+
+  if (icon.light) {
+    config = merge(
+      {},
+      config,
+      createIconDefinitions(config, icon.name + darkFileEnding),
+    );
+  }
+
+  if (icon.highContrast) {
+    config = merge(
+      {},
+      config,
+      createIconDefinitions(config, icon.name + highContrastColorFileEnding),
+    );
+  }
+
   return config;
 };
 
@@ -118,7 +121,7 @@ const getCustomIcons = (languageAssociations: IconAssociations | undefined) => {
  */
 const disableLanguagesByPack = (
   languageIcons: LanguageIcon[],
-  activatedIconPack: string | undefined
+  activatedIconPack: string | undefined,
 ) => {
   return languageIcons.filter((language) => {
     return !language.enabledFor
