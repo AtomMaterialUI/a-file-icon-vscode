@@ -993,12 +993,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'istanbul',
-      fileExtensions: [
-        'nycrc.json',
-        'nycrc.yml',
-        'nycrc.yaml',
-        'nycrc',
-      ],
+      fileExtensions: ['nycrc.json', 'nycrc.yml', 'nycrc.yaml', 'nycrc'],
     },
     {
       name: 'istanbulconf',
@@ -1039,6 +1034,571 @@ export const fileIcons: FileIcons = {
       name: 'isabelle',
       fileExtensions: ['thy'],
       light: true,
+    },
+
+    // endregion
+
+    // region [M]
+    {
+      name: 'macaulay',
+      fileExtensions: ['m2'],
+    },
+    {
+      name: 'magento',
+      fileExtensions: ['mage'],
+    },
+    {
+      name: 'magit',
+      fileExtensions: ['magit'],
+    },
+    {
+      name: 'make',
+      fileExtensions: ['mak', 'mk', 'mms', 'make', 'am', 'bb'],
+    },
+    {
+      name: 'makefile',
+      fileNames: [
+        'makefile',
+        'Makefile',
+        'BSDmakefile',
+        'GNUmakefile',
+        'Kbuild',
+        'Makefile.boot',
+        'Makefile.in',
+        'Makefile.inc',
+        'Makefile.wat',
+        'Makefile.win',
+        'Makefile.watcom',
+        'Makefile.vc',
+        'Makefile.unx',
+        'Makefile.unix',
+        'mkfile',
+      ],
+    },
+    {
+      name: 'mako',
+      fileExtensions: ['mako', 'mao'],
+    },
+    {
+      name: 'manpage',
+      fileExtensions: [
+        'man',
+        'man1',
+        'man2',
+        'man3',
+        'man4',
+        'man5',
+        'man6',
+        'man7',
+        'man8',
+        'man9',
+        'ron',
+        'mdoc',
+        'rnh',
+        'rno',
+        'runoff',
+        'roff',
+      ],
+    },
+    {
+      name: 'manifest',
+      fileExtensions: ['manifest', 'mf', 'webmanifest'],
+      fileNames: [
+        'manifest.json',
+        'manifest.bak',
+        'manifest',
+        'manifest.skip',
+        'manifest.webapp',
+        'manifest.yml',
+        'manifest.yaml',
+        'manifest.txt',
+        'manifest.xml',
+      ],
+    },
+    {
+      name: 'manjaro',
+      fileExtensions: [
+        'pkg.tar.xz',
+        'pkg.tar.zst',
+        'pkg.tar.gz',
+        'pkg.tar.bz2',
+      ],
+    },
+    {
+      name: 'mapbox',
+      fileExtensions: ['mss'],
+    },
+    {
+      name: 'markdownlint',
+      fileNames: [
+        '.markdownlint',
+        '.markdownlintrc',
+        '.mdlrc',
+        '.markdownlint.json',
+        '.markdownlint.yml',
+        '.markdownlint.yaml',
+        '.markdownlint.jsonc',
+      ],
+    },
+    {
+      name: 'markdownlintignore',
+      fileExtensions: ['markdownlintignore', 'mdlignore'],
+    },
+    {
+      name: 'marko',
+      fileExtensions: ['marko', 'marko.js', 'marko.cjs', 'marko.mjs'],
+    },
+    {
+      name: 'markup',
+      fileExtensions: ['xhtml', 'xht', 'shtml', 'shtm', 'dhtml', 'dhtm', 'dtd'],
+    },
+    {
+      name: 'master',
+      fileNames: [
+        'master.json',
+        'master.js',
+        'master.ts',
+        'master.cjs',
+        'master.mjs',
+      ],
+    },
+    {
+      name: 'materialize',
+      fileNames: [
+        'materialize.js',
+        'materialize.min.js',
+        'materialize.css',
+        'materialize.min.css',
+        'materialize.scss',
+        'materialize.cjs',
+        'materialize.mjs',
+      ],
+    },
+    {
+      name: 'mathematica',
+      fileExtensions: ['ma', 'mb', 'mt', 'cdf', 'nb', 'wl', 'wlt', 'nbp'],
+    },
+    {
+      name: 'matlab',
+      fileExtensions: [
+        'mlx',
+        'matlab',
+        'mdlp',
+        'mn',
+        'sldd',
+        'slx',
+        'slxp',
+        'mlappinstall',
+        'mlpkginstall',
+        'mltbx',
+        'fig',
+        'mex',
+        'mexn',
+        'mexw',
+        'mexa',
+        'mexmaci',
+        'mexmaci64',
+        'mexw32',
+        'mexw64',
+        'mexglx',
+        'mexrs6',
+        'mum',
+        'mx',
+        'mx3',
+        'rwd',
+        'slxc',
+        'smv',
+        'xvc',
+      ],
+    },
+    {
+      name: 'mathjax',
+      fileNames: [
+        'MathJax.js',
+        'MathJax.cjs',
+        'MathJax.mjs',
+        'MathJax.js.map',
+        'MathJax.js.gz',
+        'MathJax-config.js',
+        'MathJax-config.cjs',
+        'MathJax-config.mjs',
+        'MathJax-config.js.map',
+        'MathJax-config.js.gz',
+        'TeX-MML-AM_CHTML.js',
+        'TeX-MML-AM_CHTML.cjs',
+        'TeX-MML-AM_CHTML.mjs',
+        'TeX-MML-AM_CHTML.js.map',
+        'TeX-MML-AM_CHTML.js.gz',
+      ],
+    },
+    {
+      name: 'maven',
+      fileNames: ['pom.xml', '.flattened-pom.xml'],
+    },
+    {
+      name: 'max',
+      fileExtensions: [
+        'maxpat',
+        'maxhelp',
+        'maxproj',
+        'maxref',
+        'maxobj',
+        'pat',
+        'mxt',
+      ],
+    },
+    {
+      name: 'maya',
+      fileExtensions: ['maya', 'mel', 'mcfi', 'mcfp'],
+    },
+    {
+      name: 'mdx',
+      fileExtensions: ['mdx'],
+    },
+    {
+      name: 'mediawiki',
+      fileExtensions: ['mediawiki', 'wiki', 'wikitext'],
+    },
+    {
+      name: 'mercurial',
+      fileExtensions: ['hg', 'hgsub', 'hgsubstate', 'hgrc', 'hgtags'],
+    },
+    {
+      name: 'mercurialignore',
+      fileExtensions: ['hgignore'],
+    },
+    {
+      name: 'mercury',
+      fileExtensions: ['moo'],
+    },
+    {
+      name: 'merlin',
+      fileExtensions: ['merlin'],
+    },
+    {
+      name: 'mermaid',
+      fileExtensions: ['mmd', 'mermaid', 'mmdc'],
+    },
+    {
+      name: 'meson',
+      fileNames: ['meson.build', 'meson_options.txt'],
+    },
+    {
+      name: 'metal',
+      fileExtensions: ['metal', 'metallib', 'air'],
+    },
+    {
+      name: 'metapost',
+      fileExtensions: ['mp', 'mpost', 'mpx', 'mpy', 'mf'],
+    },
+    {
+      name: 'meteor',
+      fileExtensions: ['meteor'],
+    },
+    {
+      name: 'minecraft',
+      fileExtensions: [
+        'mcfunction',
+        'mcmeta',
+        'mcpack',
+        'mcrcon',
+        'mcreator',
+        'mclevel',
+        'mcworld',
+        'mcmod',
+      ],
+    },
+    {
+      name: 'minizinc',
+      fileExtensions: ['mzn', 'fzn', 'dzn'],
+    },
+    {
+      name: 'mint',
+      fileExtensions: ['mint'],
+    },
+    {
+      name: 'mirah',
+      fileExtensions: ['mirah', 'mir', 'druby', 'duby'],
+    },
+    {
+      name: 'mixin',
+      fileExtensions: ['mixin', 'mixin.json', 'mixins', 'mixins.json'],
+    },
+    {
+      name: 'mirc',
+      fileExtensions: ['mrc', 'mirc', 'mircscript'],
+    },
+    {
+      name: 'mjml',
+      fileExtensions: ['mjml', 'mjmlslim'],
+    },
+    {
+      name: 'mkdocs',
+      fileNames: ['mkdocs.yml', 'mkdocs.yaml', '.mkdocs.yml', '.mkdocs.yaml'],
+    },
+    {
+      name: 'mlang',
+      fileExtensions: ['mlang', 'pq'],
+    },
+    {
+      name: 'mobx',
+      fileExtensions: [
+        'mobx',
+        'mobx.js',
+        'mobx.ts',
+        'mobx.cjs',
+        'mobx.mjs',
+        'observable.js',
+        'observable.ts',
+        'observable.cjs',
+        'observable.mjs',
+      ],
+    },
+    {
+      name: 'mocha',
+      fileNames: ['mocha.opts', '.mocharc', '.mocharc.js', '.mocharc.json'],
+      fileExtensions: [
+        'mocha.js',
+        'mocha.ts',
+        'mocha.cjs',
+        'mocha.mjs',
+        'mocha.json',
+        'mocha.yml',
+        'mocha.yaml',
+      ],
+    },
+    {
+      name: 'mock',
+      fileExtensions: [
+        'mocks/js',
+        'mocks/ts',
+        'mocks/cjs',
+        'mocks/mjs',
+        'mocks/json',
+        'mocks/dart',
+        'mocks/java',
+        'mocks/swift',
+        'mocks/go',
+        'mocks/py',
+        'mocks/rb',
+        'mocks/php',
+        'mocks/cs',
+        'mocks/pl',
+
+        'mock.js',
+        'mock.ts',
+        'mock.cjs',
+        'mock.mjs',
+        'mock.json',
+        'mock.dart',
+        'mock.java',
+        'mock.swift',
+        'mock.go',
+        'mock.py',
+        'mock.rb',
+        'mock.php',
+        'mock.cs',
+        'mock.pl',
+
+        'spy',
+        'spy.js',
+        'spy.ts',
+        'spy.cjs',
+        'spy.mjs',
+        'spy.json',
+        'spy.dart',
+        'spy.java',
+        'spy.swift',
+        'spy.go',
+        'spy.py',
+        'spy.rb',
+        'spy.php',
+        'spy.cs',
+        'spy.pl',
+
+        'stub.js',
+        'stub.ts',
+        'stub.cjs',
+        'stub.mjs',
+        'stub.json',
+        'stub.dart',
+        'stub.java',
+        'stub.swift',
+        'stub.go',
+        'stub.py',
+        'stub.rb',
+        'stub.php',
+        'stub.cs',
+        'stub.pl',
+      ],
+    },
+    {
+      name: 'modelica',
+      fileExtensions: ['mo', 'mos'],
+    },
+    {
+      name: 'modernizr',
+      fileNames: [
+        '.modernizrrc',
+        '.modernizrrc.js',
+        '.modernizrrc.ts',
+        '.modernizrrc.mjs',
+        '.modernizrrc.cjs',
+        '.modernizrrc.json',
+        'modernizr.js',
+        'modernizr.ts',
+        'modernizr.cjs',
+        'modernizr.mjs',
+        'modernizr.json',
+        'modernizr.custom.js',
+        'modernizr.custom.ts',
+        'modernizr.custom.cjs',
+        'modernizr.custom.mjs',
+        'modernizr-dev.js',
+        'modernizr-dev.ts',
+        'modernizr-dev.cjs',
+        'modernizr-dev.mjs',
+      ],
+    },
+    {
+      name: 'modernweb',
+      fileNames: [
+        'web-dev-server.config.js',
+        'web-dev-server.config.ts',
+        'web-dev-server.config.mjs',
+        'web-dev-server.config.cjs',
+        'web-test-runner.config.js',
+        'web-test-runner.config.ts',
+        'web-test-runner.config.mjs',
+        'web-test-runner.config.cjs',
+      ],
+    },
+    {
+      name: 'modo',
+      fileExtensions: ['modo', 'lxo'],
+    },
+    {
+      name: 'modula2',
+      fileExtensions: ['mod', 'def'],
+    },
+    {
+      name: 'modula3',
+      fileNames: ['m3config', 'm3overrides', 'm3makefile'],
+      fileExtensions: ['m3', 'i3', 'mg', 'ig'],
+    },
+    {
+      name: 'moho',
+      fileExtensions: [
+        'moho',
+        'mohoaction',
+        'mohobrush',
+        'mohoexport',
+        'mohoproj',
+        'mohostyle',
+      ],
+    },
+    {
+      name: 'mojolicious',
+      fileExtensions: ['ep', 'epl'],
+    },
+    {
+      name: 'moleculer',
+      fileNames: [
+        'moleculer.config.js',
+        'moleculer.config.ts',
+        'moleculer.config.mjs',
+        'moleculer.config.cjs',
+        'moleculer.config.json',
+      ],
+    },
+    {
+      name: 'moment',
+      fileNames: [
+        'moment.js',
+        'moment.cjs',
+        'moment.mjs',
+        'moment.min.js',
+        'moment.min.cjs',
+        'moment.min.mjs',
+        'moment-with-locales.js',
+        'moment-with-locales.cjs',
+        'moment-with-locales.mjs',
+      ],
+    },
+    {
+      name: 'monkey',
+      fileExtensions: ['monkey'],
+    },
+    {
+      name: 'mongodb',
+      fileExtensions: ['bson', 'mongo', 'mongodb'],
+    },
+    {
+      name: 'monotone',
+      fileExtensions: ['mtn', 'monotone', 'mtn-ignore'],
+    },
+    {
+      name: 'moonscript',
+      fileExtensions: ['moon'],
+    },
+    {
+      name: 'mootools',
+      fileNames: [
+        'mootools.js',
+        'mootools.cjs',
+        'mootools.mjs',
+        'mootools.min.js',
+        'mootools-core.js',
+        'mootools-core.cjs',
+        'mootools-core.mjs',
+        'mootools-nocompat.js',
+        'mootools-nocompat.cjs',
+        'mootools-nocompat.mjs',
+        'mootools-nocompat.min.js',
+      ],
+    },
+    {
+      name: 'more',
+      fileExtensions: ['more', 'msg', 'utf8'],
+    },
+    {
+      name: 'mruby',
+      fileExtensions: ['mrb'],
+    },
+    {
+      name: 'msdos',
+      fileExtensions: ['com', 'dos', 'ful', 'chk'],
+    },
+    {
+      name: 'mson',
+      fileExtensions: ['mson'],
+    },
+    {
+      name: 'msql',
+      fileExtensions: ['mdf', 'ndf', 'ldf'],
+    },
+    {
+      name: 'mupad',
+      fileExtensions: ['mu', 'mup', 'mupad', 'mupadnotebook', 'mn', 'mnb'],
+    },
+    {
+      name: 'mustache',
+      fileExtensions: [
+        'mustache',
+        'stache',
+        'handlebars',
+        'hbs',
+        'hamlbars',
+        'emblem',
+      ],
+    },
+    {
+      name: 'mxml',
+      fileExtensions: ['mxml'],
+    },
+    {
+      name: 'mybatis',
+      fileNames: ['mybatis-config.xml', 'mybatis.xml'],
     },
 
     // endregion
@@ -1566,7 +2126,12 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'safari',
-      fileExtensions: ['safariextz', 'safariext', 'binarycookies', 'webarchive'],
+      fileExtensions: [
+        'safariextz',
+        'safariext',
+        'binarycookies',
+        'webarchive',
+      ],
     },
     {
       name: 'sage',
@@ -1709,11 +2274,24 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'settings',
-      fileExtensions: ['settings', 'setting', 'options', 'option', 'opt', 'opts'],
+      fileExtensions: [
+        'settings',
+        'setting',
+        'options',
+        'option',
+        'opt',
+        'opts',
+      ],
     },
     {
       name: 'sequelize',
-      fileNames: ['.sequelizerc', '.sequelizerc.js', '.sequelizerc.cjs', '.sequelizerc.mjs', '.sequelizerc.json'],
+      fileNames: [
+        '.sequelizerc',
+        '.sequelizerc.js',
+        '.sequelizerc.cjs',
+        '.sequelizerc.mjs',
+        '.sequelizerc.json',
+      ],
     },
     {
       name: 'shadowcljs',
@@ -1779,7 +2357,13 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'shipit',
-      fileNames: ['shipitfile.js', 'shipitfile.cjs', 'shipitfile.mjs', 'shipitfile.babel.js', 'shipitfile.ts'],
+      fileNames: [
+        'shipitfile.js',
+        'shipitfile.cjs',
+        'shipitfile.mjs',
+        'shipitfile.babel.js',
+        'shipitfile.ts',
+      ],
     },
     {
       name: 'shippable',
@@ -1918,14 +2502,17 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'solidarity',
-      fileNames: [
-        '.solidarity',
-        '.solidarity.json',
-      ],
+      fileNames: ['.solidarity', '.solidarity.json'],
     },
     {
       name: 'sonar',
-      fileExtensions: ['sonar', 'sonarqube', 'sonarlint', 'sonarlintignore', 'sonarrc'],
+      fileExtensions: [
+        'sonar',
+        'sonarqube',
+        'sonarlint',
+        'sonarlintignore',
+        'sonarrc',
+      ],
     },
     {
       name: 'sonarcloud',
@@ -1950,7 +2537,15 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'sourcemap',
-      fileExtensions: ['map', 'mapping', 'enigma', 'cidmap', 'tiny', 'tinyv2', 'match'],
+      fileExtensions: [
+        'map',
+        'mapping',
+        'enigma',
+        'cidmap',
+        'tiny',
+        'tinyv2',
+        'match',
+      ],
     },
     {
       name: 'spaceengine',
@@ -2012,11 +2607,26 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'stata',
-      fileExtensions: ['stata', 'do', 'ado', 'doh', 'ihlp', 'mata', 'matah', 'sthlp'],
+      fileExtensions: [
+        'stata',
+        'do',
+        'ado',
+        'doh',
+        'ihlp',
+        'mata',
+        'matah',
+        'sthlp',
+      ],
     },
     {
       name: 'stdlib',
-      fileNames: ['stdlib.js', 'stdlib.min.js', 'stdlib.mjs', 'stdlib.cjs', 'stdlib.conf.js'],
+      fileNames: [
+        'stdlib.js',
+        'stdlib.min.js',
+        'stdlib.mjs',
+        'stdlib.cjs',
+        'stdlib.conf.js',
+      ],
     },
     {
       name: 'stencilconfig',
@@ -2028,11 +2638,21 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'steadybit',
-      fileNames: ['steadybit.yml', 'steadybit.yaml', '.steadybit.yml', '.steadybit.yaml'],
+      fileNames: [
+        'steadybit.yml',
+        'steadybit.yaml',
+        '.steadybit.yml',
+        '.steadybit.yaml',
+      ],
     },
     {
       name: 'stitches',
-      fileNames: ['stitches.config.js', 'stitches.config.ts', 'stitches.config.cjs', 'stitches.config.mjs'],
+      fileNames: [
+        'stitches.config.js',
+        'stitches.config.ts',
+        'stitches.config.cjs',
+        'stitches.config.mjs',
+      ],
     },
     {
       name: 'storyboard',
@@ -2078,10 +2698,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'stylelintignore',
-      fileNames: [
-        '.stylelintignore',
-        '.stylelintignore.json',
-      ],
+      fileNames: ['.stylelintignore', '.stylelintignore.json'],
     },
     {
       name: 'styleguidist',
@@ -2143,7 +2760,12 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'sublime',
-      fileExtensions: ['sublime-project', 'sublime-workspace', 'sublime-package', 'sublime-macro'],
+      fileExtensions: [
+        'sublime-project',
+        'sublime-workspace',
+        'sublime-package',
+        'sublime-macro',
+      ],
     },
     {
       name: 'subtitle',
@@ -2151,7 +2773,15 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'scd',
-      fileExtensions: ['sc', 'scd', 'scsyndef', 'scsynthdef', 'scx', 'scxt', 'scz'],
+      fileExtensions: [
+        'sc',
+        'scd',
+        'scsyndef',
+        'scsynthdef',
+        'scx',
+        'scxt',
+        'scz',
+      ],
     },
     {
       name: 'sss',
@@ -2159,7 +2789,14 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'supabase',
-      fileNames: ['supabase.json', 'supabase.yml', 'supabase.yaml', 'supabase.py', 'supabase.js', 'supabase.ts'],
+      fileNames: [
+        'supabase.json',
+        'supabase.yml',
+        'supabase.yaml',
+        'supabase.py',
+        'supabase.js',
+        'supabase.ts',
+      ],
     },
     {
       name: 'svelte',
@@ -2218,7 +2855,14 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'swagger',
-      fileNames: ['swagger.json', 'swagger.yaml', 'swagger.yml', 'api.yml', 'api.yaml', 'api.json'],
+      fileNames: [
+        'swagger.json',
+        'swagger.yaml',
+        'swagger.yml',
+        'api.yml',
+        'api.yaml',
+        'api.json',
+      ],
       fileExtensions: ['swagger', 'swag'],
     },
     {
@@ -2385,21 +3029,15 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'shell',
-      fileExtensions: [
-        'sh',
-      ],
+      fileExtensions: ['sh'],
     },
     {
       name: 'sql',
-      fileExtensions: [
-        'sql',
-      ],
+      fileExtensions: ['sql'],
     },
     {
       name: 'swift',
-      fileExtensions: [
-        'swift',
-      ],
+      fileExtensions: ['swift'],
     },
 
     // endregion
