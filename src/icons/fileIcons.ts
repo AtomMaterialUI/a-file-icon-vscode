@@ -3649,6 +3649,114 @@ export const fileIcons: FileIcons = {
 
     // endregion [U]
 
+    // region [X]
+    {
+      name: 'x10',
+      fileExtensions: ['x10'],
+    },
+    {
+      name: 'x11',
+      fileExtensions: [
+        'Xauthority',
+        'Xclients',
+        'Xinitrc',
+        'Xinputrc',
+        'Xprofile',
+        'Xresources',
+        'Xsession',
+        'Xsession-errors',
+        'Xsessionrc',
+        'Xusers',
+        'Xvnc-session',
+        'Xscreensaver',
+      ],
+    },
+    {
+      name: 'xamarin',
+      fileExtensions: ['workbook'],
+    },
+    {
+      name: 'xmos',
+      fileExtensions: ['xc'],
+    },
+    {
+      name: 'xcode',
+      fileExtensions: [
+        'xcodeproj',
+        'xcworkspace',
+        'xcplayground',
+        'xcworkspacedata',
+        'xcplugindata',
+        'xcconfig',
+        'xccheckout',
+        'xcscheme',
+        'xctemplate',
+        'xctarget',
+        'xctask',
+        'xcuserstate',
+        'xcassets',
+        'xcdatamodel',
+        'xcsettings',
+        'xclangspec',
+        'xcmappingmodel',
+        'mode1v3',
+        'mode3v3',
+      ],
+    },
+    {
+      name: 'xib',
+      fileExtensions: ['xib'],
+    },
+    {
+      name: 'xliff',
+      fileExtensions: ['xliff', 'xlf'],
+    },
+    {
+      name: 'xmake',
+      fileNames: ['xmake.lua'],
+    },
+    {
+      name: 'xstate',
+      fileExtensions: [
+        'machine.js',
+        'machine.cjs',
+        'machine.mjs',
+        'machine.ts',
+      ],
+    },
+    {
+      name: 'xtend',
+      fileExtensions: ['xtend'],
+    },
+    {
+      name: 'xojo',
+      fileExtensions: [
+        'xojo_code',
+        'xojo_menu',
+        'xojo_toolbar',
+        'xojo_window',
+        'xojo_report',
+        'xojo_script',
+      ],
+    },
+    {
+      name: 'xpages',
+      fileExtensions: ['xsp-config', 'xsp.metadata'],
+    },
+    {
+      name: 'xquery',
+      fileExtensions: ['xquery'],
+    },
+    {
+      name: 'xproc',
+      fileExtensions: ['xpl', 'xproc'],
+    },
+    {
+      name: 'xubuntu',
+      fileNames: ['xubuntu.iso', 'xubuntu.deb'],
+    },
+    // endregion
+
     // region [Y]
     {
       name: 'yamllint',
