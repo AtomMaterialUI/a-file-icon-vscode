@@ -3649,6 +3649,87 @@ export const fileIcons: FileIcons = {
 
     // endregion [U]
 
+    // region [Y]
+    {
+      name: 'yamllint',
+      fileNames: ['.yamllint.yml', '.yamllint.yaml'],
+      fileExtensions: ['yamllint'],
+    },
+    {
+      name: 'yandex',
+      fileNames: ['.yaspeller.json'],
+      fileExtensions: ['yaspellerrc'],
+    },
+    {
+      name: 'yang',
+      fileExtensions: ['yang'],
+    },
+    {
+      name: 'yara',
+      fileExtensions: ['yar', 'yara'],
+    },
+    {
+      name: 'yarn',
+      fileNames: ['.yarnrc', 'yarn.json', 'yarn.js', '.yarnrc.yml'],
+    },
+    {
+      name: 'yarnlock',
+      fileNames: ['yarn.lock'],
+    },
+    {
+      name: 'yarnclean',
+      fileNames: ['.yarnclean', '.yarn-metadata', '.yarn-integrity'],
+    },
+    {
+      name: 'yard',
+      fileExtensions: ['yardopts'],
+    },
+    {
+      name: 'yasm',
+      fileExtensions: ['yasm'],
+    },
+    {
+      name: 'yeoman',
+      fileExtensions: ['yo-rc.json'],
+    },
+    {
+      name: 'yona',
+      fileExtensions: ['yona'],
+    },
+    {
+      name: 'yorick',
+      fileExtensions: ['yorick'],
+    },
+    {
+      name: 'yue',
+      fileExtensions: ['yue'],
+    },
+    {
+      name: 'yui',
+      fileNames: [
+        'yui.js',
+        'yui.ts',
+        'yui.cjs',
+        'yui.mjs',
+        'yui-min.js',
+        'yui.min.js',
+        'yui-config.js',
+        'yui-config.ts',
+        'yui-config.cjs',
+        'yui-config.mjs',
+        'yahoo-config.js',
+        'yahoo-config.ts',
+        'yahoo-config.cjs',
+        'yahoo-config.mjs',
+      ],
+    },
+    {
+      name: 'yvmrc',
+      fileExtensions: ['yvmrc'],
+    },
+
+    // endregion
+
     // region [Languages]
     {
       name: 'scala',
