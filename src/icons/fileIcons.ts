@@ -1278,6 +1278,251 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
+    // region [J]
+    {
+      name: 'j',
+      fileExtensions: ['ij', 'ijs'],
+    },
+    {
+      name: 'pug',
+      fileExtensions: ['pug', 'jade'],
+    },
+    {
+      name: 'puglint',
+      fileExtensions: [
+        'jade-lintrc',
+        'jade-lintrc.js',
+        'jade-lintrc.cjs',
+        'jade-lintrc.mjs',
+        'jade-lintrc.json',
+        'pug-lintrc',
+        'pug-lintrc.js',
+        'pug-lintrc.cjs',
+        'pug-lintrc.mjs',
+        'pug-lintrc.json',
+      ],
+    },
+    {
+      name: 'jake',
+      fileExtensions: ['jake'],
+    },
+    {
+      name: 'jakefile',
+      fileNames: ['Jakefile', 'jakefile.js', 'jakefile.cjs', 'jakefile.mjs'],
+    },
+    {
+      name: 'jakt',
+      fileExtensions: ['jakt'],
+    },
+    {
+      name: 'janet',
+      fileExtensions: ['janet', 'jpm'],
+    },
+    {
+      name: 'jasmine',
+      fileNames: [
+        'jasmine.json',
+        'jasmine.js',
+        'jasmine.cjs',
+        'jasmine.mjs',
+        'jasmine.ts',
+        'jasmine.config.js',
+        'jasmine.config.ts',
+        'jasmine.dev.coffee',
+      ],
+    },
+    {
+      name: 'js',
+      fileExtensions: [
+        'jsb',
+        'jsm',
+        'jspre',
+        'jscript',
+        'jslib',
+        'dust',
+        'htc',
+        'pjs',
+        'ssjs',
+      ],
+    },
+    {
+      name: 'jbuilder',
+      fileExtensions: ['jbuilder'],
+    },
+    {
+      name: 'jekyll',
+      fileNames: ['_config.yml', '_config.yaml'],
+      fileExtensions: ['jekyll'],
+    },
+    {
+      name: 'jellycut',
+      fileExtensions: ['jellycut', 'jelly'],
+    },
+    {
+      name: 'jenkins',
+      fileNames: ['Jenkinsfile', 'jenkinsfile.groovy', 'jenkinsfile.kt'],
+      fileExtensions: ['jenkinsfile'],
+    },
+    {
+      name: 'jest',
+      fileNames: [
+        'jest.config.json',
+        'jest.config.js',
+        'jest.config.cjs',
+        'jest.config.mjs',
+        'jest.config.ts',
+        'jest.setup.json',
+        'jest.setup.js',
+        'jest.setup.cjs',
+        'jest.setup.mjs',
+        'jest.setup.ts',
+        'jest.teardown.js',
+        'jest.teardown.json',
+        'jest.teardown.cjs',
+        'jest.teardown.mjs',
+        'jest.teardown.ts',
+        'jest.babel.json',
+        'jest.babel.js',
+        'jest.babel.cjs',
+        'jest.babel.mjs',
+        'jest.babel.ts',
+        'jest.config.tsx',
+        'jest.config.jsx',
+      ],
+      fileExtensions: ['jest/js', 'jest/ts', 'jest/cjs', 'jest/mjs'],
+    },
+    {
+      name: 'jestrc',
+      fileNames: [
+        '.jestrc',
+        '.jestrc.js',
+        '.jestrc.cjs',
+        '.jestrc.mjs',
+        '.jestrc.json',
+        '.jestrc.ts',
+      ],
+    },
+    {
+      name: 'theme',
+      fileExtensions: ['theme', 'theme.json'],
+    },
+    {
+      name: 'jfd',
+      fileExtensions: ['jfd', 'form'],
+    },
+    {
+      name: 'jinja',
+      fileExtensions: ['jinja', 'jinja2', 'j2', 'jinja-html', 'jnj2', 'jnj'],
+    },
+    {
+      name: 'jison',
+      fileExtensions: ['jison', 'jisonlex'],
+    },
+    {
+      name: 'jolie',
+      fileExtensions: ['ol', 'iol', 'jolie'],
+    },
+    {
+      name: 'joomla',
+      fileExtensions: ['joomla', 'smarty'],
+    },
+    {
+      name: 'jquery',
+      fileNames: [
+        'jquery.js',
+        'jquery.min.js',
+        'jquery.slim.js',
+        'jquery.slim.min.js',
+        'jquery.latest.js',
+        'jquery.latest.min.js',
+        'jquery.es6',
+        'jquery.slim.es6',
+        'jquery.coffee',
+        'jquery.slim.coffee',
+      ],
+    },
+    {
+      name: 'jsbeautify',
+      fileExtensions: ['jsbeautify', 'jsbeautifyrc', 'jsbeautifyrc.json'],
+    },
+    {
+      name: 'jscs',
+      fileExtensions: [
+        'jscsrc',
+        'jscs.json',
+        'jscs.js',
+        'jscs.cjs',
+        'jscs.mjs',
+      ],
+    },
+    {
+      name: 'jshint',
+      fileExtensions: ['jshintrc'],
+    },
+    {
+      name: 'jshintignore',
+      fileExtensions: ['jshintignore'],
+    },
+    {
+      name: 'jsmap',
+      fileExtensions: ['js.map', 'cjs.map', 'mjs.map'],
+    },
+    {
+      name: 'jsconfig',
+      fileNames: [
+        'jsconfig.json',
+        'jsconfig.js',
+        'jsconfig.cjs',
+        'jsconfig.mjs',
+        '.jsconfig.json',
+        '.jsconfig.js',
+        '.jsconfig.cjs',
+        '.jsconfig.mjs',
+      ],
+    },
+    {
+      name: 'jscpd',
+      fileExtensions: ['jscpd', 'jscpd.json', 'jscpd.html', 'jscpd.xml'],
+    },
+    {
+      name: 'json5',
+      fileExtensions: ['json5'],
+    },
+    {
+      name: 'jsonld',
+      fileExtensions: ['jsonld', 'ldjson', 'json-ld', 'jsonl'],
+    },
+    {
+      name: 'jsonnet',
+      fileExtensions: ['jsonnet', 'libsonnet', 'jsonn'],
+    },
+    {
+      name: 'jsp',
+      fileExtensions: ['jsp', 'jspf', 'jsf', 'jspx', 'jhtm', 'jhtml'],
+    },
+    {
+      name: 'jss',
+      fileExtensions: ['jss'],
+    },
+    {
+      name: 'julia',
+      fileExtensions: ['jl', 'julia'],
+    },
+    {
+      name: 'jupyter',
+      fileNames: ['Notebook'],
+      fileExtensions: ['ipynb'],
+    },
+    {
+      name: 'junos',
+      fileExtensions: ['jos', 'junos', 'slax'],
+    },
+    {
+      name: 'jwt',
+      fileExtensions: ['jwt'],
+    },
+    // endregion
+
     // region [M]
     {
       name: 'macaulay',
