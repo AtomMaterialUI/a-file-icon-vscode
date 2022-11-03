@@ -3894,6 +3894,210 @@ export const fileIcons: FileIcons = {
 
     // endregion [U]
 
+    // region [W]
+    {
+      name: 'w3c',
+      fileNames: ['w3c.json'],
+    },
+    {
+      name: 'wallaby',
+      fileNames: [
+        'wallaby.js',
+        'wallaby.cjs',
+        'wallaby.mjs',
+        'wallaby.ts',
+        'wallaby.conf.js',
+        'wallaby.conf.cjs',
+        'wallaby.conf.mjs',
+        'wallaby.conf.ts',
+        '.wallaby.js',
+        '.wallaby.cjs',
+        '.wallaby.mjs',
+        '.wallaby.ts',
+      ],
+    },
+    {
+      name: 'walt',
+      fileExtensions: ['walt'],
+    },
+    {
+      name: 'watchman',
+      fileExtensions: ['watchmanconfig'],
+      fileNames: ['watchman.json', 'watchman.config.json'],
+    },
+    {
+      name: 'warcraft3',
+      fileExtensions: ['wc3', 'jass', 'zn'],
+    },
+    {
+      name: 'webassembly',
+      fileExtensions: ['wasm', 'wat', 'wast'],
+    },
+    {
+      name: 'wdl',
+      fileExtensions: ['wdl'],
+    },
+    {
+      name: 'web2py',
+      fileExtensions: ['web2py'],
+    },
+    {
+      name: 'webgl',
+      fileExtensions: ['webgl'],
+    },
+    {
+      name: 'owl',
+      fileExtensions: ['owl'],
+    },
+    {
+      name: 'webpack',
+      fileNames: [
+        'webpack.common.js',
+        'webpack.config.js',
+        'webpack.dev.js',
+        'webpack.prod.js',
+        'webpack.common.cjs',
+        'webpack.config.cjs',
+        'webpack.dev.cjs',
+        'webpack.prod.cjs',
+        'webpack.common.mjs',
+        'webpack.config.mjs',
+        'webpack.dev.mjs',
+        'webpack.prod.mjs',
+        'webpack.common.ts',
+        'webpack.config.ts',
+        'webpack.dev.ts',
+        'webpack.prod.ts',
+        'webpack.common.coffee',
+        'webpack.config.coffee',
+        'webpack.dev.coffee',
+        'webpack.prod.coffee',
+        'webpack.common.es6',
+        'webpack.config.es6',
+        'webpack.dev.es6',
+        'webpack.prod.es6',
+      ],
+    },
+    {
+      name: 'webvtt',
+      fileExtensions: ['vtt'],
+    },
+    {
+      name: 'webhint',
+      fileExtensions: ['hintrc'],
+    },
+    {
+      name: 'wenyan',
+      fileExtensions: ['wy'],
+    },
+    {
+      name: 'wepy',
+      fileExtensions: ['wpy'],
+    },
+    {
+      name: 'webp',
+      fileExtensions: ['webp'],
+    },
+    {
+      name: 'wercker',
+      fileNames: ['wercker.yaml', 'wercker.yml'],
+    },
+    {
+      name: 'wget',
+      fileExtensions: ['wgetrc', 'wget-hsts'],
+    },
+    {
+      name: 'wgsl',
+      fileExtensions: ['wgsl'],
+    },
+    {
+      name: 'windi',
+      fileNames: ['windi.config.js', 'windi.config.ts'],
+    },
+    {
+      name: 'windows',
+      fileExtensions: ['bat', 'exe', 'ms', 'msi', 'reg', 'msc'],
+    },
+    {
+      name: 'winui',
+      fileExtensions: ['xaml', 'baml'],
+    },
+    {
+      name: 'wikitext',
+      fileExtensions: ['wt', 'wikitext'],
+      light: true,
+    },
+    {
+      name: 'wix',
+      fileExtensions: ['wix', 'wixproj', 'wixobj', 'wxi', 'wxl'],
+    },
+    {
+      name: 'word',
+      fileExtensions: [
+        'doc',
+        'docx',
+        'docm',
+        'docxml',
+        'dotm',
+        'dotx',
+        'wri',
+        'odt',
+        'odtx',
+      ],
+    },
+    {
+      name: 'wolfram',
+      fileExtensions: ['wl', 'wls', 'wlt'],
+    },
+    {
+      name: 'woodpecker',
+      fileExtensions: ['woodpecker.yml', 'woodpecker.yaml'],
+    },
+    {
+      name: 'wordpress',
+      fileNames: [
+        'wp-admin.php',
+        'wp-login.php',
+        'wp-config.php',
+        'wp-env.json',
+        'wp-cli.yaml',
+      ],
+    },
+    {
+      name: 'wordpressignore',
+      fileExtensions: ['distignore'],
+    },
+    {
+      name: 'workbox',
+      fileNames: [
+        'workbox-config.js',
+        'workbox-config.cjs',
+        'workbox-config.mjs',
+        'workbox-config.ts',
+      ],
+    },
+    {
+      name: 'wpml',
+      fileNames: ['wpml-config.xml'],
+    },
+    {
+      name: 'wurst',
+      fileExtensions: ['wurst'],
+    },
+    {
+      name: 'wxss',
+      fileExtensions: ['wxss'],
+    },
+    {
+      name: 'wxml',
+      fileExtensions: ['wxml'],
+    },
+    {
+      name: 'wxs',
+      fileExtensions: ['wxs'],
+    },
+    // endregion
+
     // region [X]
     {
       name: 'x10',
