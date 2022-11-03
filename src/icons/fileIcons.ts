@@ -2604,6 +2604,180 @@ export const fileIcons: FileIcons = {
 
     // endregion [N]
 
+    // region [O]
+    {
+      name: 'oberon',
+      fileExtensions: ['ob', 'ob2'],
+    },
+    {
+      name: 'objc',
+      fileExtensions: ['mm', 'm'],
+    },
+    {
+      name: 'objj',
+      fileExtensions: ['j', 'sj'],
+    },
+    {
+      name: 'ocaml',
+      fileExtensions: [
+        'ocaml',
+        'ml',
+        'mli',
+        'ml4',
+        'mll',
+        'mly',
+        'cmx',
+        'ocamllex',
+        'ocamlyacc',
+      ],
+    },
+    {
+      name: 'octave',
+      fileExtensions: ['octave', 'octaverc', 'octave_hist'],
+    },
+    {
+      name: 'odin',
+      fileExtensions: ['odin'],
+    },
+    {
+      name: 'ogone',
+      fileExtensions: ['o3', 'ogone'],
+    },
+    {
+      name: 'omnigraffle',
+      fileExtensions: ['graffle', 'gdiagramstyle', 'gstencil', 'gtemplate'],
+    },
+    {
+      name: 'onenote',
+      fileExtensions: ['one', 'onenote'],
+    },
+    {
+      name: 'ooc',
+      fileExtensions: ['ooc'],
+    },
+    {
+      name: 'opa',
+      fileExtensions: ['opa'],
+    },
+    {
+      name: 'opam',
+      fileExtensions: ['opam'],
+    },
+    {
+      name: 'openapi',
+      fileNames: ['openapi.json', 'openapi.yml', 'openapi.yaml'],
+    },
+    {
+      name: 'openbsd',
+      fileExtensions: ['openbsd', 'bsd'],
+    },
+    {
+      name: 'opencl',
+      fileExtensions: ['opencl'],
+    },
+    {
+      name: 'progress',
+      fileExtensions: ['abl', 'p'],
+    },
+    {
+      name: 'openexr',
+      fileExtensions: ['exr'],
+    },
+    {
+      name: 'opengl',
+      fileExtensions: ['glsl', 'glslv', 'gsh', 'gshader'],
+    },
+    {
+      name: 'vertex',
+      fileExtensions: ['vrx', 'vert', 'vertex', 'vsh', 'vshader'],
+    },
+    {
+      name: 'shader',
+      fileExtensions: ['fra', 'frag', 'fp', 'fsh', 'fshader'],
+    },
+    {
+      name: 'openhab',
+      fileExtensions: ['things'],
+    },
+    {
+      name: 'openindiana',
+      fileExtensions: ['p5i'],
+    },
+    {
+      name: 'openoffice',
+      fileExtensions: [
+        'odf',
+        'ods',
+        'odt',
+        'odp',
+        'odg',
+        'odf',
+        'odb',
+        'fodt',
+        'fods',
+        'fodp',
+        'fodg',
+        'ott',
+        'ots',
+        'otp',
+        'otg',
+      ],
+    },
+    {
+      name: 'openpolicy',
+      fileExtensions: ['rego'],
+    },
+    {
+      name: 'openscad',
+      fileExtensions: ['scad', 'jscad'],
+    },
+    {
+      name: 'openstack',
+      fileExtensions: ['aki', 'ami', 'ari', 'ova', 'ovf'],
+    },
+    {
+      name: 'opensolaris',
+      fileExtensions: ['solaris', 'opensolaris'],
+    },
+    {
+      name: 'openvms',
+      fileExtensions: ['hlb', 'cld'],
+    },
+    {
+      name: 'openvpn',
+      fileExtensions: ['ovpn'],
+    },
+    {
+      name: 'openzfs',
+      fileNames: ['vdev1', 'vdev2001'],
+    },
+    {
+      name: 'orgmode',
+      fileExtensions: ['org'],
+    },
+    {
+      name: 'oracle',
+      fileExtensions: ['pls', 'plsql', 'plb', 'pkb', 'pck', 'pks', 'pkh'],
+    },
+    {
+      name: 'finder',
+      fileExtensions: ['dmg'],
+    },
+    {
+      name: 'outlook',
+      fileExtensions: ['pst', 'bcmx', 'oab', 'otm', 'oft', 'nk2'],
+    },
+    {
+      name: 'oxygene',
+      fileExtensions: ['oxygene'],
+    },
+    {
+      name: 'oz',
+      fileExtensions: ['oz'],
+    },
+
+    // endregion
+
     // region [S]
     {
       name: 'sac',
@@ -3065,7 +3239,6 @@ export const fileIcons: FileIcons = {
         'hql',
         'qml',
         'psql',
-        'pkb',
         'xql',
         'xqm',
         'xqy',
