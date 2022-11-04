@@ -1117,6 +1117,256 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
+    // region [E]
+    {
+      name: 'e',
+      fileExtensions: ['e'],
+    },
+    {
+      name: 'eagle',
+      fileExtensions: ['eup'],
+    },
+    {
+      name: 'earthly',
+      fileNames: ['Earthfile'],
+      fileExtensions: ['earth', 'earthfile'],
+    },
+    {
+      name: 'earthlyignore',
+      fileExtensions: ['earthignore', 'earthlyignore'],
+    },
+    {
+      name: 'eas',
+      fileNames: ['store.config.json'],
+    },
+    {
+      name: 'easybuild',
+      fileExtensions: ['eb'],
+    },
+    {
+      name: 'ec',
+      fileExtensions: ['ec', 'eh'],
+    },
+    {
+      name: 'ecere',
+      fileExtensions: ['epj'],
+    },
+    {
+      name: 'clipse',
+      fileExtensions: ['eclipse', 'classpath', 'project', 'cproject'],
+    },
+    {
+      name: 'edge',
+      fileExtensions: ['edge'],
+    },
+    {
+      name: 'editorconfig',
+      fileNames: ['.editorconfig.json'],
+      fileExtensions: ['editorconfig', 'ecrc'],
+    },
+    {
+      name: 'egg',
+      fileNames: [
+        'config.default.js',
+        'config.prod.js',
+        'config.test.js',
+        'config.local.js',
+        'config.unittest.js',
+      ],
+    },
+    {
+      name: 'electron',
+      fileNames: [
+        'electron-builder.yml',
+        'electron-builder.json',
+        '.compilerc.json',
+      ],
+      fileExtensions: ['compilerc'],
+    },
+    {
+      name: 'electronasar',
+      fileExtensions: ['asar'],
+    },
+    {
+      name: 'electronforge',
+      fileNames: [
+        'forge.config.js',
+        'forge.config.cjs',
+        'forge.config.mjs',
+        'forge.config.ts',
+        '.forge.config.js',
+        '.forge.config.cjs',
+        '.forge.config.mjs',
+        '.forge.config.ts',
+      ],
+      fileExtensions: ['electronforge'],
+    },
+    {
+      name: 'elementaryos',
+      fileNames: ['.appdata.xml'],
+    },
+    {
+      name: 'eiffel',
+      fileExtensions: ['eif', 'ecf', 'eiffel'],
+    },
+    {
+      name: 'ejs',
+      fileExtensions: ['ejs'],
+    },
+    {
+      name: 'elastic',
+      fileExtensions: ['es', 'edql'],
+    },
+    {
+      name: 'elasticconf',
+      fileNames: ['elasticsearch.yml', 'elasticsearch.yaml'],
+    },
+    {
+      name: 'ex',
+      fileExtensions: ['ex', 'exs', 'eex', 'leex', 'heex', 'elixir'],
+    },
+    {
+      name: 'elm',
+      fileExtensions: ['elm'],
+    },
+    {
+      name: 'emacs',
+      fileExtensions: ['emacs', 'emacs.conf', 'emacsconfig', 'emacsrc'],
+    },
+    {
+      name: 'emacslisp',
+      fileExtensions: [
+        'el',
+        'elc',
+        'eld',
+        'elisp',
+        'gnus',
+        'emacs-lisp',
+        'ede',
+        'viper',
+      ],
+    },
+    {
+      name: 'emacscask',
+      fileExtensions: ['cask'],
+      fileNames: ['cask', 'Caskfile'],
+    },
+    {
+      name: 'email',
+      fileExtensions: ['eml', 'email', 'mbox', 'mail', 'mailmap'],
+    },
+    {
+      name: 'embercli',
+      fileExtensions: ['ember-cli', 'ember-cli-build'],
+    },
+    {
+      name: 'ember',
+      fileExtensions: ['ember', 'ember.json'],
+    },
+    {
+      name: 'emberscript',
+      fileExtensions: ['em', 'emberscript'],
+    },
+    {
+      name: 'ensime',
+      fileExtensions: ['ensime'],
+    },
+    {
+      name: 'eq',
+      fileExtensions: ['eq'],
+    },
+    {
+      name: 'esdoc',
+      fileExtensions: [
+        'esdoc',
+        'esdoc.json',
+        'esdoc.js',
+        'esdoc.cjs',
+        'esdoc.mjs',
+        'esdoc.yaml',
+        'esdoc.yml',
+      ],
+    },
+    {
+      name: 'eslint',
+      fileExtensions: [
+        'eslintrc',
+        'eslintrc.js',
+        'eslintrc.cjs',
+        'eslintrc.mjs',
+        'eslintrc.yaml',
+        'eslintrc.yml',
+        'eslintrc.json',
+      ],
+    },
+    {
+      name: 'eslintignore',
+      fileExtensions: ['eslintcache', 'eslintignore'],
+    },
+    {
+      name: 'erb',
+      fileExtensions: ['erb', 'erb.deface', 'erb.deface.orig', 'ru'],
+    },
+    {
+      name: 'erlang',
+      fileExtensions: [
+        'erc',
+        'erl',
+        'erlang',
+        'hrl',
+        'beam',
+        'escript',
+        'yaws',
+        'xrl',
+        'yrl',
+      ],
+    },
+    {
+      name: 'makefile',
+      fileExtensions: ['emakerfile', 'emakefile', 'emake'],
+      fileNames: ['emakefile', 'emake'],
+    },
+    {
+      name: 'excel',
+      fileExtensions: [
+        'xls',
+        'xlsx',
+        'xlsm',
+        'xlsb',
+        'xlm',
+        'xltm',
+        'xltx',
+        'xlt',
+        'xla',
+        'xlam',
+        'odx',
+      ],
+    },
+    {
+      name: 'expo',
+      fileNames: [
+        'app.json',
+        'app.config.js',
+        'app.config.json',
+        'app.config.ts',
+        'app.config.cjs',
+        'app.config.mjs',
+      ],
+    },
+    {
+      name: 'extjs',
+      fileNames: [
+        'extjs.js',
+        'extjs.cjs',
+        'extjs.mjs',
+        'extjs-ext.js',
+        'extjs-ext.cjs',
+        'extjs-ext.mjs',
+        'extjs-build.js',
+      ],
+    },
+    // endregion
+
     // region [I]
     {
       name: 'i18n',
