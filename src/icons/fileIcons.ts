@@ -3028,6 +3028,575 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
+    // region [R]
+    {
+      name: 'r',
+      fileExtensions: ['r', 'rd', 'rsx', 'rhistory', 'rprofile', 'rproj'],
+    },
+    {
+      name: 'rmd',
+      fileExtensions: ['rmd', 'rmarkdown'],
+    },
+    {
+      name: 'racket',
+      fileExtensions: ['rkt', 'rktd', 'rktl', 'scrbl'],
+    },
+    {
+      name: 'raml',
+      fileExtensions: ['raml'],
+    },
+    {
+      name: 'rails',
+      fileExtensions: ['rails'],
+      fileNames: ['rails'],
+    },
+    {
+      name: 'railsconcern',
+      fileExtensions: ['concern/rb', 'concerns/rb'],
+    },
+    {
+      name: 'railscontroller',
+      fileExtensions: ['controller/rb', 'controllers/rb'],
+    },
+    {
+      name: 'railsdb',
+      fileNames: ['database.yml', 'database.yaml'],
+    },
+    {
+      name: 'railsfactory',
+      fileExtensions: ['factory/rb', 'factories/rb'],
+    },
+    {
+      name: 'railsfixture',
+      fileExtensions: ['fixture/rb', 'fixtures/rb'],
+    },
+    {
+      name: 'railshelper',
+      fileExtensions: ['helper/rb', 'helpers/rb'],
+    },
+    {
+      name: 'railsjob',
+      fileExtensions: ['job/rb', 'jobs/rb'],
+    },
+    {
+      name: 'railsmailer',
+      fileExtensions: ['mailer/rb', 'mailers/rb'],
+    },
+    {
+      name: 'railsroutes',
+      fileNames: ['routes.rb'],
+    },
+    {
+      name: 'railsschema',
+      fileExtensions: ['schema/rb', 'schemas/rb'],
+    },
+    {
+      name: 'railsserializer',
+      fileExtensions: ['serializer/rb', 'serializers/rb'],
+    },
+    {
+      name: 'railsservice',
+      fileExtensions: ['service/rb', 'services/rb'],
+    },
+    {
+      name: 'railsseed',
+      fileNames: ['seed.rb'],
+    },
+    {
+      name: 'rake',
+      fileExtensions: ['rake'],
+    },
+    {
+      name: 'rakefile',
+      fileNames: ['rakefile', 'rakefile.rb'],
+    },
+    {
+      name: 'razor',
+      fileExtensions: ['cshtml', 'vbhtml'],
+    },
+    {
+      name: 'raphael',
+      fileNames: [
+        'raphael.js',
+        'raphael.min.js',
+        'raphael-min.js',
+        'raphael.no-deps.js',
+      ],
+    },
+    {
+      name: 'rascal',
+      fileExtensions: ['rsc', 'rascal'],
+    },
+    {
+      name: 'razzle',
+      fileNames: [
+        'razzle.config.js',
+        'razzle.config.ts',
+        'razzle.config.cjs',
+        'razzle.config.mjs',
+        'razzle.config.yml',
+        'razzle.config.yaml',
+      ],
+    },
+    {
+      name: 'rbs',
+      fileExtensions: ['rbs', 'rbi'],
+    },
+    {
+      name: 'rdata',
+      fileExtensions: ['rdata', 'rds', 'rda', 'rdx'],
+    },
+    {
+      name: 'rdoc',
+      fileExtensions: ['rdoc'],
+    },
+    {
+      name: 'readthedocs',
+      fileExtensions: ['readthedocs', 'readthedocs.yml', 'readthedocs.yaml'],
+    },
+    {
+      name: 'recoil',
+      fileNames: [
+        'atom.js',
+        'atom.ts',
+        'atoms.js',
+        'atoms.ts',
+        'selector.js',
+        'selector.ts',
+        'selectors.js',
+        'selectors.ts',
+      ],
+      fileExtensions: [
+        'atom.js',
+        'atom.ts',
+        'atoms.js',
+        'atoms.ts',
+        'selector.js',
+        'selector.ts',
+        'selectors.js',
+        'selectors.ts',
+        'atoms/js',
+        'atoms/jsx',
+        'atoms/ts',
+        'atoms/tsx',
+        'recoil/js',
+        'recoil/jsx',
+        'recoil/ts',
+        'recoil/tsx',
+      ],
+    },
+    {
+      name: 'remix',
+      fileNames: [
+        'remix.config.js',
+        'remix.config.ts',
+        'remix.config.cjs',
+        'remix.config.mjs',
+        'remix.config.yml',
+        'remix.config.yaml',
+      ],
+    },
+    {
+      name: 'replit',
+      fileExtensions: ['replit'],
+    },
+    {
+      name: 'restql',
+      fileExtensions: ['restql', 'rql'],
+    },
+    {
+      name: 'restqlconf',
+      fileNames: [
+        'restql.yml',
+        'restql.yaml',
+        'restql.conf.json',
+        'restql.conf.yaml',
+      ],
+    },
+    {
+      name: 'reactcli',
+      fileExtensions: ['reactcli', 'react-cli'],
+    },
+    {
+      name: 'react',
+      fileNames: [
+        'react.js',
+        'react.cjs',
+        'react.mjs',
+        'react.min.js',
+        'react-min.js',
+        'react.production.min.js',
+      ],
+    },
+    {
+      name: 'reactos',
+      fileNames: ['reactos.ios', 'reactos.deb'],
+    },
+    {
+      name: 'reason',
+      fileExtensions: ['re', 'rei'],
+    },
+    {
+      name: 'reasonstudios',
+      fileExtensions: ['reason', 'rns', 'rsn', 'rx2', 'sxt'],
+    },
+    {
+      name: 'rebol',
+      fileExtensions: ['r2', 'r3', 'eb', 'reb', 'rebol'],
+    },
+    {
+      name: 'redhat',
+      fileExtensions: ['rpm', 'srpm', 'rpmmacros'],
+    },
+    {
+      name: 'red',
+      fileExtensions: ['red', 'reds'],
+    },
+    {
+      name: 'redis',
+      fileNames: ['redis.conf', 'redis-config.yml', 'redis-config.yaml'],
+      fileExtensions: ['rdb'],
+    },
+    {
+      name: 'redux-action',
+      fileExtensions: [
+        'action.js',
+        'action.ts',
+        'actions.js',
+        'actions.ts',
+        'actions/jsx',
+        'actions/ts',
+        'actions/tsx',
+        'actions/js',
+      ],
+    },
+    {
+      name: 'redux-epic',
+      fileExtensions: [
+        'epic.js',
+        'epic.ts',
+        'epics.js',
+        'epics.ts',
+        'epics/jsx',
+        'epics/ts',
+        'epics/tsx',
+        'epics/js',
+      ],
+    },
+    {
+      name: 'redux-saga',
+      fileExtensions: [
+        'saga.js',
+        'saga.ts',
+        'sagas.js',
+        'sagas.ts',
+        'saga/jsx',
+        'saga/ts',
+        'saga/tsx',
+        'saga/js',
+        'sagas/jsx',
+        'sagas/ts',
+        'sagas/tsx',
+        'sagas/js',
+      ],
+    },
+    {
+      name: 'redux-selector',
+      fileExtensions: [
+        'selector.js',
+        'selector.ts',
+        'selectors.js',
+        'selectors.ts',
+        'selector/jsx',
+        'selector/ts',
+        'selector/tsx',
+        'selector/js',
+        'selectors/jsx',
+        'selectors/ts',
+        'selectors/tsx',
+        'selectors/js',
+      ],
+    },
+    {
+      name: 'redux-reducer',
+      fileExtensions: [
+        'reducer.js',
+        'reducer.ts',
+        'reducers.js',
+        'reducers.ts',
+        'reducer/jsx',
+        'reducer/ts',
+        'reducer/tsx',
+        'reducer/js',
+        'reducers/jsx',
+        'reducers/ts',
+        'reducers/tsx',
+        'reducers/js',
+      ],
+    },
+    {
+      name: 'redux-slice',
+      fileExtensions: [
+        'slice.js',
+        'slice.ts',
+        'slices.js',
+        'slices.ts',
+        'slice/jsx',
+        'slice/ts',
+        'slice/tsx',
+        'slice/js',
+        'slices/jsx',
+        'slices/ts',
+        'slices/tsx',
+        'slices/js',
+      ],
+    },
+    {
+      name: 'redux-store',
+      fileExtensions: [
+        'store.js',
+        'store.ts',
+        'stores.js',
+        'stores.ts',
+        'store/jsx',
+        'store/ts',
+        'store/tsx',
+        'store/js',
+        'stores/jsx',
+        'stores/ts',
+        'stores/tsx',
+        'stores/js',
+      ],
+    },
+    {
+      name: 'reek',
+      fileExtensions: ['reek'],
+    },
+    {
+      name: 'regex',
+      fileExtensions: ['regex', 'regexp', 'rgx'],
+    },
+    {
+      name: 'rehype',
+      fileExtensions: [
+        'rehype',
+        'rehyperc',
+        'rehyperc.js',
+        'rehyperc.cjs',
+        'rehyperc.mjs',
+        'rehyperc.ts',
+        'rehyperc.json',
+        'rehyperc.yml',
+        'rehyperc.yaml',
+        'reh',
+      ],
+    },
+    {
+      name: 'rehypeignore',
+      fileExtensions: ['rehypeignore'],
+    },
+    {
+      name: 'remark',
+      fileExtensions: [
+        'remark',
+        'remarkrc',
+        'remarkrc.js',
+        'remarkrc.cjs',
+        'remarkrc.mjs',
+        'remarkrc.ts',
+        'remarkrc.json',
+        'remarkrc.yml',
+        'remarkrc.yaml',
+      ],
+    },
+    {
+      name: 'retext',
+      fileExtensions: [
+        'retext',
+        'retextrc',
+        'retextrc.js',
+        'retextrc.cjs',
+        'retextrc.mjs',
+        'retextrc.ts',
+        'retextrc.json',
+        'retextrc.yml',
+        'retextrc.yaml',
+      ],
+    },
+    {
+      name: 'retextignore',
+      fileExtensions: ['retextignore'],
+    },
+    {
+      name: 'remarkignore',
+      fileExtensions: ['remarkignore'],
+    },
+    {
+      name: 'renovate',
+      fileNames: ['renovate.json', 'renovate.json5', 'renovate.jsonc'],
+      fileExtensions: ['renovaterc'],
+    },
+    {
+      name: 'requirejs',
+      fileNames: [
+        'require.js',
+        'require.cjs',
+        'require.mjs',
+        'require.min.js',
+        'require-dev.js',
+      ],
+    },
+    {
+      name: 'rescript',
+      fileExtensions: ['res', 'resi'],
+    },
+    {
+      name: 'rst',
+      fileExtensions: ['rst'],
+    },
+    {
+      name: 'rexx',
+      fileExtensions: ['rex', 'rexx', 'pprx'],
+    },
+    {
+      name: 'rhino3d',
+      fileExtensions: ['3dm', '3dmf', '3dmr', 'rvb', '3mf', '3mfz', '3mm'],
+    },
+    {
+      name: 'riemann',
+      fileNames: ['riemann.config'],
+    },
+    {
+      name: 'ring',
+      fileExtensions: ['ring'],
+    },
+    {
+      name: 'riot',
+      fileExtensions: ['riot', 'tag'],
+    },
+    {
+      name: 'robot',
+      fileExtensions: ['robot'],
+    },
+    {
+      name: 'robots',
+      fileNames: ['robots.txt', 'robots'],
+    },
+    {
+      name: 'rollup',
+      fileNames: [
+        'rollup.js',
+        'rollup.cjs',
+        'rollup.mjs',
+        'rollup.ts',
+        'rollup.conf.js',
+        'rollup.conf.cjs',
+        'rollup.conf.mjs',
+        'rollup.conf.ts',
+        'rollup.config.js',
+        'rollup.config.cjs',
+        'rollup.config.mjs',
+        'rollup.config.ts',
+      ],
+    },
+    {
+      name: 'rome',
+      fileNames: ['rome.json', '.romeignore'],
+    },
+    {
+      name: 'routes',
+      fileNames: [
+        'routes.js',
+        'routes.ts',
+        'routes.jsx',
+        'routes.tsx',
+        'routing.js',
+        'routing.ts',
+        'routing.jsx',
+        'routing.tsx',
+      ],
+      fileExtensions: [
+        'routes/js',
+        'routes/ts',
+        'routes/jsx',
+        'routes/tsx',
+        'router/js',
+        'router/ts',
+        'router/jsx',
+        'router/tsx',
+        'routing/js',
+        'routing/ts',
+        'routing/jsx',
+        'routing/tsx',
+      ],
+    },
+    {
+      name: 'rstudio',
+      fileExtensions: ['rproj'],
+    },
+    {
+      name: 'rspec',
+      fileExtensions: ['rspec', 'specs/rb', 'spec/rb', 'tests/rb', 'test/rb'],
+    },
+    {
+      name: 'rss',
+      fileExtensions: ['rss'],
+    },
+    {
+      name: 'rsync',
+      fileNames: ['rsyncd.conf', 'rsyncd.secrets'],
+      light: true,
+    },
+    {
+      name: 'rubocop',
+      fileExtensions: ['rubocop.yml', 'rubocop.yaml', 'rubocop_todo.yml'],
+    },
+    {
+      name: 'rubygems',
+      fileExtensions: ['gem', 'gemspec'],
+    },
+    {
+      name: 'rubyrc',
+      fileExtensions: ['rubyrc', 'irbrc', 'gemrc', 'pryrc'],
+    },
+    {
+      name: 'gemset',
+      fileExtensions: ['ruby-gemset', 'rb-gemset'],
+    },
+    {
+      name: 'rubyversion',
+      fileExtensions: ['ruby-version', 'rb-version'],
+    },
+    {
+      name: 'rust',
+      fileExtensions: [
+        'rs',
+        'rs.in',
+        'rust',
+        'rlib',
+        'rlibc',
+        'rlibm',
+        'rlibstd',
+      ],
+    },
+    {
+      name: 'ron',
+      fileExtensions: ['ron'],
+    },
+    {
+      name: 'rusttoolchain',
+      fileExtensions: ['rust-toolchain'],
+    },
+    {
+      name: 'rvm',
+      fileExtensions: ['rvmrc'],
+    },
+    {
+      name: 'rxjs',
+      fileNames: ['rxjs.json', 'rxjs.js', 'rxjs.ts'],
+    },
+    // endregion
+
     // region [S]
     {
       name: 'sac',
