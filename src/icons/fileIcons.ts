@@ -1207,7 +1207,8 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'bazelconfig',
-      fileExtensions: ['bazel.rc', 'bazelrc'],
+      fileNames: ['bazel.rc'],
+      fileExtensions: ['bazelrc'],
     },
     {
       name: 'bc',
@@ -1219,7 +1220,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'behat',
-      fileExtensions: ['feature', 'feature.php'],
+      fileExtensions: ['feature.php'],
     },
     {
       name: 'behatconfig',
@@ -1399,7 +1400,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'broccoli',
-      fileExtensions: ['brocfile'],
+      fileNames: ['brocfile'],
     },
     {
       name: 'brotli',
@@ -1449,6 +1450,627 @@ export const fileIcons: FileIcons = {
     {
       name: 'byond',
       fileExtensions: ['dm'],
+    },
+    // endregion
+
+    // region [C]
+    {
+      name: 'c',
+      fileExtensions: [
+        'c',
+        'cats',
+        'idc',
+        'objc',
+        'w',
+        'nc',
+        'wbm',
+        'xpm',
+        'upc',
+      ],
+    },
+    {
+      name: 'cabal',
+      fileExtensions: ['cabal'],
+    },
+    {
+      name: 'cabalProject',
+      fileNames: ['cabal.project', 'cabal.config'],
+    },
+    {
+      name: 'caddy',
+      fileNames: ['caddyfile'],
+    },
+    {
+      name: 'cadence',
+      fileExtensions: ['cdc', 'cadence'],
+    },
+    {
+      name: 'caffe',
+      fileExtensions: ['caffemodel', 'solverstate'],
+    },
+    {
+      name: 'caffe2',
+      fileExtensions: ['caffe2model', 'prototxt'],
+    },
+    {
+      name: 'cairo',
+      fileExtensions: ['cairo'],
+    },
+    {
+      name: 'cakefile',
+      fileNames: ['cakefile'],
+    },
+    {
+      name: 'cakephp',
+      fileExtensions: ['cake', 'ctp'],
+    },
+    {
+      name: 'calva',
+      fileExtensions: ['calva', 'calva-repl'],
+    },
+    {
+      name: 'cap',
+      fileExtensions: ['cds', 'cap'],
+    },
+    {
+      name: 'capacitor',
+      fileNames: [
+        'capacitor.config.json',
+        'capacitor.config.js',
+        'capacitor.config.ts',
+        'capacitor.config.cjs',
+        'capacitor.config.mjs',
+      ],
+    },
+    {
+      name: 'carbon',
+      fileExtensions: ['carbon'],
+    },
+    {
+      name: 'cargo',
+      fileNames: ['cargo.toml', 'cargo.lock'],
+    },
+    {
+      name: 'carthage',
+      fileNames: ['cartfile', 'cartfile.private', 'cartfile.resolved'],
+    },
+    {
+      name: 'casc',
+      fileExtensions: ['casc', 'cas'],
+    },
+    {
+      name: 'catala',
+      fileExtensions: [
+        'catala',
+        'catala_en',
+        'catala_fr',
+        'catala_it',
+        'catala_es',
+        'catala_pt',
+        'catala_jp',
+        'catala_ru',
+        'catala_de',
+        'catala_zh',
+      ],
+    },
+    {
+      name: 'cddl',
+      fileExtensions: ['cddl'],
+    },
+    {
+      name: 'certificate',
+      fileExtensions: ['crt', 'cert', 'pfx', 'p12', 'csr', 'pks', 'x509'],
+    },
+    {
+      name: 'ceylon',
+      fileExtensions: ['ceylon'],
+    },
+    {
+      name: 'cfc',
+      fileExtensions: ['cfc', 'cfm', 'cfml', 'lucee'],
+    },
+    {
+      name: 'chai',
+      fileNames: [
+        'chai.js',
+        'chai.min.js',
+        'chai.ts',
+        'chai.cjs',
+        'chai.mjs',
+        'chai.es6',
+        'chai.coffee',
+      ],
+    },
+    {
+      name: 'chameleon',
+      fileExtensions: ['pt'],
+    },
+    {
+      name: 'changelog',
+      fileExtensions: ['changelog', 'changes'],
+      fileNames: [
+        'changelog',
+        'changelog.md',
+        'changelog.txt',
+        'changelog.rst',
+        'changes',
+        'changes.md',
+        'changes.txt',
+        'changes.rst',
+      ],
+    },
+    {
+      name: 'chapel',
+      fileExtensions: ['chpl', 'chapel'],
+    },
+    {
+      name: 'chartjs',
+      fileNames: [
+        'chart.js',
+        'chart.min.js',
+        'chart.ts',
+        'chart.cjs',
+        'chart.mjs',
+        'chart.bundle.js',
+        'chart.bundle.cjs',
+        'chart.bundle.mjs',
+        'chart.bundle.min.js',
+        'chart.bundle.ts',
+      ],
+    },
+    {
+      name: 'cheetah',
+      fileExtensions: ['jas'],
+    },
+    {
+      name: 'chef',
+      fileNames: ['knife.rb'],
+    },
+    {
+      name: 'berksfile',
+      fileNames: ['berksfile', 'berksfile.lock', 'policyfile'],
+    },
+    {
+      name: 'chocolatey',
+      fileNames: [
+        'chocolateyinstall.ps1',
+        'chocolateyuninstall.ps1',
+        'chocolatey.ps1',
+      ],
+    },
+    {
+      name: 'chrome',
+      fileExtensions: ['crx', 'crdownload'],
+    },
+    {
+      name: 'chuck',
+      fileExtensions: ['ck'],
+    },
+    {
+      name: 'circleci',
+      fileNames: ['circle.yml', 'circle.yaml'],
+      fileExtensions: ['circleci'],
+    },
+    {
+      name: 'circuit',
+      fileExtensions: [
+        'brd',
+        'sch',
+        'cir',
+        'pcb',
+        'dsn',
+        'gbr',
+        'gbl',
+        'gbs',
+        'gbo',
+        'gbp',
+        'gto',
+        'gtl',
+        'gtp',
+        'gts',
+        'gko',
+        'gpt',
+        'gpb',
+        'fab',
+        'pho',
+        'ckt',
+        'g0',
+        'g1',
+        'g2',
+        'g3',
+        'g4',
+        'g5',
+        'g6',
+        'g7',
+        'g8',
+        'g9',
+        'gm1',
+        'g90',
+      ],
+    },
+    {
+      name: 'cirru',
+      fileExtensions: ['cirru'],
+    },
+    {
+      name: 'ckeditor',
+      fileNames: ['ckeditor5-metadata.json'],
+    },
+    {
+      name: 'clarion',
+      fileExtensions: ['clw', 'clwx', 'clwn', 'clwz', 'clm', 'clmx', 'clmn'],
+    },
+    {
+      name: 'clean',
+      fileExtensions: ['icl', 'dcl', 'abc'],
+    },
+    {
+      name: 'click',
+      fileExtensions: ['click'],
+    },
+    {
+      name: 'clio',
+      fileExtensions: ['clio'],
+    },
+    {
+      name: 'clips',
+      fileExtensions: ['clp'],
+    },
+    {
+      name: 'closuretpl',
+      fileExtensions: ['soy'],
+    },
+    {
+      name: 'cloudfoundry',
+      fileExtensions: ['cfignore'],
+    },
+    {
+      name: 'cmake',
+      fileExtensions: ['cmake', 'cmake.in'],
+    },
+    {
+      name: 'cmakelists',
+      fileNames: ['cmakelists.txt', 'cmakelists'],
+    },
+    {
+      name: 'cname',
+      fileNames: ['cname'],
+    },
+    {
+      name: 'cnab',
+      fileNames: ['bundle.json'],
+    },
+    {
+      name: 'coala',
+      fileExtensions: ['coafile', 'coarc'],
+    },
+    {
+      name: 'cobol',
+      fileExtensions: ['cob', 'cbl', 'ccp', 'cobol', 'cpy'],
+    },
+    {
+      name: 'cocoapods',
+      fileNames: ['podfile', 'podfile.lock', 'podspec'],
+    },
+    {
+      name: 'coconut',
+      fileExtensions: ['coco'],
+    },
+    {
+      name: 'codacy',
+      fileExtensions: ['codacy.yml', 'codacy.yaml'],
+    },
+    {
+      name: 'codeclimate',
+      fileExtensions: ['codeclimate.yml', 'codeclimate.yaml'],
+    },
+    {
+      name: 'codecov',
+      fileNames: ['codecov.yml', 'codecov.yaml'],
+      fileExtensions: ['codecov.yml', 'codecov.yaml'],
+    },
+    {
+      name: 'codekit',
+      fileNames: ['codekit-config.json'],
+      fileExtensions: ['codekit', 'codekit2', 'codekit3'],
+    },
+    {
+      name: 'codemeta',
+      fileNames: ['codemeta.json', 'codemeta.jsonld'],
+    },
+    {
+      name: 'codemirror',
+      fileNames: [
+        'codemirror.js',
+        'codemirror.ts',
+        'codemirror.min.js',
+        'codemirror.css',
+        'codemirror.min.css',
+        'codemirror.cjs',
+        'codemirror.mjs',
+      ],
+    },
+    {
+      name: 'codeowners',
+      fileNames: ['codeowners'],
+    },
+    {
+      name: 'codeship',
+      fileNames: ['codeship-services.yml', 'codeship-steps.yml'],
+    },
+    {
+      name: 'codeql',
+      fileExtensions: ['ql'],
+    },
+    {
+      name: 'coffeelint',
+      fileNames: ['coffeelint.json'],
+    },
+    {
+      name: 'coffeelintignore',
+      fileExtensions: ['coffeelintignore'],
+    },
+    {
+      name: 'cf',
+      fileExtensions: ['cf'],
+    },
+    {
+      name: 'khronos',
+      fileExtensions: ['dae', 'collada'],
+    },
+    {
+      name: 'commitizen',
+      fileNames: [
+        'cz.yml',
+        'cz.yaml',
+        'cz.toml',
+        'cz.json',
+        'commitizen.json',
+        'commitizen.yml',
+        'commitizen.yaml',
+        'commitizen.toml',
+      ],
+      fileExtensions: ['cz', 'czrc', 'cz.json', 'cz.yaml', 'cz.yml', 'cz.toml'],
+    },
+    {
+      name: 'commitlint',
+      fileNames: [
+        'commitlint.config',
+        'commitlint.config.js',
+        'commitlint.config.json',
+        'commitlint.config.yaml',
+        'commitlint.config.yml',
+        'commitlint.config.cjs',
+        'commitlint.config.mjs',
+      ],
+      fileExtensions: [
+        'commitlintrc',
+        'commitlintrc.js',
+        'commitlintrc.json',
+        'commitlintrc.yaml',
+        'commitlintrc.yml',
+        'commitlintrc.cjs',
+        'commitlintrc.mjs',
+      ],
+    },
+    {
+      name: 'compassConfig',
+      fileNames: ['config.rb'],
+    },
+    {
+      name: 'compass',
+      fileNames: [
+        'compass.rb',
+        'compass.scss',
+        'compass.sass',
+        '_compass.scss',
+        '_compass.sass',
+        'lemonade.scss',
+        'lemonade.sass',
+      ],
+    },
+    {
+      name: 'cp',
+      fileExtensions: ['cp', 'cps'],
+    },
+    {
+      name: 'composer',
+      fileNames: ['composer.json'],
+    },
+    {
+      name: 'composerlock',
+      fileNames: ['composer.lock'],
+    },
+    {
+      name: 'composerphar',
+      fileNames: ['composer.phar'],
+    },
+    {
+      name: 'cdf',
+      fileExtensions: ['cdf'],
+    },
+    {
+      name: 'conan',
+      fileNames: ['conanfile.py', 'conanfile.txt', 'conanfile', 'conan.conf'],
+    },
+    {
+      name: 'conda',
+      fileExtensions: ['condarc'],
+    },
+    {
+      name: 'confluence',
+      fileExtensions: ['confluence'],
+    },
+    {
+      name: 'conll',
+      fileExtensions: ['conll', 'conllu'],
+    },
+    {
+      name: 'cml',
+      fileExtensions: ['cml'],
+    },
+    {
+      name: 'contributors',
+      fileExtensions: ['contributors', 'all-contributorsrc'],
+    },
+    {
+      name: 'cordova',
+      fileNames: [
+        'config.xml',
+        'cordova.js',
+        'cordova_plugins.js',
+        'cordova-config.js',
+        'cordova-2.js',
+      ],
+    },
+    {
+      name: 'coq',
+      fileExtensions: ['coq'],
+    },
+    {
+      name: 'corel',
+      fileExtensions: ['cdr', 'cdt', 'cmx', 'ccx', 'cdrx'],
+    },
+    {
+      name: 'coveralls',
+      fileExtensions: ['coveralls.yml', 'coveralls.yaml'],
+    },
+    {
+      name: 'cpan',
+      fileNames: ['cpanfile', 'meta.yml', 'meta.yaml', 'meta.json'],
+    },
+    {
+      name: 'credits',
+      fileNames: ['credits', 'credits.txt', 'credits.md', 'credits.rst'],
+    },
+    {
+      name: 'cpcdocs',
+      fileExtensions: ['cpc'],
+    },
+    {
+      name: 'creole',
+      fileExtensions: ['creole'],
+    },
+    {
+      name: 'crowdin',
+      fileNames: ['crowdin.yml', 'crowdin.yaml'],
+    },
+    {
+      name: 'crystal',
+      fileExtensions: ['cr', 'ecr'],
+    },
+    {
+      name: 'csound',
+      fileExtensions: ['orc', 'udo', 'sco', 'csc', 'ins'],
+      light: true,
+    },
+    {
+      name: 'cspell',
+      fileNames: [
+        'cspell.config.json',
+        'cspell.config.js',
+        'cspell.config.cjs',
+        'cspell.config.mjs',
+        'cspell.config.yaml',
+        'cspell.config.yml',
+      ],
+      fileExtensions: ['cspell', 'cspell.json', 'cspell.yaml', 'cspell.yml'],
+    },
+    {
+      name: 'csscomb',
+      fileExtensions: [
+        'csscomb.json',
+        'csscomb.js',
+        'csscomb.yaml',
+        'csscomb.yml',
+      ],
+    },
+    {
+      name: 'csslint',
+      fileExtensions: ['csslintrc'],
+    },
+    {
+      name: 'cssmap',
+      fileExtensions: ['css.map'],
+    },
+    {
+      name: 'csv',
+      fileExtensions: ['csv', 'tsv'],
+    },
+    {
+      name: 'cucumber',
+      fileNames: [
+        'cucumber.js',
+        'cucumber.ts',
+        'cucumber.json',
+        'cucumber.cjs',
+        'cucumber.mjs',
+        'cucumber.yml',
+        'cucumber.yaml',
+      ],
+      fileExtensions: ['feature'],
+    },
+    {
+      name: 'nvidia',
+      fileExtensions: ['cu'],
+    },
+    {
+      name: 'cuh',
+      fileExtensions: ['cuh'],
+    },
+    {
+      name: 'cue',
+      fileExtensions: ['cue'],
+    },
+    {
+      name: 'cuneiform',
+      fileExtensions: ['cfl'],
+    },
+    {
+      name: 'curl',
+      fileExtensions: ['curlrc'],
+    },
+    {
+      name: 'curry',
+      fileExtensions: ['curry'],
+    },
+    {
+      name: 'cwl',
+      fileExtensions: ['cwl'],
+    },
+    {
+      name: 'cython',
+      fileExtensions: ['pyx', 'pxd', 'pxi'],
+    },
+    {
+      name: 'cypress',
+      fileNames: ['cypress.json', 'cypress.env.json'],
+    },
+    {
+      name: 'cpp',
+      fileExtensions: [
+        'cpp',
+        'c++',
+        'cc',
+        'cxx',
+        'ii',
+        'mii',
+        'ipp',
+        'tcc',
+        'inl',
+      ],
+    },
+    {
+      name: 'csharp',
+      fileExtensions: ['cs', 'csx'],
+    },
+    {
+      name: 'csproj',
+      fileExtensions: ['csproj'],
+    },
+    {
+      name: 'vcxproj',
+      fileExtensions: ['vcxproj', 'vcxproj.filters'],
     },
     // endregion
 
@@ -2126,7 +2748,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'make',
-      fileExtensions: ['mak', 'mk', 'mms', 'make', 'am', 'bb'],
+      fileExtensions: ['mak', 'mk', 'mms', 'make', 'am'],
     },
     {
       name: 'makefile',
@@ -5618,6 +6240,10 @@ export const fileIcons: FileIcons = {
     // endregion
 
     // region [Languages]
+    {
+      name: 'coffeescript',
+      fileExtensions: ['coffee', 'litcoffee', 'iced', 'cjsx'],
+    },
     {
       name: 'scala',
       fileExtensions: ['scala'],
