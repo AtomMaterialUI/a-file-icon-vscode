@@ -1117,6 +1117,341 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
+    // region [B]
+    {
+      name: 'babel',
+      fileExtensions: [
+        'babel',
+        'babelrc',
+        'babelrc.js',
+        'babelrc.cjs',
+        'babelrc.mjs',
+        'languagebabel',
+      ],
+    },
+    {
+      name: 'babelconfig',
+      fileNames: [
+        'babel.config.js',
+        'babel.config.cjs',
+        'babel.config.mjs',
+        'babel.json',
+        'babel.config.json',
+      ],
+    },
+    {
+      name: 'baboon',
+      fileNames: [
+        'baboon.config.js',
+        'baboon.config.cjs',
+        'baboon.config.mjs',
+        'baboon.json',
+        'baboon.config.json',
+      ],
+    },
+    {
+      name: 'backbone',
+      fileNames: [
+        'backbone.js',
+        'backbone.cjs',
+        'backbone.mjs',
+        'backbone.min.js',
+        'backbone-min.js',
+      ],
+    },
+    {
+      name: 'backup',
+      fileExtensions: ['backup', 'bak', 'old', 'orig'],
+    },
+    {
+      name: 'ballerina',
+      fileExtensions: ['bal', 'balx'],
+    },
+    {
+      name: 'bandit',
+      fileNames: ['bandit.yml', 'bandit.yaml'],
+      fileExtensions: ['bandit', 'bandit.yml', 'bandit.yaml'],
+    },
+    {
+      name: 'basic',
+      fileExtensions: [
+        'bas',
+        'bi',
+        'bb',
+        'bmx',
+        'bms',
+        'bm',
+        'bml',
+        'bmx',
+        'vb',
+        'vbx',
+        'vbs',
+      ],
+    },
+    {
+      name: 'bats',
+      fileExtensions: ['bats'],
+      light: true,
+    },
+    {
+      name: 'bazaar',
+      fileExtensions: ['bzrignore'],
+    },
+    {
+      name: 'bazel',
+      fileExtensions: ['bzl', 'bazel'],
+    },
+    {
+      name: 'bazelignore',
+      fileExtensions: ['bzlignore', 'bazelignore'],
+    },
+    {
+      name: 'bazelconfig',
+      fileExtensions: ['bazel.rc', 'bazelrc'],
+    },
+    {
+      name: 'bc',
+      fileExtensions: ['bc', 'dc', 'dcrc'],
+    },
+    {
+      name: 'bean',
+      fileExtensions: ['bean/java', 'bean/kt', 'beans/java', 'beans/kt'],
+    },
+    {
+      name: 'behat',
+      fileExtensions: ['feature', 'feature.php'],
+    },
+    {
+      name: 'behatconfig',
+      fileNames: [
+        'behat.yml',
+        'behat.yaml',
+        'behat.config.yml',
+        'behat.config.yaml',
+      ],
+    },
+    {
+      name: 'bem',
+      fileExtensions: ['bemjson', 'bemjson.js', 'bemjson.cjs', 'bemjson.mjs'],
+    },
+    {
+      name: 'bibtex',
+      fileExtensions: ['cbx', 'bbx', 'bbl', 'bib', 'bst'],
+    },
+    {
+      name: 'bicep',
+      fileExtensions: ['bicep'],
+    },
+    {
+      name: 'biml',
+      fileExtensions: ['biml'],
+    },
+    {
+      name: 'binder',
+      fileNames: [
+        'binder-requirements.in',
+        'binder_requirements.in',
+        'binder-requirements.txt',
+        'binder_requirements.txt',
+      ],
+    },
+    {
+      name: 'bintray',
+      fileExtensions: ['bintray.json'],
+    },
+    {
+      name: 'bison',
+      fileExtensions: ['bison', 'y', 'yacc', 'yy', 'ypp'],
+    },
+    {
+      name: 'bitcoin',
+      fileNames: ['bitcoin.conf'],
+    },
+    {
+      name: 'bithound',
+      fileExtensions: ['bithoundrc'],
+    },
+    {
+      name: 'bitbucket',
+      fileNames: ['bitbucket-pipelines.yml', 'bitbucket-pipelines.yaml'],
+    },
+    {
+      name: 'blade',
+      fileExtensions: ['blade', 'blade.php'],
+    },
+    {
+      name: 'blender',
+      fileExtensions: ['blend', 'bphys'],
+    },
+    {
+      name: 'blitzbasic',
+      fileExtensions: ['bb', 'decls'],
+    },
+    {
+      name: 'blitz',
+      fileNames: [
+        'blitz.config.js',
+        'blitz.config.cjs',
+        'blitz.config.mjs',
+        'blitz.config.ts',
+        'blitz.config.compiled.js',
+        'blitz.config.compiled.ts',
+      ],
+    },
+    {
+      name: 'bloc',
+      fileNames: [
+        'bloc.dart',
+        'flutter_bloc.dart',
+        'AppBloc.dart',
+        'habit_event.dart',
+        'AppEvent.dart',
+        'habit_state.dart',
+        'AppState.dart',
+        'bloc/dart',
+        'blocs/dart',
+        'state/dart',
+        'states/dart',
+        'event/dart',
+        'events/dart',
+      ],
+    },
+    {
+      name: 'bluespec',
+      fileExtensions: ['bsv', 'bspec'],
+    },
+    {
+      name: 'blink',
+      fileExtensions: ['blink'],
+    },
+    {
+      name: 'bnf',
+      fileExtensions: ['bnf', 'ebnf', 'abnf', 'lbnf', 'grammar'],
+    },
+    {
+      name: 'boo',
+      fileExtensions: ['boo', 'boo.unity'],
+    },
+    {
+      name: 'bors',
+      fileNames: ['bors.toml'],
+    },
+    {
+      name: 'boot',
+      fileExtensions: ['boot'],
+    },
+    {
+      name: 'bun',
+      fileNames: ['bunfig.toml'],
+      fileExtensions: ['bunfig.toml'],
+      light: true,
+    },
+    {
+      name: 'bunlock',
+      fileNames: ['bun.lockb'],
+    },
+    {
+      name: 'bootstrap',
+      fileNames: [
+        'bootstrap.js',
+        'bootstrap.cjs',
+        'bootstrap.mjs',
+        'bootstrap.ts',
+        'bootstrap.css',
+        'bootstrap.scss',
+        'bootstrap.min.js',
+        'bootstrap.min.css',
+        'custom.bootstrap.js',
+        'custom.bootstrap.cjs',
+        'custom.bootstrap.mjs',
+        'custom.bootstrap.ts',
+        'custom.bootstrap.css',
+      ],
+    },
+    {
+      name: 'bootstraprc',
+      fileExtensions: ['bootstraprc'],
+    },
+    {
+      name: 'bosque',
+      fileExtensions: ['bsq'],
+    },
+    {
+      name: 'bower',
+      fileNames: ['bower.json', 'bowerfile'],
+      fileExtensions: ['bowerrc'],
+    },
+    {
+      name: 'brainfuck',
+      fileExtensions: ['bf', 'brainfuck'],
+    },
+    {
+      name: 'brakeman',
+      fileNames: ['brakeman.yml', 'brakeman.yaml'],
+    },
+    {
+      name: 'brew',
+      fileNames: ['brewfile'],
+    },
+    {
+      name: 'bro',
+      fileExtensions: ['bro'],
+    },
+    {
+      name: 'broccoli',
+      fileExtensions: ['brocfile'],
+    },
+    {
+      name: 'brotli',
+      fileExtensions: ['br'],
+    },
+    {
+      name: 'browserslist',
+      fileExtensions: ['browserslist', 'browserslistrc'],
+    },
+    {
+      name: 'browsersync',
+      fileNames: [
+        'bs-config.js',
+        'bs-config.json',
+        'browser-sync.js',
+        'browser-sync.json',
+        'browsersync.js',
+        'browsersync.json',
+      ],
+    },
+    {
+      name: 'brunch',
+      fileNames: [
+        'brunch-config.js',
+        'brunch-config.ts',
+        'brunch-config.coffee',
+      ],
+    },
+    {
+      name: 'buck',
+      fileExtensions: ['buck', 'buckconfig'],
+    },
+    {
+      name: 'bucklescript',
+      fileExtensions: ['cmj'],
+    },
+    {
+      name: 'buildkite',
+      fileNames: ['buildkite.yml', 'buildkite.yaml'],
+      fileExtensions: ['buildkite'],
+    },
+    {
+      name: 'bundle',
+      fileNames: ['gemfile'],
+      fileExtensions: ['gemfile'],
+    },
+    {
+      name: 'byond',
+      fileExtensions: ['dm'],
+    },
+    // endregion
+
     // region [E]
     {
       name: 'e',
@@ -1153,6 +1488,10 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'clipse',
+      fileExtensions: ['ecl', 'ecl.txt'],
+    },
+    {
+      name: 'eclipse',
       fileExtensions: ['eclipse', 'classpath', 'project', 'cproject'],
     },
     {
@@ -1176,12 +1515,8 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'electron',
-      fileNames: [
-        'electron-builder.yml',
-        'electron-builder.json',
-        '.compilerc.json',
-      ],
-      fileExtensions: ['compilerc'],
+      fileNames: ['electron-builder.yml', 'electron-builder.json'],
+      fileExtensions: ['compilerc', 'compilerc.json'],
     },
     {
       name: 'electronasar',
@@ -1297,6 +1632,7 @@ export const fileIcons: FileIcons = {
         'eslintrc.yaml',
         'eslintrc.yml',
         'eslintrc.json',
+        'eslintrc.ts',
       ],
     },
     {
@@ -1611,7 +1947,7 @@ export const fileIcons: FileIcons = {
     {
       name: 'jenkins',
       fileNames: ['Jenkinsfile', 'jenkinsfile.groovy', 'jenkinsfile.kt'],
-      fileExtensions: ['jenkinsfile'],
+      fileExtensions: ['jenkinsfile', 'jenkins'],
     },
     {
       name: 'jest',
@@ -1724,10 +2060,12 @@ export const fileIcons: FileIcons = {
         'jsconfig.js',
         'jsconfig.cjs',
         'jsconfig.mjs',
-        '.jsconfig.json',
-        '.jsconfig.js',
-        '.jsconfig.cjs',
-        '.jsconfig.mjs',
+      ],
+      fileExtensions: [
+        'jsconfig.json',
+        'jsconfig.js',
+        'jsconfig.cjs',
+        'jsconfig.mjs',
       ],
     },
     {
