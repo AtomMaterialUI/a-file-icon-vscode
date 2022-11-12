@@ -1399,7 +1399,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'brainfuck',
-      fileExtensions: ['bf', 'brainfuck'],
+      fileExtensions: ['bf', 'brainfuck', 'b'],
     },
     {
       name: 'brakeman',
@@ -4829,6 +4829,7 @@ export const fileIcons: FileIcons = {
         'actions/tsx',
         'actions/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-epic',
@@ -4842,6 +4843,7 @@ export const fileIcons: FileIcons = {
         'epics/tsx',
         'epics/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-saga',
@@ -4859,6 +4861,7 @@ export const fileIcons: FileIcons = {
         'sagas/tsx',
         'sagas/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-selector',
@@ -4876,6 +4879,7 @@ export const fileIcons: FileIcons = {
         'selectors/tsx',
         'selectors/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-reducer',
@@ -4893,6 +4897,7 @@ export const fileIcons: FileIcons = {
         'reducers/tsx',
         'reducers/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-slice',
@@ -4910,6 +4915,7 @@ export const fileIcons: FileIcons = {
         'slices/tsx',
         'slices/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'redux-store',
@@ -4927,6 +4933,7 @@ export const fileIcons: FileIcons = {
         'stores/tsx',
         'stores/js',
       ],
+      enabledFor: [IconPack.Redux],
     },
     {
       name: 'reek',
@@ -5357,6 +5364,8 @@ export const fileIcons: FileIcons = {
         '.tcshrc',
         '.cshrc',
         '.kshrc',
+        '.mkshrc',
+        '.pdkshrc',
       ],
       fileExtensions: [
         'bash',
@@ -5458,14 +5467,18 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'slug',
+      fileExtensions: ['slugignore'],
       fileNames: [
-        'slugignore',
         'slugs/js',
+        'slugs/cjs',
+        'slugs/mjs',
         'slugs/jsx',
         'slugs/ts',
         'slugs/tsx',
         'slugs/php',
         '[slug].js',
+        '[slug].cjs',
+        '[slug].mjs',
         '[slug].jsx',
         '[slug].ts',
         '[slug].tsx',
@@ -5554,6 +5567,11 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'sonarcloud',
+      fileExtensions: [
+        'sonarcloud.properties',
+        'sonarcloud.yml',
+        'sonarcloud.yaml',
+      ],
       fileNames: [
         'sonar-project.properties',
         'sonar-project.json',
@@ -5684,6 +5702,12 @@ export const fileIcons: FileIcons = {
     {
       name: 'stitches',
       fileNames: [
+        'stitches.config.js',
+        'stitches.config.ts',
+        'stitches.config.cjs',
+        'stitches.config.mjs',
+      ],
+      fileExtensions: [
         'stitches.config.js',
         'stitches.config.ts',
         'stitches.config.cjs',
@@ -5870,8 +5894,8 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'svgr',
+      fileExtensions: ['svgrrc', 'svgrrc.json', 'svgrrc.yml', 'svgrrc.yaml'],
       fileNames: [
-        '.svgrrc',
         'svgr.config.js',
         'svgr.config.ts',
         'svgr.config.cjs',
@@ -6339,6 +6363,12 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'unibeautify',
+      fileExtensions: [
+        'unibeautifyrc',
+        'unibeautifyrc.json',
+        'unibeautifyrc.yml',
+        'unibeautifyrc.yaml',
+      ],
       fileNames: [
         'unibeautify.config.js',
         'unibeautify.config.cjs',
