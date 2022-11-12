@@ -403,6 +403,21 @@ export const fileIcons: FileIcons = {
         'specs/ts',
       ],
     },
+    {
+      name: 'phpunit',
+      fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
+      fileExtensions: [
+        'test.php',
+        'unit.php',
+        'spec.php',
+        'test/php',
+        'tests/php',
+        'unit/php',
+        'units/php',
+        'spec/php',
+        'specs/php',
+      ],
+    },
     // endregion [Tests]
 
     // region [0-9]
@@ -3988,6 +4003,589 @@ export const fileIcons: FileIcons = {
 
     // endregion
 
+    // region [P]
+    {
+      name: 'paket',
+      fileNames: [
+        'paket.dependencies',
+        'paket.references',
+        'paket.template',
+        'paket.lock',
+        'paket.local',
+      ],
+    },
+    {
+      name: 'pan',
+      fileExtensions: ['pan'],
+    },
+    {
+      name: 'papyrus',
+      fileExtensions: ['psc', 'pex'],
+    },
+    {
+      name: 'parcel',
+      fileExtensions: ['parcel', 'parcelrc'],
+    },
+    {
+      name: 'parrot',
+      fileExtensions: ['parrot', 'pir', 'pasm', 'pbc'],
+    },
+    {
+      name: 'parquet',
+      fileExtensions: ['parquet'],
+    },
+    {
+      name: 'pascal',
+      fileExtensions: [
+        'pas',
+        'pascal',
+        'ppu',
+        'lpr',
+        'lps',
+        'lpi',
+        'lpk',
+        'lfm',
+        'lrs',
+        'lrt',
+        'dfm',
+        'dpr',
+        'dpk',
+        'or',
+      ],
+    },
+    {
+      name: 'patch',
+      fileExtensions: ['patch', 'meld'],
+    },
+    {
+      name: 'patreon',
+      fileNames: [
+        'patrons',
+        'patrons.md',
+        'patrons.txt',
+        'patreon',
+        'patreon.md',
+        'patreon.txt',
+      ],
+    },
+    {
+      name: 'pawn',
+      fileExtensions: ['pawn', 'pwn', 'pgn', 'fen', 'amx'],
+    },
+    {
+      name: 'pcd',
+      fileExtensions: ['pcd'],
+    },
+    {
+      name: 'pddl',
+      fileExtensions: ['pddl', 'plan', 'happenings'],
+    },
+    {
+      name: 'pdf',
+      fileExtensions: ['pdf'],
+    },
+    {
+      name: 'pegjs',
+      fileExtensions: ['pegjs', 'peg', 'pegcoffee', 'peggy'],
+    },
+    {
+      name: 'percy',
+      fileExtensions: [
+        'percyrc',
+        'percy.yml',
+        'percy.yaml',
+        'percy.json',
+        'percy.js',
+        'percy',
+      ],
+    },
+    {
+      name: 'perlconfig',
+      fileNames: [
+        'perlconfig.json',
+        'perl5config.json',
+        'perl6config.json',
+        'perl-config.json',
+        'perl5-config.json',
+        'perl6-config.json',
+      ],
+    },
+    {
+      name: 'helix',
+      fileExtensions: ['p4', 'p4config', 'p4ignore', 'p4include', 'p4info'],
+    },
+    {
+      name: 'helixignore',
+      fileExtensions: ['p4ignore'],
+    },
+    {
+      name: 'phalcon',
+      fileExtensions: ['phalcon', 'volt'],
+      light: true,
+    },
+    {
+      name: 'photorec',
+      fileExtensions: ['photorec.cfg'],
+    },
+    {
+      name: 'php2',
+      fileExtensions: [
+        'engine',
+        'phar',
+        'php2',
+        'php3',
+        'php4',
+        'php5',
+        'php6',
+        'php7',
+        'php8',
+        'php9',
+      ],
+    },
+    {
+      name: 'phpcs',
+      fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
+      fileExtensions: ['php_cs'],
+    },
+    {
+      name: 'phtml',
+      fileExtensions: ['phtml'],
+    },
+    {
+      name: 'phoenix',
+      fileNames: [
+        'phoenix.js',
+        'phoenix.cjs',
+        'phoenix.mjs',
+        'phoenix.min.js',
+        'phoenix.esm.js',
+        'phoenix.esm.min.js',
+        'phoenix.ex',
+      ],
+    },
+    {
+      name: 'phraseapp',
+      fileExtensions: [
+        'phrase.yml',
+        'phrase.yaml',
+        'phraseapp.yml',
+        'phraseapp.yaml',
+      ],
+    },
+    {
+      name: 'pickle',
+      fileExtensions: ['pickle', 'pkl'],
+    },
+    {
+      name: 'pico8',
+      fileExtensions: ['p8', 'pico8'],
+    },
+    {
+      name: 'picolisp',
+      fileExtensions: ['l'],
+    },
+    {
+      name: 'pike',
+      fileExtensions: ['pike', 'pmod'],
+    },
+    {
+      name: 'pinescript',
+      fileExtensions: ['pinescript', 'pine'],
+    },
+    {
+      name: 'pipfile',
+      fileExtensions: ['pipfile'],
+      fileNames: ['pipfile'],
+    },
+    {
+      name: 'pipfilelock',
+      fileNames: ['pipfile.lock'],
+    },
+    {
+      name: 'pipeline',
+      fileExtensions: ['pipeline'],
+    },
+    {
+      name: 'pkgsrc',
+      fileNames: ['mk.conf'],
+    },
+    {
+      name: 'platformio',
+      fileNames: ['platformio.ini'],
+    },
+    {
+      name: 'play',
+      fileExtensions: ['play'],
+    },
+    {
+      name: 'playwright',
+      fileNames: [
+        'playwright.config.js',
+        'playwright.config.ts',
+        'playwright.config.cjs',
+        'playwright.config.mjs',
+      ],
+    },
+    {
+      name: 'plist',
+      fileExtensions: ['plist'],
+    },
+    {
+      name: 'plopfile',
+      fileNames: ['plopfile.js', 'plopfile.ts', 'plopfile.cjs', 'plopfile.mjs'],
+    },
+    {
+      name: 'pm2',
+      fileNames: [
+        'ecosystem.config.js',
+        'ecosystem.config.ts',
+        'ecosystem.config.json',
+        'ecosystem.config.cjs',
+        'ecosystem.config.mjs',
+        'ecosystem.config.yml',
+        'ecosystem.config.yaml',
+        'ecosystem.config.ini',
+        'ecosystem.conf.js',
+        'ecosystem.conf.ts',
+        'ecosystem.conf.json',
+        'ecosystem.conf.cjs',
+        'ecosystem.conf.mjs',
+        'ecosystem.conf.yml',
+        'ecosystem.conf.yaml',
+        'ecosystem.conf.ini',
+      ],
+    },
+    {
+      name: 'pnpm',
+      fileNames: ['pnpm-lock.yaml', 'pnpm-workspace.yaml', 'pnpm-debug.yaml'],
+    },
+    {
+      name: 'pnpmfile',
+      fileNames: ['pnpmfile.js', 'pnpmfile.ts', 'pnpmfile.cjs', 'pnpmfile.mjs'],
+    },
+    {
+      name: 'pod',
+      fileExtensions: ['pod', 'pod6', 'p6l', 'p6m', 'nqp'],
+    },
+    {
+      name: 'poetry',
+      fileNames: ['pyproject.toml', 'poetry.lock'],
+    },
+    {
+      name: 'pogoscript',
+      fileExtensions: ['pogo'],
+    },
+    {
+      name: 'polymer',
+      fileExtensions: ['polymer'],
+      fileNames: ['polymer.json'],
+    },
+    {
+      name: 'pony',
+      fileExtensions: ['pony'],
+    },
+    {
+      name: 'pgsql',
+      fileExtensions: ['pgsql'],
+    },
+    {
+      name: 'postcss',
+      fileNames: [
+        'postcssrc.config.js',
+        'postcssrc.config.json',
+        'postcssrc.config.cjs',
+        'postcssrc.config.mjs',
+        'postcssrc.config.ts',
+        'postcssrc.config.yml',
+        'postcssrc.config.yaml',
+        'postcss.config.js',
+        'postcss.config.json',
+        'postcss.config.ts',
+        'postcss.config.cjs',
+        'postcss.config.mjs',
+        'postcss.config.yml',
+        'postcss.config.yaml',
+      ],
+      fileExtensions: [
+        'postcss',
+        'pcss',
+        'postcssrc',
+        'postcssrc.js',
+        'postcssrc.json',
+        'postcssrc.ts',
+        'postcssrc.cjs',
+        'postcssrc.mjs',
+        'postcssrc.yml',
+        'postcssrc.yaml',
+      ],
+    },
+    {
+      name: 'posthtml',
+      fileNames: [
+        'posthtml.config.js',
+        'posthtml.config.json',
+        'posthtml.config.ts',
+        'posthtml.config.cjs',
+        'posthtml.config.mjs',
+        'posthtml.config.yml',
+        'posthtml.config.yaml',
+      ],
+      fileExtensions: [
+        'posthtml',
+        'posthtmlrc',
+        'posthtmlrc.js',
+        'posthtmlrc.json',
+        'posthtmlrc.ts',
+        'posthtmlrc.cjs',
+        'posthtmlrc.mjs',
+        'posthtmlrc.yml',
+        'posthtmlrc.yaml',
+      ],
+    },
+    {
+      name: 'postscript',
+      fileExtensions: [
+        'ps',
+        'eps',
+        'epsi',
+        'epsf',
+        'gsf',
+        'afm',
+        'amm',
+        'bez',
+        'gs',
+      ],
+    },
+    {
+      name: 'powerbuilder',
+      fileExtensions: [
+        'pbt',
+        'pbl',
+        'pbm',
+        'pbs',
+        'pbr',
+        'pbw',
+        'sra',
+        'sru',
+        'srw',
+        'srj',
+        'srp',
+      ],
+    },
+    {
+      name: 'powerpoint',
+      fileExtensions: [
+        'ppt',
+        'pptx',
+        'pptm',
+        'pot',
+        'potx',
+        'potm',
+        'pps',
+        'ppsx',
+        'ppsm',
+        'ppa',
+        'ppam',
+        'sldx',
+        'sldm',
+      ],
+    },
+    {
+      name: 'powershell',
+      fileExtensions: [
+        'ps1',
+        'ps1xml',
+        'psd1',
+        'psm1',
+        'pssc',
+        'powershell',
+        'psrc',
+        'pssc',
+        'cmd',
+      ],
+    },
+    {
+      name: 'precommit',
+      fileExtensions: [
+        'pre-commit.yml',
+        'pre-commit.yaml',
+        'pre-commit-config.yml',
+        'pre-commit-config.yaml',
+        'pre-commit-hooks.yml',
+        'pre-commit-hooks.yaml',
+      ],
+    },
+    {
+      name: 'preact',
+      fileNames: [
+        'preact.config.js',
+        'preact.config.ts',
+        'preact.config.cjs',
+        'preact.config.mjs',
+      ],
+    },
+    {
+      name: 'prettier',
+      fileExtensions: [
+        'prettierrc',
+        'prettierrc.json',
+        'prettierrc.yml',
+        'prettierrc.yaml',
+        'prettierrc.toml',
+        'prettierrc.js',
+      ],
+    },
+    {
+      name: 'prettierconfig',
+      fileNames: [
+        'prettier.config.js',
+        'prettier.config.ts',
+        'prettier.config.cjs',
+        'prettier.config.mjs',
+      ],
+    },
+    {
+      name: 'prettierignore',
+      fileExtensions: ['prettierignore'],
+    },
+    {
+      name: 'prismaconfig',
+      fileNames: ['prisma.yml', 'prisma.yaml'],
+    },
+    {
+      name: 'prisma',
+      fileExtensions: ['prisma'],
+    },
+    {
+      name: 'processing',
+      fileExtensions: ['pde'],
+    },
+    {
+      name: 'project',
+      fileExtensions: ['mpp', 'mpt'],
+    },
+    {
+      name: 'prolog',
+      fileExtensions: ['pro', 'prolog', 'yap'],
+    },
+    {
+      name: 'prometheus',
+      fileExtensions: ['rules', 'rules.yml', 'rules.yaml'],
+    },
+    {
+      name: 'propeller',
+      fileExtensions: ['spin'],
+    },
+    {
+      name: 'source',
+      fileExtensions: ['properties', 'props', 'prop'],
+    },
+    {
+      name: 'pros',
+      fileExtensions: ['pros'],
+    },
+    {
+      name: 'proselint',
+      fileExtensions: ['proselintrc'],
+    },
+    {
+      name: 'protobuf',
+      fileExtensions: ['proto', 'protobuf', 'protobuf3', 'protodevel'],
+    },
+    {
+      name: 'protractor',
+      fileNames: [
+        'protractor.js',
+        'protractor.json',
+        'protractor.conf.js',
+        'protractor.conf.ts',
+        'protractor.conf.cjs',
+        'protractor.conf.mjs',
+        'protractor.conf.json',
+        'protractor.config.js',
+        'protractor.config.ts',
+        'protractor.config.cjs',
+        'protractor.config.mjs',
+        'protractor.config.json',
+      ],
+    },
+    {
+      name: 'proxy',
+      fileNames: [
+        'proxy.conf.js',
+        'proxy.conf.ts',
+        'proxy.conf.cjs',
+        'proxy.conf.mjs',
+        'proxy.conf.json',
+        'proxy.config.js',
+        'proxy.config.ts',
+        'proxy.config.cjs',
+        'proxy.config.mjs',
+        'proxy.config.json',
+      ],
+    },
+    {
+      name: 'publiccode',
+      fileNames: ['publiccode.yml', 'publiccode.yaml'],
+    },
+    {
+      name: 'publisher',
+      fileExtensions: ['pub', 'puz'],
+    },
+    {
+      name: 'pullapprove',
+      fileNames: ['pullapprove.yml', 'pullapprove.yaml'],
+      fileExtensions: ['pullapprove.yml', 'pullapprove.yaml'],
+    },
+    {
+      name: 'puppet',
+      fileExtensions: ['pp', 'epp', 'puppet'],
+    },
+    {
+      name: 'pure',
+      fileExtensions: ['pure'],
+    },
+    {
+      name: 'purebasic',
+      fileExtensions: ['pb', 'pbi'],
+    },
+    {
+      name: 'purescript',
+      fileExtensions: ['purs', 'purescript'],
+    },
+    {
+      name: 'pypi',
+      fileExtensions: ['pypirc', 'requirements'],
+      fileNames: ['requirements.txt', 'requirements.in'],
+    },
+    {
+      name: 'pyret',
+      fileExtensions: ['arr'],
+    },
+    {
+      name: 'pytest',
+      fileNames: ['pytest.ini'],
+    },
+    {
+      name: 'pytyped',
+      fileExtensions: ['typed', 'pyi', 'pytd', 'pytyped', 'py.typed'],
+    },
+    {
+      name: 'pythonconfig',
+      fileNames: ['python-config.json', 'pythonconfig.json', 'manifest.in'],
+      fileExtensions: ['coveragerc', 'pylintrc'],
+    },
+    {
+      name: 'pythonversion',
+      fileExtensions: ['py-version', 'python-version', 'pythonversion'],
+    },
+    {
+      name: 'pyup',
+      fileNames: ['.pyup.yml', '.pyup.yaml'],
+      fileExtensions: ['pyup.yml', 'pyup.yaml'],
+    },
+    // endregion
+
     // region [R]
     {
       name: 'r',
@@ -4081,6 +4679,8 @@ export const fileIcons: FileIcons = {
         'raphael.min.js',
         'raphael-min.js',
         'raphael.no-deps.js',
+        'raphael.no-deps.cjs',
+        'raphael.no-deps.mjs',
       ],
     },
     {
@@ -5013,7 +5613,6 @@ export const fileIcons: FileIcons = {
       name: 'sql',
       fileExtensions: [
         'pdb',
-        'pgsql',
         'mysql',
         'hql',
         'qml',
