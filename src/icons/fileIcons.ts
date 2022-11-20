@@ -6475,6 +6475,234 @@ export const fileIcons: FileIcons = {
 
     // endregion [U]
 
+    // region [V]
+    {
+      name: 'v',
+      fileExtensions: ['v', 'vh'],
+    },
+    {
+      name: 'v8',
+      fileExtensions: ['v8', 'v8flags'],
+    },
+    {
+      name: 'vagrant',
+      fileExtensions: ['vagrantfile'],
+      fileNames: ['vagrantfile'],
+    },
+    {
+      name: 'vala',
+      fileExtensions: ['vala', 'vapi'],
+    },
+    {
+      name: 'vanillaextract',
+      fileExtensions: ['css.ts', 'css.js', 'css.cjs', 'css.mjs'],
+    },
+    {
+      name: 'vapor',
+      fileNames: ['vapor.json', 'vapor.yml', 'vapor.yaml'],
+    },
+    {
+      name: 'vash',
+      fileExtensions: ['vash'],
+    },
+    {
+      name: 'vcl',
+      fileExtensions: ['vcl'],
+    },
+    {
+      name: 'velocity',
+      fileExtensions: ['vm', 'fhtml', 'vtl'],
+    },
+    {
+      name: 'vercel',
+      fileNames: ['vercel.json', 'vercel.yml', 'vercel.yaml'],
+      light: true,
+    },
+    {
+      name: 'vercelignore',
+      fileExtensions: ['vercelignore'],
+      light: true,
+    },
+    {
+      name: 'verdaccio',
+      fileNames: ['verdaccio.yml', 'verdaccio.yaml'],
+    },
+    {
+      name: 'verilog',
+      fileExtensions: ['veo', 'sv', 'svh'],
+    },
+    {
+      name: 'version',
+      fileNames: ['version', 'version.txt', 'version.md', 'version.rst'],
+      fileExtensions: ['version'],
+    },
+    {
+      name: 'vhdl',
+      fileExtensions: ['vhd', 'vhdl', 'vhf', 'vhi', 'vho', 'vhs', 'vht', 'vhw'],
+    },
+    {
+      name: 'vim',
+      fileExtensions: ['vim', 'vimrc', 'gvimrc', 'exrc', 'viml'],
+    },
+    {
+      name: 'visio',
+      fileExtensions: [
+        'vsd',
+        'vdx',
+        'vdw',
+        'vsw',
+        'vss',
+        'vst',
+        'vsx',
+        'vsl',
+        'vtx',
+        'vssx',
+        'vstx',
+        'vsdx',
+        'vrd',
+      ],
+    },
+    {
+      name: 'vb',
+      fileExtensions: ['vb', 'bas', 'vba', 'frm', 'basic', 'vbs', 'vbhtml'],
+    },
+    {
+      name: 'vbproj',
+      fileExtensions: ['vbproj'],
+    },
+    {
+      name: 'vs',
+      fileExtensions: [
+        'vs',
+        'vssettings',
+        'vstemplate',
+        'vsixmanifest',
+        'vsconfig',
+        'modelproj',
+        'njsproj',
+        'wmaproj',
+        'sln',
+        'suo',
+        'rc',
+      ],
+    },
+    {
+      name: 'vitest',
+      fileNames: [
+        'vitest.config.js',
+        'vitest.config.cjs',
+        'vitest.config.mjs',
+        'vitest.config.ts',
+      ],
+    },
+    {
+      name: 'vite',
+      fileNames: [
+        'vite.config.js',
+        'vite.config.cjs',
+        'vite.config.mjs',
+        'vite.config.ts',
+      ],
+    },
+    {
+      name: 'vm',
+      fileExtensions: [
+        'vbox',
+        'vdi',
+        'vbox-prev',
+        'vbox-extpack',
+        'vbox_version',
+        'vhdx',
+      ],
+    },
+    {
+      name: 'vmware',
+      fileExtensions: [
+        'vmx',
+        'vmdk',
+        'vmxf',
+        'vmsd',
+        'vmss',
+        'vmsn',
+        'vmx~',
+        'nvram',
+        'vmtx',
+        'vswp',
+      ],
+    },
+    {
+      name: 'volt',
+      fileExtensions: ['volt'],
+      light: true,
+    },
+    {
+      name: 'vray',
+      fileExtensions: [
+        'vray',
+        'vrimg',
+        'vrmesh',
+        'vrscene',
+        'vrmat',
+        'vrmatlib',
+        'vrmatlib2',
+      ],
+    },
+    {
+      name: 'vsix',
+      fileExtensions: ['vsix', 'vsixmanifest'],
+      light: true,
+    },
+    {
+      name: 'vscode',
+      fileExtensions: ['vscode', 'code-workspace'],
+    },
+    {
+      name: 'vscodesettings',
+      fileNames: [
+        'launch.json',
+        'tasks.json',
+        'settings.json',
+        'extensions.json',
+        '.vscode/json',
+      ],
+    },
+    {
+      name: 'vscodeignore',
+      fileExtensions: ['vscodeignore', 'vscodeignore.json'],
+    },
+    {
+      name: 'tfs',
+      fileNames: ['vsts-ci.yml', 'vsts-ci.yaml'],
+      fileExtensions: ['vsts-ci.yml', 'vsts-ci.yaml'],
+    },
+    {
+      name: 'tfsignore',
+      fileExtensions: ['tfignore', 'tfsignore'],
+    },
+    {
+      name: 'vueconfig',
+      fileNames: [
+        'vue.config.js',
+        'vue.config.cjs',
+        'vue.config.mjs',
+        'vue.config.ts',
+      ],
+    },
+    {
+      name: 'vuerc',
+      fileExtensions: ['vuerc'],
+    },
+    {
+      name: 'vuex',
+      fileExtensions: ['vuex'],
+    },
+    {
+      name: 'vyper',
+      fileExtensions: ['vy', 'vyper'],
+    },
+
+    // endregion
+
     // region [W]
     {
       name: 'w3c',
