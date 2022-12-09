@@ -2089,6 +2089,370 @@ export const fileIcons: FileIcons = {
     },
     // endregion
 
+    // region [D]
+    {
+      name: 'd3',
+      fileNames: [
+        'd3.json',
+        'd3.js',
+        'd3.min.js',
+        'd3.v2.js',
+        'd3.v3.js',
+        'd3.v4.js',
+        'd3.v2.min.js',
+        'd3.v3.min.js',
+        'd3.v4.min.js',
+        'd3.v2-min.js',
+        'd3.v3-min.js',
+        'd3.v4-min.js',
+        'd3.cjs',
+        'd3.v2.cjs',
+        'd3.v3.cjs',
+        'd3.v4.cjs',
+        'd3.mjs',
+        'd3.v2.mjs',
+        'd3.v3.mjs',
+        'd3.v4.mjs',
+      ],
+    },
+    {
+      name: 'dafny',
+      fileExtensions: ['dfy', 'dafny'],
+    },
+    {
+      name: 'danmakufu',
+      fileExtensions: ['dnh'],
+    },
+    {
+      name: 'dal',
+      fileExtensions: ['dal'],
+    },
+    {
+      name: 'dartignore',
+      fileExtensions: ['dartignore', 'pubignore'],
+    },
+    {
+      name: 'darcs',
+      fileExtensions: ['darcspatch', 'dpatch'],
+    },
+    {
+      name: 'boringignore',
+      fileExtensions: ['boringignore'],
+    },
+    {
+      name: 'dashboard',
+      fileExtensions: ['cpuprofile', 'heapprofile', 'cloc'],
+    },
+    {
+      name: 'dataweave',
+      fileExtensions: ['dwl', 'dfl', 'dw'],
+    },
+    {
+      name: 'dbproj',
+      fileExtensions: ['dbproj', 'sqlproj'],
+    },
+    {
+      name: 'dbase',
+      fileExtensions: ['dbf'],
+    },
+    {
+      name: 'debian',
+      fileExtensions: ['deb', 'udeb', 'control'],
+    },
+    {
+      name: 'deepsource',
+      fileExtensions: ['deepsource.toml'],
+      light: true,
+    },
+    {
+      name: 'delphi',
+      fileExtensions: [
+        'int',
+        'dfm',
+        'nfm',
+        'dof',
+        'dpk',
+        'dpr',
+        'dproj',
+        'delphi',
+      ],
+    },
+    {
+      name: 'denizen',
+      fileExtensions: ['dsc'],
+    },
+    {
+      name: 'denorc',
+      fileNames: ['deno.json'],
+      fileExtensions: ['denorc'],
+    },
+    {
+      name: 'denoignore',
+      fileExtensions: ['denoignore'],
+    },
+    {
+      name: 'deno',
+      fileNames: ['mod.ts', 'import_map.json'],
+      light: true,
+    },
+    {
+      name: 'deps',
+      fileNames: [
+        'deps.edn',
+        'deps.json',
+        'deps.yaml',
+        'deps.yml',
+        'deps.ts',
+        'deps.js',
+        'DEPS',
+        'Dependencies',
+      ],
+      fileExtensions: ['deps', 'dependencies', 'pydeps'],
+    },
+    {
+      name: 'dependabot',
+      fileNames: ['dependabot.yml', 'dependabot.yaml'],
+    },
+    {
+      name: 'detekt',
+      fileNames: [
+        'detekt.yml',
+        'detekt.yaml',
+        'detekt-config.yml',
+        'detekt-config.yaml',
+      ],
+    },
+    {
+      name: 'devcontainer',
+      fileExtensions: ['devcontainer.json'],
+      fileNames: ['devcontainer.json'],
+    },
+    {
+      name: 'devicetree',
+      fileExtensions: ['dts', 'dtsi'],
+    },
+    {
+      name: 'dhall',
+      fileExtensions: ['dhall'],
+      light: true,
+    },
+    {
+      name: 'dia',
+      fileExtensions: ['dia'],
+    },
+    {
+      name: 'digdag',
+      fileExtensions: ['dig'],
+    },
+    {
+      name: 'dinophp',
+      fileExtensions: ['dino', 'bubble'],
+    },
+    {
+      name: 'dns',
+      fileExtensions: ['zone', 'arpa'],
+    },
+    {
+      name: 'diff',
+      fileExtensions: ['diff', 'patch', 'diffs'],
+    },
+    {
+      name: 'denorc',
+      fileExtensions: ['denorc'],
+      light: true,
+    },
+    {
+      name: 'djangoconfig',
+      fileNames: ['manage.py', 'wsgi.py', 'settings.py', 'urls.py', 'asgi.py'],
+    },
+    {
+      name: 'django',
+      fileExtensions: ['djt', 'django'],
+    },
+    {
+      name: 'dll',
+      fileExtensions: ['dll', 'dlc'],
+    },
+    {
+      name: 'do',
+      fileExtensions: ['do'],
+    },
+    {
+      name: 'docbook',
+      fileExtensions: ['docbook', 'docbkx', 'docb', 'dbk'],
+    },
+    {
+      name: 'doclets',
+      fileExtensions: ['doclets', 'doclets.yml', 'doclets.yaml'],
+    },
+    {
+      name: 'docker',
+      fileNames: [
+        'dockerfile',
+        'dockerfile.dev',
+        'dockerfile.prod',
+        'dockerfile.test',
+        'docker/dockerfile',
+        'dockerfiles/dockerfile',
+      ],
+      fileExtensions: ['dockerfile'],
+    },
+    {
+      name: 'dockercompose',
+      fileExtensions: [
+        'docker-compose.yml',
+        'docker-compose.yaml',
+        'docker/yml',
+        'docker/yaml',
+        'dockerfiles/yml',
+        'dockerfiles/yaml',
+      ],
+      fileNames: [
+        'compose.yml',
+        'compose.yaml',
+        'docker-compose.yml',
+        'docker-compose.yaml',
+        'docker-compose.dev.yml',
+        'docker-compose.dev.yaml',
+        'docker-compose.prod.yml',
+        'docker-compose.prod.yaml',
+        'docker-compose.test.yml',
+        'docker-compose.test.yaml',
+      ],
+    },
+    {
+      name: 'dockerignore',
+      fileExtensions: ['dockerignore'],
+    },
+    {
+      name: 'docpad',
+      fileExtensions: ['eco'],
+    },
+    {
+      name: 'doczconfig',
+      fileExtensions: [
+        'doczrc',
+        'doczrc.json',
+        'doczrc.js',
+        'doczrc.ts',
+        'doczrc.mjs',
+        'doczrc.cjs',
+      ],
+      fileNames: [
+        'docz.config.js',
+        'docz.config.ts',
+        'docz.config.mjs',
+        'docz.config.cjs',
+      ],
+    },
+    {
+      name: 'docz',
+      fileExtensions: ['docz'],
+    },
+    {
+      name: 'dogescript',
+      fileExtensions: ['djs', 'doge'],
+    },
+    {
+      name: 'dojo',
+      fileExtensions: ['dojo', 'dojorc'],
+      fileNames: ['dojo.js', 'dojo.mjs', 'dojo.cjs'],
+    },
+    {
+      name: 'donejs',
+      fileExtensions: ['component'],
+    },
+    {
+      name: 'dosbox',
+      fileNames: ['dosbox.conf', 'dosbox.conf.default', 'dosbox-0.74.conf'],
+    },
+    {
+      name: 'dotjs',
+      fileExtensions: ['dot', 'def', 'jst'],
+    },
+    {
+      name: 'dotnet',
+      fileExtensions: ['net', 'netcore', 'netstandard', 'netframework'],
+    },
+    {
+      name: 'doxyfile',
+      fileExtensions: ['doxyfile', 'doxygen'],
+      fileNames: ['doxyfile', 'doxygen'],
+    },
+    {
+      name: 'doxygen',
+      fileExtensions: ['dox'],
+    },
+    {
+      name: 'dragula',
+      fileNames: [
+        'dragula.css',
+        'dragula.min.css',
+        'dragula.js',
+        'dragula.min.js',
+        'dragula.min.cjs',
+        'dragula.min.mjs',
+        'dragula.mjs',
+        'dragula.cjs',
+      ],
+    },
+    {
+      name: 'dragonflybsd',
+      fileExtensions: ['dflybsd', 'dragonfly', 'dfly'],
+    },
+    {
+      name: 'drawio',
+      fileExtensions: [
+        'drawio',
+        'dio',
+        'dio.svg',
+        'dio.png',
+        'drawio.svg',
+        'drawio.png',
+      ],
+    },
+    {
+      name: 'drone',
+      fileExtensions: ['drone.yml', 'drone.yaml'],
+    },
+    {
+      name: 'drools',
+      fileExtensions: ['drl'],
+    },
+    {
+      name: 'drupal',
+      fileExtensions: ['drools'],
+    },
+    {
+      name: 'dub',
+      fileNames: ['dub.json', 'dub.sdl', 'dub.selections.json'],
+    },
+    {
+      name: 'dune',
+      fileNames: ['dune', 'dune-project', 'dune-workspace'],
+    },
+    {
+      name: 'dustjs',
+      fileExtensions: ['dust'],
+    },
+    {
+      name: 'dvc',
+      fileExtensions: ['dvc'],
+    },
+    {
+      name: 'dyalog',
+      fileExtensions: ['dyalog', 'dyapp', 'mipage'],
+    },
+    {
+      name: 'dylan',
+      fileExtensions: ['dylan', 'dyl', 'intr', 'lid'],
+    },
+    {
+      name: 'dylib',
+      fileExtensions: ['dylib', 'bundle', 'pkg'],
+    },
+    // endregion
+
     // region [E]
     {
       name: 'e',
@@ -2562,7 +2926,6 @@ export const fileIcons: FileIcons = {
         'jspre',
         'jscript',
         'jslib',
-        'dust',
         'htc',
         'pjs',
         'ssjs',
