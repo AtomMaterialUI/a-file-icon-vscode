@@ -2704,6 +2704,293 @@ export const fileIcons: FileIcons = {
     },
     // endregion
 
+    // region [F]
+    {
+      name: 'fabric',
+      fileNames: ['fabric.mod.json'],
+    },
+    {
+      name: 'fabfile',
+      fileNames: ['fabfile.py'],
+    },
+    {
+      name: 'factor',
+      fileExtensions: ['factor', 'factor-rc', 'factor-boot-rc'],
+    },
+    {
+      name: 'falcon',
+      fileExtensions: ['fal', 'falcon'],
+    },
+    {
+      name: 'fancy',
+      fileExtensions: ['fy', 'fancypack'],
+    },
+    {
+      name: 'fakefile',
+      fileNames: ['fakefile'],
+    },
+    {
+      name: 'fantom',
+      fileExtensions: ['fan', 'fantom'],
+    },
+    {
+      name: 'fasta',
+      fileExtensions: [
+        'fasta',
+        'fa',
+        'faa',
+        'mpfa',
+        'fna',
+        'faa',
+        'frn',
+        'fsa',
+        'fas',
+        'fastq',
+        'fq',
+        'fqs',
+        'seq',
+        'ffn',
+      ],
+    },
+    {
+      name: 'fastlane',
+      fileNames: [
+        'fastfile',
+        'appfile',
+        'snapshotfile',
+        'matchfile',
+        'pluginfile',
+        'gymfile',
+      ],
+    },
+    {
+      name: 'fauna',
+      fileExtensions: ['fql', 'fauna', 'faunaql', 'faunarc'],
+    },
+    {
+      name: 'faust',
+      fileExtensions: ['dsp', 'faust'],
+    },
+    {
+      name: 'favicon',
+      fileNames: [
+        'favicon.ico',
+        'favicon.png',
+        'favicon.gif',
+        'favicon.jpg',
+        'favicon.jpeg',
+        'favicon.svg',
+      ],
+    },
+    {
+      name: 'fbx',
+      fileExtensions: ['fbx'],
+    },
+    {
+      name: 'fexl',
+      fileExtensions: ['fexl', 'fxl'],
+    },
+    {
+      name: 'figma',
+      fileExtensions: ['fig', 'figma'],
+    },
+    {
+      name: 'finaldraft',
+      fileExtensions: ['fdx', 'fdxtpl'],
+    },
+    {
+      name: 'finder',
+      fileExtensions: ['_MACOSX', 'DS_Store', '__MACOSX'],
+    },
+    {
+      name: 'firebaserc',
+      fileExtensions: ['firebaserc'],
+    },
+    {
+      name: 'firestore',
+      fileNames: ['firestore.rules', 'firestore.indexes.json'],
+    },
+    {
+      name: 'firebase',
+      fileNames: ['firebase.json'],
+    },
+    {
+      name: 'fitbit',
+      fileExtensions: ['fba'],
+    },
+    {
+      name: 'firebasebolt',
+      fileExtensions: ['bolt'],
+    },
+    {
+      name: 'firefox',
+      fileExtensions: ['xpi', 'webapp'],
+    },
+    {
+      name: 'fiddle',
+      fileNames: [
+        'electron-fiddle',
+        'electron-fiddle.json',
+        'electron-fiddle.zip',
+        'electron-fiddle.rpm',
+      ],
+    },
+    {
+      name: 'flash',
+      fileExtensions: ['swf', 'swc', 'flash'],
+    },
+    {
+      name: 'flask',
+      fileNames: ['flask', 'flask.py', 'flaskapp.py'],
+    },
+    {
+      name: 'floobits',
+      fileExtensions: ['flooignore', 'floorc.json'],
+    },
+    {
+      name: 'flow',
+      fileExtensions: ['flowconfig', 'flow'],
+      light: true,
+    },
+    {
+      name: 'flutter',
+      fileExtensions: [
+        'flutter-plugins',
+        'flutter-plugins-dependencies',
+        'packages',
+        'metadata',
+      ],
+    },
+    {
+      name: 'flutterlock',
+      fileNames: ['pubspec.yaml', 'pubspec.lock'],
+    },
+    {
+      name: 'flux',
+      fileExtensions: ['flux', 'fluxc', 'fx'],
+    },
+    {
+      name: 'fontbitmap',
+      fileExtensions: [
+        'bdf',
+        'pcf',
+        'psf',
+        'fnt',
+        'fon',
+        'snf',
+        'flf',
+        'tlf',
+        'psftx',
+        'dwf',
+        'bmf',
+      ],
+    },
+    {
+      name: 'fontforge',
+      fileExtensions: ['ff', 'sfd', 'pe'],
+    },
+    {
+      name: 'fossil',
+      fileExtensions: [
+        'fossil',
+        'fossil-settings',
+        'fossil-ignore',
+        'fossil-wiki',
+      ],
+      fileNames: ['.fslckout', '_FOSSIL_', 'fossil.exe'],
+    },
+    {
+      name: 'ftr',
+      fileExtensions: ['ftr', 'trm'],
+    },
+    {
+      name: 'fork',
+      fileExtensions: ['issuetracker', 'fork'],
+    },
+    {
+      name: 'forth',
+      fileExtensions: ['4th', 'forth', 'frt', 'fth'],
+    },
+    {
+      name: 'fortran',
+      fileExtensions: ['f77', 'f90', 'f95', 'f03', 'f08', 'f15', 'for', 'fpp'],
+    },
+    {
+      name: 'fossa',
+      fileExtensions: ['fossa.yml', 'fossa.yaml', 'fossa.local.yml'],
+    },
+    {
+      name: 'fossaignore',
+      fileExtensions: ['fossaignore'],
+    },
+    {
+      name: 'fountain',
+      fileExtensions: ['fountain', 'ftn'],
+    },
+    {
+      name: 'foxpro',
+      fileExtensions: ['fxp'],
+    },
+    {
+      name: 'franca',
+      fileExtensions: ['fidl', 'franca', 'fdl', 'fdepl'],
+    },
+    {
+      name: 'freedesktop',
+      fileExtensions: [
+        'desktop',
+        'desktop.in',
+        'menu',
+        'mime',
+        'mimeapps',
+        'fd.o',
+      ],
+    },
+    {
+      name: 'freedos',
+      fileExtensions: ['sys', 'dos', 'dxelib'],
+    },
+    {
+      name: 'freemarker',
+      fileExtensions: ['ftl', 'freemarker'],
+    },
+    {
+      name: 'freemat',
+      fileExtensions: ['mat'],
+    },
+    {
+      name: 'frege',
+      fileExtensions: ['fr', 'frege'],
+    },
+    {
+      name: 'fsharp',
+      fileExtensions: ['fs', 'fsi', 'fsx', 'fsscript', 'fsproj'],
+    },
+    {
+      name: 'fthtml',
+      fileExtensions: ['fthtml'],
+    },
+    {
+      name: 'fuelux',
+      fileNames: ['fuelux.css', 'fuelux.js', 'fuelux.min.css', 'fuelux.min.js'],
+    },
+    {
+      name: 'fusebox',
+      fileNames: [
+        'fuse.js',
+        'fusebox.js',
+        'fusebox.ts',
+        'fusebox.mjs',
+        'fuse.mjs',
+        'fuse.ts',
+      ],
+    },
+    {
+      name: 'futhark',
+      fileExtensions: ['fut', 'futhark'],
+    },
+    // endregion
+
     // region [I]
     {
       name: 'i18n',
