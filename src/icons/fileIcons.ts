@@ -2991,6 +2991,356 @@ export const fileIcons: FileIcons = {
     },
     // endregion
 
+    // region [G]
+    {
+      name: 'galaxy',
+      fileNames: ['galaxy.yml', 'galaxy.yaml', 'galaxy.ini'],
+    },
+    {
+      name: 'galen',
+      fileExtensions: ['gspec', 'gtest'],
+    },
+    {
+      name: 'gamemaker',
+      fileExtensions: ['gml'],
+    },
+    {
+      name: 'gams',
+      fileExtensions: ['gms', 'gmsx', 'gmsi', 'gmsinc', 'gmsincx'],
+    },
+    {
+      name: 'gap',
+      fileExtensions: ['gi', 'gap'],
+    },
+    {
+      name: 'gss',
+      fileExtensions: ['gss'],
+    },
+    {
+      name: 'gatsby',
+      fileNames: [
+        'gatsby.js',
+        'gatsby.cjs',
+        'gatsby.mjs',
+        'gatsby.ts',
+        'gatsby-config.js',
+        'gatsby-config.ts',
+        'gatsby-config.cjs',
+        'gatsby-config.mjs',
+        'gatsby-node.js',
+        'gatsby-node.ts',
+        'gatsby-node.cjs',
+        'gatsby-node.mjs',
+        'gatsby-ssr.js',
+        'gatsby-ssr.cjs',
+        'gatsby-ssr.mjs',
+        'gatsby-ssr.ts',
+        'gatsby-browser.js',
+        'gatsby-browser.cjs',
+        'gatsby-browser.mjs',
+        'gatsby-browser.ts',
+        'gatsby.config.js',
+        'gatsby.config.cjs',
+        'gatsby.config.mjs',
+        'gatsby.config.ts',
+      ],
+    },
+    {
+      name: 'gauge',
+      fileExtensions: ['spec'],
+      light: true,
+    },
+    {
+      name: 'gcp',
+      fileExtensions: ['gcloud', 'gcloudignore'],
+    },
+    {
+      name: 'gcode',
+      fileExtensions: [
+        'gcode',
+        'nc',
+        'tap',
+        'cnc',
+        'apt',
+        'fnc',
+        'gc',
+        'dnc',
+        'ncf',
+        'ncc',
+        'maz',
+        'hnc',
+        'knc',
+        'g00',
+      ],
+    },
+    {
+      name: 'gdb',
+      fileExtensions: ['gdb'],
+    },
+    {
+      name: 'gemfile',
+      fileNames: ['gemfile.lock'],
+    },
+    {
+      name: 'gemini',
+      fileExtensions: ['gmi', 'gemini'],
+    },
+    {
+      name: 'genshi',
+      fileExtensions: ['kid'],
+    },
+    {
+      name: 'genstat',
+      fileExtensions: ['gen', 'gpi'],
+    },
+    {
+      name: 'gentoo',
+      fileExtensions: ['ebuild', 'eclass', 'ekeyword', 'euse'],
+    },
+    {
+      name: 'geojson',
+      fileExtensions: ['geojson', 'geo.json', 'topojson', 'topo.json'],
+    },
+    {
+      name: 'ghostscript',
+      fileExtensions: ['ghostscript'],
+    },
+    {
+      name: 'gimp',
+      fileExtensions: ['xcf', 'gbr', 'ggr', 'gih', 'vbr'],
+    },
+    {
+      name: 'gitlab',
+      fileExtensions: ['gitlab-ci.yml', 'gitlab-ci.yaml'],
+    },
+    {
+      name: 'gitignore',
+      fileExtensions: ['gitignore', 'keep', 'gitkeep', 'lfsconfig'],
+    },
+    {
+      name: 'gitpod',
+      fileExtensions: ['gitpod.yml', 'gitpod.yaml'],
+    },
+    {
+      name: 'glade',
+      fileExtensions: ['glade'],
+    },
+    {
+      name: 'gleam',
+      fileExtensions: ['gleam'],
+    },
+    {
+      name: 'glide',
+      fileNames: ['glide.lock', 'glide.yaml', 'glide.yml'],
+    },
+    {
+      name: 'glitter',
+      fileExtensions: ['glitter', 'glitterrc'],
+    },
+    {
+      name: 'gltf',
+      fileExtensions: ['gltf', 'glb'],
+    },
+    {
+      name: 'pointwise',
+      fileExtensions: ['glf'],
+    },
+    {
+      name: 'glyphs',
+      fileExtensions: ['glyphs'],
+    },
+    {
+      name: 'gn',
+      fileExtensions: ['gni', 'gn', 'gnl'],
+    },
+    {
+      name: 'gnome',
+      fileExtensions: ['gnome', 'gtk'],
+    },
+    {
+      name: 'gnu',
+      fileNames: [
+        'AGPL',
+        'GPL',
+        'LGPL',
+        'COPYING',
+        'COPYING.LESSER',
+        'ALGPL',
+        'GFDL',
+      ],
+      fileExtensions: [
+        'gnu',
+        'gpl',
+        'gplv2',
+        'gplv3',
+        'lgpl',
+        'lgplv2',
+        'lgplv3',
+      ],
+    },
+    {
+      name: 'gnuplot',
+      fileExtensions: ['gp', 'gnuplot', 'plot', 'plt'],
+    },
+    {
+      name: 'goconfig',
+      fileNames: ['go.mod', 'go.sum', 'go.sub', 'go.work'],
+    },
+    {
+      name: 'goTemplate',
+      fileExtensions: ['gotmpl', 'tmpl', 'gohtml'],
+    },
+    {
+      name: 'godot',
+      fileExtensions: ['gd', 'godot', 'tres', 'tscn', 'scn'],
+    },
+    {
+      name: 'golo',
+      fileExtensions: ['golo'],
+    },
+    {
+      name: 'gosu',
+      fileExtensions: ['gs', 'gsx', 'gst', 'gsp', 'vark'],
+    },
+    {
+      name: 'goctl',
+      fileExtensions: ['api'],
+    },
+    {
+      name: 'goreleaser',
+      fileExtensions: ['goreleaser', 'goreleaser.yml', 'goreleaser.yaml'],
+    },
+    {
+      name: 'gradle',
+      fileExtensions: ['gradle'],
+    },
+    {
+      name: 'gradlekts',
+      fileExtensions: ['gradle.kts'],
+    },
+    {
+      name: 'gradlew',
+      fileNames: ['gradlew', 'gradlew.bat'],
+    },
+    {
+      name: 'grain',
+      fileExtensions: ['grain'],
+    },
+    {
+      name: 'gf',
+      fileExtensions: ['gf'],
+    },
+    {
+      name: 'graphcool',
+      fileExtensions: ['graphcool'],
+    },
+    {
+      name: 'grapher',
+      fileExtensions: ['grapher', 'gcx'],
+    },
+    {
+      name: 'graphql',
+      fileExtensions: ['graphql', 'gql', 'graphqls', 'gqls'],
+    },
+    {
+      name: 'graphqlconfig',
+      fileExtensions: [
+        'gqlconfig',
+        'graphqlconfig',
+        'graphql.config.js',
+        'graphql.config.cjs',
+        'graphql.config.mjs',
+        'graphql.config.ts',
+        'graphql.config.json',
+        'graphql.config.yaml',
+        'graphql.config.yml',
+        'graphqlrc',
+        'graphqlrc.js',
+        'graphqlrc.cjs',
+        'graphqlrc.mjs',
+        'graphqlrc.ts',
+        'graphqlrc.json',
+      ],
+    },
+    {
+      name: 'graphviz',
+      fileExtensions: ['gv', 'dot', 'graphviz'],
+    },
+    {
+      name: 'gql-codegen',
+      fileNames: ['codegen.yml', 'codegen.yaml', 'codegen.json'],
+    },
+    {
+      name: 'gravit',
+      fileExtensions: ['gravit', 'gravitdesign', 'gvdesign'],
+    },
+    {
+      name: 'greenkeeper',
+      fileNames: ['greenkeeper.json'],
+    },
+    {
+      name: 'gridsome',
+      fileNames: [
+        'gridsome.config.js',
+        'gridsome.config.cjs',
+        'gridsome.config.mjs',
+        'gridsome.config.ts',
+        'gridsome.client.js',
+        'gridsome.client.cjs',
+        'gridsome.client.mjs',
+        'gridsome.client.ts',
+        'gridsome.server.js',
+        'gridsome.server.cjs',
+        'gridsome.server.mjs',
+        'gridsome.server.ts',
+      ],
+    },
+    {
+      name: 'groovy',
+      fileExtensions: ['groovy', 'grt', 'gtpl', 'gpp', 'gy', 'gvy', 'gdsl'],
+    },
+    {
+      name: 'groovyfile',
+      fileNames: ['groovyfile', 'groovyfile.groovy'],
+    },
+    {
+      name: 'gruntfile',
+      fileNames: [
+        'gruntfile',
+        'gruntfile.js',
+        'gruntfile.cjs',
+        'gruntfile.mjs',
+        'gruntfile.ts',
+        'grunt/ts',
+        'grunt/js',
+        'grunt/cjs',
+        'grunt/mjs',
+        'gruntfiles/ts',
+        'gruntfiles/js',
+        'gruntfiles/cjs',
+        'gruntfiles/mjs',
+      ],
+    },
+    {
+      name: 'gulpfile',
+      fileNames: [
+        'gulpfile',
+        'gulpfile.js',
+        'gulpfile.cjs',
+        'gulpfile.mjs',
+        'gulpfile.ts',
+        'gulp/ts',
+        'gulp/js',
+        'gulp/cjs',
+        'gulp/mjs',
+        'gulpfiles/ts',
+        'gulpfiles/js',
+        'gulpfiles/cjs',
+        'gulpfiles/mjs',
+      ],
+    },
+    // endregion
+
     // region [I]
     {
       name: 'i18n',
