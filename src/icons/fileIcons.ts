@@ -3341,6 +3341,275 @@ export const fileIcons: FileIcons = {
     },
     // endregion
 
+    // region [H]
+    {
+      name: 'hh',
+      fileExtensions: ['objh', 'h', 'hpp', 'tcc', 'hxx', 'h++', 'hm'],
+    },
+    {
+      name: 'hack',
+      fileExtensions: ['hack', 'hh', 'hhi', 'hhconfig'],
+    },
+    {
+      name: 'haml',
+      fileExtensions: ['haml', 'haml.deface', 'hamlcoffee', 'hamlc'],
+    },
+    {
+      name: 'hardhat',
+      fileNames: [
+        'hardhat.config.js',
+        'hardhat.config.cjs',
+        'hardhat.config.mjs',
+        'hardhat.config.ts',
+      ],
+    },
+    {
+      name: 'hasura',
+      fileNames: [
+        'hasura.yml',
+        'hasura.yaml',
+        'hasura.config.yml',
+        'hasura.config.yaml',
+      ],
+    },
+    {
+      name: 'harbour',
+      fileExtensions: ['prg', 'ch', 'hrb', 'hb'],
+    },
+    {
+      name: 'hcl',
+      fileExtensions: ['hcl', 'workflow'],
+    },
+    {
+      name: 'haskell',
+      fileExtensions: [
+        'hs',
+        'lhs',
+        'hsc',
+        'c2hs',
+        'hsig',
+        'haskell',
+        'hs-boot',
+      ],
+    },
+    {
+      name: 'haskellconfig',
+      fileNames: [
+        'haskellconfig.json',
+        'haskellconfig.yaml',
+        'haskellconfig.yml',
+      ],
+    },
+    {
+      name: 'haxedevelop',
+      fileExtensions: ['hxproj'],
+    },
+    {
+      name: 'haxe',
+      fileExtensions: ['hx', 'hxml', 'hxs', 'hxsl', 'hxp', 'haxe'],
+    },
+    {
+      name: 'haxelib',
+      fileNames: ['haxelib.json'],
+    },
+    {
+      name: 'helm',
+      fileExtensions: ['helm', 'helmrc', 'helmfile'],
+    },
+    {
+      name: 'helmignore',
+      fileExtensions: ['helmignore'],
+    },
+    {
+      name: 'helmcharts',
+      fileNames: [
+        'chart.yaml',
+        'chart.yml',
+        'values.yaml',
+        'values.yml',
+        'helmfile.yml',
+        'helmfile.yaml',
+      ],
+    },
+    {
+      name: 'question',
+      fileExtensions: ['help', 'hlp', 'chm'],
+    },
+    {
+      name: 'heroku',
+      fileNames: ['.buildpacks', 'Procfile', 'Procfile.windows'],
+    },
+    {
+      name: 'herokuignore',
+      fileExtensions: ['herokuignore', 'slugignore'],
+    },
+    {
+      name: 'hex',
+      fileExtensions: [
+        'hex',
+        'hxl',
+        'hxh',
+        'obl',
+        'obh',
+        'ihex',
+        'hexfile',
+        'ihe',
+        'ihx',
+      ],
+    },
+    {
+      name: 'hie',
+      fileNames: ['hie.yaml', 'hie.yml'],
+    },
+    {
+      name: 'histoire',
+      fileNames: [
+        'histoire.config.js',
+        'histoire.config.jsx',
+        'histoire.config.cjs',
+        'histoire.config.mjs',
+        'histoire.config.ts',
+        'histoire.config.tsx',
+      ],
+      fileExtensions: [
+        'histoire',
+        'histoire.js',
+        'histoire.jsx',
+        'histoire.cjs',
+        'histoire.mjs',
+        'histoire.ts',
+        'histoire.tsx',
+        'histoireconfig',
+      ],
+    },
+    {
+      name: 'histoirestories',
+      fileExtensions: ['story.vue', 'stories.vue'],
+    },
+    {
+      name: 'history',
+      fileNames: ['history', 'history.txt', 'history.md', 'historyfile'],
+      fileExtensions: [
+        'history',
+        'bash_history',
+        'fish_history',
+        'zsh_history',
+      ],
+    },
+    {
+      name: 'hjson',
+      fileExtensions: ['hjson'],
+    },
+    {
+      name: 'hlsl',
+      fileExtensions: ['hlsl', 'hlsli'],
+    },
+    {
+      name: 'hc',
+      fileExtensions: ['hc', 'hc.z'],
+    },
+    {
+      name: 'homeassistant',
+      fileExtensions: ['homeassistant'],
+    },
+    {
+      name: 'hoplon',
+      fileExtensions: ['hl', 'hoplon'],
+    },
+    {
+      name: 'horusec',
+      fileNames: ['horusec-config.json'],
+      fileExtensions: ['horusec', 'horusecrc', 'horusecignore'],
+    },
+    {
+      name: 'hosts',
+      fileExtensions: ['hosts', 'host'],
+      fileNames: ['hosts', 'host'],
+    },
+    {
+      name: 'houdini',
+      fileExtensions: [
+        'hda',
+        'houdini',
+        'houdinicomp',
+        'houdiniparm',
+        'vfl',
+        'hip',
+        'i3d',
+        'picnc',
+      ],
+    },
+    {
+      name: 'houndci',
+      fileExtensions: ['hound.yml', 'hound.yaml'],
+    },
+    {
+      name: 'hp',
+      fileExtensions: ['hp', 'hpgl', 'hpg'],
+    },
+    {
+      name: 'http',
+      fileExtensions: ['http', 'rest'],
+    },
+    {
+      name: 'htmlhint',
+      fileExtensions: ['htmlhintrc'],
+    },
+    {
+      name: 'hugo',
+      fileNames: ['config.toml'],
+    },
+    {
+      name: 'hunspell',
+      fileExtensions: ['aff', 'dic'],
+    },
+    {
+      name: 'husky',
+      fileExtensions: [
+        'huskyrc',
+        'huskyrc.json',
+        'huskyrc.yaml',
+        'huskyrc.yml',
+        'huskyrc.js',
+        'huskyrc.cjs',
+        'huskyrc.mjs',
+        'huskyrc.ts',
+      ],
+    },
+    {
+      name: 'hy',
+      fileExtensions: ['hy'],
+    },
+    {
+      name: 'hygen',
+      fileExtensions: [
+        'hygen.js',
+        'hygen.ts',
+        'hygen.cjs',
+        'hygen.mjs',
+        'ejs.t',
+      ],
+    },
+    {
+      name: 'hyper',
+      fileExtensions: ['hyper.js', 'hyper.ts', 'hyper.cjs', 'hyper.mjs'],
+    },
+    {
+      name: 'hypestyle',
+      fileNames: [
+        'hypestyle.json',
+        'hypestyle.config.js',
+        'hypestyle.config.cjs',
+        'hypestyle.config.mjs',
+        'hypestyle.config.ts',
+      ],
+    },
+    {
+      name: 'hypr',
+      fileExtensions: ['hypr', 'hyprlive', 'hypr.live'],
+    },
+    // endregion
+
     // region [I]
     {
       name: 'i18n',
