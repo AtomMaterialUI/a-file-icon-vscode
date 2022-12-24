@@ -5236,6 +5236,55 @@ export const fileIcons: FileIcons = {
     },
     // endregion
 
+    // region [Q]
+    {
+      name: 'qsharp',
+      fileExtensions: ['qs'],
+      light: true,
+    },
+    {
+      name: 'kx',
+      fileExtensions: ['q', 'k', 'kdb'],
+    },
+    {
+      name: 'qiskit',
+      fileExtensions: ['qiskit', 'qasm'],
+    },
+    {
+      name: 'qlikview',
+      fileExtensions: ['qvs', 'qvw', 'qvd', 'qvt', 'qvx', 'qvf', 'qvb'],
+    },
+    {
+      name: 'qodana',
+      fileNames: ['.qodana.yml', '.qodana.yaml', 'qodana.yml', 'qodana.yaml'],
+    },
+    {
+      name: 'qt',
+      fileExtensions: [
+        'qrc',
+        'qss',
+        'qml',
+        'qbs',
+        'qmlproject',
+        'qmltypes',
+        'qmldir',
+      ],
+    },
+    {
+      name: 'quasar',
+      fileNames: [
+        'quasar.conf.js',
+        'quasar.conf.ts',
+        'quasar.conf.cjs',
+        'quasar.conf.mjs',
+      ],
+    },
+    {
+      name: 'quantum',
+      fileExtensions: ['qtn'],
+    },
+    // endregion
+
     // region [R]
     {
       name: 'r',
@@ -6283,7 +6332,6 @@ export const fileIcons: FileIcons = {
         'pdb',
         'mysql',
         'hql',
-        'qml',
         'psql',
         'xql',
         'xqm',
@@ -7744,6 +7792,65 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['yvmrc'],
     },
 
+    // endregion
+
+    // region [Z]
+    {
+      name: 'zbrush',
+      fileExtensions: ['ztl', 'zbr', 'zpr'],
+    },
+    {
+      name: 'zeit',
+      fileNames: ['now.json'],
+      light: true,
+    },
+    {
+      name: 'zeitignore',
+      fileExtensions: ['zeitignore', 'nowignore'],
+    },
+    {
+      name: 'zephir',
+      fileExtensions: ['zep', 'zephir'],
+    },
+    {
+      name: 'zig',
+      fileExtensions: ['zig'],
+    },
+    {
+      name: 'zilog',
+      fileExtensions: [
+        'z80',
+        'z180',
+        'z280',
+        'z380',
+        'z80asm',
+        'z180asm',
+        'z280asm',
+        'z380asm',
+        'zilog',
+        'plx',
+      ],
+    },
+    {
+      name: 'zimpl',
+      fileExtensions: ['zimpl', 'zmpl', 'zpl'],
+    },
+    {
+      name: 'zorinos',
+      fileNames: ['zorinos.iso', 'zorinos.deb'],
+    },
+    {
+      name: 'zork',
+      fileExtensions: ['zap', 'xzap', 'zork', 'zabstr', 'zil', 'mud'],
+    },
+    {
+      name: 'zenscript',
+      fileExtensions: ['zs'],
+    },
+    {
+      name: 'zsrc',
+      fileExtensions: ['zsrc', 'zsrc.json'],
+    },
     // endregion
 
     // region [Languages]
