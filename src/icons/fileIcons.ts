@@ -2799,7 +2799,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'finder',
-      fileExtensions: ['_MACOSX', 'DS_Store', '__MACOSX'],
+      fileExtensions: ['_', '_MACOSX', 'DS_Store', '__MACOSX'],
     },
     {
       name: 'firebaserc',
@@ -3114,7 +3114,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'gitignore',
-      fileExtensions: ['gitignore', 'keep', 'gitkeep', 'lfsconfig'],
+      fileExtensions: ['gitignore'],
     },
     {
       name: 'gitpod',
@@ -3565,6 +3565,23 @@ export const fileIcons: FileIcons = {
     {
       name: 'hunspell',
       fileExtensions: ['aff', 'dic'],
+    },
+    {
+      name: 'huskyhooks',
+      fileNames: [
+        'pre-checkout',
+        'post-checkout',
+        'pre-commit',
+        'post-commit',
+        'pre-merge',
+        'post-merge',
+        'pre-rebase',
+        'post-rebase',
+        'pre-push',
+        'post-push',
+        '.husky/sh',
+        'hooks/sh',
+      ],
     },
     {
       name: 'husky',
@@ -8925,6 +8942,83 @@ export const fileIcons: FileIcons = {
       name: 'zsrc',
       fileExtensions: ['zsrc', 'zsrc.json'],
     },
+    // endregion
+
+    // region [Config]
+    {
+      name: 'preferences',
+      fileNames: [
+        'config.yaml',
+        'config.yml',
+        'config.json',
+        'config.txt',
+        'config/yaml',
+        'config/yml',
+        'config/json',
+        'settings.yml',
+        'settings.yaml',
+        'settings.json',
+        'settings.txt',
+        'settings/json',
+        'settings/yaml',
+        'settings/yml',
+        'options.yml',
+        'options.yaml',
+        'options.json',
+        'options.txt',
+        'options/yaml',
+        'options/yml',
+        'options/json',
+        'prefs.yaml',
+        'prefs.yml',
+        'prefs.json',
+        'prefs.txt',
+        'prefs/yaml',
+        'prefs/yml',
+        'prefs/json',
+      ],
+      fileExtensions: [
+        'ld',
+        'ldif',
+        'lds',
+        'ini',
+        'mcf',
+        'kys',
+        'props',
+        'env',
+        'env.dev',
+        'env.prod',
+        'env.test',
+      ],
+    },
+    {
+      name: 'config',
+      fileExtensions: [
+        'pref',
+        'prefs',
+        'config',
+        'cfg',
+        'conf',
+        'cnf',
+        'settings',
+        'setting',
+      ],
+      light: true,
+    },
+    {
+      name: 'git',
+      fileExtensions: [
+        'git',
+        'git-submodules',
+        'gitattributes',
+        'gitrc',
+        'gitmodules',
+        'keep',
+        'gitkeep',
+        'lfsconfig',
+      ],
+    },
+
     // endregion
 
     // region [Languages]
