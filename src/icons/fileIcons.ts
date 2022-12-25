@@ -454,7 +454,6 @@ export const fileIcons: FileIcons = {
         'stl',
         'tesc',
         'tese',
-        'x',
       ],
     },
     {
@@ -3548,6 +3547,10 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['hp', 'hpgl', 'hpg'],
     },
     {
+      name: 'htaccess',
+      fileExtensions: ['htaccess', 'htpasswd'],
+    },
+    {
       name: 'http',
       fileExtensions: ['http', 'rest'],
     },
@@ -4015,6 +4018,458 @@ export const fileIcons: FileIcons = {
       name: 'jwt',
       fileExtensions: ['jwt'],
     },
+    // endregion
+
+    // region [K]
+    {
+      name: 'kaitai',
+      fileExtensions: ['ksy'],
+    },
+    {
+      name: 'karma',
+      fileNames: [
+        'karma.conf.js',
+        'karma.conf.cjs',
+        'karma.conf.mjs',
+        'karma.conf.ts',
+        'karma.conf.coffee',
+        'karma.config.js',
+        'karma.config.cjs',
+        'karma.config.mjs',
+        'karma.config.ts',
+        'karma.config.coffee',
+      ],
+      light: true,
+    },
+    {
+      name: 'kerboscript',
+      fileExtensions: ['ks'],
+    },
+    {
+      name: 'keybase',
+      fileNames: ['keybase.txt'],
+    },
+    {
+      name: 'keynote',
+      fileExtensions: ['knt', 'keynote'],
+    },
+    {
+      name: 'key',
+      fileExtensions: [
+        'key',
+        'pem',
+        'pub',
+        'gpg',
+        'der',
+        'ssh',
+        'passwd',
+        'kdbx',
+        'enc',
+      ],
+    },
+    {
+      name: 'publishToken',
+      fileNames: [
+        'publishToken',
+        'publishToken.xml',
+        'publishToken.txt',
+        'publishToken.md',
+      ],
+    },
+    {
+      name: 'kibo',
+      fileExtensions: ['kibo'],
+    },
+    {
+      name: 'kicad',
+      fileExtensions: [
+        'kicad_pcb',
+        'kicad_pcb-bak',
+        'kicad_mod',
+        'kicad_sch',
+        'kicad_wks',
+      ],
+    },
+    {
+      name: 'kitchenci',
+      fileExtensions: ['kitchen.yml', 'kitchen.yaml'],
+      fileNames: [
+        'kitchen.yml',
+        'kitchen.yaml',
+        'kitchen.local.yml',
+        'kitchen.local.yaml',
+        'kitchen.dev.yml',
+        'kitchen.dev.yaml',
+        'kitchen.prod.yml',
+        'kitchen.prod.yaml',
+        'kitchen.ci.yaml',
+      ],
+    },
+    {
+      name: 'kite',
+      fileExtensions: ['kite', 'kiteignore'],
+    },
+    {
+      name: 'kivy',
+      fileExtensions: ['kv'],
+    },
+    {
+      name: 'kml',
+      fileExtensions: ['kml'],
+    },
+    {
+      name: 'kl',
+      fileExtensions: ['kl'],
+    },
+    {
+      name: 'knime',
+      fileExtensions: ['knime', 'knwf', 'knim'],
+      fileNames: ['knime.ini'],
+    },
+    {
+      name: 'knockout',
+      fileExtensions: ['knockout'],
+      fileNames: ['knockout.js', 'knockout.min.js'],
+    },
+    {
+      name: 'koka',
+      fileExtensions: ['koka', 'kk'],
+      light: true,
+    },
+    {
+      name: 'kubernetes',
+      fileNames: [
+        'kubernetes',
+        'kubernetes.yaml',
+        'kubernetes.yml',
+        'kubernetes.dev.yaml',
+        'kubernetes.dev.yml',
+        'kubernetes.prod.yaml',
+        'kubernetes.prod.yml',
+      ],
+      fileExtensions: [
+        'kubernetes',
+        'kubernetes.yaml',
+        'kubernetes.yml',
+        'k8s',
+        'k8s.yaml',
+        'k8s.yml',
+      ],
+    },
+    {
+      name: 'kubernetesdepl',
+      fileNames: [
+        'deployment.yaml',
+        'deployment.yml',
+        'configmap.yaml',
+        'configmap.yml',
+        'service.yml',
+        'service.yaml',
+        'ingress.yml',
+        'ingress.yaml',
+        'persistentvolumeclaim.yml',
+        'persistentvolumeclaim.yaml',
+        'persistentvolume.yml',
+        'persistentvolume.yaml',
+        'pod.yml',
+        'pod.yaml',
+        'replicaset.yml',
+        'replicaset.yaml',
+        'replicationcontroller.yml',
+        'replicationcontroller.yaml',
+        'statefulset.yml',
+        'statefulset.yaml',
+        'daemonset.yml',
+        'daemonset.yaml',
+        'job.yml',
+        'job.yaml',
+        'cronjob.yml',
+        'cronjob.yaml',
+      ],
+    },
+    {
+      name: 'kazel',
+      fileExtensions: ['kazel', 'kazelcfg.json'],
+      fileNames: ['kazelcfg.json'],
+    },
+    {
+      name: 'kusto',
+      fileExtensions: ['kql', 'kusto', 'kqlx', 'csl'],
+    },
+    {
+      name: 'kustomize',
+      fileNames: [
+        'kustomization.yaml',
+        'kustomization.yml',
+        'kustomize.yaml',
+        'kustomize.yml',
+      ],
+    },
+    // endregion
+
+    // region [L]
+    {
+      name: 'labview',
+      fileExtensions: ['lvproj', 'lvlib', 'lvclass', 'lvlibp', 'lvlibpc'],
+    },
+    {
+      name: 'lark',
+      fileExtensions: ['lark'],
+    },
+    {
+      name: 'lasso',
+      fileExtensions: [
+        'lasso',
+        'lasso8',
+        'lasso9',
+        'las',
+        'lasx',
+        'ldml',
+        'lassoapp',
+      ],
+    },
+    {
+      name: 'latino',
+      fileExtensions: ['lat'],
+    },
+    {
+      name: 'latte',
+      fileExtensions: ['latte'],
+      light: true,
+    },
+    {
+      name: 'leaflet',
+      fileNames: [
+        'leaflet.js',
+        'leaflet.css',
+        'leaflet.min.js',
+        'leaflet.draw-src.js',
+        'leaflet-src.js',
+        'leaflet.src.js',
+        'leaflet.spin.css',
+        'leaflet.draw.css',
+        'wicket-leaflet.js',
+        'wicket-leaflet.cjs',
+        'wicket-leaflet.mjs',
+      ],
+    },
+    {
+      name: 'lean',
+      fileExtensions: ['lean', 'hlean'],
+    },
+    {
+      name: 'leo',
+      fileExtensions: ['leo', 'aleo'],
+    },
+    {
+      name: 'lefthook',
+      fileExtensions: ['lefthook.yml', 'lefthook.yaml'],
+      fileNames: [
+        'lefthook.yml',
+        'lefthook.yaml',
+        'lefthook-local.yml',
+        'lefthook-local.yaml',
+      ],
+    },
+    {
+      name: 'lektor',
+      fileExtensions: ['lektorproject', 'lektor', 'lr'],
+    },
+    {
+      name: 'leiningen',
+      fileNames: ['project.clj'],
+    },
+    {
+      name: 'lerna',
+      fileNames: ['lerna.json'],
+    },
+    {
+      name: 'lex',
+      fileExtensions: ['x', 'flex', 'lex', 'l', 'lexer'],
+    },
+    {
+      name: 'lfe',
+      fileExtensions: ['lfe'],
+    },
+    {
+      name: 'lgtm',
+      fileNames: ['lgtm.yml', 'lgtm.yaml'],
+      fileExtensions: ['lgtm', 'lgtm.yml', 'lgtm.yaml'],
+    },
+    {
+      name: 'lib',
+      fileExtensions: ['lib', 'bib', 's'],
+    },
+    {
+      name: 'libuv',
+      fileExtensions: ['uv', 'libuv', 'luvit', 'luv'],
+    },
+    {
+      name: 'license',
+      fileExtensions: ['license', 'licence', 'lic'],
+      fileNames: [
+        'license',
+        'licence',
+        'license.txt',
+        'licence.txt',
+        'license.md',
+        'licence.md',
+      ],
+    },
+    {
+      name: 'licensebat',
+      fileExtensions: ['licrc'],
+    },
+    {
+      name: 'lighthouse',
+      fileNames: [
+        'lighthouserc.js',
+        'lighthouserc.cjs',
+        'lighthouserc.mjs',
+        'lighthouserc.ts',
+        'lighthouserc.json',
+        'lighthouserc.yaml',
+        'lighthouserc.yml',
+      ],
+      fileExtensions: [
+        'lighthouserc',
+        'lighthouserc.js',
+        'lighthouserc.cjs',
+        'lighthouserc.mjs',
+        'lighthouserc.ts',
+        'lighthouserc.json',
+        'lighthouserc.yaml',
+        'lighthouserc.yml',
+      ],
+    },
+    {
+      name: 'lightwave',
+      fileExtensions: ['lws', 'lwo'],
+    },
+    {
+      name: 'lilypond',
+      fileExtensions: ['ly', 'ily'],
+    },
+    {
+      name: 'lime',
+      fileExtensions: ['lime', 'hxp'],
+    },
+    {
+      name: 'link',
+      fileExtensions: ['link', 'lnk', 'url', 'alias'],
+    },
+    {
+      name: 'linqpad',
+      fileExtensions: ['linq'],
+    },
+    {
+      name: 'lint-staged',
+      fileNames: [
+        'lint-staged.config.js',
+        'lint-staged.config.cjs',
+        'lint-staged.config.mjs',
+        'lint-staged.config.ts',
+        'lint-staged.config.json',
+        'lint-staged.config.yaml',
+        'lint-staged.config.yml',
+      ],
+      fileExtensions: [
+        'lintstagedrc',
+        'lintstagedrc.js',
+        'lintstagedrc.json',
+        'lintstagedrc.yaml',
+        'lintstagedrc.yml',
+      ],
+    },
+    {
+      name: 'liquid',
+      fileExtensions: ['liquid'],
+    },
+    {
+      name: 'lisp',
+      fileExtensions: [
+        'lisp',
+        'lsp',
+        'cl',
+        'nl',
+        'ny',
+        'sbclrc',
+        'sexp',
+        'podsl',
+      ],
+    },
+    {
+      name: 'liquibase',
+      fileExtensions: [
+        'changelog.xml',
+        'changelog.yml',
+        'changelog.yaml',
+        'changelog.json',
+        'changelog.sql',
+      ],
+    },
+    {
+      name: 'liquibase_props',
+      fileNames: ['liquibase.properties'],
+    },
+    {
+      name: 'livescript',
+      fileExtensions: ['ls', 'ls6', 'lsx', 'lsc', '_ls'],
+      fileNames: ['Slakefile'],
+    },
+    {
+      name: 'llvm',
+      fileExtensions: ['ll', 'llvm', 'llir', 'bc', 'clang-format'],
+    },
+    {
+      name: 'log',
+      fileExtensions: [
+        'log',
+        'logs',
+        '0',
+        '1',
+        '2',
+        '3',
+        '4',
+        '5',
+        '6',
+        '7',
+        '8',
+        '9',
+        'rpt',
+        'bug-report',
+        'fdl',
+      ],
+    },
+    {
+      name: 'logtalk',
+      fileExtensions: ['lgt', 'logtalk'],
+    },
+    {
+      name: 'lolcode',
+      fileExtensions: ['lol'],
+    },
+    {
+      name: 'lookml',
+      fileExtensions: ['lookml', 'lkml'],
+    },
+    {
+      name: 'lsl',
+      fileExtensions: ['lsl', 'lslp'],
+    },
+    {
+      name: 'luau',
+      fileExtensions: ['luau', 'rbxl'],
+    },
+    {
+      name: 'lakefile',
+      fileNames: ['lakefile'],
+    },
+    {
+      name: 'lync',
+      fileExtensions: ['ocrec', 'crec'],
+    },
+
     // endregion
 
     // region [M]
