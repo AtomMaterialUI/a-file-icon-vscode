@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CheckStyle-IDEA">
+    <option name="configuration">
+      <map>
+        <entry key="checkstyle-version" value="8.1" />
+        <entry key="location-0" value="BUNDLED:(bundled):Sun Checks" />
+        <entry key="location-1" value="BUNDLED:(bundled):Google Checks" />
+        <entry key="scan-before-checkin" value="false" />
+        <entry key="scanscope" value="JavaOnly" />
+        <entry key="suppress-errors" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="CheckStyle-IDEA-workspace">
+    <option name="configuration">
+      <map>
+        <entry key="last-active-plugin-version" value="5.18.6" />
+      </map>
+    </option>
+  </component>
+  <component name="CustomInspectionsConfig">
+    <filetypeContainer regex=".*\.txt">
+      <element id="0">
+        <comment>Just do not write this.</comment>
+        <regex>Forbidden t.xt</regex>
+        <severity>Warning</severity>
+      </element>
+    </filetypeContainer>
+  </component>
+  <component name="MarkdownProjectSettings">
+    <PreviewSettings splitEditorLayout="SPLIT" splitEditorPreview="PREVIEW" useGrayscaleRendering="false" zoomFactor="1.0" maxImageWidth="0" synchronizePreviewPosition="true" highlightPreviewType="NONE" highlightFadeOut="5" highlightOnTyping="true" synchronizeSourcePosition="true" verticallyAlignSourceAndPreviewSyncPosition="true" showSearchHighlightsInPreview="false" showSelectionInPreview="true" lastLayoutSetsDefault="false">
+      <PanelProvider>
+        <provider providerId="com.vladsch.md.nav.editor.swing.html.panel" providerName="Default - Swing" />
+      </PanelProvider>
+    </PreviewSettings>
+    <ParserSettings gitHubSyntaxChange="false" correctedInvalidSettings="false" emojiShortcuts="0" emojiImages="0">
+      <PegdownExtensions>
+        <option name="ANCHORLINKS" value="true" />
+        <option name="ATXHEADERSPACE" value="true" />
+        <option name="AUTOLINKS" value="true" />
+        <option name="FENCED_CODE_BLOCKS" value="true" />
+        <option name="INTELLIJ_DUMMY_IDENTIFIER" value="true" />
+        <option name="RELAXEDHRULES" value="true" />
+        <option name="STRIKETHROUGH" value="true" />
+        <option name="TABLES" value="true" />
+        <option name="TASKLISTITEMS" value="true" />
+        <option name="WIKILINKS" value="true" />
+      </PegdownExtensions>
+      <ParserOptions>
+        <option name="COMMONMARK_LISTS" value="true" />
+        <option name="EMOJI_SHORTCUTS" value="true" />
+        <option name="GFM_TABLE_RENDERING" value="true" />
+        <option name="GITHUB_WIKI_LINKS" value="true" />
+        <option name="PRODUCTION_SPEC_PARSER" value="true" />
+      </ParserOptions>
+    </ParserSettings>
+    <HtmlSettings headerTopEnabled="false" headerBottomEnabled="false" bodyTopEnabled="false" bodyBottomEnabled="false" addPageHeader="true" imageUriSerials="false" addDocTypeHtml="true" noParaTags="false" plantUmlConversion="0">
+      <GeneratorProvider>
+        <provider providerId="com.vladsch.md.nav.editor.swing.html.generator" providerName="Default Swing HTML Generator" />
+      </GeneratorProvider>
+      <headerTop />
+      <headerBottom />
+      <bodyTop />
+      <bodyBottom />
+    </HtmlSettings>
+    <CssSettings previewScheme="UI_SCHEME" cssUri="" isCssUriEnabled="false" isCssUriSerial="true" isCssTextEnabled="false" isDynamicPageWidth="true">
+      <StylesheetProvider>
+        <provider providerId="com.vladsch.md.nav.editor.swing.html.css" providerName="Default Swing Stylesheet" />
+      </StylesheetProvider>
+      <ScriptProviders />
+      <cssText />
+      <cssUriHistory />
+    </CssSettings>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="accountSettings">
+    <option name="activeProfile" value="profile:default" />
+    <option name="activeRegion" value="us-east-1" />
+    <option name="recentlyUsedProfiles">
+      <list>
+        <option value="profile:default" />
+      </list>
+    </option>
+    <option name="recentlyUsedRegions">
+      <list>
+        <option value="us-east-1" />
+      </list>
+    </option>
+  </component>
+  <component name="net.techminded.npmania.NpmaniaSettingsState">
+    <option name="actions">
+      <map>
+        <entry key="npm run-script build" value="npm run-script build" />
+        <entry key="npm run-script changelog" value="npm run-script changelog" />
+        <entry key="npm run-script check" value="npm run-script check" />
+        <entry key="npm run-script compile" value="npm run-script compile" />
+        <entry key="npm run-script compile-web" value="npm run-script compile-web" />
+        <entry key="npm run-script compile:dev" value="npm run-script compile:dev" />
+        <entry key="npm run-script compile:watch" value="npm run-script compile:watch" />
+        <entry key="npm run-script contributors" value="npm run-script contributors" />
+        <entry key="npm run-script generateJson" value="npm run-script generateJson" />
+        <entry key="npm run-script lint" value="npm run-script lint" />
+        <entry key="npm run-script package-web" value="npm run-script package-web" />
+        <entry key="npm run-script postcompile" value="npm run-script postcompile" />
+        <entry key="npm run-script pretest" value="npm run-script pretest" />
+        <entry key="npm run-script preversion" value="npm run-script preversion" />
+        <entry key="npm run-script preview" value="npm run-script preview" />
+        <entry key="npm run-script svgo" value="npm run-script svgo" />
+        <entry key="npm run-script test" value="npm run-script test" />
+        <entry key="npm run-script version" value="npm run-script version" />
+        <entry key="npm run-script vscode:prepublish" value="npm run-script vscode:prepublish" />
+        <entry key="npm run-script watch-web" value="npm run-script watch-web" />
+      </map>
+    </option>
+  </component>
+</project>

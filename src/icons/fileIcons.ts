@@ -721,7 +721,6 @@ export const fileIcons: FileIcons = {
         'app-routing.module.js',
         'app-routing.module.ts',
       ],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'angularmodule',
@@ -751,7 +750,6 @@ export const fileIcons: FileIcons = {
     {
       name: 'angulartailwind',
       fileNames: ['ng-tailwind.js', 'ng-tailwind.ts', 'ng-tailwind.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
     },
     {
       name: 'animestudio',
@@ -1055,6 +1053,13 @@ export const fileIcons: FileIcons = {
         'autorc.mjs',
         'autorc.yaml',
         'autorc.yml',
+        'auto.config.cjs',
+        'auto.config.js',
+        'auto.config.json',
+        'auto.config.mjs',
+        'auto.config.ts',
+        'auto.config.yaml',
+        'auto.config.yml',
       ],
       fileNames: [
         'auto.config.cjs',
@@ -1772,7 +1777,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'cocoapods',
-      fileNames: ['podfile', 'podfile.lock', 'podspec'],
+      fileExtensions: ['podfile', 'podfile.lock', 'podspec'],
     },
     {
       name: 'coconut',
@@ -2775,6 +2780,7 @@ export const fileIcons: FileIcons = {
         'frn',
         'fsa',
         'mpfa',
+        'sam',
         'seq',
       ],
     },
@@ -3595,6 +3601,7 @@ export const fileIcons: FileIcons = {
         'houdinicomp',
         'houdiniparm',
         'i3d',
+        'pic',
         'picnc',
         'vfl',
       ],
@@ -5161,7 +5168,7 @@ export const fileIcons: FileIcons = {
       ],
     },
     {
-      name: 'ndproj',
+      name: 'ndepend',
       fileExtensions: ['ndproj'],
     },
     {
@@ -6316,6 +6323,10 @@ export const fileIcons: FileIcons = {
       ],
     },
     {
+      name: 'povray',
+      fileExtensions: ['pov', 'povray'],
+    },
+    {
       name: 'powerbuilder',
       fileExtensions: [
         'pbl',
@@ -6356,10 +6367,10 @@ export const fileIcons: FileIcons = {
         'powershell',
         'ps1',
         'ps1xml',
+        'psc1',
         'psd1',
         'psm1',
         'psrc',
-        'pssc',
         'pssc',
       ],
     },
@@ -7511,9 +7522,12 @@ export const fileIcons: FileIcons = {
         'mksh',
         'mkshrc',
         'nu',
+        'nurc',
         'oksh',
         'osh',
         'pdkshrc',
+        'pksh',
+        'pkshrc',
         'scsh',
         'shar',
         'tcsh',
@@ -7807,6 +7821,7 @@ export const fileIcons: FileIcons = {
         'ihlp',
         'mata',
         'matah',
+        'oh',
         'stata',
         'sthlp',
       ],
@@ -8041,7 +8056,16 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'svgr',
-      fileExtensions: ['svgrrc', 'svgrrc.json', 'svgrrc.yml', 'svgrrc.yaml'],
+      fileExtensions: [
+        'svgrrc',
+        'svgrrc.cjs',
+        'svgrrc.js',
+        'svgrrc.json',
+        'svgrrc.mjs',
+        'svgrrc.ts',
+        'svgrrc.yaml',
+        'svgrrc.yml',
+      ],
       fileNames: [
         'svgr.config.cjs',
         'svgr.config.js',
@@ -8528,7 +8552,11 @@ export const fileIcons: FileIcons = {
       name: 'unibeautify',
       fileExtensions: [
         'unibeautifyrc',
+        'unibeautifyrc.cjs',
+        'unibeautifyrc.js',
         'unibeautifyrc.json',
+        'unibeautifyrc.mjs',
+        'unibeautifyrc.ts',
         'unibeautifyrc.yaml',
         'unibeautifyrc.yml',
       ],
@@ -8764,6 +8792,7 @@ export const fileIcons: FileIcons = {
     {
       name: 'vs',
       fileExtensions: [
+        'lsproj',
         'modelproj',
         'njsproj',
         'rc',
@@ -9614,6 +9643,7 @@ export const fileIcons: FileIcons = {
         'm4p',
         'mid',
         'midi',
+        'mka',
         'mp',
         'mp3',
         'mpc',
@@ -9659,6 +9689,7 @@ export const fileIcons: FileIcons = {
         'mp4',
         'mpeg',
         'mpg',
+        'ogm',
         'ogv',
         'qt',
         'rm',
@@ -9754,6 +9785,7 @@ export const fileIcons: FileIcons = {
         'jsonc',
         'ndjson',
         'rsj',
+        'rdjson',
         'ston',
       ],
     },
