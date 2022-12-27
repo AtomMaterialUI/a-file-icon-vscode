@@ -450,6 +450,10 @@ export const fileIcons: FileIcons = {
       ],
     },
     {
+      name: '3dmodel',
+      fileExtensions: ['3dm', '3dmodel'],
+    },
+    {
       name: '3dsmax',
       fileExtensions: ['3ds', 'dwg', 'osl'],
     },
@@ -1542,14 +1546,22 @@ export const fileIcons: FileIcons = {
       name: 'catala',
       fileExtensions: [
         'catala',
+        'catala_an',
+        'catala_ar',
+        'catala_au',
+        'catala_cn',
         'catala_de',
         'catala_en',
         'catala_es',
         'catala_fr',
+        'catala_he',
         'catala_it',
+        'catala_ja',
         'catala_jp',
         'catala_pt',
+        'catala_ro',
         'catala_ru',
+        'catala_uk',
         'catala_zh',
       ],
     },
@@ -2324,6 +2336,10 @@ export const fileIcons: FileIcons = {
         'doczrc.json',
         'doczrc.mjs',
         'doczrc.ts',
+        'docz.config.cjs',
+        'docz.config.js',
+        'docz.config.mjs',
+        'docz.config.ts',
       ],
       fileNames: [
         'docz.config.cjs',
@@ -4700,7 +4716,8 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'maven',
-      fileNames: ['.flattened-pom.xml', 'pom.xml'],
+      fileExtensions: ['pom', 'flattened-pom.xml'],
+      fileNames: ['pom.xml'],
     },
     {
       name: 'max',
@@ -5764,7 +5781,6 @@ export const fileIcons: FileIcons = {
         'fods',
         'fodt',
         'odb',
-        'odf',
         'odf',
         'odg',
         'odp',
@@ -6904,7 +6920,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'rhino3d',
-      fileExtensions: ['3dm', '3dmf', '3dmr', '3mf', '3mfz', '3mm', 'rvb'],
+      fileExtensions: ['3dmf', '3dmr', '3mf', '3mfz', '3mm', 'rvb'],
     },
     {
       name: 'riemann',
@@ -8371,7 +8387,6 @@ export const fileIcons: FileIcons = {
     {
       name: 'vercelignore',
       fileExtensions: ['vercelignore'],
-      light: true,
     },
     {
       name: 'verdaccio',
@@ -8997,7 +9012,7 @@ export const fileIcons: FileIcons = {
     },
     {
       name: 'zeitignore',
-      fileExtensions: ['nowignore', 'zeitignore'],
+      fileExtensions: ['zeitignore'],
     },
     {
       name: 'zephir',
@@ -9188,6 +9203,7 @@ export const fileIcons: FileIcons = {
     {
       name: 'binary',
       fileExtensions: [
+        '2da',
         'axf',
         'bin',
         'bsdiff',
@@ -9536,6 +9552,103 @@ export const fileIcons: FileIcons = {
     {
       name: 'typeScript',
       fileExtensions: ['ts', 'tslint'],
+    },
+    // endregion
+
+    // region [Least priority]
+    {
+      name: 'class',
+      fileExtensions: ['class', 'ko', 'o', 'out', 'pyc', 'pyo'],
+    },
+    {
+      name: 'db',
+      fileExtensions: [
+        '2da',
+        'cbor',
+        'db',
+        'db2',
+        'db3',
+        'dbi',
+        'ddl',
+        'dict',
+        'edn',
+        'eign',
+        'fea',
+        'icondb.js',
+        'od',
+        'onlydata',
+        'pytb',
+        'schema',
+        'sy',
+        'syntax',
+        'termcap',
+        'terminfo',
+        'tgn',
+      ],
+    },
+    {
+      name: 'font',
+      fileExtensions: [
+        'afm',
+        'dfont',
+        'eot',
+        'otf',
+        'pfa',
+        'pfb',
+        'pfm',
+        'tfm',
+        'ttc',
+        'ttf',
+        'woff',
+        'woff2',
+      ],
+    },
+    {
+      name: 'lock',
+      fileExtensions: ['lock'],
+    },
+    {
+      name: 'markdown',
+      fileExtensions: [
+        'jmd',
+        'markdown',
+        'md',
+        'mdown',
+        'mkd',
+        'mkdn',
+        'mkdown',
+        'pmd',
+      ],
+    },
+    {
+      name: 'vue',
+      fileExtensions: ['vue'],
+    },
+    {
+      name: 'xml',
+      fileExtensions: [
+        'fxml',
+        'jnlp',
+        'jrxml',
+        'rng',
+        'tld',
+        'xml',
+        'xsl',
+        'xslt',
+        'xul',
+      ],
+    },
+    {
+      name: 'wsdl',
+      fileExtensions: ['wsdl'],
+    },
+    {
+      name: 'xsd',
+      fileExtensions: ['xsd'],
+    },
+    {
+      name: 'yaml',
+      fileExtensions: ['info', 'yaml', 'yml'],
     },
     // endregion
   ],
