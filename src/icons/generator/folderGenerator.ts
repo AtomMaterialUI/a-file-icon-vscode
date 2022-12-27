@@ -11,9 +11,9 @@ import {
   IconJsonOptions,
 } from '../../models/index';
 import {
+  darkFileEnding,
   highContrastColorFileEnding,
   iconFolderPath,
-  darkFileEnding,
   openedFolder,
 } from './constants';
 
@@ -198,12 +198,26 @@ const createIconDefinitions = (
   const fileConfigHash = getFileConfigHash(config.options ?? {});
   const configIconDefinitions = config.iconDefinitions;
   if (configIconDefinitions) {
-    configIconDefinitions[iconName + appendix] = {
+    configIconDefinitions[`${iconName}${appendix}`] = {
       iconPath: `${iconFolderPath}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
     };
     configIconDefinitions[`${iconName}${openedFolder}${appendix}`] = {
       iconPath: `${iconFolderPath}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
     };
+
+    // configIconDefinitions[`.${iconName}${appendix}`] = {
+    //   iconPath: `${iconFolderPath}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
+    // };
+    // configIconDefinitions[`.${iconName}${openedFolder}${appendix}`] = {
+    //   iconPath: `${iconFolderPath}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
+    // };
+
+    // configIconDefinitions[`_${iconName}${appendix}`] = {
+    //   iconPath: `${iconFolderPath}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
+    // };
+    // configIconDefinitions[`_${iconName}${openedFolder}${appendix}`] = {
+    //   iconPath: `${iconFolderPath}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
+    // };
   }
   return config;
 };
@@ -219,11 +233,17 @@ const setFolderNames = (
   };
   folderNames.forEach((name) => {
     if (obj.folderNames) {
-      obj.folderNames[name as keyof IconConfiguration] = iconName + appendix;
+      obj.folderNames[name] = iconName + appendix;
+      obj.folderNames[`.${name}`] = iconName + appendix;
+      obj.folderNames[`_${name}`] = iconName + appendix;
     }
     if (obj.folderNamesExpanded) {
+      obj.folderNamesExpanded[name] = `${iconName}${openedFolder}${appendix}`;
       obj.folderNamesExpanded[
-        name as keyof IconConfiguration
+        `.${name}`
+      ] = `${iconName}${openedFolder}${appendix}`;
+      obj.folderNamesExpanded[
+        `_${name}`
       ] = `${iconName}${openedFolder}${appendix}`;
     }
   });
@@ -306,9 +326,9 @@ export const generateFolderIcons = (color: string | undefined) => {
 };
 
 const getPath = (d: string, color: string) =>
-  `<path d="${d}" fill="${color}" />`;
+  `<path d='${d}' fill='${color}' />`;
 const getSVG = (path: string) =>
-  `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">${path}</svg>`;
+  `<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>${path}</svg>`;
 
 const writeSVGFiles = (iconName: string, svg: string) => {
   let iconsPath;
