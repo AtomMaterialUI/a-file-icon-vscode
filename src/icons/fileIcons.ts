@@ -223,7 +223,7 @@ export const fileIcons: FileIcons = {
       fileExtensions: ['junit/java', 'test/java', 'tests/java', 'unit/java'],
     },
     {
-      name: 'testkotlin',
+      name: 'testkt',
       fileExtensions: ['junit/kt', 'test/kt', 'tests/kt', 'unit/kt'],
     },
     {
@@ -406,8 +406,7 @@ export const fileIcons: FileIcons = {
       ],
     },
     {
-      name: 'phpunit',
-      fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
+      name: 'testphp',
       fileExtensions: [
         'spec.php',
         'spec/php',
@@ -418,6 +417,7 @@ export const fileIcons: FileIcons = {
         'unit.php',
         'unit/php',
         'units/php',
+        'phpunit/php',
       ],
     },
     // endregion [Tests]
@@ -6112,6 +6112,10 @@ export const fileIcons: FileIcons = {
       name: 'phpcs',
       fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
       fileExtensions: ['php_cs'],
+    },
+    {
+      name: 'phpunit',
+      fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
     },
     {
       name: 'phtml',
