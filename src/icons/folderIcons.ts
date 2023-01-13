@@ -43,6 +43,10 @@ export const folderIcons: FolderTheme[] = [
         folderNames: ['alacritty'],
       },
       {
+        name: 'amplication',
+        folderNames: ['amplication'],
+      },
+      {
         name: 'android',
         folderNames: ['android', 'androidApp'],
       },
@@ -907,6 +911,634 @@ export const folderIcons: FolderTheme[] = [
         folderNames: ['ios', 'iosapp', 'ios-app'],
       },
 
+      // endregion
+
+      // region [J]
+      {
+        name: 'java',
+        folderNames: ['java', 'jdk'],
+      },
+      {
+        name: 'js',
+        folderNames: ['js', 'javascript', 'javascripts'],
+      },
+      {
+        name: 'jest',
+        folderNames: ['jest', 'jest-cache', 'jest-coverage'],
+      },
+      {
+        name: 'jinja',
+        folderNames: [
+          'j2',
+          'jinja',
+          'jinja-templates',
+          'jinja2',
+          'jinja_templates',
+        ],
+      },
+      {
+        name: 'job',
+        folderNames: ['job', 'jobs', 'resque', 'bull'],
+      },
+      {
+        name: 'json',
+        folderNames: [
+          'json',
+          'jsons',
+          'serialization',
+          'serializer',
+          'serializers',
+        ],
+      },
+      {
+        name: 'jwt',
+        folderNames: [
+          'jwt',
+          'jwt-keys',
+          'jwt_keys',
+          'jwtkeys',
+          'token',
+          'tokens',
+        ],
+      },
+      {
+        name: 'client',
+        folderNames: ['client', 'clients', 'frontend', 'frontends', 'pwa'],
+      },
+      // endregion
+
+      // region [K]
+      {
+        name: 'keys',
+        folderNames: [
+          'key',
+          'keys',
+          'secret',
+          'secrets',
+          'cert',
+          'certs',
+          'certificate',
+          'certificates',
+          'pem',
+          'pems',
+          'ssl',
+          'ssh',
+        ],
+      },
+      {
+        name: 'kivy',
+        folderNames: ['kivy', 'kv'],
+      },
+      {
+        name: 'kotlin',
+        folderNames: ['kotlin', 'kt', 'kts'],
+      },
+      {
+        name: 'kubernetes',
+        folderNames: [
+          'k8s',
+          'k8ses',
+          'kube',
+          'kubernetes',
+          'kubes',
+          'minikube',
+        ],
+      },
+      {
+        name: 'kustomize',
+        folderNames: ['kustomize', 'kustomization', 'kustomizations'],
+      },
+      // endregion
+
+      // region [L]
+      {
+        name: 'layouts',
+        folderNames: [
+          'fragment',
+          'fragments',
+          'layout',
+          'layouts',
+          'partial',
+          'partials',
+        ],
+      },
+      {
+        name: 'less',
+        folderNames: ['less'],
+      },
+      {
+        name: 'linux',
+        folderNames: ['linux', 'unix', 'nux', 'gnu'],
+      },
+      {
+        name: 'logs',
+        folderNames: ['log', 'logs'],
+      },
+      {
+        name: 'lua',
+        folderNames: ['lua', 'luac', 'luau'],
+      },
+
+      // endregion
+
+      // region [M]
+      {
+        name: 'main',
+        folderNames: ['main', 'mainapp', 'main-app'],
+      },
+      {
+        name: 'mailers',
+        folderNames: [
+          'email',
+          'emails',
+          'mail',
+          'mailer',
+          'mailers',
+          'mailing',
+          'mailings',
+          'mails',
+        ],
+      },
+      {
+        name: 'markdown',
+        folderNames: ['markdown', 'md', 'mdown', 'mdx'],
+      },
+      {
+        name: 'math',
+        folderNames: [
+          'algo',
+          'algorithm',
+          'algorithms',
+          'algos',
+          'computation',
+          'computations',
+          'compute',
+          'computes',
+          'formula',
+          'formulas',
+          'logic',
+          'math',
+          'mathjax',
+          'maths',
+          'scilab',
+          'wolfram',
+        ],
+      },
+      {
+        name: 'maven',
+        folderNames: ['maven', 'mvn', 'pom'],
+      },
+      {
+        name: 'maps',
+        folderNames: [
+          'map',
+          'maps',
+          'mapping',
+          'mappings',
+          'mapper',
+          'mappers',
+        ],
+      },
+      {
+        name: 'osx',
+        folderNames: [
+          'appex',
+          'ccl',
+          'ideplugin',
+          'kext',
+          'mdimporter',
+          'osax',
+          'osirixplugin',
+          'qlgenerator',
+        ],
+      },
+      {
+        name: 'mac',
+        folderNames: ['mac', 'macos', 'osx'],
+      },
+      {
+        name: 'messages',
+        folderNames: [
+          'chat',
+          'chatroom',
+          'chatrooms',
+          'chats',
+          'comment',
+          'comments',
+          'forum',
+          'forums',
+          'message',
+          'messages',
+          'messaging',
+          'msg',
+          'msgs',
+          'thread',
+          'threads',
+        ],
+      },
+      {
+        name: 'mercurial',
+        folderNames: ['hg', 'mercurial'],
+      },
+      {
+        name: 'meta',
+        folderNames: ['meta', 'metadata', 'metas'],
+      },
+      {
+        name: 'meteor',
+        folderNames: ['meteor'],
+      },
+      {
+        name: 'middleware',
+        folderNames: ['middleware', 'middlewares', 'thunk', 'thunks'],
+      },
+      {
+        name: 'mjml',
+        folderNames: ['mjml'],
+      },
+      {
+        name: 'mobile',
+        folderNames: ['mobile', 'mobiles', 'portable', 'portables'],
+      },
+      {
+        name: 'mocks',
+        folderNames: [
+          'fake',
+          'fakes',
+          'mock',
+          'mocks',
+          'mockup',
+          'mockups',
+          'sketch',
+          'sketches',
+          'stub',
+          'stubs',
+          'wireframe',
+          'wireframes',
+        ],
+      },
+      {
+        name: 'modals',
+        folderNames: [
+          'dialog',
+          'dialogs',
+          'modal',
+          'modals',
+          'popup',
+          'popups',
+          'usecase',
+          'usecases',
+        ],
+      },
+      {
+        name: 'models',
+        folderNames: [
+          'class',
+          'classes',
+          'dto',
+          'entities',
+          'entity',
+          'model',
+          'models',
+          'object',
+          'objects',
+          'struct',
+          'structs',
+        ],
+      },
+      {
+        name: 'molecules',
+        folderNames: ['molecule', 'molecules'],
+      },
+      {
+        name: 'mongo',
+        folderNames: ['mongo', 'mongodb', 'mongoid', 'mongoose'],
+      },
+      {
+        name: 'moon',
+        folderNames: ['moon', 'moonscript'],
+      },
+
+      // endregion
+
+      // region [N]
+      {
+        name: 'navigation',
+        folderNames: [
+          'geo',
+          'nav',
+          'navigate',
+          'navigation',
+          'navigations',
+          'navs',
+        ],
+      },
+      {
+        name: 'netlify',
+        folderNames: ['netlify'],
+      },
+      {
+        name: 'next',
+        folderNames: ['next'],
+      },
+      {
+        name: 'node',
+        folderNames: ['node', 'node_modules', 'nodejs', 'npm'],
+      },
+      {
+        name: 'notebooks',
+        folderNames: [
+          'jupyter',
+          'jupyter-notebook',
+          'jupyter-notebooks',
+          'notebook',
+          'notebooks',
+        ],
+      },
+      {
+        name: 'notification',
+        folderNames: [
+          'flash',
+          'notif',
+          'notification',
+          'notifications',
+          'notifs',
+        ],
+      },
+      {
+        name: 'nuget',
+        folderNames: ['nuget', 'nupkg'],
+      },
+      {
+        name: 'nuxt',
+        folderNames: ['nuxt'],
+      },
+      // endregion
+
+      // region [O]
+      {
+        name: 'openshift',
+        folderNames: ['openshift'],
+      },
+      {
+        name: 'other',
+        folderNames: [
+          'etc',
+          'extra',
+          'extras',
+          'misc',
+          'miscellaneous',
+          'other',
+          'others',
+        ],
+      },
+      // endregion
+
+      // region [P]
+      {
+        name: 'packages',
+        folderNames: [
+          'bundle',
+          'bundles',
+          'module',
+          'modules',
+          'package',
+          'packages',
+          'paket',
+          'pkg',
+          'pkgs',
+        ],
+      },
+      {
+        name: 'perl',
+        folderNames: ['perl', 'pl'],
+      },
+      {
+        name: 'pdf',
+        folderNames: ['acrobat', 'adobe', 'pdf', 'pdfs'],
+      },
+      {
+        name: 'php',
+        folderNames: ['php', 'phpcs', 'phpmailer', 'phpt', 'phtml'],
+      },
+      {
+        name: 'pinia',
+        folderNames: ['pinia'],
+      },
+      {
+        name: 'pipe',
+        folderNames: ['pipe', 'pipes', 'filter', 'filters'],
+      },
+      {
+        name: 'platformio',
+        folderNames: ['pio', 'pioenv', 'pioenvs', 'platformio'],
+      },
+      {
+        name: 'playwright',
+        folderNames: ['playwright', 'pw'],
+      },
+      {
+        name: 'plugin',
+        folderNames: [
+          'extension',
+          'extensions',
+          'mu-plugin',
+          'mu-plugins',
+          'plugin',
+          'plugins',
+        ],
+      },
+      {
+        name: 'posts',
+        folderNames: ['post', 'posts'],
+      },
+      {
+        name: 'protobuf',
+        folderNames: ['proto', 'protobuf'],
+      },
+      {
+        name: 'prisma',
+        folderNames: ['prisma'],
+      },
+      {
+        name: 'private',
+        folderNames: ['private', 'privates'],
+      },
+      {
+        name: 'project',
+        folderNames: ['project', 'projects', 'proj'],
+      },
+      {
+        name: 'projects',
+        folderNames: ['folder', 'folders', 'workspace', 'workspaces'],
+      },
+      {
+        name: 'providers',
+        folderNames: ['provider', 'providers'],
+      },
+      {
+        name: 'python',
+        folderNames: ['python', 'py', 'pytest_cache', '__pycache__'],
+      },
+      // endregion
+
+      // region [Q]
+      {
+        name: 'quasar',
+        folderNames: ['quasar'],
+      },
+      {
+        name: 'quantum',
+        folderNames: ['qtn', 'quantum'],
+      },
+      {
+        name: 'queries',
+        folderNames: ['query', 'queries'],
+      },
+      {
+        name: 'queue',
+        folderNames: ['bull', 'mq', 'queue', 'queues'],
+      },
+      // endregion
+
+      // region [R]
+      {
+        name: 'react',
+        folderNames: [
+          'jsx',
+          'react',
+          'react-native',
+          'react-scripts',
+          'react_components',
+          'react_scripts',
+          'tsx',
+        ],
+      },
+      {
+        name: 'redhat',
+        folderNames: ['redhat', 's2i'],
+      },
+      {
+        name: 'redis',
+        folderNames: ['redis'],
+      },
+      {
+        name: 'redwood',
+        folderNames: ['redwood'],
+      },
+      {
+        name: 'recoil',
+        folderNames: ['coil', 'recoil'],
+      },
+      {
+        name: 'redux',
+        folderNames: ['flux', 'organism', 'organisms', 'redux', 'rtk'],
+      },
+      {
+        name: 'redux-actions',
+        folderNames: ['action', 'actions', 'redux-actions'],
+      },
+      {
+        name: 'redux-epics',
+        folderNames: ['epic', 'epics', 'redux-epics'],
+      },
+      {
+        name: 'redux-reducers',
+        folderNames: ['reducer', 'reducers', 'redux-reducers'],
+      },
+      {
+        name: 'redux-sagas',
+        folderNames: [
+          'effect',
+          'effects',
+          'redux-effects',
+          'redux-sagas',
+          'saga',
+          'sagas',
+        ],
+      },
+      {
+        name: 'redux-stores',
+        folderNames: [
+          'redux-states',
+          'redux-stores',
+          'state',
+          'states',
+          'store',
+          'stores',
+        ],
+      },
+      {
+        name: 'relay',
+        folderNames: ['relay'],
+      },
+      {
+        name: 'resolver',
+        folderNames: ['resolver', 'resolvers', 'value', 'values'],
+      },
+      {
+        name: 'resource',
+        folderNames: [
+          'asset',
+          'assets',
+          'report',
+          'reports',
+          'res',
+          'resource',
+          'resources',
+        ],
+      },
+      {
+        name: 'reviews',
+        folderNames: [
+          'pr',
+          'prs',
+          'pull',
+          'pullrequest',
+          'pullrequests',
+          'pulls',
+          'review',
+          'reviewed',
+          'reviews',
+          'revision',
+          'revisions',
+        ],
+      },
+      {
+        name: 'root',
+        folderNames: ['root', 'roots'],
+      },
+      {
+        name: 'routes',
+        folderNames: ['route', 'routes', 'router', 'routers', 'routing'],
+      },
+      {
+        name: 'ruby',
+        folderNames: [
+          'gem',
+          'gem_rbs_collection',
+          'gems',
+          'rb',
+          'rubies',
+          'ruby',
+          'sig',
+        ],
+      },
+      {
+        name: 'rules',
+        folderNames: [
+          'rule',
+          'rules',
+          'validation',
+          'validations',
+          'validator',
+          'validators',
+        ],
+      },
+      {
+        name: 'rust',
+        folderNames: ['cargo', 'rust', 'rs'],
+      },
       // endregion
     ],
   },
