@@ -602,11 +602,11 @@ export const folderIcons: FolderTheme[] = [
         ],
       },
       {
-        name: 'event',
+        name: 'events',
         folderNames: ['event', 'events'],
       },
       {
-        name: 'example',
+        name: 'examples',
         folderNames: [
           'demo',
           'demos',
@@ -645,7 +645,7 @@ export const folderIcons: FolderTheme[] = [
         folderNames: ['faq', 'faqs'],
       },
       {
-        name: 'feature',
+        name: 'features',
         folderNames: ['feature', 'features', 'feat', 'feats'],
       },
       {
@@ -757,7 +757,7 @@ export const folderIcons: FolderTheme[] = [
         folderNames: ['hasura'],
       },
       {
-        name: 'haxe',
+        name: 'haxelib',
         folderNames: ['haxe', 'hxml', 'haxelib', 'haxe_libraries'],
       },
       {
