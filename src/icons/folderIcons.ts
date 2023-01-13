@@ -265,6 +265,488 @@ export const folderIcons: FolderTheme[] = [
       },
       // endregion
 
+      // region [C]
+      {
+        name: 'cabal',
+        folderNames: ['cabal'],
+      },
+      {
+        name: 'cake',
+        folderNames: ['cake'],
+      },
+      {
+        name: 'cart',
+        folderNames: [
+          'basket',
+          'baskets',
+          'cart',
+          'carts',
+          'marketing',
+          'shop',
+          'shops',
+        ],
+      },
+      {
+        name: 'channels',
+        folderNames: ['channel', 'channels'],
+      },
+      {
+        name: 'chef',
+        folderNames: ['chef', 'recipe', 'recipes'],
+      },
+      {
+        name: 'ci',
+        folderNames: ['ci', 'integration', 'integrations'],
+      },
+      {
+        name: 'client',
+        folderNames: ['client', 'clients', 'frontend', 'frontends', 'pwa'],
+      },
+      {
+        name: 'circleci',
+        folderNames: ['circleci'],
+      },
+      {
+        name: 'cluster',
+        folderNames: ['cluster', 'clusters', 'node', 'nodes'],
+      },
+      {
+        name: 'cmake',
+        folderNames: ['cmake', 'cmake-build-debug', 'cmake-build-release'],
+      },
+      {
+        name: 'cnab',
+        folderNames: ['cnab'],
+      },
+      {
+        name: 'cobol',
+        folderNames: ['cobol'],
+      },
+      {
+        name: 'codesandbox',
+        folderNames: ['codesandbox'],
+      },
+      {
+        name: 'components',
+        folderNames: [
+          'component',
+          'components',
+          'directive',
+          'directives',
+          'element',
+          'elements',
+          'ui',
+          'widget',
+          'widgets',
+        ],
+      },
+      {
+        name: 'composer',
+        folderNames: ['composer', 'composer'],
+      },
+      {
+        name: 'config',
+        folderNames: [
+          'cfg',
+          'conf',
+          'config',
+          'configs',
+          'configuration',
+          'configurations',
+          'setting',
+          'settings',
+        ],
+      },
+      {
+        name: 'connection',
+        folderNames: [
+          'connect',
+          'connection',
+          'connections',
+          'link',
+          'links',
+          'rel',
+          'relation',
+          'relations',
+        ],
+      },
+      {
+        name: 'container',
+        folderNames: [
+          'container',
+          'containers',
+          'devcontainer',
+          'devcontainers',
+        ],
+      },
+      {
+        name: 'content',
+        folderNames: ['content', 'contents', 'context', 'contexts', 'cont'],
+      },
+      {
+        name: 'contract',
+        folderNames: ['contract', 'contracts', 'pact', 'pacts'],
+      },
+      {
+        name: 'controllers',
+        folderNames: ['controller', 'controllers', 'ctrl', 'ctrls'],
+      },
+      {
+        name: 'core',
+        folderNames: [
+          'bin',
+          'binaries',
+          'binary',
+          'core',
+          'cores',
+          'io',
+          'support',
+        ],
+      },
+      {
+        name: 'coverage',
+        folderNames: ['coverage', 'coverages', 'cov', 'lcov'],
+      },
+      {
+        name: 'crates',
+        folderNames: ['crate', 'crates'],
+      },
+      {
+        name: 'cron',
+        folderNames: ['cron', 'crontab', 'schedule', 'schedules', 'scheduler'],
+      },
+      {
+        name: 'cubit',
+        folderNames: ['cubit', 'cubits'],
+      },
+      {
+        name: 'cue',
+        folderNames: ['cue', 'cue.mod'],
+      },
+      {
+        name: 'custom',
+        folderNames: ['custom', 'random'],
+      },
+      {
+        name: 'cvs',
+        folderNames: ['cvs'],
+      },
+      {
+        name: 'cypress',
+        folderNames: ['cypress'],
+      },
+
+      // endregion
+
+      // region [D]
+      {
+        name: 'dapr',
+        folderNames: ['dapr'],
+      },
+      {
+        name: 'db',
+        folderNames: [
+          'database',
+          'databases',
+          'db',
+          'migrate',
+          'migrations',
+          'repo',
+          'repos',
+          'repositories',
+          'repository',
+        ],
+      },
+      {
+        name: 'debian',
+        folderNames: ['debian', 'deb'],
+      },
+      {
+        name: 'debug',
+        folderNames: [
+          'bug',
+          'bugs',
+          'debug',
+          'debugger',
+          'debuggers',
+          'debugging',
+        ],
+      },
+      {
+        name: 'decorators',
+        folderNames: ['annotation', 'annotations', 'decorator', 'decorators'],
+      },
+      {
+        name: 'delta',
+        folderNames: ['delta', 'deltas', 'diff', 'diffs'],
+      },
+      {
+        name: 'deno',
+        folderNames: ['deno'],
+      },
+      {
+        name: 'dependabot',
+        folderNames: ['dependabot'],
+      },
+      {
+        name: 'deploy',
+        folderNames: [
+          'deploy',
+          'deployer',
+          'deployment',
+          'deployments',
+          'deploys',
+        ],
+      },
+      {
+        name: 'devcontainer',
+        folderNames: ['devcontainer', 'devcontainers'],
+      },
+      {
+        name: 'dist',
+        folderNames: [
+          'build',
+          'dist',
+          'distribution',
+          'distributions',
+          'out',
+          'output',
+          'release',
+          'releases',
+        ],
+      },
+      {
+        name: 'docker',
+        folderNames: ['docker', 'dockerfile', 'dockerfiles'],
+      },
+      {
+        name: 'docs',
+        folderNames: [
+          'doc',
+          'docs',
+          'documentation',
+          'documentations',
+          'text',
+          'texts',
+        ],
+      },
+      {
+        name: 'domain',
+        folderNames: ['domain', 'domains'],
+      },
+      {
+        name: 'download',
+        folderNames: ['download', 'downloads', 'dl', 'dls'],
+      },
+      {
+        name: 'dropbox',
+        folderNames: ['dropbox', 'dropbox.cache'],
+      },
+      {
+        name: 'dub',
+        folderNames: ['dub'],
+      },
+      {
+        name: 'dump',
+        folderNames: ['dump', 'dumps'],
+      },
+      {
+        name: 'dvc',
+        folderNames: ['dvc'],
+      },
+      // endregion
+
+      // region [E]
+      {
+        name: 'e2e',
+        folderNames: ['e2e', 'e2e-tests', 'scenario', 'scenarios'],
+      },
+      {
+        name: 'elastic',
+        folderNames: [
+          'eb-extensions',
+          'elastic',
+          'elasticbeanstalk',
+          'elasticsearch',
+        ],
+      },
+      {
+        name: 'electron',
+        folderNames: ['electron', 'electron-builder'],
+      },
+      {
+        name: 'elixir',
+        folderNames: ['eex', 'elixir', 'elixir_ls', 'ex', 'leex'],
+      },
+      {
+        name: 'emacs',
+        folderNames: ['emacs', 'emacs.d'],
+      },
+      {
+        name: 'env',
+        folderNames: ['env', 'envs', 'environment', 'environments'],
+      },
+      {
+        name: 'error',
+        folderNames: [
+          'error',
+          'errors',
+          'exception',
+          'exceptions',
+          'prod',
+          'production',
+        ],
+      },
+      {
+        name: 'event',
+        folderNames: ['event', 'events'],
+      },
+      {
+        name: 'example',
+        folderNames: [
+          'demo',
+          'demos',
+          'example',
+          'examples',
+          'sample',
+          'samples',
+        ],
+      },
+      {
+        name: 'exclude',
+        folderNames: [
+          'exclude',
+          'excludes',
+          'export',
+          'exported',
+          'exports',
+          'ignore',
+          'ignores',
+        ],
+      },
+      {
+        name: 'expo',
+        folderNames: ['expo', 'expo-shared'],
+      },
+
+      // endregion
+
+      // region [F]
+      {
+        name: 'fastlane',
+        folderNames: ['fastlane'],
+      },
+      {
+        name: 'faq',
+        folderNames: ['faq', 'faqs'],
+      },
+      {
+        name: 'feature',
+        folderNames: ['feature', 'features', 'feat', 'feats'],
+      },
+      {
+        name: 'firebase',
+        folderNames: ['firebase'],
+      },
+      {
+        name: 'fixtures',
+        folderNames: [
+          'fabricator',
+          'fabricators',
+          'factories',
+          'factory',
+          'fixture',
+          'fixtures',
+        ],
+      },
+      {
+        name: 'flow',
+        folderNames: ['flow', 'flow-typed', 'def', 'defs'],
+      },
+      {
+        name: 'fonts',
+        folderNames: ['font', 'fonts'],
+      },
+      {
+        name: 'functions',
+        folderNames: [
+          'func',
+          'funcs',
+          'function',
+          'functions',
+          'handler',
+          'handlers',
+          'lambda',
+          'lambdas',
+          'service',
+          'services',
+        ],
+      },
+
+      // endregion
+
+      // region [G]
+      {
+        name: 'gcloud',
+        folderNames: ['gcloud', 'gcp'],
+      },
+      {
+        name: 'generated',
+        folderNames: [
+          'auto',
+          'autogen',
+          'gen',
+          'generated',
+          'generator',
+          'generators',
+        ],
+      },
+      {
+        name: 'git',
+        folderNames: ['git', 'gitignore', 'gitattributes', 'submodules'],
+      },
+      {
+        name: 'github',
+        folderNames: ['github'],
+      },
+      {
+        name: 'gitlab',
+        folderNames: ['gitlab'],
+      },
+      {
+        name: 'global',
+        folderNames: ['global', 'globals'],
+      },
+      {
+        name: 'gradle',
+        folderNames: ['gradle', 'gradles'],
+      },
+      {
+        name: 'graphql',
+        folderNames: ['graphql', 'gql', 'schema', 'schemas'],
+      },
+      {
+        name: 'grunt',
+        folderNames: ['grunt', 'gruntfile', 'gruntfiles'],
+      },
+      {
+        name: 'guard',
+        folderNames: [
+          'dev',
+          'develop',
+          'development',
+          'guard',
+          'guardfile',
+          'guardfiles',
+        ],
+      },
+      {
+        name: 'gulp',
+        folderNames: ['gulp', 'gulpfile', 'gulpfiles'],
+      },
+
+      // endregion
+
       //     {
       //       name: 'source',
       //       folderNames: ['src', 'srcs', 'source', 'sources', 'code'],
