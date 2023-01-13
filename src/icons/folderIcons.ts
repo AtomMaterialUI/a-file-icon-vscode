@@ -1540,6 +1540,546 @@ export const folderIcons: FolderTheme[] = [
         folderNames: ['cargo', 'rust', 'rs'],
       },
       // endregion
+
+      // region [S]
+      {
+        name: 'sass',
+        folderNames: ['sass', 'scss'],
+      },
+      {
+        name: 'scala',
+        folderNames: ['scala', 'sbt', 'sbt_modules'],
+      },
+      {
+        name: 'screens',
+        folderNames: [
+          'capture',
+          'captures',
+          'screen',
+          'screens',
+          'screenshot',
+          'screenshots',
+          'screenvid',
+          'screenvids',
+        ],
+      },
+      {
+        name: 'scripts',
+        folderNames: [
+          'polyfill',
+          'polyfills',
+          'script',
+          'scripts',
+          'selector',
+          'selectors',
+        ],
+      },
+      {
+        name: 'scratch',
+        folderNames: [
+          'note',
+          'notes',
+          'scratch',
+          'scratches',
+          'scratchpad',
+          'todo',
+          'todos',
+        ],
+      },
+      {
+        name: 'security',
+        folderNames: ['security', 'secure'],
+      },
+      {
+        name: 'server',
+        folderNames: [
+          'backend',
+          'http',
+          'qa',
+          'request',
+          'requests',
+          'response',
+          'responses',
+          'server',
+          'servers',
+          'staging',
+        ],
+      },
+      {
+        name: 'serverless',
+        folderNames: ['infra', 'infrastructure', 'serverless'],
+      },
+      {
+        name: 'shader',
+        folderNames: [
+          'glsl',
+          'hlsl',
+          'shader',
+          'shaders',
+          'vertex',
+          'vertices',
+        ],
+      },
+      {
+        name: 'shared',
+        folderNames: [
+          'common',
+          'commons',
+          'share',
+          'shared',
+          'shared_components',
+        ],
+      },
+      {
+        name: 'src',
+        folderNames: [
+          'buildSrc',
+          'code',
+          'source',
+          'sources',
+          'src',
+          'srcs',
+          'srcset',
+        ],
+      },
+      {
+        name: 'sql',
+        folderNames: [
+          'maria',
+          'mariadb',
+          'mssql',
+          'mysql',
+          'pgsql',
+          'postgres',
+          'postgresql',
+          'sql',
+          'sqlite',
+          'sqlserver',
+        ],
+      },
+      {
+        name: 'stack',
+        folderNames: ['stack', 'stacks', 'structure', 'structures'],
+      },
+      {
+        name: 'stencil',
+        folderNames: ['stencil'],
+      },
+      {
+        name: 'storage',
+        folderNames: [
+          'bucket',
+          'buckets',
+          'packet',
+          'packets',
+          'storage',
+          'storages',
+        ],
+      },
+      {
+        name: 'storybook',
+        folderNames: [
+          '__stories__',
+          'stories',
+          'story',
+          'storybook',
+          'storybooks',
+        ],
+      },
+      {
+        name: 'storyblok',
+        folderNames: ['storyblok', 'storybloks'],
+      },
+      {
+        name: 'strategy',
+        folderNames: ['strategy', 'strategies'],
+      },
+      {
+        name: 'styles',
+        folderNames: ['css', 'style', 'styles', 'stylesheet', 'stylesheets'],
+      },
+      {
+        name: 'stylus',
+        folderNames: ['styl', 'stylus'],
+      },
+      {
+        name: 'sublime',
+        folderNames: ['sublime'],
+      },
+      {
+        name: 'supabase',
+        folderNames: ['supabase'],
+      },
+      {
+        name: 'svelte',
+        folderNames: [
+          'sapper',
+          'svelte',
+          'svelte-kit',
+          'svelte_components',
+          'sveltekit',
+        ],
+      },
+      {
+        name: 'svg',
+        folderNames: [
+          'gfx',
+          'graphic',
+          'graphics',
+          'svg',
+          'svgicon',
+          'svgicons',
+          'svgimage',
+          'svgimages',
+          'svgs',
+          'vector',
+          'vectors',
+        ],
+      },
+      {
+        name: 'svn',
+        folderNames: ['svn', 'subversion'],
+      },
+      {
+        name: 'sync',
+        folderNames: ['sync', 'syncs', 'synced'],
+      },
+      {
+        name: 'syntax',
+        folderNames: [
+          'grammar',
+          'grammars',
+          'spellcheck',
+          'syntax',
+          'syntaxes',
+        ],
+      },
+      // endregion
+
+      // region [T]
+      {
+        name: 'target',
+        folderNames: ['target', 'targets'],
+      },
+      {
+        name: 'tasks',
+        folderNames: [
+          'cli',
+          'cmd',
+          'command',
+          'commands',
+          'console',
+          'consoles',
+          'run',
+          'task',
+          'tasks',
+          'terminal',
+          'ticket',
+          'tickets',
+          'workflow',
+          'workflows',
+        ],
+      },
+      {
+        name: 'taskfile',
+        folderNames: ['taskfile', 'taskfiles'],
+      },
+      {
+        name: 'tauri',
+        folderNames: ['tauri', 'src-tauri'],
+      },
+      {
+        name: 'tech',
+        folderNames: ['tech', 'technologies', 'technology'],
+      },
+      {
+        name: 'temp',
+        folderNames: [
+          'cache',
+          'caches',
+          'temp',
+          'temporary',
+          'temps',
+          'tmp',
+          'tmps',
+        ],
+      },
+      {
+        name: 'tests',
+        folderNames: [
+          '__tests__',
+          'junit',
+          'phpunit',
+          'pytest',
+          'rspec',
+          'spec',
+          'specs',
+          'test',
+          'testcase',
+          'testcases',
+          'tests',
+          'unit',
+          'units',
+        ],
+      },
+      {
+        name: 'terraform',
+        folderNames: [
+          'hcl',
+          'terraform',
+          'terragrunt',
+          'tf',
+          'tfstate',
+          'tfvars',
+        ],
+      },
+      {
+        name: 'textmate',
+        folderNames: ['textmate', 'tmbundle'],
+      },
+      {
+        name: 'trait',
+        folderNames: ['trait', 'traits'],
+      },
+      {
+        name: 'themes',
+        folderNames: [
+          'color',
+          'colors',
+          'design',
+          'designs',
+          'palette',
+          'palettes',
+          'scheme',
+          'schemes',
+          'skin',
+          'skins',
+          'theme',
+          'themes',
+        ],
+      },
+      {
+        name: 'ts',
+        folderNames: [
+          '@types',
+          'interface',
+          'interfaces',
+          'ts',
+          'tsconfig',
+          'type',
+          'types',
+          'typescript',
+          'typings',
+        ],
+      },
+      // endregion
+
+      // region [U]
+      {
+        name: 'unity',
+        folderNames: ['unity', 'unity3d'],
+      },
+      {
+        name: 'upload',
+        folderNames: [
+          'update',
+          'updated',
+          'updates',
+          'upgrade',
+          'upgraded',
+          'upgrades',
+          'upload',
+          'uploaded',
+          'uploads',
+        ],
+      },
+      {
+        name: 'users',
+        folderNames: [
+          'account',
+          'accounts',
+          'contact',
+          'contacts',
+          'friend',
+          'friends',
+          'member',
+          'members',
+          'partner',
+          'partners',
+          'profile',
+          'profiles',
+          'role',
+          'roles',
+          'user',
+          'users',
+        ],
+      },
+      {
+        name: 'tools',
+        folderNames: [
+          'tool',
+          'toolbox',
+          'toolboxes',
+          'toolkit',
+          'toolkits',
+          'tools',
+          'util',
+          'utilities',
+          'utility',
+          'utils',
+        ],
+      },
+      // endregion
+
+      // region [V]
+      {
+        name: 'vagrant',
+        folderNames: ['vagrant', 'vagrant.d', 'vagrantfile', 'vagrantfiles'],
+      },
+      {
+        name: 'lib',
+        folderNames: [
+          'lib',
+          'libraries',
+          'library',
+          'libs',
+          'pod',
+          'pods',
+          'stdlib',
+          'vendor',
+          'vendors',
+        ],
+      },
+      {
+        name: 'venv',
+        folderNames: ['venv', 'virtualenv'],
+      },
+      {
+        name: 'vercel',
+        folderNames: ['now', 'vercel'],
+      },
+      {
+        name: 'verdaccio',
+        folderNames: ['verdaccio'],
+      },
+      {
+        name: 'video',
+        folderNames: ['movie', 'movies', 'video', 'videos'],
+      },
+      {
+        name: 'views',
+        folderNames: [
+          'html',
+          'page',
+          'pages',
+          'template',
+          'templates',
+          'view',
+          'views',
+          'webpage',
+          'webpages',
+        ],
+      },
+      {
+        name: 'viewmodel',
+        folderNames: ['crud', 'viewmodel', 'viewmodels'],
+      },
+      {
+        name: 'vm',
+        folderNames: ['desktop', 'virtual', 'vm', 'vms'],
+      },
+      {
+        name: 'vs',
+        folderNames: ['vs', 'visualstudio', 'vsix'],
+      },
+      {
+        name: 'vitepress',
+        folderNames: ['vitepress'],
+      },
+      {
+        name: 'vscode',
+        folderNames: ['vscode', 'vscode-test', 'vssettings'],
+      },
+      {
+        name: 'vue',
+        folderNames: ['vue'],
+      },
+      {
+        name: 'vuepress',
+        folderNames: ['vuepress'],
+      },
+      {
+        name: 'vuex',
+        folderNames: ['vuex'],
+      },
+      // endregion
+
+      // region [W]
+      {
+        name: 'web',
+        folderNames: [
+          'public',
+          'public_html',
+          'static',
+          'web',
+          'website',
+          'websites',
+          'www',
+          'wwwroot',
+        ],
+      },
+      {
+        name: 'webpack',
+        folderNames: ['webpack', 'webpack.d', 'webpackfile', 'webpackfiles'],
+      },
+      {
+        name: 'windows',
+        folderNames: ['windows', 'win'],
+      },
+      {
+        name: 'wine',
+        folderNames: ['wine'],
+      },
+      {
+        name: 'woocommerce',
+        folderNames: ['woocommerce'],
+      },
+      {
+        name: 'woodpecker',
+        folderNames: ['woodpecker'],
+      },
+      {
+        name: 'wordpress',
+        folderNames: [
+          'wordpress',
+          'wp',
+          'wp-admin',
+          'wp-content',
+          'wp-includes',
+        ],
+      },
+      // endregion
+
+      // region [X]
+      {
+        name: 'xstate',
+        folderNames: ['xstate', 'machine', 'machines'],
+      },
+      // endregion
+
+      // region [Y]
+      {
+        name: 'yarn',
+        folderNames: ['yarn'],
+      },
+      // endregion
+
+      // region [Z]
+      // {
+      //   name: 'zod',
+      //   folderNames: ['zod'],
+      // },
+      // endregion
     ],
   },
   {
