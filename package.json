@@ -26,45 +26,58 @@
       {
         "command": "a-file-icon-vscode.activateIcons",
         "enablement": "!isWeb",
-        "title": "%command.activateIcons%"
+        "title": "%command.activateIcons%",
+        "category": "Atom Material Icons",
+        "icon": {
+          "light": "./icons/atom.svg",
+          "dark": "./icons/atom.svg"
+        }
       },
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
         "enablement": "!isWeb",
+        "category": "Atom Material Icons",
         "title": "%command.toggleIconPacks%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderTheme",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.changeFolderTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderColor",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.changeFolderColor%"
       },
       {
         "command": "a-file-icon-vscode.restoreDefaultConfig",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.restoreDefaultConfig%"
       },
       {
         "command": "a-file-icon-vscode.toggleExplorerArrows",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.toggleExplorerArrows%"
       },
       {
         "command": "a-file-icon-vscode.changeOpacity",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.changeOpacity%"
       },
       {
         "command": "a-file-icon-vscode.toggleGrayscale",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.toggleGrayscale%"
       },
       {
         "command": "a-file-icon-vscode.changeSaturation",
+        "category": "Atom Material Icons",
         "enablement": "!isWeb",
         "title": "%command.changeSaturation%"
       }
@@ -176,6 +189,26 @@
         "id": "a-file-icon",
         "label": "Atom Material Icons",
         "path": "./dist/material-icons.json"
+      }
+    ],
+    "menus": {
+      "a-file-icon-vscode.menu": [
+        {
+          "command": "a-file-icon-vscode.activateIcons",
+          "group": "navigation",
+          "when": "true"
+        }
+      ],
+      "editor/context": [
+        {
+          "submenu": "a-file-icon-vscode.menu"
+        }
+      ]
+    },
+    "submenus": [
+      {
+        "id": "a-file-icon-vscode.menu",
+        "label": "Atom Material Icons"
       }
     ]
   },

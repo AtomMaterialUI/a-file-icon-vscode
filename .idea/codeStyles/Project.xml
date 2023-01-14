@@ -1,11 +1,12 @@
 <component name="ProjectCodeStyleConfiguration">
   <code_scheme name="Project" version="173">
     <option name="USE_EXTERNAL_ANNOTATIONS" value="true" />
-    <option name="RIGHT_MARGIN" value="140" />
     <CssCodeStyleSettings>
       <option name="HEX_COLOR_LOWER_CASE" value="true" />
-      <option name="HEX_COLOR_LONG_FORMAT" value="true" />
+      <option name="HEX_COLOR_SHORT_FORMAT" value="true" />
       <option name="KEEP_SINGLE_LINE_BLOCKS" value="true" />
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+      <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
     </CssCodeStyleSettings>
     <DB2CodeStyleSettings version="6">
       <option name="USE_GENERAL_STYLE" value="false" />
@@ -63,6 +64,7 @@
       <option name="IMP_COMMON_KEEP_BLANK_LINES_IN_CODE" value="1" />
     </HSQLCodeStyleSettings>
     <HTMLCodeStyleSettings>
+      <option name="HTML_ATTRIBUTE_WRAP" value="4" />
       <option name="HTML_SPACE_INSIDE_EMPTY_TAG" value="true" />
       <option name="HTML_ENFORCE_QUOTES" value="true" />
     </HTMLCodeStyleSettings>
@@ -75,7 +77,13 @@
       <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
       <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
+      <option name="IMPORT_PREFER_ABSOLUTE_PATH" value="TRUE" />
     </JSCodeStyleSettings>
+    <JavaCodeStyleSettings>
+      <option name="GENERATE_FINAL_LOCALS" value="true" />
+      <option name="GENERATE_FINAL_PARAMETERS" value="true" />
+      <option name="VISIBILITY" value="private" />
+    </JavaCodeStyleSettings>
     <MSSQLCodeStyleSettings version="6">
       <option name="USE_GENERAL_STYLE" value="false" />
       <option name="ALIAS_CASE" value="1" />
@@ -88,7 +96,26 @@
       <option name="IMP_COMMON_KEEP_BLANK_LINES_IN_CODE" value="1" />
     </MSSQLCodeStyleSettings>
     <MarkdownNavigatorCodeStyleSettings>
+      <option name="HEADING_PREFERENCE" value="1" />
+      <option name="ATX_HEADER_TRAILING_MARKER" value="-1" />
+      <option name="WRAP_ON_TYPING" value="1" />
+      <option name="KEEP_BLANK_LINES" value="1" />
+      <option name="KEEP_TRAILING_SPACES" value="2" />
+      <option name="LIST_ADD_BLANK_LINE_BEFORE" value="true" />
+      <option name="TASK_LIST_ITEM_CASE" value="2" />
+      <option name="BULLET_LIST_ITEM_MARKER" value="1" />
+      <option name="LIST_SPACING" value="1" />
+      <option name="VERBATIM_MINIMIZE_INDENT" value="true" />
+      <option name="CODE_FENCE_MINIMIZE_INDENT" value="true" />
+      <option name="CODE_FENCE_MARKER_TYPE" value="1" />
+      <option name="DEFINITION_MARKER_TYPE" value="1" />
+      <option name="BLOCK_QUOTE_FIRST_LINE_MARKERS" value="2" />
+      <option name="ABBREVIATIONS_PLACEMENT" value="1" />
+      <option name="FOOTNOTE_PLACEMENT" value="4" />
+      <option name="REFERENCE_PLACEMENT" value="1" />
       <option name="SMART_EDIT_TABLES" value="true" />
+      <option name="TABLE_CAPTION" value="3" />
+      <option name="RIGHT_MARGIN" value="-1" />
     </MarkdownNavigatorCodeStyleSettings>
     <MySQLCodeStyleSettings version="6">
       <option name="USE_GENERAL_STYLE" value="false" />
@@ -130,6 +157,9 @@
       <option name="FROM_ALIGN_ALIASES" value="true" />
       <option name="IMP_COMMON_KEEP_BLANK_LINES_IN_CODE" value="1" />
     </PostgresCodeStyleSettings>
+    <Properties>
+      <option name="KEEP_BLANK_LINES" value="true" />
+    </Properties>
     <Ruby>
       <option name="CHAIN_CALLS_ALIGNMENT" value="1" />
     </Ruby>
@@ -146,8 +176,10 @@
     </SQLiteCodeStyleSettings>
     <ScssCodeStyleSettings>
       <option name="HEX_COLOR_LOWER_CASE" value="true" />
-      <option name="HEX_COLOR_LONG_FORMAT" value="true" />
+      <option name="HEX_COLOR_SHORT_FORMAT" value="true" />
       <option name="KEEP_SINGLE_LINE_BLOCKS" value="true" />
+      <option name="USE_DOUBLE_QUOTES" value="false" />
+      <option name="ENFORCE_QUOTES_ON_FORMAT" value="true" />
     </ScssCodeStyleSettings>
     <SqlCodeStyleSettings version="6">
       <option name="ALIAS_CASE" value="1" />
@@ -175,9 +207,9 @@
       <option name="FORCE_SEMICOLON_STYLE" value="true" />
       <option name="SPACE_BEFORE_FUNCTION_LEFT_PARENTH" value="false" />
       <option name="USE_PUBLIC_MODIFIER" value="true" />
-      <option name="USE_DOUBLE_QUOTES" value="false" />
       <option name="FORCE_QUOTE_STYlE" value="true" />
-      <option name="ENFORCE_TRAILING_COMMA" value="WhenMultiline" />
+      <option name="ENFORCE_TRAILING_COMMA" value="Remove" />
+      <option name="VAR_DECLARATION_WRAP" value="5" />
       <option name="SPACES_WITHIN_OBJECT_LITERAL_BRACES" value="true" />
       <option name="SPACES_WITHIN_IMPORTS" value="true" />
       <option name="IMPORT_SORT_MEMBERS" value="false" />
@@ -191,6 +223,7 @@
       <option name="XML_SPACE_INSIDE_EMPTY_TAG" value="true" />
     </XML>
     <codeStyleSettings language="CSS">
+      <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
         <option name="CONTINUATION_INDENT_SIZE" value="4" />
@@ -216,6 +249,8 @@
       </indentOptions>
     </codeStyleSettings>
     <codeStyleSettings language="HTML">
+      <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
+      <option name="BLOCK_COMMENT_AT_FIRST_COLUMN" value="false" />
       <option name="SOFT_MARGINS" value="80" />
       <indentOptions>
         <option name="INDENT_SIZE" value="2" />
@@ -1581,10 +1616,11 @@
       <option name="ALIGN_MULTILINE_PARAMETERS" value="false" />
       <option name="CALL_PARAMETERS_WRAP" value="5" />
       <option name="METHOD_PARAMETERS_WRAP" value="5" />
-      <option name="EXTENDS_LIST_WRAP" value="1" />
+      <option name="EXTENDS_LIST_WRAP" value="5" />
       <option name="METHOD_CALL_CHAIN_WRAP" value="5" />
       <option name="BINARY_OPERATION_WRAP" value="1" />
       <option name="ARRAY_INITIALIZER_WRAP" value="5" />
+      <option name="ASSIGNMENT_WRAP" value="5" />
       <option name="IF_BRACE_FORCE" value="3" />
       <option name="DOWHILE_BRACE_FORCE" value="3" />
       <option name="WHILE_BRACE_FORCE" value="3" />
@@ -1613,12 +1649,13 @@
     </codeStyleSettings>
     <codeStyleSettings language="ruby">
       <option name="KEEP_BLANK_LINES_IN_DECLARATIONS" value="1" />
-      <option name="KEEP_BLANK_LINES_IN_CODE" value="1" />
-      <option name="ALIGN_GROUP_FIELD_DECLARATIONS" value="true" />
       <option name="SPACE_WITHIN_BRACES" value="true" />
       <indentOptions>
         <option name="CONTINUATION_INDENT_SIZE" value="2" />
       </indentOptions>
+    </codeStyleSettings>
+    <codeStyleSettings language="yaml">
+      <option name="SPACE_WITHIN_BRACKETS" value="false" />
     </codeStyleSettings>
   </code_scheme>
 </component>

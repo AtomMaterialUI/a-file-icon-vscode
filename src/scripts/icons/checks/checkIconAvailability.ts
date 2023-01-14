@@ -1,6 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import { DefaultIcon, FileIcon, FolderIcon, FolderTheme } from '../../../models/index';
+import {
+  DefaultIcon,
+  FileIcon,
+  FolderIcon,
+  FolderTheme,
+} from '../../../models/index';
 import * as painter from '../../helpers/painter';
 import { similarity } from '../../helpers/similarity';
 import {
@@ -15,7 +20,7 @@ import {
 /**
  * Defines the folder where all icon files are located.
  */
-const folderPath = path.join('icons');
+const folderPath = path.join('iconGenerator', 'assets', 'icons');
 
 /**
  * Defines an array with all icons that can be found in the file system.
@@ -36,7 +41,7 @@ const wrongIconNames: Record<string, string[]> = {
  */
 const fsReadAllIconFiles = (
   err: NodeJS.ErrnoException | null,
-  files: string[],
+  files: string[]
 ) => {
   if (err) {
     throw Error(err.message);
@@ -75,7 +80,7 @@ const isIconAvailable = (
   icon: FileIcon | FolderIcon | DefaultIcon,
   iconType: IconType,
   iconColor: IconColor,
-  hasOpenedFolder?: boolean,
+  hasOpenedFolder?: boolean
 ) => {
   let iconName = `${icon.name}${hasOpenedFolder ? openedFolder : ''}`;
   if (icon.light && iconColor === IconColor.light) {
@@ -111,7 +116,7 @@ const checkFolderIcons = () => {
           icon,
           IconType.folderIcons,
           IconColor.highContrast,
-          true,
+          true
         );
       }
     });
@@ -120,7 +125,7 @@ const checkFolderIcons = () => {
 const getAllFolderIcons = (theme: FolderTheme) => {
   const icons = theme.icons ? theme.icons : [];
   return [theme.defaultIcon, theme.rootFolder, ...icons].filter(
-    (icon) => icon !== undefined,
+    (icon) => icon !== undefined
   ); // filter undefined root folder icons
 };
 
@@ -147,13 +152,12 @@ const handleErrors = () => {
   if (amountOfErrors > 0) {
     console.log(
       '> Atom Material Icons:',
-      painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`),
+      painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`)
     );
-  }
-  else {
+  } else {
     console.log(
       '> Atom Material Icons:',
-      painter.green('Passed icon availability checks!'),
+      painter.green('Passed icon availability checks!')
     );
   }
   logIconInformation(wrongIconNames.fileIcons, 'File icons');
@@ -162,7 +166,7 @@ const handleErrors = () => {
 
   if (amountOfErrors > 0) {
     throw new Error(
-      'Found some wrong file definitions in the icon configuration.',
+      'Found some wrong file definitions in the icon configuration.'
     );
   }
 };
@@ -182,20 +186,20 @@ const logIconInformation = (wrongIcons: string[], title: string) => {
     const isWrongLightVersion = icon.endsWith(darkFileEnding);
     const isWrongLightVersionString = isWrongLightVersion
       ? ` (There is no light icon for ${painter.green(
-        icon.slice(0, -6),
-      )}! Set the light option to false!)`
+          icon.slice(0, -6)
+        )}! Set the light option to false!)`
       : '';
     const isWrongHighContrastVersion = icon.endsWith(
-      highContrastColorFileEnding,
+      highContrastColorFileEnding
     );
     const isWrongHighContrastVersionString = isWrongHighContrastVersion
       ? ` (There is no high contrast icon for ${painter.green(
-        icon.slice(0, -13),
-      )}! Set the highContrast option to false!)`
+          icon.slice(0, -13)
+        )}! Set the highContrast option to false!)`
       : '';
     console.log(
       painter.red(`Icon not found: ${icon}.svg`) +
-      `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`,
+        `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`
     );
   });
 };
