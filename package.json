@@ -1,162 +1,89 @@
 {
-  "name": "a-file-icon",
-  "displayName": "Atom Material Icons",
-  "description": "Atom Material Icons for Visual Studio Code",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "npm run compile:dev && npm run postcompile",
-    "check": "ts-node ./src/scripts/icons/checks",
-    "compile": "webpack --config ./build/webpack.config.js --mode production",
-    "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
-    "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
-    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
-    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
-    "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
-    "contributors": "ts-node ./src/scripts/contributors/index.ts",
-    "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
-    "lint": "eslint -c .eslintrc.json --ext .ts ./src/**/*.ts",
-    "postcompile": "npm run generateJson && npm run check",
-    "pretest": "npm run build && tsc -p ./",
-    "preview": "ts-node ./src/scripts/preview",
-    "svgo": "svgo -i icons -o icons -q",
-    "test": "node ./out/test/runTest.js",
-    "changelog": "changelog-machine --config changelog.config.json",
-    "preversion": "npm run contributors && git add images/contributors.png && npm run preview && git add images/fileIcons.png && git add images/folderIcons.png",
-    "version": "npm run changelog && git add CHANGELOG.md",
-    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web"
-  },
-  "publisher": "mallowigi",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "author": {
-    "name": "Elior Boukhobza",
     "email": "elior@material-theme.com",
+    "name": "Elior Boukhobza",
     "url": "https://www.material-theme.com"
   },
-  "funding": "https://github.com/sponsors/mallowigi",
-  "sponsor": {
-    "url": "https://github.com/sponsors/mallowigi"
-  },
-  "engines": {
-    "vscode": "^1.51.0"
-  },
-  "homepage": "https://github.com/mallowigi/a-file-icons-vscode/blob/main/README.md",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mallowigi/a-file-icons-vscode.git"
-  },
+  "badges": [],
+  "browser": "./dist/web/extension.js",
   "bugs": {
-    "url": "https://github.com/mallowigi/a-file-icons-vscode/issues"
+    "url": "https://github.com/mallowigi/a-file-icon-vscode/issues"
   },
-  "icon": "logo.svg",
-  "galleryBanner": {
-    "color": "#1e1e1e",
-    "theme": "dark"
-  },
-  "categories": [
-    "Themes"
-  ],
-  "keywords": [
-    "icons",
-    "theme",
-    "material",
-    "atom",
-    "icon-theme",
-    "customization"
-  ],
-  "extensionKind": [
-    "ui",
-    "workspace"
-  ],
   "capabilities": {
     "untrustedWorkspaces": {
       "supported": true
     },
     "virtualWorkspaces": true
   },
-  "activationEvents": [
-    "onStartupFinished"
+  "categories": [
+    "Themes"
   ],
-  "main": "./dist/extension",
-  "browser": "./dist/web/extension.js",
-  "sideEffects": false,
   "contributes": {
-    "iconThemes": [
-      {
-        "id": "a-file-icon",
-        "label": "Atom Material Icons",
-        "path": "./dist/material-icons.json",
-        "_watch": true
-      }
-    ],
     "commands": [
       {
-        "command": "a-file-icon.activateIcons",
-        "title": "%command.activateIcons%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.activateIcons",
+        "enablement": "!isWeb",
+        "title": "%command.activateIcons%"
       },
       {
-        "command": "a-file-icon.toggleIconPacks",
-        "title": "%command.toggleIconPacks%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.toggleIconPacks",
+        "enablement": "!isWeb",
+        "title": "%command.toggleIconPacks%"
       },
       {
-        "command": "a-file-icon.changeFolderTheme",
-        "title": "%command.changeFolderTheme%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.changeFolderTheme",
+        "enablement": "!isWeb",
+        "title": "%command.changeFolderTheme%"
       },
       {
-        "command": "a-file-icon.changeFolderColor",
-        "title": "%command.changeFolderColor%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.changeFolderColor",
+        "enablement": "!isWeb",
+        "title": "%command.changeFolderColor%"
       },
       {
-        "command": "a-file-icon.restoreDefaultConfig",
-        "title": "%command.restoreDefaultConfig%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.restoreDefaultConfig",
+        "enablement": "!isWeb",
+        "title": "%command.restoreDefaultConfig%"
       },
       {
-        "command": "a-file-icon.toggleExplorerArrows",
-        "title": "%command.toggleExplorerArrows%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.toggleExplorerArrows",
+        "enablement": "!isWeb",
+        "title": "%command.toggleExplorerArrows%"
       },
       {
-        "command": "a-file-icon.changeOpacity",
-        "title": "%command.changeOpacity%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.changeOpacity",
+        "enablement": "!isWeb",
+        "title": "%command.changeOpacity%"
       },
       {
-        "command": "a-file-icon.toggleGrayscale",
-        "title": "%command.toggleGrayscale%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.toggleGrayscale",
+        "enablement": "!isWeb",
+        "title": "%command.toggleGrayscale%"
       },
       {
-        "command": "a-file-icon.changeSaturation",
-        "title": "%command.changeSaturation%",
-        "enablement": "!isWeb"
+        "command": "a-file-icon-vscode.changeSaturation",
+        "enablement": "!isWeb",
+        "title": "%command.changeSaturation%"
       }
     ],
     "configuration": {
-      "type": "object",
-      "title": "%configuration.title%",
       "properties": {
-        "a-file-icon.showWelcomeMessage": {
-          "type": "boolean",
-          "default": true,
-          "description": "%configuration.showWelcomeMessage%"
-        },
-        "a-file-icon.showUpdateMessage": {
-          "type": "boolean",
-          "default": false,
-          "description": "%configuration.showUpdateMessage%"
-        },
-        "a-file-icon.showReloadMessage": {
-          "type": "boolean",
-          "default": true,
-          "description": "%configuration.showReloadMessage%"
-        },
-        "a-file-icon.activeIconPack": {
-          "type": "string",
+        "a-file-icon-vscode.activeIconPack": {
           "default": "angular",
           "description": "%configuration.activeIconPack%",
+          "enum": [
+            "angular",
+            "angular_ngrx",
+            "react",
+            "react_redux",
+            "vue",
+            "vue_vuex",
+            "nest",
+            "none"
+          ],
           "enumDescriptions": [
             "%configuration.activeIconPack.angular%",
             "%configuration.activeIconPack.angular_ngrx%",
@@ -167,102 +94,178 @@
             "%configuration.activeIconPack.nest%",
             "%configuration.activeIconPack.none%"
           ],
-          "enum": [
-            "angular",
-            "angular_ngrx",
-            "react",
-            "react_redux",
-            "vue",
-            "vue_vuex",
-            "nest",
-            "none"
-          ]
+          "type": "string"
         },
-        "a-file-icon.files.associations": {
-          "type": "object",
+        "a-file-icon-vscode.files.associations": {
           "default": {},
-          "description": "%configuration.files.associations%"
+          "description": "%configuration.files.associations%",
+          "type": "object"
         },
-        "a-file-icon.folders.associations": {
-          "type": "object",
+        "a-file-icon-vscode.folders.associations": {
           "default": {},
-          "description": "%configuration.folders.associations%"
+          "description": "%configuration.folders.associations%",
+          "type": "object"
         },
-        "a-file-icon.languages.associations": {
-          "type": "object",
-          "default": {},
-          "description": "%configuration.languages.associations%"
+        "a-file-icon-vscode.folders.color": {
+          "default": "#90a4ae",
+          "description": "%configuration.folders.color%",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "type": "string"
         },
-        "a-file-icon.folders.theme": {
-          "type": "string",
+        "a-file-icon-vscode.folders.theme": {
           "default": "specific",
           "description": "%configuration.folders.theme%",
+          "enum": [
+            "specific",
+            "classic",
+            "none"
+          ],
           "enumDescriptions": [
             "%configuration.folders.theme.specific%",
             "%configuration.folders.theme.classic%",
             "%configuration.folders.theme.none%"
           ],
-          "enum": [
-            "specific",
-            "classic",
-            "none"
-          ]
+          "type": "string"
         },
-        "a-file-icon.folders.color": {
-          "type": "string",
-          "default": "#90a4ae",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-          "description": "%configuration.folders.color%"
-        },
-        "a-file-icon.opacity": {
-          "type": "number",
-          "default": 1,
-          "minimum": 0,
-          "maximum": 1,
-          "description": "%configuration.opacity%"
-        },
-        "a-file-icon.hidesExplorerArrows": {
-          "type": "boolean",
+        "a-file-icon-vscode.hidesExplorerArrows": {
           "default": false,
-          "description": "%configuration.hidesExplorerArrows%"
+          "description": "%configuration.hidesExplorerArrows%",
+          "type": "boolean"
         },
-        "a-file-icon.saturation": {
-          "type": "number",
+        "a-file-icon-vscode.languages.associations": {
+          "default": {},
+          "description": "%configuration.languages.associations%",
+          "type": "object"
+        },
+        "a-file-icon-vscode.opacity": {
           "default": 1,
-          "minimum": 0,
+          "description": "%configuration.opacity%",
           "maximum": 1,
-          "description": "%configuration.saturation%"
+          "minimum": 0,
+          "type": "number"
+        },
+        "a-file-icon-vscode.saturation": {
+          "default": 1,
+          "description": "%configuration.saturation%",
+          "maximum": 1,
+          "minimum": 0,
+          "type": "number"
+        },
+        "a-file-icon-vscode.showReloadMessage": {
+          "default": true,
+          "description": "%configuration.showReloadMessage%",
+          "type": "boolean"
+        },
+        "a-file-icon-vscode.showUpdateMessage": {
+          "default": false,
+          "description": "%configuration.showUpdateMessage%",
+          "type": "boolean"
+        },
+        "a-file-icon-vscode.showWelcomeMessage": {
+          "default": true,
+          "description": "%configuration.showWelcomeMessage%",
+          "type": "boolean"
         }
+      },
+      "title": "%configuration.title%",
+      "type": "object"
+    },
+    "iconThemes": [
+      {
+        "_watch": true,
+        "id": "a-file-icon",
+        "label": "Atom Material Icons",
+        "path": "./dist/material-icons.json"
       }
-    }
+    ]
   },
   "dependencies": {
     "lodash.merge": "4.6.2"
   },
+  "description": "Atom Material Icons for Visual Studio Code",
   "devDependencies": {
-    "@types/glob": "^7.2.0",
+    "@types/glob": "^8.0.0",
     "@types/lodash.merge": "^4.6.7",
-    "@types/mocha": "^9.1.1",
-    "@types/node": "^17.0.35",
-    "@types/puppeteer": "^5.4.6",
-    "@types/vscode": "~1.51.0",
-    "@typescript-eslint/eslint-plugin": "^5.26.0",
-    "@typescript-eslint/parser": "^5.26.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.18",
+    "@types/puppeteer": "^7.0.4",
+    "@types/vscode": "~1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
     "changelog-machine": "^1.0.2",
-    "eslint": "^8.16.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-prettier": "^4.0.0",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
     "glob": "^8.0.3",
-    "mocha": "^10.0.0",
-    "prettier": "^2.6.2",
-    "puppeteer": "^14.1.1",
-    "rimraf": "^3.0.2",
-    "svgo": "^2.8.0",
-    "ts-loader": "^9.3.0",
-    "ts-node": "^10.8.0",
-    "typescript": "^4.7.2",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.3",
+    "puppeteer": "^19.5.2",
+    "rimraf": "^4.0.4",
+    "svgo": "^3.0.2",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.4",
     "vscode-test": "^1.6.1",
-    "webpack": "^5.71.1",
-    "webpack-cli": "^4.9.2"
-  }
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "displayName": "Atom Material Icons",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "extensionKind": [
+    "ui",
+    "workspace"
+  ],
+  "funding": "https://github.com/sponsors/mallowigi",
+  "galleryBanner": {
+    "color": "#263238",
+    "theme": "dark"
+  },
+  "homepage": "https://github.com/mallowigi/a-file-icon-vscode/blob/main/README.md",
+  "icon": "logo.png",
+  "keywords": [
+    "icons",
+    "theme",
+    "material",
+    "atom",
+    "icon-theme",
+    "customization"
+  ],
+  "license": "MIT",
+  "main": "./dist/extension",
+  "name": "a-file-icon-vscode",
+  "publisher": "atommaterial",
+  "qna": "https://github.com/mallowigi/a-file-icon-vscode/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
+  },
+  "scripts": {
+    "build": "npm run compile:dev && npm run postcompile",
+    "changelog": "changelog-machine --config changelog.config.json",
+    "check": "ts-node ./src/scripts/icons/checks",
+    "compile": "webpack --config ./build/webpack.config.js --mode production",
+    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
+    "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
+    "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
+    "contributors": "ts-node ./src/scripts/contributors/index.ts",
+    "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
+    "lint": "eslint -c .eslintrc.json --ext .ts ./src/**/*.ts",
+    "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
+    "postcompile": "npm run generateJson && npm run check",
+    "pretest": "npm run build && tsc -p ./",
+    "preversion": "npm run contributors && git add images/contributors.png && npm run preview && git add images/fileIcons.png && git add images/folderIcons.png",
+    "preview": "ts-node ./src/scripts/preview",
+    "svgo": "svgo -i icons -o icons -q",
+    "test": "node ./out/test/runTest.js",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web",
+    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
+  },
+  "sideEffects": false,
+  "sponsor": {
+    "url": "https://opencollective.com/atom-material-themes-and-plugins"
+  },
+  "version": "1.0.0"
 }

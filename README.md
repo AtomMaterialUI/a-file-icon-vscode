@@ -1,35 +1,43 @@
+# Atom Material Icons Plugin for Web
+
 <h1 align="center">
   <br>
-    <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/logo.png" alt="logo" width="200">
+    <img src="https://raw.githubusercontent.com/mallowigi/a-file-icon-idea/master/src/main/resources/META-INF/pluginIcon.svg?sanitize=true" alt="logo" width="200">
   <br><br>
-  Atom Material Icons
+  Atom Material File Icons for VSCode
   <br>
   <br>
 </h1>
 
-<h4 align="center">Get the Material Design icons into your VS Code.</h4>
 
-<p align="center">
-    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/version-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=VERSION" alt="Version"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/rating-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Rating" alt="Rating"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/installs-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Installs" alt="Installs"></a>&nbsp;
-    <a href="https://marketplace.visualstudio.com/items?itemName=mallowigi.a-file-icon"><img src="https://vsmarketplacebadge.apphb.com/downloads-short/mallowigi.a-file-icon.svg?style=for-the-badge&colorA=252526&colorB=43A047&label=Downloads" alt="Downloads"></a>
-</p>
+This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for VSCode.
 
-<p align="center"><br>
-<b>Sponsored by</b><br><br>
-<a title="Try CodeStream" href="https://sponsorlink.codestream.com/?utm_source=vscmarket&amp;utm_campaign=pkief_material&amp;utm_medium=banner"><img width="198px" src="https://alt-images.codestream.com/codestream_logo_pkief_material.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a title="Try Stepsize" href="https://marketplace.visualstudio.com/items?itemName=Stepsize.stepsize"><img width="200px" src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/stepsize.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a title="Try Bloop" href="https://bloop.ai/?utm_source=vscmarket&utm_campaign=material-icon-theme&utm_medium=banner"><img width="150px" src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/bloop.png"></a>
-</p>
+It replaces the icons and folder icons with better suited icons, related to the file type, framework or language.
 
-### File icons
+This plugin is inspired by the [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme)
+and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon-idea).
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/fileIcons.png" alt="file icons">
+## Features
 
-### Folder icons
+- Replaces **file icons** with their relevant logo icons
+    - According to their extension (Java, PHP, Ruby...)
+    - According to the framework (Android, NPM, RSpec...)
+    - According to the program used with (Babel, Docker, CircleCI...)
+- Replaces **directories**:
+    - With a common pattern: src, main, app, img, docs...
+    - With a specific pattern: node_modules, .vscode, .git...
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/folderIcons.png" alt="folder icons">
+## File Icons
+
+![File Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/files.png)
+
+## Folder Icons
+
+![Folder Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/folders.png)
+
+---- 
+
+### Settings
 
 #### Customize folder color
 
@@ -40,7 +48,9 @@ You can change the color of the default folder icon using the command palette:
 or via user settings:
 
 ```json
-"material-icon-theme.folders.color": "#ef5350",
+{
+  "a-file-icon-vscode.folders.color": "#ef5350"
+}
 ```
 
 #### Folder themes
@@ -52,7 +62,9 @@ You can change the design of the folder icons using the command palette:
 or via user settings:
 
 ```json
-"material-icon-theme.folders.theme": "specific"
+{
+  "a-file-icon-vscode.folders.theme": "specific"
+}
 ```
 
 ## Custom icon opacity
@@ -60,7 +72,9 @@ or via user settings:
 You can set a custom opacity for the icons:
 
 ```json
-"material-icon-theme.opacity": 0.5
+{
+  "a-file-icon-vscode.opacity": 0.5
+}
 ```
 
 ## Custom icon saturation
@@ -69,7 +83,9 @@ If colors do not make you happy you can change the icons to have less saturation
 grayscale by setting saturation to 0:
 
 ```json
-"material-icon-theme.saturation": 0.5
+{
+  "a-file-icon-vscode.saturation": 0.5
+}
 ```
 
 ## Custom icon associations
@@ -86,10 +102,12 @@ all the specific file icons as well, two asterisks must be set instead of one, i
 If there's no leading `*` it will be automatically configured as filename and not as file extension.
 
 ```json
-"material-icon-theme.files.associations": {
-"*.ts": "typescript",
-"**.json": "json",
-"fileName.ts": "angular"
+{
+  "a-file-icon-vscode.files.associations": {
+    "*.ts": "typescript",
+    "**.json": "json",
+    "fileName.ts": "angular"
+  }
 }
 ```
 
@@ -112,7 +130,7 @@ folder:
 In the settings.json the icon can be associated to a file name or file extension like this:
 
 ```json
-"material-icon-theme.files.associations": {
+"a-file-icon-vscode.files.associations": {
 "fileName.ts": "../../icons/sample"
 }
 ```
@@ -127,7 +145,7 @@ create nice combinations. For example you could change the folder theme to "clas
 folder names you like.
 
 ```json
-"material-icon-theme.folders.associations": {
+"a-file-icon-vscode.folders.associations": {
 "customFolderName": "src",
 "sample": "dist"
 }
@@ -153,8 +171,10 @@ In our example we place them into an `icons` folder inside of the `.vscode/exten
 In the settings.json the folder icons can be associated to a folder name (e.g. "src") like this:
 
 ```json
-"material-icon-theme.folders.associations": {
-"src": "../../../../icons/folder-sample"
+{
+  "a-file-icon-vscode.folders.associations": {
+    "src": "../../../../icons/folder-sample"
+  }
 }
 ```
 
@@ -164,17 +184,13 @@ With the following configuration you can customize the language icons. It is als
 associations.
 
 ```json
-"material-icon-theme.languages.associations": {
-"languageId": "iconName",
-"json": "json"
+{
+  "a-file-icon-vscode.languages.associations": {
+    "languageId": "iconName",
+    "json": "json"
+  }
 }
 ```
-
-Available language ids:
-
-https://code.visualstudio.com/docs/languages/identifiers#_known-language-identifiers
-
-You can see the available icon names in the overview above.
 
 ## One-click activation
 
@@ -203,24 +219,24 @@ Press `Ctrl-Shift-P` to open the command palette and type `Atom Material Icons`.
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 | **Toggle Grayscale**              | Sets the saturation of the icons to zero, so that they are grayscale.              |
 
-## Icon sources
+----
 
+## Credits
+
+Special credits to:
+
+- [VSCode Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme) for the implementation
+- [Atom File Icons](https://github.com/file-icons/atom)
+  and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon) for the idea
+- [Scientifics Study Vectors](https://www.svgrepo.com/svg/121720/atom) for the plugin icon
+- [File-Icons](https://github.com/file-icons/source/blob/master/charmap.md)
+- [FontAwesome 4.7.0](https://fontawesome.com/v4.7.0/cheatsheet/)
+- [MFixx](https://github.com/file-icons/MFixx/blob/master/charmap.md)
+- [Devicons](https://github.com/file-icons/DevOpicons/blob/master/charmap.md)
+- [Octicons](https://octicons.github.com/)
 - [Material Design Icons](https://materialdesignicons.com/)
-- official icons
-
-## Contributors
-
-<a href="https://github.com/PKief/vscode-material-icon-theme/graphs/contributors">
-    <img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/contributors.png" alt="Contributors">
-</a>
-
-**Would you like to contribute?**
-
-Take a look at
-the [contribution guidelines](https://github.com/PKief/vscode-material-icon-theme/blob/main/CONTRIBUTING.md) and open
-a [new issue](https://github.com/PKief/vscode-material-icon-theme/issues)
-or [pull request](https://github.com/PKief/vscode-material-icon-theme/pulls) on GitHub.
 
 ## Related extensions
 
+- [VSCode Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme)
 - [Material Icons for GitHub](https://github.com/Claudiohbsantos/github-material-icons-extension)
