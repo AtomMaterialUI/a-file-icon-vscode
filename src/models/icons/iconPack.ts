@@ -4,9 +4,13 @@
 export enum IconPack {
   Angular = 'angular',
   Nest = 'nest',
-  Ngrx = 'angular_ngrx',
+  Ngrx = 'ngrx',
+  Phalcon = 'phalcon',
+  Rails = 'rails',
   React = 'react',
-  Redux = 'react_redux',
+  Recoil = 'recoil',
+  Redux = 'redux',
+  Volt = 'volt',
   Vue = 'vue',
-  Vuex = 'vue_vuex',
+  Vuex = 'vuex',
 }

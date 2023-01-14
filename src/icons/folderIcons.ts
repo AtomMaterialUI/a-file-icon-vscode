@@ -65,7 +65,6 @@ export const folderIcons: FolderTheme[] = [
           'group_vars',
           'host_vars',
           'playbooks',
-          'roles',
           'vars',
         ],
       },
@@ -138,8 +137,6 @@ export const folderIcons: FolderTheme[] = [
       {
         name: 'automator',
         folderNames: [
-          'action',
-          'actions',
           'automator',
           'automation',
           'automations',
@@ -147,8 +144,6 @@ export const folderIcons: FolderTheme[] = [
           'cactions',
           'definition',
           'definitions',
-          'workflow',
-          'workflows',
         ],
       },
       {
@@ -312,7 +307,7 @@ export const folderIcons: FolderTheme[] = [
       },
       {
         name: 'cluster',
-        folderNames: ['cluster', 'clusters', 'node', 'nodes'],
+        folderNames: ['cluster', 'clusters', 'nodes'],
       },
       {
         name: 'cmake',
@@ -346,7 +341,7 @@ export const folderIcons: FolderTheme[] = [
       },
       {
         name: 'composer',
-        folderNames: ['composer', 'composer'],
+        folderNames: ['composer'],
       },
       {
         name: 'config',
@@ -376,12 +371,7 @@ export const folderIcons: FolderTheme[] = [
       },
       {
         name: 'container',
-        folderNames: [
-          'container',
-          'containers',
-          'devcontainer',
-          'devcontainers',
-        ],
+        folderNames: ['container', 'containers'],
       },
       {
         name: 'content',
@@ -938,7 +928,7 @@ export const folderIcons: FolderTheme[] = [
       },
       {
         name: 'job',
-        folderNames: ['job', 'jobs', 'resque', 'bull'],
+        folderNames: ['job', 'jobs', 'resque'],
       },
       {
         name: 'json',
@@ -960,10 +950,6 @@ export const folderIcons: FolderTheme[] = [
           'token',
           'tokens',
         ],
-      },
-      {
-        name: 'client',
-        folderNames: ['client', 'clients', 'frontend', 'frontends', 'pwa'],
       },
       // endregion
 
