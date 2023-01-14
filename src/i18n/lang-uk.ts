@@ -10,7 +10,7 @@ export const translation: Translation = {
   readChangelog: 'Прочитати зміни',
   iconPacks: {
     selectPack: 'Виберіть набір іконок',
-    description: 'Виберіть набір значків \'%0\'',
+    description: "Виберіть набір значків '%0'",
     disabled: 'Вимкнути пакети значків',
   },
   folders: {
@@ -20,7 +20,7 @@ export const translation: Translation = {
     wrongHexCode: 'Недійсний HEX колірний код!',
     disabled: 'Немає піктограм папок',
     theme: {
-      description: 'Виберіть тему папки \'%0\'',
+      description: "Виберіть тему папки '%0'",
     },
   },
   opacity: {
