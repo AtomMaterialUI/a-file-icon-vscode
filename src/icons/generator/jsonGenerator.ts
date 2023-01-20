@@ -73,19 +73,19 @@ export const createIconFile = (
     updatedConfigs?.opacity &&
     !validateOpacityValue(updatedConfigs?.opacity)
   ) {
-    throw Error('vuexInvalid opacity value!');
+    throw Error('Atom Material Icons: Invalid opacity value!');
   }
   if (
     updatedConfigs?.saturation &&
     !validateSaturationValue(updatedConfigs?.saturation)
   ) {
-    throw Error('vuexInvalid saturation value!');
+    throw Error('Atom Material Icons: Invalid saturation value!');
   }
   if (
     updatedConfigs?.folders?.color &&
     !validateHEXColorCode(updatedConfigs?.folders?.color)
   ) {
-    throw Error('vuexInvalid folder color value!');
+    throw Error('Atom Material Icons: Invalid folder color value!');
   }
 
   try {

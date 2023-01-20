@@ -12,8 +12,8 @@ export const getConfig = (section?: string) => {
 
 /** Get list of configuration entries of package.json */
 export const getConfigProperties = (): { [config: string]: unknown } => {
-  return vscode.extensions.getExtension('mallowigi.a-file-icon')?.packageJSON
-    ?.contributes?.configuration?.properties;
+  return vscode.extensions.getExtension('atommaterial.a-file-icon-vscode')
+    ?.packageJSON?.contributes?.configuration?.properties;
 };
 
 /** Update configuration of vs code. */
@@ -26,7 +26,7 @@ export const setConfig = (
 };
 
 export const getThemeConfig = (section: string) => {
-  return getConfig('a-file-icon').inspect(section);
+  return getConfig('a-file-icon-vscode').inspect(section);
 };
 
 /** Set the config of the theme. */
@@ -35,7 +35,7 @@ export const setThemeConfig = (
   value: any,
   global: boolean = false
 ) => {
-  return getConfig('a-file-icon').update(section, value, global);
+  return getConfig('a-file-icon-vscode').update(section, value, global);
 };
 
 /**
@@ -44,9 +44,10 @@ export const setThemeConfig = (
  */
 export const isThemeActivated = (global: boolean = false): boolean => {
   return global
-    ? getConfig().inspect('workbench.iconTheme')?.globalValue === 'a-file-icon'
+    ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
+        'a-file-icon-vscode'
     : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
-        'a-file-icon';
+        'a-file-icon-vscode';
 };
 
 /** Checks if the theme is not the active icon theme */
@@ -60,7 +61,8 @@ export const isThemeNotVisible = (): boolean => {
 
 /** Return the path of the extension in the file system. */
 export const getExtensionPath = () =>
-  vscode.extensions.getExtension('mallowigi.a-file-icon')?.extensionPath ?? '';
+  vscode.extensions.getExtension('atommaterial.a-file-icon-vscode')
+    ?.extensionPath ?? '';
 
 /** Get the configuration of the icons as JSON Object */
 export const getMaterialIconsJSON = (): IconConfiguration => {

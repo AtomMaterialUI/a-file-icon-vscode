@@ -24,7 +24,7 @@ const commands: { [commmand: string]: () => Promise<void> } = {
 export const registered = Object.keys(commands).map((commandName) => {
   const callCommand = () => commands[commandName]();
   return vscode.commands.registerCommand(
-    `a-file-icon.${commandName}`,
+    `a-file-icon-vscode.${commandName}`,
     callCommand
   );
 });

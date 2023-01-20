@@ -1,4 +1,4 @@
-import { extensions, Memento, workspace } from 'vscode';
+import { Memento, extensions, workspace } from 'vscode';
 import { isThemeActivated } from '.';
 import { ThemeStatus } from '../models/helpers/themeStatus';
 
@@ -68,5 +68,6 @@ const updateExtensionVersionInMemento = (state: Memento) => {
 
 /** Get the current version of the extension */
 const getCurrentExtensionVersion = (): string | undefined => {
-  return extensions.getExtension('mallowigi.a-file-icon')?.packageJSON.version;
+  return extensions.getExtension('atommaterial.a-file-icon-vscode')?.packageJSON
+    .version;
 };

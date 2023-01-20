@@ -13,11 +13,11 @@ const setIconTheme = async () => {
   try {
     await helpers
       .getConfig()
-      .update('workbench.iconTheme', 'a-file-icon', true);
+      .update('workbench.iconTheme', 'a-file-icon-vscode', true);
 
     // local workspace config
     if (helpers.getConfig().inspect('workbench.iconTheme')?.workspaceValue) {
-      helpers.getConfig().update('workbench.iconTheme', 'a-file-icon');
+      helpers.getConfig().update('workbench.iconTheme', 'a-file-icon-vscode');
     }
     vscode.window.showInformationMessage(i18n.translate('activated'));
   } catch (error) {
