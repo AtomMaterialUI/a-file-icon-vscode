@@ -1,6 +1,6 @@
-import * as fs from 'fs';
+import { writeFileSync } from 'fs';
 import merge from 'lodash.merge';
-import * as path from 'path';
+import path from 'path';
 import { getFileConfigHash } from '../../helpers/fileConfig';
 import {
   DefaultIcon,
@@ -326,9 +326,10 @@ export const generateFolderIcons = (color: string | undefined) => {
 };
 
 const getPath = (d: string, color: string) =>
-  `<path d='${d}' fill='${color}' />`;
+  `<path d="${d}" fill="${color}" />`;
+
 const getSVG = (path: string) =>
-  `<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>${path}</svg>`;
+  `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">${path}</svg>`;
 
 const writeSVGFiles = (iconName: string, svg: string) => {
   let iconsPath;
@@ -340,7 +341,7 @@ const writeSVGFiles = (iconName: string, svg: string) => {
   }
   const iconsFolderPath = path.join(iconsPath, `${iconName}.svg`);
   try {
-    fs.writeFileSync(iconsFolderPath, svg);
+    writeFileSync(iconsFolderPath, svg);
   } catch (error) {
     console.error(error);
   }

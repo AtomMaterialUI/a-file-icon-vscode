@@ -1,9 +1,9 @@
-import * as vscode from 'vscode';
+import { env, Uri, window } from 'vscode';
 import { translate } from '../i18n';
 
 /** Show message that the editor version is outdated. */
 export const showOutdatedMessage = () => {
-  vscode.window
+  window
     .showWarningMessage(
       translate('outdatedVersion'),
       translate('updateVSCode'),
@@ -16,8 +16,8 @@ export const showOutdatedMessage = () => {
 const handleActivateActions = (value: string | undefined) => {
   switch (value) {
     case translate('howToActivate'):
-      vscode.env.openExternal(
-        vscode.Uri.parse(
+      env.openExternal(
+        Uri.parse(
           'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes'
         )
       );

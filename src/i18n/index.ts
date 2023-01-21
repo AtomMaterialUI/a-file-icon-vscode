@@ -1,9 +1,9 @@
-import * as vscode from 'vscode';
+import { env } from 'vscode';
 import { getObjectPropertyValue } from '../helpers/objects';
 import { Translation } from '../models';
 
 // Get current language of the vs code workspace
-export const getCurrentLanguage = (): string => vscode.env.language;
+export const getCurrentLanguage = (): string => env.language;
 
 let currentTranslation: Translation;
 let fallbackTranslation: Translation;
@@ -29,9 +29,25 @@ const loadTranslation = async (language: string) => {
   }
 };
 
+const languages: Record<string, Function> = {
+  de: () => import(/* webpackMode: "eager" */ './lang-de'),
+  en: () => import(/* webpackMode: "eager" */ './lang-en'),
+  es: () => import(/* webpackMode: "eager" */ './lang-es'),
+  fr: () => import(/* webpackMode: "eager" */ './lang-fr'),
+  ja: () => import(/* webpackMode: "eager" */ './lang-ja'),
+  nl: () => import(/* webpackMode: "eager" */ './lang-nl'),
+  pl: () => import(/* webpackMode: "eager" */ './lang-pl'),
+  'pt-br': () => import(/* webpackMode: "eager" */ './lang-pt-br'),
+  'pt-pt': () => import(/* webpackMode: "eager" */ './lang-pt-pt'),
+  ru: () => import(/* webpackMode: "eager" */ './lang-ru'),
+  uk: () => import(/* webpackMode: "eager" */ './lang-uk'),
+  'zh-cn': () => import(/* webpackMode: "eager" */ './lang-zh-cn'),
+  'zh-tw': () => import(/* webpackMode: "eager" */ './lang-zh-tw'),
+};
+
 /** Get the translation object of the separated translation files */
 const getTranslationObject = async (language: string): Promise<Translation> => {
-  const lang = await import(/* webpackMode: "eager" */ `./lang-${language}`);
+  const lang = await languages[language]();
   return lang.translation as Translation;
 };
 
@@ -59,7 +75,9 @@ export const getTranslationValue = (
 export const translate = (key: string, ...variables: string[]): string => {
   const translation = getTranslationValue(key);
 
-  if (variables.length === 0) return translation ?? key;
+  if (variables.length === 0) {
+    return translation ?? key;
+  }
   return replace(translation, ...variables);
 };
 

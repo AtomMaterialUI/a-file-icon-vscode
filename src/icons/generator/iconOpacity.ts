@@ -1,5 +1,5 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import path from 'path';
 import { getCustomIconPaths } from '../../helpers/customIcons';
 import { IconJsonOptions } from '../../models';
 
@@ -27,14 +27,14 @@ export const setIconOpacity = (
   }
 
   const customIconPaths = getCustomIconPaths(options);
-  const iconFiles = fs.readdirSync(iconsPath);
+  const iconFiles = readdirSync(iconsPath);
 
   try {
     // read all icon files from the icons folder
     (fileNames || iconFiles).forEach(adjustOpacity(iconsPath, options));
 
     customIconPaths.forEach((iconPath) => {
-      const customIcons = fs.readdirSync(iconPath);
+      const customIcons = readdirSync(iconPath);
       customIcons.forEach(adjustOpacity(iconPath, options));
     });
   } catch (error) {
@@ -91,11 +91,13 @@ const adjustOpacity = (
     const svgFilePath = path.join(iconPath, iconFileName);
 
     // Read SVG file
-    const svg = fs.readFileSync(svgFilePath, 'utf-8');
+    const svg = readFileSync(svgFilePath, 'utf-8');
 
     // Get the root element of the SVG file
     const svgRootElement = getSVGRootElement(svg);
-    if (!svgRootElement) return;
+    if (!svgRootElement) {
+      return;
+    }
 
     let updatedRootElement: string;
 
@@ -106,6 +108,6 @@ const adjustOpacity = (
     }
     const updatedSVG = svg.replace(/<svg[^>]*>/, updatedRootElement);
 
-    fs.writeFileSync(svgFilePath, updatedSVG);
+    writeFileSync(svgFilePath, updatedSVG);
   };
 };

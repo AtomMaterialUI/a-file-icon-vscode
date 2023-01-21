@@ -1,7 +1,8 @@
-import * as vscode from 'vscode';
+import { window } from 'vscode';
+import { setThemeConfig, getMaterialIconsJSON } from '../helpers';
+import { translate } from '../i18n';
+
 import { getDefaultIconOptions, validateSaturationValue } from '../icons';
-import * as helpers from './../helpers';
-import * as i18n from './../i18n';
 
 /** Command to toggle the folder icons. */
 export const changeSaturation = async () => {
@@ -18,8 +19,8 @@ export const changeSaturation = async () => {
 
 /** Show input to enter the saturation value. */
 const showInput = (saturation: number) => {
-  return vscode.window.showInputBox({
-    placeHolder: i18n.translate('saturation.inputPlaceholder'),
+  return window.showInputBox({
+    placeHolder: translate('saturation.inputPlaceholder'),
     ignoreFocusOut: true,
     value: saturation.toString(),
     validateInput: validateSaturationInput,
@@ -29,7 +30,7 @@ const showInput = (saturation: number) => {
 /** Validate the saturation value which was inserted by the user. */
 const validateSaturationInput = (saturationInput: string) => {
   if (!validateSaturationValue(+saturationInput)) {
-    return i18n.translate('saturation.wrongValue');
+    return translate('saturation.wrongValue');
   }
   return undefined;
 };
@@ -37,10 +38,10 @@ const validateSaturationInput = (saturationInput: string) => {
 /** Get the current value of the saturation of the icons. */
 export const getCurrentSaturationValue = (): number => {
   const defaultOptions = getDefaultIconOptions();
-  const config = helpers.getMaterialIconsJSON();
+  const config = getMaterialIconsJSON();
   return config?.options?.saturation ?? defaultOptions.saturation;
 };
 
 const setSaturationConfig = (saturation: number) => {
-  return helpers.setThemeConfig('saturation', saturation, true);
+  return setThemeConfig('saturation', saturation, true);
 };

@@ -1,34 +1,35 @@
 'use strict';
 
-import * as vscode from 'vscode';
-import * as commands from './commands';
+import { ExtensionContext, window, workspace } from 'vscode';
+import { registered } from './commands';
+
 import { detectConfigChanges } from './helpers/changeDetection';
 import { checkThemeStatus, versionKey } from './helpers/versioning';
-import * as i18n from './i18n';
+import { initTranslations } from './i18n';
 import { showStartMessages } from './messages/start';
 
 /**
  * This method is called when the extension is activated.
  * It initializes the core functionality of the extension.
  */
-export const activate = async (context: vscode.ExtensionContext) => {
+export const activate = async (context: ExtensionContext) => {
   try {
-    await i18n.initTranslations();
+    await initTranslations();
     context.globalState.setKeysForSync([versionKey]);
     const status = await checkThemeStatus(context.globalState);
     showStartMessages(status);
 
     // Subscribe to the extension commands
-    context.subscriptions.push(...commands.registered);
+    context.subscriptions.push(...registered);
 
     // Initially trigger the config change detection
     detectConfigChanges();
 
     // Observe changes in the config
-    vscode.workspace.onDidChangeConfiguration(detectConfigChanges);
+    workspace.onDidChangeConfiguration(detectConfigChanges);
 
     // Observe if the window got focused to trigger config changes
-    vscode.window.onDidChangeWindowState((state) => {
+    window.onDidChangeWindowState((state) => {
       if (state.focused) {
         detectConfigChanges();
       }

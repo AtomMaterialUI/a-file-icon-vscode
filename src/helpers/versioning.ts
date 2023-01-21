@@ -7,7 +7,7 @@ export const getConfig = (section?: string) => {
   return workspace.getConfiguration(section);
 };
 
-export const versionKey = 'a-file-icon.version';
+export const versionKey = 'a-file-icon-vscode.version';
 
 /**
  * Check the current status of the theme

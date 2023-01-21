@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import { env, Uri, window } from 'vscode';
 import { activateIcons } from '../commands/activate';
 import { getThemeConfig, isThemeNotVisible, setThemeConfig } from '../helpers';
 import { translate } from '../i18n';
@@ -6,9 +6,11 @@ import { translate } from '../i18n';
 /** Show the welcome message if the icon theme has been installed the first time. */
 export const showWelcomeMessage = () => {
   // if the user does not want to see the welcome message
-  if (getThemeConfig('showWelcomeMessage')?.globalValue === false) return;
+  if (getThemeConfig('showWelcomeMessage')?.globalValue === false) {
+    return;
+  }
 
-  vscode.window
+  window
     .showInformationMessage(
       translate('themeInstalled'),
       isThemeNotVisible() ? translate('activate') : '',
@@ -25,8 +27,8 @@ const handleWelcomeMessageActions = (value: string | undefined) => {
       break;
 
     case translate('howToActivate'):
-      vscode.env.openExternal(
-        vscode.Uri.parse(
+      env.openExternal(
+        Uri.parse(
           'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes'
         )
       );

@@ -3,7 +3,7 @@ import { IconJsonOptions } from '../models';
 
 /**
  * Generate a config hashed string that is appended to each icon file name.
- * @param config Icon Configuration object
+ * @param options
  */
 export const getFileConfigHash = (options: IconJsonOptions): string => {
   try {
@@ -27,7 +27,9 @@ const getHash = (value: string) => {
   let hash = 0;
   let chr = 0;
 
-  if (value.length === 0) return hash;
+  if (value.length === 0) {
+    return hash;
+  }
   for (let i = 0; i < value.length; i++) {
     chr = value.charCodeAt(i);
     hash = (hash << 5) - hash + chr;

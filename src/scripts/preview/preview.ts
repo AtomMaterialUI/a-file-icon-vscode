@@ -1,7 +1,7 @@
-import * as fs from 'fs';
-import * as path from 'path';
+import { writeFileSync } from 'fs';
+import path from 'path';
+import { green, red } from '../helpers/painter';
 import { createScreenshot } from '../helpers/screenshots';
-import * as painter from './../helpers/painter';
 import { toTitleCase } from './../helpers/titleCase';
 
 const htmlDoctype = '<!DOCTYPE html>';
@@ -33,7 +33,7 @@ const createHTMLTableBodyRows = (items: IconDefinition[][]) => {
         }">
             </td>
             <td class="iconName">${toTitleCase(icon.label)}</td>
-        `,
+        `
       )
       .join('');
     const tableRow = `
@@ -59,7 +59,7 @@ const createPreviewTable = (icons: IconDefinition[][], size: number) => {
     styling +
     createHTMLTable(
       createHTMLTableHeadRow(size),
-      createHTMLTableBodyRows(icons),
+      createHTMLTableBodyRows(icons)
     );
   return table;
 };
@@ -67,32 +67,30 @@ const createPreviewTable = (icons: IconDefinition[][], size: number) => {
 const savePreview = (
   fileName: string,
   size: number,
-  icons: IconDefinition[][],
+  icons: IconDefinition[][]
 ) => {
   const filePath = path.join(__dirname, fileName + '.html');
 
   // write the html file with the icon table
-  fs.writeFileSync(filePath, createPreviewTable(icons, size));
+  writeFileSync(filePath, createPreviewTable(icons, size));
 
   // create the image
   createScreenshot(filePath, fileName)
     .then(() => {
       console.log(
         '> Atom Material Icons:',
-        painter.green(`Successfully created ${fileName} preview image!`),
+        green(`Successfully created ${fileName} preview image!`)
       );
     })
     .catch(() => {
-      throw Error(
-        painter.red(`Error while creating ${fileName} preview image`),
-      );
+      throw Error(red(`Error while creating ${fileName} preview image`));
     });
 };
 
 const getIconDefinitionsMatrix = (
   icons: IconDefinition[],
   size: number,
-  excluded: string[] = [],
+  excluded: string[] = []
 ): IconDefinition[][] => {
   const iconList = icons.sort((a, b) => a.label.localeCompare(b.label));
   trimIconListToSize(iconList, size, excluded);
@@ -129,12 +127,12 @@ export const generatePreview = (
   name: string,
   icons: IconDefinition[],
   size: number,
-  trimmableIcons: string[] = [],
+  trimmableIcons: string[] = []
 ) => {
   savePreview(
     name,
     size,
-    getIconDefinitionsMatrix(icons, size, trimmableIcons),
+    getIconDefinitionsMatrix(icons, size, trimmableIcons)
   );
 };
 
@@ -152,14 +150,14 @@ interface IconDefinition {
 const trimIconListToSize = (
   iconList: IconDefinition[],
   size: number,
-  trimmableIcons: string[],
+  trimmableIcons: string[]
 ) => {
   while (iconList.length % size !== 0) {
     iconList.splice(
       iconList.findIndex(
-        (i) => i.iconName === trimmableIcons[iconList.length % size],
+        (i) => i.iconName === trimmableIcons[iconList.length % size]
       ),
-      1,
+      1
     );
   }
 };

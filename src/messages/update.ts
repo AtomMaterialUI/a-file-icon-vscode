@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import { window, env, Uri } from 'vscode';
 import { activateIcons } from '../commands/activate';
 import { getThemeConfig, isThemeNotVisible, setThemeConfig } from '../helpers';
 import { translate } from './../i18n';
@@ -6,9 +6,11 @@ import { translate } from './../i18n';
 /** Show the update message if the icon theme has been updated. */
 export const showUpdateMessage = () => {
   // if the user does not want to see the update message
-  if (getThemeConfig('showUpdateMessage')?.globalValue !== true) return;
+  if (getThemeConfig('showUpdateMessage')?.globalValue !== true) {
+    return;
+  }
 
-  vscode.window
+  window
     .showInformationMessage(
       translate('themeUpdated'),
       isThemeNotVisible() ? translate('activate') : '',
@@ -26,8 +28,8 @@ const handleUpdateMessageActions = (value: string | undefined) => {
       break;
 
     case translate('readChangelog'):
-      vscode.env.openExternal(
-        vscode.Uri.parse(
+      env.openExternal(
+        Uri.parse(
           'https://marketplace.visualstudio.com/items/atommaterial.a-file-icon-vscode/changelog'
         )
       );

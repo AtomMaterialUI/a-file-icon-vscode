@@ -266,7 +266,7 @@
     "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
   },
   "scripts": {
-    "build": "npm run compile:dev && npm run generateJson",
+    "build": "npm run compile:dev && npm run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
     "check": "ts-node ./src/scripts/icons/checks",
     "compile": "webpack --config ./build/webpack.config.js --mode production",

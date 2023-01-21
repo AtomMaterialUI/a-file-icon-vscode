@@ -1,19 +1,19 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import * as vscode from 'vscode';
 import { iconJsonName } from '../icons/index';
 import { IconConfiguration } from '../models/index';
-import * as reloadMessages from './../messages/reload';
+import { extensions, workspace, commands } from 'vscode';
+import { showConfirmToReloadMessage } from './../messages/reload';
+import path from 'path';
+import { readFileSync } from 'fs';
 
 /** Get configuration of vs code. */
 export const getConfig = (section?: string) => {
-  return vscode.workspace.getConfiguration(section);
+  return workspace.getConfiguration(section);
 };
 
 /** Get list of configuration entries of package.json */
 export const getConfigProperties = (): { [config: string]: unknown } => {
-  return vscode.extensions.getExtension('atommaterial.a-file-icon-vscode')
-    ?.packageJSON?.contributes?.configuration?.properties;
+  return extensions.getExtension('atommaterial.a-file-icon-vscode')?.packageJSON
+    ?.contributes?.configuration?.properties;
 };
 
 /** Update configuration of vs code. */
@@ -61,15 +61,15 @@ export const isThemeNotVisible = (): boolean => {
 
 /** Return the path of the extension in the file system. */
 export const getExtensionPath = () =>
-  vscode.extensions.getExtension('atommaterial.a-file-icon-vscode')
-    ?.extensionPath ?? '';
+  extensions.getExtension('atommaterial.a-file-icon-vscode')?.extensionPath ??
+  '';
 
 /** Get the configuration of the icons as JSON Object */
 export const getMaterialIconsJSON = (): IconConfiguration => {
   const iconJSONPath = path.join(getExtensionPath(), 'dist', iconJsonName);
 
   try {
-    const data = fs.readFileSync(iconJSONPath, 'utf8');
+    const data = readFileSync(iconJSONPath, 'utf8');
     return JSON.parse(data);
   } catch (error) {
     console.error(error);
@@ -79,12 +79,14 @@ export const getMaterialIconsJSON = (): IconConfiguration => {
 
 /** Reload vs code window */
 export const promptToReload = async () => {
-  const result = await reloadMessages.showConfirmToReloadMessage();
-  if (result) reloadWindow();
+  const result = await showConfirmToReloadMessage();
+  if (result) {
+    reloadWindow();
+  }
 };
 
 const reloadWindow = () => {
-  return vscode.commands.executeCommand('workbench.action.reloadWindow');
+  return commands.executeCommand('workbench.action.reloadWindow');
 };
 
 /** Capitalize the first letter of a string */

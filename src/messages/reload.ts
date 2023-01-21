@@ -1,13 +1,15 @@
-import * as vscode from 'vscode';
 import { getThemeConfig, setThemeConfig } from '../helpers';
 import { translate } from '../i18n';
+import { window } from 'vscode';
 
 /** User has to confirm if he wants to reload the editor */
 export const showConfirmToReloadMessage = async (): Promise<boolean> => {
   // if the user does not want to see the reload message
-  if (getThemeConfig('showReloadMessage')?.globalValue === false) false;
+  if (getThemeConfig('showReloadMessage')?.globalValue === false) {
+    false;
+  }
 
-  const response = await vscode.window.showInformationMessage(
+  const response = await window.showInformationMessage(
     translate('confirmReload'),
     translate('reload'),
     translate('neverShowAgain')
