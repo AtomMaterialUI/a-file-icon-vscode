@@ -1,7 +1,7 @@
 import { window, env, Uri } from 'vscode';
 import { activateIcons } from '../commands/activate';
 import { getThemeConfig, isThemeNotVisible, setThemeConfig } from '../helpers';
-import { translate } from './../i18n';
+import i18next from 'i18next';
 
 /** Show the update message if the icon theme has been updated. */
 export const showUpdateMessage = () => {
@@ -12,10 +12,10 @@ export const showUpdateMessage = () => {
 
   window
     .showInformationMessage(
-      translate('themeUpdated'),
-      isThemeNotVisible() ? translate('activate') : '',
-      translate('readChangelog'),
-      translate('neverShowAgain')
+      i18next.t('themeUpdated'),
+      isThemeNotVisible() ? i18next.t('activate') : '',
+      i18next.t('readChangelog'),
+      i18next.t('neverShowAgain'),
     )
     .then(handleUpdateMessageActions);
 };
@@ -23,19 +23,19 @@ export const showUpdateMessage = () => {
 /** Handle the actions of the update message. */
 const handleUpdateMessageActions = (value: string | undefined) => {
   switch (value) {
-    case translate('activate'):
+    case i18next.t('activate'):
       activateIcons();
       break;
 
-    case translate('readChangelog'):
+    case i18next.t('readChangelog'):
       env.openExternal(
         Uri.parse(
-          'https://marketplace.visualstudio.com/items/atommaterial.a-file-icon-vscode/changelog'
-        )
+          'https://marketplace.visualstudio.com/items/atommaterial.a-file-icon-vscode/changelog',
+        ),
       );
       break;
 
-    case translate('neverShowAgain'):
+    case i18next.t('neverShowAgain'):
       disableUpdateMessage();
       break;
 

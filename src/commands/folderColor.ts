@@ -1,9 +1,10 @@
-import { QuickPickItem, window } from 'vscode';
+import type { QuickPickItem} from 'vscode';
+import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
-import { translate } from '../i18n';
 import { getDefaultIconOptions, validateHEXColorCode } from '../icons';
+import i18next from 'i18next';
 
-interface FolderColor {
+type FolderColor = {
   label: string;
   hex: string;
 }
@@ -38,11 +39,11 @@ const showQuickPickItems = (currentColor: string) => {
     (color): QuickPickItem => ({
       description: color.label,
       label: isColorActive(color, currentColor) ? '\u2714' : '\u25FB',
-    })
+    }),
   );
 
   return window.showQuickPick(options, {
-    placeHolder: translate('folders.color'),
+    placeHolder: i18next.t('folders.color'),
     ignoreFocusOut: false,
     matchOnDescription: true,
   });
@@ -55,7 +56,7 @@ const handleQuickPickActions = async (value: QuickPickItem) => {
   }
   if (value.description === 'Custom Color') {
     const value = await window.showInputBox({
-      placeHolder: translate('folders.hexCode'),
+      placeHolder: i18next.t('folders.hexCode'),
       ignoreFocusOut: true,
       validateInput: validateColorInput,
     });
@@ -72,7 +73,7 @@ const handleQuickPickActions = async (value: QuickPickItem) => {
 
 const validateColorInput = (colorInput: string) => {
   if (!validateHEXColorCode(colorInput)) {
-    return translate('folders.wrongHexCode');
+    return i18next.t('folders.wrongHexCode');
   }
   return undefined;
 };
@@ -91,7 +92,7 @@ const setColorConfig = (value: string) => {
 const isColorActive = (color: FolderColor, currentColor: string): boolean => {
   if (color.label === 'Custom Color') {
     return !iconPalette.some(
-      (c) => c.hex.toLowerCase() === currentColor.toLowerCase()
+      (c) => c.hex.toLowerCase() === currentColor.toLowerCase(),
     );
   }
   return color.hex.toLowerCase() === currentColor.toLowerCase();

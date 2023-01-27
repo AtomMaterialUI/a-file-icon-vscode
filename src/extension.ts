@@ -1,12 +1,12 @@
 'use strict';
 
-import { ExtensionContext, window, workspace } from 'vscode';
+import type { ExtensionContext } from 'vscode';
+import { window, workspace } from 'vscode';
 import { registered } from './commands';
-
 import { detectConfigChanges } from './helpers/changeDetection';
 import { checkThemeStatus, versionKey } from './helpers/versioning';
-import { initTranslations } from './i18n';
 import { showStartMessages } from './messages/start';
+import { initTranslations } from 'src/i18n/i18next';
 
 /**
  * This method is called when the extension is activated.
@@ -15,6 +15,7 @@ import { showStartMessages } from './messages/start';
 export const activate = async (context: ExtensionContext) => {
   try {
     await initTranslations();
+
     context.globalState.setKeysForSync([versionKey]);
     const status = await checkThemeStatus(context.globalState);
     showStartMessages(status);

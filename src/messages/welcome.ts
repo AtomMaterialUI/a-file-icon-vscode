@@ -1,7 +1,7 @@
 import { env, Uri, window } from 'vscode';
 import { activateIcons } from '../commands/activate';
 import { getThemeConfig, isThemeNotVisible, setThemeConfig } from '../helpers';
-import { translate } from '../i18n';
+import i18next from 'i18next';
 
 /** Show the welcome message if the icon theme has been installed the first time. */
 export const showWelcomeMessage = () => {
@@ -12,9 +12,9 @@ export const showWelcomeMessage = () => {
 
   window
     .showInformationMessage(
-      translate('themeInstalled'),
-      isThemeNotVisible() ? translate('activate') : '',
-      translate('neverShowAgain')
+      i18next.t('themeInstalled'),
+      isThemeNotVisible() ? i18next.t('activate') : '',
+      i18next.t('neverShowAgain'),
     )
     .then(handleWelcomeMessageActions);
 };
@@ -22,19 +22,19 @@ export const showWelcomeMessage = () => {
 /** Handle the actions of the welcome message. */
 const handleWelcomeMessageActions = (value: string | undefined) => {
   switch (value) {
-    case translate('activate'):
+    case i18next.t('activate'):
       activateIcons();
       break;
 
-    case translate('howToActivate'):
+    case i18next.t('howToActivate'):
       env.openExternal(
         Uri.parse(
-          'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes'
-        )
+          'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes',
+        ),
       );
       break;
 
-    case translate('neverShowAgain'):
+    case i18next.t('neverShowAgain'):
       disableWelcomeMessage();
       break;
 

@@ -1,8 +1,8 @@
 import { window } from 'vscode';
 import { setThemeConfig, getMaterialIconsJSON } from '../helpers';
-import { translate } from '../i18n';
 
 import { getDefaultIconOptions, validateSaturationValue } from '../icons';
+import i18next from 'i18next';
 
 /** Command to toggle the folder icons. */
 export const changeSaturation = async () => {
@@ -20,7 +20,7 @@ export const changeSaturation = async () => {
 /** Show input to enter the saturation value. */
 const showInput = (saturation: number) => {
   return window.showInputBox({
-    placeHolder: translate('saturation.inputPlaceholder'),
+    placeHolder: i18next.t('saturation.inputPlaceholder'),
     ignoreFocusOut: true,
     value: saturation.toString(),
     validateInput: validateSaturationInput,
@@ -30,7 +30,7 @@ const showInput = (saturation: number) => {
 /** Validate the saturation value which was inserted by the user. */
 const validateSaturationInput = (saturationInput: string) => {
   if (!validateSaturationValue(+saturationInput)) {
-    return translate('saturation.wrongValue');
+    return i18next.t('saturation.wrongValue');
   }
   return undefined;
 };

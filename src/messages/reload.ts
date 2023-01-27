@@ -1,6 +1,6 @@
 import { getThemeConfig, setThemeConfig } from '../helpers';
-import { translate } from '../i18n';
 import { window } from 'vscode';
+import i18next from 'i18next';
 
 /** User has to confirm if he wants to reload the editor */
 export const showConfirmToReloadMessage = async (): Promise<boolean> => {
@@ -10,16 +10,16 @@ export const showConfirmToReloadMessage = async (): Promise<boolean> => {
   }
 
   const response = await window.showInformationMessage(
-    translate('confirmReload'),
-    translate('reload'),
-    translate('neverShowAgain')
+    i18next.t('confirmReload'),
+    i18next.t('reload'),
+    i18next.t('neverShowAgain'),
   );
 
   switch (response) {
-    case translate('reload'):
+    case i18next.t('reload'):
       return true;
 
-    case translate('neverShowAgain'):
+    case i18next.t('neverShowAgain'):
       disableReloadMessage();
       return false;
 

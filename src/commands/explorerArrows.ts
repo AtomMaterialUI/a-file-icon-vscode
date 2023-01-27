@@ -1,6 +1,7 @@
-import { window, QuickPickItem } from 'vscode';
+import type { QuickPickItem } from 'vscode';
+import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
-import { translate } from '../i18n';
+import i18next from 'i18next';
 
 /** Command to toggle the explorer arrows. */
 export const toggleExplorerArrows = async () => {
@@ -15,20 +16,20 @@ export const toggleExplorerArrows = async () => {
 
 /** Show QuickPick items to select preferred configuration for the explorer arrows. */
 const showQuickPickItems = (
-  status: boolean
+  status: boolean,
 ): Thenable<QuickPickItem | undefined> => {
   const on: QuickPickItem = {
-    description: translate('toggleSwitch.on'),
-    detail: translate('explorerArrows.enable'),
+    description: i18next.t('toggleSwitch.on'),
+    detail: i18next.t('explorerArrows.enable'),
     label: !status ? '\u2714' : '\u25FB',
   };
   const off: QuickPickItem = {
-    description: translate('toggleSwitch.off'),
-    detail: translate('explorerArrows.disable'),
+    description: i18next.t('toggleSwitch.off'),
+    detail: i18next.t('explorerArrows.disable'),
     label: status ? '\u2714' : '\u25FB',
   };
   return window.showQuickPick([on, off], {
-    placeHolder: translate('explorerArrows.toggle'),
+    placeHolder: i18next.t('explorerArrows.toggle'),
     ignoreFocusOut: false,
     matchOnDescription: true,
   });
@@ -40,10 +41,10 @@ const handleQuickPickActions = (value: QuickPickItem | undefined) => {
     return;
   }
   switch (value.description) {
-    case translate('toggleSwitch.on'): {
+    case i18next.t('toggleSwitch.on'): {
       return setThemeConfig('hidesExplorerArrows', false, true);
     }
-    case translate('toggleSwitch.off'): {
+    case i18next.t('toggleSwitch.off'): {
       return setThemeConfig('hidesExplorerArrows', true, true);
     }
     default:

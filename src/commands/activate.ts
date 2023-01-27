@@ -1,7 +1,6 @@
 import { window } from 'vscode';
 import { getConfig } from '../helpers';
-
-import { translate } from './../i18n';
+import i18next from 'i18next';
 
 /** Activate the icon theme by changing the settings for the iconTheme. */
 export const activateIcons = () => {
@@ -18,7 +17,7 @@ const setIconTheme = async () => {
     if (getConfig().inspect('workbench.iconTheme')?.workspaceValue) {
       getConfig().update('workbench.iconTheme', 'a-file-icon-vscode');
     }
-    window.showInformationMessage(translate('activated'));
+    window.showInformationMessage(i18next.t('activated'));
   } catch (error) {
     console.error(error);
   }

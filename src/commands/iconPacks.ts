@@ -1,7 +1,8 @@
-import { QuickPickItem, window } from 'vscode';
+import type { QuickPickItem} from 'vscode';
+import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig, toTitleCase } from '../helpers';
-import { translate } from '../i18n';
 import { IconPack } from '../models/index';
+import i18next from 'i18next';
 
 /** Command to toggle the icons packs */
 export const toggleIconPacks = async () => {
@@ -26,16 +27,16 @@ const showQuickPickItems = (activePack: string) => {
 
     return {
       description: packLabel,
-      detail: translate(
+      detail: i18next.t(
         `iconPacks.${pack === 'none' ? 'disabled' : 'description'}`,
-        packLabel
+        packLabel,
       ),
       label: iconPacksDeactivated ? '\u2714' : active ? '\u2714' : '\u25FB',
     };
   });
 
   return window.showQuickPick(options, {
-    placeHolder: translate('iconPacks.selectPack'),
+    placeHolder: i18next.t('iconPacks.selectPack'),
     ignoreFocusOut: false,
     matchOnDescription: true,
     matchOnDetail: true,

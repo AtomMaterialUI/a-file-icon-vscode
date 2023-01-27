@@ -1,11 +1,8 @@
-import { QuickPickItem, window } from 'vscode';
-import {
-  capitalizeFirstLetter,
-  getMaterialIconsJSON,
-  setThemeConfig,
-} from '../helpers';
-import { translate } from '../i18n';
+import type { QuickPickItem} from 'vscode';
+import { window } from 'vscode';
+import { capitalizeFirstLetter, getMaterialIconsJSON, setThemeConfig } from '../helpers';
 import { folderIcons } from '../icons';
+import i18next from 'i18next';
 
 /** Command to toggle the folder icons. */
 export const changeFolderTheme = async () => {
@@ -27,17 +24,17 @@ const showQuickPickItems = (activeTheme: string) => {
       description: capitalizeFirstLetter(theme.name),
       detail:
         theme.name === 'none'
-          ? translate('folders.disabled')
-          : translate(
-              'folders.theme.description',
-              capitalizeFirstLetter(theme.name)
-            ),
+        ? i18next.t('folders.disabled')
+        : i18next.t(
+          'folders.theme.description',
+          capitalizeFirstLetter(theme.name),
+        ),
       label: theme.name === activeTheme ? '\u2714' : '\u25FB',
-    })
+    }),
   );
 
   return window.showQuickPick(options, {
-    placeHolder: translate('folders.toggleIcons'),
+    placeHolder: i18next.t('folders.toggleIcons'),
     ignoreFocusOut: false,
     matchOnDescription: true,
   });

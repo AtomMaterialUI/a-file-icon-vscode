@@ -1,7 +1,7 @@
 import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
-import { translate } from '../i18n';
 import { getDefaultIconOptions, validateOpacityValue } from '../icons';
+import i18next from 'i18next';
 
 /** Command to toggle the folder icons. */
 export const changeOpacity = async () => {
@@ -19,7 +19,7 @@ export const changeOpacity = async () => {
 /** Show input to enter the opacity value. */
 const showInput = (opacity: number) => {
   return window.showInputBox({
-    placeHolder: translate('opacity.inputPlaceholder'),
+    placeHolder: i18next.t('opacity.inputPlaceholder'),
     ignoreFocusOut: true,
     value: opacity.toString(),
     validateInput: validateOpacityInput,
@@ -29,7 +29,7 @@ const showInput = (opacity: number) => {
 /** Validate the opacity value which was inserted by the user. */
 const validateOpacityInput = (opacityInput: string) => {
   if (!validateOpacityValue(+opacityInput)) {
-    return translate('opacity.wrongValue');
+    return i18next.t('opacity.wrongValue');
   }
   return undefined;
 };

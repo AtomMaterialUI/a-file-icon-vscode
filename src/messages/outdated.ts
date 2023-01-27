@@ -1,13 +1,13 @@
 import { env, Uri, window } from 'vscode';
-import { translate } from '../i18n';
+import i18next from 'i18next';
 
 /** Show message that the editor version is outdated. */
 export const showOutdatedMessage = () => {
   window
     .showWarningMessage(
-      translate('outdatedVersion'),
-      translate('updateVSCode'),
-      translate('howToActivate')
+      i18next.t('outdatedVersion'),
+      i18next.t('updateVSCode'),
+      i18next.t('howToActivate'),
     )
     .then(handleActivateActions);
 };
@@ -15,15 +15,15 @@ export const showOutdatedMessage = () => {
 /** Handle the actions from the outdatedMessage command message */
 const handleActivateActions = (value: string | undefined) => {
   switch (value) {
-    case translate('howToActivate'):
+    case i18next.t('howToActivate'):
       env.openExternal(
         Uri.parse(
-          'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes'
-        )
+          'https://code.visualstudio.com/blogs/2016/09/08/icon-themes#_file-icon-themes',
+        ),
       );
       break;
 
-    case translate('updateVSCode'):
+    case i18next.t('updateVSCode'):
       open('https://code.visualstudio.com/download');
       break;
 
