@@ -37,7 +37,28 @@
         "exceptAfterSingleLine": true
       }
     ],
-    "@typescript-eslint/member-ordering": "warn",
+    "@typescript-eslint/member-ordering": [
+      "error",
+      { "default": [
+        // Index signature
+        "signature",
+
+        // Fields
+        "field",
+
+        // Static initialization
+        "static-initialization",
+
+        // Constructors
+        "constructor",
+
+        // Getters and Setters at the same rank
+        ["get", "set"],
+
+        // Methods
+        "method"
+      ] }
+    ],
     "@typescript-eslint/method-signature-style": "error",
     "@typescript-eslint/naming-convention": [
       "warn",

@@ -10,5 +10,20 @@
     "source.fixAll.eslint": true
   },
   "eslint.validate": ["typescript"],
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "i18n-ally.localesPaths": [
+    "src/i18n",
+    "src/locales",
+    "src/messages",
+    "src/models/i18n",
+    "src/models/icons/languages",
+    "iconGenerator/examples/folders/i18n",
+    "iconGenerator/examples/folders/lang",
+    "iconGenerator/examples/folders/langs",
+    "iconGenerator/examples/folders/language",
+    "iconGenerator/examples/folders/languages",
+    "iconGenerator/examples/folders/locale",
+    "iconGenerator/examples/folders/locales",
+    "iconGenerator/examples/folders/messages"
+  ]
 }

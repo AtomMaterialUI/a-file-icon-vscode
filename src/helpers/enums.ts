@@ -1,4 +1,4 @@
-export enum ThemeStatus {
+export enum UpdateStatus {
   NeverUsedBefore,
   Updated,
   Current,

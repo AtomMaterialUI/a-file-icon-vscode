@@ -4,11 +4,11 @@ import type { ExtensionContext } from 'vscode';
 import { window, workspace } from 'vscode';
 import { registered } from './commands';
 import { detectConfigChanges } from './helpers/changeDetection';
-import { showStartMessages } from './messages/start';
-import { initTranslations } from 'src/i18n/i18next';
+import { initI18next } from 'src/i18n/i18next';
 import { logger } from 'src/helpers/LoggingService';
 import { VERSION_KEY } from 'src/helpers/constants';
 import { updatesService } from 'src/helpers/UpdatesService';
+import { notificationsService } from 'src/helpers/NotificationsService';
 
 /**
  * When the extension gets activated
@@ -18,7 +18,7 @@ import { updatesService } from 'src/helpers/UpdatesService';
 export const activate = async (context: ExtensionContext) => {
   try {
     // Translations
-    await initTranslations();
+    await initI18next();
     logger.debug('Translations loaded.');
 
     // Init for sync
@@ -29,7 +29,7 @@ export const activate = async (context: ExtensionContext) => {
     const status = await updatesService.checkUpdateStatus(context.globalState);
 
     // Start notification
-    showStartMessages(status);
+    notificationsService.showStartMessages(status);
 
     // Subscribe to the extension commands
     context.subscriptions.push(...registered);

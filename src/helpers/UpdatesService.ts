@@ -1,9 +1,9 @@
 import type { Memento } from 'vscode';
 import { extensions } from 'vscode';
-import { EXTENSION_ID, VERSION_KEY, EXTENSION_KEY } from 'src/helpers/constants';
-import { ThemeStatus } from 'src/helpers/enums';
+import { EXTENSION_ID, VERSION_KEY } from 'src/helpers/constants';
+import { UpdateStatus } from 'src/helpers/enums';
 import { logger } from './LoggingService';
-import { configService } from './ConfigService';
+import { configService } from 'src/helpers/ConfigService';
 
 export class UpdatesService {
   /**
@@ -20,19 +20,19 @@ export class UpdatesService {
       if (ownVersion === undefined || typeof ownVersion !== 'string') {
         await this.updateStateVersion(state);
 
-        return this.isAlreadyActivated()
-               ? ThemeStatus.Updated
-               : ThemeStatus.NeverUsedBefore;
+        return configService.isAlreadyActivated()
+               ? UpdateStatus.Updated
+               : UpdateStatus.NeverUsedBefore;
       } else if (pluginVersion && this.isGreaterVersion(pluginVersion, ownVersion)) {
         await this.updateStateVersion(state);
 
-        return ThemeStatus.Updated;
+        return UpdateStatus.Updated;
       } else {
-        return ThemeStatus.Current;
+        return UpdateStatus.Current;
       }
     } catch (e) {
       logger.error(String(e));
-      return ThemeStatus.Current;
+      return UpdateStatus.Current;
     }
   }
 
@@ -57,32 +57,6 @@ export class UpdatesService {
     const currentVersion = this.getPluginVersion();
     if (currentVersion) {
       return state.update(VERSION_KEY, currentVersion);
-    }
-  }
-
-  /**
-   * Checks if the plugin is already activated, globally or not
-   * @returns {boolean}
-   * @private
-   */
-  private isAlreadyActivated(): boolean {
-    return this.isActivated(true) || this.isActivated(false);
-  }
-
-  /**
-   * Checks if the plugin is activated on the current workspace
-   * @param {boolean} globally
-   * @returns {boolean}
-   * @private
-   */
-  private isActivated(globally = false): boolean {
-    const iconTheme = configService.getConfig().inspect('workbench.iconTheme');
-    if (!iconTheme) return false;
-
-    if (globally) {
-      return iconTheme.globalValue === EXTENSION_KEY;
-    } else {
-      return iconTheme.workspaceValue === EXTENSION_KEY;
     }
   }
 

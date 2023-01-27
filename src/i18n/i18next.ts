@@ -11,7 +11,7 @@ const getCurrentLanguage = () => env.language as EnvLanguage;
 /**
  * Initialize the translations
  */
-export const initTranslations = async () => {
+export const initI18next = async () => {
   await i18next
     .use(
       resourcesToBackend((language: string, _, callback) =>
