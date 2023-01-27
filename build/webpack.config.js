@@ -1,39 +1,42 @@
-'use strict';
+"use strict";
 
-const path = require('path');
+const path = require("path");
 
-/** @type {import('webpack').Configuration} */
+/** @type {import("webpack").Configuration} */
 const config = {
   context: path.dirname(__dirname),
-  target: 'node',
+  target: "node",
   node: {
     __dirname: false,
-    __filename: false,
+    __filename: false
   },
-  entry: './src/extension.ts',
+  entry: "./src/extension.ts",
   output: {
-    path: path.resolve(__dirname, '../dist'),
-    filename: 'extension.js',
-    libraryTarget: 'commonjs2',
-    devtoolModuleFilenameTemplate: '../[resource-path]',
-    clean: true,
+    path: path.resolve(__dirname, "../dist"),
+    filename: "extension.js",
+    libraryTarget: "commonjs2",
+    devtoolModuleFilenameTemplate: "../[resource-path]",
+    clean: true
   },
-  devtool: 'source-map',
+  devtool: "source-map",
   externals: {
-    vscode: 'commonjs vscode',
+    vscode: "commonjs vscode"
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    alias: {
+      src: path.resolve(__dirname, "..", "src")
+    },
+    extensions: [".ts", ".js", ".json"]
   },
   module: {
     rules: [
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: 'ts-loader',
-      },
-    ],
-  },
+        use: "ts-loader"
+      }
+    ]
+  }
 };
 
 module.exports = config;

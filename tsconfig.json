@@ -1,23 +1,26 @@
 {
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "es6",
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "incremental": true,
+    "isolatedModules": true,
+    "lib": ["es2020", "dom"],
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "outDir": "out",
-    "lib": ["es6", "dom"],
+    "resolveJsonModule": true,
+    "sourceMap": true,
     "strict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
-    "noImplicitAny": true,
-    "sourceMap": true,
-    "rootDir": "src",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
+    "target": "es2020"
   },
-  "include": [
-    "src/**/*.ts",
-    "./node_modules/vscode/vscode.d.ts",
-    "./node_modules/vscode/lib/*"
-  ]
+  "include": ["src/**/*", "./node_modules/vscode/vscode.d.ts", "./node_modules/vscode/lib/*"]
 }
