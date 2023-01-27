@@ -4,20 +4,31 @@ import type { ExtensionContext } from 'vscode';
 import { window, workspace } from 'vscode';
 import { registered } from './commands';
 import { detectConfigChanges } from './helpers/changeDetection';
-import { checkThemeStatus, versionKey } from './helpers/versioning';
 import { showStartMessages } from './messages/start';
 import { initTranslations } from 'src/i18n/i18next';
+import { logger } from 'src/helpers/LoggingService';
+import { VERSION_KEY } from 'src/helpers/constants';
+import { updatesService } from 'src/helpers/UpdatesService';
 
 /**
- * This method is called when the extension is activated.
- * It initializes the core functionality of the extension.
+ * When the extension gets activated
+ * @param {ExtensionContext} context
+ * @returns {Promise<void>}
  */
 export const activate = async (context: ExtensionContext) => {
   try {
+    // Translations
     await initTranslations();
+    logger.debug('Translations loaded.');
 
-    context.globalState.setKeysForSync([versionKey]);
-    const status = await checkThemeStatus(context.globalState);
+    // Init for sync
+    context.globalState.setKeysForSync([VERSION_KEY]);
+
+    // checking for updates
+    logger.debug('Checking for new updates...');
+    const status = await updatesService.checkUpdateStatus(context.globalState);
+
+    // Start notification
     showStartMessages(status);
 
     // Subscribe to the extension commands

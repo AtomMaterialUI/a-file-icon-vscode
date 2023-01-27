@@ -1,5 +1,5 @@
 import { iconJsonName } from '../icons/index';
-import { IconConfiguration } from '../models/index';
+import type { IconConfiguration } from '../models/index';
 import { extensions, workspace, commands } from 'vscode';
 import { showConfirmToReloadMessage } from './../messages/reload';
 import path from 'path';
@@ -11,7 +11,7 @@ export const getConfig = (section?: string) => {
 };
 
 /** Get list of configuration entries of package.json */
-export const getConfigProperties = (): { [config: string]: unknown } => {
+export const getConfigProperties = (): Record<string, unknown> => {
   return extensions.getExtension('atommaterial.a-file-icon-vscode')?.packageJSON
     ?.contributes?.configuration?.properties;
 };
@@ -20,7 +20,7 @@ export const getConfigProperties = (): { [config: string]: unknown } => {
 export const setConfig = (
   section: string,
   value: any,
-  global: boolean = false
+  global = false,
 ) => {
   return getConfig().update(section, value, global);
 };
@@ -33,7 +33,7 @@ export const getThemeConfig = (section: string) => {
 export const setThemeConfig = (
   section: string,
   value: any,
-  global: boolean = false
+  global = false,
 ) => {
   return getConfig('a-file-icon-vscode').update(section, value, global);
 };
@@ -42,12 +42,12 @@ export const setThemeConfig = (
  * Checks if the theme is the active icon theme
  * @param{boolean} global false by default
  */
-export const isThemeActivated = (global: boolean = false): boolean => {
+export const isThemeActivated = (global = false): boolean => {
   return global
-    ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
-        'a-file-icon-vscode'
-    : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
-        'a-file-icon-vscode';
+         ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
+           'a-file-icon-vscode'
+         : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
+           'a-file-icon-vscode';
 };
 
 /** Checks if the theme is not the active icon theme */
@@ -97,6 +97,6 @@ export const capitalizeFirstLetter = (name: string): string =>
 export const toTitleCase = (value: string) => {
   return value.replace(
     /\w\S*/g,
-    (text) => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase()
+    (text) => text.charAt(0).toUpperCase() + text.substr(1).toLowerCase(),
   );
 };
