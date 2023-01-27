@@ -125,7 +125,7 @@ export class ConfigService {
    * @private
    */
   private isActivated(): boolean {
-    return configService.iconTheme === EXTENSION_KEY;
+    return this.iconTheme === EXTENSION_KEY;
   }
 
   // endregion

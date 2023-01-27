@@ -11,11 +11,13 @@ type NotificationAction = MessageItem & {
   id: '' | 'activate' | 'neverShowAgain' | 'readChangelog'
 }
 
-const activateAction: NotificationAction = configService.isAlreadyActivated()
-  ? { id: '', title: '' }
-  : { id: 'activate', title: i18next.t('activate') };
-
 export class NotificationsService {
+  get activateAction(): NotificationAction {
+    return configService.isAlreadyActivated()
+      ? { id: '', title: '' }
+      : { id: 'activate', title: i18next.t('activate') };
+  }
+
   /**
    * Show relevant messages at start according to the theme status
    * @param {UpdateStatus} status
@@ -51,7 +53,7 @@ export class NotificationsService {
     window
       .showInformationMessage<NotificationAction>(
         i18next.t('themeInstalled'),
-        activateAction,
+        this.activateAction,
         { id: 'neverShowAgain', title: i18next.t('neverShowAgain') },
       )
       .then(this.handleWelcomeMessageActions);
@@ -86,7 +88,7 @@ export class NotificationsService {
     window
       .showInformationMessage<NotificationAction>(
         i18next.t('themeUpdated'),
-        activateAction,
+        this.activateAction,
         { id: 'readChangelog', title: i18next.t('readChangelog') },
         { id: 'neverShowAgain', title: i18next.t('neverShowAgain') },
       )

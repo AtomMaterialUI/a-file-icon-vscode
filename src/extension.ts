@@ -2,7 +2,7 @@
 
 import type { ExtensionContext } from 'vscode';
 import { window, workspace } from 'vscode';
-import { registered } from './commands';
+import { registeredCommands } from 'src/commands/commands';
 import { detectConfigChanges } from './helpers/changeDetection';
 import { initI18next } from 'src/i18n/i18next';
 import { logger } from 'src/helpers/LoggingService';
@@ -32,7 +32,7 @@ export const activate = async (context: ExtensionContext) => {
     notificationsService.showStartMessages(status);
 
     // Subscribe to the extension commands
-    context.subscriptions.push(...registered);
+    context.subscriptions.push(...registeredCommands);
 
     // Initially trigger the config change detection
     detectConfigChanges();
