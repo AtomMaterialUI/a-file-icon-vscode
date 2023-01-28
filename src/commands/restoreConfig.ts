@@ -2,7 +2,7 @@ import { setThemeConfig } from './../helpers';
 
 /** Restore all configurations to default. */
 export const restoreDefaultConfig = async () => {
-  await setThemeConfig('activeIconPack', undefined, true);
+  await setThemeConfig('activeIconPacks', undefined, true);
   await setThemeConfig('folders.theme', undefined, true);
   await setThemeConfig('folders.color', undefined, true);
   await setThemeConfig('hidesExplorerArrows', undefined, true);

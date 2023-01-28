@@ -8,7 +8,7 @@
   "readChangelog": "Read changelog",
   "iconPacks": {
     "selectPack": "Select an icon pack",
-    "description": "Select the '%0' icon pack",
+    "description": "Select the '{{name}}' icon pack",
     "disabled": "Disable icon packs"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Invalid HEX color code!",
     "disabled": "No folder icons",
     "theme": {
-      "description": "Select the '%0' folder theme"
+      "description": "Select the '{{name}}' folder theme"
     }
   },
   "opacity": {

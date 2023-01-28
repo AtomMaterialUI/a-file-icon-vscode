@@ -8,7 +8,7 @@
   "readChangelog": "Lire la liste des changements",
   "iconPacks": {
     "selectPack": "Sélectionnez un pack d'icônes",
-    "description": "Sélectionner le pack d'icônes '%0'",
+    "description": "Sélectionner le pack d'icônes '{{name}}'",
     "disabled": "Désactiver les paquets d'icônes"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Code couleur HEX non valide!",
     "disabled": "Aucune icônes de dossiers",
     "theme": {
-      "description": "Icônes de dossiers '%0'"
+      "description": "Icônes de dossiers '{{name}}'"
     }
   },
   "opacity": {

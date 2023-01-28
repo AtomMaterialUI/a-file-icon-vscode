@@ -75,56 +75,31 @@
     ],
     "configuration": {
       "properties": {
-        "a-file-icon-vscode.activeIconPack": {
-          "default": "angular",
-          "description": "%configuration.activeIconPack%",
-          "enum": [
+        "a-file-icon-vscode.activeIconPacks": {
+          "default": [
             "angular",
-            "ngrx",
-            "react",
-            "redux",
-            "vue",
-            "vuex",
-            "nest",
-            "recoil",
-            "rails",
-            "phalcon",
-            "volt",
-            "none"
+            "rails"
           ],
-          "enumDescriptions": [
-            "%configuration.activeIconPack.angular%",
-            "%configuration.activeIconPack.ngrx%",
-            "%configuration.activeIconPack.react%",
-            "%configuration.activeIconPack.redux%",
-            "%configuration.activeIconPack.vue%",
-            "%configuration.activeIconPack.vuex%",
-            "%configuration.activeIconPack.nest%",
-            "%configuration.activeIconPack.recoil%",
-            "%configuration.activeIconPack.rails%",
-            "%configuration.activeIconPack.phalcon%",
-            "%configuration.activeIconPack.volt%",
-            "%configuration.activeIconPack.none%"
-          ],
-          "type": "string"
+          "description": "%configuration.activeIconPacks%",
+          "type": "array"
         },
-        "a-file-icon-vscode.files.associations": {
+        "a-file-icon-vscode.filesAssociations": {
           "default": {},
           "description": "%configuration.files.associations%",
           "type": "object"
         },
-        "a-file-icon-vscode.folders.associations": {
+        "a-file-icon-vscode.foldersAssociations": {
           "default": {},
           "description": "%configuration.folders.associations%",
           "type": "object"
         },
-        "a-file-icon-vscode.folders.color": {
+        "a-file-icon-vscode.folderColor": {
           "default": "#90a4ae",
           "description": "%configuration.folders.color%",
           "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
           "type": "string"
         },
-        "a-file-icon-vscode.folders.theme": {
+        "a-file-icon-vscode.folderTheme": {
           "default": "specific",
           "description": "%configuration.folders.theme%",
           "enum": [
@@ -144,7 +119,7 @@
           "description": "%configuration.hidesExplorerArrows%",
           "type": "boolean"
         },
-        "a-file-icon-vscode.languages.associations": {
+        "a-file-icon-vscode.languagesAssociations": {
           "default": {},
           "description": "%configuration.languages.associations%",
           "type": "object"

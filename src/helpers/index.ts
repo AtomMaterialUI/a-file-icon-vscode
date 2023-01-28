@@ -44,10 +44,10 @@ export const setThemeConfig = (
  */
 export const isThemeActivated = (global = false): boolean => {
   return global
-         ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
-           'a-file-icon-vscode'
-         : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
-           'a-file-icon-vscode';
+    ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
+    'a-file-icon-vscode'
+    : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
+    'a-file-icon-vscode';
 };
 
 /** Checks if the theme is not the active icon theme */

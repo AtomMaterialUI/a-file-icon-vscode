@@ -18,7 +18,7 @@
     "wrongHexCode": "無效的HEX顏色代碼！",
     "disabled": "不顯示文件夾圖標",
     "theme": {
-      "description": "'%0'主題的文件夾圖標"
+      "description": "'{{name}}'主題的文件夾圖標"
     }
   },
   "opacity": {

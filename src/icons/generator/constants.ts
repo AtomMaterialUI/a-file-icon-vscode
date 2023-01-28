@@ -1,27 +1,27 @@
 /**
  * Path where the icons are located.
  */
-export const iconFolderPath: string = './../iconGenerator/assets/icons';
+export const iconFolderPath = './../iconGenerator/assets/icons';
 
 /**
  * File name of the JSON file that will be generated to the out folder.
  */
-export const iconJsonName: string = 'material-icons.json';
+export const iconJsonName = 'a-file-icon-vscode-icon-theme.json';
 
 /**
  * File ending for opened folders.
  */
-export const openedFolder: string = '-open';
+export const openedFolder = '-open';
 
 /**
  * File ending for light icons.
  */
-export const darkFileEnding: string = '_dark';
+export const darkFileEnding = '_dark';
 
 /**
  * File ending for high contrast icons.
  */
-export const highContrastColorFileEnding: string = '_highContrast';
+export const highContrastColorFileEnding = '_highContrast';
 
 /**
  * Pattern to match wildcards for custom file icon mappings.

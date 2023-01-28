@@ -8,7 +8,7 @@
   "readChangelog": "Leer changelog",
   "iconPacks": {
     "selectPack": "Seleccione un paquete de iconos",
-    "description": "Seleccione el paquete de iconos '%0'",
+    "description": "Seleccione el paquete de iconos '{{name}}'",
     "disabled": "Desactivar paquetes de iconos"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "¡Código de color HEX inválido!",
     "disabled": "Sin iconos de carpeta",
     "theme": {
-      "description": "Iconos de carpeta '%0'"
+      "description": "Iconos de carpeta '{{name}}'"
     }
   },
   "opacity": {

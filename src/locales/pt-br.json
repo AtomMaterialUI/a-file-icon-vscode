@@ -8,7 +8,7 @@
   "readChangelog": "Ler changelog",
   "iconPacks": {
     "selectPack": "Selecione um pacote de ícones",
-    "description": "Selecionar o pacote de ícones '%0'",
+    "description": "Selecionar o pacote de ícones '{{name}}'",
     "disabled": "Desabilitar pacotes de ícones"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Código de cor hexadecimal inválido!",
     "disabled": "Nenhum ícone de pasta",
     "theme": {
-      "description": "Selecionar o tema para pastas '%0'"
+      "description": "Selecionar o tema para pastas '{{name}}'"
     }
   },
   "opacity": {

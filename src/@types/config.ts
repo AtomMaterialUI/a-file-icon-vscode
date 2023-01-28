@@ -20,9 +20,9 @@ export enum FolderTheme {
 }
 
 export type AtomConfig = {
-  activeIconPath: IconPack,
+  activeIconPacks: IconPack[],
   filesAssociations?: unknown[],
-  folderAssociations?: unknown[],
+  foldersAssociations?: unknown[],
   folderColor: string,
   folderTheme: FolderTheme,
   hidesExplorerArrows: boolean,

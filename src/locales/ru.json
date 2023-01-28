@@ -8,7 +8,7 @@
   "readChangelog": "Смотреть список изменений",
   "iconPacks": {
     "selectPack": "Выбрать набор иконок",
-    "description": "Выбрать '%0' набор иконок",
+    "description": "Выбрать '{{name}}' набор иконок",
     "disabled": "Выключить набор иконок"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Неверный HEX-код цвета!",
     "disabled": "Нет иконок для папки",
     "theme": {
-      "description": "Выбрать '%0' тему папки"
+      "description": "Выбрать '{{name}}' тему папки"
     }
   },
   "opacity": {

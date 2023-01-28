@@ -8,7 +8,7 @@
   "readChangelog": "Przeczytaj listę zmian",
   "iconPacks": {
     "selectPack": "Wybierz paczkę ikon",
-    "description": "Wybierz paczkę ikon '%0'",
+    "description": "Wybierz paczkę ikon '{{name}}'",
     "disabled": "Wyłącz paczki ikon"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Nieprawidłowy kolor HEX!",
     "disabled": "Brak ikon folderów",
     "theme": {
-      "description": "Wybierz motyw folderów '%0'"
+      "description": "Wybierz motyw folderów '{{name}}'"
     }
   },
   "opacity": {

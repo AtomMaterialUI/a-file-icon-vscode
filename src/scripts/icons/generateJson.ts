@@ -1,7 +1,8 @@
 /**
  * This file is meant to be executed exclusively by npm scripts.
  */
-import { createIconFile } from './../../icons/index';
+
+import { createIconFile } from 'src/icons';
 
 try {
   createIconFile();

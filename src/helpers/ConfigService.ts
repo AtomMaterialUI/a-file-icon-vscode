@@ -8,94 +8,100 @@ import i18next from 'i18next';
 
 export class ConfigService implements AtomConfig {
 
-  // region Atom Config
+  // region ------------------------ Atom Config -----------------------
   get showReloadMessage() {
-    return this.getPluginConfig().get<boolean>('showReloadMessage') ?? true;
+    return this.getConfigValue<boolean>('showReloadMessage') ?? true;
   }
 
   set showReloadMessage(v: boolean) {
-    this.getPluginConfig().update('showReloadMessage', v);
+    this.setConfigValue('showReloadMessage', v);
   }
 
   get showUpdateMessage() {
-    return this.getPluginConfig().get<boolean>('showUpdateMessage') ?? true;
+    return this.getConfigValue<boolean>('showUpdateMessage') ?? true;
   }
 
   set showUpdateMessage(v: boolean) {
-    this.getPluginConfig().update('showUpdateMessage', v);
+    this.setConfigValue('showUpdateMessage', v);
   }
 
   get showWelcomeMessage() {
-    return this.getPluginConfig().get<boolean>('showWelcomeMessage') ?? true;
+    return this.getConfigValue<boolean>('showWelcomeMessage') ?? true;
   }
 
   set showWelcomeMessage(v: boolean) {
-    this.getPluginConfig().update('showWelcomeMessage', v);
+    this.setConfigValue('showWelcomeMessage', v);
   }
 
   get opacity() {
-    return this.getPluginConfig().get<number>('opacity') ?? 1;
+    return this.getConfigValue<number>('opacity') ?? 1;
   }
 
   set opacity(v: number) {
-    this.getPluginConfig().update('opacity', v);
+    this.setConfigValue('opacity', v);
   }
 
   get saturation() {
-    return this.getPluginConfig().get<number>('saturation') ?? 1;
+    return this.getConfigValue<number>('saturation') ?? 1;
   }
 
   set saturation(v: number) {
-    this.getPluginConfig().update('saturation', v);
+    this.setConfigValue('saturation', v);
   }
 
-  get activeIconPath() {
-    return this.getPluginConfig().get<IconPack>('activeIconPath') ?? IconPack.Angular;
+  get activeIconPacks() {
+    return this.getConfigValue<IconPack[]>('activeIconPacks') ?? [
+      IconPack.Angular,
+      IconPack.React,
+      IconPack.Phalcon,
+      IconPack.Rails,
+      IconPack.Vue,
+    ];
   }
 
-  set activeIconPath(v: IconPack) {
-    this.getPluginConfig().update('activeIconPath', v);
+  set activeIconPacks(v: IconPack[]) {
+    this.setConfigValue('activeIconPacks', v);
   }
 
   get hidesExplorerArrows() {
-    return this.getPluginConfig().get<boolean>('hidesExplorerArrows') ?? false;
+    return this.getConfigValue<boolean>('hidesExplorerArrows') ?? false;
   }
 
   set hidesExplorerArrows(v: boolean) {
-    this.getPluginConfig().update('hideExplorerArrows', v);
+    this.setConfigValue('hidesExplorerArrows', v);
   }
 
-  get folderAssociations() {
-    return this.getPluginConfig().get<unknown[]>('folders.associations');
+  get foldersAssociations() {
+    return this.getConfigValue<unknown[]>('foldersAssociations');
   }
 
   get languagesAssociations() {
-    return this.getPluginConfig().get<unknown[]>('languages.associations');
+    return this.getConfigValue<unknown[]>('languagesAssociations');
   }
 
   get filesAssociations() {
-    return this.getPluginConfig().get<unknown[]>('files.associations');
+    return this.getConfigValue<unknown[]>('filesAssociations');
   }
 
   get folderColor() {
-    return this.getPluginConfig().get<string>('folders.color') ?? '#90a4ae';
+    return this.getConfigValue<string>('folderColor') ?? '#90a4ae';
   }
 
   set folderColor(v: string) {
-    this.getPluginConfig().update('hideExplorerArrows', v);
+    this.setConfigValue('folderColor', v);
   }
 
   get folderTheme() {
-    return this.getPluginConfig().get<FolderTheme>('folders.theme') ?? FolderTheme.Specific;
+    return this.getConfigValue<FolderTheme>('folderTheme') ?? FolderTheme.Specific;
   }
 
   set folderTheme(v: FolderTheme) {
-    this.getPluginConfig().update('hideExplorerArrows', v);
+    this.setConfigValue('folderTheme', v);
   }
 
   // endregion
 
-  // region Icon Theme Config
+  // region --------------------- Icon Theme Config ----------------------
   get iconTheme() {
     return this.getConfig().get<string>(ICON_THEME_KEY) ?? '';
   }
@@ -127,6 +133,29 @@ export class ConfigService implements AtomConfig {
     this.iconTheme = EXTENSION_KEY;
   }
 
+  // endregion
+
+  /**
+   * Get a value from the configuration
+   * @param {keyof AtomConfig} key
+   * @returns {any | undefined} the value to get
+   * @private
+   */
+  public getConfigValue<T>(key: keyof AtomConfig): T | undefined {
+    return this.getPluginConfig().get<T>(key);
+  }
+
+  /**
+   * Set a value from the configuration
+   * @param {keyof AtomConfig} key the key to set
+   * @param value the value to set
+   * @param scope a scope, that can be either global, workspace or folder based
+   * @private
+   */
+  public setConfigValue(key: keyof AtomConfig, value: unknown, scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder): void {
+    this.getPluginConfig().update(key, value, scope);
+  }
+
   /**
    * Checks if the plugin is activated
    * @returns {boolean}
@@ -136,8 +165,11 @@ export class ConfigService implements AtomConfig {
     return this.iconTheme === EXTENSION_KEY;
   }
 
-  // endregion
-
+  /**
+   * Return the plugin configuration
+   * @returns {WorkspaceConfiguration} the configuration section
+   * @private
+   */
   private getPluginConfig(): WorkspaceConfiguration {
     return this.getConfig(EXTENSION_KEY);
   }

@@ -8,7 +8,7 @@
   "readChangelog": "Ler registos",
   "iconPacks": {
     "selectPack": "Seleccione um pacote de ícones",
-    "description": "Seleccionar o pacote de ícones '%0'",
+    "description": "Seleccionar o pacote de ícones '{{name}}'",
     "disabled": "Desabilitar pacotes de ícones"
   },
   "folders": {
@@ -18,7 +18,7 @@
     "wrongHexCode": "Código de cor hexadecimal inválido!",
     "disabled": "Nenhum ícone do directório",
     "theme": {
-      "description": "Seleccionar o tema para directórios '%0'"
+      "description": "Seleccionar o tema para directórios '{{name}}'"
     }
   },
   "opacity": {

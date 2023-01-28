@@ -1,7 +1,7 @@
 import merge from 'lodash.merge';
+import type { IconJsonOptions } from 'src/models/icons';
 import { getConfigProperties, getMaterialIconsJSON, getThemeConfig } from '.';
 import { createIconFile } from '../icons/index';
-import { IconJsonOptions } from '../models';
 import { getObjectPropertyValue, setObjectPropertyValue } from './objects';
 
 /** Compare the workspace and the user configurations with the current setup of the icons. */
@@ -48,12 +48,12 @@ const compareConfigs = (): {
             globalValue: unknown;
             workspaceValue: unknown;
             defaultValue: unknown;
-          }
+          },
         );
 
         const currentState = getObjectPropertyValue(
           json.options ?? {},
-          configName
+          configName,
         );
 
         if (JSON.stringify(configValue) !== JSON.stringify(currentState)) {
@@ -61,7 +61,7 @@ const compareConfigs = (): {
           setObjectPropertyValue(
             result.updatedConfigs,
             configName,
-            configValue
+            configValue,
           );
         }
       } catch (error) {
@@ -73,7 +73,7 @@ const compareConfigs = (): {
     {
       updatedConfigs: {} as IconJsonOptions,
       updatedJSONConfig: json.options as IconJsonOptions,
-    }
+    },
   );
 };
 
@@ -97,7 +97,7 @@ const getConfigValue = (themeConfig: {
     configValue = merge(
       {},
       themeConfig.workspaceValue,
-      themeConfig.globalValue
+      themeConfig.globalValue,
     );
   } else {
     configValue =

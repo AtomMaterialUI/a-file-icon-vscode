@@ -1,14 +1,12 @@
 'use strict';
 
-import type { ExtensionContext } from 'vscode';
-import { window, workspace } from 'vscode';
 import { registeredCommands } from 'src/commands/commands';
-import { detectConfigChanges } from './helpers/changeDetection';
-import { initI18next } from 'src/i18n/i18next';
 import { logger } from 'src/helpers/LoggingService';
-import { VERSION_KEY } from 'src/helpers/constants';
-import { updatesService } from 'src/helpers/UpdatesService';
 import { notificationsService } from 'src/helpers/NotificationsService';
+import { updatesService } from 'src/helpers/UpdatesService';
+import { VERSION_KEY } from 'src/helpers/constants';
+import { initI18next } from 'src/i18n/i18next';
+import type { ExtensionContext } from 'vscode';
 
 /**
  * When the extension gets activated
@@ -34,18 +32,20 @@ export const activate = async (context: ExtensionContext) => {
     // Subscribe to the extension commands
     context.subscriptions.push(...registeredCommands);
 
-    // Initially trigger the config change detection
-    detectConfigChanges();
+    /*
+     // Initially trigger the config change detection
+     detectConfigChanges();
 
-    // Observe changes in the config
-    workspace.onDidChangeConfiguration(detectConfigChanges);
+     // Observe changes in the config
+     workspace.onDidChangeConfiguration(detectConfigChanges);
 
-    // Observe if the window got focused to trigger config changes
-    window.onDidChangeWindowState((state) => {
-      if (state.focused) {
-        detectConfigChanges();
-      }
-    });
+     // Observe if the window got focused to trigger config changes
+     window.onDidChangeWindowState((state) => {
+     if (state.focused) {
+     detectConfigChanges();
+     }
+     });
+     */
   } catch (error) {
     console.error(error);
   }
