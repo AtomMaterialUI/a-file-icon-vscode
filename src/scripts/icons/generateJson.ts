@@ -1,8 +1,4 @@
-/**
- * This file is meant to be executed exclusively by npm scripts.
- */
-
-import { createIconFile } from 'src/icons';
+import { createIconFile } from 'src/icons/generator/jsonGenerator';
 
 try {
   createIconFile();

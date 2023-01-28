@@ -2,7 +2,7 @@ import { writeFileSync } from 'fs';
 import path from 'path';
 import { green, red } from '../helpers/painter';
 import { createScreenshot } from '../helpers/screenshots';
-import { toTitleCase } from './../helpers/titleCase';
+import { toTitleCase } from 'src/helpers/utils';
 
 const htmlDoctype = '<!DOCTYPE html>';
 const cssFilePath = path.join('style.css');
@@ -33,7 +33,7 @@ const createHTMLTableBodyRows = (items: IconDefinition[][]) => {
         }">
             </td>
             <td class="iconName">${toTitleCase(icon.label)}</td>
-        `
+        `,
       )
       .join('');
     const tableRow = `
@@ -55,19 +55,19 @@ const createHTMLTable = (headRow: string, bodyRows: string) => `
 
 const createPreviewTable = (icons: IconDefinition[][], size: number) => {
   const table =
-    htmlDoctype +
-    styling +
-    createHTMLTable(
-      createHTMLTableHeadRow(size),
-      createHTMLTableBodyRows(icons)
-    );
+          htmlDoctype +
+          styling +
+          createHTMLTable(
+            createHTMLTableHeadRow(size),
+            createHTMLTableBodyRows(icons),
+          );
   return table;
 };
 
 const savePreview = (
   fileName: string,
   size: number,
-  icons: IconDefinition[][]
+  icons: IconDefinition[][],
 ) => {
   const filePath = path.join(__dirname, fileName + '.html');
 
@@ -79,7 +79,7 @@ const savePreview = (
     .then(() => {
       console.log(
         '> Atom Material Icons:',
-        green(`Successfully created ${fileName} preview image!`)
+        green(`Successfully created ${fileName} preview image!`),
       );
     })
     .catch(() => {
@@ -90,7 +90,7 @@ const savePreview = (
 const getIconDefinitionsMatrix = (
   icons: IconDefinition[],
   size: number,
-  excluded: string[] = []
+  excluded: string[] = [],
 ): IconDefinition[][] => {
   const iconList = icons.sort((a, b) => a.label.localeCompare(b.label));
   trimIconListToSize(iconList, size, excluded);
@@ -127,16 +127,16 @@ export const generatePreview = (
   name: string,
   icons: IconDefinition[],
   size: number,
-  trimmableIcons: string[] = []
+  trimmableIcons: string[] = [],
 ) => {
   savePreview(
     name,
     size,
-    getIconDefinitionsMatrix(icons, size, trimmableIcons)
+    getIconDefinitionsMatrix(icons, size, trimmableIcons),
   );
 };
 
-interface IconDefinition {
+type IconDefinition = {
   iconName: string;
   label: string;
 }
@@ -150,14 +150,14 @@ interface IconDefinition {
 const trimIconListToSize = (
   iconList: IconDefinition[],
   size: number,
-  trimmableIcons: string[]
+  trimmableIcons: string[],
 ) => {
   while (iconList.length % size !== 0) {
     iconList.splice(
       iconList.findIndex(
-        (i) => i.iconName === trimmableIcons[iconList.length % size]
+        (i) => i.iconName === trimmableIcons[iconList.length % size],
       ),
-      1
+      1,
     );
   }
 };

@@ -1,7 +1,7 @@
-import { RequireAtLeastOne } from '../../../helpers/types';
-import { IconPack } from '../index';
+import type { RequireAtLeastOne } from 'src/@types/types';
+import type { IconPack } from '../index';
 
-interface BasicFileIcon {
+type BasicFileIcon = {
   /**
    * Name of the icon, e.g. 'javascript'
    */
