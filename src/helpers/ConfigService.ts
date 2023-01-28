@@ -1,12 +1,12 @@
 import type { WorkspaceConfiguration } from 'vscode';
 import { workspace, ConfigurationTarget } from 'vscode';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
-import type { FolderTheme } from 'src/@types/config';
-import { IconPack } from 'src/@types/config';
+import type { AtomConfig } from 'src/@types/config';
+import { IconPack, FolderTheme } from 'src/@types/config';
 import { notificationsService } from 'src/helpers/NotificationsService';
 import i18next from 'i18next';
 
-export class ConfigService {
+export class ConfigService implements AtomConfig {
 
   // region Atom Config
   get showReloadMessage() {
@@ -49,14 +49,6 @@ export class ConfigService {
     this.getPluginConfig().update('saturation', v);
   }
 
-  get hideExplorerArrows() {
-    return this.getPluginConfig().get<boolean>('hidesExplorerArrows') ?? false;
-  }
-
-  set hideExplorerArrows(v: boolean) {
-    this.getPluginConfig().update('hideExplorerArrows', v);
-  }
-
   get activeIconPath() {
     return this.getPluginConfig().get<IconPack>('activeIconPath') ?? IconPack.Angular;
   }
@@ -65,24 +57,40 @@ export class ConfigService {
     this.getPluginConfig().update('activeIconPath', v);
   }
 
-  get foldersColor() {
-    return this.getPluginConfig().get<string>('folders.color');
+  get hidesExplorerArrows() {
+    return this.getPluginConfig().get<boolean>('hidesExplorerArrows') ?? false;
   }
 
-  get foldersTheme() {
-    return this.getPluginConfig().get<FolderTheme>('folders.theme');
-  }
-
-  get fileAssociations() {
-    return this.getPluginConfig().get('files.associations');
+  set hidesExplorerArrows(v: boolean) {
+    this.getPluginConfig().update('hideExplorerArrows', v);
   }
 
   get folderAssociations() {
-    return this.getPluginConfig().get('folders.associations');
+    return this.getPluginConfig().get<unknown[]>('folders.associations');
   }
 
   get languagesAssociations() {
-    return this.getPluginConfig().get('languages.associations');
+    return this.getPluginConfig().get<unknown[]>('languages.associations');
+  }
+
+  get filesAssociations() {
+    return this.getPluginConfig().get<unknown[]>('files.associations');
+  }
+
+  get folderColor() {
+    return this.getPluginConfig().get<string>('folders.color') ?? '#90a4ae';
+  }
+
+  set folderColor(v: string) {
+    this.getPluginConfig().update('hideExplorerArrows', v);
+  }
+
+  get folderTheme() {
+    return this.getPluginConfig().get<FolderTheme>('folders.theme') ?? FolderTheme.Specific;
+  }
+
+  set folderTheme(v: FolderTheme) {
+    this.getPluginConfig().update('hideExplorerArrows', v);
   }
 
   // endregion

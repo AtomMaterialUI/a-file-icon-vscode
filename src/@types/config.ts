@@ -10,6 +10,7 @@ export enum IconPack {
   Volt    = 'volt',
   Vue     = 'vue',
   Vuex    = 'vuex',
+  None    = 'none',
 }
 
 export enum FolderTheme {
@@ -20,18 +21,12 @@ export enum FolderTheme {
 
 export type AtomConfig = {
   activeIconPath: IconPack,
-  files: {
-    associations: {}
-  },
-  folders: {
-    associations: {},
-    color: string,
-    theme: FolderTheme
-  },
+  filesAssociations?: unknown[],
+  folderAssociations?: unknown[],
+  folderColor: string,
+  folderTheme: FolderTheme,
   hidesExplorerArrows: boolean,
-  languages: {
-    associations: {}
-  },
+  languagesAssociations?: unknown[],
   opacity: number,
   saturation: number,
   showReloadMessage: boolean,

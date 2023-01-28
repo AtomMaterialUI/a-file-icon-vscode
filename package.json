@@ -81,12 +81,12 @@
           "enum": [
             "angular",
             "ngrx",
-            "nest",
             "react",
             "redux",
-            "recoil",
             "vue",
             "vuex",
+            "nest",
+            "recoil",
             "rails",
             "phalcon",
             "volt",
@@ -100,6 +100,10 @@
             "%configuration.activeIconPack.vue%",
             "%configuration.activeIconPack.vuex%",
             "%configuration.activeIconPack.nest%",
+            "%configuration.activeIconPack.recoil%",
+            "%configuration.activeIconPack.rails%",
+            "%configuration.activeIconPack.phalcon%",
+            "%configuration.activeIconPack.volt%",
             "%configuration.activeIconPack.none%"
           ],
           "type": "string"
