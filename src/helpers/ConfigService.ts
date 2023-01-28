@@ -5,6 +5,7 @@ import type { AtomConfig } from 'src/@types/config';
 import { IconPack, FolderTheme } from 'src/@types/config';
 import { notificationsService } from 'src/helpers/NotificationsService';
 import i18next from 'i18next';
+import type { IconAssociations } from 'src/@types/icons';
 
 export class ConfigService implements AtomConfig {
 
@@ -72,15 +73,15 @@ export class ConfigService implements AtomConfig {
   }
 
   get foldersAssociations() {
-    return this.getConfigValue<unknown[]>('foldersAssociations');
+    return this.getConfigValue<IconAssociations>('foldersAssociations');
   }
 
   get languagesAssociations() {
-    return this.getConfigValue<unknown[]>('languagesAssociations');
+    return this.getConfigValue<IconAssociations>('languagesAssociations');
   }
 
   get filesAssociations() {
-    return this.getConfigValue<unknown[]>('filesAssociations');
+    return this.getConfigValue<IconAssociations>('filesAssociations');
   }
 
   get folderColor() {

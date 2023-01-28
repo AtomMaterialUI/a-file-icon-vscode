@@ -3,10 +3,8 @@ import merge from 'lodash.merge';
 import * as path from 'path';
 import { getCustomIconPaths } from '../../helpers/customIcons';
 import { getFileConfigHash } from '../../helpers/fileConfig';
-import { IconConfiguration, IconJsonOptions } from '../../models/index';
-import { fileIcons } from '../fileIcons';
-import { folderIcons } from '../folderIcons';
-import { languageIcons } from '../languageIcons';
+import type { IconJsonOptions } from '../../models/index';
+import { IconConfiguration } from '../../models/index';
 import { iconJsonName } from './constants';
 import {
   generateFolderIcons,
@@ -24,30 +22,30 @@ import {
  * Generate the complete icon configuration object that can be written as JSON file.
  */
 export const generateIconConfigurationObject = (
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   const iconConfig = merge({}, new IconConfiguration(), { options });
   const languageIconDefinitions = loadLanguageIconDefinitions(
-    languageIcons,
+    [],
     iconConfig,
-    options
+    options,
   );
   const fileIconDefinitions = loadFileIconDefinitions(
-    fileIcons,
+    [],
     iconConfig,
-    options
+    options,
   );
   const folderIconDefinitions = loadFolderIconDefinitions(
-    folderIcons,
+    [],
     iconConfig,
-    options
+    options,
   );
 
   return merge(
     {},
     languageIconDefinitions,
     fileIconDefinitions,
-    folderIconDefinitions
+    folderIconDefinitions,
   );
 };
 
@@ -58,13 +56,13 @@ export const generateIconConfigurationObject = (
  */
 export const createIconFile = (
   updatedConfigs?: IconJsonOptions,
-  updatedJSONConfig: IconJsonOptions = {}
+  updatedJSONConfig: IconJsonOptions = {},
 ) => {
   // override the default options with the new options
   const options: IconJsonOptions = merge(
     {},
     getDefaultIconOptions(),
-    updatedJSONConfig
+    updatedJSONConfig,
   );
   const json = generateIconConfigurationObject(options);
 
@@ -125,7 +123,7 @@ export const createIconFile = (
     fs.writeFileSync(
       path.join(iconJsonPath, iconJsonName),
       JSON.stringify(json, undefined, 2),
-      'utf-8'
+      'utf-8',
     );
   } catch (error) {
     throw new Error('Failed to create icon file: ' + error);
@@ -173,7 +171,7 @@ const renameIconFiles = (iconJsonPath: string, options: IconJsonOptions) => {
         // append file config to file name
         const newFilePath = path.join(
           iconPath,
-          f.replace(/(^[^\.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`)
+          f.replace(/(^[^\.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`),
         );
 
         // if generated files are already in place, do not overwrite them

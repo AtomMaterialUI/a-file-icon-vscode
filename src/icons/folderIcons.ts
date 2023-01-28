@@ -1,9 +1,9 @@
-import { FolderTheme } from '../models/index';
+import type { FolderAssociations } from 'src/@types/icons';
 
 /**
  * Defines folder icons
  */
-export const folderIcons: FolderTheme[] = [
+export const folderIcons: FolderAssociations[] = [
   {
     name: 'specific',
     defaultIcon: { name: 'folder' },

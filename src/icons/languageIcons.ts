@@ -1,9 +1,9 @@
-import { LanguageIcon } from '../models';
+import type { LanguageAssociation } from 'src/@types/icons';
 
 /**
  * Defines icons for language ids
  */
-export const languageIcons: LanguageIcon[] = [
+export const languageIcons: LanguageAssociation[] = [
   // {
   //   icon: { name: 'settings' },
   //   ids: ['makefile', 'toml', 'ini', 'properties'],

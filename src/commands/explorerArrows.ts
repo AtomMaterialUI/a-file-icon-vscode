@@ -54,5 +54,5 @@ const handleQuickPickActions = (value: QuickPickItem | undefined) => {
 
 /** Check if arrows are enabled. */
 export const checkArrowStatus = (): boolean => {
-  return !!getMaterialIconsJSON()?.hidesExplorerArrows;
+  return !!getMaterialIconsJSON()?.options?.hidesExplorerArrows;
 };

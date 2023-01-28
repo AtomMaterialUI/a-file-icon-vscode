@@ -3,3 +3,8 @@ export enum UpdateStatus {
   Updated,
   Current,
 }
+
+export enum FileMappingType {
+  FileExtensions = 'fileExtensions',
+  FileNames      = 'fileNames',
+}

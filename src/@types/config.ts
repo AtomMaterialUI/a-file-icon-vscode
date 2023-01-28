@@ -1,3 +1,5 @@
+import type { IconAssociations } from 'src/@types/icons';
+
 export enum IconPack {
   Angular = 'angular',
   Nest    = 'nest',
@@ -21,12 +23,12 @@ export enum FolderTheme {
 
 export type AtomConfig = {
   activeIconPacks: IconPack[],
-  filesAssociations?: unknown[],
-  foldersAssociations?: unknown[],
+  filesAssociations?: IconAssociations,
+  foldersAssociations?: IconAssociations,
   folderColor: string,
   folderTheme: FolderTheme,
   hidesExplorerArrows: boolean,
-  languagesAssociations?: unknown[],
+  languagesAssociations?: IconAssociations,
   opacity: number,
   saturation: number,
   showReloadMessage: boolean,
