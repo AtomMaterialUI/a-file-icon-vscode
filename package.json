@@ -81,11 +81,15 @@
           "enum": [
             "angular",
             "ngrx",
+            "nest",
             "react",
             "redux",
+            "recoil",
             "vue",
             "vuex",
-            "nest",
+            "rails",
+            "phalcon",
+            "volt",
             "none"
           ],
           "enumDescriptions": [
@@ -179,7 +183,7 @@
         "_watch": true,
         "id": "a-file-icon-vscode",
         "label": "Atom Material Icons",
-        "path": "./dist/material-icons.json"
+        "path": "./dist/a-file-icon-vscode-icon-theme.json"
       }
     ],
     "menus": {
