@@ -1,7 +1,8 @@
-import { jsonGenerator } from 'src/icons/generator/IconThemeGenerator';
+import { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 
 try {
-  jsonGenerator.createJsonTheme();
+  const iconThemeGenerator = new IconThemeGenerator();
+  iconThemeGenerator.createJsonTheme();
 } catch (error) {
   throw Error('Could not create icon file!');
 }
