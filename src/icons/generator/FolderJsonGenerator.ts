@@ -10,11 +10,13 @@ import {
   OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
+  FULLICON_FOLDER_PATH,
 } from 'src/helpers/constants';
-import { readFileSync } from 'fs';
+import { readFileSync, writeFileSync } from 'fs';
 import merge from 'lodash.merge';
 import { JsonGenerator } from 'src/icons/generator/types';
 import { path } from 'app-root-path';
+import { join } from 'path';
 
 export class FolderJsonGenerator extends JsonGenerator {
   constructor(
@@ -285,7 +287,23 @@ export class FolderJsonGenerator extends JsonGenerator {
     if (!folderPath || !openFolderPath) return;
 
     // Need to replace the saved path ith the root folder, otherwise it can
-    const folderSvg = readFileSync(folderPath.replace('./..', path), 'utf8');
-    const folderOpenSvg = readFileSync(openFolderPath.replace('./..', path), 'utf8');
+    let folderSvg = readFileSync(folderPath.replace('./..', path), 'utf8');
+    let folderOpenSvg = readFileSync(openFolderPath.replace('./..', path), 'utf8');
+
+    folderSvg = folderSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
+    folderOpenSvg = folderOpenSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
+
+    this.writeSVG(folderSvg, 'folders');
+    this.writeSVG(folderOpenSvg, 'foldersOpen');
+  }
+
+  private writeSVG(svg: string, iconName: string) {
+    const iconsPath = join(FULLICON_FOLDER_PATH);
+    const iconsFolderPath = join(iconsPath, `${iconName}.svg`);
+    try {
+      writeFileSync(iconsFolderPath, svg);
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
