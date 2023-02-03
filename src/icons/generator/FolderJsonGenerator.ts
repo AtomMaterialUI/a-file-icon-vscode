@@ -11,7 +11,7 @@ import {
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
 } from 'src/helpers/constants';
-import fs from 'fs';
+import { readFileSync } from 'fs';
 import merge from 'lodash.merge';
 import { JsonGenerator } from 'src/icons/generator/types';
 
@@ -55,7 +55,7 @@ export class FolderJsonGenerator extends JsonGenerator {
     this.loadRootFolderAssociation(folderThemeAssociations);
 
     // next, generate colored folders
-    this.generateColoredFolders(folderThemeAssociations, this.options.folderColor);
+    this.generateColoredFolders(folderThemeAssociations);
   }
 
   /**
@@ -271,7 +271,8 @@ export class FolderJsonGenerator extends JsonGenerator {
     }
   }
 
-  private generateColoredFolders(folderTheme: FolderAssociations, folderColor?: string) {
+  private generateColoredFolders(folderTheme: FolderAssociations) {
+    const folderColor = this.options.folderColor;
     if (!folderColor) return;
 
     const folderName = folderTheme.defaultIcon.name;
@@ -282,7 +283,7 @@ export class FolderJsonGenerator extends JsonGenerator {
 
     if (!folderPath || !openFolderPath) return;
 
-    const folderSvg = fs.readFileSync(folderPath, 'utf8');
-    const folderOpenSvg = fs.readFileSync(openFolderPath, 'utf8');
+    const folderSvg = readFileSync(folderPath, 'utf8');
+    const folderOpenSvg = readFileSync(openFolderPath, 'utf8');
   }
 }

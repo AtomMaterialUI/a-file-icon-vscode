@@ -8,8 +8,9 @@ import { LanguageJsonGenerator } from 'src/icons/generator/LanguageJsonGenerator
 import { FileJsonGenerator } from 'src/icons/generator/FileJsonGenerator';
 import { FolderJsonGenerator } from 'src/icons/generator/FolderJsonGenerator';
 import { validateOpacityValue, validateSaturationValue, validateHEXColorCode, iconJsonName } from 'src/icons/index';
-import path from 'path';
-import fs from 'fs';
+import { join } from 'path';
+import { path as appRoot } from 'app-root-path';
+import { writeFileSync } from 'fs';
 
 export class IconThemeGenerator {
   config: AtomConfig;
@@ -44,13 +45,8 @@ export class IconThemeGenerator {
       this.validateConfig(updatedConfigs);
     }
 
+    const iconJsonPath = `${appRoot}/dist`;
     try {
-      let iconJsonPath = __dirname;
-      // if executed via script
-      if (path.basename(__dirname) !== 'dist') {
-        iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
-      }
-
       // if (!updatedConfigs || updatedConfigs.opacity) {
       //   this.generateOpacityIcons(config, updatedConfigs?.opacity);
       // }
@@ -65,14 +61,8 @@ export class IconThemeGenerator {
     }
 
     try {
-      let iconJsonPath = __dirname;
-      // if executed via script
-      if (path.basename(__dirname) !== 'dist') {
-        iconJsonPath = path.join(__dirname, '..', '..', 'dist');
-      }
-
       const json = this.iconConfig;
-      fs.writeFileSync(path.join(iconJsonPath, iconJsonName), JSON.stringify(json, undefined, 2), 'utf-8');
+      writeFileSync(join(iconJsonPath, iconJsonName), JSON.stringify(json, undefined, 2), 'utf-8');
     } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
