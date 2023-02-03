@@ -1,13 +1,13 @@
-import type { QuickPickItem} from 'vscode';
+import i18next from 'i18next';
+import type { QuickPickItem } from 'vscode';
 import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
 import { getDefaultIconOptions, validateHEXColorCode } from '../icons';
-import i18next from 'i18next';
 
 type FolderColor = {
   label: string;
   hex: string;
-}
+};
 
 const iconPalette: FolderColor[] = [
   { label: 'Grey (Default)', hex: '#90a4ae' },
@@ -39,7 +39,7 @@ const showQuickPickItems = (currentColor: string) => {
     (color): QuickPickItem => ({
       description: color.label,
       label: isColorActive(color, currentColor) ? '\u2714' : '\u25FB',
-    }),
+    })
   );
 
   return window.showQuickPick(options, {
@@ -82,7 +82,7 @@ const validateColorInput = (colorInput: string) => {
 export const checkFolderColorStatus = (): string => {
   const defaultOptions = getDefaultIconOptions();
   const config = getMaterialIconsJSON();
-  return config?.options?.folders?.color ?? defaultOptions.folders.color!;
+  return config?.options?.folderColor ?? defaultOptions.folders.color!;
 };
 
 const setColorConfig = (value: string) => {
@@ -91,9 +91,7 @@ const setColorConfig = (value: string) => {
 
 const isColorActive = (color: FolderColor, currentColor: string): boolean => {
   if (color.label === 'Custom Color') {
-    return !iconPalette.some(
-      (c) => c.hex.toLowerCase() === currentColor.toLowerCase(),
-    );
+    return !iconPalette.some((c) => c.hex.toLowerCase() === currentColor.toLowerCase());
   }
   return color.hex.toLowerCase() === currentColor.toLowerCase();
 };

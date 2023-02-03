@@ -1,15 +1,15 @@
-import { UpdateStatus } from 'src/helpers/enums';
-import { logger } from './LoggingService';
+import i18next from 'i18next';
 import { configService } from 'src/helpers/ConfigService';
+import { EXTENSION_ID } from 'src/helpers/constants';
+import { UpdateStatus } from 'src/helpers/enums';
+import { openBrowser } from 'src/helpers/vscodeUtils';
 import type { MessageItem } from 'vscode';
 import { window } from 'vscode';
-import i18next from 'i18next';
-import { openBrowser } from 'src/helpers/utils';
-import { EXTENSION_ID } from 'src/helpers/constants';
+import { logger } from './LoggingService';
 
 type NotificationAction = MessageItem & {
-  id: '' | 'activate' | 'neverShowAgain' | 'readChangelog'
-}
+  id: '' | 'activate' | 'neverShowAgain' | 'readChangelog';
+};
 
 export class NotificationsService {
   get activateAction(): NotificationAction {
@@ -51,11 +51,10 @@ export class NotificationsService {
     if (!configService.showReloadMessage) return;
 
     window
-      .showInformationMessage<NotificationAction>(
-        i18next.t('themeInstalled'),
-        this.activateAction,
-        { id: 'neverShowAgain', title: i18next.t('neverShowAgain') },
-      )
+      .showInformationMessage<NotificationAction>(i18next.t('themeInstalled'), this.activateAction, {
+        id: 'neverShowAgain',
+        title: i18next.t('neverShowAgain'),
+      })
       .then(this.handleWelcomeMessageActions);
   }
 
@@ -71,7 +70,6 @@ export class NotificationsService {
         break;
       default:
         break;
-
     }
   }
 
@@ -90,7 +88,7 @@ export class NotificationsService {
         i18next.t('themeUpdated'),
         this.activateAction,
         { id: 'readChangelog', title: i18next.t('readChangelog') },
-        { id: 'neverShowAgain', title: i18next.t('neverShowAgain') },
+        { id: 'neverShowAgain', title: i18next.t('neverShowAgain') }
       )
       .then(this.handleUpdateMessageActions);
   }
@@ -110,12 +108,10 @@ export class NotificationsService {
         break;
       default:
         break;
-
     }
   }
 
   // endregion
-
 }
 
 export const notificationsService = new NotificationsService();

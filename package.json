@@ -1,11 +1,75 @@
 {
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "name": "a-file-icon-vscode",
+  "displayName": "Atom Material Icons",
+  "description": "Atom Material Icons for Visual Studio Code",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
+  },
   "author": {
     "email": "elior@material-theme.com",
     "name": "Elior Boukhobza",
     "url": "https://www.material-theme.com"
+  },
+  "license": "MIT",
+  "main": "./dist/extension",
+  "icon": "logo.png",
+  "homepage": "https://github.com/mallowigi/a-file-icon-vscode/blob/main/README.md",
+  "scripts": {
+    "build": "npm run compile:dev && npm run postcompile",
+    "changelog": "changelog-machine --config changelog.config.json",
+    "check": "ts-node ./src/scripts/icons/checks",
+    "compile": "webpack --config ./build/webpack.config.js --mode production",
+    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
+    "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
+    "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
+    "contributors": "ts-node ./src/scripts/contributors/index.ts",
+    "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
+    "lint": "eslint -c .eslintrc.json --ext .ts ./src/**/*.ts",
+    "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
+    "postcompile": "npm run generateJson && npm run check",
+    "pretest": "npm run build && tsc -p ./",
+    "preversion": "npm run contributors && git add images/contributors.png && npm run preview && git add images/fileIcons.png && git add images/folderIcons.png",
+    "preview": "ts-node ./src/scripts/preview",
+    "svgo": "svgo -i icons -o icons -q",
+    "test": "node ./out/test/runTest.js",
+    "version": "npm run changelog && git add CHANGELOG.md",
+    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web",
+    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
+  },
+  "dependencies": {
+    "lodash.merge": "4.6.2"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.0.0",
+    "@types/lodash.merge": "^4.6.7",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "^18.11.18",
+    "@types/puppeteer": "^7.0.4",
+    "@types/vscode": "~1.74.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.1",
+    "@typescript-eslint/parser": "^5.48.1",
+    "app-root-path": "^3.1.0",
+    "changelog-machine": "^1.0.2",
+    "eslint": "^8.31.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "glob": "^8.0.3",
+    "i18next": "^22.4.9",
+    "i18next-resources-to-backend": "^1.1.1",
+    "mocha": "^10.2.0",
+    "prettier": "^2.8.3",
+    "puppeteer": "^19.5.2",
+    "rimraf": "^4.0.4",
+    "svgo": "^3.0.2",
+    "ts-loader": "^9.4.2",
+    "ts-node": "^10.9.1",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.4",
+    "vscode-test": "^1.6.1",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
   },
   "badges": [],
   "browser": "./dist/web/extension.js",
@@ -186,42 +250,6 @@
       }
     ]
   },
-  "dependencies": {
-    "lodash.merge": "4.6.2",
-    "vscode": "^1.1.37"
-  },
-  "description": "Atom Material Icons for Visual Studio Code",
-  "devDependencies": {
-    "@types/glob": "^8.0.0",
-    "@types/lodash.merge": "^4.6.7",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "^18.11.18",
-    "@types/puppeteer": "^7.0.4",
-    "@types/vscode": "~1.74.0",
-    "@typescript-eslint/eslint-plugin": "^5.48.1",
-    "@typescript-eslint/parser": "^5.48.1",
-    "app-root-path": "^3.1.0",
-    "changelog-machine": "^1.0.2",
-    "eslint": "^8.31.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "glob": "^8.0.3",
-    "i18next": "^22.4.9",
-    "i18next-resources-to-backend": "^1.1.1",
-    "mocha": "^10.2.0",
-    "prettier": "^2.8.3",
-    "puppeteer": "^19.5.2",
-    "rimraf": "^4.0.4",
-    "svgo": "^3.0.2",
-    "ts-loader": "^9.4.2",
-    "ts-node": "^10.9.1",
-    "tsconfig-paths": "^4.1.2",
-    "typescript": "^4.9.4",
-    "vscode-test": "^1.6.1",
-    "webpack": "^5.75.0",
-    "webpack-cli": "^5.0.1"
-  },
-  "displayName": "Atom Material Icons",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -234,8 +262,6 @@
     "color": "#263238",
     "theme": "dark"
   },
-  "homepage": "https://github.com/mallowigi/a-file-icon-vscode/blob/main/README.md",
-  "icon": "logo.png",
   "keywords": [
     "icons",
     "theme",
@@ -244,40 +270,13 @@
     "icon-theme",
     "customization"
   ],
-  "license": "MIT",
-  "main": "./dist/extension",
-  "name": "a-file-icon-vscode",
   "publisher": "atommaterial",
   "qna": "https://github.com/mallowigi/a-file-icon-vscode/issues",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
-  },
-  "scripts": {
-    "build": "npm run compile:dev && npm run postcompile",
-    "changelog": "changelog-machine --config changelog.config.json",
-    "check": "ts-node ./src/scripts/icons/checks",
-    "compile": "webpack --config ./build/webpack.config.js --mode production",
-    "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
-    "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
-    "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
-    "contributors": "ts-node ./src/scripts/contributors/index.ts",
-    "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
-    "lint": "eslint -c .eslintrc.json --ext .ts ./src/**/*.ts",
-    "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
-    "postcompile": "npm run generateJson && npm run check",
-    "pretest": "npm run build && tsc -p ./",
-    "preversion": "npm run contributors && git add images/contributors.png && npm run preview && git add images/fileIcons.png && git add images/folderIcons.png",
-    "preview": "ts-node ./src/scripts/preview",
-    "svgo": "svgo -i icons -o icons -q",
-    "test": "node ./out/test/runTest.js",
-    "version": "npm run changelog && git add CHANGELOG.md",
-    "vscode:prepublish": "npm run lint && npm run compile && npm run package-web",
-    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
-  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
   "sideEffects": false,
   "sponsor": {
     "url": "https://opencollective.com/atom-material-themes-and-plugins"
-  },
-  "version": "1.0.0"
+  }
 }

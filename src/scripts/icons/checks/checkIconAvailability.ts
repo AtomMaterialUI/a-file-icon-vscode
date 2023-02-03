@@ -1,9 +1,17 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DefaultIcon, FileIcon, FolderIcon, FolderTheme } from '../../../models/index';
+import type { DefaultIcon, FileIcon, FolderIcon } from '../../../models/index';
 import * as painter from '../../helpers/painter';
-import { fileIcons, folderIcons, highContrastColorFileEnding, languageIcons, darkFileEnding, openedFolder } from './../../../icons';
+import {
+  fileIcons,
+  folderIcons,
+  highContrastColorFileEnding,
+  languageIcons,
+  darkFileEnding,
+  openedFolder,
+} from './../../../icons';
 import { similarity } from 'src/helpers/utils';
+import type { FolderAssociations } from 'src/@types/icons';
 
 /**
  * Defines the folder where all icon files are located.
@@ -27,10 +35,7 @@ const wrongIconNames: Record<string, string[]> = {
 /**
  * Get all icon file names from the file system.
  */
-const fsReadAllIconFiles = (
-  err: NodeJS.ErrnoException | null,
-  files: string[],
-) => {
+const fsReadAllIconFiles = (err: NodeJS.ErrnoException | null, files: string[]) => {
   if (err) {
     throw Error(err.message);
   }
@@ -68,7 +73,7 @@ const isIconAvailable = (
   icon: DefaultIcon | FileIcon | FolderIcon,
   iconType: IconType,
   iconColor: IconColor,
-  hasOpenedFolder?: boolean,
+  hasOpenedFolder?: boolean
 ) => {
   let iconName = `${icon.name}${hasOpenedFolder ? openedFolder : ''}`;
   if (icon.light && iconColor === IconColor.light) {
@@ -78,10 +83,7 @@ const isIconAvailable = (
     iconName += highContrastColorFileEnding;
   }
 
-  if (
-    !availableIcons[iconName] &&
-    wrongIconNames[iconType].indexOf(iconName) === -1
-  ) {
+  if (!availableIcons[iconName] && wrongIconNames[iconType].indexOf(iconName) === -1) {
     wrongIconNames[iconType].push(iconName);
   }
 };
@@ -100,21 +102,14 @@ const checkFolderIcons = () => {
         isIconAvailable(icon, IconType.folderIcons, IconColor.light);
         isIconAvailable(icon, IconType.folderIcons, IconColor.light, true);
         isIconAvailable(icon, IconType.folderIcons, IconColor.highContrast);
-        isIconAvailable(
-          icon,
-          IconType.folderIcons,
-          IconColor.highContrast,
-          true,
-        );
+        isIconAvailable(icon, IconType.folderIcons, IconColor.highContrast, true);
       }
     });
 };
 
-const getAllFolderIcons = (theme: FolderTheme) => {
+const getAllFolderIcons = (theme: FolderAssociations) => {
   const icons = theme.icons ? theme.icons : [];
-  return [theme.defaultIcon, theme.rootFolder, ...icons].filter(
-    (icon) => icon !== undefined,
-  ); // filter undefined root folder icons
+  return [theme.defaultIcon, theme.rootFolder, ...icons].filter((icon) => icon !== undefined); // filter undefined root folder icons
 };
 
 /**
@@ -134,28 +129,18 @@ const checkLanguageIcons = () => {
  */
 const handleErrors = () => {
   const amountOfErrors =
-          wrongIconNames.fileIcons.length +
-          wrongIconNames.folderIcons.length +
-          wrongIconNames.languageIcons.length;
+    wrongIconNames.fileIcons.length + wrongIconNames.folderIcons.length + wrongIconNames.languageIcons.length;
   if (amountOfErrors > 0) {
-    console.log(
-      '> Atom Material Icons:',
-      painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`),
-    );
+    console.log('> Atom Material Icons:', painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`));
   } else {
-    console.log(
-      '> Atom Material Icons:',
-      painter.green('Passed icon availability checks!'),
-    );
+    console.log('> Atom Material Icons:', painter.green('Passed icon availability checks!'));
   }
   logIconInformation(wrongIconNames.fileIcons, 'File icons');
   logIconInformation(wrongIconNames.folderIcons, 'Folder icons');
   logIconInformation(wrongIconNames.languageIcons, 'Language icons');
 
   if (amountOfErrors > 0) {
-    throw new Error(
-      'Found some wrong file definitions in the icon configuration.',
-    );
+    throw new Error('Found some wrong file definitions in the icon configuration.');
   }
 };
 
@@ -168,38 +153,32 @@ const logIconInformation = (wrongIcons: string[], title: string) => {
     const suggestion = Object.keys(availableIcons).find((i) => {
       return similarity(icon, i) > 0.75;
     });
-    const suggestionString = suggestion
-      ? ` (Did you mean ${painter.green(suggestion)}?)`
-      : '';
+    const suggestionString = suggestion ? ` (Did you mean ${painter.green(suggestion)}?)` : '';
     const isWrongLightVersion = icon.endsWith(darkFileEnding);
     const isWrongLightVersionString = isWrongLightVersion
-      ? ` (There is no light icon for ${painter.green(
-        icon.slice(0, -6),
-      )}! Set the light option to false!)`
+      ? ` (There is no light icon for ${painter.green(icon.slice(0, -6))}! Set the light option to false!)`
       : '';
-    const isWrongHighContrastVersion = icon.endsWith(
-      highContrastColorFileEnding,
-    );
+    const isWrongHighContrastVersion = icon.endsWith(highContrastColorFileEnding);
     const isWrongHighContrastVersionString = isWrongHighContrastVersion
       ? ` (There is no high contrast icon for ${painter.green(
-        icon.slice(0, -13),
-      )}! Set the highContrast option to false!)`
+          icon.slice(0, -13)
+        )}! Set the highContrast option to false!)`
       : '';
     console.log(
       painter.red(`Icon not found: ${icon}.svg`) +
-      `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`,
+        `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`
     );
   });
 };
 
 enum IconType {
-  fileIcons     = 'fileIcons',
-  folderIcons   = 'folderIcons',
+  fileIcons = 'fileIcons',
+  folderIcons = 'folderIcons',
   languageIcons = 'languageIcons',
 }
 
 enum IconColor {
-  default      = 'default',
-  light        = 'light',
+  default = 'default',
+  light = 'light',
   highContrast = 'highContrast',
 }
