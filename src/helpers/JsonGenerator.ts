@@ -21,34 +21,34 @@ export class JsonGenerator {
    * @param {AtomConfig} updatedConfigs
    * @param {Partial<AtomConfig>} updatedJSONConfig the new configuration to be merged with the default config
    */
-  createIconFile(updatedConfigs?: AtomConfig, updatedJSONConfig: Partial<AtomConfig> = {}) {
+  createJsonTheme(updatedConfigs?: AtomConfig, updatedJSONConfig: Partial<AtomConfig> = {}) {
     // Initializes the config with the default values and provided changes
     const config = merge({}, this.defaultConfig(), updatedJSONConfig);
 
     const json = this.generateJsonConfig(config);
-    // if (updatedConfigs) {
-    //   this.validateConfig(updatedConfigs);
-    // }
+    if (updatedConfigs) {
+      this.validateConfig(updatedConfigs);
+    }
 
-    // try {
-    //   let iconJsonPath = __dirname;
-    //   // if executed via script
-    //   if (path.basename(__dirname) !== 'dist') {
-    //     iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
-    //   }
-    //
-    //   if (!updatedConfigs || updatedConfigs.opacity) {
-    //     this.generateOpacityIcons(config, updatedConfigs?.opacity);
-    //   }
-    //
-    //   if (!updatedConfigs || updatedConfigs.saturation) {
-    //     this.generateSaturatedIcons(config, updatedConfigs?.saturation);
-    //   }
-    //
-    //   this.renameIcons(iconJsonPath, options);
-    // } catch (e) {
-    //   logger.error(`Failed to update icons: ${e}`);
-    // }
+    try {
+      let iconJsonPath = __dirname;
+      // if executed via script
+      if (path.basename(__dirname) !== 'dist') {
+        iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
+      }
+
+      // if (!updatedConfigs || updatedConfigs.opacity) {
+      //   this.generateOpacityIcons(config, updatedConfigs?.opacity);
+      // }
+      //
+      // if (!updatedConfigs || updatedConfigs.saturation) {
+      //   this.generateSaturatedIcons(config, updatedConfigs?.saturation);
+      // }
+      //
+      // this.renameIcons(iconJsonPath, options);
+    } catch (e) {
+      console.error(`Failed to update icons: ${e}`);
+    }
 
     try {
       let iconJsonPath = __dirname;
