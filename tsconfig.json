@@ -5,15 +5,17 @@
     "esModuleInterop": true,
     "incremental": true,
     "isolatedModules": true,
-    "lib": ["es2020", "dom"],
-    "module": "esnext",
-    "moduleResolution": "node",
+    "lib": [
+      "es2020",
+      "dom"
+    ],
+    "moduleResolution": "Node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "outDir": "out",
     "resolveJsonModule": true,
     "sourceMap": true,
@@ -22,5 +24,9 @@
     "strictPropertyInitialization": true,
     "target": "es2020"
   },
-  "include": ["src/**/*", "./node_modules/vscode/vscode.d.ts", "./node_modules/vscode/lib/*"]
+  "ts-node": {
+    "require": [
+      "tsconfig-paths/register"
+    ]
+  }
 }

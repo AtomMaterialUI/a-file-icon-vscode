@@ -54,13 +54,9 @@ export class JsonGenerator {
       let iconJsonPath = __dirname;
       // if executed via script
       if (path.basename(__dirname) !== 'dist') {
-        iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
+        iconJsonPath = path.join(__dirname, '..', '..', 'dist');
       }
-      fs.writeFileSync(
-        path.join(iconJsonPath, iconJsonName),
-        JSON.stringify(json, undefined, 2),
-        'utf-8',
-      );
+      fs.writeFileSync(path.join(iconJsonPath, iconJsonName), JSON.stringify(json, undefined, 2), 'utf-8');
     } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
@@ -133,22 +129,13 @@ export class JsonGenerator {
     const iconConfig = new IconConfiguration(options);
 
     // Load language icons onto the config
-    this.languageGenerator.loadLanguageIconAssociations(
-      iconConfig,
-      options,
-    );
+    this.languageGenerator.loadLanguageIconAssociations(iconConfig, options);
 
     // Load file icons onto the config
-    this.fileGenerator.loadFileIconAssociations(
-      iconConfig,
-      options,
-    );
+    this.fileGenerator.loadFileIconAssociations(iconConfig, options);
 
     // Load folder icons onto the config
-    this.folderGenerator.loadFolderIconAssociations(
-      iconConfig,
-      options,
-    );
+    this.folderGenerator.loadFolderIconAssociations(iconConfig, options);
 
     return iconConfig;
   }
@@ -171,7 +158,6 @@ export class JsonGenerator {
       showWelcomeMessage: false,
     };
   }
-
 }
 
 export const jsonGenerator = new JsonGenerator();
