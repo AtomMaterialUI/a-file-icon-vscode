@@ -1,4 +1,4 @@
-import { jsonGenerator } from 'src/helpers/JsonGenerator';
+import { jsonGenerator } from 'src/icons/generator/IconThemeGenerator';
 
 try {
   jsonGenerator.createJsonTheme();

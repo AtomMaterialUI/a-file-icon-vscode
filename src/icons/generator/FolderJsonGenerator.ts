@@ -1,9 +1,9 @@
 import type { AtomConfig, IconPack } from 'src/@types/config';
 import { FolderTheme } from 'src/@types/config';
 import type { FolderAssociation, FolderAssociations, IconAssociations } from 'src/@types/icons';
-import type { JsonGenerator } from 'src/helpers/JsonGenerator';
+import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
-import { folderIcons } from 'src/icons';
+import { folderIcons } from 'src/icons/index';
 import {
   FOLDERS_FOLDER_PATH,
   FOLDERS_OPEN_FOLDER_PATH,
@@ -14,26 +14,27 @@ import {
 import merge from 'lodash.merge';
 
 export class FolderJsonGenerator {
-  constructor(private readonly jsonGenerator: JsonGenerator) {}
+  constructor(private readonly jsonGenerator: IconThemeGenerator) {}
 
   public loadFolderIconAssociations(iconConfig: IconConfiguration, options: AtomConfig): void {
-    if (options.folderTheme === FolderTheme.None) return;
+    if (options.folderTheme === FolderTheme.None) {
+      return;
+    }
 
     // First, get the folder theme's associations
     const folderThemeAssociations = this.getFolderThemeAssociations(options.folderTheme);
 
     // first, remove languages by pack
-    const enabledAssociations = this.disableAssociationsByPack(
-      folderThemeAssociations,
-      options.activeIconPacks,
-    );
+    const enabledAssociations = this.disableAssociationsByPack(folderThemeAssociations, options.activeIconPacks);
 
     // next, load custom file associations
     const customAssociations = this.getCustomAssociations(options.foldersAssociations);
     const allFolderAssociations = [...enabledAssociations, ...customAssociations];
 
-    allFolderAssociations.forEach(folderAssoc => {
-      if (folderAssoc.disabled) return;
+    allFolderAssociations.forEach((folderAssoc) => {
+      if (folderAssoc.disabled) {
+        return;
+      }
 
       this.loadFolderAssociation(iconConfig, folderAssoc);
     });
@@ -55,7 +56,7 @@ export class FolderJsonGenerator {
    * @private
    */
   private getFolderThemeAssociations(folderTheme: FolderTheme): FolderAssociations {
-    return folderIcons.find(folder => folder.name.toLowerCase() === folderTheme.toLowerCase()) ?? folderIcons[0];
+    return folderIcons.find((folder) => folder.name.toLowerCase() === folderTheme.toLowerCase()) ?? folderIcons[0];
   }
 
   /**
@@ -66,11 +67,15 @@ export class FolderJsonGenerator {
    * @private
    */
   private disableAssociationsByPack(folderIcons: FolderAssociations, activeIconPacks: IconPack[]): FolderAssociation[] {
-    if (!folderIcons.icons) return [];
+    if (!folderIcons.icons) {
+      return [];
+    }
 
-    return folderIcons.icons.filter(icon => {
-      if (!icon.enabledFor) return true;
-      return icon.enabledFor.some(pack => activeIconPacks.includes(pack));
+    return folderIcons.icons.filter((icon) => {
+      if (!icon.enabledFor) {
+        return true;
+      }
+      return icon.enabledFor.some((pack) => activeIconPacks.includes(pack));
     });
   }
 
@@ -81,7 +86,9 @@ export class FolderJsonGenerator {
    * @private
    */
   private getCustomAssociations(folderAssociations?: IconAssociations): FolderAssociation[] {
-    if (!folderAssociations) return [];
+    if (!folderAssociations) {
+      return [];
+    }
 
     // todo check for the expanded syntax
     return Object.entries(folderAssociations).map(([key, value]) => ({
@@ -116,7 +123,6 @@ export class FolderJsonGenerator {
       config.highContrast = merge({}, config.highContrast);
       this.addFolderAssociation(config.highContrast, assocName, HIGH_CONTRAST_FILE_ENDING);
     }
-
   }
 
   /**
@@ -131,19 +137,25 @@ export class FolderJsonGenerator {
     config: IconConfiguration,
     assocName: string,
     folderNames: string[],
-    suffix = '',
+    suffix = ''
   ): void {
-    if (!folderNames) return;
+    if (!folderNames) {
+      return;
+    }
     const folderAssocName = assocName + suffix;
     const folderOpenAssocName = assocName + OPENED_FOLDER_SUFFIX + suffix;
 
-    folderNames.forEach(folderName => {
-      if (!config.folderNames) config.folderNames = {};
+    folderNames.forEach((folderName) => {
+      if (!config.folderNames) {
+        config.folderNames = {};
+      }
       config.folderNames[folderName] = folderAssocName;
       config.folderNames[`.${folderName}`] = folderAssocName;
       config.folderNames[`_${folderName}`] = folderAssocName;
 
-      if (!config.folderNamesExpanded) config.folderNamesExpanded = {};
+      if (!config.folderNamesExpanded) {
+        config.folderNamesExpanded = {};
+      }
       config.folderNamesExpanded[folderName] = folderOpenAssocName;
       config.folderNamesExpanded[`.${folderName}`] = folderOpenAssocName;
       config.folderNamesExpanded[`_${folderName}`] = folderOpenAssocName;
@@ -158,7 +170,9 @@ export class FolderJsonGenerator {
    * @private
    */
   private addFolderAssociation(config: IconConfiguration, assocName: string, suffix = ''): void {
-    if (!config.iconDefinitions) return;
+    if (!config.iconDefinitions) {
+      return;
+    }
     // First generates a hash to append to the icon if custom color, opacity or saturation
     const fileConfigHash = this.jsonGenerator.getFileConfigHash(config.options ?? {});
 
@@ -179,7 +193,9 @@ export class FolderJsonGenerator {
    */
   private loadDefaultFolderAssociation(config: IconConfiguration, folderTheme: FolderAssociations): void {
     const defaultIconName = folderTheme.defaultIcon.name;
-    if (!defaultIconName) return;
+    if (!defaultIconName) {
+      return;
+    }
 
     const defaultIconExpandedName = defaultIconName + OPENED_FOLDER_SUFFIX;
 
@@ -194,7 +210,9 @@ export class FolderJsonGenerator {
       config.folderExpanded = defaultIconExpandedName + DARK_FILE_ENDING;
 
       // Add the original icon to the light config
-      if (!config.light) config.light = {};
+      if (!config.light) {
+        config.light = {};
+      }
       config.light.folder = defaultIconName;
       config.light.folderExpanded = defaultIconExpandedName;
     }
@@ -203,7 +221,9 @@ export class FolderJsonGenerator {
       this.addFolderAssociation(config, defaultIconName, HIGH_CONTRAST_FILE_ENDING);
 
       // Add the original icon to the hc config
-      if (!config.highContrast) config.highContrast = {};
+      if (!config.highContrast) {
+        config.highContrast = {};
+      }
       config.highContrast.folder = defaultIconName + HIGH_CONTRAST_FILE_ENDING;
       config.highContrast.folderExpanded = defaultIconExpandedName + HIGH_CONTRAST_FILE_ENDING;
     }
@@ -238,7 +258,9 @@ export class FolderJsonGenerator {
       config.rootFolderExpanded = rootFolderExpandedName + DARK_FILE_ENDING;
 
       // Add the original icon to the light config
-      if (!config.light) config.light = {};
+      if (!config.light) {
+        config.light = {};
+      }
       config.light.rootFolder = rootFolderName;
       config.light.rootFolderExpanded = rootFolderExpandedName;
     }
@@ -247,7 +269,9 @@ export class FolderJsonGenerator {
       // this.addFolderAssociation(config, rootFolderName, HIGH_CONTRAST_FILE_ENDING);
 
       // Add the original icon to the hc config
-      if (!config.highContrast) config.highContrast = {};
+      if (!config.highContrast) {
+        config.highContrast = {};
+      }
       config.highContrast.rootFolder = rootFolderName + HIGH_CONTRAST_FILE_ENDING;
       config.highContrast.rootFolderExpanded = rootFolderExpandedName + HIGH_CONTRAST_FILE_ENDING;
     }

@@ -2,11 +2,11 @@ import type { LanguageAssociation, IconAssociations } from 'src/@types/icons';
 import type { IconConfiguration } from 'src/models';
 import type { AtomConfig, IconPack } from 'src/@types/config';
 import merge from 'lodash.merge';
-import type { JsonGenerator } from 'src/helpers/JsonGenerator';
+import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import { languageIcons } from 'src/icons/languageIcons';
 
 export class LanguageJsonGenerator {
-  constructor(private readonly jsonGenerator: JsonGenerator) {}
+  constructor(private readonly jsonGenerator: IconThemeGenerator) {}
 
   /**
    * Load the language icon definitions onto the icon configuration object.
@@ -17,10 +17,7 @@ export class LanguageJsonGenerator {
    */
   public loadLanguageIconAssociations(config: IconConfiguration, options: AtomConfig): void {
     // first, remove languages by pack
-    const enabledLanguages = this.disableLanguagesByPack(
-      languageIcons,
-      options.activeIconPacks,
-    );
+    const enabledLanguages = this.disableLanguagesByPack(languageIcons, options.activeIconPacks);
 
     // Fetch custom language associations
     const customIcons = this.getCustomLanguageAssociations(options.languagesAssociations);
@@ -28,8 +25,10 @@ export class LanguageJsonGenerator {
     const allLanguageIcons = [...enabledLanguages, ...customIcons];
 
     // Load the language icons onto the config
-    allLanguageIcons.forEach(language => {
-      if (language.disabled) return;
+    allLanguageIcons.forEach((language) => {
+      if (language.disabled) {
+        return;
+      }
 
       this.loadLanguageAssociation(config, language);
     });
@@ -41,7 +40,9 @@ export class LanguageJsonGenerator {
    * @private
    */
   public getCustomLanguageAssociations(languagesAssociations?: IconAssociations): LanguageAssociation[] {
-    if (!languagesAssociations) return [];
+    if (!languagesAssociations) {
+      return [];
+    }
 
     return Object.entries(languagesAssociations).map(([key, value]) => ({
       name: key.toLowerCase(),
@@ -59,12 +60,17 @@ export class LanguageJsonGenerator {
    * @returns {LanguageAssociation[]}
    * @private
    */
-  public disableLanguagesByPack(languageIcons: LanguageAssociation[], activeIconPacks: IconPack[]): LanguageAssociation[] {
-    return languageIcons.filter(language => {
-      if (!language.enabledFor) return true;
+  public disableLanguagesByPack(
+    languageIcons: LanguageAssociation[],
+    activeIconPacks: IconPack[]
+  ): LanguageAssociation[] {
+    return languageIcons.filter((language) => {
+      if (!language.enabledFor) {
+        return true;
+      }
 
       // Check if the language is enabled for any of the active icon packs
-      return language.enabledFor.some(pack => activeIconPacks.includes(pack));
+      return language.enabledFor.some((pack) => activeIconPacks.includes(pack));
     });
   }
 
@@ -106,7 +112,7 @@ export class LanguageJsonGenerator {
    * @private
    */
   private addLanguageAssociation(config: IconConfiguration, assocName: string, languageIds: string[]): void {
-    languageIds.forEach(languageId => {
+    languageIds.forEach((languageId) => {
       if (config.languageIds) {
         config.languageIds[languageId] = assocName;
       }

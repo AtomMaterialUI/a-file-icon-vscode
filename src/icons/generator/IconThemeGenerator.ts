@@ -2,16 +2,16 @@ import merge from 'lodash.merge';
 import type { AtomConfig } from 'src/@types/config';
 import { IconPack, FolderTheme } from 'src/@types/config';
 import { IconConfiguration } from 'src/models/iconConfiguration';
-import { DEFAULT_FOLDER_COLOR, FILES_FOLDER_PATH } from './constants';
-import { getHash } from './utils';
-import { LanguageJsonGenerator } from 'src/helpers/LanguageJsonGenerator';
-import { FileJsonGenerator } from './FileJsonGenerator';
-import { FolderJsonGenerator } from './FolderJsonGenerator';
-import { validateOpacityValue, validateSaturationValue, validateHEXColorCode, iconJsonName } from 'src/icons';
+import { DEFAULT_FOLDER_COLOR, FILES_FOLDER_PATH } from 'src/helpers/constants';
+import { getHash } from 'src/helpers/utils';
+import { LanguageJsonGenerator } from 'src/icons/generator/LanguageJsonGenerator';
+import { FileJsonGenerator } from 'src/icons/generator/FileJsonGenerator';
+import { FolderJsonGenerator } from 'src/icons/generator/FolderJsonGenerator';
+import { validateOpacityValue, validateSaturationValue, validateHEXColorCode, iconJsonName } from 'src/icons/index';
 import path from 'path';
 import fs from 'fs';
 
-export class JsonGenerator {
+export class IconThemeGenerator {
   languageGenerator: LanguageJsonGenerator = new LanguageJsonGenerator(this);
   fileGenerator: FileJsonGenerator = new FileJsonGenerator(this);
   folderGenerator: FolderJsonGenerator = new FolderJsonGenerator(this);
@@ -160,4 +160,4 @@ export class JsonGenerator {
   }
 }
 
-export const jsonGenerator = new JsonGenerator();
+export const jsonGenerator = new IconThemeGenerator();

@@ -1,14 +1,19 @@
 import type { AtomConfig, IconPack } from 'src/@types/config';
-import type { JsonGenerator } from 'src/helpers/JsonGenerator';
+import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 import merge from 'lodash.merge';
-import { fileIcons } from 'src/icons';
+import { fileIcons } from 'src/icons/index';
 import type { FileAssociations, FileAssociation, IconAssociations } from 'src/@types/icons';
-import { WILDCARD_PATTERN, FILES_FOLDER_PATH, DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING } from 'src/helpers/constants';
-import { FileMappingType } from './enums';
+import {
+  WILDCARD_PATTERN,
+  FILES_FOLDER_PATH,
+  DARK_FILE_ENDING,
+  HIGH_CONTRAST_FILE_ENDING,
+} from 'src/helpers/constants';
+import { FileMappingType } from 'src/helpers/enums';
 
 export class FileJsonGenerator {
-  constructor(private readonly jsonGenerator: JsonGenerator) {}
+  constructor(private readonly jsonGenerator: IconThemeGenerator) {}
 
   /**
    * Load the file icon definitions onto the icon configuration object.
@@ -18,26 +23,23 @@ export class FileJsonGenerator {
    * @private
    */
   public loadFileIconAssociations(config: IconConfiguration, options: AtomConfig): void {
-
     // first, remove languages by pack
-    const enabledAssociations = this.disableAssociationsByPack(
-      fileIcons,
-      options.activeIconPacks,
-    );
+    const enabledAssociations = this.disableAssociationsByPack(fileIcons, options.activeIconPacks);
 
     // next, load custom file associations
     const customAssociations = this.getCustomAssociations(options.filesAssociations);
     const allFileAssociations = [...enabledAssociations, ...customAssociations];
 
-    allFileAssociations.forEach(fileAssoc => {
-      if (fileAssoc.disabled) return;
+    allFileAssociations.forEach((fileAssoc) => {
+      if (fileAssoc.disabled) {
+        return;
+      }
 
       this.loadFileAssociation(config, fileAssoc);
     });
 
     // next, add the default file icon
     this.loadDefaultFileAssociation(config);
-
   }
 
   /**
@@ -78,7 +80,9 @@ export class FileJsonGenerator {
    * @private
    */
   private addFileAssociation(config: IconConfiguration, assocName: string, suffix = ''): void {
-    if (!config.iconDefinitions) return;
+    if (!config.iconDefinitions) {
+      return;
+    }
     // First generates a hash to append to the icon if custom color, opacity or saturation
     const fileConfigHash = this.jsonGenerator.getFileConfigHash(config.options ?? {});
 
@@ -95,11 +99,15 @@ export class FileJsonGenerator {
    * @private
    */
   private disableAssociationsByPack(fileIcons: FileAssociations, activeIconPacks: IconPack[]): FileAssociation[] {
-    if (!fileIcons.icons) return [];
+    if (!fileIcons.icons) {
+      return [];
+    }
 
-    return fileIcons.icons.filter(icon => {
-      if (!icon.enabledFor) return true;
-      return icon.enabledFor.some(pack => activeIconPacks.includes(pack));
+    return fileIcons.icons.filter((icon) => {
+      if (!icon.enabledFor) {
+        return true;
+      }
+      return icon.enabledFor.some((pack) => activeIconPacks.includes(pack));
     });
   }
 
@@ -110,7 +118,9 @@ export class FileJsonGenerator {
    * @private
    */
   private getCustomAssociations(fileAssociations?: IconAssociations): FileAssociation[] {
-    if (!fileAssociations) return [];
+    if (!fileAssociations) {
+      return [];
+    }
 
     return Object.entries(fileAssociations).map(([key, value]) => ({
       name: key.toLowerCase(),
@@ -129,7 +139,11 @@ export class FileJsonGenerator {
    * @param {FileMappingType} FileExtensions
    * @private
    */
-  private mapIconsToAssociations(config: IconConfiguration, fileAssoc: FileAssociation, FileExtensions: FileMappingType): void {
+  private mapIconsToAssociations(
+    config: IconConfiguration,
+    fileAssoc: FileAssociation,
+    FileExtensions: FileMappingType
+  ): void {
     switch (FileExtensions) {
       case FileMappingType.FileExtensions:
         this.mapFileExtensions(config, fileAssoc);
@@ -150,20 +164,30 @@ export class FileJsonGenerator {
    */
   private mapFileExtensions(config: IconConfiguration, fileAssoc: FileAssociation): void {
     // Make sure we have the file extensions...
-    if (!fileAssoc.fileExtensions) return;
+    if (!fileAssoc.fileExtensions) {
+      return;
+    }
 
-    fileAssoc.fileExtensions.forEach(fileExtension => {
+    fileAssoc.fileExtensions.forEach((fileExtension) => {
       // Skip the association if there is a custom assoc
-      if (this.shouldOverwriteFileNames(config, fileExtension)) return;
+      if (this.shouldOverwriteFileNames(config, fileExtension)) {
+        return;
+      }
 
       // First, add the file extension
-      if (!config.fileExtensions) config.fileExtensions = {};
+      if (!config.fileExtensions) {
+        config.fileExtensions = {};
+      }
       config.fileExtensions[fileExtension] = fileAssoc.name;
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
-        if (!config.light) config.light = {};
-        if (!config.light.fileExtensions) config.light.fileExtensions = {};
+        if (!config.light) {
+          config.light = {};
+        }
+        if (!config.light.fileExtensions) {
+          config.light.fileExtensions = {};
+        }
 
         // Replace the original extension to icon with the '_dark' suffix
         config.fileExtensions[fileExtension] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
@@ -173,8 +197,12 @@ export class FileJsonGenerator {
 
       // Then add the highContrast variant if needed
       if (fileAssoc.highContrast) {
-        if (!config.highContrast) config.highContrast = {};
-        if (!config.highContrast.fileExtensions) config.highContrast.fileExtensions = {};
+        if (!config.highContrast) {
+          config.highContrast = {};
+        }
+        if (!config.highContrast.fileExtensions) {
+          config.highContrast.fileExtensions = {};
+        }
 
         // And add the highContrast variant to the highContrast config
         config.highContrast.fileExtensions[fileExtension] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
@@ -190,20 +218,30 @@ export class FileJsonGenerator {
    */
   private mapFileNames(config: IconConfiguration, fileAssoc: FileAssociation): void {
     // Make sure we have the file names...
-    if (!fileAssoc.fileNames) return;
+    if (!fileAssoc.fileNames) {
+      return;
+    }
 
-    fileAssoc.fileNames.forEach(fileName => {
+    fileAssoc.fileNames.forEach((fileName) => {
       // Skip the association if there is a custom assoc
-      if (this.shouldOverwriteFileNames(config, fileName)) return;
+      if (this.shouldOverwriteFileNames(config, fileName)) {
+        return;
+      }
 
       // First, add the file extension
-      if (!config.fileNames) config.fileNames = {};
+      if (!config.fileNames) {
+        config.fileNames = {};
+      }
       config.fileNames[fileName] = fileAssoc.name;
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
-        if (!config.light) config.light = {};
-        if (!config.light.fileNames) config.light.fileNames = {};
+        if (!config.light) {
+          config.light = {};
+        }
+        if (!config.light.fileNames) {
+          config.light.fileNames = {};
+        }
 
         // Replace the original extension to icon with the '_dark' suffix
         config.fileNames[fileName] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
@@ -213,8 +251,12 @@ export class FileJsonGenerator {
 
       // Then add the highContrast variant if needed
       if (fileAssoc.highContrast) {
-        if (!config.highContrast) config.highContrast = {};
-        if (!config.highContrast.fileNames) config.highContrast.fileNames = {};
+        if (!config.highContrast) {
+          config.highContrast = {};
+        }
+        if (!config.highContrast.fileNames) {
+          config.highContrast.fileNames = {};
+        }
 
         // Replace the original extension to icon with the '_highContrast' suffix
         config.fileNames[fileName] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
@@ -239,7 +281,9 @@ export class FileJsonGenerator {
       config.file = fileIcons.defaultIcon.name + DARK_FILE_ENDING;
 
       // Add the original icon to the light config
-      if (!config.light) config.light = {};
+      if (!config.light) {
+        config.light = {};
+      }
       config.light.file = fileIcons.defaultIcon.name;
     }
 
@@ -247,7 +291,9 @@ export class FileJsonGenerator {
       this.addFileAssociation(config, fileIcons.defaultIcon.name, HIGH_CONTRAST_FILE_ENDING);
 
       // Add the original icon to the hc config
-      if (!config.highContrast) config.highContrast = {};
+      if (!config.highContrast) {
+        config.highContrast = {};
+      }
       config.highContrast.file = fileIcons.defaultIcon.name + HIGH_CONTRAST_FILE_ENDING;
     }
   }
@@ -263,9 +309,11 @@ export class FileJsonGenerator {
   private shouldOverwriteFileNames(config: IconConfiguration, extension: string): Boolean {
     const customFileAssociations = config.options?.filesAssociations ?? {};
 
-    return Object.keys(customFileAssociations).some(key => {
+    return Object.keys(customFileAssociations).some((key) => {
       // overwrite is enabled if there are two asterisks in the wildcard
-      if (!/^\*{2}\./.test(key)) return false;
+      if (!/^\*{2}\./.test(key)) {
+        return false;
+      }
 
       // check if the file name contains the particular file extension
       // (e.g. extension ".md" in "Readme.md" should be overwritten with the *.md icon)
