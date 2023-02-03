@@ -43,6 +43,9 @@ export class FolderJsonGenerator {
 
     // finally, add the root folder icon
     this.loadRootFolderAssociation(iconConfig, folderThemeAssociations);
+
+    // next, generate colored folders
+    // this.generateColoredFolders(iconConfig, folderThemeAssociations, options.folderColor);
   }
 
   /**
@@ -249,4 +252,23 @@ export class FolderJsonGenerator {
       config.highContrast.rootFolderExpanded = rootFolderExpandedName + HIGH_CONTRAST_FILE_ENDING;
     }
   }
+
+  // private generateColoredFolders(
+  //   iconConfig: IconConfiguration,
+  //   folderTheme: FolderAssociations,
+  //   folderColor?: string,
+  // ): void {
+  //   if (!folderColor) return;
+  //
+  //   const folderName = folderTheme.defaultIcon.name;
+  //   const openFolderName = folderName + OPENED_FOLDER_SUFFIX;
+  //
+  //   const folderPath = iconConfig.iconDefinitions?.[folderName]?.iconPath;
+  //   const openFolderPath = iconConfig.iconDefinitions?.[openFolderName]?.iconPath;
+  //
+  //   if (!folderPath || !openFolderPath) return;
+  //
+  //   const folderSvg = fs.readFileSync(folderPath, 'utf8');
+  //   const folderOpenSvg = fs.readFileSync(openFolderPath, 'utf8');
+  // }
 }

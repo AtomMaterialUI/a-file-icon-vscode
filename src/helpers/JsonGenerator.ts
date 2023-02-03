@@ -7,7 +7,9 @@ import { getHash } from './utils';
 import { LanguageJsonGenerator } from 'src/helpers/LanguageJsonGenerator';
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
-import { validateOpacityValue, validateSaturationValue, validateHEXColorCode } from 'src/icons';
+import { validateOpacityValue, validateSaturationValue, validateHEXColorCode, iconJsonName } from 'src/icons';
+import path from 'path';
+import fs from 'fs';
 
 export class JsonGenerator {
   languageGenerator: LanguageJsonGenerator = new LanguageJsonGenerator(this);
@@ -24,8 +26,43 @@ export class JsonGenerator {
     const config = merge({}, this.defaultConfig(), updatedJSONConfig);
 
     const json = this.generateJsonConfig(config);
-    if (updatedConfigs) {
-      this.validateConfig(updatedConfigs);
+    // if (updatedConfigs) {
+    //   this.validateConfig(updatedConfigs);
+    // }
+
+    // try {
+    //   let iconJsonPath = __dirname;
+    //   // if executed via script
+    //   if (path.basename(__dirname) !== 'dist') {
+    //     iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
+    //   }
+    //
+    //   if (!updatedConfigs || updatedConfigs.opacity) {
+    //     this.generateOpacityIcons(config, updatedConfigs?.opacity);
+    //   }
+    //
+    //   if (!updatedConfigs || updatedConfigs.saturation) {
+    //     this.generateSaturatedIcons(config, updatedConfigs?.saturation);
+    //   }
+    //
+    //   this.renameIcons(iconJsonPath, options);
+    // } catch (e) {
+    //   logger.error(`Failed to update icons: ${e}`);
+    // }
+
+    try {
+      let iconJsonPath = __dirname;
+      // if executed via script
+      if (path.basename(__dirname) !== 'dist') {
+        iconJsonPath = path.join(__dirname, '..', '..', '..', 'dist');
+      }
+      fs.writeFileSync(
+        path.join(iconJsonPath, iconJsonName),
+        JSON.stringify(json, undefined, 2),
+        'utf-8',
+      );
+    } catch (error) {
+      throw new Error('Failed to create icon file: ' + error);
     }
 
     return json;
@@ -69,6 +106,11 @@ export class JsonGenerator {
     return fileConfigString;
   }
 
+  /**
+   * Validate configuration
+   * @param {AtomConfig} updatedConfigs
+   * @private
+   */
   private validateConfig(updatedConfigs: AtomConfig): void {
     if (updatedConfigs?.opacity && !validateOpacityValue(updatedConfigs?.opacity)) {
       throw Error('Atom Material Icons: Invalid opacity value!');
@@ -81,6 +123,12 @@ export class JsonGenerator {
     }
   }
 
+  /**
+   * Generate the theme json from the files
+   * @param {AtomConfig} options
+   * @returns {IconConfiguration}
+   * @private
+   */
   private generateJsonConfig(options: AtomConfig): IconConfiguration {
     const iconConfig = new IconConfiguration(options);
 

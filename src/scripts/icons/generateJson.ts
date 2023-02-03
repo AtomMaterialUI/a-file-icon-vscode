@@ -1,8 +1,10 @@
-import { createIconFile } from 'src/icons/generator/jsonGenerator';
+import { jsonGenerator } from 'src/helpers/JsonGenerator';
+import { logger } from 'src/helpers/LoggingService';
 
 try {
-  createIconFile();
+  logger.info('Creating json file...');
+  jsonGenerator.createIconFile();
 } catch (error) {
-  console.error(error);
+  logger.error(String(error));
   throw Error('Could not create icon file!');
 }
