@@ -14,6 +14,7 @@ import {
 import { readFileSync } from 'fs';
 import merge from 'lodash.merge';
 import { JsonGenerator } from 'src/icons/generator/types';
+import { path } from 'app-root-path';
 
 export class FolderJsonGenerator extends JsonGenerator {
   constructor(
@@ -283,7 +284,8 @@ export class FolderJsonGenerator extends JsonGenerator {
 
     if (!folderPath || !openFolderPath) return;
 
-    const folderSvg = readFileSync(folderPath, 'utf8');
-    const folderOpenSvg = readFileSync(openFolderPath, 'utf8');
+    // Need to replace the saved path ith the root folder, otherwise it can
+    const folderSvg = readFileSync(folderPath.replace('./..', path), 'utf8');
+    const folderOpenSvg = readFileSync(openFolderPath.replace('./..', path), 'utf8');
   }
 }
