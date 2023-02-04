@@ -39,9 +39,11 @@
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
   },
   "dependencies": {
+    "fs-extra": "^11.1.0",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
+    "@types/fs-extra": "^11.0.1",
     "@types/glob": "^8.0.0",
     "@types/lodash.merge": "^4.6.7",
     "@types/mocha": "^10.0.1",
