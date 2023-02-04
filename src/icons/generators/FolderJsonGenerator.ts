@@ -4,18 +4,13 @@ import type { FolderAssociation, FolderAssociations, IconAssociations } from 'sr
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 import { folderIcons } from 'src/icons/index';
 import {
-  FOLDERS_FOLDER_PATH,
-  FOLDERS_OPEN_FOLDER_PATH,
   OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
-  DIST_PATH,
-  RELATIVE_DIST,
+  RELATIVE_DIST_FOLDERS_FOLDER_PATH,
+  RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH,
 } from 'src/helpers/constants';
-import { readFileSync, writeFileSync } from 'fs';
 import merge from 'lodash.merge';
-import { path } from 'app-root-path';
-import { join } from 'path';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 
@@ -55,7 +50,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     this.loadRootFolderAssociation(folderThemeAssociations);
 
     // next, generate colored folders
-    this.generateColoredFolders(folderThemeAssociations);
+    // this.generateColoredFolders(folderThemeAssociations);
   }
 
   /**
@@ -175,10 +170,10 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
 
     // Add the folders and foldersExpanded icons
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${FOLDERS_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+      iconPath: `${RELATIVE_DIST_FOLDERS_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
     };
     this.iconConfig.iconDefinitions[`${assocName}${OPENED_FOLDER_SUFFIX}${suffix}`] = {
-      iconPath: `${FOLDERS_OPEN_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+      iconPath: `${RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
     };
   }
 
@@ -269,68 +264,5 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
       this.iconConfig.highContrast.rootFolder = rootFolderName + HIGH_CONTRAST_FILE_ENDING;
       this.iconConfig.highContrast.rootFolderExpanded = rootFolderExpandedName + HIGH_CONTRAST_FILE_ENDING;
     }
-  }
-
-  /**
-   * Generate the colored folders
-   * @param {FolderAssociations} folderTheme
-   * @private
-   */
-  private generateColoredFolders(folderTheme: FolderAssociations) {
-    const folderColor = this.atomConfig.folderColor;
-    if (!folderColor) return;
-
-    const folderName = folderTheme.defaultIcon.name;
-    const openFolderName = folderName + OPENED_FOLDER_SUFFIX;
-
-    const folderPath = this.iconConfig.iconDefinitions?.[folderName]?.iconPath;
-    const openFolderPath = this.iconConfig.iconDefinitions?.[openFolderName]?.iconPath;
-
-    if (!folderPath || !openFolderPath) return;
-
-    let folderSvg = readFileSync(folderPath.replace('./..', path), 'utf8');
-    let folderOpenSvg = readFileSync(openFolderPath.replace('./..', path), 'utf8');
-
-    folderSvg = folderSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
-    folderOpenSvg = folderOpenSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
-
-    this.writeSVGToDist(folderSvg, 'folder');
-    this.writeSVGToDist(folderOpenSvg, 'folderOpen');
-
-    this.addColoredFolderAssociation();
-  }
-
-  /**
-   * Write the svg in the dist folder
-   * @param {string} svg the svg to write
-   * @param {string} iconName the folder icon name
-   * @private
-   */
-  private writeSVGToDist(svg: string, iconName: string) {
-    const iconsFolderPath = join(DIST_PATH, `${iconName}.svg`);
-    try {
-      writeFileSync(iconsFolderPath, svg);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  /**
-   * Add the folder association to the config
-   * @private
-   */
-  private addColoredFolderAssociation() {
-    if (!this.iconConfig.iconDefinitions) return;
-
-    // First generates a hash to append to the icon if custom color, opacity or saturation
-    const fileConfigHash = getFileConfigHash(this.atomConfig);
-
-    // Add the folders and foldersExpanded icons
-    this.iconConfig.iconDefinitions['folder'] = {
-      iconPath: `${RELATIVE_DIST}/folder${fileConfigHash}.svg`,
-    };
-    this.iconConfig.iconDefinitions['folder-open'] = {
-      iconPath: `${RELATIVE_DIST}/folderOpen${fileConfigHash}.svg`,
-    };
   }
 }

@@ -5,7 +5,7 @@
  */
 import type { AtomConfig } from 'src/@types/config';
 import { IconPack, FolderTheme } from 'src/@types/config';
-import { DEFAULT_FOLDER_COLOR } from 'src/helpers/constants';
+import { DEFAULT_FOLDER_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
 import { getHash } from 'src/helpers/utils';
 
 /**
@@ -18,8 +18,8 @@ export const defaultConfig = (): AtomConfig => {
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
     hidesExplorerArrows: false,
-    opacity: 1,
-    saturation: 1,
+    opacity: DEFAULT_OPACITY,
+    saturation: DEFAULT_SATURATION,
     showReloadMessage: true,
     showUpdateMessage: true,
     showWelcomeMessage: true,

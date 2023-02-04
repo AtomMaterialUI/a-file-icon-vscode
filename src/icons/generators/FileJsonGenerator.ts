@@ -5,9 +5,9 @@ import { fileIcons } from 'src/icons/index';
 import type { FileAssociations, FileAssociation } from 'src/@types/icons';
 import {
   WILDCARD_PATTERN,
-  FILES_FOLDER_PATH,
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
+  RELATIVE_DIST_FILES_FOLDER_PATH,
 } from 'src/helpers/constants';
 import { FileMappingType } from 'src/helpers/enums';
 import { getFileConfigHash } from 'src/icons/configUtils';
@@ -83,7 +83,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     // Then add the file association
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${FILES_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
     };
   }
 

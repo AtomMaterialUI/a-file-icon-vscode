@@ -73,3 +73,8 @@ export const getHash = (value: string) => {
   }
   return hash;
 };
+
+export const getSVGRootElement = (svg: string) => {
+  const result = new RegExp(/<svg[^>]*>/).exec(svg);
+  return result?.[0];
+};
