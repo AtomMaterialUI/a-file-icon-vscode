@@ -1,4 +1,4 @@
-import { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
+import { IconThemeGenerator } from 'src/icons/generators/IconThemeGenerator';
 
 try {
   const iconThemeGenerator = new IconThemeGenerator();

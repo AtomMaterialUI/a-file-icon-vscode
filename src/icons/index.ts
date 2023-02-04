@@ -1,4 +1,4 @@
 export * from './generator';
-export * from './fileIcons';
-export * from './folderIcons';
-export * from './languageIcons';
+export { fileIcons } from './fileIcons';
+export { folderIcons } from './folderIcons';
+export { languageIcons } from './languageIcons';

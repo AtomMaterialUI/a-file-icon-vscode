@@ -1,6 +1,12 @@
 import merge from 'lodash.merge';
 import { getFileConfigHash } from '../../helpers/fileConfig';
-import { DefaultIcon, IconAssociations, IconConfiguration, IconJsonOptions, LanguageIcon } from '../../models/index';
+import type {
+  DefaultIcon,
+  IconAssociations,
+  IconConfiguration,
+  IconJsonOptions,
+  LanguageIcon,
+} from '../../models/index';
 import { highContrastColorFileEnding, iconFolderPath, darkFileEnding } from './constants';
 
 /**
@@ -9,13 +15,10 @@ import { highContrastColorFileEnding, iconFolderPath, darkFileEnding } from './c
 export const loadLanguageIconDefinitions = (
   languages: LanguageIcon[],
   config: IconConfiguration,
-  options: IconJsonOptions,
+  options: IconJsonOptions
 ): IconConfiguration => {
   config = merge({}, config);
-  const enabledLanguages = disableLanguagesByPack(
-    languages,
-    options.activeIconPack,
-  );
+  const enabledLanguages = disableLanguagesByPack(languages, options.activeIconPack);
   const customIcons = getCustomIcons(options.languages?.associations);
   const allLanguageIcons = [...enabledLanguages, ...customIcons];
 
@@ -26,36 +29,19 @@ export const loadLanguageIconDefinitions = (
     config = setIconDefinitions(config, lang.icon);
 
     if (lang.icon.light) {
-      config = merge(
-        {},
-        config,
-        setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids),
-      );
-      config.light = merge(
-        {},
-        config.light,
-        setLanguageIdentifiers(lang.icon.name, lang.ids),
-      );
-    }
-    else {
-      config = merge(
-        {},
-        config,
-        setLanguageIdentifiers(lang.icon.name, lang.ids),
-      );
+      config = merge({}, config, setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids));
+      config.light = merge({}, config.light, setLanguageIdentifiers(lang.icon.name, lang.ids));
+    } else {
+      config = merge({}, config, setLanguageIdentifiers(lang.icon.name, lang.ids));
     }
 
     if (lang.icon.highContrast) {
       config.highContrast = merge(
         {},
         config.highContrast,
-        setLanguageIdentifiers(
-          lang.icon.name + highContrastColorFileEnding,
-          lang.ids,
-        ),
+        setLanguageIdentifiers(lang.icon.name + highContrastColorFileEnding, lang.ids)
       );
     }
-
   });
 
   return config;
@@ -66,19 +52,11 @@ const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon) => {
   config = createIconDefinitions(config, icon.name);
 
   if (icon.light) {
-    config = merge(
-      {},
-      config,
-      createIconDefinitions(config, icon.name + darkFileEnding),
-    );
+    config = merge({}, config, createIconDefinitions(config, icon.name + darkFileEnding));
   }
 
   if (icon.highContrast) {
-    config = merge(
-      {},
-      config,
-      createIconDefinitions(config, icon.name + highContrastColorFileEnding),
-    );
+    config = merge({}, config, createIconDefinitions(config, icon.name + highContrastColorFileEnding));
   }
 
   return config;
@@ -86,7 +64,7 @@ const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon) => {
 
 const createIconDefinitions = (config: IconConfiguration, iconName: string) => {
   config = merge({}, config);
-  const fileConfigHash = getFileConfigHash(config.options ?? {});
+  const fileConfigHash = getFileConfigHash(config.atomConfig ?? {});
   if (config.iconDefinitions) {
     config.iconDefinitions[iconName] = {
       iconPath: `${iconFolderPath}/files/${iconName}${fileConfigHash}.svg`,
@@ -119,13 +97,8 @@ const getCustomIcons = (languageAssociations: IconAssociations | undefined) => {
 /**
  * Disable all file icons that are in a pack which is disabled.
  */
-const disableLanguagesByPack = (
-  languageIcons: LanguageIcon[],
-  activatedIconPack: string | undefined,
-) => {
+const disableLanguagesByPack = (languageIcons: LanguageIcon[], activatedIconPack: string | undefined) => {
   return languageIcons.filter((language) => {
-    return !language.enabledFor
-      ? true
-      : language.enabledFor.some((p) => p === activatedIconPack);
+    return !language.enabledFor ? true : language.enabledFor.some((p) => p === activatedIconPack);
   });
 };

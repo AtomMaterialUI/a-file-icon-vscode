@@ -1,4 +1,4 @@
-import type { QuickPickItem} from 'vscode';
+import type { QuickPickItem } from 'vscode';
 import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
 import i18next from 'i18next';
@@ -54,5 +54,5 @@ const handleQuickPickActions = (value: QuickPickItem) => {
 
 /** Is grayscale icons enabled? */
 export const checkGrayscaleStatus = (): boolean => {
-  return getMaterialIconsJSON()?.options?.saturation === 0;
+  return getMaterialIconsJSON()?.atomConfig?.saturation === 0;
 };

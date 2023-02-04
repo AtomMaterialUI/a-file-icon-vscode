@@ -47,5 +47,5 @@ const handleQuickPickActions = (value: QuickPickItem) => {
 
 /** Get the current folder theme. */
 export const getFolderIconTheme = (): string => {
-  return getMaterialIconsJSON()?.options?.folderTheme ?? '';
+  return getMaterialIconsJSON()?.atomConfig?.folderTheme ?? '';
 };

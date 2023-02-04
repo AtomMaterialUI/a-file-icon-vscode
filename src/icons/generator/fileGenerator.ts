@@ -120,8 +120,8 @@ const disableIconsByPack = (fileIcons: FileIcons, activatedIconPack: string): Fi
 
 const setIconDefinition = (config: IconConfiguration, iconName: string, appendix = '') => {
   const obj: Partial<IconConfiguration> = { iconDefinitions: {} };
-  if (config.options) {
-    const fileConfigHash = getFileConfigHash(config.options);
+  if (config.atomConfig) {
+    const fileConfigHash = getFileConfigHash(config.atomConfig);
     obj.iconDefinitions![`${iconName}${appendix}`] = {
       iconPath: `${iconFolderPath}/files/${iconName}${appendix}${fileConfigHash}.svg`,
     };

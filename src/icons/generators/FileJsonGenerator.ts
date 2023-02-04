@@ -1,5 +1,4 @@
 import type { AtomConfig } from 'src/@types/config';
-import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 import merge from 'lodash.merge';
 import { fileIcons } from 'src/icons/index';
@@ -11,15 +10,12 @@ import {
   HIGH_CONTRAST_FILE_ENDING,
 } from 'src/helpers/constants';
 import { FileMappingType } from 'src/helpers/enums';
-import { JsonGenerator } from 'src/icons/generator/types';
+import { getFileConfigHash } from 'src/icons/configUtils';
+import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 
-export class FileJsonGenerator extends JsonGenerator {
-  constructor(
-    override readonly jsonGenerator: IconThemeGenerator,
-    override readonly options: AtomConfig,
-    override readonly iconConfig: IconConfiguration
-  ) {
-    super(jsonGenerator, options, iconConfig);
+export class FileJsonGenerator extends AbstractJsonGenerator {
+  constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
+    super(atomConfig, iconConfig);
   }
 
   /**
@@ -83,7 +79,7 @@ export class FileJsonGenerator extends JsonGenerator {
     if (!this.iconConfig.iconDefinitions) return;
 
     // First generates a hash to append to the icon if custom color, opacity or saturation
-    const fileConfigHash = this.jsonGenerator.getFileConfigHash(this.iconConfig.options ?? {});
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
 
     // Then add the file association
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
@@ -102,7 +98,7 @@ export class FileJsonGenerator extends JsonGenerator {
     return fileIcons.icons.filter((icon) => {
       if (!icon.enabledFor) return true;
 
-      return icon.enabledFor.some((pack) => this.options.activeIconPacks.includes(pack));
+      return icon.enabledFor.some((pack) => this.atomConfig.activeIconPacks.includes(pack));
     });
   }
 
@@ -112,7 +108,7 @@ export class FileJsonGenerator extends JsonGenerator {
    * @private
    */
   private getCustomAssociations(): FileAssociation[] {
-    const fileAssociations = this.options.filesAssociations;
+    const fileAssociations = this.atomConfig.filesAssociations;
     if (!fileAssociations) return [];
 
     return Object.entries(fileAssociations).map(([key, value]) => ({
@@ -283,7 +279,7 @@ export class FileJsonGenerator extends JsonGenerator {
    * @private
    */
   private shouldOverwriteFileNames(extension: string): Boolean {
-    const customFileAssociations = this.iconConfig.options?.filesAssociations ?? {};
+    const customFileAssociations = this.iconConfig.atomConfig?.filesAssociations ?? {};
 
     return Object.keys(customFileAssociations).some((key) => {
       // overwrite is enabled if there are two asterisks in the wildcard

@@ -82,7 +82,7 @@ const validateColorInput = (colorInput: string) => {
 export const checkFolderColorStatus = (): string => {
   const defaultOptions = getDefaultIconOptions();
   const config = getMaterialIconsJSON();
-  return config?.options?.folderColor ?? defaultOptions.folders.color!;
+  return config?.atomConfig?.folderColor ?? defaultOptions.folders.color!;
 };
 
 const setColorConfig = (value: string) => {

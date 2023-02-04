@@ -15,9 +15,7 @@ export const toggleExplorerArrows = async () => {
 };
 
 /** Show QuickPick items to select preferred configuration for the explorer arrows. */
-const showQuickPickItems = (
-  status: boolean,
-): Thenable<QuickPickItem | undefined> => {
+const showQuickPickItems = (status: boolean): Thenable<QuickPickItem | undefined> => {
   const on: QuickPickItem = {
     description: i18next.t('toggleSwitch.on'),
     detail: i18next.t('explorerArrows.enable'),
@@ -54,5 +52,5 @@ const handleQuickPickActions = (value: QuickPickItem | undefined) => {
 
 /** Check if arrows are enabled. */
 export const checkArrowStatus = (): boolean => {
-  return !!getMaterialIconsJSON()?.options?.hidesExplorerArrows;
+  return !!getMaterialIconsJSON()?.atomConfig?.hidesExplorerArrows;
 };

@@ -2,17 +2,12 @@ import type { LanguageAssociation } from 'src/@types/icons';
 import type { IconConfiguration } from 'src/models';
 import type { AtomConfig } from 'src/@types/config';
 import merge from 'lodash.merge';
-import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import { languageIcons } from 'src/icons/languageIcons';
-import { JsonGenerator } from 'src/icons/generator/types';
+import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 
-export class LanguageJsonGenerator extends JsonGenerator {
-  constructor(
-    override readonly jsonGenerator: IconThemeGenerator,
-    override readonly options: AtomConfig,
-    override readonly iconConfig: IconConfiguration
-  ) {
-    super(jsonGenerator, options, iconConfig);
+export class LanguageJsonGenerator extends AbstractJsonGenerator {
+  constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
+    super(atomConfig, iconConfig);
   }
 
   /**
@@ -42,7 +37,7 @@ export class LanguageJsonGenerator extends JsonGenerator {
    * @private
    */
   public getCustomLanguageAssociations(): LanguageAssociation[] {
-    const languagesAssociations = this.options.languagesAssociations;
+    const languagesAssociations = this.atomConfig.languagesAssociations;
     if (!languagesAssociations) return [];
 
     return Object.entries(languagesAssociations).map(([key, value]) => ({
@@ -61,7 +56,7 @@ export class LanguageJsonGenerator extends JsonGenerator {
    * @private
    */
   public disableLanguagesByPack(languageIcons: LanguageAssociation[]): LanguageAssociation[] {
-    const activeIconPacks = this.options.activeIconPacks;
+    const activeIconPacks = this.atomConfig.activeIconPacks;
 
     return languageIcons.filter((language) => {
       if (!language.enabledFor) return true;
@@ -79,7 +74,7 @@ export class LanguageJsonGenerator extends JsonGenerator {
   private loadLanguageAssociation(language: LanguageAssociation) {
     const assocName = language.icon.name;
     // First create the file association to map the language ids to
-    this.jsonGenerator.addFileAssociation(assocName);
+    // this.addFileAssociation(assocName);
 
     // Add regular language association
     this.addLanguageAssociation(assocName, language.ids);

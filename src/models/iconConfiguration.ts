@@ -2,7 +2,7 @@ import type { AtomConfig } from 'src/@types/config';
 
 type IconDefinition = {
   iconPath: string;
-}
+};
 
 /**
  * A model representing the icon theme configuration.
@@ -75,7 +75,7 @@ export class IconConfiguration {
   /**
    * Atom file config
    */
-  options?: Partial<AtomConfig>;
+  atomConfig?: Partial<AtomConfig>;
 
   constructor(options: Partial<AtomConfig> = {}) {
     this.iconDefinitions = {};
@@ -98,6 +98,6 @@ export class IconConfiguration {
       fileNames: {},
     };
 
-    this.options = options;
+    this.atomConfig = options;
   }
 }

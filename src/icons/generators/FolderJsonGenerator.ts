@@ -1,7 +1,6 @@
 import type { AtomConfig } from 'src/@types/config';
 import { FolderTheme } from 'src/@types/config';
 import type { FolderAssociation, FolderAssociations, IconAssociations } from 'src/@types/icons';
-import type { IconThemeGenerator } from 'src/icons/generator/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 import { folderIcons } from 'src/icons/index';
 import {
@@ -10,21 +9,19 @@ import {
   OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
-  FULLICON_FOLDER_PATH,
+  DIST_PATH,
+  RELATIVE_DIST,
 } from 'src/helpers/constants';
 import { readFileSync, writeFileSync } from 'fs';
 import merge from 'lodash.merge';
-import { JsonGenerator } from 'src/icons/generator/types';
 import { path } from 'app-root-path';
 import { join } from 'path';
+import { getFileConfigHash } from 'src/icons/configUtils';
+import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 
-export class FolderJsonGenerator extends JsonGenerator {
-  constructor(
-    override readonly jsonGenerator: IconThemeGenerator,
-    override readonly options: AtomConfig,
-    override readonly iconConfig: IconConfiguration
-  ) {
-    super(jsonGenerator, options, iconConfig);
+export class FolderJsonGenerator extends AbstractJsonGenerator {
+  constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
+    super(atomConfig, iconConfig);
   }
 
   /**
@@ -32,16 +29,16 @@ export class FolderJsonGenerator extends JsonGenerator {
    */
   public loadFolderIconAssociations() {
     // Early return if no folder theme
-    if (this.options.folderTheme === FolderTheme.None) return;
+    if (this.atomConfig.folderTheme === FolderTheme.None) return;
 
     // First, get the folder theme's associations
-    const folderThemeAssociations = this.getFolderThemeAssociations(this.options.folderTheme);
+    const folderThemeAssociations = this.getFolderThemeAssociations(this.atomConfig.folderTheme);
 
     // first, remove languages by pack
     const enabledAssociations = this.disableAssociationsByPack(folderThemeAssociations);
 
     // next, load custom file associations
-    const customAssociations = this.getCustomAssociations(this.options.foldersAssociations);
+    const customAssociations = this.getCustomAssociations(this.atomConfig.foldersAssociations);
     const allFolderAssociations = [...enabledAssociations, ...customAssociations];
 
     // next, load the folder associations inside the json
@@ -83,7 +80,7 @@ export class FolderJsonGenerator extends JsonGenerator {
     return folderIcons.icons.filter((icon) => {
       if (!icon.enabledFor) return true;
 
-      return icon.enabledFor.some((pack) => this.options.activeIconPacks.includes(pack));
+      return icon.enabledFor.some((pack) => this.atomConfig.activeIconPacks.includes(pack));
     });
   }
 
@@ -174,7 +171,7 @@ export class FolderJsonGenerator extends JsonGenerator {
     if (!this.iconConfig.iconDefinitions) return;
 
     // First generates a hash to append to the icon if custom color, opacity or saturation
-    const fileConfigHash = this.jsonGenerator.getFileConfigHash(this.iconConfig.options ?? {});
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
 
     // Add the folders and foldersExpanded icons
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
@@ -274,8 +271,13 @@ export class FolderJsonGenerator extends JsonGenerator {
     }
   }
 
+  /**
+   * Generate the colored folders
+   * @param {FolderAssociations} folderTheme
+   * @private
+   */
   private generateColoredFolders(folderTheme: FolderAssociations) {
-    const folderColor = this.options.folderColor;
+    const folderColor = this.atomConfig.folderColor;
     if (!folderColor) return;
 
     const folderName = folderTheme.defaultIcon.name;
@@ -286,24 +288,49 @@ export class FolderJsonGenerator extends JsonGenerator {
 
     if (!folderPath || !openFolderPath) return;
 
-    // Need to replace the saved path ith the root folder, otherwise it can
     let folderSvg = readFileSync(folderPath.replace('./..', path), 'utf8');
     let folderOpenSvg = readFileSync(openFolderPath.replace('./..', path), 'utf8');
 
     folderSvg = folderSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
     folderOpenSvg = folderOpenSvg.replace(/fill="#[a-fA-F0-9]{6}"/g, `fill="${folderColor}"`);
 
-    this.writeSVG(folderSvg, 'folders');
-    this.writeSVG(folderOpenSvg, 'foldersOpen');
+    this.writeSVGToDist(folderSvg, 'folder');
+    this.writeSVGToDist(folderOpenSvg, 'folderOpen');
+
+    this.addColoredFolderAssociation();
   }
 
-  private writeSVG(svg: string, iconName: string) {
-    const iconsPath = join(FULLICON_FOLDER_PATH);
-    const iconsFolderPath = join(iconsPath, `${iconName}.svg`);
+  /**
+   * Write the svg in the dist folder
+   * @param {string} svg the svg to write
+   * @param {string} iconName the folder icon name
+   * @private
+   */
+  private writeSVGToDist(svg: string, iconName: string) {
+    const iconsFolderPath = join(DIST_PATH, `${iconName}.svg`);
     try {
       writeFileSync(iconsFolderPath, svg);
     } catch (error) {
       console.error(error);
     }
+  }
+
+  /**
+   * Add the folder association to the config
+   * @private
+   */
+  private addColoredFolderAssociation() {
+    if (!this.iconConfig.iconDefinitions) return;
+
+    // First generates a hash to append to the icon if custom color, opacity or saturation
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
+
+    // Add the folders and foldersExpanded icons
+    this.iconConfig.iconDefinitions['folder'] = {
+      iconPath: `${RELATIVE_DIST}/folder${fileConfigHash}.svg`,
+    };
+    this.iconConfig.iconDefinitions['folder-open'] = {
+      iconPath: `${RELATIVE_DIST}/folderOpen${fileConfigHash}.svg`,
+    };
   }
 }

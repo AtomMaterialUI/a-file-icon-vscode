@@ -39,7 +39,7 @@ const validateSaturationInput = (saturationInput: string) => {
 export const getCurrentSaturationValue = (): number => {
   const defaultOptions = getDefaultIconOptions();
   const config = getMaterialIconsJSON();
-  return config?.options?.saturation ?? defaultOptions.saturation;
+  return config?.atomConfig?.saturation ?? defaultOptions.saturation;
 };
 
 const setSaturationConfig = (saturation: number) => {

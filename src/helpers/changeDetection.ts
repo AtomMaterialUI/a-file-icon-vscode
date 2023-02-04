@@ -48,21 +48,14 @@ const compareConfigs = (): {
             globalValue: unknown;
             workspaceValue: unknown;
             defaultValue: unknown;
-          },
+          }
         );
 
-        const currentState = getObjectPropertyValue(
-          json.options ?? {},
-          configName,
-        );
+        const currentState = getObjectPropertyValue(json.atomConfig ?? {}, configName);
 
         if (JSON.stringify(configValue) !== JSON.stringify(currentState)) {
-          setObjectPropertyValue(json.options as {}, configName, configValue);
-          setObjectPropertyValue(
-            result.updatedConfigs,
-            configName,
-            configValue,
-          );
+          setObjectPropertyValue(json.atomConfig as {}, configName, configValue);
+          setObjectPropertyValue(result.updatedConfigs, configName, configValue);
         }
       } catch (error) {
         console.error(error);
@@ -72,8 +65,8 @@ const compareConfigs = (): {
     },
     {
       updatedConfigs: {} as IconJsonOptions,
-      updatedJSONConfig: json.options as IconJsonOptions,
-    },
+      updatedJSONConfig: json.atomConfig as IconJsonOptions,
+    }
   );
 };
 
@@ -83,27 +76,12 @@ const compareConfigs = (): {
  * @param themeConfig Theme configuration
  * @returns Actual theme configuration value
  */
-const getConfigValue = (themeConfig: {
-  globalValue: unknown;
-  workspaceValue: unknown;
-  defaultValue: unknown;
-}) => {
+const getConfigValue = (themeConfig: { globalValue: unknown; workspaceValue: unknown; defaultValue: unknown }) => {
   let configValue;
-  if (
-    typeof themeConfig.workspaceValue === 'object' &&
-    themeConfig.workspaceValue &&
-    themeConfig.globalValue
-  ) {
-    configValue = merge(
-      {},
-      themeConfig.workspaceValue,
-      themeConfig.globalValue,
-    );
+  if (typeof themeConfig.workspaceValue === 'object' && themeConfig.workspaceValue && themeConfig.globalValue) {
+    configValue = merge({}, themeConfig.workspaceValue, themeConfig.globalValue);
   } else {
-    configValue =
-      themeConfig.workspaceValue ??
-      themeConfig.globalValue ??
-      themeConfig.defaultValue;
+    configValue = themeConfig.workspaceValue ?? themeConfig.globalValue ?? themeConfig.defaultValue;
   }
   return configValue;
 };

@@ -8,7 +8,6 @@ import i18next from 'i18next';
 import type { IconAssociations } from 'src/@types/icons';
 
 export class ConfigService implements AtomConfig {
-
   // region ------------------------ Atom Config -----------------------
   get showReloadMessage() {
     return this.getConfigValue<boolean>('showReloadMessage') ?? true;
@@ -51,13 +50,15 @@ export class ConfigService implements AtomConfig {
   }
 
   get activeIconPacks() {
-    return this.getConfigValue<IconPack[]>('activeIconPacks') ?? [
-      IconPack.Angular,
-      IconPack.React,
-      IconPack.Phalcon,
-      IconPack.Rails,
-      IconPack.Vue,
-    ];
+    return (
+      this.getConfigValue<IconPack[]>('activeIconPacks') ?? [
+        IconPack.Angular,
+        IconPack.React,
+        IconPack.Phalcon,
+        IconPack.Rails,
+        IconPack.Vue,
+      ]
+    );
   }
 
   set activeIconPacks(v: IconPack[]) {
@@ -118,6 +119,8 @@ export class ConfigService implements AtomConfig {
     notificationsService.showMessage(i18next.t('activated'));
   }
 
+  // endregion
+
   /**
    * Checks if the plugin is already activated, globally or not
    * @returns {boolean}
@@ -133,8 +136,6 @@ export class ConfigService implements AtomConfig {
   public activateIcons(): void {
     this.iconTheme = EXTENSION_KEY;
   }
-
-  // endregion
 
   /**
    * Get a value from the configuration
@@ -153,7 +154,11 @@ export class ConfigService implements AtomConfig {
    * @param scope a scope, that can be either global, workspace or folder based
    * @private
    */
-  public setConfigValue(key: keyof AtomConfig, value: unknown, scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder): void {
+  public setConfigValue(
+    key: keyof AtomConfig,
+    value: unknown,
+    scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder
+  ): void {
     this.getPluginConfig().update(key, value, scope);
   }
 
@@ -183,7 +188,6 @@ export class ConfigService implements AtomConfig {
   private getConfig(section?: string): WorkspaceConfiguration {
     return workspace.getConfiguration(section);
   }
-
 }
 
 export const configService = new ConfigService();

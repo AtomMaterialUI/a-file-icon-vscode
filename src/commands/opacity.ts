@@ -38,7 +38,7 @@ const validateOpacityInput = (opacityInput: string) => {
 export const getCurrentOpacityValue = (): number => {
   const defaultOptions = getDefaultIconOptions();
   const config = getMaterialIconsJSON();
-  return config?.options?.opacity ?? defaultOptions.opacity;
+  return config?.atomConfig?.opacity ?? defaultOptions.opacity;
 };
 
 const setOpacityConfig = (opacity: number) => {
