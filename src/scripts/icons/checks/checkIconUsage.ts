@@ -1,16 +1,10 @@
 import * as fs from 'fs';
 import * as path from 'path';
-import type { DefaultIcon, FolderIcon } from '../../../models/index';
-import {
-  fileIcons,
-  folderIcons,
-  highContrastColorFileEnding,
-  languageIcons,
-  darkFileEnding,
-  openedFolder,
-} from './../../../icons';
-import * as painter from './../../helpers/painter';
 import type { FolderAssociations } from 'src/@types/icons';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, OPENED_FOLDER_SUFFIX } from 'src/helpers/constants';
+import type { DefaultIcon, FolderIcon } from '../../../models/index';
+import { fileIcons, folderIcons, languageIcons } from './../../../icons';
+import * as painter from './../../helpers/painter';
 
 /**
  * Defines the folder where all icon files are located.
@@ -54,7 +48,8 @@ const handleErrors = () => {
   const amountOfUnusedIcons = Object.keys(availableIcons).length;
   if (amountOfUnusedIcons === 0) {
     console.log('> Atom Material Icons:', painter.green('Passed icon usage checks!'));
-  } else {
+  }
+  else {
     console.log('> Atom Material Icons: ' + painter.red(`${amountOfUnusedIcons} unused icon(s):`));
     Object.keys(availableIcons).forEach((icon) => {
       console.log(painter.red(`- ${availableIcons[icon]}`));
@@ -69,11 +64,11 @@ export const check = () => fs.readdir(folderPath, fsReadAllIconFiles);
 const getAllUsedFileIcons = (): string[] => {
   return [
     fileIcons.defaultIcon.name,
-    fileIcons.defaultIcon.light ? fileIcons.defaultIcon.name + darkFileEnding : '',
-    fileIcons.defaultIcon.highContrast ? fileIcons.defaultIcon.name + highContrastColorFileEnding : '',
+    fileIcons.defaultIcon.light ? fileIcons.defaultIcon.name + DARK_FILE_ENDING : '',
+    fileIcons.defaultIcon.highContrast ? fileIcons.defaultIcon.name + HIGH_CONTRAST_FILE_ENDING : '',
     ...fileIcons.icons.map((icon) => icon.name),
-    ...fileIcons.icons.filter((icon) => icon.light).map((icon) => icon.name + darkFileEnding),
-    ...fileIcons.icons.filter((icon) => icon.highContrast).map((icon) => icon.name + highContrastColorFileEnding),
+    ...fileIcons.icons.filter((icon) => icon.light).map((icon) => icon.name + DARK_FILE_ENDING),
+    ...fileIcons.icons.filter((icon) => icon.highContrast).map((icon) => icon.name + HIGH_CONTRAST_FILE_ENDING),
   ].filter((f) => f !== '');
 };
 
@@ -85,11 +80,11 @@ const getAllUsedFolderIcons = (): string[] => {
     .map((icon) => {
       return [
         icon.name,
-        icon.name + openedFolder,
-        icon.light ? icon.name + darkFileEnding : '',
-        icon.light ? icon.name + openedFolder + darkFileEnding : '',
-        icon.highContrast ? icon.name + highContrastColorFileEnding : '',
-        icon.highContrast ? icon.name + openedFolder + highContrastColorFileEnding : '',
+        icon.name + OPENED_FOLDER_SUFFIX,
+        icon.light ? icon.name + DARK_FILE_ENDING : '',
+        icon.light ? icon.name + OPENED_FOLDER_SUFFIX + DARK_FILE_ENDING : '',
+        icon.highContrast ? icon.name + HIGH_CONTRAST_FILE_ENDING : '',
+        icon.highContrast ? icon.name + OPENED_FOLDER_SUFFIX + HIGH_CONTRAST_FILE_ENDING : '',
       ];
     })
     .filter((icon) => icon !== undefined)
@@ -108,9 +103,9 @@ const getAllFolderIcons = (theme: FolderAssociations): Array<DefaultIcon | Folde
 const getAllUsedLanguageIcons = (): string[] => {
   return [
     ...languageIcons.map((lang) => lang.icon.name),
-    ...languageIcons.filter((lang) => lang.icon.light).map((lang) => lang.icon.name + darkFileEnding),
+    ...languageIcons.filter((lang) => lang.icon.light).map((lang) => lang.icon.name + DARK_FILE_ENDING),
     ...languageIcons
       .filter((lang) => lang.icon.highContrast)
-      .map((lang) => lang.icon.name + highContrastColorFileEnding),
+      .map((lang) => lang.icon.name + HIGH_CONTRAST_FILE_ENDING),
   ];
 };

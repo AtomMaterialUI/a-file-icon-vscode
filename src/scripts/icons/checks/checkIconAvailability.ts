@@ -1,17 +1,11 @@
 import * as fs from 'fs';
 import * as path from 'path';
+import type { FolderAssociations } from 'src/@types/icons';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, OPENED_FOLDER_SUFFIX } from 'src/helpers/constants';
+import { similarity } from 'src/helpers/utils';
 import type { DefaultIcon, FileIcon, FolderIcon } from '../../../models/index';
 import * as painter from '../../helpers/painter';
-import {
-  fileIcons,
-  folderIcons,
-  highContrastColorFileEnding,
-  languageIcons,
-  darkFileEnding,
-  openedFolder,
-} from './../../../icons';
-import { similarity } from 'src/helpers/utils';
-import type { FolderAssociations } from 'src/@types/icons';
+import { fileIcons, folderIcons, languageIcons } from './../../../icons';
 
 /**
  * Defines the folder where all icon files are located.
@@ -73,14 +67,14 @@ const isIconAvailable = (
   icon: DefaultIcon | FileIcon | FolderIcon,
   iconType: IconType,
   iconColor: IconColor,
-  hasOpenedFolder?: boolean
+  hasOpenedFolder?: boolean,
 ) => {
-  let iconName = `${icon.name}${hasOpenedFolder ? openedFolder : ''}`;
+  let iconName = `${icon.name}${hasOpenedFolder ? OPENED_FOLDER_SUFFIX : ''}`;
   if (icon.light && iconColor === IconColor.light) {
-    iconName += darkFileEnding;
+    iconName += DARK_FILE_ENDING;
   }
   if (icon.highContrast && iconColor === IconColor.highContrast) {
-    iconName += highContrastColorFileEnding;
+    iconName += HIGH_CONTRAST_FILE_ENDING;
   }
 
   if (!availableIcons[iconName] && wrongIconNames[iconType].indexOf(iconName) === -1) {
@@ -129,10 +123,11 @@ const checkLanguageIcons = () => {
  */
 const handleErrors = () => {
   const amountOfErrors =
-    wrongIconNames.fileIcons.length + wrongIconNames.folderIcons.length + wrongIconNames.languageIcons.length;
+          wrongIconNames.fileIcons.length + wrongIconNames.folderIcons.length + wrongIconNames.languageIcons.length;
   if (amountOfErrors > 0) {
     console.log('> Atom Material Icons:', painter.red(`Found ${amountOfErrors} error(s) in the icon configuration!`));
-  } else {
+  }
+  else {
     console.log('> Atom Material Icons:', painter.green('Passed icon availability checks!'));
   }
   logIconInformation(wrongIconNames.fileIcons, 'File icons');
@@ -154,31 +149,31 @@ const logIconInformation = (wrongIcons: string[], title: string) => {
       return similarity(icon, i) > 0.75;
     });
     const suggestionString = suggestion ? ` (Did you mean ${painter.green(suggestion)}?)` : '';
-    const isWrongLightVersion = icon.endsWith(darkFileEnding);
+    const isWrongLightVersion = icon.endsWith(DARK_FILE_ENDING);
     const isWrongLightVersionString = isWrongLightVersion
       ? ` (There is no light icon for ${painter.green(icon.slice(0, -6))}! Set the light option to false!)`
       : '';
-    const isWrongHighContrastVersion = icon.endsWith(highContrastColorFileEnding);
+    const isWrongHighContrastVersion = icon.endsWith(HIGH_CONTRAST_FILE_ENDING);
     const isWrongHighContrastVersionString = isWrongHighContrastVersion
       ? ` (There is no high contrast icon for ${painter.green(
-          icon.slice(0, -13)
-        )}! Set the highContrast option to false!)`
+        icon.slice(0, -13),
+      )}! Set the highContrast option to false!)`
       : '';
     console.log(
       painter.red(`Icon not found: ${icon}.svg`) +
-        `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`
+      `${suggestionString}${isWrongLightVersionString}${isWrongHighContrastVersionString}`,
     );
   });
 };
 
 enum IconType {
-  fileIcons = 'fileIcons',
-  folderIcons = 'folderIcons',
+  fileIcons     = 'fileIcons',
+  folderIcons   = 'folderIcons',
   languageIcons = 'languageIcons',
 }
 
 enum IconColor {
-  default = 'default',
-  light = 'light',
+  default      = 'default',
+  light        = 'light',
   highContrast = 'highContrast',
 }

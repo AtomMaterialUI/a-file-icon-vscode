@@ -1,4 +1,5 @@
 import merge from 'lodash.merge';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, ICON_FOLDER_PATH } from 'src/helpers/constants';
 import { getFileConfigHash } from '../../helpers/fileConfig';
 import type {
   DefaultIcon,
@@ -7,7 +8,6 @@ import type {
   IconJsonOptions,
   LanguageIcon,
 } from '../../models/index';
-import { highContrastColorFileEnding, iconFolderPath, darkFileEnding } from './constants';
 
 /**
  * Get all file icons that can be used in this theme.
@@ -15,7 +15,7 @@ import { highContrastColorFileEnding, iconFolderPath, darkFileEnding } from './c
 export const loadLanguageIconDefinitions = (
   languages: LanguageIcon[],
   config: IconConfiguration,
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   config = merge({}, config);
   const enabledLanguages = disableLanguagesByPack(languages, options.activeIconPack);
@@ -29,9 +29,10 @@ export const loadLanguageIconDefinitions = (
     config = setIconDefinitions(config, lang.icon);
 
     if (lang.icon.light) {
-      config = merge({}, config, setLanguageIdentifiers(lang.icon.name + darkFileEnding, lang.ids));
+      config = merge({}, config, setLanguageIdentifiers(lang.icon.name + DARK_FILE_ENDING, lang.ids));
       config.light = merge({}, config.light, setLanguageIdentifiers(lang.icon.name, lang.ids));
-    } else {
+    }
+    else {
       config = merge({}, config, setLanguageIdentifiers(lang.icon.name, lang.ids));
     }
 
@@ -39,7 +40,7 @@ export const loadLanguageIconDefinitions = (
       config.highContrast = merge(
         {},
         config.highContrast,
-        setLanguageIdentifiers(lang.icon.name + highContrastColorFileEnding, lang.ids)
+        setLanguageIdentifiers(lang.icon.name + HIGH_CONTRAST_FILE_ENDING, lang.ids),
       );
     }
   });
@@ -52,11 +53,11 @@ const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon) => {
   config = createIconDefinitions(config, icon.name);
 
   if (icon.light) {
-    config = merge({}, config, createIconDefinitions(config, icon.name + darkFileEnding));
+    config = merge({}, config, createIconDefinitions(config, icon.name + DARK_FILE_ENDING));
   }
 
   if (icon.highContrast) {
-    config = merge({}, config, createIconDefinitions(config, icon.name + highContrastColorFileEnding));
+    config = merge({}, config, createIconDefinitions(config, icon.name + HIGH_CONTRAST_FILE_ENDING));
   }
 
   return config;
@@ -67,7 +68,7 @@ const createIconDefinitions = (config: IconConfiguration, iconName: string) => {
   const fileConfigHash = getFileConfigHash(config.atomConfig ?? {});
   if (config.iconDefinitions) {
     config.iconDefinitions[iconName] = {
-      iconPath: `${iconFolderPath}/files/${iconName}${fileConfigHash}.svg`,
+      iconPath: `${ICON_FOLDER_PATH}/files/${iconName}${fileConfigHash}.svg`,
     };
   }
   return config;

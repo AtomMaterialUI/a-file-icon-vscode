@@ -34,3 +34,5 @@ export const DARK_FILE_ENDING = '_dark';
 export const HIGH_CONTRAST_FILE_ENDING = '_highContrast';
 export const WILDCARD_PATTERN = new RegExp(/^\*{1,2}\./);
 export const OPENED_FOLDER_SUFFIX = '-open';
+
+export const JSON_FILE_NAME = 'a-file-icon-vscode-icon-theme.json';

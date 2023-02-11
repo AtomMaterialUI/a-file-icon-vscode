@@ -10,7 +10,12 @@ import type {
   IconConfiguration,
   IconJsonOptions,
 } from '../../models/index';
-import { darkFileEnding, highContrastColorFileEnding, iconFolderPath, openedFolder } from './constants';
+import {
+  DARK_FILE_ENDING,
+  HIGH_CONTRAST_FILE_ENDING,
+  ICON_FOLDER_PATH,
+  OPENED_FOLDER_SUFFIX,
+} from 'src/helpers/constants';
 
 /**
  * Get the folder icon definitions as object.
@@ -18,7 +23,7 @@ import { darkFileEnding, highContrastColorFileEnding, iconFolderPath, openedFold
 export const loadFolderIconDefinitions = (
   folderThemes: FolderTheme[],
   config: IconConfiguration,
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   config = merge({}, config);
   const activeTheme = getEnabledFolderTheme(folderThemes, options.folders?.theme);
@@ -40,10 +45,10 @@ export const loadFolderIconDefinitions = (
     config = setIconDefinitions(config, icon);
     config = merge({}, config, setFolderNames(icon.name, icon.folderNames));
     config.light = icon.light
-      ? merge({}, config.light, setFolderNames(icon.name, icon.folderNames, darkFileEnding))
+      ? merge({}, config.light, setFolderNames(icon.name, icon.folderNames, DARK_FILE_ENDING))
       : config.light;
     config.highContrast = icon.highContrast
-      ? merge({}, config.highContrast, setFolderNames(icon.name, icon.folderNames, highContrastColorFileEnding))
+      ? merge({}, config.highContrast, setFolderNames(icon.name, icon.folderNames, HIGH_CONTRAST_FILE_ENDING))
       : config.highContrast;
   });
 
@@ -62,20 +67,20 @@ const setDefaultFolderIcons = (theme: FolderTheme, config: IconConfiguration): I
   }
   config = merge({}, config, createDefaultIconConfigObject(hasFolderIcons, theme, ''));
   config.light = theme.defaultIcon.light
-    ? merge({}, config.light, createDefaultIconConfigObject(hasFolderIcons, theme, darkFileEnding))
+    ? merge({}, config.light, createDefaultIconConfigObject(hasFolderIcons, theme, DARK_FILE_ENDING))
     : config.light;
   config.highContrast = theme.defaultIcon.highContrast
-    ? merge({}, config.highContrast, createDefaultIconConfigObject(hasFolderIcons, theme, highContrastColorFileEnding))
+    ? merge({}, config.highContrast, createDefaultIconConfigObject(hasFolderIcons, theme, HIGH_CONTRAST_FILE_ENDING))
     : config.highContrast;
 
   config = merge({}, config, createRootIconConfigObject(hasFolderIcons, theme, ''));
   if (theme.rootFolder) {
     config = setIconDefinitions(config, theme.rootFolder);
     config.light = theme.rootFolder.light
-      ? merge({}, config.light, createRootIconConfigObject(hasFolderIcons, theme, darkFileEnding))
+      ? merge({}, config.light, createRootIconConfigObject(hasFolderIcons, theme, DARK_FILE_ENDING))
       : config.light;
     config.highContrast = theme.rootFolder.highContrast
-      ? merge({}, config.highContrast, createRootIconConfigObject(hasFolderIcons, theme, highContrastColorFileEnding))
+      ? merge({}, config.highContrast, createRootIconConfigObject(hasFolderIcons, theme, HIGH_CONTRAST_FILE_ENDING))
       : config.highContrast;
   }
 
@@ -94,7 +99,7 @@ const getEnabledFolderTheme = (themes: FolderTheme[], enabledTheme: string | und
  */
 const disableIconsByPack = (
   folderIcons: FolderTheme | undefined,
-  activatedIconPack: string | undefined
+  activatedIconPack: string | undefined,
 ): FolderIcon[] => {
   if (!folderIcons?.icons || folderIcons.icons.length === 0) {
     return [];
@@ -108,10 +113,10 @@ const setIconDefinitions = (config: IconConfiguration, icon: DefaultIcon | Folde
   config = merge({}, config);
   config = createIconDefinitions(config, icon.name);
   if (icon.light) {
-    config = merge({}, config, createIconDefinitions(config, icon.name, darkFileEnding));
+    config = merge({}, config, createIconDefinitions(config, icon.name, DARK_FILE_ENDING));
   }
   if (icon.highContrast) {
-    config = merge({}, config, createIconDefinitions(config, icon.name, highContrastColorFileEnding));
+    config = merge({}, config, createIconDefinitions(config, icon.name, HIGH_CONTRAST_FILE_ENDING));
   }
   return config;
 };
@@ -122,10 +127,10 @@ const createIconDefinitions = (config: IconConfiguration, iconName: string, appe
   const configIconDefinitions = config.iconDefinitions;
   if (configIconDefinitions) {
     configIconDefinitions[`${iconName}${appendix}`] = {
-      iconPath: `${iconFolderPath}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
+      iconPath: `${ICON_FOLDER_PATH}/folders/${iconName}${appendix}${fileConfigHash}.svg`,
     };
-    configIconDefinitions[`${iconName}${openedFolder}${appendix}`] = {
-      iconPath: `${iconFolderPath}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
+    configIconDefinitions[`${iconName}${OPENED_FOLDER_SUFFIX}${appendix}`] = {
+      iconPath: `${ICON_FOLDER_PATH}/foldersOpen/${iconName}${appendix}${fileConfigHash}.svg`,
     };
   }
   return config;
@@ -143,9 +148,9 @@ const setFolderNames = (iconName: string, folderNames: string[], appendix = '') 
       obj.folderNames[`_${name}`] = iconName + appendix;
     }
     if (obj.folderNamesExpanded) {
-      obj.folderNamesExpanded[name] = `${iconName}${openedFolder}${appendix}`;
-      obj.folderNamesExpanded[`.${name}`] = `${iconName}${openedFolder}${appendix}`;
-      obj.folderNamesExpanded[`_${name}`] = `${iconName}${openedFolder}${appendix}`;
+      obj.folderNamesExpanded[name] = `${iconName}${OPENED_FOLDER_SUFFIX}${appendix}`;
+      obj.folderNamesExpanded[`.${name}`] = `${iconName}${OPENED_FOLDER_SUFFIX}${appendix}`;
+      obj.folderNamesExpanded[`_${name}`] = `${iconName}${OPENED_FOLDER_SUFFIX}${appendix}`;
     }
   });
   return obj;
@@ -157,7 +162,7 @@ const createDefaultIconConfigObject = (hasFolderIcons: boolean, theme: FolderThe
     folderExpanded: '',
   };
   obj.folder = hasFolderIcons ? theme.defaultIcon.name + appendix : '';
-  obj.folderExpanded = hasFolderIcons ? `${theme.defaultIcon.name}${openedFolder}${appendix}` : '';
+  obj.folderExpanded = hasFolderIcons ? `${theme.defaultIcon.name}${OPENED_FOLDER_SUFFIX}${appendix}` : '';
   return obj;
 };
 
@@ -173,8 +178,8 @@ const createRootIconConfigObject = (hasFolderIcons: boolean, theme: FolderTheme,
     : '';
   obj.rootFolderExpanded = hasFolderIcons
     ? theme.rootFolder
-      ? `${theme.rootFolder.name}${openedFolder}${appendix}`
-      : `${theme.defaultIcon.name}${openedFolder}${appendix}`
+      ? `${theme.rootFolder.name}${OPENED_FOLDER_SUFFIX}${appendix}`
+      : `${theme.defaultIcon.name}${OPENED_FOLDER_SUFFIX}${appendix}`
     : '';
   return obj;
 };
@@ -200,11 +205,11 @@ export const generateFolderIcons = (color: string | undefined) => {
 
   const folderIcon = 'M10 4H4c-1.11 0-2 .89-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8c0-1.11-.9-2-2-2h-8l-2-2z';
   const folderIconOpen =
-    'M19 20H4c-1.11 0-2-.9-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5z';
+          'M19 20H4c-1.11 0-2-.9-2-2V6c0-1.11.89-2 2-2h6l2 2h7a2 2 0 0 1 2 2H4v10l2.14-8h17.07l-2.28 8.5c-.23.87-1.01 1.5-1.93 1.5z';
   const rootFolderIcon =
-    'M12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 5a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5z';
+          'M12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 5a5 5 0 0 0-5 5 5 5 0 0 0 5 5 5 5 0 0 0 5-5 5 5 0 0 0-5-5z';
   const rootFolderIconOpen =
-    'M12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z';
+          'M12 20a8 8 0 0 1-8-8 8 8 0 0 1 8-8 8 8 0 0 1 8 8 8 8 0 0 1-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2z';
 
   writeSVGFiles('folder', getSVG(getPath(folderIcon, color)));
   writeSVGFiles('folder-open', getSVG(getPath(folderIconOpen, color)));
@@ -212,22 +217,24 @@ export const generateFolderIcons = (color: string | undefined) => {
   writeSVGFiles('folder-root-open', getSVG(getPath(rootFolderIconOpen, color)));
 };
 
-const getPath = (d: string, color: string) => `<path d="${d}" fill="${color}" />`;
+const getPath = (d: string, color: string) => `<path d='${d}' fill='${color}' />`;
 
-const getSVG = (path: string) => `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">${path}</svg>`;
+const getSVG = (path: string) => `<svg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>${path}</svg>`;
 
 const writeSVGFiles = (iconName: string, svg: string) => {
   let iconsPath;
   if (path.basename(__dirname) === 'dist') {
     iconsPath = path.join(__dirname, '..', 'icons');
-  } else {
+  }
+  else {
     // executed via script
     iconsPath = path.join(__dirname, '..', '..', '..', 'icons');
   }
   const iconsFolderPath = path.join(iconsPath, `${iconName}.svg`);
   try {
     writeFileSync(iconsFolderPath, svg);
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 };

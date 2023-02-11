@@ -1,8 +1,10 @@
-import merge from 'lodash.merge';
-import { getFileConfigHash } from '../../helpers/fileConfig';
-import type { FileIcon, FileIcons, IconAssociations, IconJsonOptions } from '../../models/index';
-import { IconConfiguration } from '../../models/index';
-import { highContrastColorFileEnding, iconFolderPath, darkFileEnding, wildcardPattern } from './constants';
+import merge                                                                               from 'lodash.merge';
+import {
+  getFileConfigHash,
+}                                                                                          from '../../helpers/fileConfig';
+import type { FileIcon, FileIcons, IconAssociations, IconJsonOptions }                     from '../../models/index';
+import { IconConfiguration }                                                               from '../../models/index';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, WILDCARD_PATTERN, ICON_FOLDER_PATH } from 'src/helpers/constants';
 
 /**
  * Get all file icons that can be used in this theme.
@@ -10,7 +12,7 @@ import { highContrastColorFileEnding, iconFolderPath, darkFileEnding, wildcardPa
 export const loadFileIconDefinitions = (
   fileIcons_: FileIcons[],
   config: IconConfiguration,
-  options: IconJsonOptions
+  options: IconJsonOptions,
 ): IconConfiguration => {
   config = merge({}, config);
   const fileIcons = fileIcons_[0];
@@ -25,10 +27,10 @@ export const loadFileIconDefinitions = (
     config = merge({}, config, setIconDefinition(config, icon.name));
 
     if (icon.light) {
-      config = merge({}, config, setIconDefinition(config, icon.name, darkFileEnding));
+      config = merge({}, config, setIconDefinition(config, icon.name, DARK_FILE_ENDING));
     }
     if (icon.highContrast) {
-      config = merge({}, config, setIconDefinition(config, icon.name, highContrastColorFileEnding));
+      config = merge({}, config, setIconDefinition(config, icon.name, HIGH_CONTRAST_FILE_ENDING));
     }
 
     if (icon.fileExtensions) {
@@ -44,17 +46,17 @@ export const loadFileIconDefinitions = (
   config.file = fileIcons.defaultIcon.name;
 
   if (fileIcons.defaultIcon.light && config.light) {
-    config = merge({}, config, setIconDefinition(config, fileIcons.defaultIcon.name, darkFileEnding));
+    config = merge({}, config, setIconDefinition(config, fileIcons.defaultIcon.name, DARK_FILE_ENDING));
     if (config.light) {
-      config.file = fileIcons.defaultIcon.name + darkFileEnding;
+      config.file = fileIcons.defaultIcon.name + DARK_FILE_ENDING;
       config.light.file = fileIcons.defaultIcon.name;
     }
   }
 
   if (fileIcons.defaultIcon.highContrast) {
-    config = merge({}, config, setIconDefinition(config, fileIcons.defaultIcon.name, highContrastColorFileEnding));
+    config = merge({}, config, setIconDefinition(config, fileIcons.defaultIcon.name, HIGH_CONTRAST_FILE_ENDING));
     if (config.highContrast) {
-      config.highContrast.file = fileIcons.defaultIcon.name + highContrastColorFileEnding;
+      config.highContrast.file = fileIcons.defaultIcon.name + HIGH_CONTRAST_FILE_ENDING;
     }
   }
 
@@ -67,7 +69,7 @@ export const loadFileIconDefinitions = (
 const mapSpecificFileIcons = (
   icon: FileIcon,
   mappingType: FileMappingType,
-  customFileAssociation: IconAssociations = {}
+  customFileAssociation: IconAssociations = {},
 ) => {
   const config = new IconConfiguration();
   const iconMappingType = icon[mappingType as keyof FileIcon] as string[];
@@ -81,7 +83,7 @@ const mapSpecificFileIcons = (
       if (!/^\*{2}\./.test(key)) {
         return false;
       }
-      const fileExtension = key.replace(wildcardPattern, '.');
+      const fileExtension = key.replace(WILDCARD_PATTERN, '.');
 
       // check if the file name contains the particular file extension
       // (e.g. extension ".md" in "Readme.md" -> then overwrite it with the *.md icon)
@@ -99,11 +101,11 @@ const mapSpecificFileIcons = (
 
     configMappingType[name] = icon.name;
     if (icon.light) {
-      configMappingType[name] = `${icon.name}${darkFileEnding}`;
+      configMappingType[name] = `${icon.name}${DARK_FILE_ENDING}`;
       configLightMappingType[name] = `${icon.name}`;
     }
     if (icon.highContrast) {
-      configHighContrastMappingType[name] = `${icon.name}${highContrastColorFileEnding}`;
+      configHighContrastMappingType[name] = `${icon.name}${HIGH_CONTRAST_FILE_ENDING}`;
     }
   });
   return config;
@@ -123,7 +125,7 @@ const setIconDefinition = (config: IconConfiguration, iconName: string, appendix
   if (config.atomConfig) {
     const fileConfigHash = getFileConfigHash(config.atomConfig);
     obj.iconDefinitions![`${iconName}${appendix}`] = {
-      iconPath: `${iconFolderPath}/files/${iconName}${appendix}${fileConfigHash}.svg`,
+      iconPath: `${ICON_FOLDER_PATH}/files/${iconName}${appendix}${fileConfigHash}.svg`,
     };
   }
   return obj;
@@ -138,9 +140,10 @@ const getCustomIcons = (fileAssociations: IconAssociations | undefined) => {
     const icon: Partial<FileIcon> = {
       name: fileAssociations[fa].toLowerCase(),
     };
-    if (wildcardPattern.test(fa)) {
-      icon.fileExtensions = [fa.toLowerCase().replace(wildcardPattern, '')];
-    } else {
+    if (WILDCARD_PATTERN.test(fa)) {
+      icon.fileExtensions = [fa.toLowerCase().replace(WILDCARD_PATTERN, '')];
+    }
+    else {
       icon.fileNames = [fa.toLowerCase()];
     }
     return icon as FileIcon;
@@ -150,5 +153,5 @@ const getCustomIcons = (fileAssociations: IconAssociations | undefined) => {
 
 const enum FileMappingType {
   FileExtensions = 'fileExtensions',
-  FileNames = 'fileNames',
+  FileNames      = 'fileNames',
 }

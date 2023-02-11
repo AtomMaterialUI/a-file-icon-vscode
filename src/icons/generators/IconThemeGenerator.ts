@@ -1,6 +1,6 @@
-import merge from 'lodash.merge';
-import type { AtomConfig } from 'src/@types/config';
-import { IconConfiguration } from 'src/models/iconConfiguration';
+import merge                         from 'lodash.merge';
+import type { AtomConfig }           from 'src/@types/config';
+import { IconConfiguration }         from 'src/models/iconConfiguration';
 import {
   DIST_PATH,
   DIST_FILES_FOLDER_PATH,
@@ -9,18 +9,18 @@ import {
   FULL_FOLDERS_OPEN_FOLDER_PATH,
   DIST_FOLDERS_FOLDER_PATH,
   DIST_FOLDERS_OPEN_FOLDER_PATH,
-} from 'src/helpers/constants';
-import { LanguageJsonGenerator } from 'src/icons/generators/LanguageJsonGenerator';
-import { FileJsonGenerator } from 'src/icons/generators/FileJsonGenerator';
-import { FolderJsonGenerator } from 'src/icons/generators/FolderJsonGenerator';
-import { iconJsonName } from 'src/icons/index';
-import { join } from 'path';
+  JSON_FILE_NAME,
+}                                    from 'src/helpers/constants';
+import { LanguageJsonGenerator }     from './LanguageJsonGenerator';
+import { FileJsonGenerator }         from './FileJsonGenerator';
+import { FolderJsonGenerator }       from './FolderJsonGenerator';
+import { join }                      from 'path';
 import { readdirSync, readFileSync } from 'fs';
-import { outputFileSync } from 'fs-extra';
-import { defaultConfig } from 'src/icons/configUtils';
-import { opacityService } from 'src/icons/generators/OpacityService';
-import { saturationService } from 'src/icons/generators/SaturationService';
-import { folderColorService } from 'src/icons/generators/FolderColorService';
+import { outputFileSync }            from 'fs-extra';
+import { defaultConfig }             from 'src/icons/configUtils';
+import { opacityService }            from './OpacityService';
+import { saturationService }         from './SaturationService';
+import { folderColorService }        from './FolderColorService';
 
 export class IconThemeGenerator {
   atomConfig: AtomConfig;
@@ -53,9 +53,23 @@ export class IconThemeGenerator {
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(DIST_PATH, iconJsonName), JSON.stringify(json, undefined, 2), 'utf-8');
-    } catch (error) {
+      outputFileSync(join(DIST_PATH, JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
+    }
+    catch (error) {
       throw new Error('Failed to create icon file: ' + error);
+    }
+  }
+
+  getJsonTheme() {
+    const iconJSONPath = join(DIST_PATH, JSON_FILE_NAME);
+
+    try {
+      const data = readFileSync(iconJSONPath, 'utf8');
+      return JSON.parse(data);
+    }
+    catch (error) {
+      console.error(error);
+      return {};
     }
   }
 
@@ -125,3 +139,4 @@ export class IconThemeGenerator {
     return svg;
   }
 }
+

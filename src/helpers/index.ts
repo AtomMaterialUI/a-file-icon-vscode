@@ -1,9 +1,9 @@
-import { iconJsonName } from '../icons/index';
-import type { IconConfiguration } from '../models/index';
+import type { IconConfiguration }          from '../models/index';
 import { extensions, workspace, commands } from 'vscode';
-import { showConfirmToReloadMessage } from './../messages/reload';
-import path from 'path';
-import { readFileSync } from 'fs';
+import { showConfirmToReloadMessage }      from './../messages/reload';
+import path                                from 'path';
+import { readFileSync }                    from 'fs';
+import { JSON_FILE_NAME }                  from 'src/helpers/constants';
 
 /** Get configuration of vs code. */
 export const getConfig = (section?: string) => {
@@ -45,9 +45,9 @@ export const setThemeConfig = (
 export const isThemeActivated = (global = false): boolean => {
   return global
     ? getConfig().inspect('workbench.iconTheme')?.globalValue ===
-    'a-file-icon-vscode'
+      'a-file-icon-vscode'
     : getConfig().inspect('workbench.iconTheme')?.workspaceValue ===
-    'a-file-icon-vscode';
+      'a-file-icon-vscode';
 };
 
 /** Checks if the theme is not the active icon theme */
@@ -66,12 +66,13 @@ export const getExtensionPath = () =>
 
 /** Get the configuration of the icons as JSON Object */
 export const getMaterialIconsJSON = (): IconConfiguration => {
-  const iconJSONPath = path.join(getExtensionPath(), 'dist', iconJsonName);
+  const iconJSONPath = path.join(getExtensionPath(), 'dist', JSON_FILE_NAME);
 
   try {
     const data = readFileSync(iconJSONPath, 'utf8');
     return JSON.parse(data);
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
     return {};
   }
@@ -92,5 +93,3 @@ const reloadWindow = () => {
 /** Capitalize the first letter of a string */
 export const capitalizeFirstLetter = (name: string): string =>
   name.charAt(0).toUpperCase() + name.slice(1);
-
-
