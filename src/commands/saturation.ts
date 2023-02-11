@@ -1,8 +1,8 @@
+import i18next from 'i18next';
+import { validateSaturationValue } from 'src/helpers/utils';
+import { defaultConfig } from 'src/icons/configUtils';
 import { window } from 'vscode';
 import { setThemeConfig, getMaterialIconsJSON } from '../helpers';
-
-import { getDefaultIconOptions, validateSaturationValue } from '../icons';
-import i18next from 'i18next';
 
 /** Command to toggle the folder icons. */
 export const changeSaturation = async () => {
@@ -12,7 +12,8 @@ export const changeSaturation = async () => {
     if (response) {
       await setSaturationConfig(+response);
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 };
@@ -20,11 +21,11 @@ export const changeSaturation = async () => {
 /** Show input to enter the saturation value. */
 const showInput = (saturation: number) => {
   return window.showInputBox({
-    placeHolder: i18next.t('saturation.inputPlaceholder'),
-    ignoreFocusOut: true,
-    value: saturation.toString(),
-    validateInput: validateSaturationInput,
-  });
+                               placeHolder: i18next.t('saturation.inputPlaceholder'),
+                               ignoreFocusOut: true,
+                               value: saturation.toString(),
+                               validateInput: validateSaturationInput,
+                             });
 };
 
 /** Validate the saturation value which was inserted by the user. */
@@ -37,7 +38,7 @@ const validateSaturationInput = (saturationInput: string) => {
 
 /** Get the current value of the saturation of the icons. */
 export const getCurrentSaturationValue = (): number => {
-  const defaultOptions = getDefaultIconOptions();
+  const defaultOptions = defaultConfig();
   const config = getMaterialIconsJSON();
   return config?.atomConfig?.saturation ?? defaultOptions.saturation;
 };

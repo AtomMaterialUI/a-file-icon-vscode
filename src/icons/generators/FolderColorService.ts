@@ -1,4 +1,4 @@
-import { validateHEXColorCode } from 'src/icons/generator';
+import { validateHEXColorCode } from 'src/helpers/utils';
 
 class FolderColorService {
   /**

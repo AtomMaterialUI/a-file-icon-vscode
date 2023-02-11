@@ -1,8 +1,9 @@
 import i18next from 'i18next';
+import { validateHEXColorCode } from 'src/helpers/utils';
+import { defaultConfig } from 'src/icons/configUtils';
 import type { QuickPickItem } from 'vscode';
 import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
-import { getDefaultIconOptions, validateHEXColorCode } from '../icons';
 
 type FolderColor = {
   label: string;
@@ -28,7 +29,8 @@ export const changeFolderColor = async () => {
     if (response) {
       handleQuickPickActions(response);
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 };
@@ -39,7 +41,7 @@ const showQuickPickItems = (currentColor: string) => {
     (color): QuickPickItem => ({
       description: color.label,
       label: isColorActive(color, currentColor) ? '\u2714' : '\u25FB',
-    })
+    }),
   );
 
   return window.showQuickPick(options, {
@@ -56,14 +58,15 @@ const handleQuickPickActions = async (value: QuickPickItem) => {
   }
   if (value.description === 'Custom Color') {
     const value = await window.showInputBox({
-      placeHolder: i18next.t('folders.hexCode'),
-      ignoreFocusOut: true,
-      validateInput: validateColorInput,
-    });
+                                              placeHolder: i18next.t('folders.hexCode'),
+                                              ignoreFocusOut: true,
+                                              validateInput: validateColorInput,
+                                            });
     if (value) {
       setColorConfig(value);
     }
-  } else {
+  }
+  else {
     const hexCode = iconPalette.find((c) => c.label === value.description)?.hex;
     if (hexCode) {
       setColorConfig(hexCode);
@@ -80,9 +83,9 @@ const validateColorInput = (colorInput: string) => {
 
 /** Check status of the folder color */
 export const checkFolderColorStatus = (): string => {
-  const defaultOptions = getDefaultIconOptions();
+  const defaultOptions = defaultConfig();
   const config = getMaterialIconsJSON();
-  return config?.atomConfig?.folderColor ?? defaultOptions.folders.color!;
+  return config?.atomConfig?.folderColor ?? defaultOptions.folderColor!;
 };
 
 const setColorConfig = (value: string) => {

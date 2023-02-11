@@ -41,7 +41,8 @@ const editDistance = (s1: string, s2: string) => {
     for (let j = 0; j <= s2.length; j++) {
       if (i === 0) {
         costs[j] = j;
-      } else {
+      }
+      else {
         if (j > 0) {
           let newValue = costs[j - 1];
           if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
@@ -77,4 +78,25 @@ export const getHash = (value: string) => {
 export const getSVGRootElement = (svg: string) => {
   const result = new RegExp(/<svg[^>]*>/).exec(svg);
   return result?.[0];
+};
+
+export const validateHEXColorCode = (color = '') => {
+  const hexPattern = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
+  return color.length > 0 && hexPattern.test(color);
+};
+
+/**
+ * Validate the opacity value.
+ * @param opacity Opacity value
+ */
+export const validateOpacityValue = (opacity: number | undefined) => {
+  return opacity !== undefined && opacity <= 1 && opacity >= 0;
+};
+
+/**
+ * Validate the saturation value.
+ * @param saturation Saturation value
+ */
+export const validateSaturationValue = (saturation: number | undefined) => {
+  return saturation !== undefined && saturation <= 1 && saturation >= 0;
 };

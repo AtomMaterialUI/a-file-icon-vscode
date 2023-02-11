@@ -19,7 +19,8 @@ export const getObjectPropertyValue = (obj: Object, path: string) => {
     const k = pathArray[i];
     if (isObject(result) && k in result) {
       result = result[k];
-    } else {
+    }
+    else {
       return;
     }
   }
@@ -34,9 +35,9 @@ export const getObjectPropertyValue = (obj: Object, path: string) => {
  * Source: https://stackoverflow.com/a/13719799/6942210
  */
 export const setObjectPropertyValue = (
-  obj: { [key: string]: any },
-  path: string | string[],
-  value: any
+  obj: Record<string, any>,
+  path: string[] | string,
+  value: any,
 ) => {
   if (typeof path === 'string') {
     path = path.split('.');
@@ -50,9 +51,10 @@ export const setObjectPropertyValue = (
           ? obj[e]
           : {}),
       path,
-      value
+      value,
     );
-  } else {
+  }
+  else {
     obj[path[0]] = value;
   }
 };

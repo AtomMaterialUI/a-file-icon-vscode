@@ -1,7 +1,8 @@
+import i18next from 'i18next';
+import { validateOpacityValue } from 'src/helpers/utils';
+import { defaultConfig } from 'src/icons/configUtils';
 import { window } from 'vscode';
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
-import { getDefaultIconOptions, validateOpacityValue } from '../icons';
-import i18next from 'i18next';
 
 /** Command to toggle the folder icons. */
 export const changeOpacity = async () => {
@@ -11,7 +12,8 @@ export const changeOpacity = async () => {
     if (response) {
       await setOpacityConfig(+response);
     }
-  } catch (error) {
+  }
+  catch (error) {
     console.error(error);
   }
 };
@@ -19,11 +21,11 @@ export const changeOpacity = async () => {
 /** Show input to enter the opacity value. */
 const showInput = (opacity: number) => {
   return window.showInputBox({
-    placeHolder: i18next.t('opacity.inputPlaceholder'),
-    ignoreFocusOut: true,
-    value: opacity.toString(),
-    validateInput: validateOpacityInput,
-  });
+                               placeHolder: i18next.t('opacity.inputPlaceholder'),
+                               ignoreFocusOut: true,
+                               value: opacity.toString(),
+                               validateInput: validateOpacityInput,
+                             });
 };
 
 /** Validate the opacity value which was inserted by the user. */
@@ -36,7 +38,7 @@ const validateOpacityInput = (opacityInput: string) => {
 
 /** Get the current value of the opacity of the icons. */
 export const getCurrentOpacityValue = (): number => {
-  const defaultOptions = getDefaultIconOptions();
+  const defaultOptions = defaultConfig();
   const config = getMaterialIconsJSON();
   return config?.atomConfig?.opacity ?? defaultOptions.opacity;
 };
