@@ -1,18 +1,10 @@
 import { readdirSync, readFileSync } from 'fs';
 import { outputFileSync } from 'fs-extra';
 import merge from 'lodash.merge';
-import { join } from 'path';
+import { basename, join } from 'path';
 import type { AtomConfig } from 'src/@types/config';
-import {
-  DIST_PATH,
-  getFilesPath,
-  getFoldersOpenPath,
-  getFoldersPath,
-  ICON_GENERATOR_PATH,
-  JSON_FILE_NAME,
-} from 'src/helpers/constants';
-import { getExtensionPath } from 'src/helpers/vscodeUtils';
-import { defaultConfig } from 'src/icons/configUtils';
+import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
+import { defaultConfig, getFileConfigHash } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/iconConfiguration';
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
@@ -51,7 +43,7 @@ export class IconThemeGenerator {
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(getExtensionPath(), DIST_PATH, JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
+      outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
     }
     catch (error) {
       throw new Error('Failed to create icon file: ' + error);
@@ -77,17 +69,50 @@ export class IconThemeGenerator {
   }
 
   /**
+   * TODO this logic sucks because the iconPath can be different depending on the execution context
+   * if it's npm or if it's vscode :(
+   * @returns {string}
+   * @private
+   */
+  private iconPath() {
+    let iconJsonPath = __dirname;
+    // if executed via script
+    if (basename(__dirname) !== 'dist') {
+      iconJsonPath = join(__dirname, '..', '..', '..', 'dist');
+    }
+    return iconJsonPath;
+  }
+
+  /**
+   * TODO this logic sucks because the iconPath can be different depending on the execution context
+   * if it's npm or if it's vscode :(
+   * @returns {string}
+   * @private
+   */
+  private iconGeneratorPath() {
+    let iconJsonPath = __dirname;
+    // if executed via script
+    if (basename(__dirname) !== 'dist') {
+      iconJsonPath = join(__dirname, '..', '..', '..', 'dist');
+    }
+    if (basename(iconJsonPath) === 'dist') {
+      iconJsonPath = join(iconJsonPath, '..', 'iconGenerator');
+    }
+    return iconJsonPath;
+  }
+
+  /**
    * Apply filters to the icons and copy them to dist
    * @private
    */
   private prepareIcons() {
-    const iconGeneratorPath = join(getExtensionPath(), ICON_GENERATOR_PATH);
+    const iconGeneratorPath = join(this.iconGeneratorPath(), 'assets', 'icons');
 
     const filesPath = getFilesPath(iconGeneratorPath);
     const foldersPath = getFoldersPath(iconGeneratorPath);
     const foldersOpenPath = getFoldersOpenPath(iconGeneratorPath);
 
-    const distPath = join(getExtensionPath(), DIST_PATH);
+    const distPath = this.iconPath();
 
     const distFilesPath = getFilesPath(distPath);
     const distFoldersPath = getFoldersPath(distPath);
@@ -106,12 +131,15 @@ export class IconThemeGenerator {
    */
   private applyFiltersAndCopy(source: string, dest: string) {
     const iconFiles = readdirSync(source);
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
+
     iconFiles.forEach((iconFile) => {
       // apply color, opacity and saturation
+      const hashedFile = iconFile.replace(/(^[^\.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`);
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 
-      outputFileSync(join(dest, iconFile), svg, 'utf-8');
+      outputFileSync(join(dest, hashedFile), svg, 'utf-8');
     });
   }
 

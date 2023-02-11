@@ -6,9 +6,10 @@ export const VERSION_KEY = `${EXTENSION_KEY}.version`;
 export const JSON_FILE_NAME = `${EXTENSION_KEY}-icon-theme.json`;
 
 export const DEFAULT_FOLDER_COLOR = '#90a4ae';
-export const DEFAULT_OPACITY = 0.5;
-export const DEFAULT_SATURATION = 0.5;
+export const DEFAULT_OPACITY = 1;
+export const DEFAULT_SATURATION = 1;
 
+export const FOLDER_PREFIX = 'folder-';
 export const ICON_GENERATOR_PATH = 'iconGenerator/assets/icons';
 export const FILES_SUBPATH = 'files';
 export const FOLDERS_SUBPATH = 'folders';

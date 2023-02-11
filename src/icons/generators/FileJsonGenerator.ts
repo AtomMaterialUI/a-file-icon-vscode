@@ -83,7 +83,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     // Then add the file association
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}.svg`,
+      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
     };
   }
 

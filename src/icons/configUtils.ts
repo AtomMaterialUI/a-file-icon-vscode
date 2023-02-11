@@ -4,7 +4,7 @@
  * @private
  */
 import type { AtomConfig } from 'src/@types/config';
-import { IconPack, FolderTheme } from 'src/@types/config';
+import { FolderTheme, IconPack } from 'src/@types/config';
 import { DEFAULT_FOLDER_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
 import { getHash } from 'src/helpers/utils';
 
@@ -38,7 +38,7 @@ export const getFileConfigHash = (config: AtomConfig): string => {
     config.opacity !== defaults.opacity ||
     config.folderColor !== defaults.folderColor
   ) {
-    fileConfigString += `~${getHash(JSON.stringify(this))}`;
+    fileConfigString += `~${getHash(JSON.stringify(config))}`;
   }
   return fileConfigString;
 };
