@@ -1,14 +1,14 @@
 'use strict';
 
 import { registeredCommands } from 'src/commands/commands';
+import { configChangeDetector } from 'src/helpers/ConfigChangeDetector';
+import { VERSION_KEY } from 'src/helpers/constants';
 import { logger } from 'src/helpers/LoggingService';
 import { notificationsService } from 'src/helpers/NotificationsService';
 import { updatesService } from 'src/helpers/UpdatesService';
-import { VERSION_KEY } from 'src/helpers/constants';
 import { initI18next } from 'src/i18n/i18next';
 import type { ExtensionContext } from 'vscode';
-import { workspace } from 'vscode';
-import { detectConfigChanges } from 'src/helpers/changeDetection';
+import { window, workspace } from 'vscode';
 
 /**
  * When the extension gets activated
@@ -35,19 +35,19 @@ export const activate = async (context: ExtensionContext) => {
     context.subscriptions.push(...registeredCommands);
 
     // Initially trigger the config change detection
-    detectConfigChanges();
+    configChangeDetector.listenForChanges();
 
     // Observe changes in the config
-    workspace.onDidChangeConfiguration(detectConfigChanges);
+    workspace.onDidChangeConfiguration(() => configChangeDetector.listenForChanges());
 
     // Observe if the window got focused to trigger config changes
-    // window.onDidChangeWindowState((state) => {
-    //   if (state.focused) {
-    //     detectConfigChanges();
-    //   }
-    // });
+    window.onDidChangeWindowState((state) => {
+      if (state.focused) {
+        // configChangeDetector.listenForChanges();
+      }
+    });
   } catch (error) {
-    console.error(error);
+    logger.error(String(error));
   }
 };
 

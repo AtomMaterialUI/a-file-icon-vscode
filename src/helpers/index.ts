@@ -1,9 +1,10 @@
-import type { IconConfiguration }          from '../models/index';
+import { readFileSync } from 'fs';
+import path from 'path';
+import { JSON_FILE_NAME } from 'src/helpers/constants';
+import { getExtensionPath } from 'src/helpers/vscodeUtils';
 import { extensions, workspace, commands } from 'vscode';
-import { showConfirmToReloadMessage }      from './../messages/reload';
-import path                                from 'path';
-import { readFileSync }                    from 'fs';
-import { JSON_FILE_NAME }                  from 'src/helpers/constants';
+import type { IconConfiguration } from '../models/index';
+import { showConfirmToReloadMessage } from './../messages/reload';
 
 /** Get configuration of vs code. */
 export const getConfig = (section?: string) => {
@@ -58,11 +59,6 @@ export const isThemeNotVisible = (): boolean => {
     (!isThemeActivated() && !!config?.workspaceValue)
   );
 };
-
-/** Return the path of the extension in the file system. */
-export const getExtensionPath = () =>
-  extensions.getExtension('atommaterial.a-file-icon-vscode')?.extensionPath ??
-  '';
 
 /** Get the configuration of the icons as JSON Object */
 export const getMaterialIconsJSON = (): IconConfiguration => {

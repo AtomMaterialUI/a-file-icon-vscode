@@ -1,26 +1,25 @@
-import merge                         from 'lodash.merge';
-import type { AtomConfig }           from 'src/@types/config';
-import { IconConfiguration }         from 'src/models/iconConfiguration';
+import { readdirSync, readFileSync } from 'fs';
+import { outputFileSync } from 'fs-extra';
+import merge from 'lodash.merge';
+import { join } from 'path';
+import type { AtomConfig } from 'src/@types/config';
 import {
   DIST_PATH,
-  DIST_FILES_FOLDER_PATH,
-  FULL_FILES_FOLDER_PATH,
-  FULL_FOLDERS_FOLDER_PATH,
-  FULL_FOLDERS_OPEN_FOLDER_PATH,
-  DIST_FOLDERS_FOLDER_PATH,
-  DIST_FOLDERS_OPEN_FOLDER_PATH,
+  getFilesPath,
+  getFoldersOpenPath,
+  getFoldersPath,
+  ICON_GENERATOR_PATH,
   JSON_FILE_NAME,
-}                                    from 'src/helpers/constants';
-import { LanguageJsonGenerator }     from './LanguageJsonGenerator';
-import { FileJsonGenerator }         from './FileJsonGenerator';
-import { FolderJsonGenerator }       from './FolderJsonGenerator';
-import { join }                      from 'path';
-import { readdirSync, readFileSync } from 'fs';
-import { outputFileSync }            from 'fs-extra';
-import { defaultConfig }             from 'src/icons/configUtils';
-import { opacityService }            from './OpacityService';
-import { saturationService }         from './SaturationService';
-import { folderColorService }        from './FolderColorService';
+} from 'src/helpers/constants';
+import { getExtensionPath } from 'src/helpers/vscodeUtils';
+import { defaultConfig } from 'src/icons/configUtils';
+import { IconConfiguration } from 'src/models/iconConfiguration';
+import { FileJsonGenerator } from './FileJsonGenerator';
+import { folderColorService } from './FolderColorService';
+import { FolderJsonGenerator } from './FolderJsonGenerator';
+import { LanguageJsonGenerator } from './LanguageJsonGenerator';
+import { opacityService } from './OpacityService';
+import { saturationService } from './SaturationService';
 
 export class IconThemeGenerator {
   atomConfig: AtomConfig;
@@ -30,7 +29,7 @@ export class IconThemeGenerator {
   fileGenerator: FileJsonGenerator;
   folderGenerator: FolderJsonGenerator;
 
-  constructor(updatedConfigs?: AtomConfig, updatedJSONConfig: Partial<AtomConfig> = {}) {
+  constructor(updatedJSONConfig: Partial<AtomConfig> = {}) {
     // Initializes the config with the default values and provided changes
     const atomConfig = merge({}, defaultConfig(), updatedJSONConfig);
     const iconConfig = new IconConfiguration(atomConfig);
@@ -45,31 +44,17 @@ export class IconThemeGenerator {
 
   /**
    * Create the atom config to be serialized to json
-   * @param {AtomConfig} updatedConfigs
-   * @param {Partial<AtomConfig>} updatedJSONConfig the new configuration to be merged with the default config
    */
-  createJsonTheme(updatedConfigs?: AtomConfig, updatedJSONConfig: Partial<AtomConfig> = {}) {
+  createJsonTheme() {
+    // Update this.iconConfig
     this.generateJsonConfig();
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(DIST_PATH, JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
+      outputFileSync(join(getExtensionPath(), DIST_PATH, JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
     }
     catch (error) {
       throw new Error('Failed to create icon file: ' + error);
-    }
-  }
-
-  getJsonTheme() {
-    const iconJSONPath = join(DIST_PATH, JSON_FILE_NAME);
-
-    try {
-      const data = readFileSync(iconJSONPath, 'utf8');
-      return JSON.parse(data);
-    }
-    catch (error) {
-      console.error(error);
-      return {};
     }
   }
 
@@ -96,9 +81,21 @@ export class IconThemeGenerator {
    * @private
    */
   private prepareIcons() {
-    this.applyFiltersAndCopy(FULL_FILES_FOLDER_PATH, DIST_FILES_FOLDER_PATH);
-    this.applyFiltersAndCopy(FULL_FOLDERS_FOLDER_PATH, DIST_FOLDERS_FOLDER_PATH);
-    this.applyFiltersAndCopy(FULL_FOLDERS_OPEN_FOLDER_PATH, DIST_FOLDERS_OPEN_FOLDER_PATH);
+    const iconGeneratorPath = join(getExtensionPath(), ICON_GENERATOR_PATH);
+
+    const filesPath = getFilesPath(iconGeneratorPath);
+    const foldersPath = getFoldersPath(iconGeneratorPath);
+    const foldersOpenPath = getFoldersOpenPath(iconGeneratorPath);
+
+    const distPath = join(getExtensionPath(), DIST_PATH);
+
+    const distFilesPath = getFilesPath(distPath);
+    const distFoldersPath = getFoldersPath(distPath);
+    const distFoldersOpenPath = getFoldersOpenPath(distPath);
+
+    this.applyFiltersAndCopy(filesPath, distFilesPath);
+    this.applyFiltersAndCopy(foldersPath, distFoldersPath);
+    this.applyFiltersAndCopy(foldersOpenPath, distFoldersOpenPath);
   }
 
   /**
@@ -139,4 +136,3 @@ export class IconThemeGenerator {
     return svg;
   }
 }
-

@@ -1,7 +1,5 @@
-import type { AtomConfig } from 'src/@types/config';
-import type { IconConfiguration } from 'src/models/iconConfiguration';
 import merge from 'lodash.merge';
-import { fileIcons } from 'src/icons/index';
+import type { AtomConfig } from 'src/@types/config';
 import type { FileAssociations, FileAssociation } from 'src/@types/icons';
 import {
   WILDCARD_PATTERN,
@@ -12,6 +10,8 @@ import {
 import { FileMappingType } from 'src/helpers/enums';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
+import { fileIcons } from 'src/icons/index';
+import type { IconConfiguration } from 'src/models/iconConfiguration';
 
 export class FileJsonGenerator extends AbstractJsonGenerator {
   constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
@@ -83,7 +83,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     // Then add the file association
     this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}.svg`,
     };
   }
 

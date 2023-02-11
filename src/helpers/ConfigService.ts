@@ -1,11 +1,11 @@
-import type { WorkspaceConfiguration } from 'vscode';
-import { workspace, ConfigurationTarget } from 'vscode';
-import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
+import i18next from 'i18next';
 import type { AtomConfig } from 'src/@types/config';
 import { IconPack, FolderTheme } from 'src/@types/config';
-import { notificationsService } from 'src/helpers/NotificationsService';
-import i18next from 'i18next';
 import type { IconAssociations } from 'src/@types/icons';
+import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
+import { notificationsService } from 'src/helpers/NotificationsService';
+import type { WorkspaceConfiguration } from 'vscode';
+import { workspace, ConfigurationTarget } from 'vscode';
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
@@ -157,7 +157,7 @@ export class ConfigService implements AtomConfig {
   public setConfigValue(
     key: keyof AtomConfig,
     value: unknown,
-    scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder
+    scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder,
   ): void {
     this.getPluginConfig().update(key, value, scope);
   }

@@ -1,8 +1,7 @@
+import merge from 'lodash.merge';
 import type { AtomConfig } from 'src/@types/config';
 import { FolderTheme } from 'src/@types/config';
 import type { FolderAssociation, FolderAssociations, IconAssociations } from 'src/@types/icons';
-import type { IconConfiguration } from 'src/models/iconConfiguration';
-import { folderIcons } from 'src/icons/index';
 import {
   OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
@@ -10,9 +9,9 @@ import {
   RELATIVE_DIST_FOLDERS_FOLDER_PATH,
   RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH,
 } from 'src/helpers/constants';
-import merge from 'lodash.merge';
-import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
+import { folderIcons } from 'src/icons/index';
+import type { IconConfiguration } from 'src/models/iconConfiguration';
 
 export class FolderJsonGenerator extends AbstractJsonGenerator {
   constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
@@ -132,8 +131,8 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
   private addExtraFolderAssociations(assocName: string, folderNames: string[], suffix = '') {
     if (!folderNames) return;
 
-    const folderAssocName = assocName + suffix;
-    const folderOpenAssocName = assocName + OPENED_FOLDER_SUFFIX + suffix;
+    const folderAssocName = `folder-${assocName}${suffix}`;
+    const folderOpenAssocName = `folder-${assocName}${OPENED_FOLDER_SUFFIX}${suffix}`;
 
     folderNames.forEach((folderName) => {
       // Folder
@@ -165,15 +164,12 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
   private addFolderAssociation(assocName: string, suffix = '') {
     if (!this.iconConfig.iconDefinitions) return;
 
-    // First generates a hash to append to the icon if custom color, opacity or saturation
-    const fileConfigHash = getFileConfigHash(this.atomConfig);
-
     // Add the folders and foldersExpanded icons
-    this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${RELATIVE_DIST_FOLDERS_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+    this.iconConfig.iconDefinitions[`folder-${assocName}${suffix}`] = {
+      iconPath: `${RELATIVE_DIST_FOLDERS_FOLDER_PATH}/${assocName}${suffix}.svg`,
     };
-    this.iconConfig.iconDefinitions[`${assocName}${OPENED_FOLDER_SUFFIX}${suffix}`] = {
-      iconPath: `${RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
+    this.iconConfig.iconDefinitions[`folder-${assocName}${OPENED_FOLDER_SUFFIX}${suffix}`] = {
+      iconPath: `${RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH}/${assocName}${suffix}.svg`,
     };
   }
 

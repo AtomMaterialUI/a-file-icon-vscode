@@ -52,7 +52,6 @@
     "@types/vscode": "~1.74.0",
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
-    "app-root-path": "^3.1.0",
     "changelog-machine": "^1.0.2",
     "eslint": "^8.31.0",
     "eslint-config-prettier": "^8.6.0",
