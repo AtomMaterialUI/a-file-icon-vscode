@@ -4,6 +4,7 @@ import { IconPack, FolderTheme } from 'src/@types/config';
 import type { IconAssociations } from 'src/@types/icons';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
 import { notificationsService } from 'src/helpers/NotificationsService';
+import type { IconConfiguration } from 'src/models';
 import type { WorkspaceConfiguration } from 'vscode';
 import { workspace, ConfigurationTarget } from 'vscode';
 
@@ -14,7 +15,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set showReloadMessage(v: boolean) {
-    this.setConfigValue('showReloadMessage', v);
+    this.setConfigValue('showReloadMessage', v, ConfigurationTarget.Global);
   }
 
   get showUpdateMessage() {
@@ -22,7 +23,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set showUpdateMessage(v: boolean) {
-    this.setConfigValue('showUpdateMessage', v);
+    this.setConfigValue('showUpdateMessage', v, ConfigurationTarget.Global);
   }
 
   get showWelcomeMessage() {
@@ -30,7 +31,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set showWelcomeMessage(v: boolean) {
-    this.setConfigValue('showWelcomeMessage', v);
+    this.setConfigValue('showWelcomeMessage', v, ConfigurationTarget.Global);
   }
 
   get opacity() {
@@ -38,7 +39,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set opacity(v: number) {
-    this.setConfigValue('opacity', v);
+    this.setConfigValue('opacity', v, ConfigurationTarget.Workspace);
   }
 
   get saturation() {
@@ -46,7 +47,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set saturation(v: number) {
-    this.setConfigValue('saturation', v);
+    this.setConfigValue('saturation', v, ConfigurationTarget.Workspace);
   }
 
   get activeIconPacks() {
@@ -62,7 +63,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set activeIconPacks(v: IconPack[]) {
-    this.setConfigValue('activeIconPacks', v);
+    this.setConfigValue('activeIconPacks', v, ConfigurationTarget.Workspace);
   }
 
   get hidesExplorerArrows() {
@@ -70,7 +71,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set hidesExplorerArrows(v: boolean) {
-    this.setConfigValue('hidesExplorerArrows', v);
+    this.setConfigValue('hidesExplorerArrows', v, ConfigurationTarget.Workspace);
   }
 
   get foldersAssociations() {
@@ -90,7 +91,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set folderColor(v: string) {
-    this.setConfigValue('folderColor', v);
+    this.setConfigValue('folderColor', v, ConfigurationTarget.Workspace);
   }
 
   get folderTheme() {
@@ -98,7 +99,7 @@ export class ConfigService implements AtomConfig {
   }
 
   set folderTheme(v: FolderTheme) {
-    this.setConfigValue('folderTheme', v);
+    this.setConfigValue('folderTheme', v, ConfigurationTarget.Workspace);
   }
 
   // endregion
@@ -159,8 +160,35 @@ export class ConfigService implements AtomConfig {
     value: unknown,
     scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder,
   ): void {
-    // Todo check what can be workspace or not
-    this.getPluginConfig().update(key, value, true);
+    this.getPluginConfig().update(key, value, scope);
+  }
+
+  public getChanges(config: IconConfiguration) {
+    const changes: Partial<AtomConfig> = {};
+
+    if (this.opacity !== config.atomConfig?.opacity) {
+      changes.opacity = this.opacity;
+    }
+    if (this.saturation !== config.atomConfig?.saturation) {
+      changes.saturation = this.saturation;
+    }
+    if (this.folderColor !== config.atomConfig?.folderColor) {
+      changes.folderColor = this.folderColor;
+    }
+    if (this.folderTheme !== config.atomConfig?.folderTheme) {
+      changes.folderTheme = this.folderTheme;
+    }
+    if (this.hidesExplorerArrows !== config.atomConfig?.hidesExplorerArrows) {
+      changes.hidesExplorerArrows = this.hidesExplorerArrows;
+    }
+    if (this.activeIconPacks !== config.atomConfig?.activeIconPacks) {
+      changes.activeIconPacks = this.activeIconPacks;
+    }
+    // if (this.filesAssociations !== config.atomConfig?.filesAssociations) {
+    //   changes.filesAssociations = this.filesAssociations;
+    // }
+
+    return changes;
   }
 
   /**

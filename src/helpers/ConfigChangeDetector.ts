@@ -24,19 +24,7 @@ class ConfigChangeDetector {
   }
 
   private compareConfigs(oldConfig: IconConfiguration): Partial<AtomConfig> {
-    const changes: Partial<AtomConfig> = {};
-
-    if (configService.opacity !== oldConfig.atomConfig?.opacity) {
-      changes.opacity = configService.opacity;
-    }
-    if (configService.saturation !== oldConfig.atomConfig?.saturation) {
-      changes.saturation = configService.saturation;
-    }
-    if (configService.folderColor !== oldConfig.atomConfig?.folderColor) {
-      changes.folderColor = configService.folderColor;
-    }
-
-    return changes;
+    return configService.getChanges(oldConfig);
   }
 }
 
