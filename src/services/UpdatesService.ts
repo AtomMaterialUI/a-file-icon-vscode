@@ -1,9 +1,9 @@
-import type { Memento } from 'vscode';
-import { extensions } from 'vscode';
 import { EXTENSION_ID, VERSION_KEY } from 'src/helpers/constants';
 import { UpdateStatus } from 'src/helpers/enums';
-import { logger } from './LoggingService';
-import { configService } from 'src/helpers/ConfigService';
+import { configService } from 'src/services/ConfigService';
+import { logger } from 'src/services/LoggingService';
+import type { Memento } from 'vscode';
+import { extensions } from 'vscode';
 
 export class UpdatesService {
   /**
@@ -21,16 +21,19 @@ export class UpdatesService {
         await this.updateStateVersion(state);
 
         return configService.isAlreadyActivated()
-               ? UpdateStatus.Updated
-               : UpdateStatus.NeverUsedBefore;
-      } else if (pluginVersion && this.isGreaterVersion(pluginVersion, ownVersion)) {
+          ? UpdateStatus.Updated
+          : UpdateStatus.NeverUsedBefore;
+      }
+      else if (pluginVersion && this.isGreaterVersion(pluginVersion, ownVersion)) {
         await this.updateStateVersion(state);
 
         return UpdateStatus.Updated;
-      } else {
+      }
+      else {
         return UpdateStatus.Current;
       }
-    } catch (e) {
+    }
+    catch (e) {
       logger.error(String(e));
       return UpdateStatus.Current;
     }

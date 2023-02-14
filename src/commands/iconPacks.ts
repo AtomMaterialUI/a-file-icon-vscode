@@ -1,5 +1,5 @@
-import { iconPackManager } from 'src/helpers/IconPackManager';
-import { logger } from 'src/helpers/LoggingService';
+import { iconPackManager } from 'src/services/IconPackManager';
+import { logger } from 'src/services/LoggingService';
 
 /** Command to toggle the icons packs */
 export const toggleIconPacks = async () => {

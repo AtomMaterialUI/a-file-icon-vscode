@@ -1,12 +1,12 @@
 'use strict';
 
 import { registeredCommands } from 'src/commands/commands';
-import { configChangeDetector } from 'src/helpers/ConfigChangeDetector';
 import { VERSION_KEY } from 'src/helpers/constants';
-import { logger } from 'src/helpers/LoggingService';
-import { notificationsService } from 'src/helpers/NotificationsService';
-import { updatesService } from 'src/helpers/UpdatesService';
 import { initI18next } from 'src/i18n/i18next';
+import { configChangeDetector } from 'src/services/ConfigChangeDetector';
+import { logger } from 'src/services/LoggingService';
+import { notificationsService } from 'src/services/NotificationsService';
+import { updatesService } from 'src/services/UpdatesService';
 import type { ExtensionContext } from 'vscode';
 import { window, workspace } from 'vscode';
 
@@ -46,7 +46,8 @@ export const activate = async (context: ExtensionContext) => {
         // configChangeDetector.listenForChanges();
       }
     });
-  } catch (error) {
+  }
+  catch (error) {
     logger.error(String(error));
   }
 };

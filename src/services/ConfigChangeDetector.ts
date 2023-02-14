@@ -1,8 +1,8 @@
 import type { AtomConfig } from 'src/@types/config';
-import { configService } from 'src/helpers/ConfigService';
 import { getIconThemeFile } from 'src/helpers/vscodeUtils';
 import { IconThemeGenerator } from 'src/icons/generators';
 import type { IconConfiguration } from 'src/models';
+import { configService } from 'src/services/ConfigService';
 
 /**
  * This class is responsible for detecting changes in the config file and

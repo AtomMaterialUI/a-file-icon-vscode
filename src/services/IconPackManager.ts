@@ -1,9 +1,9 @@
 import i18next from 'i18next';
 import { IconPack } from 'src/@types/config';
-import { configService } from 'src/helpers/ConfigService';
+import { iconPacks } from 'src/helpers/iconPacks';
 import { findEnumKey } from 'src/helpers/utils';
+import { configService } from 'src/services/ConfigService';
 import { QuickPickItemKind, window, type QuickPickItem } from 'vscode';
-import { iconPacks } from './iconPacks';
 
 export class IconPackManager {
   async toggleIconPacks() {

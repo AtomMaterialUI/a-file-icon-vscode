@@ -1,11 +1,11 @@
 import i18next from 'i18next';
-import { configService } from 'src/helpers/ConfigService';
 import { EXTENSION_ID } from 'src/helpers/constants';
 import { UpdateStatus } from 'src/helpers/enums';
 import { openBrowser } from 'src/helpers/vscodeUtils';
+import { configService } from 'src/services/ConfigService';
+import { logger } from 'src/services/LoggingService';
 import type { MessageItem } from 'vscode';
 import { window } from 'vscode';
-import { logger } from './LoggingService';
 
 type NotificationAction = MessageItem & {
   id: '' | 'activate' | 'neverShowAgain' | 'readChangelog';
@@ -88,7 +88,7 @@ export class NotificationsService {
         i18next.t('themeUpdated'),
         this.activateAction,
         { id: 'readChangelog', title: i18next.t('readChangelog') },
-        { id: 'neverShowAgain', title: i18next.t('neverShowAgain') }
+        { id: 'neverShowAgain', title: i18next.t('neverShowAgain') },
       )
       .then(this.handleUpdateMessageActions);
   }
