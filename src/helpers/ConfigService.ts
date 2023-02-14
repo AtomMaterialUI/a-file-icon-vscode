@@ -159,7 +159,8 @@ export class ConfigService implements AtomConfig {
     value: unknown,
     scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder,
   ): void {
-    this.getPluginConfig().update(key, value, scope);
+    // Todo check what can be workspace or not
+    this.getPluginConfig().update(key, value, true);
   }
 
   /**

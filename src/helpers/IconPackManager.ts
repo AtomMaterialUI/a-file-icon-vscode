@@ -58,7 +58,7 @@ export class IconPackManager {
   private handleQuickPickActions(actions: QuickPickItem[]): void {
     if (!actions || !actions.length) return;
 
-    const decisions = actions.map(action => action.description?.toLowerCase() ?? '');
+    const decisions = actions.map((action) => action.description?.toLowerCase() ?? '');
     configService.activeIconPacks = this.findIconPacks(decisions);
   }
 
@@ -69,8 +69,8 @@ export class IconPackManager {
    * @returns {boolean}
    * @private
    */
-  private isPackActive(activeIconPacks: IconPack[], pack: IconPack) {
-    return activeIconPacks.some(activePack => activePack.toLowerCase() === pack.toLowerCase());
+  private isPackActive(activeIconPacks: IconPack[], pack: IconPack): boolean {
+    return activeIconPacks.some((activePack) => activePack.toLowerCase() === pack.toLowerCase());
   }
 
   /**
@@ -79,7 +79,7 @@ export class IconPackManager {
    * @returns {boolean}
    * @private
    */
-  private isNoneActive(activeIconPacks: IconPack[]) {
+  private isNoneActive(activeIconPacks: IconPack[]): boolean {
     return this.isPackActive(activeIconPacks, IconPack.None);
   }
 
@@ -90,7 +90,7 @@ export class IconPackManager {
    * @param decisions
    */
   private findIconPacks(decisions: string[]): IconPack[] {
-    return decisions.map(decision => {
+    return decisions.map((decision) => {
       const enumKey = findEnumKey(IconPack, decision);
       return enumKey ? IconPack[enumKey] : IconPack.None;
     });
