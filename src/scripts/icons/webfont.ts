@@ -38,7 +38,7 @@ webfont({
     return object;
   },
   normalize: true,
-  prependUnicode: true,
+  prependUnicode: false,
   startUnicode: START_CODEPOINT,
 })
   .then((result) => {

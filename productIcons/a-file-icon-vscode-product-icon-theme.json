@@ -49,14 +49,8 @@
     "access-file": {
       "fontCharacter": "\\ea0b"
     },
-    "acf-folder": {
-      "fontCharacter": "\\eff5"
-    },
     "acre-file": {
       "fontCharacter": "\\ea0c"
-    },
-    "acre-folder": {
-      "fontCharacter": "\\eff6"
     },
     "act-file": {
       "fontCharacter": "\\ea0d"
@@ -67,20 +61,8 @@
     "ada-file": {
       "fontCharacter": "\\ea0f"
     },
-    "adapter-folder": {
-      "fontCharacter": "\\eff7"
-    },
-    "addon-folder": {
-      "fontCharacter": "\\eff8"
-    },
-    "admin-folder": {
-      "fontCharacter": "\\eff9"
-    },
     "adonis-file": {
       "fontCharacter": "\\ea10"
-    },
-    "adr-folder": {
-      "fontCharacter": "\\effa"
     },
     "advpl-file": {
       "fontCharacter": "\\ea11"
@@ -97,9 +79,6 @@
     "agda-file": {
       "fontCharacter": "\\ea15"
     },
-    "agda-folder": {
-      "fontCharacter": "\\effb"
-    },
     "ahk-file": {
       "fontCharacter": "\\ea16"
     },
@@ -114,9 +93,6 @@
     },
     "alacritty-file": {
       "fontCharacter": "\\ea1a"
-    },
-    "alacritty-folder": {
-      "fontCharacter": "\\effc"
     },
     "alex-file": {
       "fontCharacter": "\\ea1b"
@@ -142,9 +118,6 @@
     "amplication-file": {
       "fontCharacter": "\\ea22"
     },
-    "amplication-folder": {
-      "fontCharacter": "\\effd"
-    },
     "amplify-file": {
       "fontCharacter": "\\ea23"
     },
@@ -157,9 +130,6 @@
     "android-file": {
       "fontCharacter": "\\ea26"
     },
-    "android-folder": {
-      "fontCharacter": "\\effe"
-    },
     "androidManifest-file": {
       "fontCharacter": "\\ea27"
     },
@@ -171,9 +141,6 @@
     },
     "angular-file": {
       "fontCharacter": "\\ea2a"
-    },
-    "angular-folder": {
-      "fontCharacter": "\\efff"
     },
     "angularCli-file": {
       "fontCharacter": "\\ea2b"
@@ -4621,6 +4588,39 @@
     "zsrc-file": {
       "fontCharacter": "\\eff4"
     },
+    "acf-folder": {
+      "fontCharacter": "\\eff5"
+    },
+    "acre-folder": {
+      "fontCharacter": "\\eff6"
+    },
+    "adapter-folder": {
+      "fontCharacter": "\\eff7"
+    },
+    "addon-folder": {
+      "fontCharacter": "\\eff8"
+    },
+    "admin-folder": {
+      "fontCharacter": "\\eff9"
+    },
+    "adr-folder": {
+      "fontCharacter": "\\effa"
+    },
+    "agda-folder": {
+      "fontCharacter": "\\effb"
+    },
+    "alacritty-folder": {
+      "fontCharacter": "\\effc"
+    },
+    "amplication-folder": {
+      "fontCharacter": "\\effd"
+    },
+    "android-folder": {
+      "fontCharacter": "\\effe"
+    },
+    "angular-folder": {
+      "fontCharacter": "\\efff"
+    },
     "animations-folder": {
       "fontCharacter": "\\f000"
     },
@@ -5224,14 +5224,14 @@
     "redis-folder": {
       "fontCharacter": "\\f0c8"
     },
+    "redux-folder": {
+      "fontCharacter": "\\f0c9"
+    },
     "redux-actions-folder": {
       "fontCharacter": "\\f0ca"
     },
     "redux-epics-folder": {
       "fontCharacter": "\\f0cb"
-    },
-    "redux-folder": {
-      "fontCharacter": "\\f0c9"
     },
     "redux-reducers-folder": {
       "fontCharacter": "\\f0cc"
@@ -5475,6 +5475,897 @@
     },
     "yarn-folder": {
       "fontCharacter": "\\f11c"
+    },
+    "acf-folder-open": {
+      "fontCharacter": "\\f11d"
+    },
+    "acre-folder-open": {
+      "fontCharacter": "\\f11e"
+    },
+    "adapter-folder-open": {
+      "fontCharacter": "\\f11f"
+    },
+    "addon-folder-open": {
+      "fontCharacter": "\\f120"
+    },
+    "admin-folder-open": {
+      "fontCharacter": "\\f121"
+    },
+    "adr-folder-open": {
+      "fontCharacter": "\\f122"
+    },
+    "agda-folder-open": {
+      "fontCharacter": "\\f123"
+    },
+    "alacritty-folder-open": {
+      "fontCharacter": "\\f124"
+    },
+    "amplication-folder-open": {
+      "fontCharacter": "\\f125"
+    },
+    "android-folder-open": {
+      "fontCharacter": "\\f126"
+    },
+    "angular-folder-open": {
+      "fontCharacter": "\\f127"
+    },
+    "animations-folder-open": {
+      "fontCharacter": "\\f128"
+    },
+    "ansible-folder-open": {
+      "fontCharacter": "\\f129"
+    },
+    "api-folder-open": {
+      "fontCharacter": "\\f12a"
+    },
+    "apollo-folder-open": {
+      "fontCharacter": "\\f12b"
+    },
+    "app-folder-open": {
+      "fontCharacter": "\\f12c"
+    },
+    "appstore-folder-open": {
+      "fontCharacter": "\\f12d"
+    },
+    "archetype-folder-open": {
+      "fontCharacter": "\\f12e"
+    },
+    "archive-folder-open": {
+      "fontCharacter": "\\f12f"
+    },
+    "article-folder-open": {
+      "fontCharacter": "\\f130"
+    },
+    "arttext-folder-open": {
+      "fontCharacter": "\\f131"
+    },
+    "atom-folder-open": {
+      "fontCharacter": "\\f132"
+    },
+    "audio-folder-open": {
+      "fontCharacter": "\\f133"
+    },
+    "aurelia-folder-open": {
+      "fontCharacter": "\\f134"
+    },
+    "automator-folder-open": {
+      "fontCharacter": "\\f135"
+    },
+    "aws-folder-open": {
+      "fontCharacter": "\\f136"
+    },
+    "azure-devops-folder-open": {
+      "fontCharacter": "\\f137"
+    },
+    "azure-pipelines-folder-open": {
+      "fontCharacter": "\\f138"
+    },
+    "base-folder-open": {
+      "fontCharacter": "\\f139"
+    },
+    "bazaar-folder-open": {
+      "fontCharacter": "\\f13a"
+    },
+    "benchmark-folder-open": {
+      "fontCharacter": "\\f13b"
+    },
+    "bitcoin-folder-open": {
+      "fontCharacter": "\\f13c"
+    },
+    "bloc-folder-open": {
+      "fontCharacter": "\\f13d"
+    },
+    "blueprint-folder-open": {
+      "fontCharacter": "\\f13e"
+    },
+    "bower-folder-open": {
+      "fontCharacter": "\\f13f"
+    },
+    "buildkite-folder-open": {
+      "fontCharacter": "\\f140"
+    },
+    "cabal-folder-open": {
+      "fontCharacter": "\\f141"
+    },
+    "cake-folder-open": {
+      "fontCharacter": "\\f142"
+    },
+    "cart-folder-open": {
+      "fontCharacter": "\\f143"
+    },
+    "channels-folder-open": {
+      "fontCharacter": "\\f144"
+    },
+    "chef-folder-open": {
+      "fontCharacter": "\\f145"
+    },
+    "ci-folder-open": {
+      "fontCharacter": "\\f146"
+    },
+    "circleci-folder-open": {
+      "fontCharacter": "\\f147"
+    },
+    "class-folder-open": {
+      "fontCharacter": "\\f148"
+    },
+    "client-folder-open": {
+      "fontCharacter": "\\f149"
+    },
+    "cluster-folder-open": {
+      "fontCharacter": "\\f14a"
+    },
+    "cmake-folder-open": {
+      "fontCharacter": "\\f14b"
+    },
+    "cnab-folder-open": {
+      "fontCharacter": "\\f14c"
+    },
+    "cobol-folder-open": {
+      "fontCharacter": "\\f14d"
+    },
+    "codesandbox-folder-open": {
+      "fontCharacter": "\\f14e"
+    },
+    "components-folder-open": {
+      "fontCharacter": "\\f14f"
+    },
+    "composer-folder-open": {
+      "fontCharacter": "\\f150"
+    },
+    "config-folder-open": {
+      "fontCharacter": "\\f151"
+    },
+    "connection-folder-open": {
+      "fontCharacter": "\\f152"
+    },
+    "constants-folder-open": {
+      "fontCharacter": "\\f153"
+    },
+    "container-folder-open": {
+      "fontCharacter": "\\f154"
+    },
+    "content-folder-open": {
+      "fontCharacter": "\\f155"
+    },
+    "contract-folder-open": {
+      "fontCharacter": "\\f156"
+    },
+    "controllers-folder-open": {
+      "fontCharacter": "\\f157"
+    },
+    "core-folder-open": {
+      "fontCharacter": "\\f158"
+    },
+    "coverage-folder-open": {
+      "fontCharacter": "\\f159"
+    },
+    "crates-folder-open": {
+      "fontCharacter": "\\f15a"
+    },
+    "cron-folder-open": {
+      "fontCharacter": "\\f15b"
+    },
+    "css-folder-open": {
+      "fontCharacter": "\\f15c"
+    },
+    "cubit-folder-open": {
+      "fontCharacter": "\\f15d"
+    },
+    "cue-folder-open": {
+      "fontCharacter": "\\f15e"
+    },
+    "custom-folder-open": {
+      "fontCharacter": "\\f15f"
+    },
+    "cvs-folder-open": {
+      "fontCharacter": "\\f160"
+    },
+    "cypress-folder-open": {
+      "fontCharacter": "\\f161"
+    },
+    "dapr-folder-open": {
+      "fontCharacter": "\\f162"
+    },
+    "db-folder-open": {
+      "fontCharacter": "\\f163"
+    },
+    "debian-folder-open": {
+      "fontCharacter": "\\f164"
+    },
+    "debug-folder-open": {
+      "fontCharacter": "\\f165"
+    },
+    "decorators-folder-open": {
+      "fontCharacter": "\\f166"
+    },
+    "default-folder-open": {
+      "fontCharacter": "\\f167"
+    },
+    "delta-folder-open": {
+      "fontCharacter": "\\f168"
+    },
+    "deno-folder-open": {
+      "fontCharacter": "\\f169"
+    },
+    "dependabot-folder-open": {
+      "fontCharacter": "\\f16a"
+    },
+    "deploy-folder-open": {
+      "fontCharacter": "\\f16b"
+    },
+    "devcontainer-folder-open": {
+      "fontCharacter": "\\f16c"
+    },
+    "dist-folder-open": {
+      "fontCharacter": "\\f16d"
+    },
+    "docker-folder-open": {
+      "fontCharacter": "\\f16e"
+    },
+    "docs-folder-open": {
+      "fontCharacter": "\\f16f"
+    },
+    "domain-folder-open": {
+      "fontCharacter": "\\f170"
+    },
+    "download-folder-open": {
+      "fontCharacter": "\\f171"
+    },
+    "dropbox-folder-open": {
+      "fontCharacter": "\\f172"
+    },
+    "dub-folder-open": {
+      "fontCharacter": "\\f173"
+    },
+    "dump-folder-open": {
+      "fontCharacter": "\\f174"
+    },
+    "dvc-folder-open": {
+      "fontCharacter": "\\f175"
+    },
+    "e2e-folder-open": {
+      "fontCharacter": "\\f176"
+    },
+    "elastic-folder-open": {
+      "fontCharacter": "\\f177"
+    },
+    "electron-folder-open": {
+      "fontCharacter": "\\f178"
+    },
+    "elixir-folder-open": {
+      "fontCharacter": "\\f179"
+    },
+    "emacs-folder-open": {
+      "fontCharacter": "\\f17a"
+    },
+    "env-folder-open": {
+      "fontCharacter": "\\f17b"
+    },
+    "error-folder-open": {
+      "fontCharacter": "\\f17c"
+    },
+    "events-folder-open": {
+      "fontCharacter": "\\f17d"
+    },
+    "examples-folder-open": {
+      "fontCharacter": "\\f17e"
+    },
+    "exclude-folder-open": {
+      "fontCharacter": "\\f17f"
+    },
+    "expo-folder-open": {
+      "fontCharacter": "\\f180"
+    },
+    "faq-folder-open": {
+      "fontCharacter": "\\f181"
+    },
+    "fastlane-folder-open": {
+      "fontCharacter": "\\f182"
+    },
+    "features-folder-open": {
+      "fontCharacter": "\\f183"
+    },
+    "firebase-folder-open": {
+      "fontCharacter": "\\f184"
+    },
+    "fixtures-folder-open": {
+      "fontCharacter": "\\f185"
+    },
+    "flow-folder-open": {
+      "fontCharacter": "\\f186"
+    },
+    "folder-folder-open": {
+      "fontCharacter": "\\f187"
+    },
+    "folder-root-folder-open": {
+      "fontCharacter": "\\f188"
+    },
+    "fonts-folder-open": {
+      "fontCharacter": "\\f189"
+    },
+    "functions-folder-open": {
+      "fontCharacter": "\\f18a"
+    },
+    "gcloud-folder-open": {
+      "fontCharacter": "\\f18b"
+    },
+    "generated-folder-open": {
+      "fontCharacter": "\\f18c"
+    },
+    "git-folder-open": {
+      "fontCharacter": "\\f18d"
+    },
+    "github-folder-open": {
+      "fontCharacter": "\\f18e"
+    },
+    "gitlab-folder-open": {
+      "fontCharacter": "\\f18f"
+    },
+    "global-folder-open": {
+      "fontCharacter": "\\f190"
+    },
+    "gradle-folder-open": {
+      "fontCharacter": "\\f191"
+    },
+    "graphql-folder-open": {
+      "fontCharacter": "\\f192"
+    },
+    "grunt-folder-open": {
+      "fontCharacter": "\\f193"
+    },
+    "guard-folder-open": {
+      "fontCharacter": "\\f194"
+    },
+    "gulp-folder-open": {
+      "fontCharacter": "\\f195"
+    },
+    "hasura-folder-open": {
+      "fontCharacter": "\\f196"
+    },
+    "haxelib-folder-open": {
+      "fontCharacter": "\\f197"
+    },
+    "helm-folder-open": {
+      "fontCharacter": "\\f198"
+    },
+    "helper-folder-open": {
+      "fontCharacter": "\\f199"
+    },
+    "home-folder-open": {
+      "fontCharacter": "\\f19a"
+    },
+    "hook-folder-open": {
+      "fontCharacter": "\\f19b"
+    },
+    "husky-folder-open": {
+      "fontCharacter": "\\f19c"
+    },
+    "i18n-folder-open": {
+      "fontCharacter": "\\f19d"
+    },
+    "icons-folder-open": {
+      "fontCharacter": "\\f19e"
+    },
+    "idea-folder-open": {
+      "fontCharacter": "\\f19f"
+    },
+    "images-folder-open": {
+      "fontCharacter": "\\f1a0"
+    },
+    "include-folder-open": {
+      "fontCharacter": "\\f1a1"
+    },
+    "info-folder-open": {
+      "fontCharacter": "\\f1a2"
+    },
+    "init-folder-open": {
+      "fontCharacter": "\\f1a3"
+    },
+    "injection-folder-open": {
+      "fontCharacter": "\\f1a4"
+    },
+    "ios-folder-open": {
+      "fontCharacter": "\\f1a5"
+    },
+    "iosapp-folder-open": {
+      "fontCharacter": "\\f1a6"
+    },
+    "istanbul-folder-open": {
+      "fontCharacter": "\\f1a7"
+    },
+    "java-folder-open": {
+      "fontCharacter": "\\f1a8"
+    },
+    "jest-folder-open": {
+      "fontCharacter": "\\f1a9"
+    },
+    "jinja-folder-open": {
+      "fontCharacter": "\\f1aa"
+    },
+    "job-folder-open": {
+      "fontCharacter": "\\f1ab"
+    },
+    "js-folder-open": {
+      "fontCharacter": "\\f1ac"
+    },
+    "json-folder-open": {
+      "fontCharacter": "\\f1ad"
+    },
+    "jwt-folder-open": {
+      "fontCharacter": "\\f1ae"
+    },
+    "keys-folder-open": {
+      "fontCharacter": "\\f1af"
+    },
+    "kivy-folder-open": {
+      "fontCharacter": "\\f1b0"
+    },
+    "kotlin-folder-open": {
+      "fontCharacter": "\\f1b1"
+    },
+    "kubernetes-folder-open": {
+      "fontCharacter": "\\f1b2"
+    },
+    "kustomize-folder-open": {
+      "fontCharacter": "\\f1b3"
+    },
+    "layouts-folder-open": {
+      "fontCharacter": "\\f1b4"
+    },
+    "less-folder-open": {
+      "fontCharacter": "\\f1b5"
+    },
+    "lib-folder-open": {
+      "fontCharacter": "\\f1b6"
+    },
+    "linux-folder-open": {
+      "fontCharacter": "\\f1b7"
+    },
+    "logs-folder-open": {
+      "fontCharacter": "\\f1b8"
+    },
+    "lua-folder-open": {
+      "fontCharacter": "\\f1b9"
+    },
+    "mac-folder-open": {
+      "fontCharacter": "\\f1ba"
+    },
+    "mailers-folder-open": {
+      "fontCharacter": "\\f1bb"
+    },
+    "main-folder-open": {
+      "fontCharacter": "\\f1bc"
+    },
+    "maps-folder-open": {
+      "fontCharacter": "\\f1bd"
+    },
+    "markdown-folder-open": {
+      "fontCharacter": "\\f1be"
+    },
+    "math-folder-open": {
+      "fontCharacter": "\\f1bf"
+    },
+    "maven-folder-open": {
+      "fontCharacter": "\\f1c0"
+    },
+    "mercurial-folder-open": {
+      "fontCharacter": "\\f1c1"
+    },
+    "messages-folder-open": {
+      "fontCharacter": "\\f1c2"
+    },
+    "meta-folder-open": {
+      "fontCharacter": "\\f1c3"
+    },
+    "meteor-folder-open": {
+      "fontCharacter": "\\f1c4"
+    },
+    "middleware-folder-open": {
+      "fontCharacter": "\\f1c5"
+    },
+    "mjml-folder-open": {
+      "fontCharacter": "\\f1c6"
+    },
+    "mobile-folder-open": {
+      "fontCharacter": "\\f1c7"
+    },
+    "mocks-folder-open": {
+      "fontCharacter": "\\f1c8"
+    },
+    "modals-folder-open": {
+      "fontCharacter": "\\f1c9"
+    },
+    "models-folder-open": {
+      "fontCharacter": "\\f1ca"
+    },
+    "molecules-folder-open": {
+      "fontCharacter": "\\f1cb"
+    },
+    "mongo-folder-open": {
+      "fontCharacter": "\\f1cc"
+    },
+    "moon-folder-open": {
+      "fontCharacter": "\\f1cd"
+    },
+    "navigation-folder-open": {
+      "fontCharacter": "\\f1ce"
+    },
+    "netlify-folder-open": {
+      "fontCharacter": "\\f1cf"
+    },
+    "next-folder-open": {
+      "fontCharacter": "\\f1d0"
+    },
+    "node-folder-open": {
+      "fontCharacter": "\\f1d1"
+    },
+    "notebooks-folder-open": {
+      "fontCharacter": "\\f1d2"
+    },
+    "notification-folder-open": {
+      "fontCharacter": "\\f1d3"
+    },
+    "nuget-folder-open": {
+      "fontCharacter": "\\f1d4"
+    },
+    "nuxt-folder-open": {
+      "fontCharacter": "\\f1d5"
+    },
+    "openshift-folder-open": {
+      "fontCharacter": "\\f1d6"
+    },
+    "osx-folder-open": {
+      "fontCharacter": "\\f1d7"
+    },
+    "other-folder-open": {
+      "fontCharacter": "\\f1d8"
+    },
+    "packages-folder-open": {
+      "fontCharacter": "\\f1d9"
+    },
+    "pdf-folder-open": {
+      "fontCharacter": "\\f1da"
+    },
+    "perl-folder-open": {
+      "fontCharacter": "\\f1db"
+    },
+    "php-folder-open": {
+      "fontCharacter": "\\f1dc"
+    },
+    "pinia-folder-open": {
+      "fontCharacter": "\\f1dd"
+    },
+    "pipe-folder-open": {
+      "fontCharacter": "\\f1de"
+    },
+    "platformio-folder-open": {
+      "fontCharacter": "\\f1df"
+    },
+    "playwright-folder-open": {
+      "fontCharacter": "\\f1e0"
+    },
+    "plugin-folder-open": {
+      "fontCharacter": "\\f1e1"
+    },
+    "posts-folder-open": {
+      "fontCharacter": "\\f1e2"
+    },
+    "prisma-folder-open": {
+      "fontCharacter": "\\f1e3"
+    },
+    "private-folder-open": {
+      "fontCharacter": "\\f1e4"
+    },
+    "project-folder-open": {
+      "fontCharacter": "\\f1e5"
+    },
+    "projects-folder-open": {
+      "fontCharacter": "\\f1e6"
+    },
+    "protobuf-folder-open": {
+      "fontCharacter": "\\f1e7"
+    },
+    "providers-folder-open": {
+      "fontCharacter": "\\f1e8"
+    },
+    "python-folder-open": {
+      "fontCharacter": "\\f1e9"
+    },
+    "quantum-folder-open": {
+      "fontCharacter": "\\f1ea"
+    },
+    "quasar-folder-open": {
+      "fontCharacter": "\\f1eb"
+    },
+    "queries-folder-open": {
+      "fontCharacter": "\\f1ec"
+    },
+    "queue-folder-open": {
+      "fontCharacter": "\\f1ed"
+    },
+    "react-folder-open": {
+      "fontCharacter": "\\f1ee"
+    },
+    "recoil-folder-open": {
+      "fontCharacter": "\\f1ef"
+    },
+    "redhat-folder-open": {
+      "fontCharacter": "\\f1f0"
+    },
+    "redis-folder-open": {
+      "fontCharacter": "\\f1f1"
+    },
+    "redux-folder-open": {
+      "fontCharacter": "\\f1f2"
+    },
+    "redux-actions-folder-open": {
+      "fontCharacter": "\\f1f3"
+    },
+    "redux-epics-folder-open": {
+      "fontCharacter": "\\f1f4"
+    },
+    "redux-reducers-folder-open": {
+      "fontCharacter": "\\f1f5"
+    },
+    "redux-sagas-folder-open": {
+      "fontCharacter": "\\f1f6"
+    },
+    "redux-stores-folder-open": {
+      "fontCharacter": "\\f1f7"
+    },
+    "redwood-folder-open": {
+      "fontCharacter": "\\f1f8"
+    },
+    "relay-folder-open": {
+      "fontCharacter": "\\f1f9"
+    },
+    "resolver-folder-open": {
+      "fontCharacter": "\\f1fa"
+    },
+    "resource-folder-open": {
+      "fontCharacter": "\\f1fb"
+    },
+    "reviews-folder-open": {
+      "fontCharacter": "\\f1fc"
+    },
+    "root-folder-open": {
+      "fontCharacter": "\\f1fd"
+    },
+    "routes-folder-open": {
+      "fontCharacter": "\\f1fe"
+    },
+    "ruby-folder-open": {
+      "fontCharacter": "\\f1ff"
+    },
+    "rules-folder-open": {
+      "fontCharacter": "\\f200"
+    },
+    "rust-folder-open": {
+      "fontCharacter": "\\f201"
+    },
+    "sass-folder-open": {
+      "fontCharacter": "\\f202"
+    },
+    "scala-folder-open": {
+      "fontCharacter": "\\f203"
+    },
+    "scratch-folder-open": {
+      "fontCharacter": "\\f204"
+    },
+    "screens-folder-open": {
+      "fontCharacter": "\\f205"
+    },
+    "scripts-folder-open": {
+      "fontCharacter": "\\f206"
+    },
+    "security-folder-open": {
+      "fontCharacter": "\\f207"
+    },
+    "server-folder-open": {
+      "fontCharacter": "\\f208"
+    },
+    "serverless-folder-open": {
+      "fontCharacter": "\\f209"
+    },
+    "shader-folder-open": {
+      "fontCharacter": "\\f20a"
+    },
+    "shared-folder-open": {
+      "fontCharacter": "\\f20b"
+    },
+    "sql-folder-open": {
+      "fontCharacter": "\\f20c"
+    },
+    "src-folder-open": {
+      "fontCharacter": "\\f20d"
+    },
+    "sso-folder-open": {
+      "fontCharacter": "\\f20e"
+    },
+    "stack-folder-open": {
+      "fontCharacter": "\\f20f"
+    },
+    "stencil-folder-open": {
+      "fontCharacter": "\\f210"
+    },
+    "storage-folder-open": {
+      "fontCharacter": "\\f211"
+    },
+    "storyblok-folder-open": {
+      "fontCharacter": "\\f212"
+    },
+    "storybook-folder-open": {
+      "fontCharacter": "\\f213"
+    },
+    "strategy-folder-open": {
+      "fontCharacter": "\\f214"
+    },
+    "styles-folder-open": {
+      "fontCharacter": "\\f215"
+    },
+    "stylus-folder-open": {
+      "fontCharacter": "\\f216"
+    },
+    "sublime-folder-open": {
+      "fontCharacter": "\\f217"
+    },
+    "supabase-folder-open": {
+      "fontCharacter": "\\f218"
+    },
+    "svelte-folder-open": {
+      "fontCharacter": "\\f219"
+    },
+    "svg-folder-open": {
+      "fontCharacter": "\\f21a"
+    },
+    "svn-folder-open": {
+      "fontCharacter": "\\f21b"
+    },
+    "sync-folder-open": {
+      "fontCharacter": "\\f21c"
+    },
+    "syntax-folder-open": {
+      "fontCharacter": "\\f21d"
+    },
+    "target-folder-open": {
+      "fontCharacter": "\\f21e"
+    },
+    "taskfile-folder-open": {
+      "fontCharacter": "\\f21f"
+    },
+    "tasks-folder-open": {
+      "fontCharacter": "\\f220"
+    },
+    "tauri-folder-open": {
+      "fontCharacter": "\\f221"
+    },
+    "tech-folder-open": {
+      "fontCharacter": "\\f222"
+    },
+    "temp-folder-open": {
+      "fontCharacter": "\\f223"
+    },
+    "terraform-folder-open": {
+      "fontCharacter": "\\f224"
+    },
+    "tests-folder-open": {
+      "fontCharacter": "\\f225"
+    },
+    "textmate-folder-open": {
+      "fontCharacter": "\\f226"
+    },
+    "themes-folder-open": {
+      "fontCharacter": "\\f227"
+    },
+    "tools-folder-open": {
+      "fontCharacter": "\\f228"
+    },
+    "trait-folder-open": {
+      "fontCharacter": "\\f229"
+    },
+    "ts-folder-open": {
+      "fontCharacter": "\\f22a"
+    },
+    "unity-folder-open": {
+      "fontCharacter": "\\f22b"
+    },
+    "upload-folder-open": {
+      "fontCharacter": "\\f22c"
+    },
+    "users-folder-open": {
+      "fontCharacter": "\\f22d"
+    },
+    "vagrant-folder-open": {
+      "fontCharacter": "\\f22e"
+    },
+    "venv-folder-open": {
+      "fontCharacter": "\\f22f"
+    },
+    "vercel-folder-open": {
+      "fontCharacter": "\\f230"
+    },
+    "verdaccio-folder-open": {
+      "fontCharacter": "\\f231"
+    },
+    "video-folder-open": {
+      "fontCharacter": "\\f232"
+    },
+    "viewmodel-folder-open": {
+      "fontCharacter": "\\f233"
+    },
+    "views-folder-open": {
+      "fontCharacter": "\\f234"
+    },
+    "vim-folder-open": {
+      "fontCharacter": "\\f235"
+    },
+    "vitepress-folder-open": {
+      "fontCharacter": "\\f236"
+    },
+    "vm-folder-open": {
+      "fontCharacter": "\\f237"
+    },
+    "vs-folder-open": {
+      "fontCharacter": "\\f238"
+    },
+    "vscode-folder-open": {
+      "fontCharacter": "\\f239"
+    },
+    "vue-folder-open": {
+      "fontCharacter": "\\f23a"
+    },
+    "vuepress-folder-open": {
+      "fontCharacter": "\\f23b"
+    },
+    "vuex-folder-open": {
+      "fontCharacter": "\\f23c"
+    },
+    "web-folder-open": {
+      "fontCharacter": "\\f23d"
+    },
+    "webpack-folder-open": {
+      "fontCharacter": "\\f23e"
+    },
+    "windows-folder-open": {
+      "fontCharacter": "\\f23f"
+    },
+    "wine-folder-open": {
+      "fontCharacter": "\\f240"
+    },
+    "woocommerce-folder-open": {
+      "fontCharacter": "\\f241"
+    },
+    "woodpecker-folder-open": {
+      "fontCharacter": "\\f242"
+    },
+    "wordpress-folder-open": {
+      "fontCharacter": "\\f243"
+    },
+    "xstate-folder-open": {
+      "fontCharacter": "\\f244"
+    },
+    "yarn-folder-open": {
+      "fontCharacter": "\\f245"
     }
   }
 }

@@ -12,21 +12,21 @@ type IconPackQuickItem = {
 export const getIconPacks = (): IconPackQuickItem[] => {
   return [
     {
-      icon: '$(angular)',
+      icon: '$(atom-angular)',
       id: IconPack.Angular,
       kind: QuickPickItemKind.Default,
       order: 1,
       title: IconPack.Angular.toLowerCase(),
     },
     {
-      icon: '$(ngrx)',
+      icon: '$(atom-ngrx)',
       id: IconPack.Ngrx,
       kind: QuickPickItemKind.Default,
       order: 1,
       title: IconPack.Ngrx.toLowerCase(),
     },
     {
-      icon: '$(nest)',
+      icon: '$(atom-nest)',
       id: IconPack.Nest,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -37,21 +37,21 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 1,
     },
     {
-      icon: '$(react)',
+      icon: '$(atom-react)',
       id: IconPack.React,
       kind: QuickPickItemKind.Default,
       order: 2,
       title: IconPack.React.toLowerCase(),
     },
     {
-      icon: '$(redux)',
+      icon: '$(atom-redux)',
       id: IconPack.Redux,
       kind: QuickPickItemKind.Default,
       order: 2,
       title: IconPack.Redux.toLowerCase(),
     },
     {
-      icon: '$(recoil)',
+      icon: '$(atom-recoil)',
       id: IconPack.Recoil,
       kind: QuickPickItemKind.Default,
       order: 2,
@@ -62,14 +62,14 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 2,
     },
     {
-      icon: '$(vue)',
+      icon: '$(atom-vue)',
       id: IconPack.Vue,
       kind: QuickPickItemKind.Default,
       order: 3,
       title: IconPack.Vue.toLowerCase(),
     },
     {
-      icon: '$(vuex)',
+      icon: '$(atom-vuex)',
       id: IconPack.Vuex,
       kind: QuickPickItemKind.Default,
       order: 3,
@@ -80,7 +80,7 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 3,
     },
     {
-      icon: '$(rails)',
+      icon: '$(atom-rails)',
       id: IconPack.Rails,
       kind: QuickPickItemKind.Default,
       order: 4,
@@ -91,14 +91,14 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 4,
     },
     {
-      icon: '$(phalcon)',
+      icon: '$(atom-phalcon)',
       id: IconPack.Phalcon,
       kind: QuickPickItemKind.Default,
       order: 5,
       title: IconPack.Phalcon.toLowerCase(),
     },
     {
-      icon: '$(volt)',
+      icon: '$(atom-volt)',
       id: IconPack.Volt,
       kind: QuickPickItemKind.Default,
       order: 5,
