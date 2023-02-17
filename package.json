@@ -50,9 +50,12 @@
     "@typescript-eslint/eslint-plugin": "^5.48.1",
     "@typescript-eslint/parser": "^5.48.1",
     "changelog-machine": "^1.0.2",
-    "eslint": "^8.31.0",
+    "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-i18next": "^6.0.0-6",
+    "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^45.0.2",
     "glob": "^8.0.3",
     "i18next": "^22.4.9",
     "mocha": "^10.2.0",
@@ -84,15 +87,6 @@
   ],
   "contributes": {
     "commands": [
-      {
-        "command": "a-file-icon-vscode.activateIcons",
-        "title": "%command.activateIcons%",
-        "category": "Atom Material Icons",
-        "icon": {
-          "light": "./icons/atom.svg",
-          "dark": "./icons/atom.svg"
-        }
-      },
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
         "category": "Atom Material Icons",
@@ -224,26 +218,6 @@
         "id": "a-file-icon-vscode",
         "label": "Atom Material Icons",
         "path": "./dist/a-file-icon-vscode-icon-theme.json"
-      }
-    ],
-    "menus": {
-      "editor/context": [
-        {
-          "submenu": "a-file-icon-vscode/editor/context",
-          "group": "1_a-file-icon-vscode@1"
-        }
-      ],
-      "a-file-icon-vscode/editor/context": [
-        {
-          "command": "a-file-icon-vscode.toggleIconPacks",
-          "group": "1_a-file-icon-vscode@2"
-        }
-      ]
-    },
-    "submenus": [
-      {
-        "id": "a-file-icon-vscode/editor/context",
-        "label": "Atom Material Icons"
       }
     ]
   },

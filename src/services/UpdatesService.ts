@@ -1,5 +1,5 @@
+import { UpdateStatus } from 'src/@types/config';
 import { EXTENSION_ID, VERSION_KEY } from 'src/helpers/constants';
-import { UpdateStatus } from 'src/helpers/enums';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
 import type { Memento } from 'vscode';

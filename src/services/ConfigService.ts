@@ -10,7 +10,7 @@ import { workspace, ConfigurationTarget } from 'vscode';
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
-  get showReloadMessage() {
+  get showReloadMessage(): boolean {
     return this.getConfigValue<boolean>('showReloadMessage') ?? true;
   }
 
@@ -18,7 +18,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('showReloadMessage', v, ConfigurationTarget.Global);
   }
 
-  get showUpdateMessage() {
+  get showUpdateMessage(): boolean {
     return this.getConfigValue<boolean>('showUpdateMessage') ?? true;
   }
 
@@ -26,7 +26,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('showUpdateMessage', v, ConfigurationTarget.Global);
   }
 
-  get showWelcomeMessage() {
+  get showWelcomeMessage(): boolean {
     return this.getConfigValue<boolean>('showWelcomeMessage') ?? true;
   }
 
@@ -34,7 +34,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('showWelcomeMessage', v, ConfigurationTarget.Global);
   }
 
-  get opacity() {
+  get opacity(): number {
     return this.getConfigValue<number>('opacity') ?? 1;
   }
 
@@ -42,7 +42,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('opacity', v, ConfigurationTarget.Workspace);
   }
 
-  get saturation() {
+  get saturation(): number {
     return this.getConfigValue<number>('saturation') ?? 1;
   }
 
@@ -50,7 +50,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('saturation', v, ConfigurationTarget.Workspace);
   }
 
-  get activeIconPacks() {
+  get activeIconPacks(): IconPack[] {
     return (
       this.getConfigValue<IconPack[]>('activeIconPacks') ?? [
         IconPack.Angular,
@@ -66,7 +66,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('activeIconPacks', v, ConfigurationTarget.Workspace);
   }
 
-  get hidesExplorerArrows() {
+  get hidesExplorerArrows(): boolean {
     return this.getConfigValue<boolean>('hidesExplorerArrows') ?? false;
   }
 
@@ -74,19 +74,19 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('hidesExplorerArrows', v, ConfigurationTarget.Workspace);
   }
 
-  get foldersAssociations() {
+  get foldersAssociations(): IconAssociations | undefined {
     return this.getConfigValue<IconAssociations>('foldersAssociations');
   }
 
-  get languagesAssociations() {
+  get languagesAssociations(): IconAssociations | undefined {
     return this.getConfigValue<IconAssociations>('languagesAssociations');
   }
 
-  get filesAssociations() {
+  get filesAssociations(): IconAssociations | undefined {
     return this.getConfigValue<IconAssociations>('filesAssociations');
   }
 
-  get folderColor() {
+  get folderColor(): string {
     return this.getConfigValue<string>('folderColor') ?? '#90a4ae';
   }
 
@@ -94,7 +94,7 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('folderColor', v, ConfigurationTarget.Workspace);
   }
 
-  get folderTheme() {
+  get folderTheme(): FolderTheme {
     return this.getConfigValue<FolderTheme>('folderTheme') ?? FolderTheme.Specific;
   }
 
@@ -105,7 +105,7 @@ export class ConfigService implements AtomConfig {
   // endregion
 
   // region --------------------- Icon Theme Config ----------------------
-  get iconTheme() {
+  get iconTheme(): string {
     return this.getConfig().get<string>(ICON_THEME_KEY) ?? '';
   }
 

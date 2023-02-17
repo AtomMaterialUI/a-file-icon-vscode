@@ -46,5 +46,9 @@
   "saturation": {
     "inputPlaceholder": "Valeur de saturation (entre 0 et 1)",
     "wrongValue": "La valeur doit être comprise entre 0 et 1 !"
+  },
+  "classic": "classique",
+  "folderThemes": {
+    "classicFolders": "Sélectionner les icônes des dossiers classiques"
   }
 }

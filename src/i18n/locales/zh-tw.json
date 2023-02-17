@@ -46,5 +46,9 @@
   "saturation": {
     "inputPlaceholder": "飽和度值（在0和1之間）。",
     "wrongValue": "該值必須在0和1之間!"
+  },
+  "classic": "典文",
+  "folderThemes": {
+    "classicFolders": "選擇經典文件夾圖標"
   }
 }

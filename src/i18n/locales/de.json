@@ -46,5 +46,9 @@
   "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
   "reload": "Neu starten",
   "outdatedVersion": "VS Code muss aktualisiert werden, um diesen Befehl auszuführen.",
-  "updateVSCode": "VS Code aktualisieren"
+  "updateVSCode": "VS Code aktualisieren",
+  "classic": "klassisch",
+  "folderThemes": {
+    "classicFolders": "Klassische Ordner Icons auswählen"
+  }
 }

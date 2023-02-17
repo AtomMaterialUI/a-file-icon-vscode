@@ -1,2 +1,5 @@
 build/**
 *.d.ts
+package.json
+launch.json
+tsconfig.json

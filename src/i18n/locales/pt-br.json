@@ -1,50 +1,54 @@
 {
-  "themeInstalled": "O Atom Material Icons foi instalado.",
-  "howToActivate": "Como ativar os ícones",
   "activate": "Ativar",
   "activated": "O Atom Material Icons está ativo.",
-  "neverShowAgain": "Não mostrar novamente",
-  "themeUpdated": "O Atom Material Icons foi atualizado.",
-  "readChangelog": "Ler changelog",
-  "iconPacks": {
-    "selectPack": "Selecione um pacote de ícones",
-    "description": "Selecionar o pacote de ícones '{{name}}'",
-    "disabled": "Desabilitar pacotes de ícones"
+  "classic": "clássico",
+  "confirmReload": "Você precisa reiniciar o VS Code para ativar a mudança de ícones.",
+  "explorerArrows": {
+    "disable": "Ocultar setas do explorador de arquivos",
+    "enable": "Exibir setas do explorador de arquivos",
+    "toggle": "Alternar setas do explorador de arquivos"
+  },
+  "folderThemes": {
+    "classicFolders": "Selecione ícones de pastas clássicas"
   },
   "folders": {
-    "toggleIcons": "Escolha um tema para as pastas",
     "color": "Escolha uma cor para as pastas",
-    "hexCode": "Insira um código de cor hexadecimal",
-    "wrongHexCode": "Código de cor hexadecimal inválido!",
     "disabled": "Nenhum ícone de pasta",
+    "hexCode": "Insira um código de cor hexadecimal",
     "theme": {
       "description": "Selecionar o tema para pastas '{{name}}'"
-    }
+    },
+    "toggleIcons": "Escolha um tema para as pastas",
+    "wrongHexCode": "Código de cor hexadecimal inválido!"
   },
+  "grayscale": {
+    "disable": "Desativar ícones em escala de cinza",
+    "enable": "Habilitar ícones em escala de cinza",
+    "toggle": "Alternar os ícones em escala de cinza"
+  },
+  "howToActivate": "Como ativar os ícones",
+  "iconPacks": {
+    "description": "Selecionar o pacote de ícones '{{name}}'",
+    "disabled": "Desabilitar pacotes de ícones",
+    "selectPack": "Selecione um pacote de ícones"
+  },
+  "neverShowAgain": "Não mostrar novamente",
   "opacity": {
     "inputPlaceholder": "Valor de opacidade (entre 0 e 1)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
-  "toggleSwitch": {
-    "on": "ON",
-    "off": "OFF"
-  },
-  "explorerArrows": {
-    "toggle": "Alternar setas do explorador de arquivos",
-    "enable": "Exibir setas do explorador de arquivos",
-    "disable": "Ocultar setas do explorador de arquivos"
-  },
-  "confirmReload": "Você precisa reiniciar o VS Code para ativar a mudança de ícones.",
-  "reload": "Reiniciar",
   "outdatedVersion": "Você precisa atualizar o VS Code para usar esse comando.",
-  "updateVSCode": "Atualizar VS Code",
-  "grayscale": {
-    "toggle": "Alternar os ícones em escala de cinza",
-    "enable": "Habilitar ícones em escala de cinza",
-    "disable": "Desativar ícones em escala de cinza"
-  },
+  "readChangelog": "Ler changelog",
+  "reload": "Reiniciar",
   "saturation": {
     "inputPlaceholder": "Valor de saturação (entre 0 e 1)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
-  }
+  },
+  "themeInstalled": "O Atom Material Icons foi instalado.",
+  "themeUpdated": "O Atom Material Icons foi atualizado.",
+  "toggleSwitch": {
+    "off": "OFF",
+    "on": "ON"
+  },
+  "updateVSCode": "Atualizar VS Code"
 }

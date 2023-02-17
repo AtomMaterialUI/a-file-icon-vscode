@@ -1,50 +1,54 @@
 {
-  "themeInstalled": "Atom Material Icons был установлен.",
-  "howToActivate": "Как активировать иконки",
   "activate": "Активировать",
   "activated": "Atom Material Icons активен.",
-  "neverShowAgain": "Никогда не показывать снова",
-  "themeUpdated": "Atom Material Icons был обновлен.",
-  "readChangelog": "Смотреть список изменений",
-  "iconPacks": {
-    "selectPack": "Выбрать набор иконок",
-    "description": "Выбрать '{{name}}' набор иконок",
-    "disabled": "Выключить набор иконок"
+  "classic": "классический",
+  "confirmReload": "Нужно перезапустить VS Code для активации иконок.",
+  "explorerArrows": {
+    "disable": "Скрыть стрелки у папок",
+    "enable": "Показать стрелки у папок",
+    "toggle": "Показать/скрыть стрелки у папок"
+  },
+  "folderThemes": {
+    "classicFolders": "Выберите классические значки папок"
   },
   "folders": {
-    "toggleIcons": "Выбрать тему папки",
     "color": "Выбрать цвет папки",
-    "hexCode": "Вставить HEX-код цвета",
-    "wrongHexCode": "Неверный HEX-код цвета!",
     "disabled": "Нет иконок для папки",
+    "hexCode": "Вставить HEX-код цвета",
     "theme": {
       "description": "Выбрать '{{name}}' тему папки"
-    }
+    },
+    "toggleIcons": "Выбрать тему папки",
+    "wrongHexCode": "Неверный HEX-код цвета!"
   },
+  "grayscale": {
+    "disable": "Отключить значки в оттенках серого",
+    "enable": "Включить значки в оттенках серого",
+    "toggle": "Переключение серых значков"
+  },
+  "howToActivate": "Как активировать иконки",
+  "iconPacks": {
+    "description": "Выбрать '{{name}}' набор иконок",
+    "disabled": "Выключить набор иконок",
+    "selectPack": "Выбрать набор иконок"
+  },
+  "neverShowAgain": "Никогда не показывать снова",
   "opacity": {
     "inputPlaceholder": "Значение непрозрачности (между 0 и 1)",
     "wrongValue": "Значение должно быть между 0 и 1!"
   },
-  "toggleSwitch": {
-    "on": "Включить",
-    "off": "Выключить"
-  },
-  "explorerArrows": {
-    "toggle": "Показать/скрыть стрелки у папок",
-    "enable": "Показать стрелки у папок",
-    "disable": "Скрыть стрелки у папок"
-  },
-  "confirmReload": "Нужно перезапустить VS Code для активации иконок.",
-  "reload": "Перезагрузить",
   "outdatedVersion": "Нужно обновить VS Code, чтобы использовать эту команду.",
-  "updateVSCode": "Обновить VS Code",
-  "grayscale": {
-    "toggle": "Переключение серых значков",
-    "enable": "Включить значки в оттенках серого",
-    "disable": "Отключить значки в оттенках серого"
-  },
+  "readChangelog": "Смотреть список изменений",
+  "reload": "Перезагрузить",
   "saturation": {
     "inputPlaceholder": "Значение насыщенности (между 0 и 1)",
     "wrongValue": "Значение должно быть между 0 и 1!"
-  }
+  },
+  "themeInstalled": "Atom Material Icons был установлен.",
+  "themeUpdated": "Atom Material Icons был обновлен.",
+  "toggleSwitch": {
+    "off": "Выключить",
+    "on": "Включить"
+  },
+  "updateVSCode": "Обновить VS Code"
 }

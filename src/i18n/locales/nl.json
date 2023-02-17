@@ -1,50 +1,54 @@
 {
-  "themeInstalled": "Material Icon Thema is geïnstalleerd.",
-  "howToActivate": "Hoe je icons activeert",
   "activate": "Activeer",
   "activated": "Material Icon Thema is actief.",
-  "neverShowAgain": "Nooit meer laten zien",
-  "themeUpdated": "Material Icon Thema is geüpdated.",
-  "readChangelog": "Lees de changelog",
-  "iconPacks": {
-    "selectPack": "Selecteer een iconpakket",
-    "description": "Selecteer het '{{name}}' iconpakket",
-    "disabled": "Zet iconpaketten uit"
+  "classic": "klassiek",
+  "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
+  "explorerArrows": {
+    "disable": "Verberg folderpijlen",
+    "enable": "Laat folderpijlen zien",
+    "toggle": "Zet folderpijlen aan of uit"
+  },
+  "folderThemes": {
+    "classicFolders": "Selecteer klassieke foldericons"
   },
   "folders": {
-    "toggleIcons": "Kies een folderthema",
     "color": "Kies een folderkleur",
-    "hexCode": "Voeg een HEX kleurcode in",
-    "wrongHexCode": "Ongeldige HEX kleurcode!",
     "disabled": "Geen foldericons",
+    "hexCode": "Voeg een HEX kleurcode in",
     "theme": {
       "description": "Selecteer het '{{name}}' folderthema"
-    }
+    },
+    "toggleIcons": "Kies een folderthema",
+    "wrongHexCode": "Ongeldige HEX kleurcode!"
   },
+  "grayscale": {
+    "disable": "Zet grijsgetinte icons uit",
+    "enable": "Zet grijsgetinte icons aan",
+    "toggle": "Zet grijsgetinte icons aan of uit"
+  },
+  "howToActivate": "Hoe je icons activeert",
+  "iconPacks": {
+    "description": "Selecteer het '{{name}}' iconpakket",
+    "disabled": "Zet iconpaketten uit",
+    "selectPack": "Selecteer een iconpakket"
+  },
+  "neverShowAgain": "Nooit meer laten zien",
   "opacity": {
     "inputPlaceholder": "Doorzichtbaarheidswaarde (tussen 0 en 1)",
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
   },
-  "toggleSwitch": {
-    "on": "AAN",
-    "off": "UIT"
-  },
-  "explorerArrows": {
-    "toggle": "Zet folderpijlen aan of uit",
-    "enable": "Laat folderpijlen zien",
-    "disable": "Verberg folderpijlen"
-  },
-  "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
-  "reload": "Herstart",
   "outdatedVersion": "Je moet VS Code updaten om dit commando te kunnen gebruiken.",
-  "updateVSCode": "Update VS Code",
-  "grayscale": {
-    "toggle": "Zet grijsgetinte icons aan of uit",
-    "enable": "Zet grijsgetinte icons aan",
-    "disable": "Zet grijsgetinte icons uit"
-  },
+  "readChangelog": "Lees de changelog",
+  "reload": "Herstart",
   "saturation": {
     "inputPlaceholder": "Saturatiewaarde (tussen 0 en 1)",
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
-  }
+  },
+  "themeInstalled": "Material Icon Thema is geïnstalleerd.",
+  "themeUpdated": "Material Icon Thema is geüpdated.",
+  "toggleSwitch": {
+    "off": "UIT",
+    "on": "AAN"
+  },
+  "updateVSCode": "Update VS Code"
 }

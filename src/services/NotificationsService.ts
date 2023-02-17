@@ -1,6 +1,6 @@
 import i18next from 'i18next';
+import { UpdateStatus } from 'src/@types/config';
 import { EXTENSION_ID } from 'src/helpers/constants';
-import { UpdateStatus } from 'src/helpers/enums';
 import { openBrowser } from 'src/helpers/vscodeUtils';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';

@@ -1,50 +1,54 @@
 {
-  "themeInstalled": "Motyw Material Icon został zainstalowany.",
-  "howToActivate": "Jak aktywować ikony",
   "activate": "Aktywuj",
   "activated": "Motyw Material Icon jest aktywny.",
-  "neverShowAgain": "Nigdy więcej nie pokazuj",
-  "themeUpdated": "Motyw Material Icon został zaktualizowany.",
-  "readChangelog": "Przeczytaj listę zmian",
-  "iconPacks": {
-    "selectPack": "Wybierz paczkę ikon",
-    "description": "Wybierz paczkę ikon '{{name}}'",
-    "disabled": "Wyłącz paczki ikon"
+  "classic": "klasyczne",
+  "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
+  "explorerArrows": {
+    "disable": "Schowaj strzałki przy folderach",
+    "enable": "Pokaż strzałki przy folderach",
+    "toggle": "Przełącz strzałki przy folderach"
+  },
+  "folderThemes": {
+    "classicFolders": "Wybierz klasyczne ikony folderów"
   },
   "folders": {
-    "toggleIcons": "Wybierz motyw folderów",
     "color": "Wybierz kolor folderów",
-    "hexCode": "Podaj kolor w formacie HEX",
-    "wrongHexCode": "Nieprawidłowy kolor HEX!",
     "disabled": "Brak ikon folderów",
+    "hexCode": "Podaj kolor w formacie HEX",
     "theme": {
       "description": "Wybierz motyw folderów '{{name}}'"
-    }
+    },
+    "toggleIcons": "Wybierz motyw folderów",
+    "wrongHexCode": "Nieprawidłowy kolor HEX!"
   },
+  "grayscale": {
+    "disable": "Wyłącz czarno-białe ikony",
+    "enable": "Włącz czarno-białe ikony",
+    "toggle": "Przełącz czarno-białe ikony"
+  },
+  "howToActivate": "Jak aktywować ikony",
+  "iconPacks": {
+    "description": "Wybierz paczkę ikon '{{name}}'",
+    "disabled": "Wyłącz paczki ikon",
+    "selectPack": "Wybierz paczkę ikon"
+  },
+  "neverShowAgain": "Nigdy więcej nie pokazuj",
   "opacity": {
     "inputPlaceholder": "Wartość przezroczystości (pomiędzy 0 a 1)",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
-  "toggleSwitch": {
-    "on": "WŁĄCZONE",
-    "off": "WYŁĄCZONE"
-  },
-  "explorerArrows": {
-    "toggle": "Przełącz strzałki przy folderach",
-    "enable": "Pokaż strzałki przy folderach",
-    "disable": "Schowaj strzałki przy folderach"
-  },
-  "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
-  "reload": "Restartuj",
   "outdatedVersion": "Musisz zaktualizować VS Code, aby użyć tej komendy.",
-  "updateVSCode": "Zaktualizuj VS Code",
-  "grayscale": {
-    "toggle": "Przełącz czarno-białe ikony",
-    "enable": "Włącz czarno-białe ikony",
-    "disable": "Wyłącz czarno-białe ikony"
-  },
+  "readChangelog": "Przeczytaj listę zmian",
+  "reload": "Restartuj",
   "saturation": {
     "inputPlaceholder": "Wartość nasycenia (pomiędzy 0 a 1)",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
-  }
+  },
+  "themeInstalled": "Motyw Material Icon został zainstalowany.",
+  "themeUpdated": "Motyw Material Icon został zaktualizowany.",
+  "toggleSwitch": {
+    "off": "WYŁĄCZONE",
+    "on": "WŁĄCZONE"
+  },
+  "updateVSCode": "Zaktualizuj VS Code"
 }

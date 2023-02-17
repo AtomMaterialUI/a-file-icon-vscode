@@ -1,5 +1,6 @@
 import merge from 'lodash.merge';
 import type { AtomConfig } from 'src/@types/config';
+import { FileMappingType } from 'src/@types/config';
 import type { FileAssociations, FileAssociation } from 'src/@types/icons';
 import {
   WILDCARD_PATTERN,
@@ -7,7 +8,6 @@ import {
   HIGH_CONTRAST_FILE_ENDING,
   RELATIVE_DIST_FILES_FOLDER_PATH,
 } from 'src/helpers/constants';
-import { FileMappingType } from 'src/helpers/enums';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
