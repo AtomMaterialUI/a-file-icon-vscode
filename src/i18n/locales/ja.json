@@ -9,7 +9,9 @@
     "toggle": "フォルダーの矢印を切り替える"
   },
   "folderThemes": {
-    "classicFolders": "クラシックフォルダーアイコンを選択する"
+    "classicFolders": "クラシックフォルダーアイコンを選択する",
+    "noFolders": "フォルダーアイコンなし",
+    "specificFolders": "特定のフォルダーアイコンを選択する"
   },
   "folders": {
     "color": "フォルダーの色を切り替える",
@@ -33,6 +35,7 @@
     "selectPack": "アイコンパックを選択する"
   },
   "neverShowAgain": "今後は表示しない",
+  "none": "なし",
   "opacity": {
     "inputPlaceholder": "不透明度（0〜1）",
     "wrongValue": "値は0から1の間にしてください！"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "彩度（0〜1）",
     "wrongValue": "値は0から1の間にしてください！"
   },
+  "specific": "特定",
   "themeInstalled": "Atom Material Icons がインストールされました。",
   "themeUpdated": "Atom Material Icons が更新されました。",
   "toggleSwitch": {

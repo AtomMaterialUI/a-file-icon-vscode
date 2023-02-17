@@ -9,7 +9,9 @@
     "toggle": "Стрілки для перемикання папок"
   },
   "folderThemes": {
-    "classicFolders": "виберіть класичні піктограми тек"
+    "classicFolders": "виберіть класичні піктограми тек",
+    "noFolders": "без піктограм тек",
+    "specificFolders": "виберіть конкретне піктограми тек"
   },
   "folders": {
     "color": "Виберіть колір папки",
@@ -33,6 +35,7 @@
     "selectPack": "Виберіть набір іконок"
   },
   "neverShowAgain": "Ніколи не показувати знову",
+  "none": "без",
   "opacity": {
     "inputPlaceholder": "Значення непрозорості (від 0 до 1)",
     "wrongValue": "Значення має бути від 0 до 1!"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "Значення насичення (від 0 до 1)",
     "wrongValue": "Значення має бути від 0 до 1!"
   },
+  "specific": "конкретне",
   "themeInstalled": "Atom Material Icons був встановлений.",
   "themeUpdated": "Atom Material Icons був оновлений.",
   "toggleSwitch": {

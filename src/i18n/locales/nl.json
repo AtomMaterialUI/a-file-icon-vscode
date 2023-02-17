@@ -1,7 +1,7 @@
 {
   "activate": "Activeer",
   "activated": "Material Icon Thema is actief.",
-  "classic": "klassiek",
+  "classic": "Klassiek",
   "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
   "explorerArrows": {
     "disable": "Verberg folderpijlen",
@@ -9,7 +9,9 @@
     "toggle": "Zet folderpijlen aan of uit"
   },
   "folderThemes": {
-    "classicFolders": "Selecteer klassieke foldericons"
+    "classicFolders": "Selecteer klassieke foldericons",
+    "noFolders": "Geen foldericons",
+    "specificFolders": "Selecteer bepaalde foldericons"
   },
   "folders": {
     "color": "Kies een folderkleur",
@@ -33,6 +35,7 @@
     "selectPack": "Selecteer een iconpakket"
   },
   "neverShowAgain": "Nooit meer laten zien",
+  "none": "Geen",
   "opacity": {
     "inputPlaceholder": "Doorzichtbaarheidswaarde (tussen 0 en 1)",
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "Saturatiewaarde (tussen 0 en 1)",
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
   },
+  "specific": "Specifiek",
   "themeInstalled": "Material Icon Thema is geïnstalleerd.",
   "themeUpdated": "Material Icon Thema is geüpdated.",
   "toggleSwitch": {

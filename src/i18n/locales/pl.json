@@ -1,7 +1,7 @@
 {
   "activate": "Aktywuj",
   "activated": "Motyw Material Icon jest aktywny.",
-  "classic": "klasyczne",
+  "classic": "Klasyczne",
   "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
   "explorerArrows": {
     "disable": "Schowaj strzałki przy folderach",
@@ -9,7 +9,9 @@
     "toggle": "Przełącz strzałki przy folderach"
   },
   "folderThemes": {
-    "classicFolders": "Wybierz klasyczne ikony folderów"
+    "classicFolders": "Wybierz klasyczne ikony folderów",
+    "noFolders": "Brak ikon folderów",
+    "specificFolders": "Wybierz ikony folderów"
   },
   "folders": {
     "color": "Wybierz kolor folderów",
@@ -33,6 +35,7 @@
     "selectPack": "Wybierz paczkę ikon"
   },
   "neverShowAgain": "Nigdy więcej nie pokazuj",
+  "none": "Bez",
   "opacity": {
     "inputPlaceholder": "Wartość przezroczystości (pomiędzy 0 a 1)",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "Wartość nasycenia (pomiędzy 0 a 1)",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
+  "specific": "Określony",
   "themeInstalled": "Motyw Material Icon został zainstalowany.",
   "themeUpdated": "Motyw Material Icon został zaktualizowany.",
   "toggleSwitch": {

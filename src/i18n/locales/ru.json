@@ -9,7 +9,9 @@
     "toggle": "Показать/скрыть стрелки у папок"
   },
   "folderThemes": {
-    "classicFolders": "Выберите классические значки папок"
+    "classicFolders": "Выберите классические значки папок",
+    "noFolders": "Нет значков папок",
+    "specificFolders": "Выберите конкретные значки папок"
   },
   "folders": {
     "color": "Выбрать цвет папки",
@@ -33,6 +35,7 @@
     "selectPack": "Выбрать набор иконок"
   },
   "neverShowAgain": "Никогда не показывать снова",
+  "none": "без",
   "opacity": {
     "inputPlaceholder": "Значение непрозрачности (между 0 и 1)",
     "wrongValue": "Значение должно быть между 0 и 1!"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "Значение насыщенности (между 0 и 1)",
     "wrongValue": "Значение должно быть между 0 и 1!"
   },
+  "specific": "Спесифический",
   "themeInstalled": "Atom Material Icons был установлен.",
   "themeUpdated": "Atom Material Icons был обновлен.",
   "toggleSwitch": {

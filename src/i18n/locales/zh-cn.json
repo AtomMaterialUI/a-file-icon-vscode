@@ -1,6 +1,6 @@
 {
   "activate": "激活",
-  "activated": "Material主题图标已激活",
+  "activated": "Atom Material Icons 主题图标已激活",
   "classic": "经典",
   "confirmReload": "你必须重启VS Code来应用对图标的更改",
   "explorerArrows": {
@@ -9,7 +9,9 @@
     "toggle": "切换文件夹箭头"
   },
   "folderThemes": {
-    "classicFolders": "选择经典文件夹图标"
+    "classicFolders": "选择经典文件夹图标",
+    "noFolders": "没有文件夹图标",
+    "specificFolders": "选择特定文件夹图标"
   },
   "folders": {
     "color": "选择一个文件夹颜色",
@@ -33,6 +35,7 @@
     "selectPack": "选择图标包"
   },
   "neverShowAgain": "不再显示",
+  "none": "没有",
   "opacity": {
     "inputPlaceholder": "不透明度值（0和1之间）",
     "wrongValue": "该值必须介于0和1之间！"
@@ -44,8 +47,9 @@
     "inputPlaceholder": "饱和度值（在0和1之间）。",
     "wrongValue": "该值必须在0和1之间!"
   },
-  "themeInstalled": "Material主题图标已安装",
-  "themeUpdated": "Material主题图标已更新",
+  "specific": "特定",
+  "themeInstalled": "Atom Material Icons 主题图标已安装",
+  "themeUpdated": "Atom Material Icons 主题图标已更新",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

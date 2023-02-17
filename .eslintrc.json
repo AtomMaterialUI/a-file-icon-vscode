@@ -110,7 +110,16 @@
         "no-unsafe-finally": "error",
         "no-var": "error",
         "prefer-const": "error",
-        "spaced-comment": "error"
+        "spaced-comment": "error",
+        "unicorn/filename-case": [
+          "error",
+          {
+            "cases": {
+              "camelCase": true,
+              "pascalCase": true
+            }
+          }
+        ]
       }
     },
     {
@@ -125,9 +134,7 @@
         "jsonc"
       ],
       "rules": {
-        "jsonc/key-name-casing": [
-          "error"
-        ],
+        "jsonc/key-name-casing": "off",
         "jsonc/no-comments": "off",
         "jsonc/sort-keys": "error"
       }

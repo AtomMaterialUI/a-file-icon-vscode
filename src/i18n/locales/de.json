@@ -1,54 +1,58 @@
 {
-  "themeInstalled": "Atom Material Icons wurde installiert.",
-  "howToActivate": "Wie Icons aktivieren?",
   "activate": "Aktivieren",
   "activated": "Atom Material Icons ist jetzt aktiviert.",
-  "neverShowAgain": "Nicht mehr zeigen",
-  "themeUpdated": "Das Atom Material Icons wurde aktualisiert.",
-  "readChangelog": "Änderungsprotokoll lesen",
-  "iconPacks": {
-    "selectPack": "Icon Pack auswählen",
-    "description": "Das '{{name}}' Icon Pack auswählen",
-    "disabled": "Icon Packs deaktivieren"
+  "classic": "Klassisch",
+  "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
+  "explorerArrows": {
+    "disable": "Explorer Pfeile ausblenden",
+    "enable": "Explorer Pfeile anzeigen",
+    "toggle": "Pfeile im Explorer anpassen"
+  },
+  "folderThemes": {
+    "classicFolders": "Klassische Ordner Icons auswählen",
+    "noFolders": "Keine Ordner Icons",
+    "specificFolders": "Spezifische Ordner Icons auswählen"
   },
   "folders": {
-    "toggleIcons": "Wähle ein Ordner Design",
     "color": "Wähle eine Ordner Farbe",
-    "hexCode": "Gebe einen HEX Farbcode ein",
-    "wrongHexCode": "Ungültiger HEX Farbcode",
     "disabled": "Keine Ordner Icons",
+    "hexCode": "Gebe einen HEX Farbcode ein",
     "theme": {
       "description": "Wähle das '{{name}}' Design"
-    }
+    },
+    "toggleIcons": "Wähle ein Ordner Design",
+    "wrongHexCode": "Ungültiger HEX Farbcode"
   },
+  "grayscale": {
+    "disable": "Deaktiviert graustufige Icons",
+    "enable": "Aktiviert graustufige Icons",
+    "toggle": "Schaltet graustufige Icons um"
+  },
+  "howToActivate": "Wie Icons aktivieren?",
+  "iconPacks": {
+    "description": "Das '{{name}}' Icon Pack auswählen",
+    "disabled": "Icon Packs deaktivieren",
+    "selectPack": "Icon Pack auswählen"
+  },
+  "neverShowAgain": "Nicht mehr zeigen",
+  "none": "Keine",
   "opacity": {
     "inputPlaceholder": "Wert der Deckkraft (zwischen 0 und 1)",
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
-  "toggleSwitch": {
-    "on": "EIN",
-    "off": "AUS"
-  },
-  "explorerArrows": {
-    "toggle": "Pfeile im Explorer anpassen",
-    "enable": "Explorer Pfeile anzeigen",
-    "disable": "Explorer Pfeile ausblenden"
-  },
-  "grayscale": {
-    "toggle": "Schaltet graustufige Icons um",
-    "enable": "Aktiviert graustufige Icons",
-    "disable": "Deaktiviert graustufige Icons"
-  },
+  "outdatedVersion": "VS Code muss aktualisiert werden, um diesen Befehl auszuführen.",
+  "readChangelog": "Änderungsprotokoll lesen",
+  "reload": "Neu starten",
   "saturation": {
     "inputPlaceholder": "Wert der Sättigung (zwischen 0 und 1)",
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
-  "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
-  "reload": "Neu starten",
-  "outdatedVersion": "VS Code muss aktualisiert werden, um diesen Befehl auszuführen.",
-  "updateVSCode": "VS Code aktualisieren",
-  "classic": "klassisch",
-  "folderThemes": {
-    "classicFolders": "Klassische Ordner Icons auswählen"
-  }
+  "specific": "Spezifische",
+  "themeInstalled": "Atom Material Icons wurde installiert.",
+  "themeUpdated": "Das Atom Material Icons wurde aktualisiert.",
+  "toggleSwitch": {
+    "off": "AUS",
+    "on": "EIN"
+  },
+  "updateVSCode": "VS Code aktualisieren"
 }

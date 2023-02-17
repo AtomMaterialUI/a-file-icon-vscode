@@ -1,7 +1,7 @@
 {
   "activate": "Habilitar",
   "activated": "O Atom Material Icons está habilitado.",
-  "classic": "clássico",
+  "classic": "Clássicas",
   "confirmReload": "Precisas reinicializar o VS Code para habilitar a alteração de ícones.",
   "explorerArrows": {
     "disable": "Ocultar setas do explorador de ficheiros",
@@ -9,7 +9,9 @@
     "toggle": "Alternar setas do explorador de ficheiros"
   },
   "folderThemes": {
-    "classicFolders": "Selecciona ícones de pastas clássicas"
+    "classicFolders": "Selecciona ícones de pastas clássicas",
+    "noFolders": "Nenhum ícone de pasta",
+    "specificFolders": "Selecciona ícones de pastas específicas"
   },
   "folders": {
     "color": "Escolhe uma cor para os directórios",
@@ -33,6 +35,7 @@
     "selectPack": "Seleccione um pacote de ícones"
   },
   "neverShowAgain": "Não mostrar novamente",
+  "none": "Nenhum",
   "opacity": {
     "inputPlaceholder": "Valor de opacidade (entre 0 e 1)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
@@ -44,6 +47,7 @@
     "inputPlaceholder": "Valor de saturação (entre 0 e 1)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
+  "specific": "Específicas",
   "themeInstalled": "O Atom Material Icons foi instalado.",
   "themeUpdated": "O Atom Material Icons foi atualizado.",
   "toggleSwitch": {
