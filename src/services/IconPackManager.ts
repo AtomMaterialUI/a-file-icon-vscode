@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { IconPack } from 'src/@types/config';
-import { iconPacks } from 'src/helpers/iconPacks';
+import { getIconPacks } from 'src/helpers/iconPacks';
 import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, QuickPickItemKind, window } from 'vscode';
@@ -22,6 +22,7 @@ export class IconPackManager {
    */
   private showQuickPickItems(activeIconPacks: IconPack[]) {
     const isNoneActive = this.isNoneActive(activeIconPacks);
+    const iconPacks = getIconPacks();
 
     const options: QuickPickItem[] = iconPacks.map((pack) => {
       const isSeparator = pack.kind === QuickPickItemKind.Separator;

@@ -1,6 +1,6 @@
 import i18next from 'i18next';
 import { FolderTheme } from 'src/@types/config';
-import { folderThemes } from 'src/helpers/folderThemes';
+import { getFolderThemes } from 'src/helpers/folderThemes';
 import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
@@ -22,6 +22,8 @@ export class FolderThemeManager {
    */
   private showQuickPickItems(currentTheme: FolderTheme) {
     const isNoneActive = this.isNoneActive(currentTheme);
+    const folderThemes = getFolderThemes();
+
     const options = Object.values(folderThemes).map((theme): QuickPickItem => ({
       description: theme.name,
       detail: theme.description,
@@ -32,6 +34,7 @@ export class FolderThemeManager {
     return window.showQuickPick(options, {
       ignoreFocusOut: false,
       matchOnDescription: true,
+      matchOnDetail: true,
       placeHolder: i18next.t('folders.toggleIcons'),
     });
   }
@@ -53,7 +56,7 @@ export class FolderThemeManager {
    */
   private handleQuickPickActions(decision: QuickPickItem): void {
     if (!decision || !decision.description) return;
-    const enumKey = findEnumKey(FolderTheme, decision.description);
+    const enumKey = findEnumKey(FolderTheme, decision.description.toLowerCase());
 
     configService.folderTheme = enumKey ? FolderTheme[enumKey] : FolderTheme.None;
   }

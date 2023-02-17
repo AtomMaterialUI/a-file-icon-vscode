@@ -111,7 +111,7 @@
         "import/no-cycle": "error",
         "import/no-default-export": "error",
         "import/no-duplicates": "error",
-        "import/no-internal-modules": "error",
+        "import/no-internal-modules": "off",
         "import/no-namespace": "error",
         "import/no-unassigned-import": "error",
         "import/order": [
