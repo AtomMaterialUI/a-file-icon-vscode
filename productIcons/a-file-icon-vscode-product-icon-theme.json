@@ -1,0 +1,5480 @@
+{
+  "fonts": [
+    {
+      "id": "a-file-icon-vscode",
+      "src": [
+        {
+          "format": "woff",
+          "path": "./a-file-icon-vscode.woff"
+        }
+      ],
+      "style": "normal",
+      "weight": "normal"
+    }
+  ],
+  "iconDefinitions": {
+    "11ty-file": {
+      "fontCharacter": "\\ea00"
+    },
+    "11ty_dark-file": {
+      "fontCharacter": "\\ea01"
+    },
+    "1c-file": {
+      "fontCharacter": "\\ea02"
+    },
+    "3d-file": {
+      "fontCharacter": "\\ea03"
+    },
+    "3dmodel-file": {
+      "fontCharacter": "\\ea04"
+    },
+    "3dsmax-file": {
+      "fontCharacter": "\\ea05"
+    },
+    "4d-file": {
+      "fontCharacter": "\\ea06"
+    },
+    "abap-file": {
+      "fontCharacter": "\\ea07"
+    },
+    "abc-file": {
+      "fontCharacter": "\\ea08"
+    },
+    "abell-file": {
+      "fontCharacter": "\\ea09"
+    },
+    "abif-file": {
+      "fontCharacter": "\\ea0a"
+    },
+    "access-file": {
+      "fontCharacter": "\\ea0b"
+    },
+    "acf-folder": {
+      "fontCharacter": "\\eff5"
+    },
+    "acre-file": {
+      "fontCharacter": "\\ea0c"
+    },
+    "acre-folder": {
+      "fontCharacter": "\\eff6"
+    },
+    "act-file": {
+      "fontCharacter": "\\ea0d"
+    },
+    "actionscript-file": {
+      "fontCharacter": "\\ea0e"
+    },
+    "ada-file": {
+      "fontCharacter": "\\ea0f"
+    },
+    "adapter-folder": {
+      "fontCharacter": "\\eff7"
+    },
+    "addon-folder": {
+      "fontCharacter": "\\eff8"
+    },
+    "admin-folder": {
+      "fontCharacter": "\\eff9"
+    },
+    "adonis-file": {
+      "fontCharacter": "\\ea10"
+    },
+    "adr-folder": {
+      "fontCharacter": "\\effa"
+    },
+    "advpl-file": {
+      "fontCharacter": "\\ea11"
+    },
+    "ae-file": {
+      "fontCharacter": "\\ea12"
+    },
+    "affectscript-file": {
+      "fontCharacter": "\\ea13"
+    },
+    "affinity-file": {
+      "fontCharacter": "\\ea14"
+    },
+    "agda-file": {
+      "fontCharacter": "\\ea15"
+    },
+    "agda-folder": {
+      "fontCharacter": "\\effb"
+    },
+    "ahk-file": {
+      "fontCharacter": "\\ea16"
+    },
+    "ai-file": {
+      "fontCharacter": "\\ea17"
+    },
+    "akka-file": {
+      "fontCharacter": "\\ea18"
+    },
+    "al-file": {
+      "fontCharacter": "\\ea19"
+    },
+    "alacritty-file": {
+      "fontCharacter": "\\ea1a"
+    },
+    "alacritty-folder": {
+      "fontCharacter": "\\effc"
+    },
+    "alex-file": {
+      "fontCharacter": "\\ea1b"
+    },
+    "alexignore-file": {
+      "fontCharacter": "\\ea1c"
+    },
+    "allcontributors-file": {
+      "fontCharacter": "\\ea1d"
+    },
+    "alloy-file": {
+      "fontCharacter": "\\ea1e"
+    },
+    "alpine-file": {
+      "fontCharacter": "\\ea1f"
+    },
+    "amigaos-file": {
+      "fontCharacter": "\\ea20"
+    },
+    "ampl-file": {
+      "fontCharacter": "\\ea21"
+    },
+    "amplication-file": {
+      "fontCharacter": "\\ea22"
+    },
+    "amplication-folder": {
+      "fontCharacter": "\\effd"
+    },
+    "amplify-file": {
+      "fontCharacter": "\\ea23"
+    },
+    "amusewiki-file": {
+      "fontCharacter": "\\ea24"
+    },
+    "analytica-file": {
+      "fontCharacter": "\\ea25"
+    },
+    "android-file": {
+      "fontCharacter": "\\ea26"
+    },
+    "android-folder": {
+      "fontCharacter": "\\effe"
+    },
+    "androidManifest-file": {
+      "fontCharacter": "\\ea27"
+    },
+    "androidSmali-file": {
+      "fontCharacter": "\\ea28"
+    },
+    "angelscript-file": {
+      "fontCharacter": "\\ea29"
+    },
+    "angular-file": {
+      "fontCharacter": "\\ea2a"
+    },
+    "angular-folder": {
+      "fontCharacter": "\\efff"
+    },
+    "angularCli-file": {
+      "fontCharacter": "\\ea2b"
+    },
+    "angularapprouting-file": {
+      "fontCharacter": "\\ea2c"
+    },
+    "angularcomponent-file": {
+      "fontCharacter": "\\ea2d"
+    },
+    "angularcontroller-file": {
+      "fontCharacter": "\\ea2e"
+    },
+    "angulardirective-file": {
+      "fontCharacter": "\\ea2f"
+    },
+    "angularguard-file": {
+      "fontCharacter": "\\ea30"
+    },
+    "angularinterceptor-file": {
+      "fontCharacter": "\\ea31"
+    },
+    "angularjs-file": {
+      "fontCharacter": "\\ea32"
+    },
+    "angularmodule-file": {
+      "fontCharacter": "\\ea33"
+    },
+    "angularpipe-file": {
+      "fontCharacter": "\\ea34"
+    },
+    "angularresolver-file": {
+      "fontCharacter": "\\ea35"
+    },
+    "angularrouting-file": {
+      "fontCharacter": "\\ea36"
+    },
+    "angularservice-file": {
+      "fontCharacter": "\\ea37"
+    },
+    "angulartailwind-file": {
+      "fontCharacter": "\\ea38"
+    },
+    "animate-file": {
+      "fontCharacter": "\\ea39"
+    },
+    "animestudio-file": {
+      "fontCharacter": "\\ea3a"
+    },
+    "ansible-file": {
+      "fontCharacter": "\\ea3b"
+    },
+    "ansiblefiles-file": {
+      "fontCharacter": "\\ea3c"
+    },
+    "ant-file": {
+      "fontCharacter": "\\ea3d"
+    },
+    "antlers-file": {
+      "fontCharacter": "\\ea3e"
+    },
+    "antlr-file": {
+      "fontCharacter": "\\ea3f"
+    },
+    "antwar-file": {
+      "fontCharacter": "\\ea40"
+    },
+    "any-file": {
+      "fontCharacter": "\\ea41"
+    },
+    "apache-file": {
+      "fontCharacter": "\\ea42"
+    },
+    "apacheconf-file": {
+      "fontCharacter": "\\ea43"
+    },
+    "apex-file": {
+      "fontCharacter": "\\ea44"
+    },
+    "apib-file": {
+      "fontCharacter": "\\ea45"
+    },
+    "apiextractor-file": {
+      "fontCharacter": "\\ea46"
+    },
+    "apk-file": {
+      "fontCharacter": "\\ea47"
+    },
+    "apl-file": {
+      "fontCharacter": "\\ea48"
+    },
+    "aplus-file": {
+      "fontCharacter": "\\ea49"
+    },
+    "apm-file": {
+      "fontCharacter": "\\ea4a"
+    },
+    "apm_dark-file": {
+      "fontCharacter": "\\ea4b"
+    },
+    "apollo-file": {
+      "fontCharacter": "\\ea4c"
+    },
+    "appcelerator-file": {
+      "fontCharacter": "\\ea4d"
+    },
+    "applescript-file": {
+      "fontCharacter": "\\ea4e"
+    },
+    "appsemble-file": {
+      "fontCharacter": "\\ea4f"
+    },
+    "appstore-file": {
+      "fontCharacter": "\\ea50"
+    },
+    "appveyor-file": {
+      "fontCharacter": "\\ea51"
+    },
+    "arangodb-file": {
+      "fontCharacter": "\\ea52"
+    },
+    "arangodb_dark-file": {
+      "fontCharacter": "\\ea53"
+    },
+    "arc-file": {
+      "fontCharacter": "\\ea54"
+    },
+    "architecture-file": {
+      "fontCharacter": "\\ea55"
+    },
+    "archive-file": {
+      "fontCharacter": "\\ea56"
+    },
+    "archlinux-file": {
+      "fontCharacter": "\\ea57"
+    },
+    "arduino-file": {
+      "fontCharacter": "\\ea58"
+    },
+    "arend-file": {
+      "fontCharacter": "\\ea59"
+    },
+    "arendconfig-file": {
+      "fontCharacter": "\\ea5a"
+    },
+    "arm-file": {
+      "fontCharacter": "\\ea5b"
+    },
+    "artisan-file": {
+      "fontCharacter": "\\ea5c"
+    },
+    "arttext-file": {
+      "fontCharacter": "\\ea5d"
+    },
+    "asciidoc-file": {
+      "fontCharacter": "\\ea5e"
+    },
+    "asm-file": {
+      "fontCharacter": "\\ea5f"
+    },
+    "asmpure-file": {
+      "fontCharacter": "\\ea60"
+    },
+    "asp-file": {
+      "fontCharacter": "\\ea61"
+    },
+    "aspectj-file": {
+      "fontCharacter": "\\ea62"
+    },
+    "astro-file": {
+      "fontCharacter": "\\ea63"
+    },
+    "astroconfig-file": {
+      "fontCharacter": "\\ea64"
+    },
+    "astyle-file": {
+      "fontCharacter": "\\ea65"
+    },
+    "asymptote-file": {
+      "fontCharacter": "\\ea66"
+    },
+    "atom-file": {
+      "fontCharacter": "\\ea67"
+    },
+    "atom_dark-file": {
+      "fontCharacter": "\\ea68"
+    },
+    "atoum-file": {
+      "fontCharacter": "\\ea69"
+    },
+    "ats-file": {
+      "fontCharacter": "\\ea6a"
+    },
+    "audacity-file": {
+      "fontCharacter": "\\ea6b"
+    },
+    "audio-file": {
+      "fontCharacter": "\\ea6c"
+    },
+    "augeas-file": {
+      "fontCharacter": "\\ea6d"
+    },
+    "aurelia-file": {
+      "fontCharacter": "\\ea6e"
+    },
+    "authors-file": {
+      "fontCharacter": "\\ea6f"
+    },
+    "auto-file": {
+      "fontCharacter": "\\ea70"
+    },
+    "autoit-file": {
+      "fontCharacter": "\\ea71"
+    },
+    "automator-file": {
+      "fontCharacter": "\\ea72"
+    },
+    "ava-file": {
+      "fontCharacter": "\\ea73"
+    },
+    "avif-file": {
+      "fontCharacter": "\\ea74"
+    },
+    "avr-file": {
+      "fontCharacter": "\\ea75"
+    },
+    "avro-file": {
+      "fontCharacter": "\\ea76"
+    },
+    "awk-file": {
+      "fontCharacter": "\\ea77"
+    },
+    "aws-file": {
+      "fontCharacter": "\\ea78"
+    },
+    "azure-file": {
+      "fontCharacter": "\\ea79"
+    },
+    "azurepipelines-file": {
+      "fontCharacter": "\\ea7a"
+    },
+    "babel-file": {
+      "fontCharacter": "\\ea7b"
+    },
+    "babelconfig-file": {
+      "fontCharacter": "\\ea7c"
+    },
+    "baboon-file": {
+      "fontCharacter": "\\ea7d"
+    },
+    "backbone-file": {
+      "fontCharacter": "\\ea7e"
+    },
+    "backup-file": {
+      "fontCharacter": "\\ea7f"
+    },
+    "ballerina-file": {
+      "fontCharacter": "\\ea80"
+    },
+    "bandit-file": {
+      "fontCharacter": "\\ea81"
+    },
+    "basic-file": {
+      "fontCharacter": "\\ea82"
+    },
+    "bats-file": {
+      "fontCharacter": "\\ea83"
+    },
+    "bats_dark-file": {
+      "fontCharacter": "\\ea84"
+    },
+    "bazaar-file": {
+      "fontCharacter": "\\ea85"
+    },
+    "bazel-file": {
+      "fontCharacter": "\\ea86"
+    },
+    "bazelconfig-file": {
+      "fontCharacter": "\\ea87"
+    },
+    "bazelignore-file": {
+      "fontCharacter": "\\ea88"
+    },
+    "bc-file": {
+      "fontCharacter": "\\ea89"
+    },
+    "bean-file": {
+      "fontCharacter": "\\ea8a"
+    },
+    "behat-file": {
+      "fontCharacter": "\\ea8b"
+    },
+    "behatconfig-file": {
+      "fontCharacter": "\\ea8c"
+    },
+    "bem-file": {
+      "fontCharacter": "\\ea8d"
+    },
+    "berksfile-file": {
+      "fontCharacter": "\\ea8e"
+    },
+    "bfbf-file": {
+      "fontCharacter": "\\ea8f"
+    },
+    "bibtex-file": {
+      "fontCharacter": "\\ea90"
+    },
+    "bicep-file": {
+      "fontCharacter": "\\ea91"
+    },
+    "biml-file": {
+      "fontCharacter": "\\ea92"
+    },
+    "binary-file": {
+      "fontCharacter": "\\ea93"
+    },
+    "binder-file": {
+      "fontCharacter": "\\ea94"
+    },
+    "bintray-file": {
+      "fontCharacter": "\\ea95"
+    },
+    "bison-file": {
+      "fontCharacter": "\\ea96"
+    },
+    "bitbucket-file": {
+      "fontCharacter": "\\ea97"
+    },
+    "bitcoin-file": {
+      "fontCharacter": "\\ea98"
+    },
+    "bithound-file": {
+      "fontCharacter": "\\ea99"
+    },
+    "blade-file": {
+      "fontCharacter": "\\ea9a"
+    },
+    "blank-file": {
+      "fontCharacter": "\\ea9b"
+    },
+    "blender-file": {
+      "fontCharacter": "\\ea9c"
+    },
+    "blink-file": {
+      "fontCharacter": "\\ea9d"
+    },
+    "blitz-file": {
+      "fontCharacter": "\\ea9e"
+    },
+    "blitzbasic-file": {
+      "fontCharacter": "\\ea9f"
+    },
+    "bloc-file": {
+      "fontCharacter": "\\eaa0"
+    },
+    "bluespec-file": {
+      "fontCharacter": "\\eaa1"
+    },
+    "bmp-file": {
+      "fontCharacter": "\\eaa2"
+    },
+    "bnf-file": {
+      "fontCharacter": "\\eaa3"
+    },
+    "boo-file": {
+      "fontCharacter": "\\eaa4"
+    },
+    "bookmark-file": {
+      "fontCharacter": "\\eaa5"
+    },
+    "boot-file": {
+      "fontCharacter": "\\eaa6"
+    },
+    "bootstrap-file": {
+      "fontCharacter": "\\eaa7"
+    },
+    "bootstraprc-file": {
+      "fontCharacter": "\\eaa8"
+    },
+    "boringignore-file": {
+      "fontCharacter": "\\eaa9"
+    },
+    "bors-file": {
+      "fontCharacter": "\\eaaa"
+    },
+    "bosque-file": {
+      "fontCharacter": "\\eaab"
+    },
+    "bower-file": {
+      "fontCharacter": "\\eaac"
+    },
+    "brainfuck-file": {
+      "fontCharacter": "\\eaad"
+    },
+    "brakeman-file": {
+      "fontCharacter": "\\eaae"
+    },
+    "brew-file": {
+      "fontCharacter": "\\eaaf"
+    },
+    "bro-file": {
+      "fontCharacter": "\\eab0"
+    },
+    "broccoli-file": {
+      "fontCharacter": "\\eab1"
+    },
+    "brotli-file": {
+      "fontCharacter": "\\eab2"
+    },
+    "browserslist-file": {
+      "fontCharacter": "\\eab3"
+    },
+    "browsersync-file": {
+      "fontCharacter": "\\eab4"
+    },
+    "brunch-file": {
+      "fontCharacter": "\\eab5"
+    },
+    "buck-file": {
+      "fontCharacter": "\\eab6"
+    },
+    "bucklescript-file": {
+      "fontCharacter": "\\eab7"
+    },
+    "buildkite-file": {
+      "fontCharacter": "\\eab8"
+    },
+    "bun-file": {
+      "fontCharacter": "\\eab9"
+    },
+    "bun_dark-file": {
+      "fontCharacter": "\\eaba"
+    },
+    "bundle-file": {
+      "fontCharacter": "\\eabb"
+    },
+    "bunlock-file": {
+      "fontCharacter": "\\eabc"
+    },
+    "byond-file": {
+      "fontCharacter": "\\eabd"
+    },
+    "c-file": {
+      "fontCharacter": "\\eabe"
+    },
+    "cabal-file": {
+      "fontCharacter": "\\eabf"
+    },
+    "cabalProject-file": {
+      "fontCharacter": "\\eac0"
+    },
+    "caddy-file": {
+      "fontCharacter": "\\eac1"
+    },
+    "cadence-file": {
+      "fontCharacter": "\\eac2"
+    },
+    "caffe-file": {
+      "fontCharacter": "\\eac3"
+    },
+    "caffe2-file": {
+      "fontCharacter": "\\eac4"
+    },
+    "cairo-file": {
+      "fontCharacter": "\\eac5"
+    },
+    "cakefile-file": {
+      "fontCharacter": "\\eac6"
+    },
+    "cakephp-file": {
+      "fontCharacter": "\\eac7"
+    },
+    "calva-file": {
+      "fontCharacter": "\\eac8"
+    },
+    "calyx-file": {
+      "fontCharacter": "\\eac9"
+    },
+    "candid-file": {
+      "fontCharacter": "\\eaca"
+    },
+    "cap-file": {
+      "fontCharacter": "\\eacb"
+    },
+    "capacitor-file": {
+      "fontCharacter": "\\eacc"
+    },
+    "carbon-file": {
+      "fontCharacter": "\\eacd"
+    },
+    "cargo-file": {
+      "fontCharacter": "\\eace"
+    },
+    "carthage-file": {
+      "fontCharacter": "\\eacf"
+    },
+    "casc-file": {
+      "fontCharacter": "\\ead0"
+    },
+    "catala-file": {
+      "fontCharacter": "\\ead1"
+    },
+    "cddl-file": {
+      "fontCharacter": "\\ead2"
+    },
+    "cdf-file": {
+      "fontCharacter": "\\ead3"
+    },
+    "certificate-file": {
+      "fontCharacter": "\\ead4"
+    },
+    "ceylon-file": {
+      "fontCharacter": "\\ead5"
+    },
+    "cf-file": {
+      "fontCharacter": "\\ead6"
+    },
+    "cfc-file": {
+      "fontCharacter": "\\ead7"
+    },
+    "chai-file": {
+      "fontCharacter": "\\ead8"
+    },
+    "chameleon-file": {
+      "fontCharacter": "\\ead9"
+    },
+    "changelog-file": {
+      "fontCharacter": "\\eada"
+    },
+    "chapel-file": {
+      "fontCharacter": "\\eadb"
+    },
+    "chartjs-file": {
+      "fontCharacter": "\\eadc"
+    },
+    "cheetah-file": {
+      "fontCharacter": "\\eadd"
+    },
+    "chef-file": {
+      "fontCharacter": "\\eade"
+    },
+    "chocolatey-file": {
+      "fontCharacter": "\\eadf"
+    },
+    "chrome-file": {
+      "fontCharacter": "\\eae0"
+    },
+    "chuck-file": {
+      "fontCharacter": "\\eae1"
+    },
+    "circleci-file": {
+      "fontCharacter": "\\eae2"
+    },
+    "circuit-file": {
+      "fontCharacter": "\\eae3"
+    },
+    "cirru-file": {
+      "fontCharacter": "\\eae4"
+    },
+    "ckeditor-file": {
+      "fontCharacter": "\\eae5"
+    },
+    "clarion-file": {
+      "fontCharacter": "\\eae6"
+    },
+    "class-file": {
+      "fontCharacter": "\\eae7"
+    },
+    "clean-file": {
+      "fontCharacter": "\\eae8"
+    },
+    "click-file": {
+      "fontCharacter": "\\eae9"
+    },
+    "clio-file": {
+      "fontCharacter": "\\eaea"
+    },
+    "clips-file": {
+      "fontCharacter": "\\eaeb"
+    },
+    "clipse-file": {
+      "fontCharacter": "\\eaec"
+    },
+    "clojure-file": {
+      "fontCharacter": "\\eaed"
+    },
+    "closuretpl-file": {
+      "fontCharacter": "\\eaee"
+    },
+    "cloudfoundry-file": {
+      "fontCharacter": "\\eaef"
+    },
+    "cmake-file": {
+      "fontCharacter": "\\eaf0"
+    },
+    "cmakelists-file": {
+      "fontCharacter": "\\eaf1"
+    },
+    "cml-file": {
+      "fontCharacter": "\\eaf2"
+    },
+    "cnab-file": {
+      "fontCharacter": "\\eaf3"
+    },
+    "cname-file": {
+      "fontCharacter": "\\eaf4"
+    },
+    "coala-file": {
+      "fontCharacter": "\\eaf5"
+    },
+    "cobol-file": {
+      "fontCharacter": "\\eaf6"
+    },
+    "cocoapods-file": {
+      "fontCharacter": "\\eaf7"
+    },
+    "coconut-file": {
+      "fontCharacter": "\\eaf8"
+    },
+    "codacy-file": {
+      "fontCharacter": "\\eaf9"
+    },
+    "codeclimate-file": {
+      "fontCharacter": "\\eafa"
+    },
+    "codecov-file": {
+      "fontCharacter": "\\eafb"
+    },
+    "codekit-file": {
+      "fontCharacter": "\\eafc"
+    },
+    "codemeta-file": {
+      "fontCharacter": "\\eafd"
+    },
+    "codemirror-file": {
+      "fontCharacter": "\\eafe"
+    },
+    "codeowners-file": {
+      "fontCharacter": "\\eaff"
+    },
+    "codeql-file": {
+      "fontCharacter": "\\eb00"
+    },
+    "codesandbox-file": {
+      "fontCharacter": "\\eb01"
+    },
+    "codesandbox_dark-file": {
+      "fontCharacter": "\\eb02"
+    },
+    "codeship-file": {
+      "fontCharacter": "\\eb03"
+    },
+    "coffeelint-file": {
+      "fontCharacter": "\\eb04"
+    },
+    "coffeelintignore-file": {
+      "fontCharacter": "\\eb05"
+    },
+    "coffeescript-file": {
+      "fontCharacter": "\\eb06"
+    },
+    "commitizen-file": {
+      "fontCharacter": "\\eb07"
+    },
+    "commitlint-file": {
+      "fontCharacter": "\\eb08"
+    },
+    "commitlintConfig-file": {
+      "fontCharacter": "\\eb09"
+    },
+    "compass-file": {
+      "fontCharacter": "\\eb0a"
+    },
+    "compassConfig-file": {
+      "fontCharacter": "\\eb0b"
+    },
+    "composer-file": {
+      "fontCharacter": "\\eb0c"
+    },
+    "composerlock-file": {
+      "fontCharacter": "\\eb0d"
+    },
+    "composerphar-file": {
+      "fontCharacter": "\\eb0e"
+    },
+    "conan-file": {
+      "fontCharacter": "\\eb0f"
+    },
+    "concord-file": {
+      "fontCharacter": "\\eb10"
+    },
+    "conda-file": {
+      "fontCharacter": "\\eb11"
+    },
+    "config-file": {
+      "fontCharacter": "\\eb12"
+    },
+    "config_dark-file": {
+      "fontCharacter": "\\eb13"
+    },
+    "confluence-file": {
+      "fontCharacter": "\\eb14"
+    },
+    "conll-file": {
+      "fontCharacter": "\\eb15"
+    },
+    "contributors-file": {
+      "fontCharacter": "\\eb16"
+    },
+    "coq-file": {
+      "fontCharacter": "\\eb17"
+    },
+    "cordova-file": {
+      "fontCharacter": "\\eb18"
+    },
+    "corel-file": {
+      "fontCharacter": "\\eb19"
+    },
+    "coveralls-file": {
+      "fontCharacter": "\\eb1a"
+    },
+    "cp-file": {
+      "fontCharacter": "\\eb1b"
+    },
+    "cpan-file": {
+      "fontCharacter": "\\eb1c"
+    },
+    "cpcdocs-file": {
+      "fontCharacter": "\\eb1d"
+    },
+    "cpp-file": {
+      "fontCharacter": "\\eb1e"
+    },
+    "craco-file": {
+      "fontCharacter": "\\eb1f"
+    },
+    "credits-file": {
+      "fontCharacter": "\\eb20"
+    },
+    "creole-file": {
+      "fontCharacter": "\\eb21"
+    },
+    "crowdin-file": {
+      "fontCharacter": "\\eb22"
+    },
+    "crystal-file": {
+      "fontCharacter": "\\eb23"
+    },
+    "csharp-file": {
+      "fontCharacter": "\\eb24"
+    },
+    "csound-file": {
+      "fontCharacter": "\\eb25"
+    },
+    "csound_dark-file": {
+      "fontCharacter": "\\eb26"
+    },
+    "cspell-file": {
+      "fontCharacter": "\\eb27"
+    },
+    "csproj-file": {
+      "fontCharacter": "\\eb28"
+    },
+    "css-file": {
+      "fontCharacter": "\\eb29"
+    },
+    "css_dark-file": {
+      "fontCharacter": "\\eb2a"
+    },
+    "csscomb-file": {
+      "fontCharacter": "\\eb2b"
+    },
+    "csslint-file": {
+      "fontCharacter": "\\eb2c"
+    },
+    "cssmap-file": {
+      "fontCharacter": "\\eb2d"
+    },
+    "csv-file": {
+      "fontCharacter": "\\eb2e"
+    },
+    "cucumber-file": {
+      "fontCharacter": "\\eb2f"
+    },
+    "cucumberconfig-file": {
+      "fontCharacter": "\\eb30"
+    },
+    "cue-file": {
+      "fontCharacter": "\\eb31"
+    },
+    "cuh-file": {
+      "fontCharacter": "\\eb32"
+    },
+    "cuneiform-file": {
+      "fontCharacter": "\\eb33"
+    },
+    "curl-file": {
+      "fontCharacter": "\\eb34"
+    },
+    "curry-file": {
+      "fontCharacter": "\\eb35"
+    },
+    "cwl-file": {
+      "fontCharacter": "\\eb36"
+    },
+    "cypress-file": {
+      "fontCharacter": "\\eb37"
+    },
+    "cypress_dark-file": {
+      "fontCharacter": "\\eb38"
+    },
+    "cypressfiles-file": {
+      "fontCharacter": "\\eb39"
+    },
+    "cython-file": {
+      "fontCharacter": "\\eb3a"
+    },
+    "d3-file": {
+      "fontCharacter": "\\eb3b"
+    },
+    "dafny-file": {
+      "fontCharacter": "\\eb3c"
+    },
+    "dal-file": {
+      "fontCharacter": "\\eb3d"
+    },
+    "danmakufu-file": {
+      "fontCharacter": "\\eb3e"
+    },
+    "darcs-file": {
+      "fontCharacter": "\\eb3f"
+    },
+    "dart-file": {
+      "fontCharacter": "\\eb40"
+    },
+    "dartignore-file": {
+      "fontCharacter": "\\eb41"
+    },
+    "dashboard-file": {
+      "fontCharacter": "\\eb42"
+    },
+    "dataweave-file": {
+      "fontCharacter": "\\eb43"
+    },
+    "db-file": {
+      "fontCharacter": "\\eb44"
+    },
+    "dbase-file": {
+      "fontCharacter": "\\eb45"
+    },
+    "dbproj-file": {
+      "fontCharacter": "\\eb46"
+    },
+    "debian-file": {
+      "fontCharacter": "\\eb47"
+    },
+    "deepsource-file": {
+      "fontCharacter": "\\eb48"
+    },
+    "deepsource_dark-file": {
+      "fontCharacter": "\\eb49"
+    },
+    "default-file": {
+      "fontCharacter": "\\eb4a"
+    },
+    "delphi-file": {
+      "fontCharacter": "\\eb4b"
+    },
+    "denizen-file": {
+      "fontCharacter": "\\eb4c"
+    },
+    "deno-file": {
+      "fontCharacter": "\\eb4d"
+    },
+    "deno_dark-file": {
+      "fontCharacter": "\\eb4e"
+    },
+    "denoignore-file": {
+      "fontCharacter": "\\eb4f"
+    },
+    "denolock-file": {
+      "fontCharacter": "\\eb50"
+    },
+    "denorc-file": {
+      "fontCharacter": "\\eb51"
+    },
+    "dependabot-file": {
+      "fontCharacter": "\\eb52"
+    },
+    "deps-file": {
+      "fontCharacter": "\\eb53"
+    },
+    "detekt-file": {
+      "fontCharacter": "\\eb54"
+    },
+    "devcontainer-file": {
+      "fontCharacter": "\\eb55"
+    },
+    "devicetree-file": {
+      "fontCharacter": "\\eb56"
+    },
+    "dhall-file": {
+      "fontCharacter": "\\eb57"
+    },
+    "dhall_dark-file": {
+      "fontCharacter": "\\eb58"
+    },
+    "dia-file": {
+      "fontCharacter": "\\eb59"
+    },
+    "diff-file": {
+      "fontCharacter": "\\eb5a"
+    },
+    "diff_dark-file": {
+      "fontCharacter": "\\eb5b"
+    },
+    "digdag-file": {
+      "fontCharacter": "\\eb5c"
+    },
+    "dinophp-file": {
+      "fontCharacter": "\\eb5d"
+    },
+    "django-file": {
+      "fontCharacter": "\\eb5e"
+    },
+    "djangoconfig-file": {
+      "fontCharacter": "\\eb5f"
+    },
+    "dlang-file": {
+      "fontCharacter": "\\eb60"
+    },
+    "dll-file": {
+      "fontCharacter": "\\eb61"
+    },
+    "dns-file": {
+      "fontCharacter": "\\eb62"
+    },
+    "do-file": {
+      "fontCharacter": "\\eb63"
+    },
+    "docbook-file": {
+      "fontCharacter": "\\eb64"
+    },
+    "docker-file": {
+      "fontCharacter": "\\eb65"
+    },
+    "dockercompose-file": {
+      "fontCharacter": "\\eb66"
+    },
+    "dockerignore-file": {
+      "fontCharacter": "\\eb67"
+    },
+    "doclets-file": {
+      "fontCharacter": "\\eb68"
+    },
+    "docpad-file": {
+      "fontCharacter": "\\eb69"
+    },
+    "docusaurus-file": {
+      "fontCharacter": "\\eb6a"
+    },
+    "docz-file": {
+      "fontCharacter": "\\eb6b"
+    },
+    "doczconfig-file": {
+      "fontCharacter": "\\eb6c"
+    },
+    "dogescript-file": {
+      "fontCharacter": "\\eb6d"
+    },
+    "dojo-file": {
+      "fontCharacter": "\\eb6e"
+    },
+    "donejs-file": {
+      "fontCharacter": "\\eb6f"
+    },
+    "dosbox-file": {
+      "fontCharacter": "\\eb70"
+    },
+    "dotjs-file": {
+      "fontCharacter": "\\eb71"
+    },
+    "dotnet-file": {
+      "fontCharacter": "\\eb72"
+    },
+    "doxyfile-file": {
+      "fontCharacter": "\\eb73"
+    },
+    "doxygen-file": {
+      "fontCharacter": "\\eb74"
+    },
+    "dragonflybsd-file": {
+      "fontCharacter": "\\eb75"
+    },
+    "dragula-file": {
+      "fontCharacter": "\\eb76"
+    },
+    "drawio-file": {
+      "fontCharacter": "\\eb77"
+    },
+    "drone-file": {
+      "fontCharacter": "\\eb78"
+    },
+    "drools-file": {
+      "fontCharacter": "\\eb79"
+    },
+    "drupal-file": {
+      "fontCharacter": "\\eb7a"
+    },
+    "dts-file": {
+      "fontCharacter": "\\eb7b"
+    },
+    "dub-file": {
+      "fontCharacter": "\\eb7c"
+    },
+    "dune-file": {
+      "fontCharacter": "\\eb7d"
+    },
+    "dustjs-file": {
+      "fontCharacter": "\\eb7e"
+    },
+    "dvc-file": {
+      "fontCharacter": "\\eb7f"
+    },
+    "dyalog-file": {
+      "fontCharacter": "\\eb80"
+    },
+    "dylan-file": {
+      "fontCharacter": "\\eb81"
+    },
+    "dylib-file": {
+      "fontCharacter": "\\eb82"
+    },
+    "e-file": {
+      "fontCharacter": "\\eb83"
+    },
+    "eagle-file": {
+      "fontCharacter": "\\eb84"
+    },
+    "earthly-file": {
+      "fontCharacter": "\\eb85"
+    },
+    "earthlyignore-file": {
+      "fontCharacter": "\\eb86"
+    },
+    "eas-file": {
+      "fontCharacter": "\\eb87"
+    },
+    "easybuild-file": {
+      "fontCharacter": "\\eb88"
+    },
+    "ec-file": {
+      "fontCharacter": "\\eb89"
+    },
+    "ecere-file": {
+      "fontCharacter": "\\eb8a"
+    },
+    "eclipse-file": {
+      "fontCharacter": "\\eb8b"
+    },
+    "edge-file": {
+      "fontCharacter": "\\eb8c"
+    },
+    "editorconfig-file": {
+      "fontCharacter": "\\eb8d"
+    },
+    "egg-file": {
+      "fontCharacter": "\\eb8e"
+    },
+    "eiffel-file": {
+      "fontCharacter": "\\eb8f"
+    },
+    "ejs-file": {
+      "fontCharacter": "\\eb90"
+    },
+    "elastic-file": {
+      "fontCharacter": "\\eb91"
+    },
+    "elasticconf-file": {
+      "fontCharacter": "\\eb92"
+    },
+    "electron-file": {
+      "fontCharacter": "\\eb93"
+    },
+    "electronasar-file": {
+      "fontCharacter": "\\eb94"
+    },
+    "electronfiles-file": {
+      "fontCharacter": "\\eb95"
+    },
+    "electronforge-file": {
+      "fontCharacter": "\\eb96"
+    },
+    "elementaryos-file": {
+      "fontCharacter": "\\eb97"
+    },
+    "elm-file": {
+      "fontCharacter": "\\eb98"
+    },
+    "emacs-file": {
+      "fontCharacter": "\\eb99"
+    },
+    "emacscask-file": {
+      "fontCharacter": "\\eb9a"
+    },
+    "emacslisp-file": {
+      "fontCharacter": "\\eb9b"
+    },
+    "email-file": {
+      "fontCharacter": "\\eb9c"
+    },
+    "ember-file": {
+      "fontCharacter": "\\eb9d"
+    },
+    "embercli-file": {
+      "fontCharacter": "\\eb9e"
+    },
+    "emberscript-file": {
+      "fontCharacter": "\\eb9f"
+    },
+    "ensime-file": {
+      "fontCharacter": "\\eba0"
+    },
+    "eq-file": {
+      "fontCharacter": "\\eba1"
+    },
+    "erb-file": {
+      "fontCharacter": "\\eba2"
+    },
+    "erlang-file": {
+      "fontCharacter": "\\eba3"
+    },
+    "esdoc-file": {
+      "fontCharacter": "\\eba4"
+    },
+    "eslint-file": {
+      "fontCharacter": "\\eba5"
+    },
+    "eslintignore-file": {
+      "fontCharacter": "\\eba6"
+    },
+    "ex-file": {
+      "fontCharacter": "\\eba7"
+    },
+    "excel-file": {
+      "fontCharacter": "\\eba8"
+    },
+    "expo-file": {
+      "fontCharacter": "\\eba9"
+    },
+    "extjs-file": {
+      "fontCharacter": "\\ebaa"
+    },
+    "fabfile-file": {
+      "fontCharacter": "\\ebab"
+    },
+    "fabric-file": {
+      "fontCharacter": "\\ebac"
+    },
+    "factor-file": {
+      "fontCharacter": "\\ebad"
+    },
+    "fakefile-file": {
+      "fontCharacter": "\\ebae"
+    },
+    "falcon-file": {
+      "fontCharacter": "\\ebaf"
+    },
+    "fancy-file": {
+      "fontCharacter": "\\ebb0"
+    },
+    "fantom-file": {
+      "fontCharacter": "\\ebb1"
+    },
+    "fasta-file": {
+      "fontCharacter": "\\ebb2"
+    },
+    "fastlane-file": {
+      "fontCharacter": "\\ebb3"
+    },
+    "fauna-file": {
+      "fontCharacter": "\\ebb4"
+    },
+    "faust-file": {
+      "fontCharacter": "\\ebb5"
+    },
+    "favicon-file": {
+      "fontCharacter": "\\ebb6"
+    },
+    "fbx-file": {
+      "fontCharacter": "\\ebb7"
+    },
+    "fexl-file": {
+      "fontCharacter": "\\ebb8"
+    },
+    "fiddle-file": {
+      "fontCharacter": "\\ebb9"
+    },
+    "figma-file": {
+      "fontCharacter": "\\ebba"
+    },
+    "file-file": {
+      "fontCharacter": "\\ebbb"
+    },
+    "finaldraft-file": {
+      "fontCharacter": "\\ebbc"
+    },
+    "finder-file": {
+      "fontCharacter": "\\ebbd"
+    },
+    "firebase-file": {
+      "fontCharacter": "\\ebbe"
+    },
+    "firebasebolt-file": {
+      "fontCharacter": "\\ebbf"
+    },
+    "firebaserc-file": {
+      "fontCharacter": "\\ebc0"
+    },
+    "firefox-file": {
+      "fontCharacter": "\\ebc1"
+    },
+    "firestore-file": {
+      "fontCharacter": "\\ebc2"
+    },
+    "fish-file": {
+      "fontCharacter": "\\ebc3"
+    },
+    "fitbit-file": {
+      "fontCharacter": "\\ebc4"
+    },
+    "flash-file": {
+      "fontCharacter": "\\ebc5"
+    },
+    "flask-file": {
+      "fontCharacter": "\\ebc6"
+    },
+    "floobits-file": {
+      "fontCharacter": "\\ebc7"
+    },
+    "flow-file": {
+      "fontCharacter": "\\ebc8"
+    },
+    "flow_dark-file": {
+      "fontCharacter": "\\ebc9"
+    },
+    "flutter-file": {
+      "fontCharacter": "\\ebca"
+    },
+    "flutterlock-file": {
+      "fontCharacter": "\\ebcb"
+    },
+    "flux-file": {
+      "fontCharacter": "\\ebcc"
+    },
+    "font-file": {
+      "fontCharacter": "\\ebcd"
+    },
+    "fontbitmap-file": {
+      "fontCharacter": "\\ebce"
+    },
+    "fontforge-file": {
+      "fontCharacter": "\\ebcf"
+    },
+    "fork-file": {
+      "fontCharacter": "\\ebd0"
+    },
+    "forth-file": {
+      "fontCharacter": "\\ebd1"
+    },
+    "fortran-file": {
+      "fontCharacter": "\\ebd2"
+    },
+    "fossa-file": {
+      "fontCharacter": "\\ebd3"
+    },
+    "fossaignore-file": {
+      "fontCharacter": "\\ebd4"
+    },
+    "fossil-file": {
+      "fontCharacter": "\\ebd5"
+    },
+    "fountain-file": {
+      "fontCharacter": "\\ebd6"
+    },
+    "foxpro-file": {
+      "fontCharacter": "\\ebd7"
+    },
+    "franca-file": {
+      "fontCharacter": "\\ebd8"
+    },
+    "freedesktop-file": {
+      "fontCharacter": "\\ebd9"
+    },
+    "freedos-file": {
+      "fontCharacter": "\\ebda"
+    },
+    "freemarker-file": {
+      "fontCharacter": "\\ebdb"
+    },
+    "freemat-file": {
+      "fontCharacter": "\\ebdc"
+    },
+    "frege-file": {
+      "fontCharacter": "\\ebdd"
+    },
+    "fsharp-file": {
+      "fontCharacter": "\\ebde"
+    },
+    "fsproj-file": {
+      "fontCharacter": "\\ebdf"
+    },
+    "fthtml-file": {
+      "fontCharacter": "\\ebe0"
+    },
+    "ftr-file": {
+      "fontCharacter": "\\ebe1"
+    },
+    "fuelux-file": {
+      "fontCharacter": "\\ebe2"
+    },
+    "funding-file": {
+      "fontCharacter": "\\ebe3"
+    },
+    "fusebox-file": {
+      "fontCharacter": "\\ebe4"
+    },
+    "futhark-file": {
+      "fontCharacter": "\\ebe5"
+    },
+    "galaxy-file": {
+      "fontCharacter": "\\ebe6"
+    },
+    "galen-file": {
+      "fontCharacter": "\\ebe7"
+    },
+    "gamemaker-file": {
+      "fontCharacter": "\\ebe8"
+    },
+    "gams-file": {
+      "fontCharacter": "\\ebe9"
+    },
+    "gap-file": {
+      "fontCharacter": "\\ebea"
+    },
+    "gatsby-file": {
+      "fontCharacter": "\\ebeb"
+    },
+    "gauge-file": {
+      "fontCharacter": "\\ebec"
+    },
+    "gauge_dark-file": {
+      "fontCharacter": "\\ebed"
+    },
+    "gcode-file": {
+      "fontCharacter": "\\ebee"
+    },
+    "gcp-file": {
+      "fontCharacter": "\\ebef"
+    },
+    "gdb-file": {
+      "fontCharacter": "\\ebf0"
+    },
+    "gemfile-file": {
+      "fontCharacter": "\\ebf1"
+    },
+    "gemini-file": {
+      "fontCharacter": "\\ebf2"
+    },
+    "gemset-file": {
+      "fontCharacter": "\\ebf3"
+    },
+    "genshi-file": {
+      "fontCharacter": "\\ebf4"
+    },
+    "genstat-file": {
+      "fontCharacter": "\\ebf5"
+    },
+    "gentoo-file": {
+      "fontCharacter": "\\ebf6"
+    },
+    "geojson-file": {
+      "fontCharacter": "\\ebf7"
+    },
+    "gf-file": {
+      "fontCharacter": "\\ebf8"
+    },
+    "ghostscript-file": {
+      "fontCharacter": "\\ebf9"
+    },
+    "gif-file": {
+      "fontCharacter": "\\ebfa"
+    },
+    "gimp-file": {
+      "fontCharacter": "\\ebfb"
+    },
+    "git-file": {
+      "fontCharacter": "\\ebfc"
+    },
+    "gitcommit-file": {
+      "fontCharacter": "\\ebfd"
+    },
+    "github-file": {
+      "fontCharacter": "\\ebfe"
+    },
+    "githubActions-file": {
+      "fontCharacter": "\\ebff"
+    },
+    "githubCode-file": {
+      "fontCharacter": "\\ec00"
+    },
+    "githubCommit-file": {
+      "fontCharacter": "\\ec01"
+    },
+    "githubContributing-file": {
+      "fontCharacter": "\\ec02"
+    },
+    "githubTemplate-file": {
+      "fontCharacter": "\\ec03"
+    },
+    "github_dark-file": {
+      "fontCharacter": "\\ec04"
+    },
+    "gitignore-file": {
+      "fontCharacter": "\\ec05"
+    },
+    "gitlab-file": {
+      "fontCharacter": "\\ec06"
+    },
+    "gitmerge-file": {
+      "fontCharacter": "\\ec07"
+    },
+    "gitpod-file": {
+      "fontCharacter": "\\ec08"
+    },
+    "glade-file": {
+      "fontCharacter": "\\ec09"
+    },
+    "gleam-file": {
+      "fontCharacter": "\\ec0a"
+    },
+    "glide-file": {
+      "fontCharacter": "\\ec0b"
+    },
+    "glitter-file": {
+      "fontCharacter": "\\ec0c"
+    },
+    "gltf-file": {
+      "fontCharacter": "\\ec0d"
+    },
+    "glyphs-file": {
+      "fontCharacter": "\\ec0e"
+    },
+    "gn-file": {
+      "fontCharacter": "\\ec0f"
+    },
+    "gnome-file": {
+      "fontCharacter": "\\ec10"
+    },
+    "gnu-file": {
+      "fontCharacter": "\\ec11"
+    },
+    "gnuplot-file": {
+      "fontCharacter": "\\ec12"
+    },
+    "go-file": {
+      "fontCharacter": "\\ec13"
+    },
+    "goTemplate-file": {
+      "fontCharacter": "\\ec14"
+    },
+    "goconfig-file": {
+      "fontCharacter": "\\ec15"
+    },
+    "goctl-file": {
+      "fontCharacter": "\\ec16"
+    },
+    "godot-file": {
+      "fontCharacter": "\\ec17"
+    },
+    "golo-file": {
+      "fontCharacter": "\\ec18"
+    },
+    "goreleaser-file": {
+      "fontCharacter": "\\ec19"
+    },
+    "gosu-file": {
+      "fontCharacter": "\\ec1a"
+    },
+    "gql-codegen-file": {
+      "fontCharacter": "\\ec1b"
+    },
+    "gradle-file": {
+      "fontCharacter": "\\ec1c"
+    },
+    "gradlekts-file": {
+      "fontCharacter": "\\ec1d"
+    },
+    "gradlew-file": {
+      "fontCharacter": "\\ec1e"
+    },
+    "grain-file": {
+      "fontCharacter": "\\ec1f"
+    },
+    "graphcool-file": {
+      "fontCharacter": "\\ec20"
+    },
+    "grapher-file": {
+      "fontCharacter": "\\ec21"
+    },
+    "graphql-file": {
+      "fontCharacter": "\\ec22"
+    },
+    "graphqlconfig-file": {
+      "fontCharacter": "\\ec23"
+    },
+    "graphviz-file": {
+      "fontCharacter": "\\ec24"
+    },
+    "gravit-file": {
+      "fontCharacter": "\\ec25"
+    },
+    "greenkeeper-file": {
+      "fontCharacter": "\\ec26"
+    },
+    "gridsome-file": {
+      "fontCharacter": "\\ec27"
+    },
+    "groovy-file": {
+      "fontCharacter": "\\ec28"
+    },
+    "groovyFile-file": {
+      "fontCharacter": "\\ec29"
+    },
+    "gruntfile-file": {
+      "fontCharacter": "\\ec2a"
+    },
+    "gss-file": {
+      "fontCharacter": "\\ec2b"
+    },
+    "gulpfile-file": {
+      "fontCharacter": "\\ec2c"
+    },
+    "hack-file": {
+      "fontCharacter": "\\ec2d"
+    },
+    "haml-file": {
+      "fontCharacter": "\\ec2e"
+    },
+    "harbour-file": {
+      "fontCharacter": "\\ec2f"
+    },
+    "hardhat-file": {
+      "fontCharacter": "\\ec30"
+    },
+    "haskell-file": {
+      "fontCharacter": "\\ec31"
+    },
+    "haskellconfig-file": {
+      "fontCharacter": "\\ec32"
+    },
+    "hasura-file": {
+      "fontCharacter": "\\ec33"
+    },
+    "hasuraconfig-file": {
+      "fontCharacter": "\\ec34"
+    },
+    "haxe-file": {
+      "fontCharacter": "\\ec35"
+    },
+    "haxedevelop-file": {
+      "fontCharacter": "\\ec36"
+    },
+    "haxelib-file": {
+      "fontCharacter": "\\ec37"
+    },
+    "hc-file": {
+      "fontCharacter": "\\ec38"
+    },
+    "hcl-file": {
+      "fontCharacter": "\\ec39"
+    },
+    "helix-file": {
+      "fontCharacter": "\\ec3a"
+    },
+    "helixignore-file": {
+      "fontCharacter": "\\ec3b"
+    },
+    "helm-file": {
+      "fontCharacter": "\\ec3c"
+    },
+    "helmcharts-file": {
+      "fontCharacter": "\\ec3d"
+    },
+    "helmignore-file": {
+      "fontCharacter": "\\ec3e"
+    },
+    "heroku-file": {
+      "fontCharacter": "\\ec3f"
+    },
+    "herokuignore-file": {
+      "fontCharacter": "\\ec40"
+    },
+    "hex-file": {
+      "fontCharacter": "\\ec41"
+    },
+    "hh-file": {
+      "fontCharacter": "\\ec42"
+    },
+    "hie-file": {
+      "fontCharacter": "\\ec43"
+    },
+    "histoire-file": {
+      "fontCharacter": "\\ec44"
+    },
+    "histoirestories-file": {
+      "fontCharacter": "\\ec45"
+    },
+    "history-file": {
+      "fontCharacter": "\\ec46"
+    },
+    "hitachi-file": {
+      "fontCharacter": "\\ec47"
+    },
+    "hjson-file": {
+      "fontCharacter": "\\ec48"
+    },
+    "hlsl-file": {
+      "fontCharacter": "\\ec49"
+    },
+    "homeassistant-file": {
+      "fontCharacter": "\\ec4a"
+    },
+    "hoplon-file": {
+      "fontCharacter": "\\ec4b"
+    },
+    "horusec-file": {
+      "fontCharacter": "\\ec4c"
+    },
+    "hosts-file": {
+      "fontCharacter": "\\ec4d"
+    },
+    "houdini-file": {
+      "fontCharacter": "\\ec4e"
+    },
+    "houndci-file": {
+      "fontCharacter": "\\ec4f"
+    },
+    "hp-file": {
+      "fontCharacter": "\\ec50"
+    },
+    "htaccess-file": {
+      "fontCharacter": "\\ec51"
+    },
+    "html-file": {
+      "fontCharacter": "\\ec52"
+    },
+    "htmlhint-file": {
+      "fontCharacter": "\\ec53"
+    },
+    "http-file": {
+      "fontCharacter": "\\ec54"
+    },
+    "hugo-file": {
+      "fontCharacter": "\\ec55"
+    },
+    "hunspell-file": {
+      "fontCharacter": "\\ec56"
+    },
+    "husky-file": {
+      "fontCharacter": "\\ec57"
+    },
+    "huskyhooks-file": {
+      "fontCharacter": "\\ec58"
+    },
+    "hy-file": {
+      "fontCharacter": "\\ec59"
+    },
+    "hygen-file": {
+      "fontCharacter": "\\ec5a"
+    },
+    "hyper-file": {
+      "fontCharacter": "\\ec5b"
+    },
+    "hypestyle-file": {
+      "fontCharacter": "\\ec5c"
+    },
+    "hypr-file": {
+      "fontCharacter": "\\ec5d"
+    },
+    "i18n-file": {
+      "fontCharacter": "\\ec5e"
+    },
+    "i18nJava-file": {
+      "fontCharacter": "\\ec5f"
+    },
+    "i18nKotlin-file": {
+      "fontCharacter": "\\ec60"
+    },
+    "i18nProperties-file": {
+      "fontCharacter": "\\ec61"
+    },
+    "i18nlang-file": {
+      "fontCharacter": "\\ec62"
+    },
+    "icl-file": {
+      "fontCharacter": "\\ec63"
+    },
+    "icomoon-file": {
+      "fontCharacter": "\\ec64"
+    },
+    "icon-file": {
+      "fontCharacter": "\\ec65"
+    },
+    "icu-file": {
+      "fontCharacter": "\\ec66"
+    },
+    "idea-file": {
+      "fontCharacter": "\\ec67"
+    },
+    "ideacolors-file": {
+      "fontCharacter": "\\ec68"
+    },
+    "idl-file": {
+      "fontCharacter": "\\ec69"
+    },
+    "idris-file": {
+      "fontCharacter": "\\ec6a"
+    },
+    "igor-file": {
+      "fontCharacter": "\\ec6b"
+    },
+    "illumos-file": {
+      "fontCharacter": "\\ec6c"
+    },
+    "image-file": {
+      "fontCharacter": "\\ec6d"
+    },
+    "imba-file": {
+      "fontCharacter": "\\ec6e"
+    },
+    "imgbot-file": {
+      "fontCharacter": "\\ec6f"
+    },
+    "indesign-file": {
+      "fontCharacter": "\\ec70"
+    },
+    "index-file": {
+      "fontCharacter": "\\ec71"
+    },
+    "indexhtml-file": {
+      "fontCharacter": "\\ec72"
+    },
+    "indexpy-file": {
+      "fontCharacter": "\\ec73"
+    },
+    "infopath-file": {
+      "fontCharacter": "\\ec74"
+    },
+    "inform-file": {
+      "fontCharacter": "\\ec75"
+    },
+    "informix-file": {
+      "fontCharacter": "\\ec76"
+    },
+    "ink-file": {
+      "fontCharacter": "\\ec77"
+    },
+    "inkscape-file": {
+      "fontCharacter": "\\ec78"
+    },
+    "inkscape_dark-file": {
+      "fontCharacter": "\\ec79"
+    },
+    "inno-file": {
+      "fontCharacter": "\\ec7a"
+    },
+    "install-file": {
+      "fontCharacter": "\\ec7b"
+    },
+    "intel-file": {
+      "fontCharacter": "\\ec7c"
+    },
+    "io-file": {
+      "fontCharacter": "\\ec7d"
+    },
+    "iodine-file": {
+      "fontCharacter": "\\ec7e"
+    },
+    "ioke-file": {
+      "fontCharacter": "\\ec7f"
+    },
+    "ionic-file": {
+      "fontCharacter": "\\ec80"
+    },
+    "isabelle-file": {
+      "fontCharacter": "\\ec81"
+    },
+    "isabelle_dark-file": {
+      "fontCharacter": "\\ec82"
+    },
+    "iso-file": {
+      "fontCharacter": "\\ec83"
+    },
+    "istanbul-file": {
+      "fontCharacter": "\\ec84"
+    },
+    "istanbulconf-file": {
+      "fontCharacter": "\\ec85"
+    },
+    "j-file": {
+      "fontCharacter": "\\ec86"
+    },
+    "jade-file": {
+      "fontCharacter": "\\ec87"
+    },
+    "jake-file": {
+      "fontCharacter": "\\ec88"
+    },
+    "jakefile-file": {
+      "fontCharacter": "\\ec89"
+    },
+    "jakt-file": {
+      "fontCharacter": "\\ec8a"
+    },
+    "janet-file": {
+      "fontCharacter": "\\ec8b"
+    },
+    "japa-file": {
+      "fontCharacter": "\\ec8c"
+    },
+    "jasmine-file": {
+      "fontCharacter": "\\ec8d"
+    },
+    "java-file": {
+      "fontCharacter": "\\ec8e"
+    },
+    "jbuilder-file": {
+      "fontCharacter": "\\ec8f"
+    },
+    "jekyll-file": {
+      "fontCharacter": "\\ec90"
+    },
+    "jekyllconfig-file": {
+      "fontCharacter": "\\ec91"
+    },
+    "jellycut-file": {
+      "fontCharacter": "\\ec92"
+    },
+    "jenkins-file": {
+      "fontCharacter": "\\ec93"
+    },
+    "jest-file": {
+      "fontCharacter": "\\ec94"
+    },
+    "jestrc-file": {
+      "fontCharacter": "\\ec95"
+    },
+    "jfd-file": {
+      "fontCharacter": "\\ec96"
+    },
+    "jinja-file": {
+      "fontCharacter": "\\ec97"
+    },
+    "jira-file": {
+      "fontCharacter": "\\ec98"
+    },
+    "jison-file": {
+      "fontCharacter": "\\ec99"
+    },
+    "jolie-file": {
+      "fontCharacter": "\\ec9a"
+    },
+    "joomla-file": {
+      "fontCharacter": "\\ec9b"
+    },
+    "jpg-file": {
+      "fontCharacter": "\\ec9c"
+    },
+    "jquery-file": {
+      "fontCharacter": "\\ec9d"
+    },
+    "js-file": {
+      "fontCharacter": "\\ec9e"
+    },
+    "jsbeautify-file": {
+      "fontCharacter": "\\ec9f"
+    },
+    "jsconfig-file": {
+      "fontCharacter": "\\eca0"
+    },
+    "jscpd-file": {
+      "fontCharacter": "\\eca1"
+    },
+    "jscs-file": {
+      "fontCharacter": "\\eca2"
+    },
+    "jshint-file": {
+      "fontCharacter": "\\eca3"
+    },
+    "jshintignore-file": {
+      "fontCharacter": "\\eca4"
+    },
+    "jslt-file": {
+      "fontCharacter": "\\eca5"
+    },
+    "jsmap-file": {
+      "fontCharacter": "\\eca6"
+    },
+    "jsmin-file": {
+      "fontCharacter": "\\eca7"
+    },
+    "json-file": {
+      "fontCharacter": "\\eca8"
+    },
+    "json5-file": {
+      "fontCharacter": "\\eca9"
+    },
+    "jsonld-file": {
+      "fontCharacter": "\\ecaa"
+    },
+    "jsonnet-file": {
+      "fontCharacter": "\\ecab"
+    },
+    "jsonschema-file": {
+      "fontCharacter": "\\ecac"
+    },
+    "jsp-file": {
+      "fontCharacter": "\\ecad"
+    },
+    "jss-file": {
+      "fontCharacter": "\\ecae"
+    },
+    "jsx-file": {
+      "fontCharacter": "\\ecaf"
+    },
+    "jte-file": {
+      "fontCharacter": "\\ecb0"
+    },
+    "julia-file": {
+      "fontCharacter": "\\ecb1"
+    },
+    "junos-file": {
+      "fontCharacter": "\\ecb2"
+    },
+    "jupyter-file": {
+      "fontCharacter": "\\ecb3"
+    },
+    "justfile-file": {
+      "fontCharacter": "\\ecb4"
+    },
+    "justfile_dark-file": {
+      "fontCharacter": "\\ecb5"
+    },
+    "jwt-file": {
+      "fontCharacter": "\\ecb6"
+    },
+    "kaitai-file": {
+      "fontCharacter": "\\ecb7"
+    },
+    "karma-file": {
+      "fontCharacter": "\\ecb8"
+    },
+    "karma_dark-file": {
+      "fontCharacter": "\\ecb9"
+    },
+    "kazel-file": {
+      "fontCharacter": "\\ecba"
+    },
+    "kerboscript-file": {
+      "fontCharacter": "\\ecbb"
+    },
+    "key-file": {
+      "fontCharacter": "\\ecbc"
+    },
+    "keybase-file": {
+      "fontCharacter": "\\ecbd"
+    },
+    "keynote-file": {
+      "fontCharacter": "\\ecbe"
+    },
+    "khronos-file": {
+      "fontCharacter": "\\ecbf"
+    },
+    "kibo-file": {
+      "fontCharacter": "\\ecc0"
+    },
+    "kicad-file": {
+      "fontCharacter": "\\ecc1"
+    },
+    "kitchenci-file": {
+      "fontCharacter": "\\ecc2"
+    },
+    "kite-file": {
+      "fontCharacter": "\\ecc3"
+    },
+    "kivy-file": {
+      "fontCharacter": "\\ecc4"
+    },
+    "kl-file": {
+      "fontCharacter": "\\ecc5"
+    },
+    "kml-file": {
+      "fontCharacter": "\\ecc6"
+    },
+    "knime-file": {
+      "fontCharacter": "\\ecc7"
+    },
+    "knockout-file": {
+      "fontCharacter": "\\ecc8"
+    },
+    "koka-file": {
+      "fontCharacter": "\\ecc9"
+    },
+    "koka_dark-file": {
+      "fontCharacter": "\\ecca"
+    },
+    "kotlin-file": {
+      "fontCharacter": "\\eccb"
+    },
+    "kotlinscript-file": {
+      "fontCharacter": "\\eccc"
+    },
+    "krl-file": {
+      "fontCharacter": "\\eccd"
+    },
+    "kubernetes-file": {
+      "fontCharacter": "\\ecce"
+    },
+    "kubernetesdepl-file": {
+      "fontCharacter": "\\eccf"
+    },
+    "kusto-file": {
+      "fontCharacter": "\\ecd0"
+    },
+    "kustomize-file": {
+      "fontCharacter": "\\ecd1"
+    },
+    "kx-file": {
+      "fontCharacter": "\\ecd2"
+    },
+    "labview-file": {
+      "fontCharacter": "\\ecd3"
+    },
+    "lakefile-file": {
+      "fontCharacter": "\\ecd4"
+    },
+    "laravel-file": {
+      "fontCharacter": "\\ecd5"
+    },
+    "lark-file": {
+      "fontCharacter": "\\ecd6"
+    },
+    "lasso-file": {
+      "fontCharacter": "\\ecd7"
+    },
+    "latino-file": {
+      "fontCharacter": "\\ecd8"
+    },
+    "latte-file": {
+      "fontCharacter": "\\ecd9"
+    },
+    "latte_dark-file": {
+      "fontCharacter": "\\ecda"
+    },
+    "leaflet-file": {
+      "fontCharacter": "\\ecdb"
+    },
+    "lean-file": {
+      "fontCharacter": "\\ecdc"
+    },
+    "lefthook-file": {
+      "fontCharacter": "\\ecdd"
+    },
+    "leiningen-file": {
+      "fontCharacter": "\\ecde"
+    },
+    "lektor-file": {
+      "fontCharacter": "\\ecdf"
+    },
+    "leo-file": {
+      "fontCharacter": "\\ece0"
+    },
+    "lerna-file": {
+      "fontCharacter": "\\ece1"
+    },
+    "less-file": {
+      "fontCharacter": "\\ece2"
+    },
+    "lex-file": {
+      "fontCharacter": "\\ece3"
+    },
+    "lfe-file": {
+      "fontCharacter": "\\ece4"
+    },
+    "lgtm-file": {
+      "fontCharacter": "\\ece5"
+    },
+    "lib-file": {
+      "fontCharacter": "\\ece6"
+    },
+    "libuv-file": {
+      "fontCharacter": "\\ece7"
+    },
+    "license-file": {
+      "fontCharacter": "\\ece8"
+    },
+    "licensebat-file": {
+      "fontCharacter": "\\ece9"
+    },
+    "lighthouse-file": {
+      "fontCharacter": "\\ecea"
+    },
+    "lightwave-file": {
+      "fontCharacter": "\\eceb"
+    },
+    "lilypond-file": {
+      "fontCharacter": "\\ecec"
+    },
+    "lime-file": {
+      "fontCharacter": "\\eced"
+    },
+    "link-file": {
+      "fontCharacter": "\\ecee"
+    },
+    "linqpad-file": {
+      "fontCharacter": "\\ecef"
+    },
+    "lint-staged-file": {
+      "fontCharacter": "\\ecf0"
+    },
+    "liquibase-file": {
+      "fontCharacter": "\\ecf1"
+    },
+    "liquibase_props-file": {
+      "fontCharacter": "\\ecf2"
+    },
+    "liquid-file": {
+      "fontCharacter": "\\ecf3"
+    },
+    "lisp-file": {
+      "fontCharacter": "\\ecf4"
+    },
+    "livescript-file": {
+      "fontCharacter": "\\ecf5"
+    },
+    "llvm-file": {
+      "fontCharacter": "\\ecf6"
+    },
+    "lock-file": {
+      "fontCharacter": "\\ecf7"
+    },
+    "log-file": {
+      "fontCharacter": "\\ecf8"
+    },
+    "logtalk-file": {
+      "fontCharacter": "\\ecf9"
+    },
+    "lolcode-file": {
+      "fontCharacter": "\\ecfa"
+    },
+    "lookml-file": {
+      "fontCharacter": "\\ecfb"
+    },
+    "lsl-file": {
+      "fontCharacter": "\\ecfc"
+    },
+    "lua-file": {
+      "fontCharacter": "\\ecfd"
+    },
+    "luau-file": {
+      "fontCharacter": "\\ecfe"
+    },
+    "lync-file": {
+      "fontCharacter": "\\ecff"
+    },
+    "macaulay-file": {
+      "fontCharacter": "\\ed00"
+    },
+    "madge-file": {
+      "fontCharacter": "\\ed01"
+    },
+    "magento-file": {
+      "fontCharacter": "\\ed02"
+    },
+    "magit-file": {
+      "fontCharacter": "\\ed03"
+    },
+    "make-file": {
+      "fontCharacter": "\\ed04"
+    },
+    "makefile-file": {
+      "fontCharacter": "\\ed05"
+    },
+    "mako-file": {
+      "fontCharacter": "\\ed06"
+    },
+    "manifest-file": {
+      "fontCharacter": "\\ed07"
+    },
+    "manjaro-file": {
+      "fontCharacter": "\\ed08"
+    },
+    "manpage-file": {
+      "fontCharacter": "\\ed09"
+    },
+    "mapbox-file": {
+      "fontCharacter": "\\ed0a"
+    },
+    "markdown-file": {
+      "fontCharacter": "\\ed0b"
+    },
+    "markdownlint-file": {
+      "fontCharacter": "\\ed0c"
+    },
+    "markdownlintignore-file": {
+      "fontCharacter": "\\ed0d"
+    },
+    "marko-file": {
+      "fontCharacter": "\\ed0e"
+    },
+    "markup-file": {
+      "fontCharacter": "\\ed0f"
+    },
+    "master-file": {
+      "fontCharacter": "\\ed10"
+    },
+    "materialize-file": {
+      "fontCharacter": "\\ed11"
+    },
+    "mathematica-file": {
+      "fontCharacter": "\\ed12"
+    },
+    "mathjax-file": {
+      "fontCharacter": "\\ed13"
+    },
+    "matlab-file": {
+      "fontCharacter": "\\ed14"
+    },
+    "maven-file": {
+      "fontCharacter": "\\ed15"
+    },
+    "max-file": {
+      "fontCharacter": "\\ed16"
+    },
+    "maya-file": {
+      "fontCharacter": "\\ed17"
+    },
+    "maya2-file": {
+      "fontCharacter": "\\ed18"
+    },
+    "mdx-file": {
+      "fontCharacter": "\\ed19"
+    },
+    "mediawiki-file": {
+      "fontCharacter": "\\ed1a"
+    },
+    "mercurial-file": {
+      "fontCharacter": "\\ed1b"
+    },
+    "mercurialignore-file": {
+      "fontCharacter": "\\ed1c"
+    },
+    "mercury-file": {
+      "fontCharacter": "\\ed1d"
+    },
+    "merlin-file": {
+      "fontCharacter": "\\ed1e"
+    },
+    "mermaid-file": {
+      "fontCharacter": "\\ed1f"
+    },
+    "meson-file": {
+      "fontCharacter": "\\ed20"
+    },
+    "metal-file": {
+      "fontCharacter": "\\ed21"
+    },
+    "metapost-file": {
+      "fontCharacter": "\\ed22"
+    },
+    "meteor-file": {
+      "fontCharacter": "\\ed23"
+    },
+    "metro-file": {
+      "fontCharacter": "\\ed24"
+    },
+    "minecraft-file": {
+      "fontCharacter": "\\ed25"
+    },
+    "minizinc-file": {
+      "fontCharacter": "\\ed26"
+    },
+    "mint-file": {
+      "fontCharacter": "\\ed27"
+    },
+    "mirah-file": {
+      "fontCharacter": "\\ed28"
+    },
+    "mirc-file": {
+      "fontCharacter": "\\ed29"
+    },
+    "mixin-file": {
+      "fontCharacter": "\\ed2a"
+    },
+    "mjml-file": {
+      "fontCharacter": "\\ed2b"
+    },
+    "mkdocs-file": {
+      "fontCharacter": "\\ed2c"
+    },
+    "mlang-file": {
+      "fontCharacter": "\\ed2d"
+    },
+    "mobx-file": {
+      "fontCharacter": "\\ed2e"
+    },
+    "mocha-file": {
+      "fontCharacter": "\\ed2f"
+    },
+    "mock-file": {
+      "fontCharacter": "\\ed30"
+    },
+    "modelica-file": {
+      "fontCharacter": "\\ed31"
+    },
+    "modernizr-file": {
+      "fontCharacter": "\\ed32"
+    },
+    "modernweb-file": {
+      "fontCharacter": "\\ed33"
+    },
+    "modo-file": {
+      "fontCharacter": "\\ed34"
+    },
+    "modula2-file": {
+      "fontCharacter": "\\ed35"
+    },
+    "modula3-file": {
+      "fontCharacter": "\\ed36"
+    },
+    "moho-file": {
+      "fontCharacter": "\\ed37"
+    },
+    "mojolicious-file": {
+      "fontCharacter": "\\ed38"
+    },
+    "moleculer-file": {
+      "fontCharacter": "\\ed39"
+    },
+    "moment-file": {
+      "fontCharacter": "\\ed3a"
+    },
+    "mongodb-file": {
+      "fontCharacter": "\\ed3b"
+    },
+    "monkey-file": {
+      "fontCharacter": "\\ed3c"
+    },
+    "monotone-file": {
+      "fontCharacter": "\\ed3d"
+    },
+    "moon-file": {
+      "fontCharacter": "\\ed3e"
+    },
+    "moonscript-file": {
+      "fontCharacter": "\\ed3f"
+    },
+    "mootools-file": {
+      "fontCharacter": "\\ed40"
+    },
+    "more-file": {
+      "fontCharacter": "\\ed41"
+    },
+    "mruby-file": {
+      "fontCharacter": "\\ed42"
+    },
+    "msdos-file": {
+      "fontCharacter": "\\ed43"
+    },
+    "mson-file": {
+      "fontCharacter": "\\ed44"
+    },
+    "msql-file": {
+      "fontCharacter": "\\ed45"
+    },
+    "mupad-file": {
+      "fontCharacter": "\\ed46"
+    },
+    "mustache-file": {
+      "fontCharacter": "\\ed47"
+    },
+    "mxml-file": {
+      "fontCharacter": "\\ed48"
+    },
+    "mybatis-file": {
+      "fontCharacter": "\\ed49"
+    },
+    "n64-file": {
+      "fontCharacter": "\\ed4a"
+    },
+    "nano-file": {
+      "fontCharacter": "\\ed4b"
+    },
+    "nanoc-file": {
+      "fontCharacter": "\\ed4c"
+    },
+    "nant-file": {
+      "fontCharacter": "\\ed4d"
+    },
+    "nasm-file": {
+      "fontCharacter": "\\ed4e"
+    },
+    "ncu-file": {
+      "fontCharacter": "\\ed4f"
+    },
+    "ndepend-file": {
+      "fontCharacter": "\\ed50"
+    },
+    "nearley-file": {
+      "fontCharacter": "\\ed51"
+    },
+    "neko-file": {
+      "fontCharacter": "\\ed52"
+    },
+    "neo4j-file": {
+      "fontCharacter": "\\ed53"
+    },
+    "neon-file": {
+      "fontCharacter": "\\ed54"
+    },
+    "neon_dark-file": {
+      "fontCharacter": "\\ed55"
+    },
+    "nessus-file": {
+      "fontCharacter": "\\ed56"
+    },
+    "nest-file": {
+      "fontCharacter": "\\ed57"
+    },
+    "nestadapter-file": {
+      "fontCharacter": "\\ed58"
+    },
+    "nestconfig-file": {
+      "fontCharacter": "\\ed59"
+    },
+    "nestcontroller-file": {
+      "fontCharacter": "\\ed5a"
+    },
+    "nestdecorator-file": {
+      "fontCharacter": "\\ed5b"
+    },
+    "nestdto-file": {
+      "fontCharacter": "\\ed5c"
+    },
+    "nestfilter-file": {
+      "fontCharacter": "\\ed5d"
+    },
+    "nestgateway-file": {
+      "fontCharacter": "\\ed5e"
+    },
+    "nestguard-file": {
+      "fontCharacter": "\\ed5f"
+    },
+    "nestinterceptor-file": {
+      "fontCharacter": "\\ed60"
+    },
+    "nestland-file": {
+      "fontCharacter": "\\ed61"
+    },
+    "nestmiddleware-file": {
+      "fontCharacter": "\\ed62"
+    },
+    "nestmodule-file": {
+      "fontCharacter": "\\ed63"
+    },
+    "nestpipe-file": {
+      "fontCharacter": "\\ed64"
+    },
+    "nestprovider-file": {
+      "fontCharacter": "\\ed65"
+    },
+    "nestrepository-file": {
+      "fontCharacter": "\\ed66"
+    },
+    "nestschema-file": {
+      "fontCharacter": "\\ed67"
+    },
+    "nestservice-file": {
+      "fontCharacter": "\\ed68"
+    },
+    "neststrategy-file": {
+      "fontCharacter": "\\ed69"
+    },
+    "netlify-file": {
+      "fontCharacter": "\\ed6a"
+    },
+    "netlify_headers-file": {
+      "fontCharacter": "\\ed6b"
+    },
+    "netlify_redirects-file": {
+      "fontCharacter": "\\ed6c"
+    },
+    "netlinx-file": {
+      "fontCharacter": "\\ed6d"
+    },
+    "netlogo-file": {
+      "fontCharacter": "\\ed6e"
+    },
+    "newrelic-file": {
+      "fontCharacter": "\\ed6f"
+    },
+    "nextflow-file": {
+      "fontCharacter": "\\ed70"
+    },
+    "nextflowconfig-file": {
+      "fontCharacter": "\\ed71"
+    },
+    "nextjs-file": {
+      "fontCharacter": "\\ed72"
+    },
+    "nginx-file": {
+      "fontCharacter": "\\ed73"
+    },
+    "ngrx-actions-file": {
+      "fontCharacter": "\\ed74"
+    },
+    "ngrx-effects-file": {
+      "fontCharacter": "\\ed75"
+    },
+    "ngrx-entities-file": {
+      "fontCharacter": "\\ed76"
+    },
+    "ngrx-reducers-file": {
+      "fontCharacter": "\\ed77"
+    },
+    "ngrx-repo-file": {
+      "fontCharacter": "\\ed78"
+    },
+    "ngrx-selectors-file": {
+      "fontCharacter": "\\ed79"
+    },
+    "ngrx-state-file": {
+      "fontCharacter": "\\ed7a"
+    },
+    "ngrxjs-file": {
+      "fontCharacter": "\\ed7b"
+    },
+    "nib-file": {
+      "fontCharacter": "\\ed7c"
+    },
+    "nickle-file": {
+      "fontCharacter": "\\ed7d"
+    },
+    "nightwatch-file": {
+      "fontCharacter": "\\ed7e"
+    },
+    "nim-file": {
+      "fontCharacter": "\\ed7f"
+    },
+    "nimble-file": {
+      "fontCharacter": "\\ed80"
+    },
+    "nimrod-file": {
+      "fontCharacter": "\\ed81"
+    },
+    "nit-file": {
+      "fontCharacter": "\\ed82"
+    },
+    "nix-file": {
+      "fontCharacter": "\\ed83"
+    },
+    "nmap-file": {
+      "fontCharacter": "\\ed84"
+    },
+    "noc-file": {
+      "fontCharacter": "\\ed85"
+    },
+    "nodejs-file": {
+      "fontCharacter": "\\ed86"
+    },
+    "nodemon-file": {
+      "fontCharacter": "\\ed87"
+    },
+    "nodemonignore-file": {
+      "fontCharacter": "\\ed88"
+    },
+    "nodeversion-file": {
+      "fontCharacter": "\\ed89"
+    },
+    "nokogiri-file": {
+      "fontCharacter": "\\ed8a"
+    },
+    "nomad-file": {
+      "fontCharacter": "\\ed8b"
+    },
+    "noon-file": {
+      "fontCharacter": "\\ed8c"
+    },
+    "normalize-file": {
+      "fontCharacter": "\\ed8d"
+    },
+    "note-file": {
+      "fontCharacter": "\\ed8e"
+    },
+    "now-file": {
+      "fontCharacter": "\\ed8f"
+    },
+    "nowignore-file": {
+      "fontCharacter": "\\ed90"
+    },
+    "npm-file": {
+      "fontCharacter": "\\ed91"
+    },
+    "npmignore-file": {
+      "fontCharacter": "\\ed92"
+    },
+    "npmlock-file": {
+      "fontCharacter": "\\ed93"
+    },
+    "npmshrinkwrap-file": {
+      "fontCharacter": "\\ed94"
+    },
+    "nsis-file": {
+      "fontCharacter": "\\ed95"
+    },
+    "nsri-file": {
+      "fontCharacter": "\\ed96"
+    },
+    "nsriignore-file": {
+      "fontCharacter": "\\ed97"
+    },
+    "nu-file": {
+      "fontCharacter": "\\ed98"
+    },
+    "nuclide-file": {
+      "fontCharacter": "\\ed99"
+    },
+    "nuget-file": {
+      "fontCharacter": "\\ed9a"
+    },
+    "nugetconfig-file": {
+      "fontCharacter": "\\ed9b"
+    },
+    "numpy-file": {
+      "fontCharacter": "\\ed9c"
+    },
+    "nunjucks-file": {
+      "fontCharacter": "\\ed9d"
+    },
+    "nuxt-file": {
+      "fontCharacter": "\\ed9e"
+    },
+    "nvidia-file": {
+      "fontCharacter": "\\ed9f"
+    },
+    "nvm-file": {
+      "fontCharacter": "\\eda0"
+    },
+    "nwscript-file": {
+      "fontCharacter": "\\eda1"
+    },
+    "nx-file": {
+      "fontCharacter": "\\eda2"
+    },
+    "nx_dark-file": {
+      "fontCharacter": "\\eda3"
+    },
+    "nxc-file": {
+      "fontCharacter": "\\eda4"
+    },
+    "oberon-file": {
+      "fontCharacter": "\\eda5"
+    },
+    "objc-file": {
+      "fontCharacter": "\\eda6"
+    },
+    "objj-file": {
+      "fontCharacter": "\\eda7"
+    },
+    "ocaml-file": {
+      "fontCharacter": "\\eda8"
+    },
+    "octave-file": {
+      "fontCharacter": "\\eda9"
+    },
+    "odin-file": {
+      "fontCharacter": "\\edaa"
+    },
+    "ogone-file": {
+      "fontCharacter": "\\edab"
+    },
+    "omnigraffle-file": {
+      "fontCharacter": "\\edac"
+    },
+    "onenote-file": {
+      "fontCharacter": "\\edad"
+    },
+    "ooc-file": {
+      "fontCharacter": "\\edae"
+    },
+    "opa-file": {
+      "fontCharacter": "\\edaf"
+    },
+    "opam-file": {
+      "fontCharacter": "\\edb0"
+    },
+    "openapi-file": {
+      "fontCharacter": "\\edb1"
+    },
+    "openbsd-file": {
+      "fontCharacter": "\\edb2"
+    },
+    "opencl-file": {
+      "fontCharacter": "\\edb3"
+    },
+    "openexr-file": {
+      "fontCharacter": "\\edb4"
+    },
+    "opengl-file": {
+      "fontCharacter": "\\edb5"
+    },
+    "openhab-file": {
+      "fontCharacter": "\\edb6"
+    },
+    "openindiana-file": {
+      "fontCharacter": "\\edb7"
+    },
+    "openoffice-file": {
+      "fontCharacter": "\\edb8"
+    },
+    "openpolicy-file": {
+      "fontCharacter": "\\edb9"
+    },
+    "openscad-file": {
+      "fontCharacter": "\\edba"
+    },
+    "openshift-file": {
+      "fontCharacter": "\\edbb"
+    },
+    "opensolaris-file": {
+      "fontCharacter": "\\edbc"
+    },
+    "openstack-file": {
+      "fontCharacter": "\\edbd"
+    },
+    "openvms-file": {
+      "fontCharacter": "\\edbe"
+    },
+    "openvpn-file": {
+      "fontCharacter": "\\edbf"
+    },
+    "openzfs-file": {
+      "fontCharacter": "\\edc0"
+    },
+    "oracle-file": {
+      "fontCharacter": "\\edc1"
+    },
+    "orgmode-file": {
+      "fontCharacter": "\\edc2"
+    },
+    "outlook-file": {
+      "fontCharacter": "\\edc3"
+    },
+    "owl-file": {
+      "fontCharacter": "\\edc4"
+    },
+    "oxygene-file": {
+      "fontCharacter": "\\edc5"
+    },
+    "oz-file": {
+      "fontCharacter": "\\edc6"
+    },
+    "p4-file": {
+      "fontCharacter": "\\edc7"
+    },
+    "p4ignore-file": {
+      "fontCharacter": "\\edc8"
+    },
+    "pacman-file": {
+      "fontCharacter": "\\edc9"
+    },
+    "paket-file": {
+      "fontCharacter": "\\edca"
+    },
+    "palette-file": {
+      "fontCharacter": "\\edcb"
+    },
+    "pan-file": {
+      "fontCharacter": "\\edcc"
+    },
+    "papyrus-file": {
+      "fontCharacter": "\\edcd"
+    },
+    "parcel-file": {
+      "fontCharacter": "\\edce"
+    },
+    "parquet-file": {
+      "fontCharacter": "\\edcf"
+    },
+    "parrot-file": {
+      "fontCharacter": "\\edd0"
+    },
+    "pascal-file": {
+      "fontCharacter": "\\edd1"
+    },
+    "patch-file": {
+      "fontCharacter": "\\edd2"
+    },
+    "patreon-file": {
+      "fontCharacter": "\\edd3"
+    },
+    "pawn-file": {
+      "fontCharacter": "\\edd4"
+    },
+    "pcd-file": {
+      "fontCharacter": "\\edd5"
+    },
+    "pddl-file": {
+      "fontCharacter": "\\edd6"
+    },
+    "pdf-file": {
+      "fontCharacter": "\\edd7"
+    },
+    "pegjs-file": {
+      "fontCharacter": "\\edd8"
+    },
+    "percy-file": {
+      "fontCharacter": "\\edd9"
+    },
+    "perl-file": {
+      "fontCharacter": "\\edda"
+    },
+    "perlconfig-file": {
+      "fontCharacter": "\\eddb"
+    },
+    "pest-file": {
+      "fontCharacter": "\\eddc"
+    },
+    "pgsql-file": {
+      "fontCharacter": "\\eddd"
+    },
+    "phalcon-file": {
+      "fontCharacter": "\\edde"
+    },
+    "phalcon_dark-file": {
+      "fontCharacter": "\\eddf"
+    },
+    "phoenix-file": {
+      "fontCharacter": "\\ede0"
+    },
+    "photorec-file": {
+      "fontCharacter": "\\ede1"
+    },
+    "php-file": {
+      "fontCharacter": "\\ede2"
+    },
+    "php2-file": {
+      "fontCharacter": "\\ede3"
+    },
+    "phpcs-file": {
+      "fontCharacter": "\\ede4"
+    },
+    "phpunit-file": {
+      "fontCharacter": "\\ede5"
+    },
+    "phraseapp-file": {
+      "fontCharacter": "\\ede6"
+    },
+    "phtml-file": {
+      "fontCharacter": "\\ede7"
+    },
+    "pickle-file": {
+      "fontCharacter": "\\ede8"
+    },
+    "pico8-file": {
+      "fontCharacter": "\\ede9"
+    },
+    "picolisp-file": {
+      "fontCharacter": "\\edea"
+    },
+    "pike-file": {
+      "fontCharacter": "\\edeb"
+    },
+    "pinescript-file": {
+      "fontCharacter": "\\edec"
+    },
+    "pinia-file": {
+      "fontCharacter": "\\eded"
+    },
+    "pipeline-file": {
+      "fontCharacter": "\\edee"
+    },
+    "pipfile-file": {
+      "fontCharacter": "\\edef"
+    },
+    "pipfilelock-file": {
+      "fontCharacter": "\\edf0"
+    },
+    "pkgsrc-file": {
+      "fontCharacter": "\\edf1"
+    },
+    "platformio-file": {
+      "fontCharacter": "\\edf2"
+    },
+    "play-file": {
+      "fontCharacter": "\\edf3"
+    },
+    "playwright-file": {
+      "fontCharacter": "\\edf4"
+    },
+    "plist-file": {
+      "fontCharacter": "\\edf5"
+    },
+    "plopfile-file": {
+      "fontCharacter": "\\edf6"
+    },
+    "plugin-file": {
+      "fontCharacter": "\\edf7"
+    },
+    "pluginfiles-file": {
+      "fontCharacter": "\\edf8"
+    },
+    "pm2-file": {
+      "fontCharacter": "\\edf9"
+    },
+    "png-file": {
+      "fontCharacter": "\\edfa"
+    },
+    "pnpm-file": {
+      "fontCharacter": "\\edfb"
+    },
+    "pnpmfile-file": {
+      "fontCharacter": "\\edfc"
+    },
+    "pod-file": {
+      "fontCharacter": "\\edfd"
+    },
+    "poetry-file": {
+      "fontCharacter": "\\edfe"
+    },
+    "pogoscript-file": {
+      "fontCharacter": "\\edff"
+    },
+    "pointwise-file": {
+      "fontCharacter": "\\ee00"
+    },
+    "polymer-file": {
+      "fontCharacter": "\\ee01"
+    },
+    "polymerconf-file": {
+      "fontCharacter": "\\ee02"
+    },
+    "pony-file": {
+      "fontCharacter": "\\ee03"
+    },
+    "postcss-file": {
+      "fontCharacter": "\\ee04"
+    },
+    "posthtml-file": {
+      "fontCharacter": "\\ee05"
+    },
+    "postscript-file": {
+      "fontCharacter": "\\ee06"
+    },
+    "povray-file": {
+      "fontCharacter": "\\ee07"
+    },
+    "powerbuilder-file": {
+      "fontCharacter": "\\ee08"
+    },
+    "powerpoint-file": {
+      "fontCharacter": "\\ee09"
+    },
+    "powershell-file": {
+      "fontCharacter": "\\ee0a"
+    },
+    "ppc-file": {
+      "fontCharacter": "\\ee0b"
+    },
+    "preact-file": {
+      "fontCharacter": "\\ee0c"
+    },
+    "precision-file": {
+      "fontCharacter": "\\ee0d"
+    },
+    "precommit-file": {
+      "fontCharacter": "\\ee0e"
+    },
+    "preferences-file": {
+      "fontCharacter": "\\ee0f"
+    },
+    "premiere-file": {
+      "fontCharacter": "\\ee10"
+    },
+    "prettier-file": {
+      "fontCharacter": "\\ee11"
+    },
+    "prettierconfig-file": {
+      "fontCharacter": "\\ee12"
+    },
+    "prettierignore-file": {
+      "fontCharacter": "\\ee13"
+    },
+    "prisma-file": {
+      "fontCharacter": "\\ee14"
+    },
+    "prismaconfig-file": {
+      "fontCharacter": "\\ee15"
+    },
+    "processing-file": {
+      "fontCharacter": "\\ee16"
+    },
+    "procfile-file": {
+      "fontCharacter": "\\ee17"
+    },
+    "progress-file": {
+      "fontCharacter": "\\ee18"
+    },
+    "project-file": {
+      "fontCharacter": "\\ee19"
+    },
+    "prolog-file": {
+      "fontCharacter": "\\ee1a"
+    },
+    "prometheus-file": {
+      "fontCharacter": "\\ee1b"
+    },
+    "propeller-file": {
+      "fontCharacter": "\\ee1c"
+    },
+    "pros-file": {
+      "fontCharacter": "\\ee1d"
+    },
+    "proselint-file": {
+      "fontCharacter": "\\ee1e"
+    },
+    "protobuf-file": {
+      "fontCharacter": "\\ee1f"
+    },
+    "protractor-file": {
+      "fontCharacter": "\\ee20"
+    },
+    "proxy-file": {
+      "fontCharacter": "\\ee21"
+    },
+    "psd-file": {
+      "fontCharacter": "\\ee22"
+    },
+    "publiccode-file": {
+      "fontCharacter": "\\ee23"
+    },
+    "publishToken-file": {
+      "fontCharacter": "\\ee24"
+    },
+    "publisher-file": {
+      "fontCharacter": "\\ee25"
+    },
+    "pug-file": {
+      "fontCharacter": "\\ee26"
+    },
+    "puglint-file": {
+      "fontCharacter": "\\ee27"
+    },
+    "pullapprove-file": {
+      "fontCharacter": "\\ee28"
+    },
+    "puppet-file": {
+      "fontCharacter": "\\ee29"
+    },
+    "pure-file": {
+      "fontCharacter": "\\ee2a"
+    },
+    "purebasic-file": {
+      "fontCharacter": "\\ee2b"
+    },
+    "purescript-file": {
+      "fontCharacter": "\\ee2c"
+    },
+    "pypi-file": {
+      "fontCharacter": "\\ee2d"
+    },
+    "pyret-file": {
+      "fontCharacter": "\\ee2e"
+    },
+    "pytest-file": {
+      "fontCharacter": "\\ee2f"
+    },
+    "python-file": {
+      "fontCharacter": "\\ee30"
+    },
+    "pythonconfig-file": {
+      "fontCharacter": "\\ee31"
+    },
+    "pythonversion-file": {
+      "fontCharacter": "\\ee32"
+    },
+    "pytyped-file": {
+      "fontCharacter": "\\ee33"
+    },
+    "pyup-file": {
+      "fontCharacter": "\\ee34"
+    },
+    "qiskit-file": {
+      "fontCharacter": "\\ee35"
+    },
+    "qlikview-file": {
+      "fontCharacter": "\\ee36"
+    },
+    "qodana-file": {
+      "fontCharacter": "\\ee37"
+    },
+    "qsharp-file": {
+      "fontCharacter": "\\ee38"
+    },
+    "qsharp_dark-file": {
+      "fontCharacter": "\\ee39"
+    },
+    "qt-file": {
+      "fontCharacter": "\\ee3a"
+    },
+    "quantum-file": {
+      "fontCharacter": "\\ee3b"
+    },
+    "quasar-file": {
+      "fontCharacter": "\\ee3c"
+    },
+    "question-file": {
+      "fontCharacter": "\\ee3d"
+    },
+    "r-file": {
+      "fontCharacter": "\\ee3e"
+    },
+    "racket-file": {
+      "fontCharacter": "\\ee3f"
+    },
+    "rails-file": {
+      "fontCharacter": "\\ee40"
+    },
+    "railschannel-file": {
+      "fontCharacter": "\\ee41"
+    },
+    "railsconcern-file": {
+      "fontCharacter": "\\ee42"
+    },
+    "railscontroller-file": {
+      "fontCharacter": "\\ee43"
+    },
+    "railsdb-file": {
+      "fontCharacter": "\\ee44"
+    },
+    "railsfactory-file": {
+      "fontCharacter": "\\ee45"
+    },
+    "railsfixture-file": {
+      "fontCharacter": "\\ee46"
+    },
+    "railshelper-file": {
+      "fontCharacter": "\\ee47"
+    },
+    "railsjob-file": {
+      "fontCharacter": "\\ee48"
+    },
+    "railsmailer-file": {
+      "fontCharacter": "\\ee49"
+    },
+    "railsroutes-file": {
+      "fontCharacter": "\\ee4a"
+    },
+    "railsschema-file": {
+      "fontCharacter": "\\ee4b"
+    },
+    "railsseed-file": {
+      "fontCharacter": "\\ee4c"
+    },
+    "railsserializer-file": {
+      "fontCharacter": "\\ee4d"
+    },
+    "railsservice-file": {
+      "fontCharacter": "\\ee4e"
+    },
+    "rake-file": {
+      "fontCharacter": "\\ee4f"
+    },
+    "rakefile-file": {
+      "fontCharacter": "\\ee50"
+    },
+    "raml-file": {
+      "fontCharacter": "\\ee51"
+    },
+    "raphael-file": {
+      "fontCharacter": "\\ee52"
+    },
+    "rascal-file": {
+      "fontCharacter": "\\ee53"
+    },
+    "razor-file": {
+      "fontCharacter": "\\ee54"
+    },
+    "razzle-file": {
+      "fontCharacter": "\\ee55"
+    },
+    "rbs-file": {
+      "fontCharacter": "\\ee56"
+    },
+    "rbsconfig-file": {
+      "fontCharacter": "\\ee57"
+    },
+    "rdata-file": {
+      "fontCharacter": "\\ee58"
+    },
+    "rdoc-file": {
+      "fontCharacter": "\\ee59"
+    },
+    "react-file": {
+      "fontCharacter": "\\ee5a"
+    },
+    "reactcli-file": {
+      "fontCharacter": "\\ee5b"
+    },
+    "reactnative-file": {
+      "fontCharacter": "\\ee5c"
+    },
+    "reactos-file": {
+      "fontCharacter": "\\ee5d"
+    },
+    "readme-file": {
+      "fontCharacter": "\\ee5e"
+    },
+    "readme_dark-file": {
+      "fontCharacter": "\\ee5f"
+    },
+    "readthedocs-file": {
+      "fontCharacter": "\\ee60"
+    },
+    "reason-file": {
+      "fontCharacter": "\\ee61"
+    },
+    "reasonstudios-file": {
+      "fontCharacter": "\\ee62"
+    },
+    "rebol-file": {
+      "fontCharacter": "\\ee63"
+    },
+    "recoil-file": {
+      "fontCharacter": "\\ee64"
+    },
+    "red-file": {
+      "fontCharacter": "\\ee65"
+    },
+    "red2-file": {
+      "fontCharacter": "\\ee66"
+    },
+    "redhat-file": {
+      "fontCharacter": "\\ee67"
+    },
+    "redis-file": {
+      "fontCharacter": "\\ee68"
+    },
+    "redisdb-file": {
+      "fontCharacter": "\\ee69"
+    },
+    "redux-action-file": {
+      "fontCharacter": "\\ee6a"
+    },
+    "redux-epic-file": {
+      "fontCharacter": "\\ee6b"
+    },
+    "redux-reducer-file": {
+      "fontCharacter": "\\ee6c"
+    },
+    "redux-saga-file": {
+      "fontCharacter": "\\ee6d"
+    },
+    "redux-selector-file": {
+      "fontCharacter": "\\ee6e"
+    },
+    "redux-slice-file": {
+      "fontCharacter": "\\ee6f"
+    },
+    "redux-store-file": {
+      "fontCharacter": "\\ee70"
+    },
+    "redux-thunk-file": {
+      "fontCharacter": "\\ee71"
+    },
+    "redwood-file": {
+      "fontCharacter": "\\ee72"
+    },
+    "reek-file": {
+      "fontCharacter": "\\ee73"
+    },
+    "regex-file": {
+      "fontCharacter": "\\ee74"
+    },
+    "rehype-file": {
+      "fontCharacter": "\\ee75"
+    },
+    "rehypeignore-file": {
+      "fontCharacter": "\\ee76"
+    },
+    "remark-file": {
+      "fontCharacter": "\\ee77"
+    },
+    "remarkignore-file": {
+      "fontCharacter": "\\ee78"
+    },
+    "remix-file": {
+      "fontCharacter": "\\ee79"
+    },
+    "renovate-file": {
+      "fontCharacter": "\\ee7a"
+    },
+    "replit-file": {
+      "fontCharacter": "\\ee7b"
+    },
+    "requirejs-file": {
+      "fontCharacter": "\\ee7c"
+    },
+    "rescript-file": {
+      "fontCharacter": "\\ee7d"
+    },
+    "restql-file": {
+      "fontCharacter": "\\ee7e"
+    },
+    "restqlconf-file": {
+      "fontCharacter": "\\ee7f"
+    },
+    "retext-file": {
+      "fontCharacter": "\\ee80"
+    },
+    "retextignore-file": {
+      "fontCharacter": "\\ee81"
+    },
+    "rexx-file": {
+      "fontCharacter": "\\ee82"
+    },
+    "rhino3d-file": {
+      "fontCharacter": "\\ee83"
+    },
+    "ride-file": {
+      "fontCharacter": "\\ee84"
+    },
+    "riemann-file": {
+      "fontCharacter": "\\ee85"
+    },
+    "ring-file": {
+      "fontCharacter": "\\ee86"
+    },
+    "riot-file": {
+      "fontCharacter": "\\ee87"
+    },
+    "riot2-file": {
+      "fontCharacter": "\\ee88"
+    },
+    "rmd-file": {
+      "fontCharacter": "\\ee89"
+    },
+    "roadmap-file": {
+      "fontCharacter": "\\ee8a"
+    },
+    "roblox-file": {
+      "fontCharacter": "\\ee8b"
+    },
+    "robot-file": {
+      "fontCharacter": "\\ee8c"
+    },
+    "robot2-file": {
+      "fontCharacter": "\\ee8d"
+    },
+    "robots-file": {
+      "fontCharacter": "\\ee8e"
+    },
+    "rojo-file": {
+      "fontCharacter": "\\ee8f"
+    },
+    "rollup-file": {
+      "fontCharacter": "\\ee90"
+    },
+    "rome-file": {
+      "fontCharacter": "\\ee91"
+    },
+    "ron-file": {
+      "fontCharacter": "\\ee92"
+    },
+    "routes-file": {
+      "fontCharacter": "\\ee93"
+    },
+    "rproj-file": {
+      "fontCharacter": "\\ee94"
+    },
+    "rspec-file": {
+      "fontCharacter": "\\ee95"
+    },
+    "rspecconfig-file": {
+      "fontCharacter": "\\ee96"
+    },
+    "rss-file": {
+      "fontCharacter": "\\ee97"
+    },
+    "rst-file": {
+      "fontCharacter": "\\ee98"
+    },
+    "rstudio-file": {
+      "fontCharacter": "\\ee99"
+    },
+    "rsync-file": {
+      "fontCharacter": "\\ee9a"
+    },
+    "rsync_dark-file": {
+      "fontCharacter": "\\ee9b"
+    },
+    "rubocop-file": {
+      "fontCharacter": "\\ee9c"
+    },
+    "ruby-file": {
+      "fontCharacter": "\\ee9d"
+    },
+    "rubygems-file": {
+      "fontCharacter": "\\ee9e"
+    },
+    "rubyrc-file": {
+      "fontCharacter": "\\ee9f"
+    },
+    "rubyversion-file": {
+      "fontCharacter": "\\eea0"
+    },
+    "rust-file": {
+      "fontCharacter": "\\eea1"
+    },
+    "rusttoolchain-file": {
+      "fontCharacter": "\\eea2"
+    },
+    "rvm-file": {
+      "fontCharacter": "\\eea3"
+    },
+    "rxjs-file": {
+      "fontCharacter": "\\eea4"
+    },
+    "sac-file": {
+      "fontCharacter": "\\eea5"
+    },
+    "safari-file": {
+      "fontCharacter": "\\eea6"
+    },
+    "sage-file": {
+      "fontCharacter": "\\eea7"
+    },
+    "sails-file": {
+      "fontCharacter": "\\eea8"
+    },
+    "saltstack-file": {
+      "fontCharacter": "\\eea9"
+    },
+    "san-file": {
+      "fontCharacter": "\\eeaa"
+    },
+    "sandbox-file": {
+      "fontCharacter": "\\eeab"
+    },
+    "sapper-file": {
+      "fontCharacter": "\\eeac"
+    },
+    "sas-file": {
+      "fontCharacter": "\\eead"
+    },
+    "sass-file": {
+      "fontCharacter": "\\eeae"
+    },
+    "sbt-file": {
+      "fontCharacter": "\\eeaf"
+    },
+    "scala-file": {
+      "fontCharacter": "\\eeb0"
+    },
+    "scd-file": {
+      "fontCharacter": "\\eeb1"
+    },
+    "scheme-file": {
+      "fontCharacter": "\\eeb2"
+    },
+    "scilab-file": {
+      "fontCharacter": "\\eeb3"
+    },
+    "scilla-file": {
+      "fontCharacter": "\\eeb4"
+    },
+    "scratch-file": {
+      "fontCharacter": "\\eeb5"
+    },
+    "scrutinizer-file": {
+      "fontCharacter": "\\eeb6"
+    },
+    "scss-file": {
+      "fontCharacter": "\\eeb7"
+    },
+    "sdlang-file": {
+      "fontCharacter": "\\eeb8"
+    },
+    "secret-file": {
+      "fontCharacter": "\\eeb9"
+    },
+    "self-file": {
+      "fontCharacter": "\\eeba"
+    },
+    "semantic-release-file": {
+      "fontCharacter": "\\eebb"
+    },
+    "semgrep-file": {
+      "fontCharacter": "\\eebc"
+    },
+    "sencha-file": {
+      "fontCharacter": "\\eebd"
+    },
+    "sentry-file": {
+      "fontCharacter": "\\eebe"
+    },
+    "sequelize-file": {
+      "fontCharacter": "\\eebf"
+    },
+    "serverless-file": {
+      "fontCharacter": "\\eec0"
+    },
+    "servicefabric-file": {
+      "fontCharacter": "\\eec1"
+    },
+    "settings-file": {
+      "fontCharacter": "\\eec2"
+    },
+    "shader-file": {
+      "fontCharacter": "\\eec3"
+    },
+    "shadowcljs-file": {
+      "fontCharacter": "\\eec4"
+    },
+    "shell-file": {
+      "fontCharacter": "\\eec5"
+    },
+    "shellcheck-file": {
+      "fontCharacter": "\\eec6"
+    },
+    "shen-file": {
+      "fontCharacter": "\\eec7"
+    },
+    "shipit-file": {
+      "fontCharacter": "\\eec8"
+    },
+    "shippable-file": {
+      "fontCharacter": "\\eec9"
+    },
+    "shuriken-file": {
+      "fontCharacter": "\\eeca"
+    },
+    "sigils-file": {
+      "fontCharacter": "\\eecb"
+    },
+    "silverstripe-file": {
+      "fontCharacter": "\\eecc"
+    },
+    "siyuan-file": {
+      "fontCharacter": "\\eecd"
+    },
+    "sizelimit-file": {
+      "fontCharacter": "\\eece"
+    },
+    "sizelimit_dark-file": {
+      "fontCharacter": "\\eecf"
+    },
+    "sketch-file": {
+      "fontCharacter": "\\eed0"
+    },
+    "sketchmake-file": {
+      "fontCharacter": "\\eed1"
+    },
+    "sketchup-file": {
+      "fontCharacter": "\\eed2"
+    },
+    "skipper-file": {
+      "fontCharacter": "\\eed3"
+    },
+    "skript-file": {
+      "fontCharacter": "\\eed4"
+    },
+    "skript_dark-file": {
+      "fontCharacter": "\\eed5"
+    },
+    "slang-file": {
+      "fontCharacter": "\\eed6"
+    },
+    "slash-file": {
+      "fontCharacter": "\\eed7"
+    },
+    "slice-file": {
+      "fontCharacter": "\\eed8"
+    },
+    "slim-file": {
+      "fontCharacter": "\\eed9"
+    },
+    "slug-file": {
+      "fontCharacter": "\\eeda"
+    },
+    "smartos-file": {
+      "fontCharacter": "\\eedb"
+    },
+    "smarty-file": {
+      "fontCharacter": "\\eedc"
+    },
+    "smithy-file": {
+      "fontCharacter": "\\eedd"
+    },
+    "sml-file": {
+      "fontCharacter": "\\eede"
+    },
+    "snakefile-file": {
+      "fontCharacter": "\\eedf"
+    },
+    "snakemake-file": {
+      "fontCharacter": "\\eee0"
+    },
+    "snapcraft-file": {
+      "fontCharacter": "\\eee1"
+    },
+    "snapshot-file": {
+      "fontCharacter": "\\eee2"
+    },
+    "snapsvg-file": {
+      "fontCharacter": "\\eee3"
+    },
+    "snort-file": {
+      "fontCharacter": "\\eee4"
+    },
+    "snowpack-file": {
+      "fontCharacter": "\\eee5"
+    },
+    "snyk-file": {
+      "fontCharacter": "\\eee6"
+    },
+    "solidarity-file": {
+      "fontCharacter": "\\eee7"
+    },
+    "solidity-file": {
+      "fontCharacter": "\\eee8"
+    },
+    "sonar-file": {
+      "fontCharacter": "\\eee9"
+    },
+    "sonarcloud-file": {
+      "fontCharacter": "\\eeea"
+    },
+    "sophia-file": {
+      "fontCharacter": "\\eeeb"
+    },
+    "sorbet-file": {
+      "fontCharacter": "\\eeec"
+    },
+    "source-file": {
+      "fontCharacter": "\\eeed"
+    },
+    "sourcemap-file": {
+      "fontCharacter": "\\eeee"
+    },
+    "spaceengine-file": {
+      "fontCharacter": "\\eeef"
+    },
+    "spacemacs-file": {
+      "fontCharacter": "\\eef0"
+    },
+    "sparql-file": {
+      "fontCharacter": "\\eef1"
+    },
+    "spectral-file": {
+      "fontCharacter": "\\eef2"
+    },
+    "spray-file": {
+      "fontCharacter": "\\eef3"
+    },
+    "spring-file": {
+      "fontCharacter": "\\eef4"
+    },
+    "sqf-file": {
+      "fontCharacter": "\\eef5"
+    },
+    "sql-file": {
+      "fontCharacter": "\\eef6"
+    },
+    "sqlite-file": {
+      "fontCharacter": "\\eef7"
+    },
+    "squarespace-file": {
+      "fontCharacter": "\\eef8"
+    },
+    "squirrel-file": {
+      "fontCharacter": "\\eef9"
+    },
+    "sss-file": {
+      "fontCharacter": "\\eefa"
+    },
+    "stalebot-file": {
+      "fontCharacter": "\\eefb"
+    },
+    "stan-file": {
+      "fontCharacter": "\\eefc"
+    },
+    "stata-file": {
+      "fontCharacter": "\\eefd"
+    },
+    "stdlib-file": {
+      "fontCharacter": "\\eefe"
+    },
+    "steadybit-file": {
+      "fontCharacter": "\\eeff"
+    },
+    "stencil-file": {
+      "fontCharacter": "\\ef00"
+    },
+    "stencilconfig-file": {
+      "fontCharacter": "\\ef01"
+    },
+    "stitches-file": {
+      "fontCharacter": "\\ef02"
+    },
+    "storyboard-file": {
+      "fontCharacter": "\\ef03"
+    },
+    "storybook-file": {
+      "fontCharacter": "\\ef04"
+    },
+    "storyist-file": {
+      "fontCharacter": "\\ef05"
+    },
+    "stylable-file": {
+      "fontCharacter": "\\ef06"
+    },
+    "styledcomponents-file": {
+      "fontCharacter": "\\ef07"
+    },
+    "styleguidist-file": {
+      "fontCharacter": "\\ef08"
+    },
+    "stylelint-file": {
+      "fontCharacter": "\\ef09"
+    },
+    "stylelintignore-file": {
+      "fontCharacter": "\\ef0a"
+    },
+    "stylishhaskell-file": {
+      "fontCharacter": "\\ef0b"
+    },
+    "stylus-file": {
+      "fontCharacter": "\\ef0c"
+    },
+    "sublime-file": {
+      "fontCharacter": "\\ef0d"
+    },
+    "subtitle-file": {
+      "fontCharacter": "\\ef0e"
+    },
+    "supabase-file": {
+      "fontCharacter": "\\ef0f"
+    },
+    "svelte-file": {
+      "fontCharacter": "\\ef10"
+    },
+    "svelte_config-file": {
+      "fontCharacter": "\\ef11"
+    },
+    "svg-file": {
+      "fontCharacter": "\\ef12"
+    },
+    "svg_dark-file": {
+      "fontCharacter": "\\ef13"
+    },
+    "svgo-file": {
+      "fontCharacter": "\\ef14"
+    },
+    "svgr-file": {
+      "fontCharacter": "\\ef15"
+    },
+    "svn-file": {
+      "fontCharacter": "\\ef16"
+    },
+    "svx-file": {
+      "fontCharacter": "\\ef17"
+    },
+    "swagger-file": {
+      "fontCharacter": "\\ef18"
+    },
+    "swagger_config-file": {
+      "fontCharacter": "\\ef19"
+    },
+    "swc-file": {
+      "fontCharacter": "\\ef1a"
+    },
+    "swift-file": {
+      "fontCharacter": "\\ef1b"
+    },
+    "swiftlock-file": {
+      "fontCharacter": "\\ef1c"
+    },
+    "swig-file": {
+      "fontCharacter": "\\ef1d"
+    },
+    "symfony-file": {
+      "fontCharacter": "\\ef1e"
+    },
+    "symfony_dark-file": {
+      "fontCharacter": "\\ef1f"
+    },
+    "systemd-file": {
+      "fontCharacter": "\\ef20"
+    },
+    "tailwindcss-file": {
+      "fontCharacter": "\\ef21"
+    },
+    "taskfile-file": {
+      "fontCharacter": "\\ef22"
+    },
+    "tauri-file": {
+      "fontCharacter": "\\ef23"
+    },
+    "tcl-file": {
+      "fontCharacter": "\\ef24"
+    },
+    "tea-file": {
+      "fontCharacter": "\\ef25"
+    },
+    "teal-file": {
+      "fontCharacter": "\\ef26"
+    },
+    "telegram-file": {
+      "fontCharacter": "\\ef27"
+    },
+    "template-file": {
+      "fontCharacter": "\\ef28"
+    },
+    "tera-file": {
+      "fontCharacter": "\\ef29"
+    },
+    "tern-file": {
+      "fontCharacter": "\\ef2a"
+    },
+    "ternconfig-file": {
+      "fontCharacter": "\\ef2b"
+    },
+    "terraform-file": {
+      "fontCharacter": "\\ef2c"
+    },
+    "terser-file": {
+      "fontCharacter": "\\ef2d"
+    },
+    "test-file": {
+      "fontCharacter": "\\ef2e"
+    },
+    "testcafe-file": {
+      "fontCharacter": "\\ef2f"
+    },
+    "testcoffee-file": {
+      "fontCharacter": "\\ef30"
+    },
+    "testdart-file": {
+      "fontCharacter": "\\ef31"
+    },
+    "testgo-file": {
+      "fontCharacter": "\\ef32"
+    },
+    "testhaskell-file": {
+      "fontCharacter": "\\ef33"
+    },
+    "testjava-file": {
+      "fontCharacter": "\\ef34"
+    },
+    "testjs-file": {
+      "fontCharacter": "\\ef35"
+    },
+    "testjs_dark-file": {
+      "fontCharacter": "\\ef36"
+    },
+    "testkt-file": {
+      "fontCharacter": "\\ef37"
+    },
+    "testperl-file": {
+      "fontCharacter": "\\ef38"
+    },
+    "testphp-file": {
+      "fontCharacter": "\\ef39"
+    },
+    "testpy-file": {
+      "fontCharacter": "\\ef3a"
+    },
+    "testreact-file": {
+      "fontCharacter": "\\ef3b"
+    },
+    "testruby-file": {
+      "fontCharacter": "\\ef3c"
+    },
+    "testrust-file": {
+      "fontCharacter": "\\ef3d"
+    },
+    "testscala-file": {
+      "fontCharacter": "\\ef3e"
+    },
+    "testts-file": {
+      "fontCharacter": "\\ef3f"
+    },
+    "tex-file": {
+      "fontCharacter": "\\ef40"
+    },
+    "text-file": {
+      "fontCharacter": "\\ef41"
+    },
+    "textile-file": {
+      "fontCharacter": "\\ef42"
+    },
+    "textlint-file": {
+      "fontCharacter": "\\ef43"
+    },
+    "textmate-file": {
+      "fontCharacter": "\\ef44"
+    },
+    "tfs-file": {
+      "fontCharacter": "\\ef45"
+    },
+    "tfsignore-file": {
+      "fontCharacter": "\\ef46"
+    },
+    "theme-file": {
+      "fontCharacter": "\\ef47"
+    },
+    "thor-file": {
+      "fontCharacter": "\\ef48"
+    },
+    "thunderclient-file": {
+      "fontCharacter": "\\ef49"
+    },
+    "tidyparse-file": {
+      "fontCharacter": "\\ef4a"
+    },
+    "tilt-file": {
+      "fontCharacter": "\\ef4b"
+    },
+    "tinymce-file": {
+      "fontCharacter": "\\ef4c"
+    },
+    "tipe-file": {
+      "fontCharacter": "\\ef4d"
+    },
+    "tla-file": {
+      "fontCharacter": "\\ef4e"
+    },
+    "tmux-file": {
+      "fontCharacter": "\\ef4f"
+    },
+    "toc-file": {
+      "fontCharacter": "\\ef50"
+    },
+    "todo-file": {
+      "fontCharacter": "\\ef51"
+    },
+    "toit-file": {
+      "fontCharacter": "\\ef52"
+    },
+    "tomcat-file": {
+      "fontCharacter": "\\ef53"
+    },
+    "toml-file": {
+      "fontCharacter": "\\ef54"
+    },
+    "tox-file": {
+      "fontCharacter": "\\ef55"
+    },
+    "travis-file": {
+      "fontCharacter": "\\ef56"
+    },
+    "truffle-file": {
+      "fontCharacter": "\\ef57"
+    },
+    "tsconfig-file": {
+      "fontCharacter": "\\ef58"
+    },
+    "tslint-file": {
+      "fontCharacter": "\\ef59"
+    },
+    "tt-file": {
+      "fontCharacter": "\\ef5a"
+    },
+    "ttcn-file": {
+      "fontCharacter": "\\ef5b"
+    },
+    "tuc-file": {
+      "fontCharacter": "\\ef5c"
+    },
+    "turborepo-file": {
+      "fontCharacter": "\\ef5d"
+    },
+    "turing-file": {
+      "fontCharacter": "\\ef5e"
+    },
+    "twig-file": {
+      "fontCharacter": "\\ef5f"
+    },
+    "twine-file": {
+      "fontCharacter": "\\ef60"
+    },
+    "txl-file": {
+      "fontCharacter": "\\ef61"
+    },
+    "typeScript-file": {
+      "fontCharacter": "\\ef62"
+    },
+    "typedoc-file": {
+      "fontCharacter": "\\ef63"
+    },
+    "typings-file": {
+      "fontCharacter": "\\ef64"
+    },
+    "typo3-file": {
+      "fontCharacter": "\\ef65"
+    },
+    "ufo-file": {
+      "fontCharacter": "\\ef66"
+    },
+    "uikit-file": {
+      "fontCharacter": "\\ef67"
+    },
+    "uml-file": {
+      "fontCharacter": "\\ef68"
+    },
+    "unibeautify-file": {
+      "fontCharacter": "\\ef69"
+    },
+    "unibeautifyrc-file": {
+      "fontCharacter": "\\ef6a"
+    },
+    "unicode-file": {
+      "fontCharacter": "\\ef6b"
+    },
+    "unison-file": {
+      "fontCharacter": "\\ef6c"
+    },
+    "unity-file": {
+      "fontCharacter": "\\ef6d"
+    },
+    "unlicense-file": {
+      "fontCharacter": "\\ef6e"
+    },
+    "uno-file": {
+      "fontCharacter": "\\ef6f"
+    },
+    "unocss-file": {
+      "fontCharacter": "\\ef70"
+    },
+    "unreal-file": {
+      "fontCharacter": "\\ef71"
+    },
+    "uos-file": {
+      "fontCharacter": "\\ef72"
+    },
+    "urweb-file": {
+      "fontCharacter": "\\ef73"
+    },
+    "v-file": {
+      "fontCharacter": "\\ef74"
+    },
+    "v8-file": {
+      "fontCharacter": "\\ef75"
+    },
+    "vagrant-file": {
+      "fontCharacter": "\\ef76"
+    },
+    "vala-file": {
+      "fontCharacter": "\\ef77"
+    },
+    "vanillaextract-file": {
+      "fontCharacter": "\\ef78"
+    },
+    "vapor-file": {
+      "fontCharacter": "\\ef79"
+    },
+    "vash-file": {
+      "fontCharacter": "\\ef7a"
+    },
+    "vax-file": {
+      "fontCharacter": "\\ef7b"
+    },
+    "vb-file": {
+      "fontCharacter": "\\ef7c"
+    },
+    "vbproj-file": {
+      "fontCharacter": "\\ef7d"
+    },
+    "vcl-file": {
+      "fontCharacter": "\\ef7e"
+    },
+    "vcxproj-file": {
+      "fontCharacter": "\\ef7f"
+    },
+    "velocity-file": {
+      "fontCharacter": "\\ef80"
+    },
+    "vercel-file": {
+      "fontCharacter": "\\ef81"
+    },
+    "vercel_dark-file": {
+      "fontCharacter": "\\ef82"
+    },
+    "vercelignore-file": {
+      "fontCharacter": "\\ef83"
+    },
+    "verdaccio-file": {
+      "fontCharacter": "\\ef84"
+    },
+    "verilog-file": {
+      "fontCharacter": "\\ef85"
+    },
+    "version-file": {
+      "fontCharacter": "\\ef86"
+    },
+    "vertex-file": {
+      "fontCharacter": "\\ef87"
+    },
+    "vhdl-file": {
+      "fontCharacter": "\\ef88"
+    },
+    "video-file": {
+      "fontCharacter": "\\ef89"
+    },
+    "vim-file": {
+      "fontCharacter": "\\ef8a"
+    },
+    "visio-file": {
+      "fontCharacter": "\\ef8b"
+    },
+    "vite-file": {
+      "fontCharacter": "\\ef8c"
+    },
+    "vitest-file": {
+      "fontCharacter": "\\ef8d"
+    },
+    "vm-file": {
+      "fontCharacter": "\\ef8e"
+    },
+    "vmware-file": {
+      "fontCharacter": "\\ef8f"
+    },
+    "volt-file": {
+      "fontCharacter": "\\ef90"
+    },
+    "volt_dark-file": {
+      "fontCharacter": "\\ef91"
+    },
+    "vray-file": {
+      "fontCharacter": "\\ef92"
+    },
+    "vs-file": {
+      "fontCharacter": "\\ef93"
+    },
+    "vscode-file": {
+      "fontCharacter": "\\ef94"
+    },
+    "vscodeignore-file": {
+      "fontCharacter": "\\ef95"
+    },
+    "vscodesettings-file": {
+      "fontCharacter": "\\ef96"
+    },
+    "vsix-file": {
+      "fontCharacter": "\\ef97"
+    },
+    "vsix_dark-file": {
+      "fontCharacter": "\\ef98"
+    },
+    "vue-file": {
+      "fontCharacter": "\\ef99"
+    },
+    "vueconfig-file": {
+      "fontCharacter": "\\ef9a"
+    },
+    "vuepress-file": {
+      "fontCharacter": "\\ef9b"
+    },
+    "vuerc-file": {
+      "fontCharacter": "\\ef9c"
+    },
+    "vuex-file": {
+      "fontCharacter": "\\ef9d"
+    },
+    "vyper-file": {
+      "fontCharacter": "\\ef9e"
+    },
+    "w3c-file": {
+      "fontCharacter": "\\ef9f"
+    },
+    "wallaby-file": {
+      "fontCharacter": "\\efa0"
+    },
+    "wally-file": {
+      "fontCharacter": "\\efa1"
+    },
+    "walt-file": {
+      "fontCharacter": "\\efa2"
+    },
+    "warcraft3-file": {
+      "fontCharacter": "\\efa3"
+    },
+    "watchman-file": {
+      "fontCharacter": "\\efa4"
+    },
+    "wdl-file": {
+      "fontCharacter": "\\efa5"
+    },
+    "web2py-file": {
+      "fontCharacter": "\\efa6"
+    },
+    "webassembly-file": {
+      "fontCharacter": "\\efa7"
+    },
+    "webgl-file": {
+      "fontCharacter": "\\efa8"
+    },
+    "webhint-file": {
+      "fontCharacter": "\\efa9"
+    },
+    "webp-file": {
+      "fontCharacter": "\\efaa"
+    },
+    "webpack-file": {
+      "fontCharacter": "\\efab"
+    },
+    "webvtt-file": {
+      "fontCharacter": "\\efac"
+    },
+    "wenyan-file": {
+      "fontCharacter": "\\efad"
+    },
+    "wepy-file": {
+      "fontCharacter": "\\efae"
+    },
+    "wercker-file": {
+      "fontCharacter": "\\efaf"
+    },
+    "wget-file": {
+      "fontCharacter": "\\efb0"
+    },
+    "wgsl-file": {
+      "fontCharacter": "\\efb1"
+    },
+    "wikitext-file": {
+      "fontCharacter": "\\efb2"
+    },
+    "wikitext_dark-file": {
+      "fontCharacter": "\\efb3"
+    },
+    "windi-file": {
+      "fontCharacter": "\\efb4"
+    },
+    "windows-file": {
+      "fontCharacter": "\\efb5"
+    },
+    "winui-file": {
+      "fontCharacter": "\\efb6"
+    },
+    "wix-file": {
+      "fontCharacter": "\\efb7"
+    },
+    "wolfram-file": {
+      "fontCharacter": "\\efb8"
+    },
+    "woodpecker-file": {
+      "fontCharacter": "\\efb9"
+    },
+    "word-file": {
+      "fontCharacter": "\\efba"
+    },
+    "wordpress-file": {
+      "fontCharacter": "\\efbb"
+    },
+    "wordpressignore-file": {
+      "fontCharacter": "\\efbc"
+    },
+    "workbox-file": {
+      "fontCharacter": "\\efbd"
+    },
+    "wpml-file": {
+      "fontCharacter": "\\efbe"
+    },
+    "wsdl-file": {
+      "fontCharacter": "\\efbf"
+    },
+    "wurst-file": {
+      "fontCharacter": "\\efc0"
+    },
+    "wxml-file": {
+      "fontCharacter": "\\efc1"
+    },
+    "wxs-file": {
+      "fontCharacter": "\\efc2"
+    },
+    "wxss-file": {
+      "fontCharacter": "\\efc3"
+    },
+    "x10-file": {
+      "fontCharacter": "\\efc4"
+    },
+    "x11-file": {
+      "fontCharacter": "\\efc5"
+    },
+    "xamarin-file": {
+      "fontCharacter": "\\efc6"
+    },
+    "xcode-file": {
+      "fontCharacter": "\\efc7"
+    },
+    "xib-file": {
+      "fontCharacter": "\\efc8"
+    },
+    "xliff-file": {
+      "fontCharacter": "\\efc9"
+    },
+    "xmake-file": {
+      "fontCharacter": "\\efca"
+    },
+    "xml-file": {
+      "fontCharacter": "\\efcb"
+    },
+    "xml2-file": {
+      "fontCharacter": "\\efcc"
+    },
+    "xmos-file": {
+      "fontCharacter": "\\efcd"
+    },
+    "xojo-file": {
+      "fontCharacter": "\\efce"
+    },
+    "xpages-file": {
+      "fontCharacter": "\\efcf"
+    },
+    "xproc-file": {
+      "fontCharacter": "\\efd0"
+    },
+    "xquery-file": {
+      "fontCharacter": "\\efd1"
+    },
+    "xsd-file": {
+      "fontCharacter": "\\efd2"
+    },
+    "xstate-file": {
+      "fontCharacter": "\\efd3"
+    },
+    "xtend-file": {
+      "fontCharacter": "\\efd4"
+    },
+    "xubuntu-file": {
+      "fontCharacter": "\\efd5"
+    },
+    "yaml-file": {
+      "fontCharacter": "\\efd6"
+    },
+    "yamllint-file": {
+      "fontCharacter": "\\efd7"
+    },
+    "yandex-file": {
+      "fontCharacter": "\\efd8"
+    },
+    "yang-file": {
+      "fontCharacter": "\\efd9"
+    },
+    "yara-file": {
+      "fontCharacter": "\\efda"
+    },
+    "yard-file": {
+      "fontCharacter": "\\efdb"
+    },
+    "yarn-file": {
+      "fontCharacter": "\\efdc"
+    },
+    "yarnclean-file": {
+      "fontCharacter": "\\efdd"
+    },
+    "yarnlock-file": {
+      "fontCharacter": "\\efde"
+    },
+    "yasm-file": {
+      "fontCharacter": "\\efdf"
+    },
+    "yeoman-file": {
+      "fontCharacter": "\\efe0"
+    },
+    "yggdrasil-file": {
+      "fontCharacter": "\\efe1"
+    },
+    "yona-file": {
+      "fontCharacter": "\\efe2"
+    },
+    "yorick-file": {
+      "fontCharacter": "\\efe3"
+    },
+    "yorick_dark-file": {
+      "fontCharacter": "\\efe4"
+    },
+    "yt-file": {
+      "fontCharacter": "\\efe5"
+    },
+    "yue-file": {
+      "fontCharacter": "\\efe6"
+    },
+    "yui-file": {
+      "fontCharacter": "\\efe7"
+    },
+    "yvmrc-file": {
+      "fontCharacter": "\\efe8"
+    },
+    "zbrush-file": {
+      "fontCharacter": "\\efe9"
+    },
+    "zeit-file": {
+      "fontCharacter": "\\efea"
+    },
+    "zeit_dark-file": {
+      "fontCharacter": "\\efeb"
+    },
+    "zeitignore-file": {
+      "fontCharacter": "\\efec"
+    },
+    "zenscript-file": {
+      "fontCharacter": "\\efed"
+    },
+    "zephir-file": {
+      "fontCharacter": "\\efee"
+    },
+    "zig-file": {
+      "fontCharacter": "\\efef"
+    },
+    "zilog-file": {
+      "fontCharacter": "\\eff0"
+    },
+    "zimpl-file": {
+      "fontCharacter": "\\eff1"
+    },
+    "zorinos-file": {
+      "fontCharacter": "\\eff2"
+    },
+    "zork-file": {
+      "fontCharacter": "\\eff3"
+    },
+    "zsrc-file": {
+      "fontCharacter": "\\eff4"
+    },
+    "animations-folder": {
+      "fontCharacter": "\\f000"
+    },
+    "ansible-folder": {
+      "fontCharacter": "\\f001"
+    },
+    "api-folder": {
+      "fontCharacter": "\\f002"
+    },
+    "apollo-folder": {
+      "fontCharacter": "\\f003"
+    },
+    "app-folder": {
+      "fontCharacter": "\\f004"
+    },
+    "appstore-folder": {
+      "fontCharacter": "\\f005"
+    },
+    "archetype-folder": {
+      "fontCharacter": "\\f006"
+    },
+    "archive-folder": {
+      "fontCharacter": "\\f007"
+    },
+    "article-folder": {
+      "fontCharacter": "\\f008"
+    },
+    "arttext-folder": {
+      "fontCharacter": "\\f009"
+    },
+    "atom-folder": {
+      "fontCharacter": "\\f00a"
+    },
+    "audio-folder": {
+      "fontCharacter": "\\f00b"
+    },
+    "aurelia-folder": {
+      "fontCharacter": "\\f00c"
+    },
+    "automator-folder": {
+      "fontCharacter": "\\f00d"
+    },
+    "aws-folder": {
+      "fontCharacter": "\\f00e"
+    },
+    "azure-devops-folder": {
+      "fontCharacter": "\\f00f"
+    },
+    "azure-pipelines-folder": {
+      "fontCharacter": "\\f010"
+    },
+    "base-folder": {
+      "fontCharacter": "\\f011"
+    },
+    "bazaar-folder": {
+      "fontCharacter": "\\f012"
+    },
+    "benchmark-folder": {
+      "fontCharacter": "\\f013"
+    },
+    "bitcoin-folder": {
+      "fontCharacter": "\\f014"
+    },
+    "bloc-folder": {
+      "fontCharacter": "\\f015"
+    },
+    "blueprint-folder": {
+      "fontCharacter": "\\f016"
+    },
+    "bower-folder": {
+      "fontCharacter": "\\f017"
+    },
+    "buildkite-folder": {
+      "fontCharacter": "\\f018"
+    },
+    "cabal-folder": {
+      "fontCharacter": "\\f019"
+    },
+    "cake-folder": {
+      "fontCharacter": "\\f01a"
+    },
+    "cart-folder": {
+      "fontCharacter": "\\f01b"
+    },
+    "channels-folder": {
+      "fontCharacter": "\\f01c"
+    },
+    "chef-folder": {
+      "fontCharacter": "\\f01d"
+    },
+    "ci-folder": {
+      "fontCharacter": "\\f01e"
+    },
+    "circleci-folder": {
+      "fontCharacter": "\\f01f"
+    },
+    "class-folder": {
+      "fontCharacter": "\\f020"
+    },
+    "client-folder": {
+      "fontCharacter": "\\f021"
+    },
+    "cluster-folder": {
+      "fontCharacter": "\\f022"
+    },
+    "cmake-folder": {
+      "fontCharacter": "\\f023"
+    },
+    "cnab-folder": {
+      "fontCharacter": "\\f024"
+    },
+    "cobol-folder": {
+      "fontCharacter": "\\f025"
+    },
+    "codesandbox-folder": {
+      "fontCharacter": "\\f026"
+    },
+    "components-folder": {
+      "fontCharacter": "\\f027"
+    },
+    "composer-folder": {
+      "fontCharacter": "\\f028"
+    },
+    "config-folder": {
+      "fontCharacter": "\\f029"
+    },
+    "connection-folder": {
+      "fontCharacter": "\\f02a"
+    },
+    "constants-folder": {
+      "fontCharacter": "\\f02b"
+    },
+    "container-folder": {
+      "fontCharacter": "\\f02c"
+    },
+    "content-folder": {
+      "fontCharacter": "\\f02d"
+    },
+    "contract-folder": {
+      "fontCharacter": "\\f02e"
+    },
+    "controllers-folder": {
+      "fontCharacter": "\\f02f"
+    },
+    "core-folder": {
+      "fontCharacter": "\\f030"
+    },
+    "coverage-folder": {
+      "fontCharacter": "\\f031"
+    },
+    "crates-folder": {
+      "fontCharacter": "\\f032"
+    },
+    "cron-folder": {
+      "fontCharacter": "\\f033"
+    },
+    "cubit-folder": {
+      "fontCharacter": "\\f034"
+    },
+    "cue-folder": {
+      "fontCharacter": "\\f035"
+    },
+    "custom-folder": {
+      "fontCharacter": "\\f036"
+    },
+    "cvs-folder": {
+      "fontCharacter": "\\f037"
+    },
+    "cypress-folder": {
+      "fontCharacter": "\\f038"
+    },
+    "dapr-folder": {
+      "fontCharacter": "\\f039"
+    },
+    "db-folder": {
+      "fontCharacter": "\\f03a"
+    },
+    "debian-folder": {
+      "fontCharacter": "\\f03b"
+    },
+    "debug-folder": {
+      "fontCharacter": "\\f03c"
+    },
+    "decorators-folder": {
+      "fontCharacter": "\\f03d"
+    },
+    "default-folder": {
+      "fontCharacter": "\\f03e"
+    },
+    "delta-folder": {
+      "fontCharacter": "\\f03f"
+    },
+    "deno-folder": {
+      "fontCharacter": "\\f040"
+    },
+    "dependabot-folder": {
+      "fontCharacter": "\\f041"
+    },
+    "deploy-folder": {
+      "fontCharacter": "\\f042"
+    },
+    "devcontainer-folder": {
+      "fontCharacter": "\\f043"
+    },
+    "dist-folder": {
+      "fontCharacter": "\\f044"
+    },
+    "docker-folder": {
+      "fontCharacter": "\\f045"
+    },
+    "docs-folder": {
+      "fontCharacter": "\\f046"
+    },
+    "domain-folder": {
+      "fontCharacter": "\\f047"
+    },
+    "download-folder": {
+      "fontCharacter": "\\f048"
+    },
+    "dropbox-folder": {
+      "fontCharacter": "\\f049"
+    },
+    "dub-folder": {
+      "fontCharacter": "\\f04a"
+    },
+    "dump-folder": {
+      "fontCharacter": "\\f04b"
+    },
+    "dvc-folder": {
+      "fontCharacter": "\\f04c"
+    },
+    "e2e-folder": {
+      "fontCharacter": "\\f04d"
+    },
+    "elastic-folder": {
+      "fontCharacter": "\\f04e"
+    },
+    "electron-folder": {
+      "fontCharacter": "\\f04f"
+    },
+    "elixir-folder": {
+      "fontCharacter": "\\f050"
+    },
+    "emacs-folder": {
+      "fontCharacter": "\\f051"
+    },
+    "env-folder": {
+      "fontCharacter": "\\f052"
+    },
+    "error-folder": {
+      "fontCharacter": "\\f053"
+    },
+    "events-folder": {
+      "fontCharacter": "\\f054"
+    },
+    "examples-folder": {
+      "fontCharacter": "\\f055"
+    },
+    "exclude-folder": {
+      "fontCharacter": "\\f056"
+    },
+    "expo-folder": {
+      "fontCharacter": "\\f057"
+    },
+    "faq-folder": {
+      "fontCharacter": "\\f058"
+    },
+    "fastlane-folder": {
+      "fontCharacter": "\\f059"
+    },
+    "features-folder": {
+      "fontCharacter": "\\f05a"
+    },
+    "firebase-folder": {
+      "fontCharacter": "\\f05b"
+    },
+    "fixtures-folder": {
+      "fontCharacter": "\\f05c"
+    },
+    "flow-folder": {
+      "fontCharacter": "\\f05d"
+    },
+    "folder-folder": {
+      "fontCharacter": "\\f05e"
+    },
+    "folder-root-folder": {
+      "fontCharacter": "\\f05f"
+    },
+    "fonts-folder": {
+      "fontCharacter": "\\f060"
+    },
+    "functions-folder": {
+      "fontCharacter": "\\f061"
+    },
+    "gcloud-folder": {
+      "fontCharacter": "\\f062"
+    },
+    "generated-folder": {
+      "fontCharacter": "\\f063"
+    },
+    "git-folder": {
+      "fontCharacter": "\\f064"
+    },
+    "github-folder": {
+      "fontCharacter": "\\f065"
+    },
+    "gitlab-folder": {
+      "fontCharacter": "\\f066"
+    },
+    "global-folder": {
+      "fontCharacter": "\\f067"
+    },
+    "gradle-folder": {
+      "fontCharacter": "\\f068"
+    },
+    "graphql-folder": {
+      "fontCharacter": "\\f069"
+    },
+    "grunt-folder": {
+      "fontCharacter": "\\f06a"
+    },
+    "guard-folder": {
+      "fontCharacter": "\\f06b"
+    },
+    "gulp-folder": {
+      "fontCharacter": "\\f06c"
+    },
+    "hasura-folder": {
+      "fontCharacter": "\\f06d"
+    },
+    "haxelib-folder": {
+      "fontCharacter": "\\f06e"
+    },
+    "helm-folder": {
+      "fontCharacter": "\\f06f"
+    },
+    "helper-folder": {
+      "fontCharacter": "\\f070"
+    },
+    "home-folder": {
+      "fontCharacter": "\\f071"
+    },
+    "hook-folder": {
+      "fontCharacter": "\\f072"
+    },
+    "husky-folder": {
+      "fontCharacter": "\\f073"
+    },
+    "i18n-folder": {
+      "fontCharacter": "\\f074"
+    },
+    "icons-folder": {
+      "fontCharacter": "\\f075"
+    },
+    "idea-folder": {
+      "fontCharacter": "\\f076"
+    },
+    "images-folder": {
+      "fontCharacter": "\\f077"
+    },
+    "include-folder": {
+      "fontCharacter": "\\f078"
+    },
+    "info-folder": {
+      "fontCharacter": "\\f079"
+    },
+    "init-folder": {
+      "fontCharacter": "\\f07a"
+    },
+    "injection-folder": {
+      "fontCharacter": "\\f07b"
+    },
+    "ios-folder": {
+      "fontCharacter": "\\f07c"
+    },
+    "iosapp-folder": {
+      "fontCharacter": "\\f07d"
+    },
+    "istanbul-folder": {
+      "fontCharacter": "\\f07e"
+    },
+    "java-folder": {
+      "fontCharacter": "\\f07f"
+    },
+    "jest-folder": {
+      "fontCharacter": "\\f080"
+    },
+    "jinja-folder": {
+      "fontCharacter": "\\f081"
+    },
+    "job-folder": {
+      "fontCharacter": "\\f082"
+    },
+    "js-folder": {
+      "fontCharacter": "\\f083"
+    },
+    "json-folder": {
+      "fontCharacter": "\\f084"
+    },
+    "jwt-folder": {
+      "fontCharacter": "\\f085"
+    },
+    "keys-folder": {
+      "fontCharacter": "\\f086"
+    },
+    "kivy-folder": {
+      "fontCharacter": "\\f087"
+    },
+    "kotlin-folder": {
+      "fontCharacter": "\\f088"
+    },
+    "kubernetes-folder": {
+      "fontCharacter": "\\f089"
+    },
+    "kustomize-folder": {
+      "fontCharacter": "\\f08a"
+    },
+    "layouts-folder": {
+      "fontCharacter": "\\f08b"
+    },
+    "less-folder": {
+      "fontCharacter": "\\f08c"
+    },
+    "lib-folder": {
+      "fontCharacter": "\\f08d"
+    },
+    "linux-folder": {
+      "fontCharacter": "\\f08e"
+    },
+    "logs-folder": {
+      "fontCharacter": "\\f08f"
+    },
+    "lua-folder": {
+      "fontCharacter": "\\f090"
+    },
+    "mac-folder": {
+      "fontCharacter": "\\f091"
+    },
+    "mailers-folder": {
+      "fontCharacter": "\\f092"
+    },
+    "main-folder": {
+      "fontCharacter": "\\f093"
+    },
+    "maps-folder": {
+      "fontCharacter": "\\f094"
+    },
+    "markdown-folder": {
+      "fontCharacter": "\\f095"
+    },
+    "math-folder": {
+      "fontCharacter": "\\f096"
+    },
+    "maven-folder": {
+      "fontCharacter": "\\f097"
+    },
+    "mercurial-folder": {
+      "fontCharacter": "\\f098"
+    },
+    "messages-folder": {
+      "fontCharacter": "\\f099"
+    },
+    "meta-folder": {
+      "fontCharacter": "\\f09a"
+    },
+    "meteor-folder": {
+      "fontCharacter": "\\f09b"
+    },
+    "middleware-folder": {
+      "fontCharacter": "\\f09c"
+    },
+    "mjml-folder": {
+      "fontCharacter": "\\f09d"
+    },
+    "mobile-folder": {
+      "fontCharacter": "\\f09e"
+    },
+    "mocks-folder": {
+      "fontCharacter": "\\f09f"
+    },
+    "modals-folder": {
+      "fontCharacter": "\\f0a0"
+    },
+    "models-folder": {
+      "fontCharacter": "\\f0a1"
+    },
+    "molecules-folder": {
+      "fontCharacter": "\\f0a2"
+    },
+    "mongo-folder": {
+      "fontCharacter": "\\f0a3"
+    },
+    "moon-folder": {
+      "fontCharacter": "\\f0a4"
+    },
+    "navigation-folder": {
+      "fontCharacter": "\\f0a5"
+    },
+    "netlify-folder": {
+      "fontCharacter": "\\f0a6"
+    },
+    "next-folder": {
+      "fontCharacter": "\\f0a7"
+    },
+    "node-folder": {
+      "fontCharacter": "\\f0a8"
+    },
+    "notebooks-folder": {
+      "fontCharacter": "\\f0a9"
+    },
+    "notification-folder": {
+      "fontCharacter": "\\f0aa"
+    },
+    "nuget-folder": {
+      "fontCharacter": "\\f0ab"
+    },
+    "nuxt-folder": {
+      "fontCharacter": "\\f0ac"
+    },
+    "openshift-folder": {
+      "fontCharacter": "\\f0ad"
+    },
+    "osx-folder": {
+      "fontCharacter": "\\f0ae"
+    },
+    "other-folder": {
+      "fontCharacter": "\\f0af"
+    },
+    "packages-folder": {
+      "fontCharacter": "\\f0b0"
+    },
+    "pdf-folder": {
+      "fontCharacter": "\\f0b1"
+    },
+    "perl-folder": {
+      "fontCharacter": "\\f0b2"
+    },
+    "php-folder": {
+      "fontCharacter": "\\f0b3"
+    },
+    "pinia-folder": {
+      "fontCharacter": "\\f0b4"
+    },
+    "pipe-folder": {
+      "fontCharacter": "\\f0b5"
+    },
+    "platformio-folder": {
+      "fontCharacter": "\\f0b6"
+    },
+    "playwright-folder": {
+      "fontCharacter": "\\f0b7"
+    },
+    "plugin-folder": {
+      "fontCharacter": "\\f0b8"
+    },
+    "posts-folder": {
+      "fontCharacter": "\\f0b9"
+    },
+    "prisma-folder": {
+      "fontCharacter": "\\f0ba"
+    },
+    "private-folder": {
+      "fontCharacter": "\\f0bb"
+    },
+    "project-folder": {
+      "fontCharacter": "\\f0bc"
+    },
+    "projects-folder": {
+      "fontCharacter": "\\f0bd"
+    },
+    "protobuf-folder": {
+      "fontCharacter": "\\f0be"
+    },
+    "providers-folder": {
+      "fontCharacter": "\\f0bf"
+    },
+    "python-folder": {
+      "fontCharacter": "\\f0c0"
+    },
+    "quantum-folder": {
+      "fontCharacter": "\\f0c1"
+    },
+    "quasar-folder": {
+      "fontCharacter": "\\f0c2"
+    },
+    "queries-folder": {
+      "fontCharacter": "\\f0c3"
+    },
+    "queue-folder": {
+      "fontCharacter": "\\f0c4"
+    },
+    "react-folder": {
+      "fontCharacter": "\\f0c5"
+    },
+    "recoil-folder": {
+      "fontCharacter": "\\f0c6"
+    },
+    "redhat-folder": {
+      "fontCharacter": "\\f0c7"
+    },
+    "redis-folder": {
+      "fontCharacter": "\\f0c8"
+    },
+    "redux-actions-folder": {
+      "fontCharacter": "\\f0ca"
+    },
+    "redux-epics-folder": {
+      "fontCharacter": "\\f0cb"
+    },
+    "redux-folder": {
+      "fontCharacter": "\\f0c9"
+    },
+    "redux-reducers-folder": {
+      "fontCharacter": "\\f0cc"
+    },
+    "redux-sagas-folder": {
+      "fontCharacter": "\\f0cd"
+    },
+    "redux-stores-folder": {
+      "fontCharacter": "\\f0ce"
+    },
+    "redwood-folder": {
+      "fontCharacter": "\\f0cf"
+    },
+    "relay-folder": {
+      "fontCharacter": "\\f0d0"
+    },
+    "resolver-folder": {
+      "fontCharacter": "\\f0d1"
+    },
+    "resource-folder": {
+      "fontCharacter": "\\f0d2"
+    },
+    "reviews-folder": {
+      "fontCharacter": "\\f0d3"
+    },
+    "root-folder": {
+      "fontCharacter": "\\f0d4"
+    },
+    "routes-folder": {
+      "fontCharacter": "\\f0d5"
+    },
+    "ruby-folder": {
+      "fontCharacter": "\\f0d6"
+    },
+    "rules-folder": {
+      "fontCharacter": "\\f0d7"
+    },
+    "rust-folder": {
+      "fontCharacter": "\\f0d8"
+    },
+    "sass-folder": {
+      "fontCharacter": "\\f0d9"
+    },
+    "scala-folder": {
+      "fontCharacter": "\\f0da"
+    },
+    "scratch-folder": {
+      "fontCharacter": "\\f0db"
+    },
+    "screens-folder": {
+      "fontCharacter": "\\f0dc"
+    },
+    "scripts-folder": {
+      "fontCharacter": "\\f0dd"
+    },
+    "security-folder": {
+      "fontCharacter": "\\f0de"
+    },
+    "server-folder": {
+      "fontCharacter": "\\f0df"
+    },
+    "serverless-folder": {
+      "fontCharacter": "\\f0e0"
+    },
+    "shader-folder": {
+      "fontCharacter": "\\f0e1"
+    },
+    "shared-folder": {
+      "fontCharacter": "\\f0e2"
+    },
+    "sql-folder": {
+      "fontCharacter": "\\f0e3"
+    },
+    "src-folder": {
+      "fontCharacter": "\\f0e4"
+    },
+    "sso-folder": {
+      "fontCharacter": "\\f0e5"
+    },
+    "stack-folder": {
+      "fontCharacter": "\\f0e6"
+    },
+    "stencil-folder": {
+      "fontCharacter": "\\f0e7"
+    },
+    "storage-folder": {
+      "fontCharacter": "\\f0e8"
+    },
+    "storyblok-folder": {
+      "fontCharacter": "\\f0e9"
+    },
+    "storybook-folder": {
+      "fontCharacter": "\\f0ea"
+    },
+    "strategy-folder": {
+      "fontCharacter": "\\f0eb"
+    },
+    "styles-folder": {
+      "fontCharacter": "\\f0ec"
+    },
+    "stylus-folder": {
+      "fontCharacter": "\\f0ed"
+    },
+    "sublime-folder": {
+      "fontCharacter": "\\f0ee"
+    },
+    "supabase-folder": {
+      "fontCharacter": "\\f0ef"
+    },
+    "svelte-folder": {
+      "fontCharacter": "\\f0f0"
+    },
+    "svg-folder": {
+      "fontCharacter": "\\f0f1"
+    },
+    "svn-folder": {
+      "fontCharacter": "\\f0f2"
+    },
+    "sync-folder": {
+      "fontCharacter": "\\f0f3"
+    },
+    "syntax-folder": {
+      "fontCharacter": "\\f0f4"
+    },
+    "target-folder": {
+      "fontCharacter": "\\f0f5"
+    },
+    "taskfile-folder": {
+      "fontCharacter": "\\f0f6"
+    },
+    "tasks-folder": {
+      "fontCharacter": "\\f0f7"
+    },
+    "tauri-folder": {
+      "fontCharacter": "\\f0f8"
+    },
+    "tech-folder": {
+      "fontCharacter": "\\f0f9"
+    },
+    "temp-folder": {
+      "fontCharacter": "\\f0fa"
+    },
+    "terraform-folder": {
+      "fontCharacter": "\\f0fb"
+    },
+    "tests-folder": {
+      "fontCharacter": "\\f0fc"
+    },
+    "textmate-folder": {
+      "fontCharacter": "\\f0fd"
+    },
+    "themes-folder": {
+      "fontCharacter": "\\f0fe"
+    },
+    "tools-folder": {
+      "fontCharacter": "\\f0ff"
+    },
+    "trait-folder": {
+      "fontCharacter": "\\f100"
+    },
+    "ts-folder": {
+      "fontCharacter": "\\f101"
+    },
+    "unity-folder": {
+      "fontCharacter": "\\f102"
+    },
+    "upload-folder": {
+      "fontCharacter": "\\f103"
+    },
+    "users-folder": {
+      "fontCharacter": "\\f104"
+    },
+    "vagrant-folder": {
+      "fontCharacter": "\\f105"
+    },
+    "venv-folder": {
+      "fontCharacter": "\\f106"
+    },
+    "vercel-folder": {
+      "fontCharacter": "\\f107"
+    },
+    "verdaccio-folder": {
+      "fontCharacter": "\\f108"
+    },
+    "video-folder": {
+      "fontCharacter": "\\f109"
+    },
+    "viewmodel-folder": {
+      "fontCharacter": "\\f10a"
+    },
+    "views-folder": {
+      "fontCharacter": "\\f10b"
+    },
+    "vim-folder": {
+      "fontCharacter": "\\f10c"
+    },
+    "vitepress-folder": {
+      "fontCharacter": "\\f10d"
+    },
+    "vm-folder": {
+      "fontCharacter": "\\f10e"
+    },
+    "vs-folder": {
+      "fontCharacter": "\\f10f"
+    },
+    "vscode-folder": {
+      "fontCharacter": "\\f110"
+    },
+    "vue-folder": {
+      "fontCharacter": "\\f111"
+    },
+    "vuepress-folder": {
+      "fontCharacter": "\\f112"
+    },
+    "vuex-folder": {
+      "fontCharacter": "\\f113"
+    },
+    "web-folder": {
+      "fontCharacter": "\\f114"
+    },
+    "webpack-folder": {
+      "fontCharacter": "\\f115"
+    },
+    "windows-folder": {
+      "fontCharacter": "\\f116"
+    },
+    "wine-folder": {
+      "fontCharacter": "\\f117"
+    },
+    "woocommerce-folder": {
+      "fontCharacter": "\\f118"
+    },
+    "woodpecker-folder": {
+      "fontCharacter": "\\f119"
+    },
+    "wordpress-folder": {
+      "fontCharacter": "\\f11a"
+    },
+    "xstate-folder": {
+      "fontCharacter": "\\f11b"
+    },
+    "yarn-folder": {
+      "fontCharacter": "\\f11c"
+    }
+  }
+}

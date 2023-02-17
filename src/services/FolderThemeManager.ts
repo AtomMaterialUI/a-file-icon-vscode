@@ -24,12 +24,15 @@ export class FolderThemeManager {
     const isNoneActive = this.isNoneActive(currentTheme);
     const folderThemes = getFolderThemes();
 
-    const options = Object.values(folderThemes).map((theme): QuickPickItem => ({
-      description: theme.name,
-      detail: theme.description,
-      label: theme.icon ?? '',
-      picked: isNoneActive ? false : this.isThemeActive(currentTheme, theme.id),
-    }));
+    const options = Object.values(folderThemes).map((theme): QuickPickItem => {
+      const picked = isNoneActive ? false : this.isThemeActive(currentTheme, theme.id);
+      return ({
+        description: theme.name,
+        detail: theme.description,
+        label: picked ? '$(check)' : theme.icon ?? '',
+        picked: picked,
+      });
+    });
 
     return window.showQuickPick(options, {
       ignoreFocusOut: false,
