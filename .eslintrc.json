@@ -104,12 +104,45 @@
           "Undefined"
         ],
         "id-match": "error",
+        "import/exports-last": "error",
+        "import/first": "error",
+        "import/named": "error",
+        "import/newline-after-import": "error",
+        "import/no-cycle": "error",
+        "import/no-default-export": "error",
+        "import/no-duplicates": "error",
+        "import/no-internal-modules": "error",
+        "import/no-namespace": "error",
+        "import/no-unassigned-import": "error",
+        "import/order": [
+          "error",
+          {
+            "groups": [
+              [
+                "builtin",
+                "external"
+              ],
+              "internal",
+              [
+                "parent",
+                "sibling",
+                "index"
+              ],
+              [
+                "type"
+              ]
+            ],
+            "newlines-between": "always"
+          }
+        ],
         "no-eval": "error",
         "no-trailing-spaces": "error",
-        "no-underscore-dangle": "error",
+        "no-underscore-dangle": "off",
         "no-unsafe-finally": "error",
         "no-var": "error",
         "prefer-const": "error",
+        "sort-keys": "error",
+        "sort-keys-fix/sort-keys-fix": "error",
         "spaced-comment": "error",
         "unicorn/filename-case": [
           "error",
@@ -117,6 +150,18 @@
             "cases": {
               "camelCase": true,
               "pascalCase": true
+            }
+          }
+        ],
+        "unicorn/no-null": "off",
+        "unicorn/prefer-code-point": "off",
+        "unicorn/prevent-abbreviations": [
+          "error",
+          {
+            "replacements": {
+              "env": false,
+              "i": false,
+              "j": false
             }
           }
         ]
@@ -147,7 +192,9 @@
   },
   "plugins": [
     "@typescript-eslint",
+    "import",
     "unicorn",
-    "i18next"
+    "i18next",
+    "sort-keys-fix"
   ]
 }

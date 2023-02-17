@@ -1,9 +1,11 @@
 import i18next from 'i18next';
 import { validateHEXColorCode } from 'src/helpers/utils';
 import { defaultConfig } from 'src/icons/configUtils';
-import type { QuickPickItem } from 'vscode';
 import { window } from 'vscode';
+
 import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
+
+import type { QuickPickItem } from 'vscode';
 
 type FolderColor = {
   label: string;
@@ -11,14 +13,14 @@ type FolderColor = {
 };
 
 const iconPalette: FolderColor[] = [
-  { label: 'Grey (Default)', hex: '#90a4ae' },
-  { label: 'Blue', hex: '#42a5f5' },
-  { label: 'Green', hex: '#7cb342' },
-  { label: 'Teal', hex: '#26a69a' },
-  { label: 'Red', hex: '#ef5350' },
-  { label: 'Orange', hex: '#ff7043' },
-  { label: 'Yellow', hex: '#fdd835' },
-  { label: 'Custom Color', hex: 'Custom HEX Code' },
+  { hex: '#90a4ae', label: 'Grey (Default)' },
+  { hex: '#42a5f5', label: 'Blue' },
+  { hex: '#7cb342', label: 'Green' },
+  { hex: '#26a69a', label: 'Teal' },
+  { hex: '#ef5350', label: 'Red' },
+  { hex: '#ff7043', label: 'Orange' },
+  { hex: '#fdd835', label: 'Yellow' },
+  { hex: 'Custom HEX Code', label: 'Custom Color' },
 ];
 
 /** Command to toggle the folder icons. */
@@ -45,9 +47,9 @@ const showQuickPickItems = (currentColor: string) => {
   );
 
   return window.showQuickPick(options, {
-    placeHolder: i18next.t('folders.color'),
     ignoreFocusOut: false,
     matchOnDescription: true,
+    placeHolder: i18next.t('folders.color'),
   });
 };
 
@@ -58,10 +60,10 @@ const handleQuickPickActions = async (value: QuickPickItem) => {
   }
   if (value.description === 'Custom Color') {
     const value = await window.showInputBox({
-                                              placeHolder: i18next.t('folders.hexCode'),
-                                              ignoreFocusOut: true,
-                                              validateInput: validateColorInput,
-                                            });
+      ignoreFocusOut: true,
+      placeHolder: i18next.t('folders.hexCode'),
+      validateInput: validateColorInput,
+    });
     if (value) {
       setColorConfig(value);
     }
@@ -78,7 +80,7 @@ const validateColorInput = (colorInput: string) => {
   if (!validateHEXColorCode(colorInput)) {
     return i18next.t('folders.wrongHexCode');
   }
-  return undefined;
+  return;
 };
 
 /** Check status of the folder color */

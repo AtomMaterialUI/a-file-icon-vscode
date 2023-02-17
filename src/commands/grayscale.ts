@@ -1,20 +1,9 @@
-import type { QuickPickItem } from 'vscode';
-import { window } from 'vscode';
-import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
 import i18next from 'i18next';
+import { window } from 'vscode';
 
-/** Command to toggle grayscale. */
-export const toggleGrayscale = async () => {
-  try {
-    const status = checkGrayscaleStatus();
-    const response = await showQuickPickItems(status);
-    if (response) {
-      handleQuickPickActions(response);
-    }
-  } catch (error) {
-    console.error(error);
-  }
-};
+import { getMaterialIconsJSON, setThemeConfig } from '../helpers';
+
+import type { QuickPickItem } from 'vscode';
 
 /** Show QuickPick items to select preferred configuration for grayscale icons. */
 const showQuickPickItems = (status: boolean) => {
@@ -26,12 +15,12 @@ const showQuickPickItems = (status: boolean) => {
   const off: QuickPickItem = {
     description: i18next.t('toggleSwitch.off'),
     detail: i18next.t('grayscale.disable'),
-    label: !status ? '\u2714' : '\u25FB',
+    label: status ? '\u25FB' : '\u2714',
   };
   return window.showQuickPick([on, off], {
-    placeHolder: i18next.t('grayscale.toggle'),
     ignoreFocusOut: false,
     matchOnDescription: true,
+    placeHolder: i18next.t('grayscale.toggle'),
   });
 };
 
@@ -47,12 +36,27 @@ const handleQuickPickActions = (value: QuickPickItem) => {
     case i18next.t('toggleSwitch.off'): {
       return setThemeConfig('saturation', 1, true);
     }
-    default:
+    default: {
       return;
+    }
   }
 };
 
 /** Is grayscale icons enabled? */
 export const checkGrayscaleStatus = (): boolean => {
   return getMaterialIconsJSON()?.atomConfig?.saturation === 0;
+};
+
+/** Command to toggle grayscale. */
+export const toggleGrayscale = async () => {
+  try {
+    const status = checkGrayscaleStatus();
+    const response = await showQuickPickItems(status);
+    if (response) {
+      handleQuickPickActions(response);
+    }
+  }
+  catch (error) {
+    console.error(error);
+  }
 };

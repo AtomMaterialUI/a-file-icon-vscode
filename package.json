@@ -36,6 +36,8 @@
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
   },
   "dependencies": {
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
     "fs-extra": "^11.1.0",
     "lodash.merge": "4.6.2"
   },
@@ -55,6 +57,7 @@
     "eslint-plugin-i18next": "^6.0.0-6",
     "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^45.0.2",
     "glob": "^8.0.3",
     "i18next": "^22.4.9",

@@ -1,26 +1,6 @@
 import type { IconPack } from './config';
 
 /**
- * Type for the default icon.
- */
-export type DefaultIconAssociation = {
-  /**
-   * Name of the icon, e.g. 'src'
-   */
-  name: string;
-
-  /**
-   * Define if there is a light icon available.
-   */
-  light?: boolean;
-
-  /**
-   * Define if there is a high contrast icon available.
-   */
-  highContrast?: boolean;
-}
-
-/**
  * Represents a file association. A file association can have a list of
  * file extensions, file names and settings such as whether it has a light variant,
  * a high contrast variant, an icon pack, or should be disabled by the user
@@ -50,6 +30,25 @@ type BasicFileAssociation = {
    * Defines a pack to which this icon belongs. A pack can be toggled and all icons inside this pack can be enabled or disabled together.
    */
   enabledFor?: IconPack[];
+}
+/**
+ * Type for the default icon.
+ */
+export type DefaultIconAssociation = {
+  /**
+   * Name of the icon, e.g. 'src'
+   */
+  name: string;
+
+  /**
+   * Define if there is a light icon available.
+   */
+  light?: boolean;
+
+  /**
+   * Define if there is a high contrast icon available.
+   */
+  highContrast?: boolean;
 }
 
 /**

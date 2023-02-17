@@ -2,8 +2,9 @@ import { UpdateStatus } from 'src/@types/config';
 import { EXTENSION_ID, VERSION_KEY } from 'src/helpers/constants';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
-import type { Memento } from 'vscode';
 import { extensions } from 'vscode';
+
+import type { Memento } from 'vscode';
 
 export class UpdatesService {
   /**
@@ -33,8 +34,8 @@ export class UpdatesService {
         return UpdateStatus.Current;
       }
     }
-    catch (e) {
-      logger.error(String(e));
+    catch (error) {
+      logger.error(String(error));
       return UpdateStatus.Current;
     }
   }
@@ -70,7 +71,7 @@ export class UpdatesService {
    * @returns {Boolean}
    * @private
    */
-  private isGreaterVersion(pluginVersion: string, ownVersion: string): Boolean {
+  private isGreaterVersion(pluginVersion: string, ownVersion: string): boolean {
     return pluginVersion.localeCompare(
       ownVersion,
       undefined,

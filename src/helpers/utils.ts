@@ -1,36 +1,3 @@
-/** TitleCase all words in a string */
-export const toTitleCase = (str: string): string => {
-  return str.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase());
-};
-
-/**
- * Find the enum by value
- */
-export const findEnumKey = <T extends Record<string, string>>(myEnum: T, enumValue: string): keyof T | null => {
-  const keys = Object.keys(myEnum).filter((x) => myEnum[x] === enumValue);
-  return keys.length > 0 ? keys[0] : null;
-};
-
-/**
- * Return the levenshtein distance between two strings
- * @param {string} s1
- * @param {string} s2
- * @returns {number}
- */
-export const similarity = (s1: string, s2: string) => {
-  let longer = s1;
-  let shorter = s2;
-  if (s1.length < s2.length) {
-    longer = s2;
-    shorter = s1;
-  }
-  const longerLength = longer.length;
-  if (longerLength === 0) {
-    return 1.0;
-  }
-  return (longerLength - editDistance(longer, shorter)) / longerLength;
-};
-
 const editDistance = (s1: string, s2: string) => {
   s1 = s1.toLowerCase();
   s2 = s2.toLowerCase();
@@ -60,6 +27,39 @@ const editDistance = (s1: string, s2: string) => {
   return costs[s2.length];
 };
 
+/** TitleCase all words in a string */
+export const toTitleCase = (string_: string): string => {
+  return string_.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
+};
+
+/**
+ * Find the enum by value
+ */
+export const findEnumKey = <T extends Record<string, string>>(myEnum: T, enumValue: string): keyof T | null => {
+  const keys = Object.keys(myEnum).filter((x) => myEnum[x] === enumValue);
+  return keys.length > 0 ? keys[0] : null;
+};
+
+/**
+ * Return the levenshtein distance between two strings
+ * @param {string} s1
+ * @param {string} s2
+ * @returns {number}
+ */
+export const similarity = (s1: string, s2: string) => {
+  let longer = s1;
+  let shorter = s2;
+  if (s1.length < s2.length) {
+    longer = s2;
+    shorter = s1;
+  }
+  const longerLength = longer.length;
+  if (longerLength === 0) {
+    return 1;
+  }
+  return (longerLength - editDistance(longer, shorter)) / longerLength;
+};
+
 export const getHash = (value: string) => {
   let hash = 0;
   let chr = 0;
@@ -67,10 +67,10 @@ export const getHash = (value: string) => {
   if (value.length === 0) {
     return hash;
   }
-  for (let i = 0; i < value.length; i++) {
-    chr = value.charCodeAt(i);
+  for (let index = 0; index < value.length; index++) {
+    chr = value.charCodeAt(index);
     hash = (hash << 5) - hash + chr;
-    hash |= 0; // Convert to 32bit integer
+    hash = Math.trunc(hash); // Convert to 32bit integer
   }
   return hash;
 };
@@ -81,7 +81,7 @@ export const getSVGRootElement = (svg: string) => {
 };
 
 export const validateHEXColorCode = (color = '') => {
-  const hexPattern = new RegExp(/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/);
+  const hexPattern = new RegExp(/^#([\dA-Fa-f]{6}|[\dA-Fa-f]{3})$/);
   return color.length > 0 && hexPattern.test(color);
 };
 

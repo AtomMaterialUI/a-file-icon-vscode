@@ -4,8 +4,9 @@ import { EXTENSION_ID } from 'src/helpers/constants';
 import { openBrowser } from 'src/helpers/vscodeUtils';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
-import type { MessageItem } from 'vscode';
 import { window } from 'vscode';
+
+import type { MessageItem } from 'vscode';
 
 type NotificationAction = MessageItem & {
   id: '' | 'activate' | 'neverShowAgain' | 'readChangelog';
@@ -25,16 +26,19 @@ export class NotificationsService {
   showStartMessages(status: UpdateStatus) {
     logger.debug(`Showing messages for ${status}`);
     switch (status) {
-      case UpdateStatus.NeverUsedBefore:
+      case UpdateStatus.NeverUsedBefore: {
         logger.debug(`Showing welcome message`);
         this.showWelcomeMessage();
         break;
-      case UpdateStatus.Updated:
+      }
+      case UpdateStatus.Updated: {
         logger.debug(`Showing update message`);
         this.showUpdateMessage();
         break;
-      default:
+      }
+      default: {
         logger.debug('Plugin is up to date');
+      }
     }
   }
 
@@ -62,14 +66,17 @@ export class NotificationsService {
     if (!action) return;
 
     switch (action.id) {
-      case 'activate':
+      case 'activate': {
         configService.activateIcons();
         break;
-      case 'neverShowAgain':
+      }
+      case 'neverShowAgain': {
         this.disableWelcomeMessage();
         break;
-      default:
+      }
+      default: {
         break;
+      }
     }
   }
 
@@ -97,17 +104,21 @@ export class NotificationsService {
     if (!action) return;
 
     switch (action.id) {
-      case 'activate':
+      case 'activate': {
         configService.activateIcons();
         break;
-      case 'neverShowAgain':
+      }
+      case 'neverShowAgain': {
         this.disableWelcomeMessage();
         break;
-      case 'readChangelog':
+      }
+      case 'readChangelog': {
         openBrowser(`https://marketplace.visualstudio.com/items/${EXTENSION_ID}/changelog`);
         break;
-      default:
+      }
+      default: {
         break;
+      }
     }
   }
 

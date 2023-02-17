@@ -1,12 +1,14 @@
 import i18next from 'i18next';
-import type { AtomConfig } from 'src/@types/config';
-import { IconPack, FolderTheme } from 'src/@types/config';
-import type { IconAssociations } from 'src/@types/icons';
+import { FolderTheme, IconPack } from 'src/@types/config';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
-import type { IconConfiguration } from 'src/models';
 import { notificationsService } from 'src/services/NotificationsService';
+import { ConfigurationTarget, workspace } from 'vscode';
+
+import type { AtomConfig } from 'src/@types/config';
+import type { IconAssociations } from 'src/@types/icons';
+import type { IconConfiguration } from 'src/models';
 import type { WorkspaceConfiguration } from 'vscode';
-import { workspace, ConfigurationTarget } from 'vscode';
+
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------

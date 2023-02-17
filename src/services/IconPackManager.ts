@@ -3,7 +3,7 @@ import { IconPack } from 'src/@types/config';
 import { iconPacks } from 'src/helpers/iconPacks';
 import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
-import { QuickPickItemKind, window, type QuickPickItem } from 'vscode';
+import { type QuickPickItem, QuickPickItemKind, window } from 'vscode';
 
 export class IconPackManager {
   async toggleIconPacks() {
@@ -56,7 +56,7 @@ export class IconPackManager {
    * @param actions
    */
   private handleQuickPickActions(actions: QuickPickItem[]): void {
-    if (!actions || !actions.length) return;
+    if (!actions || actions.length === 0) return;
 
     const decisions = actions.map((action) => action.description?.toLowerCase() ?? '');
     configService.activeIconPacks = this.findIconPacks(decisions);

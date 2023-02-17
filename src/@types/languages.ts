@@ -1,7 +1,4 @@
 import type { env } from 'vscode';
-import type { Translation } from './translation';
-
-export type TranslationImport = () => Promise<{ translation: Translation }>;
 
 export type Language =
   | 'de'

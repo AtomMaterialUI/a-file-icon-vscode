@@ -10,14 +10,14 @@ import { EXTENSION_KEY } from 'src/helpers/constants';
 import { commands } from 'vscode';
 
 const extensionCommands: Record<string, () => Promise<void>> = {
-  toggleIconPacks,
-  changeFolderTheme,
   changeFolderColor,
+  changeFolderTheme,
+  changeOpacity,
+  changeSaturation,
   restoreDefaultConfig,
   toggleExplorerArrows,
-  changeOpacity,
   toggleGrayscale,
-  changeSaturation,
+  toggleIconPacks,
 };
 
 /**

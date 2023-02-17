@@ -1,8 +1,7 @@
 import i18next from 'i18next';
 import { FolderTheme } from 'src/@types/config';
-import { capitalizeFirstLetter } from 'src/helpers';
+import { folderThemes } from 'src/helpers/folderThemes';
 import { findEnumKey } from 'src/helpers/utils';
-import { folderIcons } from 'src/icons';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
 
@@ -22,18 +21,18 @@ export class FolderThemeManager {
    * @param currentTheme
    */
   private showQuickPickItems(currentTheme: FolderTheme) {
-    const options = folderIcons.map((theme): QuickPickItem => ({
-      description: capitalizeFirstLetter(theme.name),
-      label: theme.name === currentTheme ? '\u2714' : '\u25FB',
-      detail: this.isNoneActive(currentTheme)
-        ? i18next.t('folders.disabled')
-        : i18next.t('folders.theme.description', capitalizeFirstLetter(theme.name)),
+    const isNoneActive = this.isNoneActive(currentTheme);
+    const options = Object.values(folderThemes).map((theme): QuickPickItem => ({
+      description: theme.name,
+      detail: theme.description,
+      label: theme.icon ?? '',
+      picked: isNoneActive ? false : this.isThemeActive(currentTheme, theme.id),
     }));
 
     return window.showQuickPick(options, {
-      placeHolder: i18next.t('folders.toggleIcons'),
       ignoreFocusOut: false,
       matchOnDescription: true,
+      placeHolder: i18next.t('folders.toggleIcons'),
     });
   }
 
@@ -56,14 +55,19 @@ export class FolderThemeManager {
     if (!decision || !decision.description) return;
     const enumKey = findEnumKey(FolderTheme, decision.description);
 
-    if (enumKey) {
-      configService.folderTheme = FolderTheme[enumKey];
-    }
-    else {
-      configService.folderTheme = FolderTheme.None;
-    }
+    configService.folderTheme = enumKey ? FolderTheme[enumKey] : FolderTheme.None;
   }
 
+  /**
+   * Checks if a theme is active
+   * @param {FolderTheme} currentTheme
+   * @param {FolderTheme} id
+   * @returns {boolean}
+   * @private
+   */
+  private isThemeActive(currentTheme: FolderTheme, id: FolderTheme) {
+    return currentTheme === id;
+  }
 }
 
 export const folderThemeManager = new FolderThemeManager();
