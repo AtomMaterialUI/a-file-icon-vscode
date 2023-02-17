@@ -35,3 +35,14 @@ export type AtomConfig = {
   showUpdateMessage: boolean,
   showWelcomeMessage: boolean,
 }
+
+export enum UpdateStatus {
+  NeverUsedBefore,
+  Updated,
+  Current,
+}
+
+export enum FileMappingType {
+  FileExtensions = 'fileExtensions',
+  FileNames      = 'fileNames',
+}

@@ -33,7 +33,7 @@ export const getThemeConfig = (section: string) => {
 /** Set the config of the theme. */
 export const setThemeConfig = (
   section: string,
-  value: any,
+  value: unknown,
   global = false,
 ) => {
   return getConfig('a-file-icon-vscode').update(section, value, global);

@@ -1,17 +1,15 @@
-import { activateIcons } from 'src/commands/activate';
-import { toggleIconPacks } from 'src/commands/iconPacks';
-import { changeFolderTheme } from 'src/commands/folders';
-import { changeFolderColor } from 'src/commands/folderColor';
-import { restoreDefaultConfig } from 'src/commands/restoreConfig';
 import { toggleExplorerArrows } from 'src/commands/explorerArrows';
-import { changeOpacity } from 'src/commands/opacity';
+import { changeFolderColor } from 'src/commands/folderColor';
+import { changeFolderTheme } from 'src/commands/folderTheme';
 import { toggleGrayscale } from 'src/commands/grayscale';
+import { toggleIconPacks } from 'src/commands/iconPacks';
+import { changeOpacity } from 'src/commands/opacity';
+import { restoreDefaultConfig } from 'src/commands/restoreConfig';
 import { changeSaturation } from 'src/commands/saturation';
-import { commands } from 'vscode';
 import { EXTENSION_KEY } from 'src/helpers/constants';
+import { commands } from 'vscode';
 
 const extensionCommands: Record<string, () => Promise<void>> = {
-  activateIcons,
   toggleIconPacks,
   changeFolderTheme,
   changeFolderColor,
