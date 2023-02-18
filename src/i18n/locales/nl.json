@@ -1,8 +1,9 @@
 {
   "activate": "Activeer",
-  "activated": "Material Icon Thema is actief.",
+  "activated": "Atom Material Icons Thema is actief.",
   "classic": "Klassiek",
   "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
+  "custom": "Aangepaste",
   "explorerArrows": {
     "disable": "Verberg folderpijlen",
     "enable": "Laat folderpijlen zien",
@@ -18,7 +19,7 @@
     "disabled": "Geen foldericons",
     "hexCode": "Voeg een HEX kleurcode in",
     "theme": {
-      "description": "Selecteer het '{{name}}' folderthema"
+      "description": "Selecteer het mapthema '{{name}}' ({{color}})"
     },
     "toggleIcons": "Kies een folderthema",
     "wrongHexCode": "Ongeldige HEX kleurcode!"
@@ -48,8 +49,8 @@
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
   },
   "specific": "Specifiek",
-  "themeInstalled": "Material Icon Thema is geïnstalleerd.",
-  "themeUpdated": "Material Icon Thema is geüpdated.",
+  "themeInstalled": "Atom Material Icons Thema is geïnstalleerd.",
+  "themeUpdated": "Atom Material Icons Thema is geüpdated.",
   "toggleSwitch": {
     "off": "UIT",
     "on": "AAN"

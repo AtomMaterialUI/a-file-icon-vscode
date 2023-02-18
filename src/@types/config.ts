@@ -46,3 +46,57 @@ export enum FileMappingType {
   FileExtensions = 'fileExtensions',
   FileNames      = 'fileNames',
 }
+
+export type Theme = {
+  accent: string;
+  attributes: string;
+  background: string;
+  blue: string;
+  border: string;
+  button: string;
+  className: string;
+  classes: string;
+  comments: string;
+  contrast: string;
+  cyan: string;
+  dark: boolean;
+  desc: string
+  disabled: string;
+  error: string;
+  excluded: string;
+  foreground: string;
+  functions: string;
+  gray: string;
+  green: string;
+  hl: string;
+  id: string;
+  keywords: string;
+  links: string;
+  name2: string;
+  name: string;
+  notif: string;
+  numbers: string;
+  operators: string;
+  orange: string;
+  parameters: string;
+  purple: string;
+  red: string;
+  scheme: string;
+  second: string;
+  selectBg: string;
+  selectFg2: string;
+  selectFg: string;
+  strings: string;
+  table: string;
+  tags: string;
+  text: string;
+  tree: string;
+  vars: string;
+  white: string;
+  yellow: string;
+}
+
+export type ThemeColor = {
+  name: string,
+  color: string;
+}

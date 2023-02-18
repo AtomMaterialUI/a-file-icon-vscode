@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons 主題圖標已激活",
   "classic": "典文",
   "confirmReload": "你必須重啟VS Code來應用對圖標的更改",
+  "custom": "自定義",
   "explorerArrows": {
     "disable": "隱藏文件夾箭頭",
     "enable": "顯示文件夾箭頭",
@@ -18,7 +19,7 @@
     "disabled": "不顯示文件夾圖標",
     "hexCode": "插入HEX顏色代碼",
     "theme": {
-      "description": "'{{name}}'主題的文件夾圖標"
+      "description": "選擇文件夾主題'{{name}}' ({{color}})"
     },
     "toggleIcons": "切換文件夾圖標的顯示",
     "wrongHexCode": "無效的HEX顏色代碼！"

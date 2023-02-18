@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons ist jetzt aktiviert.",
   "classic": "Klassisch",
   "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
+  "custom": "Benutzerdefinierte",
   "explorerArrows": {
     "disable": "Explorer Pfeile ausblenden",
     "enable": "Explorer Pfeile anzeigen",
@@ -18,7 +19,7 @@
     "disabled": "Keine Ordner Icons",
     "hexCode": "Gebe einen HEX Farbcode ein",
     "theme": {
-      "description": "Wähle das '{{name}}' Design"
+      "description": "Wählen Sie das Ordnerthema '{{name}}' ({{color}})"
     },
     "toggleIcons": "Wähle ein Ordner Design",
     "wrongHexCode": "Ungültiger HEX Farbcode"

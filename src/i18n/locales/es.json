@@ -1,8 +1,9 @@
 {
   "activate": "Activar",
   "activated": "Atom Material Icons está activado.",
-  "classic": "Clásico",
-  "confirmReload": "Debe reiniciar VS Code para activar los cambios en los iconos.",
+  "classic": "Clásicas",
+  "confirmReload": "Debe reini¡ciar VS Code para activar los cambios en los iconos.",
+  "custom": "Personalizado",
   "explorerArrows": {
     "disable": "Ocultar las flechas de carpetas",
     "enable": "Mostrar flechas de carpeta",
@@ -18,7 +19,7 @@
     "disabled": "Sin iconos de carpeta",
     "hexCode": "Insertar un código de color HEX",
     "theme": {
-      "description": "Iconos de carpeta '{{name}}'"
+      "description": "Seleccione el tema de carpeta '{{name}}' ({{color}})"
     },
     "toggleIcons": "Cambiar activación de iconos de carpetas",
     "wrongHexCode": "¡Código de color HEX inválido!"
@@ -47,7 +48,7 @@
     "inputPlaceholder": "Valor de saturación (entre 0 y 1)",
     "wrongValue": "El valor debe estar entre 0 y 1."
   },
-  "specific": "specific",
+  "specific": "Especificas",
   "themeInstalled": "Atom Material Icons se ha instalado.",
   "themeUpdated": "Atom Material Icons se ha actualizado.",
   "toggleSwitch": {

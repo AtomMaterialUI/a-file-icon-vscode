@@ -3,6 +3,7 @@
   "activated": "O Atom Material Icons está habilitado.",
   "classic": "Clássicas",
   "confirmReload": "Precisas reinicializar o VS Code para habilitar a alteração de ícones.",
+  "custom": "Personalizado",
   "explorerArrows": {
     "disable": "Ocultar setas do explorador de ficheiros",
     "enable": "Exibir setas do explorador de ficheiros",
@@ -18,7 +19,7 @@
     "disabled": "Nenhum ícone do directório",
     "hexCode": "Insira um código de cor hexadecimal",
     "theme": {
-      "description": "Seleccionar o tema para directórios '{{name}}'"
+      "description": "Selecione o tema do directório '{{name}}' ({{color}})"
     },
     "toggleIcons": "Escolhe um tema para os directórios",
     "wrongHexCode": "Código de cor hexadecimal inválido!"

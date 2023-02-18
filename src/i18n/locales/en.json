@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons is active.",
   "classic": "Classic",
   "confirmReload": "You have to restart VS Code to activate the changes to the icons.",
+  "custom": "Custom",
   "explorerArrows": {
     "disable": "Hide folder arrows",
     "enable": "Show folder arrows",
@@ -18,7 +19,7 @@
     "disabled": "No folder icons",
     "hexCode": "Insert a HEX color code",
     "theme": {
-      "description": "Select the '{{name}}' folder theme"
+      "description": "Select the '{{name}}' folder theme ({{color}})"
     },
     "toggleIcons": "Pick a folder theme",
     "wrongHexCode": "Invalid HEX color code!"

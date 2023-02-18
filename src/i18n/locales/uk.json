@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons активований.",
   "classic": "класичний",
   "confirmReload": "Необхідно перезавантажити VS Code, щоб активувати зміни значків.",
+  "custom": "персоналізовано",
   "explorerArrows": {
     "disable": "Приховати стрілки папки",
     "enable": "Показати стрілки папки",
@@ -18,7 +19,7 @@
     "disabled": "Немає піктограм папок",
     "hexCode": "Введіть HEX колірний код",
     "theme": {
-      "description": "Виберіть тему папки '{{name}}'"
+      "description": "Виберіть тему теки '{{name}}' ({{color}})"
     },
     "toggleIcons": "Переключити теку icons",
     "wrongHexCode": "Недійсний HEX колірний код!"

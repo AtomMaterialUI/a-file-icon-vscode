@@ -1,8 +1,9 @@
 {
   "activate": "Aktywuj",
-  "activated": "Motyw Material Icon jest aktywny.",
+  "activated": "Motyw Atom Material Icons jest aktywny.",
   "classic": "Klasyczne",
   "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
+  "custom": "Niestandardowy",
   "explorerArrows": {
     "disable": "Schowaj strzałki przy folderach",
     "enable": "Pokaż strzałki przy folderach",
@@ -18,7 +19,7 @@
     "disabled": "Brak ikon folderów",
     "hexCode": "Podaj kolor w formacie HEX",
     "theme": {
-      "description": "Wybierz motyw folderów '{{name}}'"
+      "description": "Wybierz motyw folderu '{{name}}' ({{color}})"
     },
     "toggleIcons": "Wybierz motyw folderów",
     "wrongHexCode": "Nieprawidłowy kolor HEX!"
@@ -48,8 +49,8 @@
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
   "specific": "Określony",
-  "themeInstalled": "Motyw Material Icon został zainstalowany.",
-  "themeUpdated": "Motyw Material Icon został zaktualizowany.",
+  "themeInstalled": "Motyw Atom Material Icons został zainstalowany.",
+  "themeUpdated": "Motyw Atom Material Icons został zaktualizowany.",
   "toggleSwitch": {
     "off": "WYŁĄCZONE",
     "on": "WŁĄCZONE"

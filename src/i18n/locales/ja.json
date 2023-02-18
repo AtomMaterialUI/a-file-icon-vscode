@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons は有効です。",
   "classic": "クラシック",
   "confirmReload": "アイコンの変更を反映するには VS Code を再起動する必要があります。",
+  "custom": "カスタム",
   "explorerArrows": {
     "disable": "フォルダーの矢印を隠す",
     "enable": "フォルダーの矢印を表示する",
@@ -18,7 +19,7 @@
     "disabled": "フォルダーアイコンを表示しない",
     "hexCode": "HEX カラーコードを入力する",
     "theme": {
-      "description": "フォルダーテーマ '{{name}}' を選択する"
+      "description": "フォルダテーマ 「{{name}}」（{{color}}）を選択する"
     },
     "toggleIcons": "フォルダーアイコンを切り替える",
     "wrongHexCode": "無効な HEX カラーコードです！"
@@ -30,7 +31,7 @@
   },
   "howToActivate": "アイコンの有効化方法",
   "iconPacks": {
-    "description": "アイコンパック '{{name}}' を選択する",
+    "description": "アイコンパック 「{{name}}」 を選択する",
     "disabled": "アイコンパックを無効化する",
     "selectPack": "アイコンパックを選択する"
   },

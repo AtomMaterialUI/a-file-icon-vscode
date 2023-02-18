@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons активен.",
   "classic": "классический",
   "confirmReload": "Нужно перезапустить VS Code для активации иконок.",
+  "custom": "пользовательский",
   "explorerArrows": {
     "disable": "Скрыть стрелки у папок",
     "enable": "Показать стрелки у папок",
@@ -18,7 +19,7 @@
     "disabled": "Нет иконок для папки",
     "hexCode": "Вставить HEX-код цвета",
     "theme": {
-      "description": "Выбрать '{{name}}' тему папки"
+      "description": "Выберите тему папки '{{name}}' ({{color}})"
     },
     "toggleIcons": "Выбрать тему папки",
     "wrongHexCode": "Неверный HEX-код цвета!"

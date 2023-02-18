@@ -3,6 +3,7 @@
   "activated": "O Atom Material Icons está ativo.",
   "classic": "Clássicas",
   "confirmReload": "Você precisa reiniciar o VS Code para ativar a mudança de ícones.",
+  "custom": "Personalizado",
   "explorerArrows": {
     "disable": "Ocultar setas do explorador de arquivos",
     "enable": "Exibir setas do explorador de arquivos",
@@ -18,7 +19,7 @@
     "disabled": "Nenhum ícone de pasta",
     "hexCode": "Insira um código de cor hexadecimal",
     "theme": {
-      "description": "Selecionar o tema para pastas '{{name}}'"
+      "description": "Selecione o tema da pasta '{{name}}' ({{color}})"
     },
     "toggleIcons": "Escolha um tema para as pastas",
     "wrongHexCode": "Código de cor hexadecimal inválido!"

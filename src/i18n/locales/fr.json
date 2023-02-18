@@ -3,6 +3,7 @@
   "activated": "Atom Material Icons est actif.",
   "classic": "Classiques",
   "confirmReload": "Veuillez redémarrer VS Code pour activer les icônes",
+  "custom": "Personnalisé",
   "explorerArrows": {
     "disable": "Cacher les flèches de dossier",
     "enable": "Afficher les flèches du dossier",
@@ -18,7 +19,7 @@
     "disabled": "Aucune icônes de dossiers",
     "hexCode": "Insérer un code couleur HEX",
     "theme": {
-      "description": "Icônes de dossiers '{{name}}'"
+      "description": "Sélectionnez le thème de dossier '{{name}}' ({{color}})"
     },
     "toggleIcons": "Basculer les icônes de dossiers",
     "wrongHexCode": "Code couleur HEX non valide!"
