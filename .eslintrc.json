@@ -5,19 +5,11 @@
     "es6": true,
     "node": true
   },
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:unicorn/recommended",
-    "plugin:i18next/recommended"
-  ],
+  "extends": ["plugin:@typescript-eslint/recommended", "plugin:unicorn/recommended", "plugin:i18next/recommended"],
   "overrides": [
     {
-      "extends": [
-        "plugin:@typescript-eslint/recommended"
-      ],
-      "files": [
-        "**.ts"
-      ],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "files": ["**.ts"],
       "rules": {
         "@typescript-eslint/array-type": [
           "error",
@@ -26,10 +18,7 @@
           }
         ],
         "@typescript-eslint/consistent-indexed-object-style": "error",
-        "@typescript-eslint/consistent-type-definitions": [
-          "error",
-          "type"
-        ],
+        "@typescript-eslint/consistent-type-definitions": ["error", "type"],
         "@typescript-eslint/consistent-type-exports": "error",
         "@typescript-eslint/consistent-type-imports": "error",
         "@typescript-eslint/func-call-spacing": "error",
@@ -53,10 +42,7 @@
               // Constructors
               "constructor",
               // Getters and Setters at the same rank
-              [
-                "get",
-                "set"
-              ],
+              ["get", "set"],
               // Methods
               "method"
             ]
@@ -66,11 +52,7 @@
         "@typescript-eslint/naming-convention": [
           "warn",
           {
-            "format": [
-              "camelCase",
-              "UPPER_CASE",
-              "PascalCase"
-            ],
+            "format": ["camelCase", "UPPER_CASE", "PascalCase"],
             "selector": "variable"
           }
         ],
@@ -88,21 +70,8 @@
         "@typescript-eslint/prefer-namespace-keyword": "error",
         "@typescript-eslint/sort-type-union-intersection-members": "error",
         "camelcase": "error",
-        "eqeqeq": [
-          "error",
-          "smart"
-        ],
-        "id-blacklist": [
-          "error",
-          "any",
-          "Number",
-          "number",
-          "String",
-          "string",
-          "Boolean",
-          "boolean",
-          "Undefined"
-        ],
+        "eqeqeq": ["error", "smart"],
+        "id-blacklist": ["error", "any", "Number", "number", "String", "string", "Boolean", "boolean", "Undefined"],
         "id-match": "error",
         "import/exports-last": "error",
         "import/first": "error",
@@ -117,21 +86,7 @@
         "import/order": [
           "error",
           {
-            "groups": [
-              [
-                "builtin",
-                "external"
-              ],
-              "internal",
-              [
-                "parent",
-                "sibling",
-                "index"
-              ],
-              [
-                "type"
-              ]
-            ],
+            "groups": [["builtin", "external"], "internal", ["parent", "sibling", "index"], ["type"]],
             "newlines-between": "always"
           }
         ],
@@ -144,6 +99,7 @@
         "sort-keys": "error",
         "sort-keys-fix/sort-keys-fix": "error",
         "spaced-comment": "error",
+        "unicorn/no-array-reduce": "off",
         "unicorn/filename-case": [
           "error",
           {
@@ -168,16 +124,10 @@
       }
     },
     {
-      "extends": [
-        "plugin:jsonc/recommended-with-json"
-      ],
-      "files": [
-        "*.json"
-      ],
+      "extends": ["plugin:jsonc/recommended-with-json"],
+      "files": ["*.json"],
       "parser": "jsonc-eslint-parser",
-      "plugins": [
-        "jsonc"
-      ],
+      "plugins": ["jsonc"],
       "rules": {
         "jsonc/key-name-casing": "off",
         "jsonc/no-comments": "off",
@@ -190,11 +140,5 @@
     "project": "tsconfig.json",
     "sourceType": "module"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "unicorn",
-    "i18next",
-    "sort-keys-fix"
-  ]
+  "plugins": ["@typescript-eslint", "import", "unicorn", "i18next", "sort-keys-fix"]
 }

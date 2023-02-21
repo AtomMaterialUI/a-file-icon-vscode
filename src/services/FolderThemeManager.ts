@@ -3,10 +3,10 @@ import { FolderTheme } from 'src/@types/config';
 import { getFolderThemes } from 'src/helpers/folderThemes';
 import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
-import { type QuickPickItem, window } from 'vscode';
+import { type QuickPickItem, window, QuickPickItemKind } from 'vscode';
 
 export class FolderThemeManager {
-  async openSelectThemePopup() {
+  async openQuickPicker() {
     const currentTheme = configService.folderTheme;
     const response = await this.showQuickPickItems(currentTheme);
 
@@ -24,10 +24,19 @@ export class FolderThemeManager {
     const isNoneActive = this.isNoneActive(currentTheme);
     const folderThemes = getFolderThemes();
 
-    const options = Object.values(folderThemes).map((theme): QuickPickItem => {
-      const picked = isNoneActive ? false : this.isThemeActive(currentTheme, theme.id);
+    const options = folderThemes.map((theme): QuickPickItem => {
+      const isSeparator = theme.kind === QuickPickItemKind.Separator;
+
+      if (isSeparator || !theme.id) {
+        return {
+          kind: QuickPickItemKind.Separator,
+          label: '',
+        };
+      }
+
+      const picked = isNoneActive ? false : this.isThemePicked(currentTheme, theme.id);
       return ({
-        description: theme.name,
+        description: theme.title,
         detail: theme.description,
         label: picked ? '$(check)' : theme.icon ?? '',
         picked: picked,
@@ -71,7 +80,7 @@ export class FolderThemeManager {
    * @returns {boolean}
    * @private
    */
-  private isThemeActive(currentTheme: FolderTheme, id: FolderTheme) {
+  private isThemePicked(currentTheme: FolderTheme, id: FolderTheme) {
     return currentTheme === id;
   }
 }

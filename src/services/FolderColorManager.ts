@@ -2,12 +2,12 @@ import i18next from 'i18next';
 import { getFolderColors } from 'src/helpers/themes';
 import { validateHEXColorCode } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
-import { window } from 'vscode';
+import { window, QuickPickItemKind } from 'vscode';
 
 import type { QuickPickItem } from 'vscode';
 
 class FolderColorManager {
-  async openFolderColorPopup() {
+  async openQuickPicker() {
     const currentColor = configService.folderColor;
     const response = await this.showQuickPickItems(currentColor);
 
@@ -16,11 +16,25 @@ class FolderColorManager {
     }
   }
 
+  /**
+   * Show quick pick items for folder color options
+   * @private
+   * @param currentColor
+   */
   private async showQuickPickItems(currentColor: string) {
     const folderColors = getFolderColors();
 
-    const options = folderColors.map((item): QuickPickItem => {
-      const picked = this.isThemeColorActive(currentColor, item.color);
+    const options = folderColors.map((item) => {
+      const isSeparator = item.kind === QuickPickItemKind.Separator;
+
+      if (isSeparator || !item.id) {
+        return {
+          kind: QuickPickItemKind.Separator,
+          label: '',
+        };
+      }
+
+      const picked = this.isThemeColorPicked(currentColor, item.color);
       return ({
         description: item.name,
         detail: item.description,
@@ -89,7 +103,7 @@ class FolderColorManager {
    * @returns {boolean}
    * @private
    */
-  private isThemeColorActive(currentColor: string, color?: string) {
+  private isThemeColorPicked(currentColor: string, color?: string) {
     return color === currentColor;
   }
 

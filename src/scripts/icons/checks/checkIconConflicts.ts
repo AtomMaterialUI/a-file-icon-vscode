@@ -1,4 +1,4 @@
-import * as painter from '../../helpers/painter';
+import { red, green } from '../../helpers/painter';
 import { fileIcons, folderIcons, languageIcons } from './../../../icons';
 
 /**
@@ -20,98 +20,93 @@ const allConflicts: {
   languageIcons: {},
 };
 
-export const check = () => {
-  checkFolderIcons();
-  checkFileIcons();
-  checkLanguageIcons();
-
-  handleErrors();
-};
-
 const checkFileIcons = () => {
   checkForConflictsInFileIcons('fileExtensions');
   checkForConflictsInFileIcons('fileNames');
 };
 
 const checkForConflictsInFileIcons = (
-  fileIconDefinitionType: 'fileExtensions' | 'fileNames'
+  fileIconDefinitionType: 'fileExtensions' | 'fileNames',
 ) => {
   const icons: Record<string, string> = {};
-  fileIcons.icons.forEach((icon) => {
+  for (const icon of fileIcons.icons) {
     if (!icon[fileIconDefinitionType]) {
-      return;
+      continue;
     }
-    (icon[fileIconDefinitionType] ?? [])
-      .map((d) => d.toLowerCase())
-      .forEach((definition) => {
-        if (
-          !icons[definition] ||
-          (icon.enabledFor && icon.enabledFor.length > 0)
-        ) {
-          icons[definition] = icon.name;
-        } else {
-          if (!allConflicts.fileIcons[fileIconDefinitionType][definition]) {
-            allConflicts.fileIcons[fileIconDefinitionType][definition] = [
-              icons[definition],
-              icon.name,
-            ];
-          } else {
-            allConflicts.fileIcons[fileIconDefinitionType][definition].push(
-              icon.name
-            );
-          }
+    for (const definition of (icon[fileIconDefinitionType] ?? [])
+      .map((d) => d.toLowerCase())) {
+      if (
+        !icons[definition] ||
+        (icon.enabledFor && icon.enabledFor.length > 0)
+      ) {
+        icons[definition] = icon.name;
+      }
+      else {
+        if (allConflicts.fileIcons[fileIconDefinitionType][definition]) {
+          allConflicts.fileIcons[fileIconDefinitionType][definition].push(
+            icon.name,
+          );
         }
-      });
-  });
+        else {
+          allConflicts.fileIcons[fileIconDefinitionType][definition] = [
+            icons[definition],
+            icon.name,
+          ];
+        }
+      }
+    }
+  }
 };
 
 const checkFolderIcons = () => {
-  folderIcons.forEach((theme) => {
+  for (const theme of folderIcons) {
     if (!theme.icons) {
-      return;
+      continue;
     }
     const icons: Record<string, string> = {};
-    theme.icons.forEach((icon) => {
-      icon.folderNames
-        .map((f) => f.toLowerCase())
-        .forEach((folderName) => {
-          if (
-            !icons[folderName] ||
-            (icon.enabledFor && icon.enabledFor.length > 0)
-          ) {
-            icons[folderName] = icon.name;
-          } else {
-            if (!allConflicts.folderIcons[folderName]) {
-              allConflicts.folderIcons[folderName] = [
-                icons[folderName],
-                icon.name,
-              ];
-            } else {
-              allConflicts.folderIcons[folderName].push(icon.name);
-            }
+    for (const icon of theme.icons) {
+      for (const folderName of icon.folderNames
+                                   .map((f) => f.toLowerCase())) {
+        if (
+          !icons[folderName] ||
+          (icon.enabledFor && icon.enabledFor.length > 0)
+        ) {
+          icons[folderName] = icon.name;
+        }
+        else {
+          if (allConflicts.folderIcons[folderName]) {
+            allConflicts.folderIcons[folderName].push(icon.name);
           }
-        });
-    });
-  });
+          else {
+            allConflicts.folderIcons[folderName] = [
+              icons[folderName],
+              icon.name,
+            ];
+          }
+        }
+      }
+    }
+  }
 };
 
 const checkLanguageIcons = () => {
   const icons: Record<string, string> = {};
-  languageIcons.forEach((langIcon) => {
-    langIcon.ids
-      .map((id) => id.toLowerCase())
-      .forEach((id) => {
-        if (!icons[id]) {
-          icons[id] = langIcon.icon.name;
-        } else {
-          if (!allConflicts.languageIcons[id]) {
-            allConflicts.languageIcons[id] = [icons[id], langIcon.icon.name];
-          } else {
-            allConflicts.languageIcons[id].push(langIcon.icon.name);
-          }
+  for (const langIcon of languageIcons) {
+    for (const id of langIcon.ids
+                             .map((id) => id.toLowerCase())) {
+      if (icons[id]) {
+        if (allConflicts.languageIcons[id]) {
+          allConflicts.languageIcons[id].push(langIcon.icon.name);
         }
-      });
-  });
+        else {
+          allConflicts.languageIcons[id] = [icons[id], langIcon.icon.name];
+        }
+      }
+      else {
+        icons[id] = langIcon.icon.name;
+      }
+    }
+  }
 };
 
 const handleErrors = () => {
@@ -123,8 +118,8 @@ const handleErrors = () => {
       ...Object.keys(allConflicts.languageIcons),
     ].length > 0
   ) {
-    console.log('> Atom Material Icons:', painter.red('Icon conflicts:'));
-    console.log(painter.red('--------------------------------------'));
+    console.log('> Atom Material Icons:', red('Icon conflicts:'));
+    console.log(red('--------------------------------------'));
 
     printErrorMessage(allConflicts.fileIcons.fileExtensions, 'fileExtension');
     printErrorMessage(allConflicts.fileIcons.fileNames, 'fileName');
@@ -132,27 +127,36 @@ const handleErrors = () => {
     printErrorMessage(allConflicts.languageIcons, 'languageId');
 
     console.log(
-      '\n' + painter.red('Please check the wrong icon configurations!\n')
+      '\n' + red('Please check the wrong icon configurations!\n'),
     );
-    process.exit(1);
-  } else {
+    throw new Error('Icon conflicts found!');
+  }
+  else {
     console.log(
       '> Atom Material Icons:',
-      painter.green('Passed icon conflict checks!')
+      green('Passed icon conflict checks!'),
     );
   }
 };
 
 const printErrorMessage = (icons: any, definitionType: string) => {
   const keys = Object.keys(icons);
-  keys.forEach((key) => {
+  for (const key of keys) {
     const conflictIcons = icons[key];
     console.log(
-      painter.red(
+      red(
         `For ${definitionType} "${key}" are ${
           conflictIcons.length
-        } icons defined: [${conflictIcons.join(', ')}]`
-      )
+        } icons defined: [${conflictIcons.join(', ')}]`,
+      ),
     );
-  });
+  }
+};
+
+export const checkIconConflicts = () => {
+  checkFolderIcons();
+  checkFileIcons();
+  checkLanguageIcons();
+
+  handleErrors();
 };

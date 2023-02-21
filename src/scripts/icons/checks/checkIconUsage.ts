@@ -1,15 +1,17 @@
-import * as fs from 'fs';
-import * as path from 'path';
-import type { FolderAssociations } from 'src/@types/icons';
+import { readdir } from 'node:fs';
+import { join, parse } from 'node:path';
 import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, OPENED_FOLDER_SUFFIX } from 'src/helpers/constants';
-import type { DefaultIcon, FolderIcon } from '../../../models/index';
+
 import { fileIcons, folderIcons, languageIcons } from './../../../icons';
-import * as painter from './../../helpers/painter';
+import { green, red } from './../../helpers/painter';
+
+import type { DefaultIcon, FolderIcon } from '../../../models/index';
+import type { FolderAssociations } from 'src/@types/icons';
 
 /**
  * Defines the folder where all icon files are located.
  */
-const folderPath = path.join('icons');
+const folderPath = join('icons');
 
 /**
  * Defines an array with all icons that can be found in the file system.
@@ -21,14 +23,14 @@ const availableIcons: Record<string, string> = {};
  */
 const fsReadAllIconFiles = (error: NodeJS.ErrnoException | null, files: string[]) => {
   if (error) {
-    throw Error(error.message);
+    throw new Error(error.message);
   }
 
-  files.forEach((file) => {
+  for (const file of files) {
     const fileName = file;
-    const iconName = path.parse(file).name;
+    const iconName = parse(file).name;
     availableIcons[iconName] = fileName;
-  });
+  }
 
   checkUsageOfAllIcons();
   handleErrors();
@@ -39,27 +41,26 @@ const checkUsageOfAllIcons = () => {
   const usedFolderIcons: string[] = getAllUsedFolderIcons();
   const usedLanguageIcons: string[] = getAllUsedLanguageIcons();
 
-  [...usedFileIcons, ...usedFolderIcons, ...usedLanguageIcons].forEach((icon) => {
+  for (const icon of [...usedFileIcons, ...usedFolderIcons, ...usedLanguageIcons]) {
     delete availableIcons[icon];
-  });
+  }
 };
 
 const handleErrors = () => {
   const amountOfUnusedIcons = Object.keys(availableIcons).length;
   if (amountOfUnusedIcons === 0) {
-    console.log('> Atom Material Icons:', painter.green('Passed icon usage checks!'));
+    console.log('> Atom Material Icons:', green('Passed icon usage checks!'));
   }
   else {
-    console.log('> Atom Material Icons: ' + painter.red(`${amountOfUnusedIcons} unused icon(s):`));
-    Object.keys(availableIcons).forEach((icon) => {
-      console.log(painter.red(`- ${availableIcons[icon]}`));
-    });
+    console.log('> Atom Material Icons: ' + red(`${amountOfUnusedIcons} unused icon(s):`));
+    for (const icon of Object.keys(availableIcons)) {
+      console.log(red(`- ${availableIcons[icon]}`));
+    }
     throw new Error('Found unused icon files!');
   }
 };
 
 // read from the file system
-export const check = () => fs.readdir(folderPath, fsReadAllIconFiles);
 
 const getAllUsedFileIcons = (): string[] => {
   return [
@@ -109,3 +110,5 @@ const getAllUsedLanguageIcons = (): string[] => {
       .map((lang) => lang.icon.name + HIGH_CONTRAST_FILE_ENDING),
   ];
 };
+
+export const checkIconUsage = () => readdir(folderPath, fsReadAllIconFiles);

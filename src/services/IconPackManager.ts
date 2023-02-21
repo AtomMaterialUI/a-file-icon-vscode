@@ -6,7 +6,7 @@ import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, QuickPickItemKind, window } from 'vscode';
 
 export class IconPackManager {
-  async toggleIconPacks() {
+  async openQuickPicker() {
     const activeIconPacks = configService.activeIconPacks;
     const response = await this.showQuickPickItems(activeIconPacks);
 

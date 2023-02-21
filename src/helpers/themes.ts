@@ -3,7 +3,7 @@ import { QuickPickItemKind } from 'vscode';
 
 import type { Theme } from 'src/@types/config';
 
-type ThemeColorQuickItem = {
+type ThemeColorQuickPickItem = {
   id?: string;
   name?: string;
   kind: QuickPickItemKind;
@@ -1071,13 +1071,13 @@ export const themes: Theme[] = [
   },
 ];
 
-export const getFolderColors = (): ThemeColorQuickItem[] => {
+export const getFolderColors = (): ThemeColorQuickPickItem[] => {
   const separator = {
     kind: QuickPickItemKind.Separator,
     order: 1,
   };
 
-  const themeColors: ThemeColorQuickItem[] = themes.map((theme) => ({
+  const themeColors: ThemeColorQuickPickItem[] = themes.map((theme) => ({
     color: theme.text,
     description: i18next.t('folders.theme.description', { color: theme.text, name: theme.name }),
     id: theme.id,
@@ -1086,7 +1086,7 @@ export const getFolderColors = (): ThemeColorQuickItem[] => {
     order: 1,
   }));
 
-  const customColor: ThemeColorQuickItem = {
+  const customColor: ThemeColorQuickPickItem = {
     description: i18next.t('folders.hexCode'),
     id: 'custom',
     kind: QuickPickItemKind.Default,

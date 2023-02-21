@@ -2,11 +2,11 @@ import { IconPack } from 'src/@types/config';
 import { QuickPickItemKind } from 'vscode';
 
 type IconPackQuickItem = {
-  id?: IconPack;
-  title?: string;
   icon?: string;
+  id?: IconPack;
   kind: QuickPickItemKind;
   order: number;
+  title?: string;
 }
 
 export const getIconPacks = (): IconPackQuickItem[] => {

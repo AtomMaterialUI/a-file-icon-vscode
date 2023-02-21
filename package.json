@@ -19,7 +19,7 @@
   "scripts": {
     "build": "npm run compile:dev && npm run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
-    "check": "ts-node ./src/scripts/icons/checks",
+    "check": "ts-node ./src/scripts/icons/checks/runChecks.ts",
     "compile": "webpack --config ./build/webpack.config.js --mode production",
     "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
     "compile:dev": "webpack --config ./build/webpack.config.js --mode none",

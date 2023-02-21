@@ -21,6 +21,13 @@ export enum FolderTheme {
   Specific = 'specific',
 }
 
+export enum PredefinedOpacity {
+  Transparent     = 'transparent',
+  SemiTransparent = 'semiTransparent',
+  Opaque          = 'opaque',
+  Custom          = 'custom'
+}
+
 export type AtomConfig = {
   activeIconPacks: IconPack[],
   filesAssociations?: IconAssociations,
