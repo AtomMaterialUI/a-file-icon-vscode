@@ -4,6 +4,7 @@
   "classic": "Classic",
   "confirmReload": "You have to restart VS Code to activate the changes to the icons.",
   "custom": "Custom",
+  "customOpacity": "Enter a custom opacity value",
   "explorerArrows": {
     "disable": "Hide folder arrows",
     "enable": "Show folder arrows",
@@ -39,8 +40,12 @@
   "none": "None",
   "opacity": {
     "inputPlaceholder": "Opacity value (between 0 and 1)",
+    "opaque": "Make icons opaque",
+    "semiTransparent": "Make icons semi-transparent",
+    "transparent": "Make icons transparent",
     "wrongValue": "The value must be between 0 and 1!"
   },
+  "opaque": "Opaque",
   "outdatedVersion": "You have to update VS Code to use this command.",
   "readChangelog": "Read changelog",
   "reload": "Restart",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "Saturation value (between 0 and 1)",
     "wrongValue": "The value must be between 0 and 1!"
   },
+  "selectOpacity": "Select an opacity value",
+  "semiTransparent": "Semi-Transparent",
   "specific": "Specific",
   "themeInstalled": "Atom Material Icons has been installed.",
   "themeUpdated": "Atom Material Icons has been updated.",
@@ -55,5 +62,6 @@
     "off": "OFF",
     "on": "ON"
   },
+  "transparent": "Transparent",
   "updateVSCode": "Update VS Code"
 }

@@ -4,6 +4,7 @@
   "classic": "典文",
   "confirmReload": "你必須重啟VS Code來應用對圖標的更改",
   "custom": "自定義",
+  "customOpacity": "輸入自定義不透明度值",
   "explorerArrows": {
     "disable": "隱藏文件夾箭頭",
     "enable": "顯示文件夾箭頭",
@@ -39,8 +40,12 @@
   "none": "沒有",
   "opacity": {
     "inputPlaceholder": "不透明度值（0和1之間）",
+    "opaque": "使圖示不透明",
+    "semiTransparent": "使圖示半透明",
+    "transparent": "使圖示透明",
     "wrongValue": "該值必須介於0和1之間！"
   },
+  "opaque": "不透明",
   "outdatedVersion": "你必須更新VS Code才能使用該命令",
   "readChangelog": "閲讀更新日志",
   "reload": "重啟",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "飽和度值（在0和1之間）。",
     "wrongValue": "該值必須在0和1之間!"
   },
+  "selectOpacity": "選擇不透明度值",
+  "semiTransparent": "半透明",
   "specific": "特定",
   "themeInstalled": "Atom Material Icons 主題圖標已安裝",
   "themeUpdated": "Atom Material Icons 主題圖標已更新",
@@ -55,5 +62,6 @@
     "off": "OFF",
     "on": "ON"
   },
+  "transparent": "透明",
   "updateVSCode": "更新VS Code"
 }

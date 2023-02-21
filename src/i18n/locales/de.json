@@ -4,6 +4,7 @@
   "classic": "Klassisch",
   "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
   "custom": "Benutzerdefinierte",
+  "customOpacity": "Geben Sie einen benutzerdefinierten Deckkraftwert ein",
   "explorerArrows": {
     "disable": "Explorer Pfeile ausblenden",
     "enable": "Explorer Pfeile anzeigen",
@@ -39,8 +40,12 @@
   "none": "Keine",
   "opacity": {
     "inputPlaceholder": "Wert der Deckkraft (zwischen 0 und 1)",
+    "opaque": "Symbole undurchsichtig machen",
+    "semiTransparent": "Symbole halbtransparent machen",
+    "transparent": "Symbole transparent machen",
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
+  "opaque": "Opak",
   "outdatedVersion": "VS Code muss aktualisiert werden, um diesen Befehl auszuführen.",
   "readChangelog": "Änderungsprotokoll lesen",
   "reload": "Neu starten",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "Wert der Sättigung (zwischen 0 und 1)",
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
+  "selectOpacity": "Wählen Sie einen Wert für die Deckkraft aus",
+  "semiTransparent": "Halbtransparente",
   "specific": "Spezifische",
   "themeInstalled": "Atom Material Icons wurde installiert.",
   "themeUpdated": "Das Atom Material Icons wurde aktualisiert.",
@@ -55,5 +62,6 @@
     "off": "AUS",
     "on": "EIN"
   },
+  "transparent": "Transparent",
   "updateVSCode": "VS Code aktualisieren"
 }

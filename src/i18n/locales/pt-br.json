@@ -4,6 +4,7 @@
   "classic": "Clássicas",
   "confirmReload": "Você precisa reiniciar o VS Code para ativar a mudança de ícones.",
   "custom": "Personalizado",
+  "customOpacity": "Insira um valor de opacidade personalizado",
   "explorerArrows": {
     "disable": "Ocultar setas do explorador de arquivos",
     "enable": "Exibir setas do explorador de arquivos",
@@ -39,8 +40,12 @@
   "none": "Nenhum",
   "opacity": {
     "inputPlaceholder": "Valor de opacidade (entre 0 e 1)",
+    "opaque": "Tornar os ícones opacos",
+    "semiTransparent": "Tornar os ícones semi-transparentes",
+    "transparent": "Tornar os ícones transparentes",
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
+  "opaque": "Opaco",
   "outdatedVersion": "Você precisa atualizar o VS Code para usar esse comando.",
   "readChangelog": "Ler changelog",
   "reload": "Reiniciar",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "Valor de saturação (entre 0 e 1)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
+  "selectOpacity": "Selecionar um valor de opacidade",
+  "semiTransparent": "Semi-Transparente",
   "specific": "Específicas",
   "themeInstalled": "O Atom Material Icons foi instalado.",
   "themeUpdated": "O Atom Material Icons foi atualizado.",
@@ -55,5 +62,6 @@
     "off": "OFF",
     "on": "ON"
   },
+  "transparent": "Transparente",
   "updateVSCode": "Atualizar VS Code"
 }

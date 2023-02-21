@@ -1,9 +1,10 @@
 {
   "activate": "Активировать",
   "activated": "Atom Material Icons активен.",
-  "classic": "классический",
+  "classic": "Классический",
   "confirmReload": "Нужно перезапустить VS Code для активации иконок.",
-  "custom": "пользовательский",
+  "custom": "Пользовательский",
+  "customOpacity": "Введите пользовательское значение прозрачности",
   "explorerArrows": {
     "disable": "Скрыть стрелки у папок",
     "enable": "Показать стрелки у папок",
@@ -39,8 +40,12 @@
   "none": "без",
   "opacity": {
     "inputPlaceholder": "Значение непрозрачности (между 0 и 1)",
+    "opaque": "Сделать иконки непрозрачными",
+    "semiTransparent": "Сделать иконки полупрозрачными",
+    "transparent": "Сделать иконки прозрачными",
     "wrongValue": "Значение должно быть между 0 и 1!"
   },
+  "opaque": "Непрозрачный",
   "outdatedVersion": "Нужно обновить VS Code, чтобы использовать эту команду.",
   "readChangelog": "Смотреть список изменений",
   "reload": "Перезагрузить",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "Значение насыщенности (между 0 и 1)",
     "wrongValue": "Значение должно быть между 0 и 1!"
   },
+  "selectOpacity": "Выбрать значение непрозрачности",
+  "semiTransparent": "Полупрозрачный",
   "specific": "Спесифический",
   "themeInstalled": "Atom Material Icons был установлен.",
   "themeUpdated": "Atom Material Icons был обновлен.",
@@ -55,5 +62,6 @@
     "off": "Выключить",
     "on": "Включить"
   },
+  "transparent": "Прозрачный",
   "updateVSCode": "Обновить VS Code"
 }

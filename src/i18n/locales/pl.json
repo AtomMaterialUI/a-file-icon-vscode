@@ -4,6 +4,7 @@
   "classic": "Klasyczne",
   "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
   "custom": "Niestandardowy",
+  "customOpacity": "Wprowadź niestandardową wartość nieprzezroczystości",
   "explorerArrows": {
     "disable": "Schowaj strzałki przy folderach",
     "enable": "Pokaż strzałki przy folderach",
@@ -39,8 +40,12 @@
   "none": "Bez",
   "opacity": {
     "inputPlaceholder": "Wartość przezroczystości (pomiędzy 0 a 1)",
+    "opaque": "Ustaw ikony jako nieprzezroczyste",
+    "semiTransparent": "Uczyń ikony półprzezroczystymi",
+    "transparent": "Uczyń ikony przezroczystymi",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
+  "opaque": "Nieprzezroczysty",
   "outdatedVersion": "Musisz zaktualizować VS Code, aby użyć tej komendy.",
   "readChangelog": "Przeczytaj listę zmian",
   "reload": "Restartuj",
@@ -48,6 +53,8 @@
     "inputPlaceholder": "Wartość nasycenia (pomiędzy 0 a 1)",
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
+  "selectOpacity": "Wybierz wartość nieprzezroczystości",
+  "semiTransparent": "Półprzezroczysty",
   "specific": "Określony",
   "themeInstalled": "Motyw Atom Material Icons został zainstalowany.",
   "themeUpdated": "Motyw Atom Material Icons został zaktualizowany.",
@@ -55,5 +62,6 @@
     "off": "WYŁĄCZONE",
     "on": "WŁĄCZONE"
   },
+  "transparent": "Przezroczysty",
   "updateVSCode": "Zaktualizuj VS Code"
 }
