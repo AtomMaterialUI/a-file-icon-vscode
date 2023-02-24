@@ -26,7 +26,6 @@
   "configuration.folders.theme.classic": "選擇經典文件夾圖標。",
   "configuration.folders.theme.none": "沒有文件夾圖標。",
   "configuration.folders.theme.specific": "選擇特定文件夾圖標。",
-  "configuration.hidesExplorerArrows": "隱藏該文件夾旁邊的箭頭。",
   "configuration.languages.associations": "定義自定義語言映射的圖標。",
   "configuration.opacity": "更改圖標的透明度。",
   "configuration.showReloadMessage": "顯示重啟消息。",

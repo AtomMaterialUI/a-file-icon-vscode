@@ -1,4 +1,4 @@
-import { restoreDefaultConfig } from 'src/commands/restoreConfig';
+import { setThemeConfig } from 'src/helpers';
 import { EXTENSION_KEY } from 'src/helpers/constants';
 import { iconPackPicker } from 'src/pickers';
 import { arrowThemePicker } from 'src/pickers/ArrowThemePicker';
@@ -6,7 +6,7 @@ import { folderColorPicker } from 'src/pickers/FolderColorPicker';
 import { folderThemePicker } from 'src/pickers/FolderThemePicker';
 import { opacityPicker } from 'src/pickers/OpacityPicker';
 import { saturationPicker } from 'src/pickers/SaturationPicker';
-import { logger } from 'src/services';
+import { logger, configService } from 'src/services';
 import { commands } from 'vscode';
 
 const changeFolderColor = async () => {
@@ -37,6 +37,20 @@ const changeSaturation = async () => {
 const changeArrowTheme = async () => {
   logger.info('Open select arrow theme popup');
   await arrowThemePicker.openQuickPicker();
+};
+
+const restoreDefaultConfig = async () => {
+  logger.info('Resetting default config');
+  configService.resetConfig();
+
+  await setThemeConfig('activeIconPacks', undefined, true);
+  await setThemeConfig('folders.theme', undefined, true);
+  await setThemeConfig('folders.color', undefined, true);
+  await setThemeConfig('opacity', undefined, true);
+  await setThemeConfig('saturation', undefined, true);
+  await setThemeConfig('files.associations', undefined, true);
+  await setThemeConfig('folders.associations', undefined, true);
+  await setThemeConfig('languages.associations', undefined, true);
 };
 
 const extensionCommands: Record<string, () => Promise<void>> = {

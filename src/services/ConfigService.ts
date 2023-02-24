@@ -1,14 +1,14 @@
 import i18next from 'i18next';
 import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
+import { getDefaultConfig } from 'src/icons/configUtils';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
 
-import type { AtomConfig } from 'src/@types/config';
-import type { IconAssociations } from 'src/@types/icons';
 import type { IconConfiguration } from 'src/models';
 import type { WorkspaceConfiguration } from 'vscode';
-
+import type { IconAssociations } from 'src/@types/icons';
+import type { AtomConfig } from 'src/@types/config';
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
@@ -66,14 +66,6 @@ export class ConfigService implements AtomConfig {
 
   set activeIconPacks(v: IconPack[]) {
     this.setConfigValue('activeIconPacks', v, ConfigurationTarget.Workspace);
-  }
-
-  get hidesExplorerArrows(): boolean {
-    return this.getConfigValue<boolean>('hidesExplorerArrows') ?? false;
-  }
-
-  set hidesExplorerArrows(v: boolean) {
-    this.setConfigValue('hidesExplorerArrows', v, ConfigurationTarget.Workspace);
   }
 
   get foldersAssociations(): IconAssociations | undefined {
@@ -199,6 +191,19 @@ export class ConfigService implements AtomConfig {
     // }
 
     return changes;
+  }
+
+  public resetConfig() {
+    const defaultConfig = getDefaultConfig();
+    this.activeIconPacks = defaultConfig.activeIconPacks;
+    this.arrowTheme = defaultConfig.arrowTheme;
+    this.folderColor = defaultConfig.folderColor;
+    this.folderTheme = defaultConfig.folderTheme;
+    this.opacity = defaultConfig.opacity;
+    this.saturation = defaultConfig.saturation;
+    this.showReloadMessage = true;
+    this.showUpdateMessage = true;
+    this.showWelcomeMessage = true;
   }
 
   /**

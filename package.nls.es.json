@@ -26,7 +26,6 @@
   "configuration.folders.theme.classic": "Seleccione iconos de carpetas clásicas.",
   "configuration.folders.theme.none": "Sin iconos de carpeta.",
   "configuration.folders.theme.specific": "Seleccione iconos de carpeta específicos.",
-  "configuration.hidesExplorerArrows": "Deshabilitar flechas delante de carpetas.",
   "configuration.languages.associations": "Configurar asociaciones personalizadas de iconos de idioma.",
   "configuration.opacity": "Cambia la opacidad de los iconos.",
   "configuration.showReloadMessage": "Mostrar mensaje de reinicio.",

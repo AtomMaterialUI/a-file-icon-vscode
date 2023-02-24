@@ -1,4 +1,6 @@
-import { FileIcons, IconPack } from '../models/index';
+import { IconPack } from 'src/@types/config';
+
+import type { FileIcons } from '../models/index';
 
 /**
  * Defines file icons
@@ -8,7 +10,6 @@ export const fileIcons: FileIcons = {
   icons: [
     // region [Custom]
     {
-      name: 'indexhtml',
       fileNames: [
         'index.html',
         'index.htm',
@@ -22,9 +23,9 @@ export const fileIcons: FileIcons = {
         'index.jsp',
         'index.ejs',
       ],
+      name: 'indexhtml',
     },
     {
-      name: 'index',
       fileNames: [
         'index.cjs',
         'index.coffee',
@@ -40,18 +41,18 @@ export const fileIcons: FileIcons = {
         'index.tsx',
         'index.vue',
       ],
+      name: 'index',
     },
     {
-      name: 'architecture',
       fileNames: [
         'architecture',
         'architecture.md',
         'architecture.rst',
         'architecture.txt',
       ],
+      name: 'architecture',
     },
     {
-      name: 'githubActions',
       fileNames: [
         '.github/build.yaml',
         '.github/build.yml',
@@ -66,17 +67,17 @@ export const fileIcons: FileIcons = {
         '.github/workflow.yaml',
         '.github/workflow.yml',
       ],
+      name: 'githubActions',
     },
     {
-      name: 'githubCode',
       fileNames: ['CODE_OF_CONDUCT.md', 'CODE_OF_CONDUCT.txt'],
+      name: 'githubCode',
     },
     {
-      name: 'githubContributing',
       fileNames: ['CONTRIBUTING.md', 'CONTRIBUTING.txt'],
+      name: 'githubContributing',
     },
     {
-      name: 'github',
       fileNames: [
         'COMMIT_MESSAGE_TEMPLATE.md',
         'COMMIT_MESSAGE_TEMPLATE.txt',
@@ -86,29 +87,29 @@ export const fileIcons: FileIcons = {
         'TEMPLATE.txt',
       ],
       light: true,
+      name: 'github',
     },
     {
-      name: 'readme',
       fileNames: ['readme', 'readme.md', 'readme.txt'],
       light: true,
+      name: 'readme',
     },
     {
-      name: 'gitcommit',
       fileNames: ['COMMIT_EDITMSG', 'ATOM_COMMIT_EDITMSG'],
+      name: 'gitcommit',
     },
     {
-      name: 'githubCommit',
       fileNames: [
         'COMMIT_MESSAGE_CONVENTION.md',
         'COMMIT_MESSAGE_CONVENTION.txt',
       ],
+      name: 'githubCommit',
     },
     {
-      name: 'gitmerge',
       fileNames: ['MERGE_HEAD', 'MERGE_MODE', 'MERGE_MSG'],
+      name: 'gitmerge',
     },
     {
-      name: 'install',
       fileNames: [
         'install',
         'install.md',
@@ -117,9 +118,9 @@ export const fileIcons: FileIcons = {
         'install.yaml',
         'install.yml',
       ],
+      name: 'install',
     },
     {
-      name: 'funding',
       fileNames: [
         'funding',
         'funding.md',
@@ -128,36 +129,36 @@ export const fileIcons: FileIcons = {
         'funding.yaml',
         'funding.yml',
       ],
+      name: 'funding',
     },
     {
-      name: 'stalebot',
       fileNames: ['stale.yml', 'stale.yaml'],
+      name: 'stalebot',
     },
     {
-      name: 'plugin',
       fileNames: ['META-INF/xml'],
+      name: 'plugin',
     },
     {
-      name: 'i18nProperties',
       fileExtensions: ['bundle.properties', 'messages/properties'],
+      name: 'i18nProperties',
     },
     {
-      name: 'i18nJava',
       fileExtensions: ['bundle.java', 'messages/java'],
+      name: 'i18nJava',
     },
     {
-      name: 'i18nKotlin',
       fileExtensions: ['bundle.kt', 'messages/kt'],
+      name: 'i18nKotlin',
     },
     {
-      name: 'spray',
       fileNames: ['application.conf', 'reference.conf', 'spray.conf'],
+      name: 'spray',
     },
     // endregion [Custom]
 
     // region [Tests]
     {
-      name: 'testcoffee',
       fileExtensions: [
         'spec.coffee',
         'spec.litcoffee',
@@ -172,9 +173,9 @@ export const fileIcons: FileIcons = {
         'tests/coffee',
         'tests/litcoffee',
       ],
+      name: 'testcoffee',
     },
     {
-      name: 'testdart',
       fileExtensions: [
         'spec.dart',
         'spec/dart',
@@ -183,9 +184,9 @@ export const fileIcons: FileIcons = {
         'test/dart',
         'tests/dart',
       ],
+      name: 'testdart',
     },
     {
-      name: 'testgo',
       fileExtensions: [
         'spec.go',
         'spec/go',
@@ -194,9 +195,9 @@ export const fileIcons: FileIcons = {
         'test/go',
         'tests/go',
       ],
+      name: 'testgo',
     },
     {
-      name: 'testhaskell',
       fileExtensions: [
         'spec.hs',
         'spec/hs',
@@ -205,17 +206,17 @@ export const fileIcons: FileIcons = {
         'test/hs',
         'tests/hs',
       ],
+      name: 'testhaskell',
     },
     {
-      name: 'testjava',
       fileExtensions: ['junit/java', 'test/java', 'tests/java', 'unit/java'],
+      name: 'testjava',
     },
     {
-      name: 'testkt',
       fileExtensions: ['junit/kt', 'test/kt', 'tests/kt', 'unit/kt'],
+      name: 'testkt',
     },
     {
-      name: 'testjs',
       fileExtensions: [
         'spec.cjs',
         'spec.es6',
@@ -243,9 +244,9 @@ export const fileIcons: FileIcons = {
         'tests/mjs',
       ],
       light: true,
+      name: 'testjs',
     },
     {
-      name: 'testperl',
       fileExtensions: [
         'spec.perl',
         'spec.ph',
@@ -278,9 +279,9 @@ export const fileIcons: FileIcons = {
         'tests/pl6',
         'tests/pm6',
       ],
+      name: 'testperl',
     },
     {
-      name: 'testreact',
       fileExtensions: [
         'spec.jsx',
         'spec.tsx',
@@ -295,9 +296,9 @@ export const fileIcons: FileIcons = {
         'tests/jsx',
         'tests/tsx',
       ],
+      name: 'testreact',
     },
     {
-      name: 'testpy',
       fileExtensions: [
         'spec.ipy',
         'spec.pep',
@@ -336,9 +337,9 @@ export const fileIcons: FileIcons = {
         'tests/python',
         'tests/whl',
       ],
+      name: 'testpy',
     },
     {
-      name: 'testruby',
       fileExtensions: [
         'spec.rb',
         'spec.rbs',
@@ -359,9 +360,9 @@ export const fileIcons: FileIcons = {
         'tests/rbs',
         'tests/ruby',
       ],
+      name: 'testruby',
     },
     {
-      name: 'testrust',
       fileExtensions: [
         'spec.rs',
         'spec/rs',
@@ -370,9 +371,9 @@ export const fileIcons: FileIcons = {
         'test/rs',
         'tests/rs',
       ],
+      name: 'testrust',
     },
     {
-      name: 'testscala',
       fileExtensions: [
         'spec.scala',
         'spec/scala',
@@ -381,9 +382,9 @@ export const fileIcons: FileIcons = {
         'test/scala',
         'tests/scala',
       ],
+      name: 'testscala',
     },
     {
-      name: 'testts',
       fileExtensions: [
         'spec.ts',
         'spec/ts',
@@ -392,9 +393,9 @@ export const fileIcons: FileIcons = {
         'test/ts',
         'tests/ts',
       ],
+      name: 'testts',
     },
     {
-      name: 'testphp',
       fileExtensions: [
         'spec.php',
         'spec/php',
@@ -407,12 +408,12 @@ export const fileIcons: FileIcons = {
         'units/php',
         'phpunit/php',
       ],
+      name: 'testphp',
     },
     // endregion [Tests]
 
     // region [0-9]
     {
-      name: '11ty',
       fileExtensions: [
         '11ty.cjs',
         '11ty.js',
@@ -426,13 +427,13 @@ export const fileIcons: FileIcons = {
         'eleventyignore',
       ],
       light: true,
+      name: '11ty',
     },
     {
-      name: '1c',
       fileExtensions: ['bsl', 'mdo', 'os', 'sdbl'],
+      name: '1c',
     },
     {
-      name: '3d',
       fileExtensions: [
         'ac',
         'c4d',
@@ -445,29 +446,29 @@ export const fileIcons: FileIcons = {
         'tesc',
         'tese',
       ],
+      name: '3d',
     },
     {
-      name: '3dmodel',
       fileExtensions: ['3dm', '3dmodel'],
+      name: '3dmodel',
     },
     {
-      name: '3dsmax',
       fileExtensions: ['3ds', 'dwg', 'osl'],
+      name: '3dsmax',
     },
     {
-      name: '4d',
       fileExtensions: ['4db', '4dm'],
+      name: '4d',
     },
 
     // endregion [0-9]
 
     // region [A]
     {
-      name: 'aplus',
       fileExtensions: ['a+'],
+      name: 'aplus',
     },
     {
-      name: 'access',
       fileExtensions: [
         'accda',
         'accdb',
@@ -482,162 +483,162 @@ export const fileIcons: FileIcons = {
         'mar',
         'mdw',
       ],
+      name: 'access',
     },
     {
-      name: 'abap',
       fileExtensions: ['abap', 'abp'],
+      name: 'abap',
     },
     {
-      name: 'abc',
       fileExtensions: ['abc'],
+      name: 'abc',
     },
     {
-      name: 'abif',
       fileExtensions: ['ab1', 'abif', 'fsa'],
+      name: 'abif',
     },
     {
-      name: 'acre',
       fileNames: ['acre.config'],
+      name: 'acre',
     },
     {
-      name: 'act',
       fileExtensions: ['actrc'],
+      name: 'act',
     },
     {
-      name: 'actionscript',
       fileExtensions: ['as', 'as3', 'jsfl'],
+      name: 'actionscript',
     },
     {
-      name: 'ada',
       fileExtensions: ['ada', 'adb', 'ads'],
+      name: 'ada',
     },
     {
-      name: 'animate',
       fileExtensions: ['fla', 'xfl'],
+      name: 'animate',
     },
     {
-      name: 'ae',
       fileExtensions: ['aep', 'aet'],
+      name: 'ae',
     },
     {
-      name: 'ai',
       fileExtensions: ['ai', 'aia', 'ait'],
+      name: 'ai',
     },
     {
-      name: 'indesign',
       fileExtensions: ['id', 'idml', 'indb', 'indd', 'indl', 'indt'],
+      name: 'indesign',
     },
     {
-      name: 'psd',
       fileExtensions: ['atn', 'psb', 'psd'],
+      name: 'psd',
     },
     {
-      name: 'premiere',
       fileExtensions: ['prel', 'prproj', 'psq'],
+      name: 'premiere',
     },
     {
-      name: 'advpl',
       fileExtensions: ['ahu', 'aph', 'prw', 'tlpp'],
+      name: 'advpl',
     },
     {
-      name: 'affectscript',
       fileExtensions: ['affect'],
+      name: 'affectscript',
     },
     {
-      name: 'affinity',
       fileExtensions: ['afdesign', 'afphoto', 'afpub'],
+      name: 'affinity',
     },
     {
-      name: 'agda',
       fileExtensions: ['agda', 'lagda'],
+      name: 'agda',
     },
     {
-      name: 'akka',
       fileExtensions: ['akka'],
+      name: 'akka',
     },
     {
-      name: 'al',
       fileExtensions: ['al'],
+      name: 'al',
     },
     {
-      name: 'alacritty',
       fileExtensions: ['alacritty.yml'],
       fileNames: ['alacritty.yml'],
+      name: 'alacritty',
     },
     {
-      name: 'alex',
-      fileNames: ['alexrc'],
       fileExtensions: ['alex', 'alexrc'],
+      fileNames: ['alexrc'],
+      name: 'alex',
     },
     {
-      name: 'alexignore',
       fileExtensions: ['alexignore'],
+      name: 'alexignore',
     },
     {
-      name: 'allcontributors',
       fileExtensions: ['all-contributorsrc', 'allcontributorsrc'],
       fileNames: ['all-contributorsrc', 'allcontributorsrc'],
+      name: 'allcontributors',
     },
     {
-      name: 'alloy',
       fileExtensions: ['als'],
+      name: 'alloy',
     },
     {
-      name: 'alpine',
       fileExtensions: ['apkbuild'],
       fileNames: ['APKBUILD'],
+      name: 'alpine',
     },
     {
-      name: 'amigaos',
       fileExtensions: ['arexx'],
+      name: 'amigaos',
     },
     {
-      name: 'ampl',
       fileExtensions: ['ampl'],
+      name: 'ampl',
     },
     {
-      name: 'amplication',
       fileNames: ['ampconfig.json'],
+      name: 'amplication',
     },
     {
-      name: 'amplify',
       fileNames: ['amplify.yml', 'amplify.yaml'],
+      name: 'amplify',
     },
     {
-      name: 'amusewiki',
       fileExtensions: ['muse'],
+      name: 'amusewiki',
     },
     {
-      name: 'analytica',
       fileExtensions: ['ana'],
+      name: 'analytica',
     },
     {
-      name: 'androidManifest',
       fileNames: ['AndroidManifest.xml'],
+      name: 'androidManifest',
     },
     {
-      name: 'android',
       fileNames: ['MainActivity.java', 'MainActivity.kt'],
+      name: 'android',
     },
     {
-      name: 'androidSmali',
       fileExtensions: ['smali', 'rsh', 'webarchivexml'],
+      name: 'androidSmali',
     },
     {
-      name: 'angelscript',
       fileExtensions: ['acs', 'angelscript'],
+      name: 'angelscript',
     },
     {
-      name: 'angularCli',
       fileExtensions: ['angular-cli.json', 'angular.json'],
       fileNames: ['angular-cli.json', 'angular.json'],
+      name: 'angularCli',
     },
     {
-      name: 'angularjs',
       fileNames: ['angular.js', 'angular.min.js'],
+      name: 'angularjs',
     },
     {
-      name: 'angular',
       fileExtensions: [
         'ng-template',
         'ng.html',
@@ -645,13 +646,14 @@ export const fileIcons: FileIcons = {
         'ng.ts',
         'ngtemplate',
       ],
+      name: 'angular',
     },
     {
-      name: 'ngrxjs',
       fileExtensions: ['container.dart', 'container.js', 'container.ts'],
+      name: 'ngrxjs',
     },
     {
-      name: 'angularcomponent',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: [
         'comp.dart',
         'comp.js',
@@ -660,10 +662,10 @@ export const fileIcons: FileIcons = {
         'component.js',
         'component.ts',
       ],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularcomponent',
     },
     {
-      name: 'angularcontroller',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: [
         'controller.dart',
         'controller.js',
@@ -672,25 +674,26 @@ export const fileIcons: FileIcons = {
         'ctrl.js',
         'ctrl.ts',
       ],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularcontroller',
     },
     {
-      name: 'angulardirective',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['directive.js', 'directive.ts', 'directive.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angulardirective',
     },
     {
-      name: 'angularguard',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['guard.js', 'guard.ts', 'guard.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularguard',
     },
     {
-      name: 'angularinterceptor',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['interceptor.js', 'interceptor.ts', 'interceptor.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularinterceptor',
     },
     {
-      name: 'angularrouting',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      fileExtensions: ['routing.js', 'routing.ts', 'routing.dart'],
       fileNames: [
         'angular-routing.dart',
         'angular-routing.js',
@@ -699,52 +702,50 @@ export const fileIcons: FileIcons = {
         'angular_routing.js',
         'angular_routing.ts',
       ],
-      fileExtensions: ['routing.js', 'routing.ts', 'routing.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularrouting',
     },
     {
-      name: 'angularapprouting',
       fileNames: [
         'app-routing.module.dart',
         'app-routing.module.js',
         'app-routing.module.ts',
       ],
+      name: 'angularapprouting',
     },
     {
-      name: 'angularmodule',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['module.js', 'module.ts', 'module.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularmodule',
     },
     {
-      name: 'angularservice',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['service.js', 'service.ts', 'service.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularservice',
     },
     {
-      name: 'ionic',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['page.js', 'page.ts', 'page.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'ionic',
     },
     {
-      name: 'angularpipe',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['pipe.js', 'pipe.ts', 'pipe.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularpipe',
     },
     {
-      name: 'angularresolver',
+      enabledFor: [IconPack.Angular, IconPack.Ngrx],
       fileExtensions: ['resolver.js', 'resolver.ts', 'resolver.dart'],
-      enabledFor: [IconPack.Angular, IconPack.Ngrx],
+      name: 'angularresolver',
     },
     {
-      name: 'angulartailwind',
       fileNames: ['ng-tailwind.js', 'ng-tailwind.ts', 'ng-tailwind.dart'],
+      name: 'angulartailwind',
     },
     {
-      name: 'animestudio',
       fileExtensions: ['anime', 'animestudio'],
+      name: 'animestudio',
     },
     {
-      name: 'ansible',
       fileNames: [
         'ansible.cfg',
         'ansible.yaml',
@@ -762,22 +763,22 @@ export const fileIcons: FileIcons = {
         'webservers.yaml',
         'webservers.yml',
       ],
+      name: 'ansible',
     },
     {
-      name: 'ant',
       fileExtensions: ['ant'],
       fileNames: ['ant.xml'],
+      name: 'ant',
     },
     {
-      name: 'antlers',
       fileExtensions: ['antlers.html'],
+      name: 'antlers',
     },
     {
-      name: 'antlr',
       fileExtensions: ['g', 'g4'],
+      name: 'antlr',
     },
     {
-      name: 'antwar',
       fileExtensions: [
         'antwar.conf.cjs',
         'antwar.conf.js',
@@ -794,13 +795,13 @@ export const fileIcons: FileIcons = {
         'antwar.config.js',
         'antwar.config.mjs',
       ],
+      name: 'antwar',
     },
     {
-      name: 'any',
       fileExtensions: ['any'],
+      name: 'any',
     },
     {
-      name: 'apacheconf',
       fileExtensions: ['apache.conf', 'apache2.conf', 'apacheconf'],
       fileNames: [
         'apache.conf',
@@ -816,128 +817,128 @@ export const fileIcons: FileIcons = {
         'httpd.prod.conf',
         'httpd.vhost.conf',
       ],
+      name: 'apacheconf',
     },
     {
-      name: 'apache',
       fileExtensions: ['thrift', 'vhost'],
+      name: 'apache',
     },
     {
-      name: 'apex',
       fileExtensions: ['apex', 'cls'],
+      name: 'apex',
     },
     {
-      name: 'apib',
       fileExtensions: ['apib'],
+      name: 'apib',
     },
     {
-      name: 'apiextractor',
       fileNames: [
         'api-extractor-base.json',
         'api-extractor.common.json',
         'api-extractor.json',
       ],
+      name: 'apiextractor',
     },
     {
-      name: 'apk',
       fileExtensions: ['apk'],
+      name: 'apk',
     },
     {
-      name: 'apl',
       fileExtensions: ['apl', 'apla', 'aplc', 'aplf', 'apli', 'apln', 'aplo'],
+      name: 'apl',
     },
     {
-      name: 'apollo',
       fileNames: [
         'apollo.config.cjs',
         'apollo.config.js',
         'apollo.config.mjs',
         'apollo.config.ts',
       ],
+      name: 'apollo',
     },
     {
-      name: 'appcelerator',
       fileNames: [
         'appcelerator.cjs',
         'appcelerator.js',
         'appcelerator.mjs',
         'appcelerator.ts',
       ],
+      name: 'appcelerator',
     },
     {
-      name: 'appsemble',
       fileExtensions: ['appsemblerc', 'appsemblerc.yaml', 'appsemblerc.yml'],
-
       fileNames: ['app-definition.yaml', 'app-definition.yml'],
+
+      name: 'appsemble',
     },
     {
-      name: 'appveyor',
       fileExtensions: ['appveyor.yaml', 'appveyor.yml'],
       fileNames: ['appveyor.yaml', 'appveyor.yml'],
+      name: 'appveyor',
     },
     {
-      name: 'applescript',
       fileExtensions: ['applescript', 'scpt'],
+      name: 'applescript',
     },
     {
-      name: 'arc',
       fileExtensions: ['arc'],
+      name: 'arc',
     },
     {
-      name: 'archlinux',
       fileExtensions: ['PKGBUILD', 'SRCINFO', 'yaourtrc'],
       fileNames: ['PKGBUILD', 'SRCINFO'],
+      name: 'archlinux',
     },
     {
-      name: 'pacman',
       fileNames: ['makepkg.conf', 'pacman.conf', 'pamac.conf'],
+      name: 'pacman',
     },
     {
-      name: 'arduino',
       fileExtensions: ['ino'],
+      name: 'arduino',
     },
     {
-      name: 'arend',
-      fileNames: ['arend.yml', 'arend.yaml'],
       fileExtensions: ['ard', 'arend'],
+      fileNames: ['arend.yml', 'arend.yaml'],
+      name: 'arend',
     },
     {
-      name: 'arm',
       fileExtensions: ['arm'],
+      name: 'arm',
     },
     {
-      name: 'arttext',
       fileExtensions: ['art3', 'art4'],
+      name: 'arttext',
     },
     {
-      name: 'asciidoc',
       fileExtensions: ['ad', 'adoc', 'asc', 'asciidoc'],
+      name: 'asciidoc',
     },
     {
-      name: 'aspectj',
       fileExtensions: ['aj', 'aspectj'],
+      name: 'aspectj',
     },
     {
-      name: 'asmpure',
       fileExtensions: ['a', 'i', 's'],
+      name: 'asmpure',
     },
     {
-      name: 'asm',
       fileExtensions: ['aea', 'agc', 'argus', 'asm', 'inc', 'lst', 'mitigus'],
+      name: 'asm',
     },
     {
-      name: 'hitachi',
       fileExtensions: ['h8', 'h8000', 'h8300', 'h8S', 'h8SX'],
+      name: 'hitachi',
     },
     {
-      name: 'intel',
       fileExtensions: ['i386', 'x86', '80386', 'x32', 'x64'],
+      name: 'intel',
     },
     {
-      name: 'vax',
       fileExtensions: ['vax', 'vmasm'],
+      name: 'vax',
     },
     {
-      name: 'asp',
       fileExtensions: [
         'asa',
         'asax',
@@ -948,61 +949,61 @@ export const fileIcons: FileIcons = {
         'aspx',
         'axd',
       ],
+      name: 'asp',
     },
     {
-      name: 'astro',
       fileExtensions: ['astro'],
+      name: 'astro',
     },
     {
-      name: 'astroconfig',
       fileNames: [
         'astro.config.cjs',
         'astro.config.js',
         'astro.config.mjs',
         'astro.config.ts',
       ],
+      name: 'astroconfig',
     },
     {
-      name: 'artisan',
       fileNames: ['artisan', 'artisan.php'],
+      name: 'artisan',
     },
     {
-      name: 'astyle',
       fileNames: ['.astylerc'],
+      name: 'astyle',
     },
     {
-      name: 'asymptote',
       fileExtensions: ['asy'],
+      name: 'asymptote',
     },
     {
-      name: 'atom',
       fileExtensions: ['atomproject.cson', 'atomproject.json'],
       light: true,
+      name: 'atom',
     },
     {
-      name: 'apm',
       fileNames: ['.apmrc'],
       light: true,
+      name: 'apm',
     },
     {
-      name: 'atoum',
       fileExtensions: ['atoum.php'],
       fileNames: ['atoum.config.php'],
+      name: 'atoum',
     },
     {
-      name: 'ats',
       fileExtensions: ['ats', 'dats', 'hats', 'sats'],
+      name: 'ats',
     },
     {
-      name: 'audacity',
       fileExtensions: ['audacity', 'aup'],
+      name: 'audacity',
     },
     {
-      name: 'augeas',
       fileExtensions: ['aug', 'augeas'],
+      name: 'augeas',
     },
     {
-      name: 'aurelia',
       fileNames: [
         'aurelia.cjs',
         'aurelia.js',
@@ -1015,13 +1016,13 @@ export const fileIcons: FileIcons = {
         'aureliafile.mjs',
         'aureliafile.ts',
       ],
+      name: 'aurelia',
     },
     {
-      name: 'authors',
       fileNames: ['authors', 'authors.md', 'authors.rst', 'authors.txt'],
+      name: 'authors',
     },
     {
-      name: 'auto',
       fileExtensions: [
         'autorc',
         'autorc.cjs',
@@ -1047,17 +1048,17 @@ export const fileIcons: FileIcons = {
         'auto.config.yaml',
         'auto.config.yml',
       ],
+      name: 'auto',
     },
     {
-      name: 'ahk',
       fileExtensions: ['ahk', 'ahkl'],
+      name: 'ahk',
     },
     {
-      name: 'autoit',
       fileExtensions: ['au3', 'autoit'],
+      name: 'autoit',
     },
     {
-      name: 'ava',
       fileExtensions: [
         'avarc',
         'avarc.cjs',
@@ -1077,29 +1078,29 @@ export const fileIcons: FileIcons = {
         'ava.config.yaml',
         'ava.config.yml',
       ],
+      name: 'ava',
     },
     {
-      name: 'avif',
       fileExtensions: ['avif'],
+      name: 'avif',
     },
     {
-      name: 'avr',
       fileExtensions: ['avr', 'avrasm'],
+      name: 'avr',
     },
     {
-      name: 'avro',
       fileExtensions: ['avcs', 'avdl', 'avpr', 'avsc'],
+      name: 'avro',
     },
     {
-      name: 'awk',
       fileExtensions: ['awk', 'gawk', 'mawk', 'nawk', 'pawk', 'tawk'],
+      name: 'awk',
     },
     {
-      name: 'azure',
       fileExtensions: ['azcli'],
+      name: 'azure',
     },
     {
-      name: 'azurepipelines',
       fileNames: [
         'azure-pipelines.ci.yaml',
         'azure-pipelines.ci.yml',
@@ -1108,13 +1109,13 @@ export const fileIcons: FileIcons = {
         'azure-pipelines.yaml',
         'azure-pipelines.yml',
       ],
+      name: 'azurepipelines',
     },
 
     // endregion
 
     // region [B]
     {
-      name: 'babel',
       fileExtensions: [
         'babel',
         'babelrc',
@@ -1123,9 +1124,9 @@ export const fileIcons: FileIcons = {
         'babelrc.mjs',
         'languagebabel',
       ],
+      name: 'babel',
     },
     {
-      name: 'babelconfig',
       fileNames: [
         'babel.config.cjs',
         'babel.config.js',
@@ -1133,9 +1134,9 @@ export const fileIcons: FileIcons = {
         'babel.config.mjs',
         'babel.json',
       ],
+      name: 'babelconfig',
     },
     {
-      name: 'baboon',
       fileNames: [
         'baboon.config.cjs',
         'baboon.config.js',
@@ -1143,9 +1144,9 @@ export const fileIcons: FileIcons = {
         'baboon.config.mjs',
         'baboon.json',
       ],
+      name: 'baboon',
     },
     {
-      name: 'backbone',
       fileNames: [
         'backbone-min.js',
         'backbone.cjs',
@@ -1153,126 +1154,126 @@ export const fileIcons: FileIcons = {
         'backbone.min.js',
         'backbone.mjs',
       ],
+      name: 'backbone',
     },
     {
-      name: 'backup',
       fileExtensions: ['backup', 'bak', 'old', 'orig'],
+      name: 'backup',
     },
     {
-      name: 'ballerina',
       fileExtensions: ['bal', 'balx'],
+      name: 'ballerina',
     },
     {
-      name: 'bandit',
-      fileNames: ['bandit.yml', 'bandit.yaml'],
       fileExtensions: ['bandit', 'bandit.yml', 'bandit.yaml'],
+      fileNames: ['bandit.yml', 'bandit.yaml'],
+      name: 'bandit',
     },
     {
-      name: 'basic',
       fileExtensions: ['bas', 'basic', 'bi', 'bm', 'bml', 'bms', 'bmx'],
+      name: 'basic',
     },
     {
-      name: 'bats',
       fileExtensions: ['bats'],
       light: true,
+      name: 'bats',
     },
     {
-      name: 'bazaar',
       fileExtensions: ['bzrignore'],
+      name: 'bazaar',
     },
     {
-      name: 'bazel',
       fileExtensions: ['bazel', 'bzl'],
+      name: 'bazel',
     },
     {
-      name: 'bazelignore',
       fileExtensions: ['bazelignore', 'bzlignore'],
+      name: 'bazelignore',
     },
     {
-      name: 'bazelconfig',
-      fileNames: ['bazel.rc'],
       fileExtensions: ['bazelrc'],
+      fileNames: ['bazel.rc'],
+      name: 'bazelconfig',
     },
     {
-      name: 'bc',
       fileExtensions: ['bc', 'dc', 'dcrc'],
+      name: 'bc',
     },
     {
-      name: 'bean',
       fileExtensions: ['bean/java', 'bean/kt', 'beans/java', 'beans/kt'],
+      name: 'bean',
     },
     {
-      name: 'behat',
       fileExtensions: ['feature.php'],
+      name: 'behat',
     },
     {
-      name: 'behatconfig',
       fileNames: [
         'behat.config.yaml',
         'behat.config.yml',
         'behat.yaml',
         'behat.yml',
       ],
+      name: 'behatconfig',
     },
     {
-      name: 'bem',
       fileExtensions: ['bemjson', 'bemjson.cjs', 'bemjson.js', 'bemjson.mjs'],
+      name: 'bem',
     },
     {
-      name: 'bibtex',
       fileExtensions: ['bbl', 'bbx', 'bib', 'bst', 'cbx'],
+      name: 'bibtex',
     },
     {
-      name: 'bicep',
       fileExtensions: ['bicep'],
+      name: 'bicep',
     },
     {
-      name: 'biml',
       fileExtensions: ['biml'],
+      name: 'biml',
     },
     {
-      name: 'binder',
       fileNames: [
         'binder-requirements.in',
         'binder-requirements.txt',
         'binder_requirements.in',
         'binder_requirements.txt',
       ],
+      name: 'binder',
     },
     {
-      name: 'bintray',
       fileExtensions: ['bintray.json'],
+      name: 'bintray',
     },
     {
-      name: 'bison',
       fileExtensions: ['bison', 'y', 'yacc', 'ypp', 'yy'],
+      name: 'bison',
     },
     {
-      name: 'bitcoin',
       fileNames: ['bitcoin.conf'],
+      name: 'bitcoin',
     },
     {
-      name: 'bithound',
       fileExtensions: ['bithoundrc'],
+      name: 'bithound',
     },
     {
-      name: 'bitbucket',
       fileNames: ['bitbucket-pipelines.yaml', 'bitbucket-pipelines.yml'],
+      name: 'bitbucket',
     },
     {
-      name: 'blade',
       fileExtensions: ['blade', 'blade.php'],
+      name: 'blade',
     },
     {
-      name: 'blender',
       fileExtensions: ['blend', 'bphys'],
+      name: 'blender',
     },
     {
-      name: 'blitzbasic',
       fileExtensions: ['bb', 'decls'],
+      name: 'blitzbasic',
     },
     {
-      name: 'blitz',
       fileNames: [
         'blitz.config.cjs',
         'blitz.config.compiled.js',
@@ -1281,9 +1282,9 @@ export const fileIcons: FileIcons = {
         'blitz.config.mjs',
         'blitz.config.ts',
       ],
+      name: 'blitz',
     },
     {
-      name: 'bloc',
       fileNames: [
         'AppBloc.dart',
         'AppEvent.dart',
@@ -1299,43 +1300,43 @@ export const fileIcons: FileIcons = {
         'state/dart',
         'states/dart',
       ],
+      name: 'bloc',
     },
     {
-      name: 'bluespec',
       fileExtensions: ['bspec', 'bsv'],
+      name: 'bluespec',
     },
     {
-      name: 'blink',
       fileExtensions: ['blink'],
+      name: 'blink',
     },
     {
-      name: 'bnf',
       fileExtensions: ['abnf', 'bnf', 'ebnf', 'grammar', 'lbnf'],
+      name: 'bnf',
     },
     {
-      name: 'boo',
       fileExtensions: ['boo', 'boo.unity'],
+      name: 'boo',
     },
     {
-      name: 'bors',
       fileNames: ['bors.toml'],
+      name: 'bors',
     },
     {
-      name: 'boot',
       fileExtensions: ['boot'],
+      name: 'boot',
     },
     {
-      name: 'bun',
-      fileNames: ['bunfig.toml'],
       fileExtensions: ['bunfig.toml'],
+      fileNames: ['bunfig.toml'],
       light: true,
+      name: 'bun',
     },
     {
-      name: 'bunlock',
       fileNames: ['bun.lockb'],
+      name: 'bunlock',
     },
     {
-      name: 'bootstrap',
       fileNames: [
         'bootstrap.cjs',
         'bootstrap.css',
@@ -1351,50 +1352,50 @@ export const fileIcons: FileIcons = {
         'custom.bootstrap.mjs',
         'custom.bootstrap.ts',
       ],
+      name: 'bootstrap',
     },
     {
-      name: 'bootstraprc',
       fileExtensions: ['bootstraprc'],
+      name: 'bootstraprc',
     },
     {
-      name: 'bosque',
       fileExtensions: ['bsq'],
+      name: 'bosque',
     },
     {
-      name: 'bower',
-      fileNames: ['bower.json', 'bowerfile'],
       fileExtensions: ['bowerrc'],
+      fileNames: ['bower.json', 'bowerfile'],
+      name: 'bower',
     },
     {
-      name: 'brainfuck',
       fileExtensions: ['b', 'bf', 'brainfuck'],
+      name: 'brainfuck',
     },
     {
-      name: 'brakeman',
       fileNames: ['brakeman.yml', 'brakeman.yaml'],
+      name: 'brakeman',
     },
     {
-      name: 'brew',
       fileNames: ['brewfile'],
+      name: 'brew',
     },
     {
-      name: 'bro',
       fileExtensions: ['bro'],
+      name: 'bro',
     },
     {
-      name: 'broccoli',
       fileNames: ['brocfile'],
+      name: 'broccoli',
     },
     {
-      name: 'brotli',
       fileExtensions: ['br'],
+      name: 'brotli',
     },
     {
-      name: 'browserslist',
       fileExtensions: ['browserslist', 'browserslistrc'],
+      name: 'browserslist',
     },
     {
-      name: 'browsersync',
       fileNames: [
         'browser-sync.js',
         'browser-sync.json',
@@ -1403,90 +1404,90 @@ export const fileIcons: FileIcons = {
         'bs-config.js',
         'bs-config.json',
       ],
+      name: 'browsersync',
     },
     {
-      name: 'brunch',
       fileNames: [
         'brunch-config.coffee',
         'brunch-config.js',
         'brunch-config.ts',
       ],
+      name: 'brunch',
     },
     {
-      name: 'buck',
       fileExtensions: ['buck', 'buckconfig'],
+      name: 'buck',
     },
     {
-      name: 'bucklescript',
       fileExtensions: ['cmj'],
+      name: 'bucklescript',
     },
     {
-      name: 'buildkite',
-      fileNames: ['buildkite.yml', 'buildkite.yaml'],
       fileExtensions: ['buildkite'],
+      fileNames: ['buildkite.yml', 'buildkite.yaml'],
+      name: 'buildkite',
     },
     {
-      name: 'bundle',
-      fileNames: ['gemfile'],
       fileExtensions: ['gemfile'],
+      fileNames: ['gemfile'],
+      name: 'bundle',
     },
     {
-      name: 'byond',
       fileExtensions: ['dm'],
+      name: 'byond',
     },
     // endregion
 
     // region [C]
     {
-      name: 'c',
       fileExtensions: ['c', 'cats', 'idc', 'objc', 'upc', 'w', 'xpm'],
+      name: 'c',
     },
     {
-      name: 'cabal',
       fileExtensions: ['cabal'],
+      name: 'cabal',
     },
     {
-      name: 'cabalProject',
       fileNames: ['cabal.config', 'cabal.project'],
+      name: 'cabalProject',
     },
     {
-      name: 'caddy',
       fileNames: ['caddyfile'],
+      name: 'caddy',
     },
     {
-      name: 'cadence',
       fileExtensions: ['cadence', 'cdc'],
+      name: 'cadence',
     },
     {
-      name: 'caffe',
       fileExtensions: ['caffemodel', 'solverstate'],
+      name: 'caffe',
     },
     {
-      name: 'caffe2',
       fileExtensions: ['caffe2model', 'prototxt'],
+      name: 'caffe2',
     },
     {
-      name: 'cairo',
       fileExtensions: ['cairo'],
+      name: 'cairo',
     },
     {
-      name: 'cakefile',
       fileNames: ['cakefile'],
+      name: 'cakefile',
     },
     {
-      name: 'cakephp',
       fileExtensions: ['cake', 'ctp'],
+      name: 'cakephp',
     },
     {
-      name: 'calva',
       fileExtensions: ['calva', 'calva-repl'],
+      name: 'calva',
     },
     {
-      name: 'cap',
       fileExtensions: ['cap', 'cds'],
+      name: 'cap',
     },
     {
-      name: 'capacitor',
       fileNames: [
         'capacitor.config.cjs',
         'capacitor.config.js',
@@ -1494,25 +1495,25 @@ export const fileIcons: FileIcons = {
         'capacitor.config.mjs',
         'capacitor.config.ts',
       ],
+      name: 'capacitor',
     },
     {
-      name: 'carbon',
       fileExtensions: ['carbon'],
+      name: 'carbon',
     },
     {
-      name: 'cargo',
       fileNames: ['cargo.lock', 'cargo.toml'],
+      name: 'cargo',
     },
     {
-      name: 'carthage',
       fileNames: ['cartfile', 'cartfile.private', 'cartfile.resolved'],
+      name: 'carthage',
     },
     {
-      name: 'casc',
       fileExtensions: ['casc', 'cas'],
+      name: 'casc',
     },
     {
-      name: 'catala',
       fileExtensions: [
         'catala',
         'catala_an',
@@ -1533,25 +1534,25 @@ export const fileIcons: FileIcons = {
         'catala_uk',
         'catala_zh',
       ],
+      name: 'catala',
     },
     {
-      name: 'cddl',
       fileExtensions: ['cddl'],
+      name: 'cddl',
     },
     {
-      name: 'certificate',
       fileExtensions: ['cert', 'crt', 'csr', 'p12', 'pfx', 'pks', 'x509'],
+      name: 'certificate',
     },
     {
-      name: 'ceylon',
       fileExtensions: ['ceylon'],
+      name: 'ceylon',
     },
     {
-      name: 'cfc',
       fileExtensions: ['cfc', 'cfm', 'cfml', 'lucee'],
+      name: 'cfc',
     },
     {
-      name: 'chai',
       fileNames: [
         'chai.cjs',
         'chai.coffee',
@@ -1561,13 +1562,13 @@ export const fileIcons: FileIcons = {
         'chai.mjs',
         'chai.ts',
       ],
+      name: 'chai',
     },
     {
-      name: 'chameleon',
       fileExtensions: ['pt'],
+      name: 'chameleon',
     },
     {
-      name: 'changelog',
       fileExtensions: ['changelog', 'changes'],
       fileNames: [
         'changelog',
@@ -1579,13 +1580,13 @@ export const fileIcons: FileIcons = {
         'changes.rst',
         'changes.txt',
       ],
+      name: 'changelog',
     },
     {
-      name: 'chapel',
       fileExtensions: ['chapel', 'chpl'],
+      name: 'chapel',
     },
     {
-      name: 'chartjs',
       fileNames: [
         'chart.bundle.cjs',
         'chart.bundle.js',
@@ -1598,42 +1599,42 @@ export const fileIcons: FileIcons = {
         'chart.mjs',
         'chart.ts',
       ],
+      name: 'chartjs',
     },
     {
-      name: 'cheetah',
       fileExtensions: ['jas'],
+      name: 'cheetah',
     },
     {
-      name: 'chef',
       fileNames: ['knife.rb'],
+      name: 'chef',
     },
     {
-      name: 'berksfile',
       fileNames: ['berksfile', 'berksfile.lock', 'policyfile'],
+      name: 'berksfile',
     },
     {
-      name: 'chocolatey',
       fileNames: [
         'chocolatey.ps1',
         'chocolateyinstall.ps1',
         'chocolateyuninstall.ps1',
       ],
+      name: 'chocolatey',
     },
     {
-      name: 'chrome',
       fileExtensions: ['crdownload', 'crx'],
+      name: 'chrome',
     },
     {
-      name: 'chuck',
       fileExtensions: ['ck'],
+      name: 'chuck',
     },
     {
-      name: 'circleci',
-      fileNames: ['circle.yml', 'circle.yaml'],
       fileExtensions: ['circleci'],
+      fileNames: ['circle.yml', 'circle.yaml'],
+      name: 'circleci',
     },
     {
-      name: 'circuit',
       fileExtensions: [
         'brd',
         'cir',
@@ -1667,99 +1668,99 @@ export const fileIcons: FileIcons = {
         'pho',
         'sch',
       ],
+      name: 'circuit',
     },
     {
-      name: 'cirru',
       fileExtensions: ['cirru'],
+      name: 'cirru',
     },
     {
-      name: 'ckeditor',
       fileNames: ['ckeditor5-metadata.json'],
+      name: 'ckeditor',
     },
     {
-      name: 'clarion',
       fileExtensions: ['clm', 'clmn', 'clmx', 'clw', 'clwn', 'clwx', 'clwz'],
+      name: 'clarion',
     },
     {
-      name: 'clean',
       fileExtensions: ['dcl'],
+      name: 'clean',
     },
     {
-      name: 'click',
       fileExtensions: ['click'],
+      name: 'click',
     },
     {
-      name: 'clio',
       fileExtensions: ['clio'],
+      name: 'clio',
     },
     {
-      name: 'clips',
       fileExtensions: ['clp'],
+      name: 'clips',
     },
     {
-      name: 'closuretpl',
       fileExtensions: ['soy'],
+      name: 'closuretpl',
     },
     {
-      name: 'cloudfoundry',
       fileExtensions: ['cfignore'],
+      name: 'cloudfoundry',
     },
     {
-      name: 'cmake',
       fileExtensions: ['cmake', 'cmake.in'],
+      name: 'cmake',
     },
     {
-      name: 'cmakelists',
       fileNames: ['cmakelists.txt', 'cmakelists'],
+      name: 'cmakelists',
     },
     {
-      name: 'cname',
       fileNames: ['cname'],
+      name: 'cname',
     },
     {
-      name: 'cnab',
       fileNames: ['bundle.json'],
+      name: 'cnab',
     },
     {
-      name: 'coala',
       fileExtensions: ['coafile', 'coarc'],
+      name: 'coala',
     },
     {
-      name: 'cobol',
       fileExtensions: ['cbl', 'ccp', 'cob', 'cobol', 'cpy'],
+      name: 'cobol',
     },
     {
-      name: 'cocoapods',
       fileExtensions: ['podfile', 'podfile.lock', 'podspec'],
+      name: 'cocoapods',
     },
     {
-      name: 'coconut',
       fileExtensions: ['coco'],
+      name: 'coconut',
     },
     {
-      name: 'codacy',
       fileExtensions: ['codacy.yml', 'codacy.yaml'],
+      name: 'codacy',
     },
     {
-      name: 'codeclimate',
       fileExtensions: ['codeclimate.yml', 'codeclimate.yaml'],
+      name: 'codeclimate',
     },
     {
-      name: 'codecov',
-      fileNames: ['codecov.yml', 'codecov.yaml'],
       fileExtensions: ['codecov.yml', 'codecov.yaml'],
+      fileNames: ['codecov.yml', 'codecov.yaml'],
+      name: 'codecov',
     },
     {
-      name: 'codekit',
-      fileNames: ['codekit-config.json'],
       fileExtensions: ['codekit', 'codekit2', 'codekit3'],
+      fileNames: ['codekit-config.json'],
+      name: 'codekit',
     },
     {
-      name: 'codemeta',
       fileNames: ['codemeta.json', 'codemeta.jsonld'],
+      name: 'codemeta',
     },
     {
-      name: 'codemirror',
       fileNames: [
         'codemirror.cjs',
         'codemirror.css',
@@ -1769,37 +1770,38 @@ export const fileIcons: FileIcons = {
         'codemirror.mjs',
         'codemirror.ts',
       ],
+      name: 'codemirror',
     },
     {
-      name: 'codeowners',
       fileNames: ['codeowners'],
+      name: 'codeowners',
     },
     {
-      name: 'codeship',
       fileNames: ['codeship-services.yml', 'codeship-steps.yml'],
+      name: 'codeship',
     },
     {
-      name: 'codeql',
       fileExtensions: ['ql'],
+      name: 'codeql',
     },
     {
-      name: 'coffeelint',
       fileNames: ['coffeelint.json'],
+      name: 'coffeelint',
     },
     {
-      name: 'coffeelintignore',
       fileExtensions: ['coffeelintignore'],
+      name: 'coffeelintignore',
     },
     {
-      name: 'cf',
       fileExtensions: ['cf'],
+      name: 'cf',
     },
     {
-      name: 'khronos',
       fileExtensions: ['collada', 'dae'],
+      name: 'khronos',
     },
     {
-      name: 'commitizen',
+      fileExtensions: ['cz', 'cz.json', 'cz.toml', 'cz.yaml', 'cz.yml', 'czrc'],
       fileNames: [
         'commitizen.json',
         'commitizen.toml',
@@ -1810,19 +1812,9 @@ export const fileIcons: FileIcons = {
         'cz.yaml',
         'cz.yml',
       ],
-      fileExtensions: ['cz', 'cz.json', 'cz.toml', 'cz.yaml', 'cz.yml', 'czrc'],
+      name: 'commitizen',
     },
     {
-      name: 'commitlint',
-      fileNames: [
-        'commitlint.config',
-        'commitlint.config.cjs',
-        'commitlint.config.js',
-        'commitlint.config.json',
-        'commitlint.config.mjs',
-        'commitlint.config.yaml',
-        'commitlint.config.yml',
-      ],
       fileExtensions: [
         'commitlintrc',
         'commitlintrc.cjs',
@@ -1832,13 +1824,22 @@ export const fileIcons: FileIcons = {
         'commitlintrc.yaml',
         'commitlintrc.yml',
       ],
+      fileNames: [
+        'commitlint.config',
+        'commitlint.config.cjs',
+        'commitlint.config.js',
+        'commitlint.config.json',
+        'commitlint.config.mjs',
+        'commitlint.config.yaml',
+        'commitlint.config.yml',
+      ],
+      name: 'commitlint',
     },
     {
-      name: 'compassConfig',
       fileNames: ['config.rb'],
+      name: 'compassConfig',
     },
     {
-      name: 'compass',
       fileNames: [
         '_compass.sass',
         '_compass.scss',
@@ -1848,53 +1849,53 @@ export const fileIcons: FileIcons = {
         'lemonade.sass',
         'lemonade.scss',
       ],
+      name: 'compass',
     },
     {
-      name: 'cp',
       fileExtensions: ['cp', 'cps'],
+      name: 'cp',
     },
     {
-      name: 'composer',
       fileNames: ['composer.json'],
+      name: 'composer',
     },
     {
-      name: 'composerlock',
       fileNames: ['composer.lock'],
+      name: 'composerlock',
     },
     {
-      name: 'composerphar',
       fileNames: ['composer.phar'],
+      name: 'composerphar',
     },
     {
-      name: 'cdf',
       fileExtensions: ['cdf'],
+      name: 'cdf',
     },
     {
-      name: 'conan',
       fileNames: ['conan.conf', 'conanfile', 'conanfile.py', 'conanfile.txt'],
+      name: 'conan',
     },
     {
-      name: 'conda',
       fileExtensions: ['condarc'],
+      name: 'conda',
     },
     {
-      name: 'confluence',
       fileExtensions: ['confluence'],
+      name: 'confluence',
     },
     {
-      name: 'conll',
       fileExtensions: ['conll', 'conllu'],
+      name: 'conll',
     },
     {
-      name: 'cml',
       fileExtensions: ['cml'],
+      name: 'cml',
     },
     {
-      name: 'contributors',
       fileExtensions: ['contributors'],
+      name: 'contributors',
     },
     {
-      name: 'cordova',
       fileNames: [
         'config.xml',
         'cordova-2.js',
@@ -1902,50 +1903,51 @@ export const fileIcons: FileIcons = {
         'cordova.js',
         'cordova_plugins.js',
       ],
+      name: 'cordova',
     },
     {
-      name: 'coq',
       fileExtensions: ['coq'],
+      name: 'coq',
     },
     {
-      name: 'corel',
       fileExtensions: ['ccx', 'cdr', 'cdrx', 'cdt', 'cmx'],
+      name: 'corel',
     },
     {
-      name: 'coveralls',
       fileExtensions: ['coveralls.yml', 'coveralls.yaml'],
+      name: 'coveralls',
     },
     {
-      name: 'cpan',
       fileNames: ['cpanfile', 'meta.json', 'meta.yaml', 'meta.yml'],
+      name: 'cpan',
     },
     {
-      name: 'credits',
       fileNames: ['credits', 'credits.md', 'credits.rst', 'credits.txt'],
+      name: 'credits',
     },
     {
-      name: 'cpcdocs',
       fileExtensions: ['cpc'],
+      name: 'cpcdocs',
     },
     {
-      name: 'creole',
       fileExtensions: ['creole'],
+      name: 'creole',
     },
     {
-      name: 'crowdin',
       fileNames: ['crowdin.yml', 'crowdin.yaml'],
+      name: 'crowdin',
     },
     {
-      name: 'crystal',
       fileExtensions: ['cr', 'ecr'],
+      name: 'crystal',
     },
     {
-      name: 'csound',
       fileExtensions: ['csc', 'ins', 'orc', 'sco', 'udo'],
       light: true,
+      name: 'csound',
     },
     {
-      name: 'cspell',
+      fileExtensions: ['cspell', 'cspell.json', 'cspell.yaml', 'cspell.yml'],
       fileNames: [
         'cspell.config.cjs',
         'cspell.config.js',
@@ -1954,31 +1956,31 @@ export const fileIcons: FileIcons = {
         'cspell.config.yaml',
         'cspell.config.yml',
       ],
-      fileExtensions: ['cspell', 'cspell.json', 'cspell.yaml', 'cspell.yml'],
+      name: 'cspell',
     },
     {
-      name: 'csscomb',
       fileExtensions: [
         'csscomb.js',
         'csscomb.json',
         'csscomb.yaml',
         'csscomb.yml',
       ],
+      name: 'csscomb',
     },
     {
-      name: 'csslint',
       fileExtensions: ['csslintrc'],
+      name: 'csslint',
     },
     {
-      name: 'cssmap',
       fileExtensions: ['css.map'],
+      name: 'cssmap',
     },
     {
-      name: 'csv',
       fileExtensions: ['csv', 'tsv'],
+      name: 'csv',
     },
     {
-      name: 'cucumber',
+      fileExtensions: ['feature'],
       fileNames: [
         'cucumber.cjs',
         'cucumber.js',
@@ -1988,46 +1990,45 @@ export const fileIcons: FileIcons = {
         'cucumber.yaml',
         'cucumber.yml',
       ],
-      fileExtensions: ['feature'],
+      name: 'cucumber',
     },
     {
-      name: 'nvidia',
       fileExtensions: ['cu'],
+      name: 'nvidia',
     },
     {
-      name: 'cuh',
       fileExtensions: ['cuh'],
+      name: 'cuh',
     },
     {
-      name: 'cue',
       fileExtensions: ['cue'],
+      name: 'cue',
     },
     {
-      name: 'cuneiform',
       fileExtensions: ['cfl'],
+      name: 'cuneiform',
     },
     {
-      name: 'curl',
       fileExtensions: ['curlrc'],
+      name: 'curl',
     },
     {
-      name: 'curry',
       fileExtensions: ['curry'],
+      name: 'curry',
     },
     {
-      name: 'cwl',
       fileExtensions: ['cwl'],
+      name: 'cwl',
     },
     {
-      name: 'cython',
       fileExtensions: ['pxd', 'pxi', 'pyx'],
+      name: 'cython',
     },
     {
-      name: 'cypress',
       fileNames: ['cypress.json', 'cypress.env.json'],
+      name: 'cypress',
     },
     {
-      name: 'cpp',
       fileExtensions: [
         'c++',
         'cc',
@@ -2039,24 +2040,24 @@ export const fileIcons: FileIcons = {
         'mii',
         'tcc',
       ],
+      name: 'cpp',
     },
     {
-      name: 'csharp',
       fileExtensions: ['cs', 'csx'],
+      name: 'csharp',
     },
     {
-      name: 'csproj',
       fileExtensions: ['csproj'],
+      name: 'csproj',
     },
     {
-      name: 'vcxproj',
       fileExtensions: ['vcxproj', 'vcxproj.filters'],
+      name: 'vcxproj',
     },
     // endregion
 
     // region [D]
     {
-      name: 'd3',
       fileNames: [
         'd3.cjs',
         'd3.js',
@@ -2079,58 +2080,58 @@ export const fileIcons: FileIcons = {
         'd3.v4.min.js',
         'd3.v4.mjs',
       ],
+      name: 'd3',
     },
     {
-      name: 'dafny',
       fileExtensions: ['dafny', 'dfy'],
+      name: 'dafny',
     },
     {
-      name: 'danmakufu',
       fileExtensions: ['dnh'],
+      name: 'danmakufu',
     },
     {
-      name: 'dal',
       fileExtensions: ['dal'],
+      name: 'dal',
     },
     {
-      name: 'dartignore',
       fileExtensions: ['dartignore', 'pubignore'],
+      name: 'dartignore',
     },
     {
-      name: 'darcs',
       fileExtensions: ['darcspatch', 'dpatch'],
+      name: 'darcs',
     },
     {
-      name: 'boringignore',
       fileExtensions: ['boringignore'],
+      name: 'boringignore',
     },
     {
-      name: 'dashboard',
       fileExtensions: ['cloc', 'cpuprofile', 'heapprofile'],
+      name: 'dashboard',
     },
     {
-      name: 'dataweave',
       fileExtensions: ['dfl', 'dw', 'dwl'],
+      name: 'dataweave',
     },
     {
-      name: 'dbproj',
       fileExtensions: ['dbproj', 'sqlproj'],
+      name: 'dbproj',
     },
     {
-      name: 'dbase',
       fileExtensions: ['dbf'],
+      name: 'dbase',
     },
     {
-      name: 'debian',
       fileExtensions: ['control', 'deb', 'udeb'],
+      name: 'debian',
     },
     {
-      name: 'deepsource',
       fileExtensions: ['deepsource.toml'],
       light: true,
+      name: 'deepsource',
     },
     {
-      name: 'delphi',
       fileExtensions: [
         'delphi',
         'dfm',
@@ -2141,27 +2142,28 @@ export const fileIcons: FileIcons = {
         'int',
         'nfm',
       ],
+      name: 'delphi',
     },
     {
-      name: 'denizen',
       fileExtensions: ['dsc'],
+      name: 'denizen',
     },
     {
-      name: 'denorc',
-      fileNames: ['deno.json'],
       fileExtensions: ['denorc'],
+      fileNames: ['deno.json'],
+      name: 'denorc',
     },
     {
-      name: 'denoignore',
       fileExtensions: ['denoignore'],
+      name: 'denoignore',
     },
     {
-      name: 'deno',
       fileNames: ['import_map.json', 'mod.ts'],
       light: true,
+      name: 'deno',
     },
     {
-      name: 'deps',
+      fileExtensions: ['dependencies', 'deps', 'pydeps'],
       fileNames: [
         'DEPS',
         'Dependencies',
@@ -2172,14 +2174,13 @@ export const fileIcons: FileIcons = {
         'deps.yaml',
         'deps.yml',
       ],
-      fileExtensions: ['dependencies', 'deps', 'pydeps'],
+      name: 'deps',
     },
     {
-      name: 'dependabot',
       fileNames: ['dependabot.yml', 'dependabot.yaml'],
+      name: 'dependabot',
     },
     {
-      name: 'detekt',
       fileNames: [
         'detekt-config.yaml',
         'detekt-config.yml',
@@ -2187,67 +2188,68 @@ export const fileIcons: FileIcons = {
         'detekt.yml',
         'detekt/yml',
       ],
+      name: 'detekt',
     },
     {
-      name: 'devcontainer',
       fileExtensions: ['devcontainer.json'],
       fileNames: ['devcontainer.json'],
+      name: 'devcontainer',
     },
     {
-      name: 'devicetree',
       fileExtensions: ['dts', 'dtsi'],
+      name: 'devicetree',
     },
     {
-      name: 'dhall',
       fileExtensions: ['dhall'],
       light: true,
+      name: 'dhall',
     },
     {
-      name: 'dia',
       fileExtensions: ['dia'],
+      name: 'dia',
     },
     {
-      name: 'digdag',
       fileExtensions: ['dig'],
+      name: 'digdag',
     },
     {
-      name: 'dinophp',
       fileExtensions: ['bubble', 'dino'],
+      name: 'dinophp',
     },
     {
-      name: 'dns',
       fileExtensions: ['arpa', 'zone'],
+      name: 'dns',
     },
     {
-      name: 'diff',
       fileExtensions: ['diff', 'diffs'],
+      name: 'diff',
     },
     {
-      name: 'djangoconfig',
       fileNames: ['asgi.py', 'manage.py', 'settings.py', 'urls.py', 'wsgi.py'],
+      name: 'djangoconfig',
     },
     {
-      name: 'django',
       fileExtensions: ['django', 'djt'],
+      name: 'django',
     },
     {
-      name: 'dll',
       fileExtensions: ['dlc', 'dll'],
+      name: 'dll',
     },
     {
-      name: 'do',
       fileExtensions: ['do'],
+      name: 'do',
     },
     {
-      name: 'docbook',
       fileExtensions: ['dbk', 'docb', 'docbkx', 'docbook'],
+      name: 'docbook',
     },
     {
-      name: 'doclets',
       fileExtensions: ['doclets', 'doclets.yaml', 'doclets.yml'],
+      name: 'doclets',
     },
     {
-      name: 'docker',
+      fileExtensions: ['dockerfile'],
       fileNames: [
         'docker/dockerfile',
         'dockerfile',
@@ -2256,10 +2258,9 @@ export const fileIcons: FileIcons = {
         'dockerfile.test',
         'dockerfiles/dockerfile',
       ],
-      fileExtensions: ['dockerfile'],
+      name: 'docker',
     },
     {
-      name: 'dockercompose',
       fileExtensions: [
         'docker-compose.yaml',
         'docker-compose.yml',
@@ -2280,17 +2281,17 @@ export const fileIcons: FileIcons = {
         'docker-compose.yaml',
         'docker-compose.yml',
       ],
+      name: 'dockercompose',
     },
     {
-      name: 'dockerignore',
       fileExtensions: ['dockerignore'],
+      name: 'dockerignore',
     },
     {
-      name: 'docpad',
       fileExtensions: ['eco'],
+      name: 'docpad',
     },
     {
-      name: 'doczconfig',
       fileExtensions: [
         'doczrc',
         'doczrc.cjs',
@@ -2309,47 +2310,47 @@ export const fileIcons: FileIcons = {
         'docz.config.mjs',
         'docz.config.ts',
       ],
+      name: 'doczconfig',
     },
     {
-      name: 'docz',
       fileExtensions: ['docz'],
+      name: 'docz',
     },
     {
-      name: 'dogescript',
       fileExtensions: ['djs', 'doge'],
+      name: 'dogescript',
     },
     {
-      name: 'dojo',
       fileExtensions: ['dojo', 'dojorc'],
       fileNames: ['dojo.cjs', 'dojo.js', 'dojo.mjs'],
+      name: 'dojo',
     },
     {
-      name: 'donejs',
       fileExtensions: ['component'],
+      name: 'donejs',
     },
     {
-      name: 'dosbox',
       fileNames: ['dosbox-0.74.conf', 'dosbox.conf', 'dosbox.conf.default'],
+      name: 'dosbox',
     },
     {
-      name: 'dotjs',
       fileExtensions: ['dot', 'jst'],
+      name: 'dotjs',
     },
     {
-      name: 'dotnet',
       fileExtensions: ['net', 'netcore', 'netframework', 'netstandard'],
+      name: 'dotnet',
     },
     {
-      name: 'doxyfile',
       fileExtensions: ['doxyfile', 'doxygen'],
       fileNames: ['doxyfile', 'doxygen'],
+      name: 'doxyfile',
     },
     {
-      name: 'doxygen',
       fileExtensions: ['dox'],
+      name: 'doxygen',
     },
     {
-      name: 'dragula',
       fileNames: [
         'dragula.cjs',
         'dragula.css',
@@ -2360,13 +2361,13 @@ export const fileIcons: FileIcons = {
         'dragula.min.mjs',
         'dragula.mjs',
       ],
+      name: 'dragula',
     },
     {
-      name: 'dragonflybsd',
       fileExtensions: ['dfly', 'dflybsd', 'dragonfly'],
+      name: 'dragonflybsd',
     },
     {
-      name: 'drawio',
       fileExtensions: [
         'dio',
         'dio.png',
@@ -2375,101 +2376,101 @@ export const fileIcons: FileIcons = {
         'drawio.png',
         'drawio.svg',
       ],
+      name: 'drawio',
     },
     {
-      name: 'drone',
       fileExtensions: ['drone.yml', 'drone.yaml'],
+      name: 'drone',
     },
     {
-      name: 'drools',
       fileExtensions: ['drl'],
+      name: 'drools',
     },
     {
-      name: 'drupal',
       fileExtensions: ['drools'],
+      name: 'drupal',
     },
     {
-      name: 'dub',
       fileNames: ['dub.json', 'dub.sdl', 'dub.selections.json'],
+      name: 'dub',
     },
     {
-      name: 'dune',
       fileNames: ['dune', 'dune-project', 'dune-workspace'],
+      name: 'dune',
     },
     {
-      name: 'dustjs',
       fileExtensions: ['dust'],
+      name: 'dustjs',
     },
     {
-      name: 'dvc',
       fileExtensions: ['dvc'],
+      name: 'dvc',
     },
     {
-      name: 'dyalog',
       fileExtensions: ['dyalog', 'dyapp', 'mipage'],
+      name: 'dyalog',
     },
     {
-      name: 'dylan',
       fileExtensions: ['dyl', 'dylan', 'intr', 'lid'],
+      name: 'dylan',
     },
     {
-      name: 'dylib',
       fileExtensions: ['bundle', 'dylib', 'pkg'],
+      name: 'dylib',
     },
     // endregion
 
     // region [E]
     {
-      name: 'e',
       fileExtensions: ['e'],
+      name: 'e',
     },
     {
-      name: 'eagle',
       fileExtensions: ['eup'],
+      name: 'eagle',
     },
     {
-      name: 'earthly',
-      fileNames: ['Earthfile'],
       fileExtensions: ['earth', 'earthfile'],
+      fileNames: ['Earthfile'],
+      name: 'earthly',
     },
     {
-      name: 'earthlyignore',
       fileExtensions: ['earthignore', 'earthlyignore'],
+      name: 'earthlyignore',
     },
     {
-      name: 'eas',
       fileNames: ['store.config.json'],
+      name: 'eas',
     },
     {
-      name: 'easybuild',
       fileExtensions: ['eb'],
+      name: 'easybuild',
     },
     {
-      name: 'ec',
       fileExtensions: ['ec', 'eh'],
+      name: 'ec',
     },
     {
-      name: 'ecere',
       fileExtensions: ['epj'],
+      name: 'ecere',
     },
     {
-      name: 'clipse',
       fileExtensions: ['ecl', 'ecl.txt'],
+      name: 'clipse',
     },
     {
-      name: 'eclipse',
       fileExtensions: ['classpath', 'cproject', 'eclipse', 'project'],
+      name: 'eclipse',
     },
     {
-      name: 'edge',
       fileExtensions: ['edge'],
+      name: 'edge',
     },
     {
-      name: 'editorconfig',
       fileExtensions: ['ecrc', 'editorconfig', 'editorconfig.json'],
+      name: 'editorconfig',
     },
     {
-      name: 'egg',
       fileNames: [
         'config.default.js',
         'config.local.js',
@@ -2477,24 +2478,18 @@ export const fileIcons: FileIcons = {
         'config.test.js',
         'config.unittest.js',
       ],
+      name: 'egg',
     },
     {
-      name: 'electron',
-      fileNames: ['electron-builder.json', 'electron-builder.yml'],
       fileExtensions: ['compilerc', 'compilerc.json'],
+      fileNames: ['electron-builder.json', 'electron-builder.yml'],
+      name: 'electron',
     },
     {
-      name: 'electronasar',
       fileExtensions: ['asar'],
+      name: 'electronasar',
     },
     {
-      name: 'electronforge',
-      fileNames: [
-        'forge.config.cjs',
-        'forge.config.js',
-        'forge.config.mjs',
-        'forge.config.ts',
-      ],
       fileExtensions: [
         'electronforge',
         'forge.config.cjs',
@@ -2502,41 +2497,47 @@ export const fileIcons: FileIcons = {
         'forge.config.mjs',
         'forge.config.ts',
       ],
+      fileNames: [
+        'forge.config.cjs',
+        'forge.config.js',
+        'forge.config.mjs',
+        'forge.config.ts',
+      ],
+      name: 'electronforge',
     },
     {
-      name: 'elementaryos',
       fileExtensions: ['appdata.xml'],
+      name: 'elementaryos',
     },
     {
-      name: 'eiffel',
       fileExtensions: ['ecf', 'eif', 'eiffel'],
+      name: 'eiffel',
     },
     {
-      name: 'ejs',
       fileExtensions: ['ejs'],
+      name: 'ejs',
     },
     {
-      name: 'elastic',
       fileExtensions: ['edql', 'es'],
+      name: 'elastic',
     },
     {
-      name: 'elasticconf',
       fileNames: ['elasticsearch.yml', 'elasticsearch.yaml'],
+      name: 'elasticconf',
     },
     {
-      name: 'ex',
       fileExtensions: ['eex', 'elixir', 'ex', 'exs', 'heex', 'leex'],
+      name: 'ex',
     },
     {
-      name: 'elm',
       fileExtensions: ['elm'],
+      name: 'elm',
     },
     {
-      name: 'emacs',
       fileExtensions: ['emacs', 'emacs.conf', 'emacsconfig', 'emacsrc'],
+      name: 'emacs',
     },
     {
-      name: 'emacslisp',
       fileExtensions: [
         'ede',
         'el',
@@ -2547,38 +2548,38 @@ export const fileIcons: FileIcons = {
         'gnus',
         'viper',
       ],
+      name: 'emacslisp',
     },
     {
-      name: 'emacscask',
       fileExtensions: ['cask'],
       fileNames: ['cask', 'Caskfile'],
+      name: 'emacscask',
     },
     {
-      name: 'email',
       fileExtensions: ['email', 'eml', 'mail', 'mailmap', 'mbox'],
+      name: 'email',
     },
     {
-      name: 'embercli',
       fileExtensions: ['ember-cli', 'ember-cli-build'],
+      name: 'embercli',
     },
     {
-      name: 'ember',
       fileExtensions: ['ember', 'ember.json'],
+      name: 'ember',
     },
     {
-      name: 'emberscript',
       fileExtensions: ['em', 'emberscript'],
+      name: 'emberscript',
     },
     {
-      name: 'ensime',
       fileExtensions: ['ensime'],
+      name: 'ensime',
     },
     {
-      name: 'eq',
       fileExtensions: ['eq'],
+      name: 'eq',
     },
     {
-      name: 'esdoc',
       fileExtensions: [
         'esdoc',
         'esdoc.cjs',
@@ -2588,9 +2589,9 @@ export const fileIcons: FileIcons = {
         'esdoc.yaml',
         'esdoc.yml',
       ],
+      name: 'esdoc',
     },
     {
-      name: 'eslint',
       fileExtensions: [
         'eslint/js',
         'eslint/ts',
@@ -2609,17 +2610,17 @@ export const fileIcons: FileIcons = {
         'eslintrc.yaml',
         'eslintrc.yml',
       ],
+      name: 'eslint',
     },
     {
-      name: 'eslintignore',
       fileExtensions: ['eslintcache', 'eslintignore'],
+      name: 'eslintignore',
     },
     {
-      name: 'erb',
       fileExtensions: ['erb', 'erb.deface', 'erb.deface.orig', 'ru'],
+      name: 'erb',
     },
     {
-      name: 'erlang',
       fileExtensions: [
         'beam',
         'erc',
@@ -2631,14 +2632,14 @@ export const fileIcons: FileIcons = {
         'yaws',
         'yrl',
       ],
+      name: 'erlang',
     },
     {
-      name: 'makefile',
       fileExtensions: ['emakerfile', 'emakefile', 'emake'],
       fileNames: ['emakefile', 'emake'],
+      name: 'makefile',
     },
     {
-      name: 'excel',
       fileExtensions: [
         'odx',
         'xla',
@@ -2652,9 +2653,9 @@ export const fileIcons: FileIcons = {
         'xltm',
         'xltx',
       ],
+      name: 'excel',
     },
     {
-      name: 'expo',
       fileNames: [
         'app.config.cjs',
         'app.config.js',
@@ -2668,9 +2669,9 @@ export const fileIcons: FileIcons = {
         'expo/json',
         'expo/ts',
       ],
+      name: 'expo',
     },
     {
-      name: 'extjs',
       fileNames: [
         'extjs-build.js',
         'extjs-ext.cjs',
@@ -2680,40 +2681,40 @@ export const fileIcons: FileIcons = {
         'extjs.js',
         'extjs.mjs',
       ],
+      name: 'extjs',
     },
     // endregion
 
     // region [F]
     {
-      name: 'fabric',
       fileNames: ['fabric.mod.json'],
+      name: 'fabric',
     },
     {
-      name: 'fabfile',
       fileNames: ['fabfile.py'],
+      name: 'fabfile',
     },
     {
-      name: 'factor',
       fileExtensions: ['factor', 'factor-boot-rc', 'factor-rc'],
+      name: 'factor',
     },
     {
-      name: 'falcon',
       fileExtensions: ['fal', 'falcon'],
+      name: 'falcon',
     },
     {
-      name: 'fancy',
       fileExtensions: ['fancypack', 'fy'],
+      name: 'fancy',
     },
     {
-      name: 'fakefile',
       fileNames: ['fakefile'],
+      name: 'fakefile',
     },
     {
-      name: 'fantom',
       fileExtensions: ['fan', 'fantom'],
+      name: 'fantom',
     },
     {
-      name: 'fasta',
       fileExtensions: [
         'fa',
         'faa',
@@ -2729,9 +2730,9 @@ export const fileIcons: FileIcons = {
         'sam',
         'seq',
       ],
+      name: 'fasta',
     },
     {
-      name: 'fastlane',
       fileNames: [
         'appfile',
         'fastfile',
@@ -2740,17 +2741,17 @@ export const fileIcons: FileIcons = {
         'pluginfile',
         'snapshotfile',
       ],
+      name: 'fastlane',
     },
     {
-      name: 'fauna',
       fileExtensions: ['fauna', 'faunaql', 'faunarc', 'fql'],
+      name: 'fauna',
     },
     {
-      name: 'faust',
       fileExtensions: ['dsp', 'faust'],
+      name: 'faust',
     },
     {
-      name: 'favicon',
       fileNames: [
         'favicon.gif',
         'favicon.ico',
@@ -2759,96 +2760,96 @@ export const fileIcons: FileIcons = {
         'favicon.png',
         'favicon.svg',
       ],
+      name: 'favicon',
     },
     {
-      name: 'fbx',
       fileExtensions: ['fbx'],
+      name: 'fbx',
     },
     {
-      name: 'fexl',
       fileExtensions: ['fexl', 'fxl'],
+      name: 'fexl',
     },
     {
-      name: 'figma',
       fileExtensions: ['figma'],
+      name: 'figma',
     },
     {
-      name: 'finaldraft',
       fileExtensions: ['fdx', 'fdxtpl'],
+      name: 'finaldraft',
     },
     {
-      name: 'finder',
       fileExtensions: ['DS_Store', '_', '_MACOSX', '__MACOSX'],
+      name: 'finder',
     },
     {
-      name: 'firebaserc',
       fileExtensions: ['firebaserc'],
+      name: 'firebaserc',
     },
     {
-      name: 'firestore',
       fileNames: ['firestore.rules', 'firestore.indexes.json'],
+      name: 'firestore',
     },
     {
-      name: 'firebase',
       fileNames: ['firebase.json'],
+      name: 'firebase',
     },
     {
-      name: 'fitbit',
       fileExtensions: ['fba'],
+      name: 'fitbit',
     },
     {
-      name: 'firebasebolt',
       fileExtensions: ['bolt'],
+      name: 'firebasebolt',
     },
     {
-      name: 'firefox',
       fileExtensions: ['webapp', 'xpi'],
+      name: 'firefox',
     },
     {
-      name: 'fiddle',
       fileNames: [
         'electron-fiddle',
         'electron-fiddle.json',
         'electron-fiddle.rpm',
         'electron-fiddle.zip',
       ],
+      name: 'fiddle',
     },
     {
-      name: 'flash',
       fileExtensions: ['flash', 'swf'],
+      name: 'flash',
     },
     {
-      name: 'flask',
       fileNames: ['flask', 'flask.py', 'flaskapp.py'],
+      name: 'flask',
     },
     {
-      name: 'floobits',
       fileExtensions: ['flooignore', 'floorc.json'],
+      name: 'floobits',
     },
     {
-      name: 'flow',
       fileExtensions: ['flowconfig', 'flow'],
       light: true,
+      name: 'flow',
     },
     {
-      name: 'flutter',
       fileExtensions: [
         'flutter-plugins',
         'flutter-plugins-dependencies',
         'metadata',
         'packages',
       ],
+      name: 'flutter',
     },
     {
-      name: 'flutterlock',
       fileNames: ['pubspec.lock', 'pubspec.yaml'],
+      name: 'flutterlock',
     },
     {
-      name: 'flux',
       fileExtensions: ['flux', 'fluxc', 'fx'],
+      name: 'flux',
     },
     {
-      name: 'fontbitmap',
       fileExtensions: [
         'bdf',
         'bmf',
@@ -2862,13 +2863,13 @@ export const fileIcons: FileIcons = {
         'snf',
         'tlf',
       ],
+      name: 'fontbitmap',
     },
     {
-      name: 'fontforge',
       fileExtensions: ['ff', 'pe', 'sfd'],
+      name: 'fontforge',
     },
     {
-      name: 'fossil',
       fileExtensions: [
         'fossil',
         'fossil-ignore',
@@ -2877,50 +2878,50 @@ export const fileIcons: FileIcons = {
         'fslckout',
       ],
       fileNames: ['_FOSSIL_', 'fossil.exe'],
+      name: 'fossil',
     },
     {
-      name: 'ftr',
       fileExtensions: ['ftr', 'trm'],
+      name: 'ftr',
     },
     {
-      name: 'fork',
       fileExtensions: ['fork', 'issuetracker'],
+      name: 'fork',
     },
     {
-      name: 'forth',
       fileExtensions: ['4th', 'forth', 'frt', 'fth'],
+      name: 'forth',
     },
     {
-      name: 'fortran',
       fileExtensions: ['f03', 'f08', 'f15', 'f77', 'f90', 'f95', 'for', 'fpp'],
+      name: 'fortran',
     },
     {
-      name: 'fossa',
       fileExtensions: [
         'fossa.local.yaml',
         'fossa.local.yml',
         'fossa.yaml',
         'fossa.yml',
       ],
+      name: 'fossa',
     },
     {
-      name: 'fossaignore',
       fileExtensions: ['fossaignore'],
+      name: 'fossaignore',
     },
     {
-      name: 'fountain',
       fileExtensions: ['fountain', 'ftn'],
+      name: 'fountain',
     },
     {
-      name: 'foxpro',
       fileExtensions: ['fxp'],
+      name: 'foxpro',
     },
     {
-      name: 'franca',
       fileExtensions: ['fdepl', 'fdl', 'fidl', 'franca'],
+      name: 'franca',
     },
     {
-      name: 'freedesktop',
       fileExtensions: [
         'desktop',
         'desktop.in',
@@ -2929,37 +2930,37 @@ export const fileIcons: FileIcons = {
         'mime',
         'mimeapps',
       ],
+      name: 'freedesktop',
     },
     {
-      name: 'freedos',
       fileExtensions: ['dxelib', 'sys'],
+      name: 'freedos',
     },
     {
-      name: 'freemarker',
       fileExtensions: ['freemarker', 'ftl'],
+      name: 'freemarker',
     },
     {
-      name: 'freemat',
       fileExtensions: ['mat'],
+      name: 'freemat',
     },
     {
-      name: 'frege',
       fileExtensions: ['fr', 'frege'],
+      name: 'frege',
     },
     {
-      name: 'fsharp',
       fileExtensions: ['fs', 'fsi', 'fsproj', 'fsscript', 'fsx'],
+      name: 'fsharp',
     },
     {
-      name: 'fthtml',
       fileExtensions: ['fthtml'],
+      name: 'fthtml',
     },
     {
-      name: 'fuelux',
       fileNames: ['fuelux.css', 'fuelux.js', 'fuelux.min.css', 'fuelux.min.js'],
+      name: 'fuelux',
     },
     {
-      name: 'fusebox',
       fileNames: [
         'fuse.js',
         'fuse.mjs',
@@ -2968,40 +2969,40 @@ export const fileIcons: FileIcons = {
         'fusebox.mjs',
         'fusebox.ts',
       ],
+      name: 'fusebox',
     },
     {
-      name: 'futhark',
       fileExtensions: ['fut', 'futhark'],
+      name: 'futhark',
     },
     // endregion
 
     // region [G]
     {
-      name: 'galaxy',
       fileNames: ['galaxy.yml', 'galaxy.yaml', 'galaxy.ini'],
+      name: 'galaxy',
     },
     {
-      name: 'galen',
       fileExtensions: ['gspec', 'gtest'],
+      name: 'galen',
     },
     {
-      name: 'gamemaker',
       fileExtensions: ['gml'],
+      name: 'gamemaker',
     },
     {
-      name: 'gams',
       fileExtensions: ['gms', 'gmsx', 'gmsi', 'gmsinc', 'gmsincx'],
+      name: 'gams',
     },
     {
-      name: 'gap',
       fileExtensions: ['gi', 'gap'],
+      name: 'gap',
     },
     {
-      name: 'gss',
       fileExtensions: ['gss'],
+      name: 'gss',
     },
     {
-      name: 'gatsby',
       fileNames: [
         'gatsby.js',
         'gatsby.cjs',
@@ -3028,18 +3029,18 @@ export const fileIcons: FileIcons = {
         'gatsby.config.mjs',
         'gatsby.config.ts',
       ],
+      name: 'gatsby',
     },
     {
-      name: 'gauge',
       fileExtensions: ['spec'],
       light: true,
+      name: 'gauge',
     },
     {
-      name: 'gcp',
       fileExtensions: ['gcloud', 'gcloudignore'],
+      name: 'gcp',
     },
     {
-      name: 'gcode',
       fileExtensions: [
         'apt',
         'cnc',
@@ -3056,102 +3057,93 @@ export const fileIcons: FileIcons = {
         'ncf',
         'tap',
       ],
+      name: 'gcode',
     },
     {
-      name: 'gdb',
       fileExtensions: ['gdb'],
+      name: 'gdb',
     },
     {
-      name: 'gemfile',
       fileNames: ['gemfile.lock'],
+      name: 'gemfile',
     },
     {
-      name: 'gemini',
       fileExtensions: ['gmi', 'gemini'],
+      name: 'gemini',
     },
     {
-      name: 'genshi',
       fileExtensions: ['kid'],
+      name: 'genshi',
     },
     {
-      name: 'genstat',
       fileExtensions: ['gen', 'gpi'],
+      name: 'genstat',
     },
     {
-      name: 'gentoo',
       fileExtensions: ['ebuild', 'eclass', 'ekeyword', 'euse'],
+      name: 'gentoo',
     },
     {
-      name: 'geojson',
       fileExtensions: ['geojson', 'geo.json', 'topojson', 'topo.json'],
+      name: 'geojson',
     },
     {
-      name: 'ghostscript',
       fileExtensions: ['ghostscript'],
+      name: 'ghostscript',
     },
     {
-      name: 'gimp',
       fileExtensions: ['xcf', 'gbr', 'ggr', 'gih', 'vbr'],
+      name: 'gimp',
     },
     {
-      name: 'gitlab',
       fileExtensions: ['gitlab-ci.yml', 'gitlab-ci.yaml'],
+      name: 'gitlab',
     },
     {
-      name: 'gitignore',
       fileExtensions: ['gitignore'],
+      name: 'gitignore',
     },
     {
-      name: 'gitpod',
       fileExtensions: ['gitpod.yml', 'gitpod.yaml'],
+      name: 'gitpod',
     },
     {
-      name: 'glade',
       fileExtensions: ['glade'],
+      name: 'glade',
     },
     {
-      name: 'gleam',
       fileExtensions: ['gleam'],
+      name: 'gleam',
     },
     {
-      name: 'glide',
       fileNames: ['glide.lock', 'glide.yaml', 'glide.yml'],
+      name: 'glide',
     },
     {
-      name: 'glitter',
       fileExtensions: ['glitter', 'glitterrc'],
+      name: 'glitter',
     },
     {
-      name: 'gltf',
       fileExtensions: ['gltf', 'glb'],
+      name: 'gltf',
     },
     {
-      name: 'pointwise',
       fileExtensions: ['glf'],
+      name: 'pointwise',
     },
     {
-      name: 'glyphs',
       fileExtensions: ['glyphs'],
+      name: 'glyphs',
     },
     {
-      name: 'gn',
       fileExtensions: ['gni', 'gn', 'gnl'],
+      name: 'gn',
     },
     {
-      name: 'gnome',
       fileExtensions: ['gnome', 'gtk'],
+      name: 'gnome',
     },
     {
-      name: 'gnu',
-      fileNames: [
-        'AGPL',
-        'GPL',
-        'LGPL',
-        'COPYING',
-        'COPYING.LESSER',
-        'ALGPL',
-        'GFDL',
-      ],
       fileExtensions: [
         'gnu',
         'gpl',
@@ -3161,73 +3153,82 @@ export const fileIcons: FileIcons = {
         'lgplv2',
         'lgplv3',
       ],
+      fileNames: [
+        'AGPL',
+        'GPL',
+        'LGPL',
+        'COPYING',
+        'COPYING.LESSER',
+        'ALGPL',
+        'GFDL',
+      ],
+      name: 'gnu',
     },
     {
-      name: 'gnuplot',
       fileExtensions: ['gp', 'gnuplot', 'plot', 'plt'],
+      name: 'gnuplot',
     },
     {
-      name: 'goconfig',
       fileNames: ['go.mod', 'go.sum', 'go.sub', 'go.work'],
+      name: 'goconfig',
     },
     {
-      name: 'goTemplate',
       fileExtensions: ['gotmpl', 'tmpl', 'gohtml'],
+      name: 'goTemplate',
     },
     {
-      name: 'godot',
       fileExtensions: ['gd', 'godot', 'tres', 'tscn', 'scn'],
+      name: 'godot',
     },
     {
-      name: 'golo',
       fileExtensions: ['golo'],
+      name: 'golo',
     },
     {
-      name: 'gosu',
       fileExtensions: ['gs', 'gsx', 'gst', 'gsp', 'vark'],
+      name: 'gosu',
     },
     {
-      name: 'goctl',
       fileExtensions: ['api'],
+      name: 'goctl',
     },
     {
-      name: 'goreleaser',
       fileExtensions: ['goreleaser', 'goreleaser.yml', 'goreleaser.yaml'],
+      name: 'goreleaser',
     },
     {
-      name: 'gradle',
       fileExtensions: ['gradle'],
+      name: 'gradle',
     },
     {
-      name: 'gradlekts',
       fileExtensions: ['gradle.kts'],
+      name: 'gradlekts',
     },
     {
-      name: 'gradlew',
       fileNames: ['gradlew', 'gradlew.bat'],
+      name: 'gradlew',
     },
     {
-      name: 'grain',
       fileExtensions: ['grain'],
+      name: 'grain',
     },
     {
-      name: 'gf',
       fileExtensions: ['gf'],
+      name: 'gf',
     },
     {
-      name: 'graphcool',
       fileExtensions: ['graphcool'],
+      name: 'graphcool',
     },
     {
-      name: 'grapher',
       fileExtensions: ['grapher', 'gcx'],
+      name: 'grapher',
     },
     {
-      name: 'graphql',
       fileExtensions: ['graphql', 'gql', 'graphqls', 'gqls'],
+      name: 'graphql',
     },
     {
-      name: 'graphqlconfig',
       fileExtensions: [
         'gqlconfig',
         'graphqlconfig',
@@ -3245,25 +3246,25 @@ export const fileIcons: FileIcons = {
         'graphqlrc.ts',
         'graphqlrc.json',
       ],
+      name: 'graphqlconfig',
     },
     {
-      name: 'graphviz',
       fileExtensions: ['gv', 'graphviz'],
+      name: 'graphviz',
     },
     {
-      name: 'gql-codegen',
       fileNames: ['codegen.yml', 'codegen.yaml', 'codegen.json'],
+      name: 'gql-codegen',
     },
     {
-      name: 'gravit',
       fileExtensions: ['gravit', 'gravitdesign', 'gvdesign'],
+      name: 'gravit',
     },
     {
-      name: 'greenkeeper',
       fileNames: ['greenkeeper.json'],
+      name: 'greenkeeper',
     },
     {
-      name: 'gridsome',
       fileNames: [
         'gridsome.config.js',
         'gridsome.config.cjs',
@@ -3278,17 +3279,17 @@ export const fileIcons: FileIcons = {
         'gridsome.server.mjs',
         'gridsome.server.ts',
       ],
+      name: 'gridsome',
     },
     {
-      name: 'groovy',
       fileExtensions: ['groovy', 'grt', 'gtpl', 'gpp', 'gy', 'gvy', 'gdsl'],
+      name: 'groovy',
     },
     {
-      name: 'groovyfile',
       fileNames: ['groovyfile', 'groovyfile.groovy'],
+      name: 'groovyfile',
     },
     {
-      name: 'gruntfile',
       fileNames: [
         'gruntfile',
         'gruntfile.js',
@@ -3304,9 +3305,9 @@ export const fileIcons: FileIcons = {
         'gruntfiles/cjs',
         'gruntfiles/mjs',
       ],
+      name: 'gruntfile',
     },
     {
-      name: 'gulpfile',
       fileNames: [
         'gulpfile',
         'gulpfile.js',
@@ -3322,33 +3323,33 @@ export const fileIcons: FileIcons = {
         'gulpfiles/cjs',
         'gulpfiles/mjs',
       ],
+      name: 'gulpfile',
     },
     // endregion
 
     // region [H]
     {
-      name: 'hh',
       fileExtensions: ['h', 'h++', 'hm', 'hpp', 'hxx', 'objh'],
+      name: 'hh',
     },
     {
-      name: 'hack',
       fileExtensions: ['hack', 'hh', 'hhconfig', 'hhi'],
+      name: 'hack',
     },
     {
-      name: 'haml',
       fileExtensions: ['haml', 'haml.deface', 'hamlc', 'hamlcoffee'],
+      name: 'haml',
     },
     {
-      name: 'hardhat',
       fileNames: [
         'hardhat.config.cjs',
         'hardhat.config.js',
         'hardhat.config.mjs',
         'hardhat.config.ts',
       ],
+      name: 'hardhat',
     },
     {
-      name: 'hasura',
       fileNames: [
         'actions.yaml',
         'actions.yml',
@@ -3373,26 +3374,26 @@ export const fileIcons: FileIcons = {
         'version.yaml',
         'version.yml',
       ],
+      name: 'hasura',
     },
     {
-      name: 'hasuraconfig',
       fileNames: [
         'hasura.config.yaml',
         'hasura.config.yml',
         'hasura.yaml',
         'hasura.yml',
       ],
+      name: 'hasuraconfig',
     },
     {
-      name: 'harbour',
       fileExtensions: ['ch', 'hb', 'hrb', 'prg'],
+      name: 'harbour',
     },
     {
-      name: 'hcl',
       fileExtensions: ['hcl', 'workflow'],
+      name: 'hcl',
     },
     {
-      name: 'haskell',
       fileExtensions: [
         'hs',
         'lhs',
@@ -3402,37 +3403,37 @@ export const fileIcons: FileIcons = {
         'haskell',
         'hs-boot',
       ],
+      name: 'haskell',
     },
     {
-      name: 'haskellconfig',
       fileNames: [
         'haskellconfig.json',
         'haskellconfig.yaml',
         'haskellconfig.yml',
       ],
+      name: 'haskellconfig',
     },
     {
-      name: 'haxedevelop',
       fileExtensions: ['hxproj'],
+      name: 'haxedevelop',
     },
     {
-      name: 'haxe',
       fileExtensions: ['haxe', 'hx', 'hxml', 'hxs', 'hxsl'],
+      name: 'haxe',
     },
     {
-      name: 'haxelib',
       fileNames: ['haxelib.json'],
+      name: 'haxelib',
     },
     {
-      name: 'helm',
       fileExtensions: ['helm', 'helmfile', 'helmrc'],
+      name: 'helm',
     },
     {
-      name: 'helmignore',
       fileExtensions: ['helmignore'],
+      name: 'helmignore',
     },
     {
-      name: 'helmcharts',
       fileNames: [
         'chart.yaml',
         'chart.yml',
@@ -3441,22 +3442,22 @@ export const fileIcons: FileIcons = {
         'values.yaml',
         'values.yml',
       ],
+      name: 'helmcharts',
     },
     {
-      name: 'question',
       fileExtensions: ['chm', 'help', 'hlp'],
+      name: 'question',
     },
     {
-      name: 'heroku',
       fileExtensions: ['buildpacks', 'heroku'],
       fileNames: ['Procfile', 'Procfile.windows'],
+      name: 'heroku',
     },
     {
-      name: 'herokuignore',
       fileExtensions: ['herokuignore', 'slugignore'],
+      name: 'herokuignore',
     },
     {
-      name: 'hex',
       fileExtensions: [
         'hex',
         'hexfile',
@@ -3468,21 +3469,13 @@ export const fileIcons: FileIcons = {
         'obh',
         'obl',
       ],
+      name: 'hex',
     },
     {
-      name: 'hie',
       fileNames: ['hie.yaml', 'hie.yml'],
+      name: 'hie',
     },
     {
-      name: 'histoire',
-      fileNames: [
-        'histoire.config.cjs',
-        'histoire.config.js',
-        'histoire.config.jsx',
-        'histoire.config.mjs',
-        'histoire.config.ts',
-        'histoire.config.tsx',
-      ],
       fileExtensions: [
         'histoire',
         'histoire.cjs',
@@ -3493,14 +3486,21 @@ export const fileIcons: FileIcons = {
         'histoire.tsx',
         'histoireconfig',
       ],
+      fileNames: [
+        'histoire.config.cjs',
+        'histoire.config.js',
+        'histoire.config.jsx',
+        'histoire.config.mjs',
+        'histoire.config.ts',
+        'histoire.config.tsx',
+      ],
+      name: 'histoire',
     },
     {
-      name: 'histoirestories',
       fileExtensions: ['stories.vue', 'story.vue'],
+      name: 'histoirestories',
     },
     {
-      name: 'history',
-      fileNames: ['history', 'history.md', 'history.txt', 'historyfile'],
       fileExtensions: [
         'bash_history',
         'csh_history',
@@ -3511,39 +3511,40 @@ export const fileIcons: FileIcons = {
         'tcsh_history',
         'zsh_history',
       ],
+      fileNames: ['history', 'history.md', 'history.txt', 'historyfile'],
+      name: 'history',
     },
     {
-      name: 'hjson',
       fileExtensions: ['hjson'],
+      name: 'hjson',
     },
     {
-      name: 'hlsl',
       fileExtensions: ['hlsl', 'hlsli'],
+      name: 'hlsl',
     },
     {
-      name: 'hc',
       fileExtensions: ['hc', 'hc.z'],
+      name: 'hc',
     },
     {
-      name: 'homeassistant',
       fileExtensions: ['homeassistant'],
+      name: 'homeassistant',
     },
     {
-      name: 'hoplon',
       fileExtensions: ['hl', 'hoplon'],
+      name: 'hoplon',
     },
     {
-      name: 'horusec',
-      fileNames: ['horusec-config.json'],
       fileExtensions: ['horusec', 'horusecignore', 'horusecrc'],
+      fileNames: ['horusec-config.json'],
+      name: 'horusec',
     },
     {
-      name: 'hosts',
       fileExtensions: ['hosts', 'host'],
       fileNames: ['hosts', 'host'],
+      name: 'hosts',
     },
     {
-      name: 'houdini',
       fileExtensions: [
         'hda',
         'hip',
@@ -3555,37 +3556,37 @@ export const fileIcons: FileIcons = {
         'picnc',
         'vfl',
       ],
+      name: 'houdini',
     },
     {
-      name: 'houndci',
       fileExtensions: ['hound.yml', 'hound.yaml'],
+      name: 'houndci',
     },
     {
-      name: 'hp',
       fileExtensions: ['hp', 'hpg', 'hpgl'],
+      name: 'hp',
     },
     {
-      name: 'htaccess',
       fileExtensions: ['htaccess', 'htpasswd'],
+      name: 'htaccess',
     },
     {
-      name: 'http',
       fileExtensions: ['http', 'rest'],
+      name: 'http',
     },
     {
-      name: 'htmlhint',
       fileExtensions: ['htmlhintrc'],
+      name: 'htmlhint',
     },
     {
-      name: 'hugo',
       fileNames: ['config.toml'],
+      name: 'hugo',
     },
     {
-      name: 'hunspell',
       fileExtensions: ['aff', 'dic'],
+      name: 'hunspell',
     },
     {
-      name: 'huskyhooks',
       fileNames: [
         '.husky/sh',
         'hooks/sh',
@@ -3600,9 +3601,9 @@ export const fileIcons: FileIcons = {
         'pre-push',
         'pre-rebase',
       ],
+      name: 'huskyhooks',
     },
     {
-      name: 'husky',
       fileExtensions: [
         'huskyrc',
         'huskyrc.cjs',
@@ -3613,13 +3614,13 @@ export const fileIcons: FileIcons = {
         'huskyrc.yaml',
         'huskyrc.yml',
       ],
+      name: 'husky',
     },
     {
-      name: 'hy',
       fileExtensions: ['hy'],
+      name: 'hy',
     },
     {
-      name: 'hygen',
       fileExtensions: [
         'ejs.t',
         'hygen.cjs',
@@ -3627,13 +3628,13 @@ export const fileIcons: FileIcons = {
         'hygen.mjs',
         'hygen.ts',
       ],
+      name: 'hygen',
     },
     {
-      name: 'hyper',
       fileExtensions: ['hyper.cjs', 'hyper.js', 'hyper.mjs', 'hyper.ts'],
+      name: 'hyper',
     },
     {
-      name: 'hypestyle',
       fileNames: [
         'hypestyle.config.cjs',
         'hypestyle.config.js',
@@ -3641,20 +3642,20 @@ export const fileIcons: FileIcons = {
         'hypestyle.config.ts',
         'hypestyle.json',
       ],
+      name: 'hypestyle',
     },
     {
-      name: 'hypr',
       fileExtensions: ['hypr', 'hyprlive', 'hypr.live'],
+      name: 'hypr',
     },
     // endregion
 
     // region [I]
     {
-      name: 'i18n',
       fileExtensions: ['po', 'pot', 'strings'],
+      name: 'i18n',
     },
     {
-      name: 'i18nlang',
       fileExtensions: [
         'i18n/js',
         'i18n/jsx',
@@ -3723,82 +3724,82 @@ export const fileIcons: FileIcons = {
         'translations/yaml',
         'translations/yml',
       ],
+      name: 'i18nlang',
     },
     {
-      name: 'icl',
       fileExtensions: ['icl'],
+      name: 'icl',
     },
     {
-      name: 'icomoon',
       fileNames: ['icomoon.json', 'icomoon.dev.json', 'icomoon.prod.json'],
+      name: 'icomoon',
     },
     {
-      name: 'icu',
       fileExtensions: ['icu', 'nrm'],
+      name: 'icu',
     },
     {
-      name: 'idea',
       fileExtensions: ['icls', 'iml'],
+      name: 'idea',
     },
     {
-      name: 'idris',
       fileExtensions: ['ibc', 'idr', 'idris', 'ipkg', 'lidr'],
+      name: 'idris',
     },
     {
-      name: 'idl',
       fileExtensions: ['dlm', 'idl'],
+      name: 'idl',
     },
     {
-      name: 'igor',
       fileExtensions: ['ipf'],
+      name: 'igor',
     },
     {
-      name: 'imba',
       fileExtensions: ['imba', 'imba2'],
+      name: 'imba',
     },
     {
-      name: 'imgbot',
       fileExtensions: ['imgbotconfig'],
+      name: 'imgbot',
     },
     {
-      name: 'informix',
       fileExtensions: ['4gl'],
+      name: 'informix',
     },
     {
-      name: 'indexpy',
       fileNames: ['__init__.py'],
+      name: 'indexpy',
     },
     {
-      name: 'infopath',
       fileExtensions: ['infopathxml', 'xsf', 'xsn', 'xtp2'],
+      name: 'infopath',
     },
     {
-      name: 'inform',
       fileExtensions: ['i7x', 'ni'],
+      name: 'inform',
     },
     {
-      name: 'ink',
       fileExtensions: ['ink', 'ink2'],
+      name: 'ink',
     },
     {
-      name: 'inkscape',
       fileExtensions: ['inx'],
       light: true,
+      name: 'inkscape',
     },
     {
-      name: 'inno',
       fileExtensions: ['isl', 'iss'],
+      name: 'inno',
     },
     {
-      name: 'iso',
       fileExtensions: ['img', 'iso', 'nrg', 'udf'],
+      name: 'iso',
     },
     {
-      name: 'istanbul',
       fileExtensions: ['nycrc', 'nycrc.json', 'nycrc.yaml', 'nycrc.yml'],
+      name: 'istanbul',
     },
     {
-      name: 'istanbulconf',
       fileNames: [
         'nyc.config.cjs',
         'nyc.config.js',
@@ -3808,21 +3809,21 @@ export const fileIcons: FileIcons = {
         'nyc.config.yaml',
         'nyc.config.yml',
       ],
+      name: 'istanbulconf',
     },
     {
-      name: 'io',
       fileExtensions: ['io'],
+      name: 'io',
     },
     {
-      name: 'iodine',
       fileExtensions: ['iodine'],
+      name: 'iodine',
     },
     {
-      name: 'ioke',
       fileExtensions: ['ik'],
+      name: 'ioke',
     },
     {
-      name: 'ionic',
       fileNames: [
         'ionic.config',
         'ionic.config.js',
@@ -3831,26 +3832,26 @@ export const fileIcons: FileIcons = {
         'ionic.project.js',
         'ionic.project.json',
       ],
+      name: 'ionic',
     },
     {
-      name: 'isabelle',
       fileExtensions: ['thy'],
       light: true,
+      name: 'isabelle',
     },
 
     // endregion
 
     // region [J]
     {
-      name: 'j',
       fileExtensions: ['ij', 'ijs'],
+      name: 'j',
     },
     {
-      name: 'pug',
       fileExtensions: ['jade', 'pug'],
+      name: 'pug',
     },
     {
-      name: 'puglint',
       fileExtensions: [
         'jade-lintrc',
         'jade-lintrc.cjs',
@@ -3863,13 +3864,13 @@ export const fileIcons: FileIcons = {
         'pug-lintrc.json',
         'pug-lintrc.mjs',
       ],
+      name: 'puglint',
     },
     {
-      name: 'jake',
       fileExtensions: ['jake'],
+      name: 'jake',
     },
     {
-      name: 'jakefile',
       fileNames: [
         'Jakefile',
         'jakefile.cjs',
@@ -3877,17 +3878,17 @@ export const fileIcons: FileIcons = {
         'jakefile.mjs',
         'jakefile.ts',
       ],
+      name: 'jakefile',
     },
     {
-      name: 'jakt',
       fileExtensions: ['jakt'],
+      name: 'jakt',
     },
     {
-      name: 'janet',
       fileExtensions: ['janet', 'jpm'],
+      name: 'janet',
     },
     {
-      name: 'jasmine',
       fileNames: [
         'jasmine.cjs',
         'jasmine.config.js',
@@ -3898,9 +3899,9 @@ export const fileIcons: FileIcons = {
         'jasmine.mjs',
         'jasmine.ts',
       ],
+      name: 'jasmine',
     },
     {
-      name: 'js',
       fileExtensions: [
         'htc',
         'jsb',
@@ -3911,27 +3912,28 @@ export const fileIcons: FileIcons = {
         'pjs',
         'ssjs',
       ],
+      name: 'js',
     },
     {
-      name: 'jbuilder',
       fileExtensions: ['jbuilder'],
+      name: 'jbuilder',
     },
     {
-      name: 'jekyll',
-      fileNames: ['_config.yml', '_config.yaml'],
       fileExtensions: ['jekyll'],
+      fileNames: ['_config.yml', '_config.yaml'],
+      name: 'jekyll',
     },
     {
-      name: 'jellycut',
       fileExtensions: ['jellycut', 'jelly'],
+      name: 'jellycut',
     },
     {
-      name: 'jenkins',
-      fileNames: ['Jenkinsfile', 'jenkinsfile.groovy', 'jenkinsfile.kt'],
       fileExtensions: ['jenkinsfile', 'jenkins'],
+      fileNames: ['Jenkinsfile', 'jenkinsfile.groovy', 'jenkinsfile.kt'],
+      name: 'jenkins',
     },
     {
-      name: 'jest',
+      fileExtensions: ['jest/cjs', 'jest/js', 'jest/mjs', 'jest/ts'],
       fileNames: [
         'jest.babel.cjs',
         'jest.babel.js',
@@ -3956,10 +3958,9 @@ export const fileIcons: FileIcons = {
         'jest.teardown.mjs',
         'jest.teardown.ts',
       ],
-      fileExtensions: ['jest/cjs', 'jest/js', 'jest/mjs', 'jest/ts'],
+      name: 'jest',
     },
     {
-      name: 'jestrc',
       fileExtensions: [
         'jestrc',
         'jestrc.cjs',
@@ -3968,33 +3969,33 @@ export const fileIcons: FileIcons = {
         'jestrc.mjs',
         'jestrc.ts',
       ],
+      name: 'jestrc',
     },
     {
-      name: 'theme',
       fileExtensions: ['theme', 'theme.json'],
+      name: 'theme',
     },
     {
-      name: 'jfd',
       fileExtensions: ['form', 'jfd'],
+      name: 'jfd',
     },
     {
-      name: 'jinja',
       fileExtensions: ['j2', 'jinja', 'jinja-html', 'jinja2', 'jnj', 'jnj2'],
+      name: 'jinja',
     },
     {
-      name: 'jison',
       fileExtensions: ['jison', 'jisonlex'],
+      name: 'jison',
     },
     {
-      name: 'jolie',
       fileExtensions: ['iol', 'jolie', 'ol'],
+      name: 'jolie',
     },
     {
-      name: 'joomla',
       fileExtensions: ['joomla'],
+      name: 'joomla',
     },
     {
-      name: 'jquery',
       fileNames: [
         'jquery.coffee',
         'jquery.es6',
@@ -4007,13 +4008,13 @@ export const fileIcons: FileIcons = {
         'jquery.slim.js',
         'jquery.slim.min.js',
       ],
+      name: 'jquery',
     },
     {
-      name: 'jsbeautify',
       fileExtensions: ['jsbeautify', 'jsbeautifyrc', 'jsbeautifyrc.json'],
+      name: 'jsbeautify',
     },
     {
-      name: 'jscs',
       fileExtensions: [
         'jscs.cjs',
         'jscs.js',
@@ -4021,28 +4022,21 @@ export const fileIcons: FileIcons = {
         'jscs.mjs',
         'jscsrc',
       ],
+      name: 'jscs',
     },
     {
-      name: 'jshint',
       fileExtensions: ['jshintrc'],
+      name: 'jshint',
     },
     {
-      name: 'jshintignore',
       fileExtensions: ['jshintignore'],
+      name: 'jshintignore',
     },
     {
-      name: 'jsmap',
       fileExtensions: ['cjs.map', 'js.map', 'mjs.map'],
+      name: 'jsmap',
     },
     {
-      name: 'jsconfig',
-      fileNames: [
-        'jsconfig.cjs',
-        'jsconfig.js',
-        'jsconfig.json',
-        'jsconfig.mjs',
-        'jsconfig.ts',
-      ],
       fileExtensions: [
         'jsconfig.cjs',
         'jsconfig.js',
@@ -4050,57 +4044,64 @@ export const fileIcons: FileIcons = {
         'jsconfig.mjs',
         'jsconfig.ts',
       ],
+      fileNames: [
+        'jsconfig.cjs',
+        'jsconfig.js',
+        'jsconfig.json',
+        'jsconfig.mjs',
+        'jsconfig.ts',
+      ],
+      name: 'jsconfig',
     },
     {
-      name: 'jscpd',
       fileExtensions: ['jscpd', 'jscpd.html', 'jscpd.json', 'jscpd.xml'],
+      name: 'jscpd',
     },
     {
-      name: 'json5',
       fileExtensions: ['json5'],
+      name: 'json5',
     },
     {
-      name: 'jsonld',
       fileExtensions: ['json-ld', 'jsonl', 'jsonld', 'ldjson'],
+      name: 'jsonld',
     },
     {
-      name: 'jsonnet',
       fileExtensions: ['jsonn', 'jsonnet', 'libsonnet'],
+      name: 'jsonnet',
     },
     {
-      name: 'jsp',
       fileExtensions: ['jhtm', 'jhtml', 'jsf', 'jsp', 'jspf', 'jspx'],
+      name: 'jsp',
     },
     {
-      name: 'jss',
       fileExtensions: ['jss'],
+      name: 'jss',
     },
     {
-      name: 'julia',
       fileExtensions: ['jl', 'julia'],
+      name: 'julia',
     },
     {
-      name: 'jupyter',
-      fileNames: ['Notebook'],
       fileExtensions: ['ipynb'],
+      fileNames: ['Notebook'],
+      name: 'jupyter',
     },
     {
-      name: 'junos',
       fileExtensions: ['jos', 'junos', 'slax'],
+      name: 'junos',
     },
     {
-      name: 'jwt',
       fileExtensions: ['jwt'],
+      name: 'jwt',
     },
     // endregion
 
     // region [K]
     {
-      name: 'kaitai',
       fileExtensions: ['ksy'],
+      name: 'kaitai',
     },
     {
-      name: 'karma',
       fileNames: [
         'karma.conf.cjs',
         'karma.conf.coffee',
@@ -4114,21 +4115,21 @@ export const fileIcons: FileIcons = {
         'karma.config.ts',
       ],
       light: true,
+      name: 'karma',
     },
     {
-      name: 'kerboscript',
       fileExtensions: ['ks'],
+      name: 'kerboscript',
     },
     {
-      name: 'keybase',
       fileNames: ['keybase.txt'],
+      name: 'keybase',
     },
     {
-      name: 'keynote',
       fileExtensions: ['knt', 'keynote'],
+      name: 'keynote',
     },
     {
-      name: 'key',
       fileExtensions: [
         'der',
         'enc',
@@ -4139,22 +4140,22 @@ export const fileIcons: FileIcons = {
         'pem',
         'ssh',
       ],
+      name: 'key',
     },
     {
-      name: 'publishToken',
       fileNames: [
         'publishToken',
         'publishToken.md',
         'publishToken.txt',
         'publishToken.xml',
       ],
+      name: 'publishToken',
     },
     {
-      name: 'kibo',
       fileExtensions: ['kibo'],
+      name: 'kibo',
     },
     {
-      name: 'kicad',
       fileExtensions: [
         'kicad_mod',
         'kicad_pcb',
@@ -4162,9 +4163,9 @@ export const fileIcons: FileIcons = {
         'kicad_sch',
         'kicad_wks',
       ],
+      name: 'kicad',
     },
     {
-      name: 'kitchenci',
       fileExtensions: ['kitchen.yml', 'kitchen.yaml'],
       fileNames: [
         'kitchen.ci.yaml',
@@ -4177,40 +4178,48 @@ export const fileIcons: FileIcons = {
         'kitchen.yaml',
         'kitchen.yml',
       ],
+      name: 'kitchenci',
     },
     {
-      name: 'kite',
       fileExtensions: ['kite', 'kiteignore'],
+      name: 'kite',
     },
     {
-      name: 'kivy',
       fileExtensions: ['kv'],
+      name: 'kivy',
     },
     {
-      name: 'kml',
       fileExtensions: ['kml'],
+      name: 'kml',
     },
     {
-      name: 'kl',
       fileExtensions: ['kl'],
+      name: 'kl',
     },
     {
-      name: 'knime',
       fileExtensions: ['knim', 'knime', 'knwf'],
       fileNames: ['knime.ini'],
+      name: 'knime',
     },
     {
-      name: 'knockout',
       fileExtensions: ['knockout'],
       fileNames: ['knockout.js', 'knockout.min.js'],
+      name: 'knockout',
     },
     {
-      name: 'koka',
       fileExtensions: ['kk', 'koka'],
       light: true,
+      name: 'koka',
     },
     {
-      name: 'kubernetes',
+      fileExtensions: [
+        'k8s',
+        'k8s.yaml',
+        'k8s.yml',
+        'kubernetes',
+        'kubernetes.yaml',
+        'kubernetes.yml',
+      ],
       fileNames: [
         'kubernetes',
         'kubernetes.dev.yaml',
@@ -4220,17 +4229,9 @@ export const fileIcons: FileIcons = {
         'kubernetes.yaml',
         'kubernetes.yml',
       ],
-      fileExtensions: [
-        'k8s',
-        'k8s.yaml',
-        'k8s.yml',
-        'kubernetes',
-        'kubernetes.yaml',
-        'kubernetes.yml',
-      ],
+      name: 'kubernetes',
     },
     {
-      name: 'kubernetesdepl',
       fileNames: [
         'configmap.yaml',
         'configmap.yml',
@@ -4259,38 +4260,38 @@ export const fileIcons: FileIcons = {
         'statefulset.yaml',
         'statefulset.yml',
       ],
+      name: 'kubernetesdepl',
     },
     {
-      name: 'kazel',
       fileExtensions: ['kazel', 'kazelcfg.json'],
       fileNames: ['kazelcfg.json'],
+      name: 'kazel',
     },
     {
-      name: 'kusto',
       fileExtensions: ['csl', 'kql', 'kqlx', 'kusto'],
+      name: 'kusto',
     },
     {
-      name: 'kustomize',
       fileNames: [
         'kustomization.yaml',
         'kustomization.yml',
         'kustomize.yaml',
         'kustomize.yml',
       ],
+      name: 'kustomize',
     },
     // endregion
 
     // region [L]
     {
-      name: 'labview',
       fileExtensions: ['lvclass', 'lvlib', 'lvlibp', 'lvlibpc', 'lvproj'],
+      name: 'labview',
     },
     {
-      name: 'lark',
       fileExtensions: ['lark'],
+      name: 'lark',
     },
     {
-      name: 'lasso',
       fileExtensions: [
         'las',
         'lasso',
@@ -4300,18 +4301,18 @@ export const fileIcons: FileIcons = {
         'lasx',
         'ldml',
       ],
+      name: 'lasso',
     },
     {
-      name: 'latino',
       fileExtensions: ['lat'],
+      name: 'latino',
     },
     {
-      name: 'latte',
       fileExtensions: ['latte'],
       light: true,
+      name: 'latte',
     },
     {
-      name: 'leaflet',
       fileNames: [
         'leaflet-src.js',
         'leaflet.css',
@@ -4325,17 +4326,17 @@ export const fileIcons: FileIcons = {
         'wicket-leaflet.js',
         'wicket-leaflet.mjs',
       ],
+      name: 'leaflet',
     },
     {
-      name: 'lean',
       fileExtensions: ['hlean', 'lean'],
+      name: 'lean',
     },
     {
-      name: 'leo',
       fileExtensions: ['aleo', 'leo'],
+      name: 'leo',
     },
     {
-      name: 'lefthook',
       fileExtensions: ['lefthook.yml', 'lefthook.yaml'],
       fileNames: [
         'lefthook-local.yaml',
@@ -4343,42 +4344,42 @@ export const fileIcons: FileIcons = {
         'lefthook.yaml',
         'lefthook.yml',
       ],
+      name: 'lefthook',
     },
     {
-      name: 'lektor',
       fileExtensions: ['lektor', 'lektorproject', 'lr'],
+      name: 'lektor',
     },
     {
-      name: 'leiningen',
       fileNames: ['project.clj'],
+      name: 'leiningen',
     },
     {
-      name: 'lerna',
       fileNames: ['lerna.json'],
+      name: 'lerna',
     },
     {
-      name: 'lex',
       fileExtensions: ['flex', 'lex', 'lexer', 'x'],
+      name: 'lex',
     },
     {
-      name: 'lfe',
       fileExtensions: ['lfe'],
+      name: 'lfe',
     },
     {
-      name: 'lgtm',
-      fileNames: ['lgtm.yml', 'lgtm.yaml'],
       fileExtensions: ['lgtm', 'lgtm.yml', 'lgtm.yaml'],
+      fileNames: ['lgtm.yml', 'lgtm.yaml'],
+      name: 'lgtm',
     },
     {
-      name: 'lib',
       fileExtensions: ['lib'],
+      name: 'lib',
     },
     {
-      name: 'libuv',
       fileExtensions: ['libuv', 'luv', 'luvit', 'uv'],
+      name: 'libuv',
     },
     {
-      name: 'license',
       fileExtensions: ['license', 'licence', 'lic'],
       fileNames: [
         'licence',
@@ -4388,22 +4389,13 @@ export const fileIcons: FileIcons = {
         'license.md',
         'license.txt',
       ],
+      name: 'license',
     },
     {
-      name: 'licensebat',
       fileExtensions: ['licrc'],
+      name: 'licensebat',
     },
     {
-      name: 'lighthouse',
-      fileNames: [
-        'lighthouserc.cjs',
-        'lighthouserc.js',
-        'lighthouserc.json',
-        'lighthouserc.mjs',
-        'lighthouserc.ts',
-        'lighthouserc.yaml',
-        'lighthouserc.yml',
-      ],
       fileExtensions: [
         'lighthouserc',
         'lighthouserc.cjs',
@@ -4414,29 +4406,45 @@ export const fileIcons: FileIcons = {
         'lighthouserc.yaml',
         'lighthouserc.yml',
       ],
+      fileNames: [
+        'lighthouserc.cjs',
+        'lighthouserc.js',
+        'lighthouserc.json',
+        'lighthouserc.mjs',
+        'lighthouserc.ts',
+        'lighthouserc.yaml',
+        'lighthouserc.yml',
+      ],
+      name: 'lighthouse',
     },
     {
-      name: 'lightwave',
       fileExtensions: ['lwo', 'lws'],
+      name: 'lightwave',
     },
     {
-      name: 'lilypond',
       fileExtensions: ['ily', 'ly'],
+      name: 'lilypond',
     },
     {
-      name: 'lime',
       fileExtensions: ['hxp', 'lime'],
+      name: 'lime',
     },
     {
-      name: 'link',
       fileExtensions: ['alias', 'link', 'lnk', 'url'],
+      name: 'link',
     },
     {
-      name: 'linqpad',
       fileExtensions: ['linq'],
+      name: 'linqpad',
     },
     {
-      name: 'lint-staged',
+      fileExtensions: [
+        'lintstagedrc',
+        'lintstagedrc.js',
+        'lintstagedrc.json',
+        'lintstagedrc.yaml',
+        'lintstagedrc.yml',
+      ],
       fileNames: [
         'lint-staged.config.cjs',
         'lint-staged.config.js',
@@ -4446,20 +4454,13 @@ export const fileIcons: FileIcons = {
         'lint-staged.config.yaml',
         'lint-staged.config.yml',
       ],
-      fileExtensions: [
-        'lintstagedrc',
-        'lintstagedrc.js',
-        'lintstagedrc.json',
-        'lintstagedrc.yaml',
-        'lintstagedrc.yml',
-      ],
+      name: 'lint-staged',
     },
     {
-      name: 'liquid',
       fileExtensions: ['liquid'],
+      name: 'liquid',
     },
     {
-      name: 'lisp',
       fileExtensions: [
         'cl',
         'lisp',
@@ -4470,9 +4471,9 @@ export const fileIcons: FileIcons = {
         'sbclrc',
         'sexp',
       ],
+      name: 'lisp',
     },
     {
-      name: 'liquibase',
       fileExtensions: [
         'changelog.json',
         'changelog.sql',
@@ -4480,22 +4481,22 @@ export const fileIcons: FileIcons = {
         'changelog.yaml',
         'changelog.yml',
       ],
+      name: 'liquibase',
     },
     {
-      name: 'liquibase_props',
       fileNames: ['liquibase.properties'],
+      name: 'liquibase_props',
     },
     {
-      name: 'livescript',
       fileExtensions: ['_ls', 'ls', 'ls6', 'lsc', 'lsx'],
       fileNames: ['Slakefile'],
+      name: 'livescript',
     },
     {
-      name: 'llvm',
       fileExtensions: ['clang-format', 'll', 'llir', 'llvm'],
+      name: 'llvm',
     },
     {
-      name: 'log',
       fileExtensions: [
         '0',
         '1',
@@ -4512,57 +4513,57 @@ export const fileIcons: FileIcons = {
         'logs',
         'rpt',
       ],
+      name: 'log',
     },
     {
-      name: 'logtalk',
       fileExtensions: ['lgt', 'logtalk'],
+      name: 'logtalk',
     },
     {
-      name: 'lolcode',
       fileExtensions: ['lol'],
+      name: 'lolcode',
     },
     {
-      name: 'lookml',
       fileExtensions: ['lkml', 'lookml'],
+      name: 'lookml',
     },
     {
-      name: 'lsl',
       fileExtensions: ['lsl', 'lslp'],
+      name: 'lsl',
     },
     {
-      name: 'luau',
       fileExtensions: ['luau', 'rbxl'],
+      name: 'luau',
     },
     {
-      name: 'lakefile',
       fileNames: ['lakefile'],
+      name: 'lakefile',
     },
     {
-      name: 'lync',
       fileExtensions: ['crec', 'ocrec'],
+      name: 'lync',
     },
 
     // endregion
 
     // region [M]
     {
-      name: 'macaulay',
       fileExtensions: ['m2'],
+      name: 'macaulay',
     },
     {
-      name: 'magento',
       fileExtensions: ['mage'],
+      name: 'magento',
     },
     {
-      name: 'magit',
       fileExtensions: ['magit'],
+      name: 'magit',
     },
     {
-      name: 'make',
       fileExtensions: ['am', 'mak', 'make', 'mk', 'mms'],
+      name: 'make',
     },
     {
-      name: 'makefile',
       fileNames: [
         'BSDmakefile',
         'GNUmakefile',
@@ -4579,13 +4580,13 @@ export const fileIcons: FileIcons = {
         'makefile',
         'mkfile',
       ],
+      name: 'makefile',
     },
     {
-      name: 'mako',
       fileExtensions: ['mako', 'mao'],
+      name: 'mako',
     },
     {
-      name: 'manpage',
       fileExtensions: [
         'man',
         'man1',
@@ -4603,9 +4604,9 @@ export const fileIcons: FileIcons = {
         'roff',
         'runoff',
       ],
+      name: 'manpage',
     },
     {
-      name: 'manifest',
       fileExtensions: ['manifest', 'mf', 'webmanifest'],
       fileNames: [
         'manifest',
@@ -4618,22 +4619,22 @@ export const fileIcons: FileIcons = {
         'manifest.yaml',
         'manifest.yml',
       ],
+      name: 'manifest',
     },
     {
-      name: 'manjaro',
       fileExtensions: [
         'pkg.tar.bz2',
         'pkg.tar.gz',
         'pkg.tar.xz',
         'pkg.tar.zst',
       ],
+      name: 'manjaro',
     },
     {
-      name: 'mapbox',
       fileExtensions: ['mss'],
+      name: 'mapbox',
     },
     {
-      name: 'markdownlint',
       fileExtensions: [
         'markdownlint',
         'markdownlint.json',
@@ -4643,21 +4644,21 @@ export const fileIcons: FileIcons = {
         'markdownlintrc',
         'mdlrc',
       ],
+      name: 'markdownlint',
     },
     {
-      name: 'markdownlintignore',
       fileExtensions: ['markdownlintignore', 'mdlignore'],
+      name: 'markdownlintignore',
     },
     {
-      name: 'marko',
       fileExtensions: ['marko', 'marko.js', 'marko.cjs', 'marko.mjs'],
+      name: 'marko',
     },
     {
-      name: 'markup',
       fileExtensions: ['dhtm', 'dhtml', 'dtd', 'shtm', 'shtml', 'xht'],
+      name: 'markup',
     },
     {
-      name: 'master',
       fileNames: [
         'master.cjs',
         'master.js',
@@ -4665,9 +4666,9 @@ export const fileIcons: FileIcons = {
         'master.mjs',
         'master.ts',
       ],
+      name: 'master',
     },
     {
-      name: 'materialize',
       fileNames: [
         'materialize.cjs',
         'materialize.css',
@@ -4677,13 +4678,13 @@ export const fileIcons: FileIcons = {
         'materialize.mjs',
         'materialize.scss',
       ],
+      name: 'materialize',
     },
     {
-      name: 'mathematica',
       fileExtensions: ['ma', 'mb', 'mt', 'nb', 'nbp'],
+      name: 'mathematica',
     },
     {
-      name: 'matlab',
       fileExtensions: [
         'fig',
         'matlab',
@@ -4714,9 +4715,9 @@ export const fileIcons: FileIcons = {
         'smv',
         'xvc',
       ],
+      name: 'matlab',
     },
     {
-      name: 'mathjax',
       fileNames: [
         'MathJax-config.cjs',
         'MathJax-config.js',
@@ -4734,14 +4735,14 @@ export const fileIcons: FileIcons = {
         'TeX-MML-AM_CHTML.js.map',
         'TeX-MML-AM_CHTML.mjs',
       ],
+      name: 'mathjax',
     },
     {
-      name: 'maven',
       fileExtensions: ['pom', 'flattened-pom.xml'],
       fileNames: ['pom.xml'],
+      name: 'maven',
     },
     {
-      name: 'max',
       fileExtensions: [
         'maxhelp',
         'maxobj',
@@ -4751,57 +4752,57 @@ export const fileIcons: FileIcons = {
         'mxt',
         'pat',
       ],
+      name: 'max',
     },
     {
-      name: 'maya',
       fileExtensions: ['maya', 'mcfi', 'mcfp', 'mel'],
+      name: 'maya',
     },
     {
-      name: 'mdx',
       fileExtensions: ['mdx'],
+      name: 'mdx',
     },
     {
-      name: 'mediawiki',
       fileExtensions: ['mediawiki', 'wiki'],
+      name: 'mediawiki',
     },
     {
-      name: 'mercurial',
       fileExtensions: ['hg', 'hgrc', 'hgsub', 'hgsubstate'],
+      name: 'mercurial',
     },
     {
-      name: 'mercurialignore',
       fileExtensions: ['hgignore'],
+      name: 'mercurialignore',
     },
     {
-      name: 'mercury',
       fileExtensions: ['moo'],
+      name: 'mercury',
     },
     {
-      name: 'merlin',
       fileExtensions: ['merlin'],
+      name: 'merlin',
     },
     {
-      name: 'mermaid',
       fileExtensions: ['mermaid', 'mmd', 'mmdc'],
+      name: 'mermaid',
     },
     {
-      name: 'meson',
       fileNames: ['meson.build', 'meson_options.txt'],
+      name: 'meson',
     },
     {
-      name: 'metal',
       fileExtensions: ['air', 'metal', 'metallib'],
+      name: 'metal',
     },
     {
-      name: 'metapost',
       fileExtensions: ['mp', 'mpost', 'mpx', 'mpy'],
+      name: 'metapost',
     },
     {
-      name: 'meteor',
       fileExtensions: ['meteor'],
+      name: 'meteor',
     },
     {
-      name: 'minecraft',
       fileExtensions: [
         'mcfunction',
         'mclevel',
@@ -4812,42 +4813,42 @@ export const fileIcons: FileIcons = {
         'mcreator',
         'mcworld',
       ],
+      name: 'minecraft',
     },
     {
-      name: 'minizinc',
       fileExtensions: ['dzn', 'fzn', 'mzn'],
+      name: 'minizinc',
     },
     {
-      name: 'mint',
       fileExtensions: ['mint'],
+      name: 'mint',
     },
     {
-      name: 'mirah',
       fileExtensions: ['druby', 'duby', 'mir', 'mirah'],
+      name: 'mirah',
     },
     {
-      name: 'mixin',
       fileExtensions: ['mixin', 'mixin.json', 'mixins', 'mixins.json'],
+      name: 'mixin',
     },
     {
-      name: 'mirc',
       fileExtensions: ['mirc', 'mircscript', 'mrc'],
+      name: 'mirc',
     },
     {
-      name: 'mjml',
       fileExtensions: ['mjml', 'mjmlslim'],
+      name: 'mjml',
     },
     {
-      name: 'mkdocs',
       fileExtensions: ['mkdocs.yml', 'mkdocs.yaml'],
       fileNames: ['mkdocs.yml', 'mkdocs.yaml'],
+      name: 'mkdocs',
     },
     {
-      name: 'mlang',
       fileExtensions: ['mlang', 'pq'],
+      name: 'mlang',
     },
     {
-      name: 'mobx',
       fileExtensions: [
         'mobx',
         'mobx.cjs',
@@ -4859,10 +4860,9 @@ export const fileIcons: FileIcons = {
         'observable.mjs',
         'observable.ts',
       ],
+      name: 'mobx',
     },
     {
-      name: 'mocha',
-      fileNames: ['mocha.opts'],
       fileExtensions: [
         'mocha.cjs',
         'mocha.js',
@@ -4875,9 +4875,10 @@ export const fileIcons: FileIcons = {
         'mocharc.js',
         'mocharc.json',
       ],
+      fileNames: ['mocha.opts'],
+      name: 'mocha',
     },
     {
-      name: 'mock',
       fileExtensions: [
         'mocks/cjs',
         'mocks/cs',
@@ -4940,13 +4941,13 @@ export const fileIcons: FileIcons = {
         'stub.swift',
         'stub.ts',
       ],
+      name: 'mock',
     },
     {
-      name: 'modelica',
       fileExtensions: ['mo', 'mos'],
+      name: 'modelica',
     },
     {
-      name: 'modernizr',
       fileExtensions: [
         'modernizrrc',
         'modernizrrc.cjs',
@@ -4970,9 +4971,9 @@ export const fileIcons: FileIcons = {
         'modernizr.mjs',
         'modernizr.ts',
       ],
+      name: 'modernizr',
     },
     {
-      name: 'modernweb',
       fileNames: [
         'web-dev-server.config.cjs',
         'web-dev-server.config.js',
@@ -4983,22 +4984,22 @@ export const fileIcons: FileIcons = {
         'web-test-runner.config.mjs',
         'web-test-runner.config.ts',
       ],
+      name: 'modernweb',
     },
     {
-      name: 'modo',
       fileExtensions: ['lxo', 'modo'],
+      name: 'modo',
     },
     {
-      name: 'modula2',
       fileExtensions: ['def', 'mod'],
+      name: 'modula2',
     },
     {
-      name: 'modula3',
-      fileNames: ['m3config', 'm3makefile', 'm3overrides'],
       fileExtensions: ['i3', 'ig', 'm3', 'mg'],
+      fileNames: ['m3config', 'm3makefile', 'm3overrides'],
+      name: 'modula3',
     },
     {
-      name: 'moho',
       fileExtensions: [
         'moho',
         'mohoaction',
@@ -5007,13 +5008,13 @@ export const fileIcons: FileIcons = {
         'mohoproj',
         'mohostyle',
       ],
+      name: 'moho',
     },
     {
-      name: 'mojolicious',
       fileExtensions: ['ep', 'epl'],
+      name: 'mojolicious',
     },
     {
-      name: 'moleculer',
       fileNames: [
         'moleculer.config.cjs',
         'moleculer.config.js',
@@ -5021,9 +5022,9 @@ export const fileIcons: FileIcons = {
         'moleculer.config.mjs',
         'moleculer.config.ts',
       ],
+      name: 'moleculer',
     },
     {
-      name: 'moment',
       fileNames: [
         'moment-with-locales.cjs',
         'moment-with-locales.js',
@@ -5035,25 +5036,25 @@ export const fileIcons: FileIcons = {
         'moment.min.mjs',
         'moment.mjs',
       ],
+      name: 'moment',
     },
     {
-      name: 'monkey',
       fileExtensions: ['monkey'],
+      name: 'monkey',
     },
     {
-      name: 'mongodb',
       fileExtensions: ['bson', 'mongo', 'mongodb'],
+      name: 'mongodb',
     },
     {
-      name: 'monotone',
       fileExtensions: ['monotone', 'mtn', 'mtn-ignore'],
+      name: 'monotone',
     },
     {
-      name: 'moonscript',
       fileExtensions: ['moon'],
+      name: 'moonscript',
     },
     {
-      name: 'mootools',
       fileNames: [
         'mootools-core.cjs',
         'mootools-core.js',
@@ -5067,33 +5068,33 @@ export const fileIcons: FileIcons = {
         'mootools.min.js',
         'mootools.mjs',
       ],
+      name: 'mootools',
     },
     {
-      name: 'more',
       fileExtensions: ['more', 'msg', 'utf8'],
+      name: 'more',
     },
     {
-      name: 'mruby',
       fileExtensions: ['mrb'],
+      name: 'mruby',
     },
     {
-      name: 'msdos',
       fileExtensions: ['chk', 'com', 'dos', 'ful'],
+      name: 'msdos',
     },
     {
-      name: 'mson',
       fileExtensions: ['mson'],
+      name: 'mson',
     },
     {
-      name: 'msql',
       fileExtensions: ['ldf', 'mdf', 'ndf'],
+      name: 'msql',
     },
     {
-      name: 'mupad',
       fileExtensions: ['mnb', 'mu', 'mup', 'mupad', 'mupadnotebook'],
+      name: 'mupad',
     },
     {
-      name: 'mustache',
       fileExtensions: [
         'emblem',
         'hamlbars',
@@ -5102,37 +5103,37 @@ export const fileIcons: FileIcons = {
         'mustache',
         'stache',
       ],
+      name: 'mustache',
     },
     {
-      name: 'mxml',
       fileExtensions: ['mxml'],
+      name: 'mxml',
     },
     {
-      name: 'mybatis',
       fileNames: ['mybatis-config.xml', 'mybatis.xml'],
+      name: 'mybatis',
     },
 
     // endregion
 
     // region [N]
     {
-      name: 'n64',
       fileExtensions: ['n64'],
+      name: 'n64',
     },
     {
-      name: 'nant',
       fileExtensions: ['build'],
+      name: 'nant',
     },
     {
-      name: 'nano',
       fileExtensions: ['nano', 'nanorc'],
+      name: 'nano',
     },
     {
-      name: 'nasm',
       fileExtensions: ['nasm'],
+      name: 'nasm',
     },
     {
-      name: 'ncu',
       fileExtensions: [
         'ncurc',
         'ncurc.cjs',
@@ -5143,184 +5144,175 @@ export const fileIcons: FileIcons = {
         'ncurc.yaml',
         'ncurc.yml',
       ],
+      name: 'ncu',
     },
     {
-      name: 'ndepend',
       fileExtensions: ['ndproj'],
+      name: 'ndepend',
     },
     {
-      name: 'nearley',
       fileExtensions: ['ne'],
+      name: 'nearley',
     },
     {
-      name: 'neko',
       fileExtensions: ['n', 'neko'],
+      name: 'neko',
     },
     {
-      name: 'neo4j',
       fileExtensions: ['cyp', 'cypher'],
+      name: 'neo4j',
     },
     {
-      name: 'neon',
       fileExtensions: ['neon'],
       light: true,
+      name: 'neon',
     },
     {
-      name: 'nessus',
       fileExtensions: ['nasl'],
+      name: 'nessus',
     },
     {
-      name: 'nestland',
       fileNames: ['egg.json', 'egg.yaml', 'egg.yml'],
+      name: 'nestland',
     },
     {
-      name: 'nest',
       fileExtensions: ['nest-cli.json'],
       fileNames: ['nest-cli.json'],
+      name: 'nest',
     },
     {
-      name: 'nestconfig',
       fileExtensions: ['nestconfig.json'],
       fileNames: ['nestconfig.json'],
+      name: 'nestconfig',
     },
     {
-      name: 'nestadapter',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['adapter.ts', 'adapter.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestadapter',
     },
     {
-      name: 'nestcontroller',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['controller.ts', 'controller.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestcontroller',
     },
     {
-      name: 'nestdecorator',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['decorator.ts', 'decorator.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestdecorator',
     },
     {
-      name: 'nestdto',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['dto.ts', 'dto.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestdto',
     },
     {
-      name: 'nestfilter',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['filter.ts', 'filter.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestfilter',
     },
     {
-      name: 'nestgateway',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['gateway.ts', 'gateway.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestgateway',
     },
     {
-      name: 'nestguard',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['guard.ts', 'guard.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestguard',
     },
     {
-      name: 'nestinterceptor',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['interceptor.ts', 'interceptor.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestinterceptor',
     },
     {
-      name: 'nestmiddleware',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['middleware.ts', 'middleware.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestmiddleware',
     },
     {
-      name: 'nestmodule',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['module.ts', 'module.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestmodule',
     },
     {
-      name: 'nestpipe',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['pipe.ts', 'pipe.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestpipe',
     },
     {
-      name: 'nestprovider',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['provider.ts', 'provider.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestprovider',
     },
     {
-      name: 'nestschema',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['schema.ts', 'schema.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestschema',
     },
     {
-      name: 'nestrepository',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['repository.ts', 'repository.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestrepository',
     },
     {
-      name: 'nestservice',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['service.ts', 'service.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'nestservice',
     },
     {
-      name: 'neststrategy',
+      enabledFor: [IconPack.Nest],
       fileExtensions: ['strategy.ts', 'strategy.js'],
-      enabledFor: [IconPack.Nest],
+      name: 'neststrategy',
     },
     {
-      name: 'netlify',
       fileNames: ['netlify.toml'],
+      name: 'netlify',
     },
     {
-      name: 'netlify_headers',
       fileNames: ['_headers'],
+      name: 'netlify_headers',
     },
     {
-      name: 'netlify_redirects',
       fileNames: ['_redirects'],
+      name: 'netlify_redirects',
     },
     {
-      name: 'netlinx',
       fileExtensions: ['axi', 'axs'],
+      name: 'netlinx',
     },
     {
-      name: 'netlogo',
       fileExtensions: ['nlogo'],
+      name: 'netlogo',
     },
     {
-      name: 'newrelic',
       fileNames: ['newrelic.yml', 'newrelic.yaml'],
+      name: 'newrelic',
     },
     {
-      name: 'nextflow',
       fileExtensions: ['nextflow', 'nf'],
+      name: 'nextflow',
     },
     {
-      name: 'nextflowconfig',
       fileNames: [
         'nextflow.config.cjs',
         'nextflow.config.js',
         'nextflow.config.ts',
         'nextflow.config.mjs',
       ],
+      name: 'nextflowconfig',
     },
     {
-      name: 'nextjs',
       fileNames: [
         'next.config.cjs',
         'next.config.js',
         'next.config.mjs',
         'next.config.ts',
       ],
+      name: 'nextjs',
     },
     {
-      name: 'ngrx-actions',
-      fileNames: [
-        'action.js',
-        'action.jsx',
-        'action.ts',
-        'action.tsx',
-        'actions.js',
-        'actions.jsx',
-        'actions.ts',
-        'actions.tsx',
-      ],
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'action.js',
         'action.jsx',
@@ -5337,20 +5329,20 @@ export const fileIcons: FileIcons = {
         'actions/ts',
         'actions/tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      fileNames: [
+        'action.js',
+        'action.jsx',
+        'action.ts',
+        'action.tsx',
+        'actions.js',
+        'actions.jsx',
+        'actions.ts',
+        'actions.tsx',
+      ],
+      name: 'ngrx-actions',
     },
     {
-      name: 'ngrx-effects',
-      fileNames: [
-        'effect.js',
-        'effect.jsx',
-        'effect.ts',
-        'effect.tsx',
-        'effects.js',
-        'effects.jsx',
-        'effects.ts',
-        'effects.tsx',
-      ],
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'effect.js',
         'effect.jsx',
@@ -5367,10 +5359,20 @@ export const fileIcons: FileIcons = {
         'effects/ts',
         'effects/tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      fileNames: [
+        'effect.js',
+        'effect.jsx',
+        'effect.ts',
+        'effect.tsx',
+        'effects.js',
+        'effects.jsx',
+        'effects.ts',
+        'effects.tsx',
+      ],
+      name: 'ngrx-effects',
     },
     {
-      name: 'ngrx-entities',
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'entities.js',
         'entities.jsx',
@@ -5403,10 +5405,10 @@ export const fileIcons: FileIcons = {
         'entity.ts',
         'entity.tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      name: 'ngrx-entities',
     },
     {
-      name: 'ngrx-reducers',
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'reducer.js',
         'reducer.jsx',
@@ -5433,10 +5435,10 @@ export const fileIcons: FileIcons = {
         'reducers.ts',
         'reducers.tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      name: 'ngrx-reducers',
     },
     {
-      name: 'ngrx-repo',
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'repo.js',
         'repo.jsx',
@@ -5485,10 +5487,10 @@ export const fileIcons: FileIcons = {
         'repository.ts',
         'repository.tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      name: 'ngrx-repo',
     },
     {
-      name: 'ngrx-state',
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'state.js',
         'state.jsx',
@@ -5521,10 +5523,10 @@ export const fileIcons: FileIcons = {
         'states.ts',
         'states.tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      name: 'ngrx-state',
     },
     {
-      name: 'ngrx-selectors',
+      enabledFor: [IconPack.Ngrx],
       fileExtensions: [
         'selector.js',
         'selector.jsx',
@@ -5551,18 +5553,17 @@ export const fileIcons: FileIcons = {
         'selectors.ts',
         'selectors.tsx',
       ],
-      enabledFor: [IconPack.Ngrx],
+      name: 'ngrx-selectors',
     },
     {
-      name: 'nib',
       fileExtensions: ['nib'],
+      name: 'nib',
     },
     {
-      name: 'nickle',
       fileExtensions: ['5c'],
+      name: 'nickle',
     },
     {
-      name: 'nightwatch',
       fileNames: [
         'nightwatch.conf.cjs',
         'nightwatch.conf.js',
@@ -5572,37 +5573,37 @@ export const fileIcons: FileIcons = {
         'nightwatch.config.mjs',
         'nightwatch.json',
       ],
+      name: 'nightwatch',
     },
     {
-      name: 'nimble',
       fileExtensions: ['nimble'],
+      name: 'nimble',
     },
     {
-      name: 'nimrod',
       fileExtensions: ['nim', 'nimrod'],
+      name: 'nimrod',
     },
     {
-      name: 'nit',
       fileExtensions: ['nit'],
+      name: 'nit',
     },
     {
-      name: 'shuriken',
       fileExtensions: ['ninja', 'ninja.d'],
+      name: 'shuriken',
     },
     {
-      name: 'nix',
       fileExtensions: ['nix'],
+      name: 'nix',
     },
     {
-      name: 'nmap',
       fileExtensions: ['nmap', 'nse'],
+      name: 'nmap',
     },
     {
-      name: 'noc',
       fileExtensions: ['noc'],
+      name: 'noc',
     },
     {
-      name: 'nodejs',
       fileNames: [
         'app.cjs',
         'app.js',
@@ -5617,34 +5618,34 @@ export const fileIcons: FileIcons = {
         'server.mjs',
         'server.ts',
       ],
+      name: 'nodejs',
     },
     {
-      name: 'nodeversion',
       fileExtensions: ['njs', 'node', 'node-version'],
+      name: 'nodeversion',
     },
     {
-      name: 'nodemon',
       fileExtensions: ['nodemon.json'],
       fileNames: ['nodemon.json'],
+      name: 'nodemon',
     },
     {
-      name: 'nodemonignore',
       fileExtensions: ['nodemonignore'],
+      name: 'nodemonignore',
     },
     {
-      name: 'nokogiri',
       fileExtensions: ['nokogiri', 'nokogirirc'],
+      name: 'nokogiri',
     },
     {
-      name: 'nomad',
       fileExtensions: ['nomad'],
+      name: 'nomad',
     },
     {
-      name: 'noon',
       fileExtensions: ['noon'],
+      name: 'noon',
     },
     {
-      name: 'normalize',
       fileNames: [
         'normalize-min.css',
         'normalize-min.less',
@@ -5661,42 +5662,42 @@ export const fileIcons: FileIcons = {
         'normalize.styl',
         'normalize.stylus',
       ],
+      name: 'normalize',
     },
     {
-      name: 'note',
       fileExtensions: ['note', 'notes', 'scratch'],
+      name: 'note',
     },
     {
-      name: 'now',
       fileNames: ['now.json'],
+      name: 'now',
     },
     {
-      name: 'nowignore',
       fileExtensions: ['nowignore'],
+      name: 'nowignore',
     },
     {
-      name: 'npm',
       fileExtensions: ['npmrc'],
       fileNames: ['package.json'],
+      name: 'npm',
     },
     {
-      name: 'npmignore',
       fileExtensions: ['npmignore'],
+      name: 'npmignore',
     },
     {
-      name: 'npmlock',
       fileNames: ['package-lock.json'],
+      name: 'npmlock',
     },
     {
-      name: 'npmshrinkwrap',
       fileNames: ['npm-shrinkwrap.json'],
+      name: 'npmshrinkwrap',
     },
     {
-      name: 'nsis',
       fileExtensions: ['nsh', 'nsi', 'nsis'],
+      name: 'nsis',
     },
     {
-      name: 'nsri',
       fileExtensions: [
         'integrity.config.cjs',
         'integrity.config.js',
@@ -5713,81 +5714,81 @@ export const fileIcons: FileIcons = {
         'nsrirc.config.yml',
         'nsrirc.json',
       ],
+      name: 'nsri',
     },
     {
-      name: 'nsriignore',
       fileExtensions: ['nsriignore'],
+      name: 'nsriignore',
     },
     {
-      name: 'nu',
       fileExtensions: ['nu'],
       fileNames: ['Nukefile'],
+      name: 'nu',
     },
     {
-      name: 'numpy',
       fileExtensions: ['npy', 'npz', 'numpy', 'numpyw', 'numsc'],
+      name: 'numpy',
     },
     {
-      name: 'nuclide',
       fileExtensions: ['nuclide', 'nuc'],
+      name: 'nuclide',
     },
     {
-      name: 'nuget',
       fileExtensions: ['nupkg', 'nuspec', 'psmdcp', 'snupkg'],
+      name: 'nuget',
     },
     {
-      name: 'nugetconfig',
       fileNames: ['nuget.config'],
+      name: 'nugetconfig',
     },
     {
-      name: 'nunjucks',
       fileExtensions: ['njk', 'nunj', 'nunjucks'],
+      name: 'nunjucks',
     },
     {
-      name: 'nuxt',
       fileNames: [
         'nuxt.config.cjs',
         'nuxt.config.js',
         'nuxt.config.mjs',
         'nuxt.config.ts',
       ],
+      name: 'nuxt',
     },
     {
-      name: 'nvm',
       fileExtensions: ['esmrc', 'nvmrc'],
       fileNames: ['esmrc', 'nvmrc'],
+      name: 'nvm',
     },
     {
-      name: 'nwscript',
       fileExtensions: ['ncs', 'ndb', 'nss'],
+      name: 'nwscript',
     },
     {
-      name: 'nx',
       fileNames: ['nx.json', 'project.json', 'workspace.json'],
       light: true,
+      name: 'nx',
     },
     {
-      name: 'nxc',
       fileExtensions: ['nxc'],
+      name: 'nxc',
     },
 
     // endregion [N]
 
     // region [O]
     {
-      name: 'oberon',
       fileExtensions: ['ob', 'ob2'],
+      name: 'oberon',
     },
     {
-      name: 'objc',
       fileExtensions: ['mm', 'm'],
+      name: 'objc',
     },
     {
-      name: 'objj',
       fileExtensions: ['j', 'sj'],
+      name: 'objj',
     },
     {
-      name: 'ocaml',
       fileExtensions: [
         'ml',
         'ml4',
@@ -5798,81 +5799,81 @@ export const fileIcons: FileIcons = {
         'ocamllex',
         'ocamlyacc',
       ],
+      name: 'ocaml',
     },
     {
-      name: 'octave',
       fileExtensions: ['octave', 'octave_hist', 'octaverc'],
+      name: 'octave',
     },
     {
-      name: 'odin',
       fileExtensions: ['odin'],
+      name: 'odin',
     },
     {
-      name: 'ogone',
       fileExtensions: ['o3', 'ogone'],
+      name: 'ogone',
     },
     {
-      name: 'omnigraffle',
       fileExtensions: ['gdiagramstyle', 'graffle', 'gstencil', 'gtemplate'],
+      name: 'omnigraffle',
     },
     {
-      name: 'onenote',
       fileExtensions: ['one', 'onenote'],
+      name: 'onenote',
     },
     {
-      name: 'ooc',
       fileExtensions: ['ooc'],
+      name: 'ooc',
     },
     {
-      name: 'opa',
       fileExtensions: ['opa'],
+      name: 'opa',
     },
     {
-      name: 'opam',
       fileExtensions: ['opam'],
+      name: 'opam',
     },
     {
-      name: 'openapi',
       fileNames: ['openapi.json', 'openapi.yml', 'openapi.yaml'],
+      name: 'openapi',
     },
     {
-      name: 'openbsd',
       fileExtensions: ['bsd', 'openbsd'],
+      name: 'openbsd',
     },
     {
-      name: 'opencl',
       fileExtensions: ['opencl'],
+      name: 'opencl',
     },
     {
-      name: 'progress',
       fileExtensions: ['abl', 'p'],
+      name: 'progress',
     },
     {
-      name: 'openexr',
       fileExtensions: ['exr'],
+      name: 'openexr',
     },
     {
-      name: 'opengl',
       fileExtensions: ['glsl', 'glslv', 'gsh', 'gshader'],
+      name: 'opengl',
     },
     {
-      name: 'vertex',
       fileExtensions: ['vert', 'vertex', 'vrx', 'vsh', 'vshader'],
+      name: 'vertex',
     },
     {
-      name: 'shader',
       fileExtensions: ['fp', 'fra', 'frag', 'fsh', 'fshader'],
+      name: 'shader',
     },
     {
-      name: 'openhab',
       fileExtensions: ['things'],
+      name: 'openhab',
     },
     {
-      name: 'openindiana',
       fileExtensions: ['p5i'],
+      name: 'openindiana',
     },
     {
-      name: 'openoffice',
       fileExtensions: [
         'fodg',
         'fodp',
@@ -5888,65 +5889,65 @@ export const fileIcons: FileIcons = {
         'ots',
         'ott',
       ],
+      name: 'openoffice',
     },
     {
-      name: 'openpolicy',
       fileExtensions: ['rego'],
+      name: 'openpolicy',
     },
     {
-      name: 'openscad',
       fileExtensions: ['scad', 'jscad'],
+      name: 'openscad',
     },
     {
-      name: 'openstack',
       fileExtensions: ['aki', 'ami', 'ari', 'ova', 'ovf'],
+      name: 'openstack',
     },
     {
-      name: 'opensolaris',
       fileExtensions: ['opensolaris', 'solaris'],
+      name: 'opensolaris',
     },
     {
-      name: 'openvms',
       fileExtensions: ['hlb', 'cld'],
+      name: 'openvms',
     },
     {
-      name: 'openvpn',
       fileExtensions: ['ovpn'],
+      name: 'openvpn',
     },
     {
-      name: 'openzfs',
       fileNames: ['vdev1', 'vdev2001'],
+      name: 'openzfs',
     },
     {
-      name: 'orgmode',
       fileExtensions: ['org'],
+      name: 'orgmode',
     },
     {
-      name: 'oracle',
       fileExtensions: ['pck', 'pkb', 'pkh', 'plb', 'pls', 'plsql'],
+      name: 'oracle',
     },
     {
-      name: 'finder',
       fileExtensions: ['dmg'],
+      name: 'finder',
     },
     {
-      name: 'outlook',
       fileExtensions: ['bcmx', 'nk2', 'oab', 'oft', 'otm', 'pst'],
+      name: 'outlook',
     },
     {
-      name: 'oxygene',
       fileExtensions: ['oxygene'],
+      name: 'oxygene',
     },
     {
-      name: 'oz',
       fileExtensions: ['oz'],
+      name: 'oz',
     },
 
     // endregion
 
     // region [P]
     {
-      name: 'paket',
       fileNames: [
         'paket.dependencies',
         'paket.local',
@@ -5954,29 +5955,29 @@ export const fileIcons: FileIcons = {
         'paket.references',
         'paket.template',
       ],
+      name: 'paket',
     },
     {
-      name: 'pan',
       fileExtensions: ['pan'],
+      name: 'pan',
     },
     {
-      name: 'papyrus',
       fileExtensions: ['pex', 'psc'],
+      name: 'papyrus',
     },
     {
-      name: 'parcel',
       fileExtensions: ['parcel', 'parcelrc'],
+      name: 'parcel',
     },
     {
-      name: 'parrot',
       fileExtensions: ['parrot', 'pasm', 'pbc', 'pir'],
+      name: 'parrot',
     },
     {
-      name: 'parquet',
       fileExtensions: ['parquet'],
+      name: 'parquet',
     },
     {
-      name: 'pascal',
       fileExtensions: [
         'lfm',
         'lpi',
@@ -5990,13 +5991,13 @@ export const fileIcons: FileIcons = {
         'pascal',
         'ppu',
       ],
+      name: 'pascal',
     },
     {
-      name: 'patch',
       fileExtensions: ['meld', 'patch'],
+      name: 'patch',
     },
     {
-      name: 'patreon',
       fileNames: [
         'patreon',
         'patreon.md',
@@ -6005,29 +6006,29 @@ export const fileIcons: FileIcons = {
         'patrons.md',
         'patrons.txt',
       ],
+      name: 'patreon',
     },
     {
-      name: 'pawn',
       fileExtensions: ['amx', 'fen', 'pawn', 'pgn', 'pwn'],
+      name: 'pawn',
     },
     {
-      name: 'pcd',
       fileExtensions: ['pcd'],
+      name: 'pcd',
     },
     {
-      name: 'pddl',
       fileExtensions: ['happenings', 'pddl', 'plan'],
+      name: 'pddl',
     },
     {
-      name: 'pdf',
       fileExtensions: ['pdf'],
+      name: 'pdf',
     },
     {
-      name: 'pegjs',
       fileExtensions: ['pegjs', 'peg', 'pegcoffee', 'peggy'],
+      name: 'pegjs',
     },
     {
-      name: 'percy',
       fileExtensions: [
         'percy',
         'percy.js',
@@ -6036,9 +6037,9 @@ export const fileIcons: FileIcons = {
         'percy.yml',
         'percyrc',
       ],
+      name: 'percy',
     },
     {
-      name: 'perlconfig',
       fileNames: [
         'perl-config.json',
         'perl5-config.json',
@@ -6047,27 +6048,27 @@ export const fileIcons: FileIcons = {
         'perl6config.json',
         'perlconfig.json',
       ],
+      name: 'perlconfig',
     },
     {
-      name: 'helix',
       fileExtensions: ['p4', 'p4config', 'p4include', 'p4info'],
+      name: 'helix',
     },
     {
-      name: 'helixignore',
       fileExtensions: ['p4ignore'],
+      name: 'helixignore',
     },
     {
-      name: 'phalcon',
-      fileExtensions: ['phalcon', 'volt'],
       enabledFor: [IconPack.Phalcon],
+      fileExtensions: ['phalcon', 'volt'],
       light: true,
+      name: 'phalcon',
     },
     {
-      name: 'photorec',
       fileExtensions: ['photorec.cfg'],
+      name: 'photorec',
     },
     {
-      name: 'php2',
       fileExtensions: [
         'engine',
         'phar',
@@ -6080,22 +6081,22 @@ export const fileIcons: FileIcons = {
         'php8',
         'php9',
       ],
+      name: 'php2',
     },
     {
-      name: 'phpcs',
-      fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
       fileExtensions: ['php_cs'],
+      fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
+      name: 'phpcs',
     },
     {
-      name: 'phpunit',
       fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
+      name: 'phpunit',
     },
     {
-      name: 'phtml',
       fileExtensions: ['phtml'],
+      name: 'phtml',
     },
     {
-      name: 'phoenix',
       fileNames: [
         'phoenix.cjs',
         'phoenix.esm.js',
@@ -6105,80 +6106,80 @@ export const fileIcons: FileIcons = {
         'phoenix.min.js',
         'phoenix.mjs',
       ],
+      name: 'phoenix',
     },
     {
-      name: 'phraseapp',
       fileExtensions: [
         'phrase.yaml',
         'phrase.yml',
         'phraseapp.yaml',
         'phraseapp.yml',
       ],
+      name: 'phraseapp',
     },
     {
-      name: 'pickle',
       fileExtensions: ['pickle', 'pkl'],
+      name: 'pickle',
     },
     {
-      name: 'pico8',
       fileExtensions: ['p8', 'pico8'],
+      name: 'pico8',
     },
     {
-      name: 'picolisp',
       fileExtensions: ['l'],
+      name: 'picolisp',
     },
     {
-      name: 'pike',
       fileExtensions: ['pike', 'pmod'],
+      name: 'pike',
     },
     {
-      name: 'pinescript',
       fileExtensions: ['pine', 'pinescript'],
+      name: 'pinescript',
     },
     {
-      name: 'pipfile',
       fileExtensions: ['pipfile'],
       fileNames: ['pipfile'],
+      name: 'pipfile',
     },
     {
-      name: 'pipfilelock',
       fileNames: ['pipfile.lock'],
+      name: 'pipfilelock',
     },
     {
-      name: 'pipeline',
       fileExtensions: ['pipeline'],
+      name: 'pipeline',
     },
     {
-      name: 'pkgsrc',
       fileNames: ['mk.conf'],
+      name: 'pkgsrc',
     },
     {
-      name: 'platformio',
       fileNames: ['platformio.ini'],
+      name: 'platformio',
     },
     {
-      name: 'play',
       fileExtensions: ['play'],
+      name: 'play',
     },
     {
-      name: 'playwright',
       fileNames: [
         'playwright.config.cjs',
         'playwright.config.js',
         'playwright.config.mjs',
         'playwright.config.ts',
       ],
+      name: 'playwright',
     },
     {
-      name: 'plist',
       fileExtensions: ['plist'],
+      name: 'plist',
     },
     {
-      name: 'plopfile',
       fileNames: ['plopfile.js', 'plopfile.ts', 'plopfile.cjs', 'plopfile.mjs'],
+      name: 'plopfile',
     },
     {
-      name: 'pm2',
       fileNames: [
         'ecosystem.conf.cjs',
         'ecosystem.conf.ini',
@@ -6197,42 +6198,54 @@ export const fileIcons: FileIcons = {
         'ecosystem.config.yaml',
         'ecosystem.config.yml',
       ],
+      name: 'pm2',
     },
     {
-      name: 'pnpm',
       fileNames: ['pnpm-debug.yaml', 'pnpm-lock.yaml', 'pnpm-workspace.yaml'],
+      name: 'pnpm',
     },
     {
-      name: 'pnpmfile',
       fileNames: ['pnpmfile.cjs', 'pnpmfile.js', 'pnpmfile.mjs', 'pnpmfile.ts'],
+      name: 'pnpmfile',
     },
     {
-      name: 'pod',
       fileExtensions: ['nqp', 'p6l', 'p6m', 'pod', 'pod6'],
+      name: 'pod',
     },
     {
-      name: 'poetry',
       fileNames: ['poetry.lock', 'pyproject.toml'],
+      name: 'poetry',
     },
     {
-      name: 'pogoscript',
       fileExtensions: ['pogo'],
+      name: 'pogoscript',
     },
     {
-      name: 'polymer',
       fileExtensions: ['polymer'],
       fileNames: ['polymer.json'],
+      name: 'polymer',
     },
     {
-      name: 'pony',
       fileExtensions: ['pony'],
+      name: 'pony',
     },
     {
-      name: 'pgsql',
       fileExtensions: ['pgsql'],
+      name: 'pgsql',
     },
     {
-      name: 'postcss',
+      fileExtensions: [
+        'pcss',
+        'postcss',
+        'postcssrc',
+        'postcssrc.cjs',
+        'postcssrc.js',
+        'postcssrc.json',
+        'postcssrc.mjs',
+        'postcssrc.ts',
+        'postcssrc.yaml',
+        'postcssrc.yml',
+      ],
       fileNames: [
         'postcss.config.cjs',
         'postcss.config.js',
@@ -6249,30 +6262,9 @@ export const fileIcons: FileIcons = {
         'postcssrc.config.yaml',
         'postcssrc.config.yml',
       ],
-      fileExtensions: [
-        'pcss',
-        'postcss',
-        'postcssrc',
-        'postcssrc.cjs',
-        'postcssrc.js',
-        'postcssrc.json',
-        'postcssrc.mjs',
-        'postcssrc.ts',
-        'postcssrc.yaml',
-        'postcssrc.yml',
-      ],
+      name: 'postcss',
     },
     {
-      name: 'posthtml',
-      fileNames: [
-        'posthtml.config.cjs',
-        'posthtml.config.js',
-        'posthtml.config.json',
-        'posthtml.config.mjs',
-        'posthtml.config.ts',
-        'posthtml.config.yaml',
-        'posthtml.config.yml',
-      ],
       fileExtensions: [
         'posthtml',
         'posthtmlrc',
@@ -6284,17 +6276,26 @@ export const fileIcons: FileIcons = {
         'posthtmlrc.yaml',
         'posthtmlrc.yml',
       ],
+      fileNames: [
+        'posthtml.config.cjs',
+        'posthtml.config.js',
+        'posthtml.config.json',
+        'posthtml.config.mjs',
+        'posthtml.config.ts',
+        'posthtml.config.yaml',
+        'posthtml.config.yml',
+      ],
+      name: 'posthtml',
     },
     {
-      name: 'postscript',
       fileExtensions: ['afm', 'amm', 'bez', 'eps', 'epsf', 'epsi', 'gsf', 'ps'],
+      name: 'postscript',
     },
     {
-      name: 'povray',
       fileExtensions: ['pov', 'povray'],
+      name: 'povray',
     },
     {
-      name: 'powerbuilder',
       fileExtensions: [
         'pbl',
         'pbm',
@@ -6308,9 +6309,9 @@ export const fileIcons: FileIcons = {
         'sru',
         'srw',
       ],
+      name: 'powerbuilder',
     },
     {
-      name: 'powerpoint',
       fileExtensions: [
         'potm',
         'potx',
@@ -6325,9 +6326,9 @@ export const fileIcons: FileIcons = {
         'sldm',
         'sldx',
       ],
+      name: 'powerpoint',
     },
     {
-      name: 'powershell',
       fileExtensions: [
         'cmd',
         'powershell',
@@ -6339,9 +6340,9 @@ export const fileIcons: FileIcons = {
         'psrc',
         'pssc',
       ],
+      name: 'powershell',
     },
     {
-      name: 'precommit',
       fileExtensions: [
         'pre-commit-config.yaml',
         'pre-commit-config.yml',
@@ -6350,18 +6351,18 @@ export const fileIcons: FileIcons = {
         'pre-commit.yaml',
         'pre-commit.yml',
       ],
+      name: 'precommit',
     },
     {
-      name: 'preact',
       fileNames: [
         'preact.config.cjs',
         'preact.config.js',
         'preact.config.mjs',
         'preact.config.ts',
       ],
+      name: 'preact',
     },
     {
-      name: 'prettier',
       fileExtensions: [
         'prettierrc',
         'prettierrc.js',
@@ -6370,66 +6371,66 @@ export const fileIcons: FileIcons = {
         'prettierrc.yaml',
         'prettierrc.yml',
       ],
+      name: 'prettier',
     },
     {
-      name: 'prettierconfig',
       fileNames: [
         'prettier.config.cjs',
         'prettier.config.js',
         'prettier.config.mjs',
         'prettier.config.ts',
       ],
+      name: 'prettierconfig',
     },
     {
-      name: 'prettierignore',
       fileExtensions: ['prettierignore'],
+      name: 'prettierignore',
     },
     {
-      name: 'prismaconfig',
       fileNames: ['prisma.yml', 'prisma.yaml'],
+      name: 'prismaconfig',
     },
     {
-      name: 'prisma',
       fileExtensions: ['prisma'],
+      name: 'prisma',
     },
     {
-      name: 'processing',
       fileExtensions: ['pde'],
+      name: 'processing',
     },
     {
-      name: 'project',
       fileExtensions: ['mpp', 'mpt'],
+      name: 'project',
     },
     {
-      name: 'prolog',
       fileExtensions: ['pro', 'prolog', 'yap'],
+      name: 'prolog',
     },
     {
-      name: 'prometheus',
       fileExtensions: ['rules', 'rules.yml', 'rules.yaml'],
+      name: 'prometheus',
     },
     {
-      name: 'propeller',
       fileExtensions: ['spin'],
+      name: 'propeller',
     },
     {
-      name: 'source',
       fileExtensions: ['prop', 'properties', 'props'],
+      name: 'source',
     },
     {
-      name: 'pros',
       fileExtensions: ['pros'],
+      name: 'pros',
     },
     {
-      name: 'proselint',
       fileExtensions: ['proselintrc'],
+      name: 'proselint',
     },
     {
-      name: 'protobuf',
       fileExtensions: ['proto', 'protobuf', 'protobuf3', 'protodevel'],
+      name: 'protobuf',
     },
     {
-      name: 'protractor',
       fileNames: [
         'protractor.conf.cjs',
         'protractor.conf.js',
@@ -6444,9 +6445,9 @@ export const fileIcons: FileIcons = {
         'protractor.js',
         'protractor.json',
       ],
+      name: 'protractor',
     },
     {
-      name: 'proxy',
       fileNames: [
         'proxy.conf.cjs',
         'proxy.conf.js',
@@ -6459,93 +6460,93 @@ export const fileIcons: FileIcons = {
         'proxy.config.mjs',
         'proxy.config.ts',
       ],
+      name: 'proxy',
     },
     {
-      name: 'publiccode',
       fileNames: ['publiccode.yml', 'publiccode.yaml'],
+      name: 'publiccode',
     },
     {
-      name: 'publisher',
       fileExtensions: ['pub', 'puz'],
+      name: 'publisher',
     },
     {
-      name: 'pullapprove',
-      fileNames: ['pullapprove.yml', 'pullapprove.yaml'],
       fileExtensions: ['pullapprove.yml', 'pullapprove.yaml'],
+      fileNames: ['pullapprove.yml', 'pullapprove.yaml'],
+      name: 'pullapprove',
     },
     {
-      name: 'puppet',
       fileExtensions: ['epp', 'pp', 'puppet'],
+      name: 'puppet',
     },
     {
-      name: 'pure',
       fileExtensions: ['pure'],
+      name: 'pure',
     },
     {
-      name: 'purebasic',
       fileExtensions: ['pb', 'pbi'],
+      name: 'purebasic',
     },
     {
-      name: 'purescript',
       fileExtensions: ['purescript', 'purs'],
+      name: 'purescript',
     },
     {
-      name: 'pypi',
       fileExtensions: ['pypirc', 'requirements'],
       fileNames: ['requirements.in', 'requirements.txt'],
+      name: 'pypi',
     },
     {
-      name: 'pyret',
       fileExtensions: ['arr'],
+      name: 'pyret',
     },
     {
-      name: 'pytest',
       fileNames: ['pytest.ini'],
+      name: 'pytest',
     },
     {
-      name: 'pytyped',
       fileExtensions: ['py.typed', 'pypi', 'pytd', 'pytyped', 'typed'],
+      name: 'pytyped',
     },
     {
-      name: 'pythonconfig',
-      fileNames: ['manifest.in', 'python-config.json', 'pythonconfig.json'],
       fileExtensions: ['coveragerc', 'pylintrc'],
+      fileNames: ['manifest.in', 'python-config.json', 'pythonconfig.json'],
+      name: 'pythonconfig',
     },
     {
-      name: 'pythonversion',
       fileExtensions: ['py-version', 'python-version', 'pythonversion'],
+      name: 'pythonversion',
     },
     {
-      name: 'pyup',
       fileExtensions: ['pyup.yml', 'pyup.yaml'],
+      name: 'pyup',
     },
     // endregion
 
     // region [Q]
     {
-      name: 'qsharp',
       fileExtensions: ['qs'],
       light: true,
+      name: 'qsharp',
     },
     {
-      name: 'kx',
       fileExtensions: ['k', 'kdb', 'q'],
+      name: 'kx',
     },
     {
-      name: 'qiskit',
       fileExtensions: ['qasm', 'qiskit'],
+      name: 'qiskit',
     },
     {
-      name: 'qlikview',
       fileExtensions: ['qvb', 'qvd', 'qvf', 'qvs', 'qvt', 'qvw', 'qvx'],
+      name: 'qlikview',
     },
     {
-      name: 'qodana',
       fileExtensions: ['qodana.yml', 'qodana.yaml'],
       fileNames: ['qodana.yml', 'qodana.yaml'],
+      name: 'qodana',
     },
     {
-      name: 'qt',
       fileExtensions: [
         'qbs',
         'qml',
@@ -6555,110 +6556,110 @@ export const fileIcons: FileIcons = {
         'qrc',
         'qss',
       ],
+      name: 'qt',
     },
     {
-      name: 'quasar',
       fileNames: [
         'quasar.conf.cjs',
         'quasar.conf.js',
         'quasar.conf.mjs',
         'quasar.conf.ts',
       ],
+      name: 'quasar',
     },
     {
-      name: 'quantum',
       fileExtensions: ['qtn'],
+      name: 'quantum',
     },
     // endregion
 
     // region [R]
     {
-      name: 'r',
       fileExtensions: ['r', 'rd', 'rhistory', 'rprofile', 'rsx'],
+      name: 'r',
     },
     {
-      name: 'rmd',
       fileExtensions: ['rmd', 'rmarkdown'],
+      name: 'rmd',
     },
     {
-      name: 'racket',
       fileExtensions: ['rkt', 'rktd', 'rktl', 'scrbl'],
+      name: 'racket',
     },
     {
-      name: 'raml',
       fileExtensions: ['raml'],
+      name: 'raml',
     },
     {
-      name: 'rails',
       fileExtensions: ['rails'],
       fileNames: ['rails'],
+      name: 'rails',
     },
     {
-      name: 'railsconcern',
       fileExtensions: ['concern/rb', 'concerns/rb'],
+      name: 'railsconcern',
     },
     {
-      name: 'railscontroller',
       fileExtensions: ['controller/rb', 'controllers/rb'],
+      name: 'railscontroller',
     },
     {
-      name: 'railsdb',
       fileNames: ['database.yml', 'database.yaml'],
+      name: 'railsdb',
     },
     {
-      name: 'railsfactory',
       fileExtensions: ['factory/rb', 'factories/rb'],
+      name: 'railsfactory',
     },
     {
-      name: 'railsfixture',
       fileExtensions: ['fixture/rb', 'fixtures/rb'],
+      name: 'railsfixture',
     },
     {
-      name: 'railshelper',
       fileExtensions: ['helper/rb', 'helpers/rb'],
+      name: 'railshelper',
     },
     {
-      name: 'railsjob',
       fileExtensions: ['job/rb', 'jobs/rb'],
+      name: 'railsjob',
     },
     {
-      name: 'railsmailer',
       fileExtensions: ['mailer/rb', 'mailers/rb'],
+      name: 'railsmailer',
     },
     {
-      name: 'railsroutes',
       fileNames: ['routes.rb'],
+      name: 'railsroutes',
     },
     {
-      name: 'railsschema',
       fileExtensions: ['schema/rb', 'schemas/rb'],
+      name: 'railsschema',
     },
     {
-      name: 'railsserializer',
       fileExtensions: ['serializer/rb', 'serializers/rb'],
+      name: 'railsserializer',
     },
     {
-      name: 'railsservice',
       fileExtensions: ['service/rb', 'services/rb'],
+      name: 'railsservice',
     },
     {
-      name: 'railsseed',
       fileNames: ['seed.rb'],
+      name: 'railsseed',
     },
     {
-      name: 'rake',
       fileExtensions: ['rake'],
+      name: 'rake',
     },
     {
-      name: 'rakefile',
       fileNames: ['rakefile', 'rakefile.rb'],
+      name: 'rakefile',
     },
     {
-      name: 'razor',
       fileExtensions: ['cshtml', 'vbhtml'],
+      name: 'razor',
     },
     {
-      name: 'raphael',
       fileNames: [
         'raphael-min.js',
         'raphael.js',
@@ -6667,13 +6668,13 @@ export const fileIcons: FileIcons = {
         'raphael.no-deps.js',
         'raphael.no-deps.mjs',
       ],
+      name: 'raphael',
     },
     {
-      name: 'rascal',
       fileExtensions: ['rsc', 'rascal'],
+      name: 'rascal',
     },
     {
-      name: 'razzle',
       fileNames: [
         'razzle.config.cjs',
         'razzle.config.js',
@@ -6682,35 +6683,26 @@ export const fileIcons: FileIcons = {
         'razzle.config.yaml',
         'razzle.config.yml',
       ],
+      name: 'razzle',
     },
     {
-      name: 'rbs',
       fileExtensions: ['rbs'],
+      name: 'rbs',
     },
     {
-      name: 'rdata',
       fileExtensions: ['rda', 'rdata', 'rds', 'rdx'],
+      name: 'rdata',
     },
     {
-      name: 'rdoc',
       fileExtensions: ['rdoc'],
+      name: 'rdoc',
     },
     {
-      name: 'readthedocs',
       fileExtensions: ['readthedocs', 'readthedocs.yaml', 'readthedocs.yml'],
+      name: 'readthedocs',
     },
     {
-      name: 'recoil',
-      fileNames: [
-        'atom.js',
-        'atom.ts',
-        'atoms.js',
-        'atoms.ts',
-        'selector.js',
-        'selector.ts',
-        'selectors.js',
-        'selectors.ts',
-      ],
+      enabledFor: [IconPack.Recoil],
       fileExtensions: [
         'atom.js',
         'atom.ts',
@@ -6729,10 +6721,19 @@ export const fileIcons: FileIcons = {
         'selectors.js',
         'selectors.ts',
       ],
-      enabledFor: [IconPack.Recoil],
+      fileNames: [
+        'atom.js',
+        'atom.ts',
+        'atoms.js',
+        'atoms.ts',
+        'selector.js',
+        'selector.ts',
+        'selectors.js',
+        'selectors.ts',
+      ],
+      name: 'recoil',
     },
     {
-      name: 'remix',
       fileNames: [
         'remix.config.cjs',
         'remix.config.js',
@@ -6741,30 +6742,30 @@ export const fileIcons: FileIcons = {
         'remix.config.yaml',
         'remix.config.yml',
       ],
+      name: 'remix',
     },
     {
-      name: 'replit',
       fileExtensions: ['replit'],
+      name: 'replit',
     },
     {
-      name: 'restql',
       fileExtensions: ['restql', 'rql'],
+      name: 'restql',
     },
     {
-      name: 'restqlconf',
       fileNames: [
         'restql.conf.json',
         'restql.conf.yaml',
         'restql.yaml',
         'restql.yml',
       ],
+      name: 'restqlconf',
     },
     {
-      name: 'reactcli',
       fileExtensions: ['reactcli', 'react-cli'],
+      name: 'reactcli',
     },
     {
-      name: 'react',
       fileNames: [
         'react-min.js',
         'react.cjs',
@@ -6773,38 +6774,39 @@ export const fileIcons: FileIcons = {
         'react.mjs',
         'react.production.min.js',
       ],
+      name: 'react',
     },
     {
-      name: 'reactos',
       fileNames: ['reactos.deb', 'reactos.ios'],
+      name: 'reactos',
     },
     {
-      name: 'reason',
       fileExtensions: ['re', 'rei'],
+      name: 'reason',
     },
     {
-      name: 'reasonstudios',
       fileExtensions: ['reason', 'rns', 'rsn', 'rx2', 'sxt'],
+      name: 'reasonstudios',
     },
     {
-      name: 'rebol',
       fileExtensions: ['r2', 'r3', 'reb', 'rebol'],
+      name: 'rebol',
     },
     {
-      name: 'redhat',
       fileExtensions: ['rpm', 'rpmmacros', 'srpm'],
+      name: 'redhat',
     },
     {
-      name: 'red',
       fileExtensions: ['red', 'reds'],
+      name: 'red',
     },
     {
-      name: 'redis',
-      fileNames: ['redis.conf', 'redis-config.yml', 'redis-config.yaml'],
       fileExtensions: ['rdb'],
+      fileNames: ['redis.conf', 'redis-config.yml', 'redis-config.yaml'],
+      name: 'redis',
     },
     {
-      name: 'redux-action',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'action.js',
         'action.jsx',
@@ -6829,10 +6831,10 @@ export const fileIcons: FileIcons = {
         'actions.ts',
         'actions.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-action',
     },
     {
-      name: 'redux-epic',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'epic.js',
         'epic.jsx',
@@ -6857,10 +6859,10 @@ export const fileIcons: FileIcons = {
         'epics.ts',
         'epics.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-epic',
     },
     {
-      name: 'redux-thunk',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'thunk.js',
         'thunk.jsx',
@@ -6885,10 +6887,10 @@ export const fileIcons: FileIcons = {
         'thunks.ts',
         'thunks.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-thunk',
     },
     {
-      name: 'redux-saga',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'saga.js',
         'saga.jsx',
@@ -6917,10 +6919,10 @@ export const fileIcons: FileIcons = {
         'sagas.ts',
         'sagas.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-saga',
     },
     {
-      name: 'redux-selector',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'selector.js',
         'selector.jsx',
@@ -6949,10 +6951,10 @@ export const fileIcons: FileIcons = {
         'selectors.ts',
         'selectors.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-selector',
     },
     {
-      name: 'redux-reducer',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'reducer.js',
         'reducer.jsx',
@@ -6981,10 +6983,10 @@ export const fileIcons: FileIcons = {
         'reducers.ts',
         'reducers.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-reducer',
     },
     {
-      name: 'redux-slice',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'slice.js',
         'slice.jsx',
@@ -7013,10 +7015,10 @@ export const fileIcons: FileIcons = {
         'slices.ts',
         'slices.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-slice',
     },
     {
-      name: 'redux-store',
+      enabledFor: [IconPack.Redux],
       fileExtensions: [
         'store.js',
         'store.jsx',
@@ -7045,18 +7047,17 @@ export const fileIcons: FileIcons = {
         'stores.ts',
         'stores.tsx',
       ],
-      enabledFor: [IconPack.Redux],
+      name: 'redux-store',
     },
     {
-      name: 'reek',
       fileExtensions: ['reek'],
+      name: 'reek',
     },
     {
-      name: 'regex',
       fileExtensions: ['regex', 'regexp', 'rgx'],
+      name: 'regex',
     },
     {
-      name: 'rehype',
       fileExtensions: [
         'reh',
         'rehype',
@@ -7069,13 +7070,13 @@ export const fileIcons: FileIcons = {
         'rehyperc.yaml',
         'rehyperc.yml',
       ],
+      name: 'rehype',
     },
     {
-      name: 'rehypeignore',
       fileExtensions: ['rehypeignore'],
+      name: 'rehypeignore',
     },
     {
-      name: 'remark',
       fileExtensions: [
         'remark',
         'remarkrc',
@@ -7087,9 +7088,9 @@ export const fileIcons: FileIcons = {
         'remarkrc.yaml',
         'remarkrc.yml',
       ],
+      name: 'remark',
     },
     {
-      name: 'retext',
       fileExtensions: [
         'retext',
         'retextrc',
@@ -7101,22 +7102,22 @@ export const fileIcons: FileIcons = {
         'retextrc.yaml',
         'retextrc.yml',
       ],
+      name: 'retext',
     },
     {
-      name: 'retextignore',
       fileExtensions: ['retextignore'],
+      name: 'retextignore',
     },
     {
-      name: 'remarkignore',
       fileExtensions: ['remarkignore'],
+      name: 'remarkignore',
     },
     {
-      name: 'renovate',
-      fileNames: ['renovate.json', 'renovate.json5', 'renovate.jsonc'],
       fileExtensions: ['renovaterc'],
+      fileNames: ['renovate.json', 'renovate.json5', 'renovate.jsonc'],
+      name: 'renovate',
     },
     {
-      name: 'requirejs',
       fileNames: [
         'require-dev.js',
         'require.cjs',
@@ -7124,45 +7125,45 @@ export const fileIcons: FileIcons = {
         'require.min.js',
         'require.mjs',
       ],
+      name: 'requirejs',
     },
     {
-      name: 'rescript',
       fileExtensions: ['res', 'resi'],
+      name: 'rescript',
     },
     {
-      name: 'rst',
       fileExtensions: ['rst'],
+      name: 'rst',
     },
     {
-      name: 'rexx',
       fileExtensions: ['pprx', 'rex', 'rexx'],
+      name: 'rexx',
     },
     {
-      name: 'rhino3d',
       fileExtensions: ['3dmf', '3dmr', '3mf', '3mfz', '3mm', 'rvb'],
+      name: 'rhino3d',
     },
     {
-      name: 'riemann',
       fileNames: ['riemann.config'],
+      name: 'riemann',
     },
     {
-      name: 'ring',
       fileExtensions: ['ring'],
+      name: 'ring',
     },
     {
-      name: 'riot',
       fileExtensions: ['riot'],
+      name: 'riot',
     },
     {
-      name: 'robot',
       fileExtensions: ['robot'],
+      name: 'robot',
     },
     {
-      name: 'robots',
       fileNames: ['robots.txt', 'robots'],
+      name: 'robots',
     },
     {
-      name: 'rollup',
       fileNames: [
         'rollup.cjs',
         'rollup.conf.cjs',
@@ -7177,24 +7178,14 @@ export const fileIcons: FileIcons = {
         'rollup.mjs',
         'rollup.ts',
       ],
+      name: 'rollup',
     },
     {
-      name: 'rome',
       fileExtensions: ['rome', 'romeignore'],
       fileNames: ['rome.json'],
+      name: 'rome',
     },
     {
-      name: 'routes',
-      fileNames: [
-        'routes.js',
-        'routes.jsx',
-        'routes.ts',
-        'routes.tsx',
-        'routing.js',
-        'routing.jsx',
-        'routing.ts',
-        'routing.tsx',
-      ],
       fileExtensions: [
         'router/js',
         'router/jsx',
@@ -7209,46 +7200,56 @@ export const fileIcons: FileIcons = {
         'routing/ts',
         'routing/tsx',
       ],
+      fileNames: [
+        'routes.js',
+        'routes.jsx',
+        'routes.ts',
+        'routes.tsx',
+        'routing.js',
+        'routing.jsx',
+        'routing.ts',
+        'routing.tsx',
+      ],
+      name: 'routes',
     },
     {
-      name: 'rstudio',
       fileExtensions: ['rproj'],
+      name: 'rstudio',
     },
     {
-      name: 'rspec',
       fileExtensions: ['rspec'],
+      name: 'rspec',
     },
     {
-      name: 'rss',
       fileExtensions: ['rss'],
+      name: 'rss',
     },
     {
-      name: 'rsync',
       fileNames: ['rsyncd.conf', 'rsyncd.secrets'],
       light: true,
+      name: 'rsync',
     },
     {
-      name: 'rubocop',
       fileExtensions: ['rubocop.yaml', 'rubocop.yml', 'rubocop_todo.yml'],
+      name: 'rubocop',
     },
     {
-      name: 'rubygems',
       fileExtensions: ['gem', 'gemspec'],
+      name: 'rubygems',
     },
     {
-      name: 'rubyrc',
       fileExtensions: ['gemrc', 'irbrc', 'pryrc', 'rubyrc'],
+      name: 'rubyrc',
     },
     {
-      name: 'gemset',
       fileExtensions: ['rb-gemset', 'ruby-gemset'],
+      name: 'gemset',
     },
     {
-      name: 'rubyversion',
       fileExtensions: ['rb-version', 'ruby-version'],
+      name: 'rubyversion',
     },
     {
-      name: 'rust',
       fileExtensions: [
         'rlib',
         'rlibc',
@@ -7258,65 +7259,65 @@ export const fileIcons: FileIcons = {
         'rs.in',
         'rust',
       ],
+      name: 'rust',
     },
     {
-      name: 'ron',
       fileExtensions: ['ron'],
+      name: 'ron',
     },
     {
-      name: 'rusttoolchain',
       fileExtensions: ['rust-toolchain'],
+      name: 'rusttoolchain',
     },
     {
-      name: 'rvm',
       fileExtensions: ['rvmrc'],
+      name: 'rvm',
     },
     {
-      name: 'rxjs',
       fileNames: ['rxjs.js', 'rxjs.json', 'rxjs.ts'],
+      name: 'rxjs',
     },
     // endregion
 
     // region [S]
     {
-      name: 'sac',
       fileExtensions: ['sac'],
+      name: 'sac',
     },
     {
-      name: 'safari',
       fileExtensions: [
         'binarycookies',
         'safariext',
         'safariextz',
         'webarchive',
       ],
+      name: 'safari',
     },
     {
-      name: 'sage',
       fileExtensions: ['sage', 'sagews'],
+      name: 'sage',
     },
     {
-      name: 'sails',
       fileExtensions: ['sailsrc'],
+      name: 'sails',
     },
     {
-      name: 'saltstack',
       fileExtensions: ['sls'],
+      name: 'saltstack',
     },
     {
-      name: 'san',
       fileExtensions: ['san'],
+      name: 'san',
     },
     {
-      name: 'sandbox',
       fileExtensions: ['sb'],
+      name: 'sandbox',
     },
     {
-      name: 'sas',
       fileExtensions: ['sas'],
+      name: 'sas',
     },
     {
-      name: 'sapper',
       fileNames: [
         'sapper.cjs',
         'sapper.config.cjs',
@@ -7327,49 +7328,49 @@ export const fileIcons: FileIcons = {
         'sapper.mjs',
         'sapper.ts',
       ],
+      name: 'sapper',
     },
     {
-      name: 'sbt',
       fileExtensions: ['sbt'],
+      name: 'sbt',
     },
     {
-      name: 'scala',
       fileExtensions: ['kojo', 'sc'],
+      name: 'scala',
     },
     {
-      name: 'scheme',
       fileExtensions: ['scheme', 'scm', 'sld', 'sps', 'xtm'],
+      name: 'scheme',
     },
     {
-      name: 'scilla',
       fileExtensions: ['scilla'],
+      name: 'scilla',
     },
     {
-      name: 'scilab',
       fileExtensions: ['sci', 'sce', 'tst'],
+      name: 'scilab',
     },
     {
-      name: 'scratch',
       fileExtensions: ['sb2', 'sb3'],
+      name: 'scratch',
     },
     {
-      name: 'scrutinizer',
       fileExtensions: ['scrutinizer.yml', 'scrutinizer.yaml'],
+      name: 'scrutinizer',
     },
     {
-      name: 'sdlang',
       fileExtensions: ['sdl'],
+      name: 'sdlang',
     },
     {
-      name: 'secret',
       fileExtensions: ['safe', 'secret', 'secrets'],
+      name: 'secret',
     },
     {
-      name: 'self',
       fileExtensions: ['self'],
+      name: 'self',
     },
     {
-      name: 'sencha',
       fileNames: [
         'sencha-touch.js',
         'sencha-touch.min.js',
@@ -7380,13 +7381,13 @@ export const fileIcons: FileIcons = {
         'sencha.min.mjs',
         'sencha.mjs',
       ],
+      name: 'sencha',
     },
     {
-      name: 'sentry',
       fileExtensions: ['sentryclirc'],
+      name: 'sentry',
     },
     {
-      name: 'semantic-release',
       fileExtensions: [
         'releaserc',
         'releaserc.cjs',
@@ -7404,13 +7405,13 @@ export const fileIcons: FileIcons = {
         'semantic-release.config.js',
         'semantic-release.config.mjs',
       ],
+      name: 'semantic-release',
     },
     {
-      name: 'semgrep',
       fileExtensions: ['semgrep', 'semgrepignore'],
+      name: 'semgrep',
     },
     {
-      name: 'serverless',
       fileExtensions: [
         'serverless.cjs',
         'serverless.js',
@@ -7429,13 +7430,13 @@ export const fileIcons: FileIcons = {
         'serverless.yaml',
         'serverless.yml',
       ],
+      name: 'serverless',
     },
     {
-      name: 'servicefabric',
       fileExtensions: ['sfproj'],
+      name: 'servicefabric',
     },
     {
-      name: 'settings',
       fileExtensions: [
         'opt',
         'option',
@@ -7444,9 +7445,9 @@ export const fileIcons: FileIcons = {
         'setting',
         'settings',
       ],
+      name: 'settings',
     },
     {
-      name: 'sequelize',
       fileExtensions: [
         'sequelizerc',
         'sequelizerc.cjs',
@@ -7454,22 +7455,22 @@ export const fileIcons: FileIcons = {
         'sequelizerc.json',
         'sequelizerc.mjs',
       ],
+      name: 'sequelize',
     },
     {
-      name: 'shadowcljs',
       fileNames: ['shadow-cljs.edn'],
+      name: 'shadowcljs',
     },
     {
-      name: 'shen',
       fileExtensions: ['shen'],
+      name: 'shen',
     },
     {
-      name: 'shellcheck',
       fileExtensions: ['shellcheckrc'],
       fileNames: ['shellcheckrc'],
+      name: 'shellcheck',
     },
     {
-      name: 'shell',
       fileExtensions: [
         'ash',
         'bash',
@@ -7508,9 +7509,9 @@ export const fileIcons: FileIcons = {
         'zshenv',
         'zshrc',
       ],
+      name: 'shell',
     },
     {
-      name: 'shipit',
       fileNames: [
         'shipitfile.babel.js',
         'shipitfile.cjs',
@@ -7518,62 +7519,62 @@ export const fileIcons: FileIcons = {
         'shipitfile.mjs',
         'shipitfile.ts',
       ],
+      name: 'shipit',
     },
     {
-      name: 'shippable',
       fileNames: ['shippable.yml', 'shippable.yaml'],
+      name: 'shippable',
     },
     {
-      name: 'sigils',
       fileExtensions: ['sigils'],
+      name: 'sigils',
     },
     {
-      name: 'silverstripe',
       fileExtensions: ['ss'],
+      name: 'silverstripe',
     },
     {
-      name: 'siyuan',
       fileExtensions: ['siyuan', 'sy'],
+      name: 'siyuan',
     },
     {
-      name: 'sketch',
       fileExtensions: ['sketch'],
+      name: 'sketch',
     },
     {
-      name: 'sketchup',
       fileExtensions: ['layout', 'skd', 'sketchup', 'sketchupproj', 'skm'],
+      name: 'sketchup',
     },
     {
-      name: 'sketchmake',
       fileExtensions: ['skp', 'style'],
+      name: 'sketchmake',
     },
     {
-      name: 'skipper',
       fileExtensions: ['eskip'],
+      name: 'skipper',
     },
     {
-      name: 'skript',
       fileExtensions: ['sk', 'skript'],
       light: true,
+      name: 'skript',
     },
     {
-      name: 'slang',
       fileExtensions: ['slang'],
+      name: 'slang',
     },
     {
-      name: 'slash',
       fileExtensions: ['slash', 'sl'],
+      name: 'slash',
     },
     {
-      name: 'slice',
       fileExtensions: ['ice'],
+      name: 'slice',
     },
     {
-      name: 'slim',
       fileExtensions: ['slim'],
+      name: 'slim',
     },
     {
-      name: 'slug',
       fileNames: [
         '[slug].cjs',
         '[slug].js',
@@ -7590,37 +7591,37 @@ export const fileIcons: FileIcons = {
         'slugs/ts',
         'slugs/tsx',
       ],
+      name: 'slug',
     },
     {
-      name: 'smartos',
       fileNames: ['smartos.deb', 'smartos.img', 'smartos.iso'],
+      name: 'smartos',
     },
     {
-      name: 'smarty',
       fileExtensions: ['smarty', 'tpl'],
+      name: 'smarty',
     },
     {
-      name: 'smithy',
       fileExtensions: ['smithy'],
+      name: 'smithy',
     },
     {
-      name: 'sml',
       fileExtensions: ['cm', 'fun', 'grm', 'mlb', 'mlton', 'sig', 'sml'],
+      name: 'sml',
     },
     {
-      name: 'snakemake',
       fileExtensions: ['bam', 'rule', 'smk'],
+      name: 'snakemake',
     },
     {
-      name: 'snakefile',
       fileNames: ['snakefile'],
+      name: 'snakefile',
     },
     {
-      name: 'snapcraft',
       fileNames: ['snapcraft.yaml', 'snapcraft.yml'],
+      name: 'snapcraft',
     },
     {
-      name: 'snapsvg',
       fileNames: [
         'snap.svg-min.js',
         'snap.svg.cjs',
@@ -7628,17 +7629,17 @@ export const fileIcons: FileIcons = {
         'snap.svg.min.js',
         'snap.svg.mjs',
       ],
+      name: 'snapsvg',
     },
     {
-      name: 'snapshot',
       fileExtensions: ['snap'],
+      name: 'snapshot',
     },
     {
-      name: 'snort',
       fileExtensions: ['snort'],
+      name: 'snort',
     },
     {
-      name: 'snowpack',
       fileNames: [
         'snowpack.config.cjs',
         'snowpack.config.js',
@@ -7648,21 +7649,21 @@ export const fileIcons: FileIcons = {
         'snowpack.config.yaml',
         'snowpack.config.yml',
       ],
+      name: 'snowpack',
     },
     {
-      name: 'snyk',
       fileExtensions: ['snyk'],
+      name: 'snyk',
     },
     {
-      name: 'solidity',
       fileExtensions: ['sol', 'solidity'],
+      name: 'solidity',
     },
     {
-      name: 'solidarity',
       fileExtensions: ['solidarity', 'solidarity.json'],
+      name: 'solidarity',
     },
     {
-      name: 'sonar',
       fileExtensions: [
         'sonar',
         'sonarlint',
@@ -7670,9 +7671,9 @@ export const fileIcons: FileIcons = {
         'sonarqube',
         'sonarrc',
       ],
+      name: 'sonar',
     },
     {
-      name: 'sonarcloud',
       fileExtensions: [
         'sonarcloud.properties',
         'sonarcloud.yaml',
@@ -7688,17 +7689,17 @@ export const fileIcons: FileIcons = {
         'sonarcloud.yaml',
         'sonarcloud.yml',
       ],
+      name: 'sonarcloud',
     },
     {
-      name: 'sophia',
       fileExtensions: ['aesl', 'aes'],
+      name: 'sophia',
     },
     {
-      name: 'sorbet',
       fileExtensions: ['rbi'],
+      name: 'sorbet',
     },
     {
-      name: 'sourcemap',
       fileExtensions: [
         'cidmap',
         'enigma',
@@ -7708,34 +7709,34 @@ export const fileIcons: FileIcons = {
         'tiny',
         'tinyv2',
       ],
+      name: 'sourcemap',
     },
     {
-      name: 'spaceengine',
       fileExtensions: ['spe'],
+      name: 'spaceengine',
     },
     {
-      name: 'spacemacs',
       fileExtensions: ['spacemacs'],
       fileNames: ['spacemacs'],
+      name: 'spacemacs',
     },
     {
-      name: 'sparql',
       fileExtensions: ['rq', 'sparql'],
+      name: 'sparql',
     },
     {
-      name: 'spectral',
       fileExtensions: ['spectral.yml', 'spectral.yaml'],
+      name: 'spectral',
     },
     {
-      name: 'spring',
       fileExtensions: ['spring'],
+      name: 'spring',
     },
     {
-      name: 'sqf',
       fileExtensions: ['hqf', 'sqf'],
+      name: 'sqf',
     },
     {
-      name: 'sql',
       fileExtensions: [
         'cql',
         'hql',
@@ -7749,25 +7750,25 @@ export const fileIcons: FileIcons = {
         'xqm',
         'xqy',
       ],
+      name: 'sql',
     },
     {
-      name: 'sqlite',
       fileExtensions: ['sqlite', 'sqlite3', 'sqlite3-journal'],
+      name: 'sqlite',
     },
     {
-      name: 'squarespace',
       fileExtensions: ['jsont'],
+      name: 'squarespace',
     },
     {
-      name: 'squirrel',
       fileExtensions: ['gnut', 'nut', 'nutf'],
+      name: 'squirrel',
     },
     {
-      name: 'stan',
       fileExtensions: ['stan'],
+      name: 'stan',
     },
     {
-      name: 'stata',
       fileExtensions: [
         'ado',
         'doh',
@@ -7778,9 +7779,9 @@ export const fileIcons: FileIcons = {
         'stata',
         'sthlp',
       ],
+      name: 'stata',
     },
     {
-      name: 'stdlib',
       fileNames: [
         'stdlib.cjs',
         'stdlib.conf.cjs',
@@ -7794,45 +7795,45 @@ export const fileIcons: FileIcons = {
         'stdlib.mjs',
         'stdlib.ts',
       ],
+      name: 'stdlib',
     },
     {
-      name: 'stencilconfig',
       fileNames: ['stencil.config.js', 'stencil.config.ts'],
+      name: 'stencilconfig',
     },
     {
-      name: 'stencil',
       fileExtensions: ['stencil'],
+      name: 'stencil',
     },
     {
-      name: 'steadybit',
       fileExtensions: ['steadybit.yml', 'steadybit.yaml'],
       fileNames: ['steadybit.yml', 'steadybit.yaml'],
+      name: 'steadybit',
     },
     {
-      name: 'stitches',
-      fileNames: [
-        'stitches.config.cjs',
-        'stitches.config.js',
-        'stitches.config.mjs',
-        'stitches.config.ts',
-      ],
       fileExtensions: [
         'stitches.config.cjs',
         'stitches.config.js',
         'stitches.config.mjs',
         'stitches.config.ts',
       ],
+      fileNames: [
+        'stitches.config.cjs',
+        'stitches.config.js',
+        'stitches.config.mjs',
+        'stitches.config.ts',
+      ],
+      name: 'stitches',
     },
     {
-      name: 'storyboard',
       fileExtensions: ['storyboard'],
+      name: 'storyboard',
     },
     {
-      name: 'storyist',
       fileExtensions: ['story'],
+      name: 'storyist',
     },
     {
-      name: 'storybook',
       fileExtensions: [
         'stories.js',
         'stories.jsx',
@@ -7845,9 +7846,9 @@ export const fileIcons: FileIcons = {
         'story.ts',
         'story.tsx',
       ],
+      name: 'storybook',
     },
     {
-      name: 'stylelint',
       fileExtensions: [
         'stylelintrc',
         'stylelintrc.cjs',
@@ -7866,13 +7867,13 @@ export const fileIcons: FileIcons = {
         'stylelint.config.yaml',
         'stylelint.config.yml',
       ],
+      name: 'stylelint',
     },
     {
-      name: 'stylelintignore',
       fileExtensions: ['stylelintignore', 'stylelintignore.json'],
+      name: 'stylelintignore',
     },
     {
-      name: 'styleguidist',
       fileExtensions: [
         'styleguiderc',
         'styleguiderc.cjs',
@@ -7891,13 +7892,13 @@ export const fileIcons: FileIcons = {
         'styleguide.config.yaml',
         'styleguide.config.yml',
       ],
+      name: 'styleguidist',
     },
     {
-      name: 'stylable',
       fileExtensions: ['st.css'],
+      name: 'stylable',
     },
     {
-      name: 'styledcomponents',
       fileExtensions: [
         'sc.cjs',
         'sc.js',
@@ -7922,38 +7923,38 @@ export const fileIcons: FileIcons = {
         'styles.ts',
         'styles.tsx',
       ],
+      name: 'styledcomponents',
     },
     {
-      name: 'stylishhaskell',
       fileExtensions: ['stylish-haskell.yaml', 'stylish-haskell.yml'],
+      name: 'stylishhaskell',
     },
     {
-      name: 'stylus',
       fileExtensions: ['styl'],
+      name: 'stylus',
     },
     {
-      name: 'sublime',
       fileExtensions: [
         'sublime-macro',
         'sublime-package',
         'sublime-project',
         'sublime-workspace',
       ],
+      name: 'sublime',
     },
     {
-      name: 'subtitle',
       fileExtensions: ['sbv', 'srt', 'sub'],
+      name: 'subtitle',
     },
     {
-      name: 'scd',
       fileExtensions: ['scd', 'scsyndef', 'scsynthdef', 'scx', 'scxt', 'scz'],
+      name: 'scd',
     },
     {
-      name: 'sss',
       fileExtensions: ['sss'],
+      name: 'sss',
     },
     {
-      name: 'supabase',
       fileNames: [
         'supabase.js',
         'supabase.json',
@@ -7962,13 +7963,13 @@ export const fileIcons: FileIcons = {
         'supabase.yaml',
         'supabase.yml',
       ],
+      name: 'supabase',
     },
     {
-      name: 'svelte',
       fileExtensions: ['svelte', 'svelte-kit'],
+      name: 'svelte',
     },
     {
-      name: 'svelte_config',
       fileNames: [
         'svelte.config.cjs',
         'svelte.config.js',
@@ -7978,9 +7979,9 @@ export const fileIcons: FileIcons = {
         'svelte.config.yaml',
         'svelte.config.yml',
       ],
+      name: 'svelte_config',
     },
     {
-      name: 'svgo',
       fileExtensions: [
         'svgo.cjs',
         'svgo.js',
@@ -7998,9 +7999,9 @@ export const fileIcons: FileIcons = {
         'svgo.config.yaml',
         'svgo.config.yml',
       ],
+      name: 'svgo',
     },
     {
-      name: 'svgr',
       fileExtensions: [
         'svgrrc',
         'svgrrc.cjs',
@@ -8020,17 +8021,18 @@ export const fileIcons: FileIcons = {
         'svgr.config.yaml',
         'svgr.config.yml',
       ],
+      name: 'svgr',
     },
     {
-      name: 'svx',
       fileExtensions: ['mdsvex', 'svx'],
+      name: 'svx',
     },
     {
-      name: 'svn',
       fileExtensions: ['svn', 'svnignore'],
+      name: 'svn',
     },
     {
-      name: 'swagger',
+      fileExtensions: ['swagger', 'swag'],
       fileNames: [
         'api.json',
         'api.yaml',
@@ -8039,35 +8041,34 @@ export const fileIcons: FileIcons = {
         'swagger.yaml',
         'swagger.yml',
       ],
-      fileExtensions: ['swagger', 'swag'],
+      name: 'swagger',
     },
     {
-      name: 'swc',
       fileExtensions: ['swc'],
+      name: 'swc',
     },
     {
-      name: 'swiftlock',
       fileNames: ['package.pins', 'package.resolved'],
+      name: 'swiftlock',
     },
     {
-      name: 'swig',
       fileExtensions: ['swig'],
+      name: 'swig',
     },
     {
-      name: 'symfony',
       fileNames: ['symfony.lock'],
       light: true,
+      name: 'symfony',
     },
 
     // endregion
 
     // region [T]
     {
-      name: 'toc',
       fileExtensions: ['listing', 'toc'],
+      name: 'toc',
     },
     {
-      name: 'tailwindcss',
       fileExtensions: [
         'tailwind.cjs',
         'tailwind.js',
@@ -8085,9 +8086,9 @@ export const fileIcons: FileIcons = {
         'tailwind.config.ts',
         'tailwind.js',
       ],
+      name: 'tailwindcss',
     },
     {
-      name: 'tauri',
       fileNames: [
         'tauri.cjs',
         'tauri.conf.cjs',
@@ -8103,9 +8104,9 @@ export const fileIcons: FileIcons = {
         'tauri.mjs',
         'tauri.ts',
       ],
+      name: 'tauri',
     },
     {
-      name: 'tcl',
       fileExtensions: [
         'adp',
         'exp',
@@ -8116,33 +8117,33 @@ export const fileIcons: FileIcons = {
         'tkvcs',
         'tm',
       ],
+      name: 'tcl',
     },
     {
-      name: 'tea',
       fileExtensions: ['tea'],
+      name: 'tea',
     },
     {
-      name: 'teal',
       fileExtensions: ['teal'],
+      name: 'teal',
     },
     {
-      name: 'telegram',
       fileExtensions: ['tl', 'xps'],
+      name: 'telegram',
     },
     {
-      name: 'tt',
       fileExtensions: ['tt', 'tt2', 'tt3', 'tt4', 'ttml'],
+      name: 'tt',
     },
     {
-      name: 'tera',
       fileExtensions: ['tera'],
+      name: 'tera',
     },
     {
-      name: 'terraform',
       fileExtensions: ['tf', 'tf.json', 'tfplan', 'tfstate', 'tfvars'],
+      name: 'terraform',
     },
     {
-      name: 'terser',
       fileExtensions: [
         'terserignore',
         'terserrc',
@@ -8152,17 +8153,17 @@ export const fileIcons: FileIcons = {
         'uglifyrc',
         'uglifyrc.json',
       ],
+      name: 'terser',
     },
     {
-      name: 'tern',
       fileExtensions: ['tern-config', 'tern-project', 'ternconfig'],
+      name: 'tern',
     },
     {
-      name: 'testcafe',
       fileExtensions: ['testcaferc', 'testcaferc.json'],
+      name: 'testcafe',
     },
     {
-      name: 'tex',
       fileExtensions: [
         'aux',
         'dtx',
@@ -8178,17 +8179,17 @@ export const fileIcons: FileIcons = {
         'tikz',
         'txi',
       ],
+      name: 'tex',
     },
     {
-      name: 'textlint',
       fileExtensions: ['textlintrc', 'textlintrc.json'],
+      name: 'textlint',
     },
     {
-      name: 'textile',
       fileExtensions: ['textile'],
+      name: 'textile',
     },
     {
-      name: 'textmate',
       fileExtensions: [
         'tmBundle',
         'tmCommand',
@@ -8200,13 +8201,13 @@ export const fileIcons: FileIcons = {
         'tmTheme',
         'tmcg',
       ],
+      name: 'textmate',
     },
     {
-      name: 'thor',
       fileExtensions: ['thor'],
+      name: 'thor',
     },
     {
-      name: 'thunderclient',
       fileNames: [
         'thunder-collection.js',
         'thunder-collection.json',
@@ -8218,17 +8219,17 @@ export const fileIcons: FileIcons = {
         'thunderclient.settings.js',
         'thunderclient.settings.json',
       ],
+      name: 'thunderclient',
     },
     {
-      name: 'tidyparse',
       fileExtensions: ['tidy', 'tidyparserrc', 'tidyparserrc.json'],
+      name: 'tidyparse',
     },
     {
-      name: 'tilt',
       fileNames: ['Tiltfile'],
+      name: 'tilt',
     },
     {
-      name: 'tinymce',
       fileNames: [
         'tinymce.cjs',
         'tinymce.jquery.js',
@@ -8240,22 +8241,28 @@ export const fileIcons: FileIcons = {
         'tinymce.mjs',
         'tinymce.ts',
       ],
+      name: 'tinymce',
     },
     {
-      name: 'tipe',
       fileExtensions: ['tipe'],
+      name: 'tipe',
     },
     {
-      name: 'tla',
       fileExtensions: ['tla'],
+      name: 'tla',
     },
     {
-      name: 'tmux',
-      fileNames: ['tmux.conf'],
       fileExtensions: ['tmux', 'tmux.conf'],
+      fileNames: ['tmux.conf'],
+      name: 'tmux',
     },
     {
-      name: 'truffle',
+      fileExtensions: [
+        'truffle.cjs',
+        'truffle.js',
+        'truffle.mjs',
+        'truffle.ts',
+      ],
       fileNames: [
         'truffle-config.cjs',
         'truffle-config.js',
@@ -8266,19 +8273,13 @@ export const fileIcons: FileIcons = {
         'truffle.mjs',
         'truffle.ts',
       ],
-      fileExtensions: [
-        'truffle.cjs',
-        'truffle.js',
-        'truffle.mjs',
-        'truffle.ts',
-      ],
+      name: 'truffle',
     },
     {
-      name: 'ttcn',
       fileExtensions: ['ttcn', 'ttcn3'],
+      name: 'ttcn',
     },
     {
-      name: 'tomcat',
       fileNames: [
         'context.xml',
         'server.xml',
@@ -8287,9 +8288,10 @@ export const fileIcons: FileIcons = {
         'tomcat.java',
         'web.xml',
       ],
+      name: 'tomcat',
     },
     {
-      name: 'todo',
+      fileExtensions: ['taskpaper', 'todo'],
       fileNames: [
         'todo',
         'todo.adoc',
@@ -8340,18 +8342,26 @@ export const fileIcons: FileIcons = {
         'todo.yaml',
         'todo.yml',
       ],
-      fileExtensions: ['taskpaper', 'todo'],
+      name: 'todo',
     },
     {
-      name: 'toit',
       fileExtensions: ['toit'],
+      name: 'toit',
     },
     {
-      name: 'tox',
       fileNames: ['tox.ini'],
+      name: 'tox',
     },
     {
-      name: 'tsconfig',
+      fileExtensions: [
+        'tsconfig.cjs',
+        'tsconfig.js',
+        'tsconfig.json',
+        'tsconfig.mjs',
+        'tsconfig.ts',
+        'tsconfig.yaml',
+        'tsconfig.yml',
+      ],
       fileNames: [
         'tsconfig.base.json',
         'tsconfig.build.json',
@@ -8366,18 +8376,18 @@ export const fileIcons: FileIcons = {
         'tsconfig.yaml',
         'tsconfig.yml',
       ],
-      fileExtensions: [
-        'tsconfig.cjs',
-        'tsconfig.js',
-        'tsconfig.json',
-        'tsconfig.mjs',
-        'tsconfig.ts',
-        'tsconfig.yaml',
-        'tsconfig.yml',
-      ],
+      name: 'tsconfig',
     },
     {
-      name: 'tslint',
+      fileExtensions: [
+        'tslint.cjs',
+        'tslint.js',
+        'tslint.json',
+        'tslint.mjs',
+        'tslint.ts',
+        'tslint.yaml',
+        'tslint.yml',
+      ],
       fileNames: [
         'tslint.base.json',
         'tslint.build.json',
@@ -8392,26 +8402,17 @@ export const fileIcons: FileIcons = {
         'tslint.yaml',
         'tslint.yml',
       ],
-      fileExtensions: [
-        'tslint.cjs',
-        'tslint.js',
-        'tslint.json',
-        'tslint.mjs',
-        'tslint.ts',
-        'tslint.yaml',
-        'tslint.yml',
-      ],
+      name: 'tslint',
     },
     {
-      name: 'travis',
       fileExtensions: ['travis.yml', 'travis.yaml'],
+      name: 'travis',
     },
     {
-      name: 'tuc',
       fileExtensions: ['tuc'],
+      name: 'tuc',
     },
     {
-      name: 'turborepo',
       fileNames: [
         'turbo.config.cjs',
         'turbo.config.js',
@@ -8419,25 +8420,25 @@ export const fileIcons: FileIcons = {
         'turbo.config.ts',
         'turbo.json',
       ],
+      name: 'turborepo',
     },
     {
-      name: 'turing',
       fileExtensions: ['tu'],
+      name: 'turing',
     },
     {
-      name: 'twig',
       fileExtensions: ['twig'],
+      name: 'twig',
     },
     {
-      name: 'twine',
       fileExtensions: ['tw', 'twee'],
+      name: 'twine',
     },
     {
-      name: 'txl',
       fileExtensions: ['txl'],
+      name: 'txl',
     },
     {
-      name: 'typedoc',
       fileNames: [
         'typedoc.cjs',
         'typedoc.js',
@@ -8445,29 +8446,29 @@ export const fileIcons: FileIcons = {
         'typedoc.mjs',
         'typedoc.ts',
       ],
+      name: 'typedoc',
     },
     {
-      name: 'dts',
       fileExtensions: ['d.ts'],
+      name: 'dts',
     },
     {
-      name: 'typings',
       fileNames: ['typings.json'],
+      name: 'typings',
     },
     {
-      name: 'typo3',
       fileExtensions: ['typoscript'],
+      name: 'typo3',
     },
 
     // endregion
 
     // region [U]
     {
-      name: 'ufo',
       fileExtensions: ['glif', 'ufo', 'ufoz'],
+      name: 'ufo',
     },
     {
-      name: 'uikit',
       fileNames: [
         'uikit.cjs',
         'uikit.js',
@@ -8476,17 +8477,17 @@ export const fileIcons: FileIcons = {
         'uikit.min.mjs',
         'uikit.mjs',
       ],
+      name: 'uikit',
     },
     {
-      name: 'uml',
       fileExtensions: ['iuml', 'plantuml', 'pu', 'puml', 'uml', 'wsd'],
+      name: 'uml',
     },
     {
-      name: 'unicode',
       fileExtensions: ['unicode'],
+      name: 'unicode',
     },
     {
-      name: 'unibeautify',
       fileExtensions: [
         'unibeautifyrc.cjs',
         'unibeautifyrc.js',
@@ -8505,9 +8506,9 @@ export const fileIcons: FileIcons = {
         'unibeautify.config.yaml',
         'unibeautify.config.yml',
       ],
+      name: 'unibeautify',
     },
     {
-      name: 'unibeautifyrc',
       fileExtensions: ['unibeautifyrc'],
       fileNames: [
         'unibeautifyrc.config.cjs',
@@ -8518,9 +8519,9 @@ export const fileIcons: FileIcons = {
         'unibeautifyrc.config.yaml',
         'unibeautifyrc.config.yml',
       ],
+      name: 'unibeautifyrc',
     },
     {
-      name: 'unity',
       fileExtensions: [
         'anim',
         'asset',
@@ -8534,17 +8535,17 @@ export const fileIcons: FileIcons = {
         'unitypackage',
         'unityproj',
       ],
+      name: 'unity',
     },
     {
-      name: 'uos',
       fileExtensions: ['uof', 'uop', 'uos', 'uot'],
+      name: 'uos',
     },
     {
-      name: 'unison',
       fileExtensions: ['u'],
+      name: 'unison',
     },
     {
-      name: 'unlicense',
       fileNames: [
         'unlicence',
         'unlicence.md',
@@ -8555,13 +8556,13 @@ export const fileIcons: FileIcons = {
         'unlicense.rst',
         'unlicense.txt',
       ],
+      name: 'unlicense',
     },
     {
-      name: 'uno',
       fileExtensions: ['uno', 'unoproj'],
+      name: 'uno',
     },
     {
-      name: 'unocss',
       fileNames: [
         'uno.config.cjs',
         'uno.config.js',
@@ -8572,9 +8573,9 @@ export const fileIcons: FileIcons = {
         'unocss.config.mjs',
         'unocss.config.ts',
       ],
+      name: 'unocss',
     },
     {
-      name: 'unreal',
       fileExtensions: [
         'uasset',
         'uax',
@@ -8590,86 +8591,71 @@ export const fileIcons: FileIcons = {
         'utx',
         'uz',
       ],
+      name: 'unreal',
     },
     {
-      name: 'urweb',
       fileExtensions: ['ur', 'urs'],
+      name: 'urweb',
     },
 
     // endregion [U]
 
     // region [V]
     {
-      name: 'v',
       fileExtensions: ['v', 'vh'],
+      name: 'v',
     },
     {
-      name: 'v8',
       fileExtensions: ['v8', 'v8flags'],
+      name: 'v8',
     },
     {
-      name: 'vagrant',
       fileExtensions: ['vagrantfile'],
       fileNames: ['vagrantfile'],
+      name: 'vagrant',
     },
     {
-      name: 'vala',
       fileExtensions: ['vala', 'vapi'],
+      name: 'vala',
     },
     {
-      name: 'vanillaextract',
       fileExtensions: ['css.cjs', 'css.js', 'css.mjs', 'css.ts'],
+      name: 'vanillaextract',
     },
     {
-      name: 'vapor',
       fileNames: ['vapor.json', 'vapor.yaml', 'vapor.yml'],
+      name: 'vapor',
     },
     {
-      name: 'vash',
       fileExtensions: ['vash'],
+      name: 'vash',
     },
     {
-      name: 'vcl',
       fileExtensions: ['vcl'],
+      name: 'vcl',
     },
     {
-      name: 'velocity',
       fileExtensions: ['fhtml', 'vm', 'vtl'],
+      name: 'velocity',
     },
     {
-      name: 'vercel',
       fileNames: ['vercel.json', 'vercel.yml', 'vercel.yaml'],
       light: true,
+      name: 'vercel',
     },
     {
-      name: 'vercelignore',
       fileExtensions: ['vercelignore'],
+      name: 'vercelignore',
     },
     {
-      name: 'verdaccio',
       fileNames: ['verdaccio.yml', 'verdaccio.yaml'],
+      name: 'verdaccio',
     },
     {
-      name: 'verilog',
       fileExtensions: ['sv', 'svh', 'veo'],
+      name: 'verilog',
     },
     {
-      name: 'version',
-      fileNames: [
-        'ctags',
-        'gemtags',
-        'hgtags',
-        'idtags',
-        'localtags',
-        'pytags',
-        'tag',
-        'tags',
-        'version',
-        'version.adoc',
-        'version.md',
-        'version.rst',
-        'version.txt',
-      ],
       fileExtensions: [
         'ctags',
         'gemtags',
@@ -8686,17 +8672,32 @@ export const fileIcons: FileIcons = {
         'tld',
         'version',
       ],
+      fileNames: [
+        'ctags',
+        'gemtags',
+        'hgtags',
+        'idtags',
+        'localtags',
+        'pytags',
+        'tag',
+        'tags',
+        'version',
+        'version.adoc',
+        'version.md',
+        'version.rst',
+        'version.txt',
+      ],
+      name: 'version',
     },
     {
-      name: 'vhdl',
       fileExtensions: ['vhd', 'vhdl', 'vhf', 'vhi', 'vho', 'vhs', 'vht', 'vhw'],
+      name: 'vhdl',
     },
     {
-      name: 'vim',
       fileExtensions: ['exrc', 'gvimrc', 'vim', 'viml', 'vimrc'],
+      name: 'vim',
     },
     {
-      name: 'visio',
       fileExtensions: [
         'vdw',
         'vdx',
@@ -8712,17 +8713,17 @@ export const fileIcons: FileIcons = {
         'vsx',
         'vtx',
       ],
+      name: 'visio',
     },
     {
-      name: 'vb',
       fileExtensions: ['frm', 'vb', 'vba', 'vbs'],
+      name: 'vb',
     },
     {
-      name: 'vbproj',
       fileExtensions: ['vbproj'],
+      name: 'vbproj',
     },
     {
-      name: 'vs',
       fileExtensions: [
         'lsproj',
         'modelproj',
@@ -8736,27 +8737,27 @@ export const fileIcons: FileIcons = {
         'vstemplate',
         'wmaproj',
       ],
+      name: 'vs',
     },
     {
-      name: 'vitest',
       fileNames: [
         'vitest.config.cjs',
         'vitest.config.js',
         'vitest.config.mjs',
         'vitest.config.ts',
       ],
+      name: 'vitest',
     },
     {
-      name: 'vite',
       fileNames: [
         'vite.config.cjs',
         'vite.config.js',
         'vite.config.mjs',
         'vite.config.ts',
       ],
+      name: 'vite',
     },
     {
-      name: 'vm',
       fileExtensions: [
         'vbox',
         'vbox-extpack',
@@ -8765,9 +8766,9 @@ export const fileIcons: FileIcons = {
         'vdi',
         'vhdx',
       ],
+      name: 'vm',
     },
     {
-      name: 'vmware',
       fileExtensions: [
         'nvram',
         'vmdk',
@@ -8781,15 +8782,15 @@ export const fileIcons: FileIcons = {
         'vmx~',
         'vswp',
       ],
+      name: 'vmware',
     },
     {
-      name: 'volt',
-      fileExtensions: ['volt'],
       enabledFor: [IconPack.Volt],
+      fileExtensions: ['volt'],
       light: true,
+      name: 'volt',
     },
     {
-      name: 'vray',
       fileExtensions: [
         'vray',
         'vrimg',
@@ -8799,64 +8800,64 @@ export const fileIcons: FileIcons = {
         'vrmesh',
         'vrscene',
       ],
+      name: 'vray',
     },
     {
-      name: 'vsix',
       fileExtensions: ['vsix', 'vsixmanifest'],
       light: true,
+      name: 'vsix',
     },
     {
-      name: 'vscode',
       fileExtensions: ['code-workspace', 'vscode'],
+      name: 'vscode',
     },
     {
-      name: 'vscodesettings',
       fileNames: ['.vscode/json'],
+      name: 'vscodesettings',
     },
     {
-      name: 'vscodeignore',
       fileExtensions: ['vscodeignore', 'vscodeignore.json'],
+      name: 'vscodeignore',
     },
     {
-      name: 'tfs',
-      fileNames: ['vsts-ci.yml', 'vsts-ci.yaml'],
       fileExtensions: ['vsts-ci.yml', 'vsts-ci.yaml'],
+      fileNames: ['vsts-ci.yml', 'vsts-ci.yaml'],
+      name: 'tfs',
     },
     {
-      name: 'tfsignore',
       fileExtensions: ['tfignore', 'tfsignore'],
+      name: 'tfsignore',
     },
     {
-      name: 'vueconfig',
       fileNames: [
         'vue.config.cjs',
         'vue.config.js',
         'vue.config.mjs',
         'vue.config.ts',
       ],
+      name: 'vueconfig',
     },
     {
-      name: 'vuerc',
       fileExtensions: ['vuerc'],
+      name: 'vuerc',
     },
     {
-      name: 'vuex',
       fileExtensions: ['vuex'],
+      name: 'vuex',
     },
     {
-      name: 'vyper',
       fileExtensions: ['vy', 'vyper'],
+      name: 'vyper',
     },
 
     // endregion
 
     // region [W]
     {
-      name: 'w3c',
       fileNames: ['w3c.json'],
+      name: 'w3c',
     },
     {
-      name: 'wallaby',
       fileExtensions: [
         'wallaby.cjs',
         'wallaby.js',
@@ -8873,42 +8874,42 @@ export const fileIcons: FileIcons = {
         'wallaby.mjs',
         'wallaby.ts',
       ],
+      name: 'wallaby',
     },
     {
-      name: 'walt',
       fileExtensions: ['walt'],
+      name: 'walt',
     },
     {
-      name: 'watchman',
       fileExtensions: ['watchmanconfig'],
       fileNames: ['watchman.json', 'watchman.config.json'],
+      name: 'watchman',
     },
     {
-      name: 'warcraft3',
       fileExtensions: ['jass', 'wc3', 'zn'],
+      name: 'warcraft3',
     },
     {
-      name: 'webassembly',
       fileExtensions: ['wasm', 'wast', 'wat'],
+      name: 'webassembly',
     },
     {
-      name: 'wdl',
       fileExtensions: ['wdl'],
+      name: 'wdl',
     },
     {
-      name: 'web2py',
       fileExtensions: ['web2py'],
+      name: 'web2py',
     },
     {
-      name: 'webgl',
       fileExtensions: ['webgl'],
+      name: 'webgl',
     },
     {
-      name: 'owl',
       fileExtensions: ['owl'],
+      name: 'owl',
     },
     {
-      name: 'webpack',
       fileNames: [
         'webpack.common.cjs',
         'webpack.common.coffee',
@@ -8939,63 +8940,63 @@ export const fileIcons: FileIcons = {
         'webpack/mjs',
         'webpack/ts',
       ],
+      name: 'webpack',
     },
     {
-      name: 'webvtt',
       fileExtensions: ['vtt'],
+      name: 'webvtt',
     },
     {
-      name: 'webhint',
       fileExtensions: ['hintrc'],
+      name: 'webhint',
     },
     {
-      name: 'wenyan',
       fileExtensions: ['wy'],
+      name: 'wenyan',
     },
     {
-      name: 'wepy',
       fileExtensions: ['wpy'],
+      name: 'wepy',
     },
     {
-      name: 'wercker',
       fileNames: ['wercker.yaml', 'wercker.yml'],
+      name: 'wercker',
     },
     {
-      name: 'wget',
       fileExtensions: ['wget-hsts', 'wgetrc'],
+      name: 'wget',
     },
     {
-      name: 'wgsl',
       fileExtensions: ['wgsl'],
+      name: 'wgsl',
     },
     {
-      name: 'windi',
       fileNames: [
         'windi.config.cjs',
         'windi.config.js',
         'windi.config.mjs',
         'windi.config.ts',
       ],
+      name: 'windi',
     },
     {
-      name: 'windows',
       fileExtensions: ['bat', 'exe', 'ms', 'msc', 'msi', 'reg'],
+      name: 'windows',
     },
     {
-      name: 'winui',
       fileExtensions: ['baml', 'xaml'],
+      name: 'winui',
     },
     {
-      name: 'wikitext',
       fileExtensions: ['wikitext', 'wt'],
       light: true,
+      name: 'wikitext',
     },
     {
-      name: 'wix',
       fileExtensions: ['wix', 'wixobj', 'wixproj', 'wxi', 'wxl'],
+      name: 'wix',
     },
     {
-      name: 'word',
       fileExtensions: [
         'doc',
         'docm',
@@ -9007,17 +9008,17 @@ export const fileIcons: FileIcons = {
         'odtx',
         'wri',
       ],
+      name: 'word',
     },
     {
-      name: 'wolfram',
       fileExtensions: ['wl', 'wls', 'wlt'],
+      name: 'wolfram',
     },
     {
-      name: 'woodpecker',
       fileExtensions: ['woodpecker.yml', 'woodpecker.yaml'],
+      name: 'woodpecker',
     },
     {
-      name: 'wordpress',
       fileNames: [
         'wp-admin.php',
         'wp-cli.yaml',
@@ -9025,49 +9026,49 @@ export const fileIcons: FileIcons = {
         'wp-env.json',
         'wp-login.php',
       ],
+      name: 'wordpress',
     },
     {
-      name: 'wordpressignore',
       fileExtensions: ['distignore'],
+      name: 'wordpressignore',
     },
     {
-      name: 'workbox',
       fileNames: [
         'workbox-config.cjs',
         'workbox-config.js',
         'workbox-config.mjs',
         'workbox-config.ts',
       ],
+      name: 'workbox',
     },
     {
-      name: 'wpml',
       fileNames: ['wpml-config.xml'],
+      name: 'wpml',
     },
     {
-      name: 'wurst',
       fileExtensions: ['wurst'],
+      name: 'wurst',
     },
     {
-      name: 'wxss',
       fileExtensions: ['wxss'],
+      name: 'wxss',
     },
     {
-      name: 'wxml',
       fileExtensions: ['wxml'],
+      name: 'wxml',
     },
     {
-      name: 'wxs',
       fileExtensions: ['wxs'],
+      name: 'wxs',
     },
     // endregion
 
     // region [X]
     {
-      name: 'x10',
       fileExtensions: ['x10'],
+      name: 'x10',
     },
     {
-      name: 'x11',
       fileExtensions: [
         'Xauthority',
         'Xclients',
@@ -9082,17 +9083,17 @@ export const fileIcons: FileIcons = {
         'Xusers',
         'Xvnc-session',
       ],
+      name: 'x11',
     },
     {
-      name: 'xamarin',
       fileExtensions: ['workbook'],
+      name: 'xamarin',
     },
     {
-      name: 'xmos',
       fileExtensions: ['xc'],
+      name: 'xmos',
     },
     {
-      name: 'xcode',
       fileExtensions: [
         'mode1v3',
         'mode3v3',
@@ -9114,34 +9115,34 @@ export const fileIcons: FileIcons = {
         'xcworkspace',
         'xcworkspacedata',
       ],
+      name: 'xcode',
     },
     {
-      name: 'xib',
       fileExtensions: ['xib'],
+      name: 'xib',
     },
     {
-      name: 'xliff',
       fileExtensions: ['xlf', 'xliff'],
+      name: 'xliff',
     },
     {
-      name: 'xmake',
       fileNames: ['xmake.lua'],
+      name: 'xmake',
     },
     {
-      name: 'xstate',
       fileExtensions: [
         'machine.cjs',
         'machine.js',
         'machine.mjs',
         'machine.ts',
       ],
+      name: 'xstate',
     },
     {
-      name: 'xtend',
       fileExtensions: ['xtend'],
+      name: 'xtend',
     },
     {
-      name: 'xojo',
       fileExtensions: [
         'xojo_code',
         'xojo_menu',
@@ -9150,81 +9151,81 @@ export const fileIcons: FileIcons = {
         'xojo_toolbar',
         'xojo_window',
       ],
+      name: 'xojo',
     },
     {
-      name: 'xpages',
       fileExtensions: ['xsp-config', 'xsp.metadata'],
+      name: 'xpages',
     },
     {
-      name: 'xquery',
       fileExtensions: ['xquery'],
+      name: 'xquery',
     },
     {
-      name: 'xproc',
       fileExtensions: ['xpl', 'xproc'],
+      name: 'xproc',
     },
     {
-      name: 'xubuntu',
       fileNames: ['xubuntu.iso', 'xubuntu.deb'],
+      name: 'xubuntu',
     },
     // endregion
 
     // region [Y]
     {
-      name: 'yamllint',
       fileExtensions: ['yamllint', 'yamllint.yml', 'yamllint.yaml'],
+      name: 'yamllint',
     },
     {
-      name: 'yandex',
       fileExtensions: ['yaspellerignore', 'yaspellerrc', 'yaspellerrc.json'],
+      name: 'yandex',
     },
     {
-      name: 'yang',
       fileExtensions: ['yang'],
+      name: 'yang',
     },
     {
-      name: 'yara',
       fileExtensions: ['yar', 'yara'],
+      name: 'yara',
     },
     {
-      name: 'yarn',
       fileExtensions: ['yarnrc', 'yarnrc.yml', 'yarnrc.yaml'],
       fileNames: ['yarn.json', 'yarn.js'],
+      name: 'yarn',
     },
     {
-      name: 'yarnlock',
       fileNames: ['yarn.lock'],
+      name: 'yarnlock',
     },
     {
-      name: 'yarnclean',
       fileExtensions: ['yarn-integrity', 'yarn-metadata', 'yarnclean'],
+      name: 'yarnclean',
     },
     {
-      name: 'yard',
       fileExtensions: ['yardopts'],
+      name: 'yard',
     },
     {
-      name: 'yasm',
       fileExtensions: ['yasm'],
+      name: 'yasm',
     },
     {
-      name: 'yeoman',
       fileExtensions: ['yo-rc.json'],
+      name: 'yeoman',
     },
     {
-      name: 'yona',
       fileExtensions: ['yona'],
+      name: 'yona',
     },
     {
-      name: 'yorick',
       fileExtensions: ['yorick'],
+      name: 'yorick',
     },
     {
-      name: 'yue',
       fileExtensions: ['yue'],
+      name: 'yue',
     },
     {
-      name: 'yui',
       fileNames: [
         'yahoo-config.cjs',
         'yahoo-config.js',
@@ -9241,38 +9242,38 @@ export const fileIcons: FileIcons = {
         'yui.mjs',
         'yui.ts',
       ],
+      name: 'yui',
     },
     {
-      name: 'yvmrc',
       fileExtensions: ['yvmrc'],
+      name: 'yvmrc',
     },
 
     // endregion
 
     // region [Z]
     {
-      name: 'zbrush',
       fileExtensions: ['zbr', 'zpr', 'ztl'],
+      name: 'zbrush',
     },
     {
-      name: 'zeit',
       fileNames: ['zeit.json'],
       light: true,
+      name: 'zeit',
     },
     {
-      name: 'zeitignore',
       fileExtensions: ['zeitignore'],
+      name: 'zeitignore',
     },
     {
-      name: 'zephir',
       fileExtensions: ['zep', 'zephir'],
+      name: 'zephir',
     },
     {
-      name: 'zig',
       fileExtensions: ['zig'],
+      name: 'zig',
     },
     {
-      name: 'zilog',
       fileExtensions: [
         'plx',
         'z180',
@@ -9285,52 +9286,52 @@ export const fileIcons: FileIcons = {
         'z80asm',
         'zilog',
       ],
+      name: 'zilog',
     },
     {
-      name: 'zimpl',
       fileExtensions: ['zimpl', 'zmpl', 'zpl'],
+      name: 'zimpl',
     },
     {
-      name: 'zorinos',
       fileNames: ['zorinos.iso', 'zorinos.deb'],
+      name: 'zorinos',
     },
     {
-      name: 'zork',
       fileExtensions: ['mud', 'xzap', 'zabstr', 'zap', 'zil', 'zork'],
+      name: 'zork',
     },
     {
-      name: 'zenscript',
       fileExtensions: ['zs'],
+      name: 'zenscript',
     },
     {
-      name: 'zsrc',
       fileExtensions: ['zsrc', 'zsrc.json'],
+      name: 'zsrc',
     },
     // endregion
 
     // region [Images]
     {
-      name: 'jpg',
       fileExtensions: ['jpg', 'jpeg'],
+      name: 'jpg',
     },
     {
-      name: 'gif',
       fileExtensions: ['gif', 'gifv'],
+      name: 'gif',
     },
     {
-      name: 'png',
       fileExtensions: ['png', 'apng'],
+      name: 'png',
     },
     {
-      name: 'icon',
       fileExtensions: ['cur', 'icns', 'ico', 'icon', 'iconpackage'],
+      name: 'icon',
     },
     {
-      name: 'bmp',
       fileExtensions: ['bmp', 'jbmp', 'wbmp'],
+      name: 'bmp',
     },
     {
-      name: 'image',
       fileExtensions: [
         'bpg',
         'dcm',
@@ -9359,21 +9360,33 @@ export const fileIcons: FileIcons = {
         'vsdm',
         'wbm',
       ],
+      name: 'image',
     },
     {
-      name: 'svg',
       fileExtensions: ['svg', 'svgz'],
       light: true,
+      name: 'svg',
     },
     {
-      name: 'webp',
       fileExtensions: ['webp'],
+      name: 'webp',
     },
     // endregion
 
     // region [Config]
     {
-      name: 'preferences',
+      fileExtensions: [
+        'env',
+        'env.dev',
+        'env.prod',
+        'env.test',
+        'ini',
+        'kys',
+        'ld',
+        'ldif',
+        'lds',
+        'mcf',
+      ],
       fileNames: [
         'config.json',
         'config.txt',
@@ -9432,27 +9445,15 @@ export const fileIcons: FileIcons = {
         'settings/yaml',
         'settings/yml',
       ],
-      fileExtensions: [
-        'env',
-        'env.dev',
-        'env.prod',
-        'env.test',
-        'ini',
-        'kys',
-        'ld',
-        'ldif',
-        'lds',
-        'mcf',
-      ],
+      name: 'preferences',
     },
     {
-      name: 'config',
-      fileNames: ['cnf', 'conf', 'config', 'pref', 'prefs'],
       fileExtensions: ['cfg', 'cnf', 'conf', 'config', 'pref', 'prefs'],
+      fileNames: ['cnf', 'conf', 'config', 'pref', 'prefs'],
       light: true,
+      name: 'config',
     },
     {
-      name: 'git',
       fileExtensions: [
         'git',
         'git-submodules',
@@ -9463,13 +9464,13 @@ export const fileIcons: FileIcons = {
         'keep',
         'lfsconfig',
       ],
+      name: 'git',
     },
 
     // endregion
 
     // region [Binaries]
     {
-      name: 'binary',
       fileExtensions: [
         'axf',
         'bin',
@@ -9485,12 +9486,12 @@ export const fileIcons: FileIcons = {
         'rnd',
         'swp',
       ],
+      name: 'binary',
     },
     // endregion
 
     // region [Archive]
     {
-      name: 'archive',
       fileExtensions: [
         '7z',
         '7zip',
@@ -9518,12 +9519,12 @@ export const fileIcons: FileIcons = {
         'zip',
         'zipx',
       ],
+      name: 'archive',
     },
     // endregion
 
     // region [Audio]
     {
-      name: 'audio',
       fileExtensions: [
         'aac',
         'ac3',
@@ -9558,12 +9559,12 @@ export const fileIcons: FileIcons = {
         'wav',
         'wma',
       ],
+      name: 'audio',
     },
     // endregion
 
     // region [Video]
     {
-      name: 'video',
       fileExtensions: [
         '3g2',
         '3gp',
@@ -9596,37 +9597,37 @@ export const fileIcons: FileIcons = {
         'wmv',
         'yuv',
       ],
+      name: 'video',
     },
     // endregion
 
     // region [Languages]
     {
-      name: 'clojure',
       fileExtensions: ['clj', 'cljc', 'cljs', 'cljx', 'clojure', 'hic', 'rg'],
+      name: 'clojure',
     },
     {
-      name: 'coffeescript',
       fileExtensions: ['cjsx', 'coffee', 'iced', 'litcoffee'],
+      name: 'coffeescript',
     },
     {
-      name: 'css',
       fileExtensions: ['css', 'tss'],
       light: true,
+      name: 'css',
     },
     {
-      name: 'dart',
       fileExtensions: ['dart'],
+      name: 'dart',
     },
     {
-      name: 'dlang',
       fileExtensions: ['d', 'di'],
+      name: 'dlang',
     },
     {
-      name: 'go',
       fileExtensions: ['go', 'golang'],
+      name: 'go',
     },
     {
-      name: 'html',
       fileExtensions: [
         'dtml',
         'htm',
@@ -9637,13 +9638,13 @@ export const fileIcons: FileIcons = {
         'scaml',
         'xhtml',
       ],
+      name: 'html',
     },
     {
-      name: 'java',
       fileExtensions: ['java', 'jar', 'war'],
+      name: 'java',
     },
     {
-      name: 'jsmin',
       fileExtensions: [
         'min.cjs',
         'min.es6',
@@ -9653,17 +9654,17 @@ export const fileIcons: FileIcons = {
         'min.ts',
         'min.tsx',
       ],
+      name: 'jsmin',
     },
     {
-      name: 'jsx',
       fileExtensions: ['jsx', 'tsx'],
+      name: 'jsx',
     },
     {
-      name: 'js',
       fileExtensions: ['cjs', 'es6', 'js', 'mjs'],
+      name: 'js',
     },
     {
-      name: 'json',
       fileExtensions: [
         'cson',
         'ejson',
@@ -9674,21 +9675,21 @@ export const fileIcons: FileIcons = {
         'rdjson',
         'ston',
       ],
+      name: 'json',
     },
     {
-      name: 'kotlin',
       fileExtensions: ['kotlin', 'kt', 'ktm'],
+      name: 'kotlin',
     },
     {
-      name: 'kotlinscript',
       fileExtensions: ['kts'],
+      name: 'kotlinscript',
     },
     {
-      name: 'less',
       fileExtensions: ['less'],
+      name: 'less',
     },
     {
-      name: 'lua',
       fileExtensions: [
         'lua',
         'luacheckrc',
@@ -9697,22 +9698,22 @@ export const fileIcons: FileIcons = {
         'rockspec',
         'wlua',
       ],
+      name: 'lua',
     },
     {
-      name: 'nginx',
-      fileNames: ['nginx.conf'],
       fileExtensions: ['nginx', 'nginxconf'],
+      fileNames: ['nginx.conf'],
+      name: 'nginx',
     },
     {
-      name: 'perl',
       fileExtensions: ['perl', 'ph', 'pl', 'pl6', 'pm', 'pm6', 'psgi'],
+      name: 'perl',
     },
     {
-      name: 'php',
       fileExtensions: ['php'],
+      name: 'php',
     },
     {
-      name: 'python',
       fileExtensions: [
         'gyp',
         'gypi',
@@ -9732,17 +9733,17 @@ export const fileIcons: FileIcons = {
         'wsgi',
         'xpy',
       ],
+      name: 'python',
     },
     {
-      name: 'ruby',
       fileExtensions: ['rabl', 'rb', 'ruby'],
+      name: 'ruby',
     },
     {
-      name: 'sass',
       fileExtensions: ['sass', 'sassrc', 'sassrc.js'],
+      name: 'sass',
     },
     {
-      name: 'scss',
       fileExtensions: [
         'scss',
         'scssrc',
@@ -9750,48 +9751,48 @@ export const fileIcons: FileIcons = {
         'scssrc.js',
         'scssrc.mjs',
       ],
+      name: 'scss',
     },
     {
-      name: 'scala',
       fileExtensions: ['scala'],
+      name: 'scala',
     },
     {
-      name: 'shell',
       fileExtensions: ['sh'],
+      name: 'shell',
     },
     {
-      name: 'sql',
       fileExtensions: ['sql'],
+      name: 'sql',
     },
     {
-      name: 'swift',
       fileExtensions: ['swift'],
+      name: 'swift',
     },
     {
-      name: 'template',
       fileExtensions: ['template'],
+      name: 'template',
     },
     {
-      name: 'toml',
       fileExtensions: ['toml'],
+      name: 'toml',
     },
     {
-      name: 'text',
       fileExtensions: ['abt', 'ans', 'brf', 'dri', 'lcov', 'no', 'rtf', 'txt'],
+      name: 'text',
     },
     {
-      name: 'typeScript',
       fileExtensions: ['ts', 'tslint'],
+      name: 'typeScript',
     },
     // endregion
 
     // region [Least priority]
     {
-      name: 'class',
       fileExtensions: ['class', 'ko', 'o', 'out', 'pyc', 'pyo'],
+      name: 'class',
     },
     {
-      name: 'db',
       fileExtensions: [
         '2da',
         'cbor',
@@ -9814,9 +9815,9 @@ export const fileIcons: FileIcons = {
         'terminfo',
         'tgn',
       ],
+      name: 'db',
     },
     {
-      name: 'font',
       fileExtensions: [
         'dfont',
         'eot',
@@ -9830,13 +9831,13 @@ export const fileIcons: FileIcons = {
         'woff',
         'woff2',
       ],
+      name: 'font',
     },
     {
-      name: 'lock',
       fileExtensions: ['lock'],
+      name: 'lock',
     },
     {
-      name: 'markdown',
       fileExtensions: [
         'jmd',
         'markdown',
@@ -9847,13 +9848,13 @@ export const fileIcons: FileIcons = {
         'mkdown',
         'pmd',
       ],
+      name: 'markdown',
     },
     {
-      name: 'vue',
       fileExtensions: ['vue'],
+      name: 'vue',
     },
     {
-      name: 'xml',
       fileExtensions: [
         'fxml',
         'jnlp',
@@ -9864,18 +9865,19 @@ export const fileIcons: FileIcons = {
         'xslt',
         'xul',
       ],
+      name: 'xml',
     },
     {
-      name: 'wsdl',
       fileExtensions: ['wsdl'],
+      name: 'wsdl',
     },
     {
-      name: 'xsd',
       fileExtensions: ['xsd'],
+      name: 'xsd',
     },
     {
-      name: 'yaml',
       fileExtensions: ['info', 'yaml', 'yml'],
+      name: 'yaml',
     },
     // endregion
   ],

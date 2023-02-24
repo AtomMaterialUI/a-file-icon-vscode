@@ -26,7 +26,6 @@
   "configuration.folders.theme.classic": "Sélectionner les icônes des dossiers classiques.",
   "configuration.folders.theme.none": "Pas d'icônes de dossier.",
   "configuration.folders.theme.specific": "Sélectionner des icônes de dossiers spécifiques.",
-  "configuration.hidesExplorerArrows": "Désactiver les flèches devant les dossiers.",
   "configuration.languages.associations": "Configurer des associations d'icônes de langue personnalisées.",
   "configuration.opacity": "Ajuster l'opacité des icônes.",
   "configuration.showReloadMessage": "Afficher le message de redémarrage.",

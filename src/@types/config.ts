@@ -42,7 +42,6 @@ export type AtomConfig = {
   foldersAssociations?: IconAssociations,
   folderColor: string,
   folderTheme: FolderTheme,
-  hidesExplorerArrows: boolean,
   languagesAssociations?: IconAssociations,
   opacity: number,
   saturation: number,

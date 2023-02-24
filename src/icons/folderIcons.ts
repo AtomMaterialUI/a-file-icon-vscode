@@ -5,61 +5,58 @@ import type { FolderAssociations } from 'src/@types/icons';
  */
 export const folderIcons: FolderAssociations[] = [
   {
-    name: 'specific',
     defaultIcon: { name: 'folder' },
-    rootFolder: { name: 'folder-root' },
     icons: [
       // region [A]
       {
-        name: 'acf',
         folderNames: ['acf', 'acf-json', 'acf-jsons'],
+        name: 'acf',
       },
       {
-        name: 'acre',
         folderNames: ['acre'],
+        name: 'acre',
       },
       {
-        name: 'adapter',
         folderNames: ['adapter', 'adapters'],
+        name: 'adapter',
       },
       {
-        name: 'addon',
         folderNames: ['addon', 'addons'],
+        name: 'addon',
       },
       {
-        name: 'admin',
         folderNames: ['admin', 'admins'],
+        name: 'admin',
       },
       {
-        name: 'adr',
         folderNames: ['adr', 'adrs', 'decision', 'decisions'],
+        name: 'adr',
       },
       {
-        name: 'agda',
         folderNames: ['agda'],
+        name: 'agda',
       },
       {
-        name: 'alacritty',
         folderNames: ['alacritty'],
+        name: 'alacritty',
       },
       {
-        name: 'amplication',
         folderNames: ['amplication'],
+        name: 'amplication',
       },
       {
-        name: 'android',
         folderNames: ['android', 'androidApp'],
+        name: 'android',
       },
       {
-        name: 'angular',
         folderNames: ['angular', 'ng', 'ngApp'],
+        name: 'angular',
       },
       {
-        name: 'animations',
         folderNames: ['anim', 'animated', 'animation', 'animations', 'anims'],
+        name: 'animations',
       },
       {
-        name: 'ansible',
         folderNames: [
           'ansible',
           'group_vars',
@@ -67,26 +64,26 @@ export const folderIcons: FolderAssociations[] = [
           'playbooks',
           'vars',
         ],
+        name: 'ansible',
       },
       {
-        name: 'api',
         folderNames: ['api', 'apis', 'openapi', 'rest', 'swagger'],
+        name: 'api',
       },
       {
-        name: 'apollo',
         folderNames: [
           'apollo',
           'apollo-cache',
           'apollo-client',
           'apollo-config',
         ],
+        name: 'apollo',
       },
       {
-        name: 'app',
         folderNames: ['app', 'apps', 'application', 'applications'],
+        name: 'app',
       },
       {
-        name: 'appstore',
         folderNames: [
           'xccheckout',
           'xcodeproj',
@@ -94,13 +91,13 @@ export const folderIcons: FolderAssociations[] = [
           'xcuserdata',
           'xcworkspace',
         ],
+        name: 'appstore',
       },
       {
-        name: 'archetype',
         folderNames: ['archetype', 'archetypes', 'schematic', 'schematics'],
+        name: 'archetype',
       },
       {
-        name: 'archive',
         folderNames: [
           'archive',
           'archives',
@@ -113,17 +110,17 @@ export const folderIcons: FolderAssociations[] = [
           'zip',
           'zips',
         ],
+        name: 'archive',
       },
       {
-        name: 'article',
         folderNames: ['article', 'articles'],
+        name: 'article',
       },
       {
-        name: 'arttext',
         folderNames: ['art', 'arts', 'arttext', 'artx', 'wordart', 'wordarts'],
+        name: 'arttext',
       },
       {
-        name: 'atom',
         folderNames: [
           'atom',
           'atom-ci',
@@ -133,9 +130,9 @@ export const folderIcons: FolderAssociations[] = [
           'atom-themes',
           'atoms',
         ],
+        name: 'atom',
       },
       {
-        name: 'automator',
         folderNames: [
           'automator',
           'automation',
@@ -145,9 +142,9 @@ export const folderIcons: FolderAssociations[] = [
           'definition',
           'definitions',
         ],
+        name: 'automator',
       },
       {
-        name: 'audio',
         folderNames: [
           'aud',
           'audio',
@@ -171,13 +168,13 @@ export const folderIcons: FolderAssociations[] = [
           'wav',
           'wavs',
         ],
+        name: 'audio',
       },
       {
-        name: 'aurelia',
         folderNames: ['aurelia', 'aurelia_project'],
+        name: 'aurelia',
       },
       {
-        name: 'aws',
         folderNames: [
           'amazon',
           'athena',
@@ -189,9 +186,9 @@ export const folderIcons: FolderAssociations[] = [
           's3',
           'tableau',
         ],
+        name: 'aws',
       },
       {
-        name: 'azure-devops',
         folderNames: [
           'azure',
           'azure-devop',
@@ -199,20 +196,20 @@ export const folderIcons: FolderAssociations[] = [
           'azuredevop',
           'azuredevops',
         ],
+        name: 'azure-devops',
       },
       {
-        name: 'azure-pipelines',
         folderNames: [
           'azure-pipelines',
           'azure-pipelines-ci',
           'azurepipelines',
         ],
+        name: 'azure-pipelines',
       },
       // endregion
 
       // region [B]
       {
-        name: 'base',
         folderNames: [
           'abstract',
           'abstracts',
@@ -221,13 +218,13 @@ export const folderIcons: FolderAssociations[] = [
           'parent',
           'parents',
         ],
+        name: 'base',
       },
       {
-        name: 'bazaar',
         folderNames: ['bazaar', 'bzr'],
+        name: 'bazaar',
       },
       {
-        name: 'benchmark',
         folderNames: [
           'benchmark',
           'benchmarks',
@@ -241,40 +238,40 @@ export const folderIcons: FolderAssociations[] = [
           'profiler',
           'profilers',
         ],
+        name: 'benchmark',
       },
       {
-        name: 'bitcoin',
         folderNames: ['bitcoin'],
+        name: 'bitcoin',
       },
       {
-        name: 'bloc',
         folderNames: ['bloc', 'blocs'],
+        name: 'bloc',
       },
       {
-        name: 'blueprint',
         folderNames: ['blueprint', 'blueprints'],
+        name: 'blueprint',
       },
       {
-        name: 'bower',
         folderNames: ['bower', 'bower_components'],
+        name: 'bower',
       },
       {
-        name: 'buildkite',
         folderNames: ['buildkite'],
+        name: 'buildkite',
       },
       // endregion
 
       // region [C]
       {
-        name: 'cabal',
         folderNames: ['cabal'],
+        name: 'cabal',
       },
       {
-        name: 'cake',
         folderNames: ['cake'],
+        name: 'cake',
       },
       {
-        name: 'cart',
         folderNames: [
           'basket',
           'baskets',
@@ -284,49 +281,49 @@ export const folderIcons: FolderAssociations[] = [
           'shop',
           'shops',
         ],
+        name: 'cart',
       },
       {
-        name: 'channels',
         folderNames: ['channel', 'channels'],
+        name: 'channels',
       },
       {
-        name: 'chef',
         folderNames: ['chef', 'recipe', 'recipes'],
+        name: 'chef',
       },
       {
-        name: 'ci',
         folderNames: ['ci', 'integration', 'integrations'],
+        name: 'ci',
       },
       {
-        name: 'client',
         folderNames: ['client', 'clients', 'frontend', 'frontends', 'pwa'],
+        name: 'client',
       },
       {
-        name: 'circleci',
         folderNames: ['circleci'],
+        name: 'circleci',
       },
       {
-        name: 'cluster',
         folderNames: ['cluster', 'clusters', 'nodes'],
+        name: 'cluster',
       },
       {
-        name: 'cmake',
         folderNames: ['cmake', 'cmake-build-debug', 'cmake-build-release'],
+        name: 'cmake',
       },
       {
-        name: 'cnab',
         folderNames: ['cnab'],
+        name: 'cnab',
       },
       {
-        name: 'cobol',
         folderNames: ['cobol'],
+        name: 'cobol',
       },
       {
-        name: 'codesandbox',
         folderNames: ['codesandbox'],
+        name: 'codesandbox',
       },
       {
-        name: 'components',
         folderNames: [
           'component',
           'components',
@@ -338,13 +335,13 @@ export const folderIcons: FolderAssociations[] = [
           'widget',
           'widgets',
         ],
+        name: 'components',
       },
       {
-        name: 'composer',
         folderNames: ['composer'],
+        name: 'composer',
       },
       {
-        name: 'config',
         folderNames: [
           'cfg',
           'conf',
@@ -355,9 +352,9 @@ export const folderIcons: FolderAssociations[] = [
           'setting',
           'settings',
         ],
+        name: 'config',
       },
       {
-        name: 'connection',
         folderNames: [
           'connect',
           'connection',
@@ -368,25 +365,25 @@ export const folderIcons: FolderAssociations[] = [
           'relation',
           'relations',
         ],
+        name: 'connection',
       },
       {
-        name: 'container',
         folderNames: ['container', 'containers'],
+        name: 'container',
       },
       {
-        name: 'content',
         folderNames: ['content', 'contents', 'context', 'contexts', 'cont'],
+        name: 'content',
       },
       {
-        name: 'contract',
         folderNames: ['contract', 'contracts', 'pact', 'pacts'],
+        name: 'contract',
       },
       {
-        name: 'controllers',
         folderNames: ['controller', 'controllers', 'ctrl', 'ctrls'],
+        name: 'controllers',
       },
       {
-        name: 'core',
         folderNames: [
           'bin',
           'binaries',
@@ -396,49 +393,49 @@ export const folderIcons: FolderAssociations[] = [
           'io',
           'support',
         ],
+        name: 'core',
       },
       {
-        name: 'coverage',
         folderNames: ['coverage', 'coverages', 'cov', 'lcov'],
+        name: 'coverage',
       },
       {
-        name: 'crates',
         folderNames: ['crate', 'crates'],
+        name: 'crates',
       },
       {
-        name: 'cron',
         folderNames: ['cron', 'crontab', 'schedule', 'schedules', 'scheduler'],
+        name: 'cron',
       },
       {
-        name: 'cubit',
         folderNames: ['cubit', 'cubits'],
+        name: 'cubit',
       },
       {
-        name: 'cue',
         folderNames: ['cue', 'cue.mod'],
+        name: 'cue',
       },
       {
-        name: 'custom',
         folderNames: ['custom', 'random'],
+        name: 'custom',
       },
       {
-        name: 'cvs',
         folderNames: ['cvs'],
+        name: 'cvs',
       },
       {
-        name: 'cypress',
         folderNames: ['cypress'],
+        name: 'cypress',
       },
 
       // endregion
 
       // region [D]
       {
-        name: 'dapr',
         folderNames: ['dapr'],
+        name: 'dapr',
       },
       {
-        name: 'db',
         folderNames: [
           'database',
           'databases',
@@ -450,13 +447,13 @@ export const folderIcons: FolderAssociations[] = [
           'repositories',
           'repository',
         ],
+        name: 'db',
       },
       {
-        name: 'debian',
         folderNames: ['debian', 'deb'],
+        name: 'debian',
       },
       {
-        name: 'debug',
         folderNames: [
           'bug',
           'bugs',
@@ -465,25 +462,25 @@ export const folderIcons: FolderAssociations[] = [
           'debuggers',
           'debugging',
         ],
+        name: 'debug',
       },
       {
-        name: 'decorators',
         folderNames: ['annotation', 'annotations', 'decorator', 'decorators'],
+        name: 'decorators',
       },
       {
-        name: 'delta',
         folderNames: ['delta', 'deltas', 'diff', 'diffs'],
+        name: 'delta',
       },
       {
-        name: 'deno',
         folderNames: ['deno'],
+        name: 'deno',
       },
       {
-        name: 'dependabot',
         folderNames: ['dependabot'],
+        name: 'dependabot',
       },
       {
-        name: 'deploy',
         folderNames: [
           'deploy',
           'deployer',
@@ -491,13 +488,13 @@ export const folderIcons: FolderAssociations[] = [
           'deployments',
           'deploys',
         ],
+        name: 'deploy',
       },
       {
-        name: 'devcontainer',
         folderNames: ['devcontainer', 'devcontainers'],
+        name: 'devcontainer',
       },
       {
-        name: 'dist',
         folderNames: [
           'build',
           'dist',
@@ -508,13 +505,13 @@ export const folderIcons: FolderAssociations[] = [
           'release',
           'releases',
         ],
+        name: 'dist',
       },
       {
-        name: 'docker',
         folderNames: ['docker', 'dockerfile', 'dockerfiles'],
+        name: 'docker',
       },
       {
-        name: 'docs',
         folderNames: [
           'doc',
           'docs',
@@ -523,65 +520,65 @@ export const folderIcons: FolderAssociations[] = [
           'text',
           'texts',
         ],
+        name: 'docs',
       },
       {
-        name: 'domain',
         folderNames: ['domain', 'domains'],
+        name: 'domain',
       },
       {
-        name: 'download',
         folderNames: ['download', 'downloads', 'dl', 'dls'],
+        name: 'download',
       },
       {
-        name: 'dropbox',
         folderNames: ['dropbox', 'dropbox.cache'],
+        name: 'dropbox',
       },
       {
-        name: 'dub',
         folderNames: ['dub'],
+        name: 'dub',
       },
       {
-        name: 'dump',
         folderNames: ['dump', 'dumps'],
+        name: 'dump',
       },
       {
-        name: 'dvc',
         folderNames: ['dvc'],
+        name: 'dvc',
       },
       // endregion
 
       // region [E]
       {
-        name: 'e2e',
         folderNames: ['e2e', 'e2e-tests', 'scenario', 'scenarios'],
+        name: 'e2e',
       },
       {
-        name: 'elastic',
         folderNames: [
           'eb-extensions',
           'elastic',
           'elasticbeanstalk',
           'elasticsearch',
         ],
+        name: 'elastic',
       },
       {
-        name: 'electron',
         folderNames: ['electron', 'electron-builder'],
+        name: 'electron',
       },
       {
-        name: 'elixir',
         folderNames: ['eex', 'elixir', 'elixir_ls', 'ex', 'leex'],
+        name: 'elixir',
       },
       {
-        name: 'emacs',
         folderNames: ['emacs', 'emacs.d'],
+        name: 'emacs',
       },
       {
-        name: 'env',
         folderNames: ['env', 'envs', 'environment', 'environments'],
+        name: 'env',
       },
       {
-        name: 'error',
         folderNames: [
           'error',
           'errors',
@@ -590,13 +587,13 @@ export const folderIcons: FolderAssociations[] = [
           'prod',
           'production',
         ],
+        name: 'error',
       },
       {
-        name: 'events',
         folderNames: ['event', 'events'],
+        name: 'events',
       },
       {
-        name: 'examples',
         folderNames: [
           'demo',
           'demos',
@@ -605,9 +602,9 @@ export const folderIcons: FolderAssociations[] = [
           'sample',
           'samples',
         ],
+        name: 'examples',
       },
       {
-        name: 'exclude',
         folderNames: [
           'exclude',
           'excludes',
@@ -617,33 +614,33 @@ export const folderIcons: FolderAssociations[] = [
           'ignore',
           'ignores',
         ],
+        name: 'exclude',
       },
       {
-        name: 'expo',
         folderNames: ['expo', 'expo-shared'],
+        name: 'expo',
       },
 
       // endregion
 
       // region [F]
       {
-        name: 'fastlane',
         folderNames: ['fastlane'],
+        name: 'fastlane',
       },
       {
-        name: 'faq',
         folderNames: ['faq', 'faqs'],
+        name: 'faq',
       },
       {
-        name: 'features',
         folderNames: ['feature', 'features', 'feat', 'feats'],
+        name: 'features',
       },
       {
-        name: 'firebase',
         folderNames: ['firebase'],
+        name: 'firebase',
       },
       {
-        name: 'fixtures',
         folderNames: [
           'fabricator',
           'fabricators',
@@ -652,17 +649,17 @@ export const folderIcons: FolderAssociations[] = [
           'fixture',
           'fixtures',
         ],
+        name: 'fixtures',
       },
       {
-        name: 'flow',
         folderNames: ['flow', 'flow-typed', 'def', 'defs'],
+        name: 'flow',
       },
       {
-        name: 'fonts',
         folderNames: ['font', 'fonts'],
+        name: 'fonts',
       },
       {
-        name: 'functions',
         folderNames: [
           'func',
           'funcs',
@@ -675,17 +672,17 @@ export const folderIcons: FolderAssociations[] = [
           'service',
           'services',
         ],
+        name: 'functions',
       },
 
       // endregion
 
       // region [G]
       {
-        name: 'gcloud',
         folderNames: ['gcloud', 'gcp'],
+        name: 'gcloud',
       },
       {
-        name: 'generated',
         folderNames: [
           'auto',
           'autogen',
@@ -694,37 +691,37 @@ export const folderIcons: FolderAssociations[] = [
           'generator',
           'generators',
         ],
+        name: 'generated',
       },
       {
-        name: 'git',
         folderNames: ['git', 'gitignore', 'gitattributes', 'submodules'],
+        name: 'git',
       },
       {
-        name: 'github',
         folderNames: ['github'],
+        name: 'github',
       },
       {
-        name: 'gitlab',
         folderNames: ['gitlab'],
+        name: 'gitlab',
       },
       {
-        name: 'global',
         folderNames: ['global', 'globals'],
+        name: 'global',
       },
       {
-        name: 'gradle',
         folderNames: ['gradle', 'gradles'],
+        name: 'gradle',
       },
       {
-        name: 'graphql',
         folderNames: ['graphql', 'gql', 'schema', 'schemas'],
+        name: 'graphql',
       },
       {
-        name: 'grunt',
         folderNames: ['grunt', 'gruntfile', 'gruntfiles'],
+        name: 'grunt',
       },
       {
-        name: 'guard',
         folderNames: [
           'dev',
           'develop',
@@ -733,25 +730,25 @@ export const folderIcons: FolderAssociations[] = [
           'guardfile',
           'guardfiles',
         ],
+        name: 'guard',
       },
       {
-        name: 'gulp',
         folderNames: ['gulp', 'gulpfile', 'gulpfiles'],
+        name: 'gulp',
       },
 
       // endregion
 
       // region [H]
       {
-        name: 'hasura',
         folderNames: ['hasura'],
+        name: 'hasura',
       },
       {
-        name: 'haxelib',
         folderNames: ['haxe', 'hxml', 'haxelib', 'haxe_libraries'],
+        name: 'haxelib',
       },
       {
-        name: 'helm',
         folderNames: [
           'chart',
           'charts',
@@ -761,13 +758,13 @@ export const folderIcons: FolderAssociations[] = [
           'helmfile',
           'helmfiles',
         ],
+        name: 'helm',
       },
       {
-        name: 'helper',
         folderNames: ['helper', 'helpers', 'help', 'helps'],
+        name: 'helper',
       },
       {
-        name: 'home',
         folderNames: [
           'home',
           'homepage',
@@ -777,21 +774,21 @@ export const folderIcons: FolderAssociations[] = [
           'tutorials',
           'tutos',
         ],
+        name: 'home',
       },
       {
-        name: 'hook',
         folderNames: ['hook', 'hooks', 'trigger', 'triggers'],
+        name: 'hook',
       },
       {
-        name: 'husky',
         folderNames: ['husky'],
+        name: 'husky',
       },
 
       // endregion
 
       // region [I]
       {
-        name: 'i18n',
         folderNames: [
           'g11n',
           'i18n',
@@ -806,9 +803,9 @@ export const folderIcons: FolderAssociations[] = [
           'translation',
           'translations',
         ],
+        name: 'i18n',
       },
       {
-        name: 'icons',
         folderNames: [
           'favicon',
           'favicons',
@@ -819,13 +816,13 @@ export const folderIcons: FolderAssociations[] = [
           'icon',
           'icons',
         ],
+        name: 'icons',
       },
       {
-        name: 'idea',
         folderNames: ['idea', 'META-INF'],
+        name: 'idea',
       },
       {
-        name: 'images',
         folderNames: [
           'figure',
           'figures',
@@ -841,9 +838,9 @@ export const folderIcons: FolderAssociations[] = [
           'picture',
           'pictures',
         ],
+        name: 'images',
       },
       {
-        name: 'include',
         folderNames: [
           'concern',
           'concerns',
@@ -861,13 +858,13 @@ export const folderIcons: FolderAssociations[] = [
           'input',
           'inputs',
         ],
+        name: 'include',
       },
       {
-        name: 'info',
         folderNames: ['info', 'infos', 'information', 'informations'],
+        name: 'info',
       },
       {
-        name: 'init',
         folderNames: [
           'init',
           'initialization',
@@ -875,9 +872,9 @@ export const folderIcons: FolderAssociations[] = [
           'initializers',
           'startup',
         ],
+        name: 'init',
       },
       {
-        name: 'injection',
         folderNames: [
           'di',
           'inject',
@@ -887,37 +884,37 @@ export const folderIcons: FolderAssociations[] = [
           'injectors',
           'injects',
         ],
+        name: 'injection',
       },
       {
-        name: 'istanbul',
         folderNames: ['istanbul', 'nyc', 'nyc_output', 'nyc-output'],
+        name: 'istanbul',
       },
       {
-        name: 'ios',
         folderNames: ['lproj', 'xcassets'],
+        name: 'ios',
       },
       {
-        name: 'iosapp',
         folderNames: ['ios', 'iosapp', 'ios-app'],
+        name: 'iosapp',
       },
 
       // endregion
 
       // region [J]
       {
-        name: 'java',
         folderNames: ['java', 'jdk'],
+        name: 'java',
       },
       {
-        name: 'js',
         folderNames: ['js', 'javascript', 'javascripts'],
+        name: 'js',
       },
       {
-        name: 'jest',
         folderNames: ['jest', 'jest-cache', 'jest-coverage'],
+        name: 'jest',
       },
       {
-        name: 'jinja',
         folderNames: [
           'j2',
           'jinja',
@@ -925,13 +922,13 @@ export const folderIcons: FolderAssociations[] = [
           'jinja2',
           'jinja_templates',
         ],
+        name: 'jinja',
       },
       {
-        name: 'job',
         folderNames: ['job', 'jobs', 'resque'],
+        name: 'job',
       },
       {
-        name: 'json',
         folderNames: [
           'json',
           'jsons',
@@ -939,9 +936,9 @@ export const folderIcons: FolderAssociations[] = [
           'serializer',
           'serializers',
         ],
+        name: 'json',
       },
       {
-        name: 'jwt',
         folderNames: [
           'jwt',
           'jwt-keys',
@@ -950,12 +947,12 @@ export const folderIcons: FolderAssociations[] = [
           'token',
           'tokens',
         ],
+        name: 'jwt',
       },
       // endregion
 
       // region [K]
       {
-        name: 'keys',
         folderNames: [
           'key',
           'keys',
@@ -970,17 +967,17 @@ export const folderIcons: FolderAssociations[] = [
           'ssl',
           'ssh',
         ],
+        name: 'keys',
       },
       {
-        name: 'kivy',
         folderNames: ['kivy', 'kv'],
+        name: 'kivy',
       },
       {
-        name: 'kotlin',
         folderNames: ['kotlin', 'kt', 'kts'],
+        name: 'kotlin',
       },
       {
-        name: 'kubernetes',
         folderNames: [
           'k8s',
           'k8ses',
@@ -989,16 +986,16 @@ export const folderIcons: FolderAssociations[] = [
           'kubes',
           'minikube',
         ],
+        name: 'kubernetes',
       },
       {
-        name: 'kustomize',
         folderNames: ['kustomize', 'kustomization', 'kustomizations'],
+        name: 'kustomize',
       },
       // endregion
 
       // region [L]
       {
-        name: 'layouts',
         folderNames: [
           'fragment',
           'fragments',
@@ -1007,33 +1004,33 @@ export const folderIcons: FolderAssociations[] = [
           'partial',
           'partials',
         ],
+        name: 'layouts',
       },
       {
-        name: 'less',
         folderNames: ['less'],
+        name: 'less',
       },
       {
-        name: 'linux',
         folderNames: ['linux', 'unix', 'nux', 'gnu'],
+        name: 'linux',
       },
       {
-        name: 'logs',
         folderNames: ['log', 'logs'],
+        name: 'logs',
       },
       {
-        name: 'lua',
         folderNames: ['lua', 'luac', 'luau'],
+        name: 'lua',
       },
 
       // endregion
 
       // region [M]
       {
-        name: 'main',
         folderNames: ['main', 'mainapp', 'main-app'],
+        name: 'main',
       },
       {
-        name: 'mailers',
         folderNames: [
           'email',
           'emails',
@@ -1044,13 +1041,13 @@ export const folderIcons: FolderAssociations[] = [
           'mailings',
           'mails',
         ],
+        name: 'mailers',
       },
       {
-        name: 'markdown',
         folderNames: ['markdown', 'md', 'mdown', 'mdx'],
+        name: 'markdown',
       },
       {
-        name: 'math',
         folderNames: [
           'algo',
           'algorithm',
@@ -1069,13 +1066,13 @@ export const folderIcons: FolderAssociations[] = [
           'scilab',
           'wolfram',
         ],
+        name: 'math',
       },
       {
-        name: 'maven',
         folderNames: ['maven', 'mvn', 'pom'],
+        name: 'maven',
       },
       {
-        name: 'maps',
         folderNames: [
           'map',
           'maps',
@@ -1084,9 +1081,9 @@ export const folderIcons: FolderAssociations[] = [
           'mapper',
           'mappers',
         ],
+        name: 'maps',
       },
       {
-        name: 'osx',
         folderNames: [
           'appex',
           'ccl',
@@ -1097,13 +1094,13 @@ export const folderIcons: FolderAssociations[] = [
           'osirixplugin',
           'qlgenerator',
         ],
+        name: 'osx',
       },
       {
-        name: 'mac',
         folderNames: ['mac', 'macos', 'osx'],
+        name: 'mac',
       },
       {
-        name: 'messages',
         folderNames: [
           'chat',
           'chatroom',
@@ -1121,33 +1118,33 @@ export const folderIcons: FolderAssociations[] = [
           'thread',
           'threads',
         ],
+        name: 'messages',
       },
       {
-        name: 'mercurial',
         folderNames: ['hg', 'mercurial'],
+        name: 'mercurial',
       },
       {
-        name: 'meta',
         folderNames: ['meta', 'metadata', 'metas'],
+        name: 'meta',
       },
       {
-        name: 'meteor',
         folderNames: ['meteor'],
+        name: 'meteor',
       },
       {
-        name: 'middleware',
         folderNames: ['middleware', 'middlewares', 'thunk', 'thunks'],
+        name: 'middleware',
       },
       {
-        name: 'mjml',
         folderNames: ['mjml'],
+        name: 'mjml',
       },
       {
-        name: 'mobile',
         folderNames: ['mobile', 'mobiles', 'portable', 'portables'],
+        name: 'mobile',
       },
       {
-        name: 'mocks',
         folderNames: [
           'fake',
           'fakes',
@@ -1162,9 +1159,9 @@ export const folderIcons: FolderAssociations[] = [
           'wireframe',
           'wireframes',
         ],
+        name: 'mocks',
       },
       {
-        name: 'modals',
         folderNames: [
           'dialog',
           'dialogs',
@@ -1175,9 +1172,9 @@ export const folderIcons: FolderAssociations[] = [
           'usecase',
           'usecases',
         ],
+        name: 'modals',
       },
       {
-        name: 'models',
         folderNames: [
           'class',
           'classes',
@@ -1191,25 +1188,25 @@ export const folderIcons: FolderAssociations[] = [
           'struct',
           'structs',
         ],
+        name: 'models',
       },
       {
-        name: 'molecules',
         folderNames: ['molecule', 'molecules'],
+        name: 'molecules',
       },
       {
-        name: 'mongo',
         folderNames: ['mongo', 'mongodb', 'mongoid', 'mongoose'],
+        name: 'mongo',
       },
       {
-        name: 'moon',
         folderNames: ['moon', 'moonscript'],
+        name: 'moon',
       },
 
       // endregion
 
       // region [N]
       {
-        name: 'navigation',
         folderNames: [
           'geo',
           'nav',
@@ -1218,21 +1215,21 @@ export const folderIcons: FolderAssociations[] = [
           'navigations',
           'navs',
         ],
+        name: 'navigation',
       },
       {
-        name: 'netlify',
         folderNames: ['netlify'],
+        name: 'netlify',
       },
       {
-        name: 'next',
         folderNames: ['next'],
+        name: 'next',
       },
       {
-        name: 'node',
         folderNames: ['node', 'node_modules', 'nodejs', 'npm'],
+        name: 'node',
       },
       {
-        name: 'notebooks',
         folderNames: [
           'jupyter',
           'jupyter-notebook',
@@ -1240,9 +1237,9 @@ export const folderIcons: FolderAssociations[] = [
           'notebook',
           'notebooks',
         ],
+        name: 'notebooks',
       },
       {
-        name: 'notification',
         folderNames: [
           'flash',
           'notif',
@@ -1250,24 +1247,24 @@ export const folderIcons: FolderAssociations[] = [
           'notifications',
           'notifs',
         ],
+        name: 'notification',
       },
       {
-        name: 'nuget',
         folderNames: ['nuget', 'nupkg'],
+        name: 'nuget',
       },
       {
-        name: 'nuxt',
         folderNames: ['nuxt'],
+        name: 'nuxt',
       },
       // endregion
 
       // region [O]
       {
-        name: 'openshift',
         folderNames: ['openshift'],
+        name: 'openshift',
       },
       {
-        name: 'other',
         folderNames: [
           'etc',
           'extra',
@@ -1277,12 +1274,12 @@ export const folderIcons: FolderAssociations[] = [
           'other',
           'others',
         ],
+        name: 'other',
       },
       // endregion
 
       // region [P]
       {
-        name: 'packages',
         folderNames: [
           'bundle',
           'bundles',
@@ -1294,37 +1291,37 @@ export const folderIcons: FolderAssociations[] = [
           'pkg',
           'pkgs',
         ],
+        name: 'packages',
       },
       {
-        name: 'perl',
         folderNames: ['perl', 'pl'],
+        name: 'perl',
       },
       {
-        name: 'pdf',
         folderNames: ['acrobat', 'adobe', 'pdf', 'pdfs'],
+        name: 'pdf',
       },
       {
-        name: 'php',
         folderNames: ['php', 'phpcs', 'phpmailer', 'phpt', 'phtml'],
+        name: 'php',
       },
       {
-        name: 'pinia',
         folderNames: ['pinia'],
+        name: 'pinia',
       },
       {
-        name: 'pipe',
         folderNames: ['pipe', 'pipes', 'filter', 'filters'],
+        name: 'pipe',
       },
       {
-        name: 'platformio',
         folderNames: ['pio', 'pioenv', 'pioenvs', 'platformio'],
+        name: 'platformio',
       },
       {
-        name: 'playwright',
         folderNames: ['playwright', 'pw'],
+        name: 'playwright',
       },
       {
-        name: 'plugin',
         folderNames: [
           'extension',
           'extensions',
@@ -1333,63 +1330,63 @@ export const folderIcons: FolderAssociations[] = [
           'plugin',
           'plugins',
         ],
+        name: 'plugin',
       },
       {
-        name: 'posts',
         folderNames: ['post', 'posts'],
+        name: 'posts',
       },
       {
-        name: 'protobuf',
         folderNames: ['proto', 'protobuf'],
+        name: 'protobuf',
       },
       {
-        name: 'prisma',
         folderNames: ['prisma'],
+        name: 'prisma',
       },
       {
-        name: 'private',
         folderNames: ['private', 'privates'],
+        name: 'private',
       },
       {
-        name: 'project',
         folderNames: ['project', 'projects', 'proj'],
+        name: 'project',
       },
       {
-        name: 'projects',
         folderNames: ['folder', 'folders', 'workspace', 'workspaces'],
+        name: 'projects',
       },
       {
-        name: 'providers',
         folderNames: ['provider', 'providers'],
+        name: 'providers',
       },
       {
-        name: 'python',
         folderNames: ['python', 'py', 'pytest_cache', '__pycache__'],
+        name: 'python',
       },
       // endregion
 
       // region [Q]
       {
-        name: 'quasar',
         folderNames: ['quasar'],
+        name: 'quasar',
       },
       {
-        name: 'quantum',
         folderNames: ['qtn', 'quantum'],
+        name: 'quantum',
       },
       {
-        name: 'queries',
         folderNames: ['query', 'queries'],
+        name: 'queries',
       },
       {
-        name: 'queue',
         folderNames: ['bull', 'mq', 'queue', 'queues'],
+        name: 'queue',
       },
       // endregion
 
       // region [R]
       {
-        name: 'react',
         folderNames: [
           'jsx',
           'react',
@@ -1399,41 +1396,41 @@ export const folderIcons: FolderAssociations[] = [
           'react_scripts',
           'tsx',
         ],
+        name: 'react',
       },
       {
-        name: 'redhat',
         folderNames: ['redhat', 's2i'],
+        name: 'redhat',
       },
       {
-        name: 'redis',
         folderNames: ['redis'],
+        name: 'redis',
       },
       {
-        name: 'redwood',
         folderNames: ['redwood'],
+        name: 'redwood',
       },
       {
-        name: 'recoil',
         folderNames: ['coil', 'recoil'],
+        name: 'recoil',
       },
       {
-        name: 'redux',
         folderNames: ['flux', 'organism', 'organisms', 'redux', 'rtk'],
+        name: 'redux',
       },
       {
-        name: 'redux-actions',
         folderNames: ['action', 'actions', 'redux-actions'],
+        name: 'redux-actions',
       },
       {
-        name: 'redux-epics',
         folderNames: ['epic', 'epics', 'redux-epics'],
+        name: 'redux-epics',
       },
       {
-        name: 'redux-reducers',
         folderNames: ['reducer', 'reducers', 'redux-reducers'],
+        name: 'redux-reducers',
       },
       {
-        name: 'redux-sagas',
         folderNames: [
           'effect',
           'effects',
@@ -1442,9 +1439,9 @@ export const folderIcons: FolderAssociations[] = [
           'saga',
           'sagas',
         ],
+        name: 'redux-sagas',
       },
       {
-        name: 'redux-stores',
         folderNames: [
           'redux-states',
           'redux-stores',
@@ -1453,17 +1450,17 @@ export const folderIcons: FolderAssociations[] = [
           'store',
           'stores',
         ],
+        name: 'redux-stores',
       },
       {
-        name: 'relay',
         folderNames: ['relay'],
+        name: 'relay',
       },
       {
-        name: 'resolver',
         folderNames: ['resolver', 'resolvers', 'value', 'values'],
+        name: 'resolver',
       },
       {
-        name: 'resource',
         folderNames: [
           'asset',
           'assets',
@@ -1473,9 +1470,9 @@ export const folderIcons: FolderAssociations[] = [
           'resource',
           'resources',
         ],
+        name: 'resource',
       },
       {
-        name: 'reviews',
         folderNames: [
           'pr',
           'prs',
@@ -1489,17 +1486,17 @@ export const folderIcons: FolderAssociations[] = [
           'revision',
           'revisions',
         ],
+        name: 'reviews',
       },
       {
-        name: 'root',
         folderNames: ['root', 'roots'],
+        name: 'root',
       },
       {
-        name: 'routes',
         folderNames: ['route', 'routes', 'router', 'routers', 'routing'],
+        name: 'routes',
       },
       {
-        name: 'ruby',
         folderNames: [
           'gem',
           'gem_rbs_collection',
@@ -1509,9 +1506,9 @@ export const folderIcons: FolderAssociations[] = [
           'ruby',
           'sig',
         ],
+        name: 'ruby',
       },
       {
-        name: 'rules',
         folderNames: [
           'rule',
           'rules',
@@ -1520,24 +1517,24 @@ export const folderIcons: FolderAssociations[] = [
           'validator',
           'validators',
         ],
+        name: 'rules',
       },
       {
-        name: 'rust',
         folderNames: ['cargo', 'rust', 'rs'],
+        name: 'rust',
       },
       // endregion
 
       // region [S]
       {
-        name: 'sass',
         folderNames: ['sass', 'scss'],
+        name: 'sass',
       },
       {
-        name: 'scala',
         folderNames: ['scala', 'sbt', 'sbt_modules'],
+        name: 'scala',
       },
       {
-        name: 'screens',
         folderNames: [
           'capture',
           'captures',
@@ -1548,9 +1545,9 @@ export const folderIcons: FolderAssociations[] = [
           'screenvid',
           'screenvids',
         ],
+        name: 'screens',
       },
       {
-        name: 'scripts',
         folderNames: [
           'polyfill',
           'polyfills',
@@ -1559,9 +1556,9 @@ export const folderIcons: FolderAssociations[] = [
           'selector',
           'selectors',
         ],
+        name: 'scripts',
       },
       {
-        name: 'scratch',
         folderNames: [
           'note',
           'notes',
@@ -1571,13 +1568,13 @@ export const folderIcons: FolderAssociations[] = [
           'todo',
           'todos',
         ],
+        name: 'scratch',
       },
       {
-        name: 'security',
         folderNames: ['security', 'secure'],
+        name: 'security',
       },
       {
-        name: 'server',
         folderNames: [
           'backend',
           'http',
@@ -1590,13 +1587,13 @@ export const folderIcons: FolderAssociations[] = [
           'servers',
           'staging',
         ],
+        name: 'server',
       },
       {
-        name: 'serverless',
         folderNames: ['infra', 'infrastructure', 'serverless'],
+        name: 'serverless',
       },
       {
-        name: 'shader',
         folderNames: [
           'glsl',
           'hlsl',
@@ -1605,9 +1602,9 @@ export const folderIcons: FolderAssociations[] = [
           'vertex',
           'vertices',
         ],
+        name: 'shader',
       },
       {
-        name: 'shared',
         folderNames: [
           'common',
           'commons',
@@ -1615,9 +1612,9 @@ export const folderIcons: FolderAssociations[] = [
           'shared',
           'shared_components',
         ],
+        name: 'shared',
       },
       {
-        name: 'src',
         folderNames: [
           'buildSrc',
           'code',
@@ -1627,9 +1624,9 @@ export const folderIcons: FolderAssociations[] = [
           'srcs',
           'srcset',
         ],
+        name: 'src',
       },
       {
-        name: 'sql',
         folderNames: [
           'maria',
           'mariadb',
@@ -1642,17 +1639,17 @@ export const folderIcons: FolderAssociations[] = [
           'sqlite',
           'sqlserver',
         ],
+        name: 'sql',
       },
       {
-        name: 'stack',
         folderNames: ['stack', 'stacks', 'structure', 'structures'],
+        name: 'stack',
       },
       {
-        name: 'stencil',
         folderNames: ['stencil'],
+        name: 'stencil',
       },
       {
-        name: 'storage',
         folderNames: [
           'bucket',
           'buckets',
@@ -1661,9 +1658,9 @@ export const folderIcons: FolderAssociations[] = [
           'storage',
           'storages',
         ],
+        name: 'storage',
       },
       {
-        name: 'storybook',
         folderNames: [
           '__stories__',
           'stories',
@@ -1671,33 +1668,33 @@ export const folderIcons: FolderAssociations[] = [
           'storybook',
           'storybooks',
         ],
+        name: 'storybook',
       },
       {
-        name: 'storyblok',
         folderNames: ['storyblok', 'storybloks'],
+        name: 'storyblok',
       },
       {
-        name: 'strategy',
         folderNames: ['strategy', 'strategies'],
+        name: 'strategy',
       },
       {
-        name: 'styles',
         folderNames: ['css', 'style', 'styles', 'stylesheet', 'stylesheets'],
+        name: 'styles',
       },
       {
-        name: 'stylus',
         folderNames: ['styl', 'stylus'],
+        name: 'stylus',
       },
       {
-        name: 'sublime',
         folderNames: ['sublime'],
+        name: 'sublime',
       },
       {
-        name: 'supabase',
         folderNames: ['supabase'],
+        name: 'supabase',
       },
       {
-        name: 'svelte',
         folderNames: [
           'sapper',
           'svelte',
@@ -1705,9 +1702,9 @@ export const folderIcons: FolderAssociations[] = [
           'svelte_components',
           'sveltekit',
         ],
+        name: 'svelte',
       },
       {
-        name: 'svg',
         folderNames: [
           'gfx',
           'graphic',
@@ -1721,17 +1718,17 @@ export const folderIcons: FolderAssociations[] = [
           'vector',
           'vectors',
         ],
+        name: 'svg',
       },
       {
-        name: 'svn',
         folderNames: ['svn', 'subversion'],
+        name: 'svn',
       },
       {
-        name: 'sync',
         folderNames: ['sync', 'syncs', 'synced'],
+        name: 'sync',
       },
       {
-        name: 'syntax',
         folderNames: [
           'grammar',
           'grammars',
@@ -1739,16 +1736,16 @@ export const folderIcons: FolderAssociations[] = [
           'syntax',
           'syntaxes',
         ],
+        name: 'syntax',
       },
       // endregion
 
       // region [T]
       {
-        name: 'target',
         folderNames: ['target', 'targets'],
+        name: 'target',
       },
       {
-        name: 'tasks',
         folderNames: [
           'cli',
           'cmd',
@@ -1765,21 +1762,21 @@ export const folderIcons: FolderAssociations[] = [
           'workflow',
           'workflows',
         ],
+        name: 'tasks',
       },
       {
-        name: 'taskfile',
         folderNames: ['taskfile', 'taskfiles'],
+        name: 'taskfile',
       },
       {
-        name: 'tauri',
         folderNames: ['tauri', 'src-tauri'],
+        name: 'tauri',
       },
       {
-        name: 'tech',
         folderNames: ['tech', 'technologies', 'technology'],
+        name: 'tech',
       },
       {
-        name: 'temp',
         folderNames: [
           'cache',
           'caches',
@@ -1789,9 +1786,9 @@ export const folderIcons: FolderAssociations[] = [
           'tmp',
           'tmps',
         ],
+        name: 'temp',
       },
       {
-        name: 'tests',
         folderNames: [
           '__tests__',
           'junit',
@@ -1807,9 +1804,9 @@ export const folderIcons: FolderAssociations[] = [
           'unit',
           'units',
         ],
+        name: 'tests',
       },
       {
-        name: 'terraform',
         folderNames: [
           'hcl',
           'terraform',
@@ -1818,17 +1815,17 @@ export const folderIcons: FolderAssociations[] = [
           'tfstate',
           'tfvars',
         ],
+        name: 'terraform',
       },
       {
-        name: 'textmate',
         folderNames: ['textmate', 'tmbundle'],
+        name: 'textmate',
       },
       {
-        name: 'trait',
         folderNames: ['trait', 'traits'],
+        name: 'trait',
       },
       {
-        name: 'themes',
         folderNames: [
           'color',
           'colors',
@@ -1843,9 +1840,9 @@ export const folderIcons: FolderAssociations[] = [
           'theme',
           'themes',
         ],
+        name: 'themes',
       },
       {
-        name: 'ts',
         folderNames: [
           '@types',
           'interface',
@@ -1857,16 +1854,16 @@ export const folderIcons: FolderAssociations[] = [
           'typescript',
           'typings',
         ],
+        name: 'ts',
       },
       // endregion
 
       // region [U]
       {
-        name: 'unity',
         folderNames: ['unity', 'unity3d'],
+        name: 'unity',
       },
       {
-        name: 'upload',
         folderNames: [
           'update',
           'updated',
@@ -1878,9 +1875,9 @@ export const folderIcons: FolderAssociations[] = [
           'uploaded',
           'uploads',
         ],
+        name: 'upload',
       },
       {
-        name: 'users',
         folderNames: [
           'account',
           'accounts',
@@ -1899,9 +1896,9 @@ export const folderIcons: FolderAssociations[] = [
           'user',
           'users',
         ],
+        name: 'users',
       },
       {
-        name: 'tools',
         folderNames: [
           'tool',
           'toolbox',
@@ -1914,16 +1911,16 @@ export const folderIcons: FolderAssociations[] = [
           'utility',
           'utils',
         ],
+        name: 'tools',
       },
       // endregion
 
       // region [V]
       {
-        name: 'vagrant',
         folderNames: ['vagrant', 'vagrant.d', 'vagrantfile', 'vagrantfiles'],
+        name: 'vagrant',
       },
       {
-        name: 'lib',
         folderNames: [
           'lib',
           'libraries',
@@ -1935,25 +1932,25 @@ export const folderIcons: FolderAssociations[] = [
           'vendor',
           'vendors',
         ],
+        name: 'lib',
       },
       {
-        name: 'venv',
         folderNames: ['venv', 'virtualenv'],
+        name: 'venv',
       },
       {
-        name: 'vercel',
         folderNames: ['now', 'vercel'],
+        name: 'vercel',
       },
       {
-        name: 'verdaccio',
         folderNames: ['verdaccio'],
+        name: 'verdaccio',
       },
       {
-        name: 'video',
         folderNames: ['movie', 'movies', 'video', 'videos'],
+        name: 'video',
       },
       {
-        name: 'views',
         folderNames: [
           'html',
           'page',
@@ -1965,44 +1962,44 @@ export const folderIcons: FolderAssociations[] = [
           'webpage',
           'webpages',
         ],
+        name: 'views',
       },
       {
-        name: 'viewmodel',
         folderNames: ['crud', 'viewmodel', 'viewmodels'],
+        name: 'viewmodel',
       },
       {
-        name: 'vm',
         folderNames: ['desktop', 'virtual', 'vm', 'vms'],
+        name: 'vm',
       },
       {
-        name: 'vs',
         folderNames: ['vs', 'visualstudio', 'vsix'],
+        name: 'vs',
       },
       {
-        name: 'vitepress',
         folderNames: ['vitepress'],
+        name: 'vitepress',
       },
       {
-        name: 'vscode',
         folderNames: ['vscode', 'vscode-test', 'vssettings'],
+        name: 'vscode',
       },
       {
-        name: 'vue',
         folderNames: ['vue'],
+        name: 'vue',
       },
       {
-        name: 'vuepress',
         folderNames: ['vuepress'],
+        name: 'vuepress',
       },
       {
-        name: 'vuex',
         folderNames: ['vuex'],
+        name: 'vuex',
       },
       // endregion
 
       // region [W]
       {
-        name: 'web',
         folderNames: [
           'public',
           'public_html',
@@ -2013,29 +2010,29 @@ export const folderIcons: FolderAssociations[] = [
           'www',
           'wwwroot',
         ],
+        name: 'web',
       },
       {
-        name: 'webpack',
         folderNames: ['webpack', 'webpack.d', 'webpackfile', 'webpackfiles'],
+        name: 'webpack',
       },
       {
-        name: 'windows',
         folderNames: ['windows', 'win'],
+        name: 'windows',
       },
       {
-        name: 'wine',
         folderNames: ['wine'],
+        name: 'wine',
       },
       {
-        name: 'woocommerce',
         folderNames: ['woocommerce'],
+        name: 'woocommerce',
       },
       {
-        name: 'woodpecker',
         folderNames: ['woodpecker'],
+        name: 'woodpecker',
       },
       {
-        name: 'wordpress',
         folderNames: [
           'wordpress',
           'wp',
@@ -2043,20 +2040,21 @@ export const folderIcons: FolderAssociations[] = [
           'wp-content',
           'wp-includes',
         ],
+        name: 'wordpress',
       },
       // endregion
 
       // region [X]
       {
-        name: 'xstate',
         folderNames: ['xstate', 'machine', 'machines'],
+        name: 'xstate',
       },
       // endregion
 
       // region [Y]
       {
-        name: 'yarn',
         folderNames: ['yarn'],
+        name: 'yarn',
       },
       // endregion
 
@@ -2067,11 +2065,13 @@ export const folderIcons: FolderAssociations[] = [
       // },
       // endregion
     ],
-  },
-  {
-    name: 'classic',
-    defaultIcon: { name: 'folder' },
+    name: 'specific',
     rootFolder: { name: 'folder-root' },
   },
-  { name: 'none', defaultIcon: { name: '' } },
+  {
+    defaultIcon: { name: 'folder' },
+    name: 'classic',
+    rootFolder: { name: 'folder-root' },
+  },
+  { defaultIcon: { name: '' }, name: 'none' },
 ];

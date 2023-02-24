@@ -28,7 +28,6 @@
   "configuration.folders.theme.classic": "クラシックフォルダーアイコンを選択する。",
   "configuration.folders.theme.none": "フォルダーアイコンがありません。",
   "configuration.folders.theme.specific": "特定のフォルダーアイコンを選択する。",
-  "configuration.hidesExplorerArrows": "フォルダーの横にある矢印を隠す。",
   "configuration.languages.associations": "カスタム言語アイコンの関連付けを設定する。",
   "configuration.opacity": "アイコンの不透明度を変更する。",
   "configuration.saturation": "アイコンの彩度を変更する。",

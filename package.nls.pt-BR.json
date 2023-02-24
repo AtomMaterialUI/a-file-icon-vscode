@@ -26,7 +26,6 @@
   "configuration.folders.theme.classic": "Selecione ícones de pastas clássicas.",
   "configuration.folders.theme.none": "Nenhum ícone de pasta.",
   "configuration.folders.theme.specific": "Selecione ícones de pastas específicas.",
-  "configuration.hidesExplorerArrows": "Ocultar as setas ao lado das pastas no explorador de arquivos.",
   "configuration.languages.associations": "Definir ícones para associações de idiomas customizadas.",
   "configuration.opacity": "Alterar a opacidade dos ícones.",
   "configuration.showReloadMessage": "Mostrar mensagem da reinicialização.",

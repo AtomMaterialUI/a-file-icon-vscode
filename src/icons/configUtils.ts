@@ -13,13 +13,12 @@ import type { AtomConfig } from 'src/@types/config';
  * Return the default config
  * @returns {AtomConfig}
  */
-export const defaultConfig = (): AtomConfig => {
+export const getDefaultConfig = (): AtomConfig => {
   return {
     activeIconPacks: [IconPack.Rails, IconPack.Angular, IconPack.React, IconPack.Phalcon],
     arrowTheme: ArrowTheme.Material,
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
-    hidesExplorerArrows: false,
     opacity: DEFAULT_OPACITY,
     saturation: DEFAULT_SATURATION,
     showReloadMessage: true,
@@ -32,7 +31,7 @@ export const defaultConfig = (): AtomConfig => {
  * Generates a hash of the current config
  */
 export const getFileConfigHash = (config: AtomConfig): string => {
-  const defaults = defaultConfig();
+  const defaults = getDefaultConfig();
   let fileConfigString = '';
 
   if (

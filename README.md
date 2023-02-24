@@ -215,7 +215,6 @@ Press `Ctrl-Shift-P` to open the command palette and type `Atom Material Icons`.
 | **Change Opacity**                | Change the opacity of the icons.                                                   |
 | **Change Saturation**             | Change the saturation value of the icons.                                          |
 | **Configure Icon Packs**          | Select an icon pack that enables additional icons (e.g. for Angular, React, Ngrx). |
-| **Hide Folder Arrows**            | Hides the arrows next to the folder icons.                                         |
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 | **Toggle Grayscale**              | Sets the saturation of the icons to zero, so that they are grayscale.              |
 

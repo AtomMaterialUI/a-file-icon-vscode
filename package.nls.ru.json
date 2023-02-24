@@ -26,7 +26,6 @@
   "configuration.folders.theme.classic": "Выберите классические значки папок.",
   "configuration.folders.theme.none": "Нет значков папок.",
   "configuration.folders.theme.specific": "Выберите конкретные значки папок.",
-  "configuration.hidesExplorerArrows": "Скрыть стрелки проводника перед папкой.",
   "configuration.languages.associations": "Настройка ассоциаций значков пользовательского языка.",
   "configuration.opacity": "Измените прозрачность значков.",
   "configuration.showReloadMessage": "Показывать сообщение перезагрузки.",
