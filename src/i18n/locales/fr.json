@@ -5,6 +5,8 @@
   "confirmReload": "Veuillez redémarrer VS Code pour activer les icônes",
   "custom": "Personnalisé",
   "customOpacity": "Entrez une valeur d'opacité personnalisée",
+  "customSaturation": "Entrez une valeur de saturation personnalisée",
+  "desaturated": "Désaturé",
   "explorerArrows": {
     "disable": "Cacher les flèches de dossier",
     "enable": "Afficher les flèches du dossier",
@@ -30,6 +32,7 @@
     "enable": "Activer les icônes en niveaux de gris",
     "toggle": "Basculer les icônes en niveaux de gris"
   },
+  "grayscales": "Niveaux de gris",
   "howToActivate": "Comment activer les icônes",
   "iconPacks": {
     "description": "Sélectionner le pack d'icônes '{{name}}'",
@@ -50,7 +53,10 @@
   "readChangelog": "Lire la liste des changements",
   "reload": "Redémarrer",
   "saturation": {
+    "desaturated": "Désaturation des icônes (saturation autour de 70%)",
+    "grayscale": "Rendre les icônes en niveaux de gris (saturation 0%)",
     "inputPlaceholder": "Valeur de saturation (entre 0 et 1)",
+    "vivid": "Rendre les icônes vives (saturation 100%)",
     "wrongValue": "La valeur doit être comprise entre 0 et 1 !"
   },
   "selectOpacity": "Selectionner une valeur d'opacité",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "Transparent",
-  "updateVSCode": "Mettre VS Code à jour."
+  "updateVSCode": "Mettre VS Code à jour.",
+  "vivid": "Couleurs vives"
 }

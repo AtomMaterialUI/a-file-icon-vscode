@@ -5,6 +5,8 @@
   "confirmReload": "アイコンの変更を反映するには VS Code を再起動する必要があります。",
   "custom": "カスタム",
   "customOpacity": "カスタムの不透明度値を入力する",
+  "customSaturation": "カスタム彩度値を入力する",
+  "desaturated": "彩度",
   "explorerArrows": {
     "disable": "フォルダーの矢印を隠す",
     "enable": "フォルダーの矢印を表示する",
@@ -30,6 +32,7 @@
     "enable": "グレースケールアイコンを有効にする",
     "toggle": "グレースケールアイコンを切り替える"
   },
+  "grayscales": "グレースケール",
   "howToActivate": "アイコンの有効化方法",
   "iconPacks": {
     "description": "アイコンパック 「{{name}}」 を選択する",
@@ -50,7 +53,10 @@
   "readChangelog": "変更履歴を読む",
   "reload": "再起動",
   "saturation": {
+    "desaturated": "アイコンの彩度を下げます（彩度約70%）",
+    "grayscale": "アイコンをグレースケールにする（彩度0%）",
     "inputPlaceholder": "彩度（0〜1）",
+    "vivid": "アイコンを鮮やかにする（彩度100%）",
     "wrongValue": "値は0から1の間にしてください！"
   },
   "selectOpacity": "不透明度の値を選択する",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "透明",
-  "updateVSCode": "VS Code を更新"
+  "updateVSCode": "VS Code を更新",
+  "vivid": "鮮やかな色"
 }

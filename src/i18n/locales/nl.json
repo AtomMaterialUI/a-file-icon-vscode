@@ -5,6 +5,8 @@
   "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
   "custom": "Aangepaste",
   "customOpacity": "Voer een aangepaste opaciteitswaarde in",
+  "customSaturation": "Voer een aangepaste saturatiewaarde in",
+  "desaturated": "Onverzadigde",
   "explorerArrows": {
     "disable": "Verberg folderpijlen",
     "enable": "Laat folderpijlen zien",
@@ -30,6 +32,7 @@
     "enable": "Zet grijsgetinte icons aan",
     "toggle": "Zet grijsgetinte icons aan of uit"
   },
+  "grayscales": "Grijstinten",
   "howToActivate": "Hoe je icons activeert",
   "iconPacks": {
     "description": "Selecteer het '{{name}}' iconpakket",
@@ -50,7 +53,10 @@
   "readChangelog": "Lees de changelog",
   "reload": "Herstart",
   "saturation": {
+    "desaturated": "Pictogrammen desatureren (ongeveer 70% verzadiging)",
+    "grayscale": "Pictogrammen grijstinten maken (0% verzadiging)",
     "inputPlaceholder": "Saturatiewaarde (tussen 0 en 1)",
+    "vivid": "Pictogrammen levendig maken (100% verzadiging)",
     "wrongValue": "De waarde moet tussen de 0 en 1 zijn!"
   },
   "selectOpacity": "Selecteer een opaciteitswaarde",
@@ -63,5 +69,6 @@
     "on": "AAN"
   },
   "transparent": "Transparant",
-  "updateVSCode": "Update VS Code"
+  "updateVSCode": "Update VS Code",
+  "vivid": "Levendige kleuren"
 }

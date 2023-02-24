@@ -5,6 +5,8 @@
   "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
   "custom": "Benutzerdefinierte",
   "customOpacity": "Geben Sie einen benutzerdefinierten Deckkraftwert ein",
+  "customSaturation": "Geben Sie einen benutzerdefinierten Sättigungswert ein",
+  "desaturated": "Entsättigt",
   "explorerArrows": {
     "disable": "Explorer Pfeile ausblenden",
     "enable": "Explorer Pfeile anzeigen",
@@ -30,6 +32,7 @@
     "enable": "Aktiviert graustufige Icons",
     "toggle": "Schaltet graustufige Icons um"
   },
+  "grayscales": "Graustufe",
   "howToActivate": "Wie Icons aktivieren?",
   "iconPacks": {
     "description": "Das '{{name}}' Icon Pack auswählen",
@@ -50,7 +53,10 @@
   "readChangelog": "Änderungsprotokoll lesen",
   "reload": "Neu starten",
   "saturation": {
+    "desaturated": "Icons entsättigt machen (ca. 70% Sättigung)",
+    "grayscale": "Symbole Graustufen (0% Sättigung)",
     "inputPlaceholder": "Wert der Sättigung (zwischen 0 und 1)",
+    "vivid": "Symbole lebendig machen (100% Sättigung)",
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
   "selectOpacity": "Wählen Sie einen Wert für die Deckkraft aus",
@@ -63,5 +69,6 @@
     "on": "EIN"
   },
   "transparent": "Transparent",
-  "updateVSCode": "VS Code aktualisieren"
+  "updateVSCode": "VS Code aktualisieren",
+  "vivid": "Lebendigen Farben"
 }

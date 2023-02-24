@@ -5,6 +5,8 @@
   "confirmReload": "Debe reiniciar VS Code para activar los cambios en los iconos.",
   "custom": "Personalizado",
   "customOpacity": "Introduzca un valor de opacidad personalizado",
+  "customSaturation": "Introduzca un valor de saturación personalizado",
+  "desaturated": "Desaturado",
   "explorerArrows": {
     "disable": "Ocultar las flechas de carpetas",
     "enable": "Mostrar flechas de carpeta",
@@ -30,6 +32,7 @@
     "enable": "Activar los iconos en escala de grises",
     "toggle": "Alternar los iconos en escala de grises"
   },
+  "grayscales": "Escala de grises",
   "howToActivate": "Cómo activar los iconos",
   "iconPacks": {
     "description": "Seleccione el paquete de iconos '{{name}}'",
@@ -50,7 +53,10 @@
   "readChangelog": "Leer changelog",
   "reload": "Reiniciar",
   "saturation": {
+    "desaturated": "Hacer iconos desaturados (aproximadamente 70% saturación)",
+    "grayscale": "Hacer iconos escala de grises (0% saturación)",
     "inputPlaceholder": "Valor de saturación (entre 0 y 1)",
+    "vivid": "Hacer iconos vívidos (100% saturación)",
     "wrongValue": "El valor debe estar entre 0 y 1."
   },
   "selectOpacity": "Seleccione un valor de opacidad",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "Transparente",
-  "updateVSCode": "Actualizar VS Code"
+  "updateVSCode": "Actualizar VS Code",
+  "vivid": "Colores vivos"
 }

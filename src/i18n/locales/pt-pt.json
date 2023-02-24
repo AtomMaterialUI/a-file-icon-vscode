@@ -5,6 +5,8 @@
   "confirmReload": "Precisas reinicializar o VS Code para habilitar a alteração de ícones.",
   "custom": "Personalizado",
   "customOpacity": "Insira um valor de opacidade personalizado",
+  "customSaturation": "Insira um valor de saturação personalizado",
+  "desaturated": "Dessaturado",
   "explorerArrows": {
     "disable": "Ocultar setas do explorador de ficheiros",
     "enable": "Exibir setas do explorador de ficheiros",
@@ -30,6 +32,7 @@
     "enable": "Habilitar ícones em escala de cinzentos",
     "toggle": "Alternar ícones em escala de cinzentos"
   },
+  "grayscales": "Escala de cinzentos",
   "howToActivate": "Como habilitar os ícones",
   "iconPacks": {
     "description": "Seleccionar o pacote de ícones '{{name}}'",
@@ -50,7 +53,10 @@
   "readChangelog": "Ler registos",
   "reload": "Reiniciar",
   "saturation": {
+    "desaturated": "Faça ícones dessaturados (cerca de 70% de saturação)",
+    "grayscale": "Criar ícones em tons de cinzentos (saturação 0%)",
     "inputPlaceholder": "Valor de saturação (entre 0 e 1)",
+    "vivid": "Faça ícones vívidos (saturação 100%)",
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
   "selectOpacity": "Selecionar um valor de opacidade",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "Transparente",
-  "updateVSCode": "Actualizar o VS Code"
+  "updateVSCode": "Actualizar o VS Code",
+  "vivid": "Cores vivas"
 }

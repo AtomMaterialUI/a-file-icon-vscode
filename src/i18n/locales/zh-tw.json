@@ -5,6 +5,8 @@
   "confirmReload": "你必須重啟VS Code來應用對圖標的更改",
   "custom": "自定義",
   "customOpacity": "輸入自定義不透明度值",
+  "customSaturation": "輸入自定義飽和度值",
+  "desaturated": "不飽和",
   "explorerArrows": {
     "disable": "隱藏文件夾箭頭",
     "enable": "顯示文件夾箭頭",
@@ -30,6 +32,7 @@
     "enable": "啟用灰度圖標",
     "toggle": "切換灰度圖標"
   },
+  "grayscales": "灰度",
   "howToActivate": "如何激活圖標",
   "iconPacks": {
     "description": "選擇％0符號",
@@ -50,7 +53,10 @@
   "readChangelog": "閲讀更新日志",
   "reload": "重啟",
   "saturation": {
+    "desaturated": "使圖示不飽和（約70%飽和度）",
+    "grayscale": "使圖示灰度（0% 飽與度）",
     "inputPlaceholder": "飽和度值（在0和1之間）。",
+    "vivid": "使圖示生動（100% 飽和度）",
     "wrongValue": "該值必須在0和1之間!"
   },
   "selectOpacity": "選擇不透明度值",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "透明",
-  "updateVSCode": "更新VS Code"
+  "updateVSCode": "更新VS Code",
+  "vivid": "鮮豔的色彩"
 }

@@ -23,7 +23,7 @@ export const getSaturations = (): SaturationQuickPickItem[] => {
       id: PredefinedSaturation.Grayscale,
       kind: QuickPickItemKind.Default,
       order: 1,
-      title: i18next.t('grayscale'),
+      title: i18next.t('grayscales'),
       value: 0,
     },
     {
