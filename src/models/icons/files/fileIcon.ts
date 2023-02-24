@@ -1,5 +1,5 @@
+import type { IconPack } from 'src/@types/config';
 import type { RequireAtLeastOne } from 'src/@types/types';
-import type { IconPack } from '../index';
 
 type BasicFileIcon = {
   /**

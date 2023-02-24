@@ -1,6 +1,6 @@
-import { IconPack } from '../index';
+import type { IconPack } from 'src/@types/config';
 
-export interface FolderIcon {
+export type FolderIcon = {
   /**
    * Name of the icon, e.g. 'src'
    */

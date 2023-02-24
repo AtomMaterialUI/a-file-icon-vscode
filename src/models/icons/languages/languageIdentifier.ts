@@ -1,6 +1,7 @@
-import { DefaultIcon, IconPack } from '../index';
+import type { IconPack } from 'src/@types/config';
+import type { DefaultIcon } from '../index';
 
-export interface LanguageIcon {
+export type LanguageIcon = {
   /**
    * Icon for the language identifier
    */

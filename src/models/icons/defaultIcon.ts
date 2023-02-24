@@ -1,4 +1,4 @@
-export interface DefaultIcon {
+export type DefaultIcon = {
   /**
    * Name of the icon, e.g. 'src'
    */

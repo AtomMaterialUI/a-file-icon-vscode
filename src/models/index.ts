@@ -1,2 +1,2 @@
 export * from './icons';
-export * from './iconConfiguration';
+export { IconConfiguration } from './IconConfiguration';

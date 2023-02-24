@@ -1,5 +1,3 @@
-'use strict';
-
 import { registeredCommands } from 'src/commands/commands';
 import { VERSION_KEY } from 'src/helpers/constants';
 import { initI18next } from 'src/i18n/i18next';
@@ -7,8 +5,9 @@ import { configChangeDetector } from 'src/services/ConfigChangeDetector';
 import { logger } from 'src/services/LoggingService';
 import { notificationsService } from 'src/services/NotificationsService';
 import { updatesService } from 'src/services/UpdatesService';
-import type { ExtensionContext } from 'vscode';
 import { window, workspace } from 'vscode';
+
+import type { ExtensionContext } from 'vscode';
 
 /**
  * When the extension gets activated
@@ -53,4 +52,6 @@ export const activate = async (context: ExtensionContext) => {
 };
 
 /** This method is called when the extension is deactivated */
-export const deactivate = () => {};
+export const deactivate = () => {
+  // do nothing
+};
