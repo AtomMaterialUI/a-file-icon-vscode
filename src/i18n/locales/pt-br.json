@@ -1,6 +1,15 @@
 {
   "activate": "Ativar",
   "activated": "O Atom Material Icons está ativo.",
+  "arrowThemes": {
+    "arrow": "Ícones de flechas",
+    "material": "Ícones de Material",
+    "none": "Sem ícones",
+    "pickTheme": "Selecione o estilo de flechas",
+    "plusMinus": "Ícones Mais-Menos",
+    "triangle": "Ícones de triângulos"
+  },
+  "arrows": "Flechas",
   "classic": "Clássicas",
   "confirmReload": "Você precisa reiniciar o VS Code para ativar a mudança de ícones.",
   "custom": "Personalizado",
@@ -39,6 +48,7 @@
     "disabled": "Desabilitar pacotes de ícones",
     "selectPack": "Selecione um pacote de ícones"
   },
+  "material": "Material",
   "neverShowAgain": "Não mostrar novamente",
   "none": "Nenhum",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "Opaco",
   "outdatedVersion": "Você precisa atualizar o VS Code para usar esse comando.",
+  "plusMinus": "Mais-Menos",
   "readChangelog": "Ler changelog",
   "reload": "Reiniciar",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "ON"
   },
   "transparent": "Transparente",
+  "triangle": "Triângulos",
   "updateVSCode": "Atualizar VS Code",
   "vivid": "Cores vivas"
 }

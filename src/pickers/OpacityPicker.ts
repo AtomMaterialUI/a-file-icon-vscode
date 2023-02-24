@@ -3,7 +3,7 @@ import { getOpacities } from 'src/helpers/opacities';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
 
-export class OpacityPicker {
+class OpacityPicker {
   async openQuickPicker() {
     const opacity = configService.opacity;
     const response = await this.showQuickPickItems(opacity);

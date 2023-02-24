@@ -1,5 +1,5 @@
 import i18next from 'i18next';
-import { FolderTheme, IconPack } from 'src/@types/config';
+import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
@@ -104,6 +104,14 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('folderTheme', v, ConfigurationTarget.Workspace);
   }
 
+  get arrowTheme(): ArrowTheme {
+    return this.getConfigValue<ArrowTheme>('arrowTheme') ?? ArrowTheme.Material;
+  }
+
+  set arrowTheme(v: ArrowTheme) {
+    this.setConfigValue('arrowTheme', v, ConfigurationTarget.Workspace);
+  }
+
   // endregion
 
   // region --------------------- Icon Theme Config ----------------------
@@ -180,8 +188,8 @@ export class ConfigService implements AtomConfig {
     if (this.folderTheme !== config.atomConfig?.folderTheme) {
       changes.folderTheme = this.folderTheme;
     }
-    if (this.hidesExplorerArrows !== config.atomConfig?.hidesExplorerArrows) {
-      changes.hidesExplorerArrows = this.hidesExplorerArrows;
+    if (this.arrowTheme !== config.atomConfig?.arrowTheme) {
+      changes.arrowTheme = this.arrowTheme;
     }
     if (this.activeIconPacks !== config.atomConfig?.activeIconPacks) {
       changes.activeIconPacks = this.activeIconPacks;

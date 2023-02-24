@@ -3,10 +3,11 @@
  * @returns {AtomConfig}
  * @private
  */
-import type { AtomConfig } from 'src/@types/config';
-import { FolderTheme, IconPack } from 'src/@types/config';
+import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
 import { DEFAULT_FOLDER_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
 import { getHash } from 'src/helpers/utils';
+
+import type { AtomConfig } from 'src/@types/config';
 
 /**
  * Return the default config
@@ -15,6 +16,7 @@ import { getHash } from 'src/helpers/utils';
 export const defaultConfig = (): AtomConfig => {
   return {
     activeIconPacks: [IconPack.Rails, IconPack.Angular, IconPack.React, IconPack.Phalcon],
+    arrowTheme: ArrowTheme.Material,
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
     hidesExplorerArrows: false,

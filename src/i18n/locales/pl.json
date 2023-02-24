@@ -1,6 +1,15 @@
 {
   "activate": "Aktywuj",
   "activated": "Motyw Atom Material Icons jest aktywny.",
+  "arrowThemes": {
+    "arrow": "Ikony strzałek",
+    "material": "Ikony Material",
+    "none": "Bez ikon",
+    "pickTheme": "Wybierz styl strzałek",
+    "plusMinus": "Ikony Plus-Minus",
+    "triangle": "Ikony trójkątów"
+  },
+  "arrows": "Strzały",
   "classic": "Klasyczne",
   "confirmReload": "Musisz zrestartować VS Code, aby uaktywnić zmiany ikon.",
   "custom": "Niestandardowy",
@@ -39,6 +48,7 @@
     "disabled": "Wyłącz paczki ikon",
     "selectPack": "Wybierz paczkę ikon"
   },
+  "material": "Materiał",
   "neverShowAgain": "Nigdy więcej nie pokazuj",
   "none": "Bez",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "Nieprzezroczysty",
   "outdatedVersion": "Musisz zaktualizować VS Code, aby użyć tej komendy.",
+  "plusMinus": "Plus-Minus",
   "readChangelog": "Przeczytaj listę zmian",
   "reload": "Restartuj",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "WŁĄCZONE"
   },
   "transparent": "Przezroczysty",
+  "triangle": "Trójkąty",
   "updateVSCode": "Zaktualizuj VS Code",
   "vivid": "Żywe kolory"
 }

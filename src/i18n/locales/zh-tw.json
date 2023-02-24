@@ -1,6 +1,15 @@
 {
   "activate": "激活",
   "activated": "Atom Material Icons 主題圖標已激活",
+  "arrowThemes": {
+    "arrow": "箭頭圖示",
+    "material": "材質圖示",
+    "none": "無圖示",
+    "pickTheme": "選擇箭頭的樣式",
+    "plusMinus": "加減號圖示",
+    "triangle": "三角形圖示"
+  },
+  "arrows": "箭頭",
   "classic": "典文",
   "confirmReload": "你必須重啟VS Code來應用對圖標的更改",
   "custom": "自定義",
@@ -39,6 +48,7 @@
     "disabled": "禁用圖標包",
     "selectPack": "選擇圖標包"
   },
+  "material": "材料",
   "neverShowAgain": "不再顯示",
   "none": "沒有",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "不透明",
   "outdatedVersion": "你必須更新VS Code才能使用該命令",
+  "plusMinus": "加減號",
   "readChangelog": "閲讀更新日志",
   "reload": "重啟",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "ON"
   },
   "transparent": "透明",
+  "triangle": "三角形",
   "updateVSCode": "更新VS Code",
   "vivid": "鮮豔的色彩"
 }

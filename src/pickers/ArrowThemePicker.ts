@@ -1,13 +1,13 @@
 import i18next from 'i18next';
-import { FolderTheme } from 'src/@types/config';
-import { getFolderThemes } from 'src/helpers/folderThemes';
+import { ArrowTheme } from 'src/@types/config';
+import { getArrowThemes } from 'src/helpers/arrowThemes';
 import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window, QuickPickItemKind } from 'vscode';
 
-class FolderThemePicker {
+export class ArrowThemePicker {
   async openQuickPicker() {
-    const currentTheme = configService.folderTheme;
+    const currentTheme = configService.arrowTheme;
     const response = await this.showQuickPickItems(currentTheme);
 
     if (response) {
@@ -20,11 +20,11 @@ class FolderThemePicker {
    * @private
    * @param currentTheme
    */
-  private showQuickPickItems(currentTheme: FolderTheme) {
+  private showQuickPickItems(currentTheme: ArrowTheme) {
     const isNoneActive = this.isNoneActive(currentTheme);
-    const folderThemes = getFolderThemes();
+    const arrowThemes = getArrowThemes();
 
-    const options = folderThemes.map((theme): QuickPickItem => {
+    const options = arrowThemes.map((theme): QuickPickItem => {
       const isSeparator = theme.kind === QuickPickItemKind.Separator;
 
       if (isSeparator || !theme.id) {
@@ -47,7 +47,7 @@ class FolderThemePicker {
       ignoreFocusOut: false,
       matchOnDescription: true,
       matchOnDetail: true,
-      placeHolder: i18next.t('folders.toggleIcons'),
+      placeHolder: i18next.t('arrowThemes.pickTheme'),
     });
   }
 
@@ -55,10 +55,10 @@ class FolderThemePicker {
    * Checks if no theme is active
    * @returns {boolean}
    * @private
-   * @param folderTheme
+   * @param arrowTheme
    */
-  private isNoneActive(folderTheme: FolderTheme): boolean {
-    return folderTheme === FolderTheme.None;
+  private isNoneActive(arrowTheme: ArrowTheme): boolean {
+    return arrowTheme === ArrowTheme.None;
   }
 
   /**
@@ -68,9 +68,9 @@ class FolderThemePicker {
    */
   private handleQuickPickActions(decision: QuickPickItem): void {
     if (!decision || !decision.description) return;
-    const enumKey = findEnumKey(FolderTheme, decision.description.toLowerCase());
+    const enumKey = findEnumKey(ArrowTheme, decision.description.toLowerCase());
 
-    configService.folderTheme = enumKey ? FolderTheme[enumKey] : FolderTheme.None;
+    configService.arrowTheme = enumKey ? ArrowTheme[enumKey] : ArrowTheme.None;
   }
 
   /**
@@ -80,9 +80,9 @@ class FolderThemePicker {
    * @returns {boolean}
    * @private
    */
-  private isThemePicked(currentTheme: FolderTheme, id: FolderTheme) {
+  private isThemePicked(currentTheme: ArrowTheme, id: ArrowTheme) {
     return currentTheme === id;
   }
 }
 
-export const folderThemePicker = new FolderThemePicker();
+export const arrowThemePicker = new ArrowThemePicker();

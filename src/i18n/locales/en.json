@@ -1,6 +1,15 @@
 {
   "activate": "Activate",
   "activated": "Atom Material Icons is active.",
+  "arrowThemes": {
+    "arrow": "Arrow Icons",
+    "material": "Material Icons",
+    "none": "No Arrows",
+    "pickTheme": "Select the style of arrows",
+    "plusMinus": "Plus-Minus Icons",
+    "triangle": "Triangle Icons"
+  },
+  "arrows": "Arrows",
   "classic": "Classic",
   "confirmReload": "You have to restart VS Code to activate the changes to the icons.",
   "custom": "Custom",
@@ -39,6 +48,7 @@
     "disabled": "Disable icon packs",
     "selectPack": "Select an icon pack"
   },
+  "material": "Material",
   "neverShowAgain": "Never show again",
   "none": "None",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "Opaque",
   "outdatedVersion": "You have to update VS Code to use this command.",
+  "plusMinus": "Plus-Minus",
   "readChangelog": "Read changelog",
   "reload": "Restart",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "ON"
   },
   "transparent": "Transparent",
+  "triangle": "Triangles",
   "updateVSCode": "Update VS Code",
   "vivid": "Vivid Colors"
 }

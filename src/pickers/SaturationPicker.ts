@@ -3,7 +3,7 @@ import { getSaturations } from 'src/helpers/saturations';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
 
-export class SaturationPicker {
+class SaturationPicker {
   async openQuickPicker() {
     const saturation = configService.saturation;
     const response = await this.showQuickPickItems(saturation);

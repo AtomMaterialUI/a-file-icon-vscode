@@ -37,6 +37,7 @@ export enum PredefinedSaturation {
 
 export type AtomConfig = {
   activeIconPacks: IconPack[],
+  arrowTheme: ArrowTheme,
   filesAssociations?: IconAssociations,
   foldersAssociations?: IconAssociations,
   folderColor: string,
@@ -113,4 +114,12 @@ export type Theme = {
 export type ThemeColor = {
   name: string,
   color: string;
+}
+
+export enum ArrowTheme {
+  Material  = 'material',
+  Triangle  = 'triangle',
+  PlusMinus = 'plusMinus',
+  Arrow     = 'arrow',
+  None      = 'none',
 }

@@ -1,6 +1,15 @@
 {
   "activate": "Activeer",
   "activated": "Atom Material Icons Thema is actief.",
+  "arrowThemes": {
+    "arrow": "Pijlpictogrammen",
+    "material": "Material pictogrammen",
+    "none": "Geen pictogrammen",
+    "pickTheme": "Selecteer de stijl van de pijlen",
+    "plusMinus": "Plus-Minus pictogrammen",
+    "triangle": "Driehoeken pictogrammen"
+  },
+  "arrows": "Pijlen",
   "classic": "Klassiek",
   "confirmReload": "Je moet VS Code herstarten om de veranderingen in icons te activeren.",
   "custom": "Aangepaste",
@@ -39,6 +48,7 @@
     "disabled": "Zet iconpaketten uit",
     "selectPack": "Selecteer een iconpakket"
   },
+  "material": "Material",
   "neverShowAgain": "Nooit meer laten zien",
   "none": "Geen",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "Opaak",
   "outdatedVersion": "Je moet VS Code updaten om dit commando te kunnen gebruiken.",
+  "plusMinus": "Plus-Minus",
   "readChangelog": "Lees de changelog",
   "reload": "Herstart",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "AAN"
   },
   "transparent": "Transparant",
+  "triangle": "Driehoeken",
   "updateVSCode": "Update VS Code",
   "vivid": "Levendige kleuren"
 }

@@ -1,6 +1,15 @@
 {
   "activate": "有効化",
   "activated": "Atom Material Icons は有効です。",
+  "arrowThemes": {
+    "arrow": "矢印アイコン",
+    "material": "マテリアルアイコン",
+    "none": "アイコンなし",
+    "pickTheme": "矢印のスタイルを選択する",
+    "plusMinus": "プラス・マイナスアイコン",
+    "triangle": "三角形アイコン"
+  },
+  "arrows": "矢印",
   "classic": "クラシック",
   "confirmReload": "アイコンの変更を反映するには VS Code を再起動する必要があります。",
   "custom": "カスタム",
@@ -39,6 +48,7 @@
     "disabled": "アイコンパックを無効化する",
     "selectPack": "アイコンパックを選択する"
   },
+  "material": "マテリアル",
   "neverShowAgain": "今後は表示しない",
   "none": "なし",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "不透明",
   "outdatedVersion": "このコマンドを使用するには VS Code を更新する必要があります。",
+  "plusMinus": "プラス・マイナス",
   "readChangelog": "変更履歴を読む",
   "reload": "再起動",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "ON"
   },
   "transparent": "透明",
+  "triangle": "三角形",
   "updateVSCode": "VS Code を更新",
   "vivid": "鮮やかな色"
 }

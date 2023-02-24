@@ -1,6 +1,15 @@
 {
   "activate": "Aktivieren",
   "activated": "Atom Material Icons ist jetzt aktiviert.",
+  "arrowThemes": {
+    "arrow": "Pfeilsymbole",
+    "material": "Materialsymbole",
+    "none": "Keine Symbole",
+    "pickTheme": "Wählen Sie den Stil der Pfeile",
+    "plusMinus": "Plus-Minus Symbole",
+    "triangle": "Dreieck-Symbole"
+  },
+  "arrows": "Pfeile",
   "classic": "Klassisch",
   "confirmReload": "VS Code muss neu gestartet werden, um die Änderungen an den Icons zu aktivieren.",
   "custom": "Benutzerdefinierte",
@@ -39,6 +48,7 @@
     "disabled": "Icon Packs deaktivieren",
     "selectPack": "Icon Pack auswählen"
   },
+  "material": "Material",
   "neverShowAgain": "Nicht mehr zeigen",
   "none": "Keine",
   "opacity": {
@@ -50,6 +60,7 @@
   },
   "opaque": "Opak",
   "outdatedVersion": "VS Code muss aktualisiert werden, um diesen Befehl auszuführen.",
+  "plusMinus": "Plus-Minus",
   "readChangelog": "Änderungsprotokoll lesen",
   "reload": "Neu starten",
   "saturation": {
@@ -70,6 +81,7 @@
     "on": "EIN"
   },
   "transparent": "Transparent",
+  "triangle": "Dreiecke",
   "updateVSCode": "VS Code aktualisieren",
   "vivid": "Lebendigen Farben"
 }
