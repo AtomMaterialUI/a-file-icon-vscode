@@ -1,5 +1,6 @@
 import i18next from 'i18next';
 import { getFolderColors } from 'src/helpers/themes';
+import { isValidHexColorCode } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { window, QuickPickItemKind } from 'vscode';
 
@@ -107,8 +108,7 @@ class FolderColorPicker {
   }
 
   private isValid(color = '') {
-    const hexPattern = new RegExp(/^#([\dA-Fa-f]{6}|[\dA-Fa-f]{3})$/);
-    return color.length > 0 && hexPattern.test(color);
+    return isValidHexColorCode(color);
   }
 }
 

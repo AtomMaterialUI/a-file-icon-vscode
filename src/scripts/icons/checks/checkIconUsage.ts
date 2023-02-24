@@ -5,8 +5,8 @@ import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, OPENED_FOLDER_SUFFIX } fro
 import { fileIcons, folderIcons, languageIcons } from './../../../icons';
 import { green, red } from './../../helpers/painter';
 
-import type { DefaultIcon, FolderIcon } from '../../../models/index';
-import type { FolderAssociations } from 'src/@types/icons';
+import type { DefaultIcon, FolderIcon } from 'src/@types/iconTypes';
+import type { FolderAssociations } from 'src/@types/associations';
 
 /**
  * Defines the folder where all icon files are located.
@@ -76,7 +76,7 @@ const getAllUsedFileIcons = (): string[] => {
 const getAllUsedFolderIcons = (): string[] => {
   const icons = folderIcons
     .map((theme) => (theme.name === 'none' ? [] : getAllFolderIcons(theme)))
-    .reduce((a, b) => a.concat(b));
+    .reduce((a, b) => [...a, ...b]);
   return icons
     .map((icon) => {
       return [
@@ -89,7 +89,7 @@ const getAllUsedFolderIcons = (): string[] => {
       ];
     })
     .filter((icon) => icon !== undefined)
-    .reduce((a, b) => a.concat(b));
+    .reduce((a, b) => [...a, ...b]);
 };
 
 const getAllFolderIcons = (theme: FolderAssociations): Array<DefaultIcon | FolderIcon> => {

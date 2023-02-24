@@ -1,7 +1,5 @@
 import merge from 'lodash.merge';
-import type { AtomConfig } from 'src/@types/config';
 import { FolderTheme } from 'src/@types/config';
-import type { FolderAssociation, FolderAssociations, IconAssociations } from 'src/@types/icons';
 import {
   OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
@@ -13,6 +11,9 @@ import {
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { folderIcons } from 'src/icons/index';
+
+import type { FolderAssociations, FolderAssociation, IconAssociations } from 'src/@types/associations';
+import type { AtomConfig } from 'src/@types/config';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 
 export class FolderJsonGenerator extends AbstractJsonGenerator {
@@ -38,11 +39,11 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     const allFolderAssociations = [...enabledAssociations, ...customAssociations];
 
     // next, load the folder associations inside the json
-    allFolderAssociations.forEach((folderAssoc) => {
-      if (folderAssoc.disabled) return;
+    for (const folderAssoc of allFolderAssociations) {
+      if (folderAssoc.disabled) continue;
 
       this.loadFolderAssociation(folderAssoc);
-    });
+    }
 
     // next, add the default folder icon
     this.loadDefaultFolderAssociation(folderThemeAssociations);
@@ -87,8 +88,8 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     if (!folderAssociations) return [];
 
     return Object.entries(folderAssociations).map(([key, value]) => ({
-      name: value?.toLowerCase() ?? 'folder',
       folderNames: [key.toLowerCase()],
+      name: value?.toLowerCase() ?? 'folder',
     }));
   }
 
@@ -130,7 +131,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     const folderAssocName = `${FOLDER_PREFIX}${assocName}${suffix}`;
     const folderOpenAssocName = `${FOLDER_PREFIX}${assocName}${OPENED_FOLDER_SUFFIX}${suffix}`;
 
-    folderNames.forEach((folderName) => {
+    for (const folderName of folderNames) {
       // Folder
       if (!this.iconConfig.folderNames) {
         this.iconConfig.folderNames = {};
@@ -148,7 +149,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
       this.iconConfig.folderNamesExpanded[folderName] = folderOpenAssocName;
       this.iconConfig.folderNamesExpanded[`.${folderName}`] = folderOpenAssocName;
       this.iconConfig.folderNamesExpanded[`_${folderName}`] = folderOpenAssocName;
-    });
+    }
   }
 
   /**

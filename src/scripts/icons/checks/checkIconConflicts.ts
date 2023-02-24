@@ -34,7 +34,7 @@ const checkForConflictsInFileIcons = (
       continue;
     }
     for (const definition of (icon[fileIconDefinitionType] ?? [])
-      .map((d) => d.toLowerCase())) {
+      .map((d: string) => d.toLowerCase())) {
       if (
         !icons[definition] ||
         (icon.enabledFor && icon.enabledFor.length > 0)
@@ -66,7 +66,7 @@ const checkFolderIcons = () => {
     const icons: Record<string, string> = {};
     for (const icon of theme.icons) {
       for (const folderName of icon.folderNames
-                                   .map((f) => f.toLowerCase())) {
+                                   .map((f: string) => f.toLowerCase())) {
         if (
           !icons[folderName] ||
           (icon.enabledFor && icon.enabledFor.length > 0)
@@ -93,7 +93,7 @@ const checkLanguageIcons = () => {
   const icons: Record<string, string> = {};
   for (const langIcon of languageIcons) {
     for (const id of langIcon.ids
-                             .map((id) => id.toLowerCase())) {
+                             .map((id: string) => id.toLowerCase())) {
       if (icons[id]) {
         if (allConflicts.languageIcons[id]) {
           allConflicts.languageIcons[id].push(langIcon.icon.name);

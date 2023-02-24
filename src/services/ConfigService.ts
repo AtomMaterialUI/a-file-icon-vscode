@@ -4,11 +4,10 @@ import { getDefaultConfig } from 'src/icons/configUtils';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
 
-import type { FolderTheme, ArrowTheme, AtomConfig, IconPack } from 'src/@types/config';
-import type { IconAssociations } from 'src/@types/icons';
-import type { IconConfiguration } from 'src/models';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
-
+import type { IconAssociations } from 'src/@types/associations';
+import type { FolderTheme, ArrowTheme, AtomConfig, IconPack } from 'src/@types/config';
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------

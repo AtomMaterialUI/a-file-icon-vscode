@@ -1,4 +1,4 @@
-import { validateHEXColorCode } from 'src/helpers/utils';
+import { isValidHexColorCode } from 'src/helpers/utils';
 
 class FolderColorService {
   /**
@@ -10,7 +10,7 @@ class FolderColorService {
   public applyFolderColor(svg: string, folderColor: string): string {
     let updatedRootElement: string = svg;
 
-    if (folderColor !== undefined && validateHEXColorCode(folderColor)) {
+    if (folderColor !== undefined && isValidHexColorCode(folderColor)) {
       updatedRootElement = this.replaceFill(updatedRootElement, folderColor);
     }
 
@@ -18,7 +18,7 @@ class FolderColorService {
   }
 
   private replaceFill(svg: string, folderColor: string): string {
-    const pattern = new RegExp(/fill="#[a-fA-F0-9]{6}"/g);
+    const pattern = new RegExp(/fill="#[\dA-Fa-f]{6}"/g);
     const themedPattern = new RegExp(/themed="true"/g);
 
     if (pattern.test(svg) && themedPattern.test(svg)) {

@@ -3,12 +3,11 @@ import { join, parse } from 'node:path';
 import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, OPENED_FOLDER_SUFFIX } from 'src/helpers/constants';
 import { similarity } from 'src/helpers/utils';
 
-
 import { green, red } from '../../helpers/painter';
 import { fileIcons, folderIcons, languageIcons } from './../../../icons';
 
-import type { DefaultIcon, FileIcon, FolderIcon } from '../../../models/index';
-import type { FolderAssociations } from 'src/@types/icons';
+import type { DefaultIcon, FileIcon, FolderIcon } from 'src/@types/iconTypes';
+import type { FolderAssociations } from 'src/@types/associations';
 
 /**
  * Defines the folder where all icon files are located.

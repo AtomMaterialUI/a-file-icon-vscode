@@ -1,4 +1,4 @@
-import type { FolderAssociations } from 'src/@types/icons';
+import type { FolderAssociations } from 'src/@types/associations';
 
 /**
  * Defines folder icons

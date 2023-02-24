@@ -1,6 +1,7 @@
-import { readdirSync, readFileSync } from 'node:fs';
+/* eslint-disable unicorn/prefer-module */
 import { outputFileSync } from 'fs-extra';
 import merge from 'lodash.merge';
+import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
 import { getDefaultConfig, getFileConfigHash } from 'src/icons/configUtils';
@@ -45,7 +46,7 @@ export class IconThemeGenerator {
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf-8');
+      outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf8');
     }
     catch (error) {
       throw new Error('Failed to create icon file: ' + error);
@@ -128,7 +129,7 @@ export class IconThemeGenerator {
   /**
    * Apply filters to the icons and copy them to dist
    * @param {string} source
-   * @param {string} dest
+   * @param destination
    * @private
    */
   private applyFiltersAndCopy(source: string, destination: string) {
@@ -141,7 +142,7 @@ export class IconThemeGenerator {
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 
-      outputFileSync(join(destination, hashedFile), svg, 'utf-8');
+      outputFileSync(join(destination, hashedFile), svg, 'utf8');
     }
   }
 
@@ -152,7 +153,7 @@ export class IconThemeGenerator {
    * @private
    */
   private applyFilters(filePath: string) {
-    let svg = readFileSync(filePath, 'utf-8');
+    let svg = readFileSync(filePath, 'utf8');
 
     // folder color
     svg = folderColorService.applyFolderColor(svg, this.atomConfig.folderColor);

@@ -11,10 +11,6 @@ type ArrowThemeQuickPickItem = {
   description?: string;
 }
 
-/**
- * Returns the folder themes.
- * @returns {Record<FolderTheme, ArrowThemeQuickPickItem>}
- */
 export const getArrowThemes = (): ArrowThemeQuickPickItem[] => {
   return [
     {

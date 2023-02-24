@@ -15,8 +15,9 @@ class SaturationService {
 
     // Add filter attribute
     if (saturation !== undefined && saturation < 1) {
-      updatedRootElement = this.addFilterAttribute(svgRootElement, saturation);
-    } else {
+      updatedRootElement = this.addFilterAttribute(svgRootElement);
+    }
+    else {
       updatedRootElement = this.removeFilterAttribute(svgRootElement);
     }
 
@@ -24,19 +25,21 @@ class SaturationService {
     let updatedSVG = svg.replace(/<svg[^>]*>/, updatedRootElement);
     if (saturation !== undefined && saturation < 1) {
       updatedSVG = this.addFilterElement(updatedSVG, saturation);
-    } else {
+    }
+    else {
       updatedSVG = this.removeFilterElement(updatedSVG);
     }
 
     return updatedSVG;
   }
 
-  private addFilterAttribute(svgRoot: string, opacity: number): string {
+  private addFilterAttribute(svgRoot: string): string {
     const pattern = new RegExp(/\sfilter="[^"]+?"/);
     // if the filter attribute already exists
     if (pattern.test(svgRoot)) {
       return svgRoot.replace(pattern, ' filter="url(#saturation)"');
-    } else {
+    }
+    else {
       return svgRoot.replace(/^<svg/, '<svg filter="url(#saturation)"');
     }
   }
@@ -48,10 +51,11 @@ class SaturationService {
 
   private addFilterElement(svg: string, value: number) {
     const pattern = new RegExp(/<filter id="saturation".+<\/filter>(.*<\/svg>)/);
-    const filterElement = `<filter id="saturation"><feColorMatrix type="saturate" values="${value}"/></filter>`;
+    const filterElement = `<filter id='saturation'><feColorMatrix type='saturate' values='${value}'/></filter>`;
     if (pattern.test(svg)) {
       return svg.replace(pattern, `${filterElement}$1`);
-    } else {
+    }
+    else {
       return svg.replace(/<\/svg>/, `${filterElement}</svg>`);
     }
   }

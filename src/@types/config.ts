@@ -1,4 +1,4 @@
-import type { IconAssociations } from 'src/@types/icons';
+import type { IconAssociations } from './associations';
 
 export enum IconPack {
   Angular = 'angular',

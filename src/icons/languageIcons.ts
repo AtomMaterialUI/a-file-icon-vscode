@@ -1,4 +1,4 @@
-import type { LanguageAssociation } from 'src/@types/icons';
+import type { LanguageAssociation } from 'src/@types/associations';
 
 /**
  * Defines icons for language ids

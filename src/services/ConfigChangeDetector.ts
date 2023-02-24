@@ -2,7 +2,7 @@ import { getIconThemeFile } from 'src/helpers/vscodeUtils';
 import { IconThemeGenerator } from 'src/icons/generators';
 import { configService } from 'src/services/ConfigService';
 
-import type { IconConfiguration } from 'src/models';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { AtomConfig } from 'src/@types/config';
 
 /**

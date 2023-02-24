@@ -1,7 +1,5 @@
 import merge from 'lodash.merge';
-import type { AtomConfig } from 'src/@types/config';
 import { FileMappingType } from 'src/@types/config';
-import type { FileAssociations, FileAssociation } from 'src/@types/icons';
 import {
   WILDCARD_PATTERN,
   DARK_FILE_ENDING,
@@ -11,6 +9,9 @@ import {
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
+
+import type { AtomConfig } from 'src/@types/config';
+import type { FileAssociation, FileAssociations } from 'src/@types/associations';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 
 export class FileJsonGenerator extends AbstractJsonGenerator {
@@ -30,11 +31,11 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     const customAssociations = this.getCustomAssociations();
     const allFileAssociations = [...enabledAssociations, ...customAssociations];
 
-    allFileAssociations.forEach((fileAssoc) => {
-      if (fileAssoc.disabled) return;
+    for (const fileAssoc of allFileAssociations) {
+      if (fileAssoc.disabled) continue;
 
       this.loadFileAssociation(fileAssoc);
-    });
+    }
 
     // next, add the default file icon
     this.loadDefaultFileAssociation();
@@ -112,12 +113,12 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     if (!fileAssociations) return [];
 
     return Object.entries(fileAssociations).map(([key, value]) => ({
-      name: key.toLowerCase(),
       icon: {
-        name: value.toLowerCase(),
-        fileNames: [key.toLowerCase()],
         fileExtensions: [key.toLowerCase().replace(WILDCARD_PATTERN, '')],
+        fileNames: [key.toLowerCase()],
+        name: value.toLowerCase(),
       },
+      name: key.toLowerCase(),
     }));
   }
 
@@ -129,14 +130,17 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
    */
   private mapIconsToAssociations(fileAssoc: FileAssociation, FileExtensions: FileMappingType) {
     switch (FileExtensions) {
-      case FileMappingType.FileExtensions:
+      case FileMappingType.FileExtensions: {
         this.mapFileExtensions(fileAssoc);
         break;
-      case FileMappingType.FileNames:
+      }
+      case FileMappingType.FileNames: {
         this.mapFileNames(fileAssoc);
         break;
-      default:
+      }
+      default: {
         break;
+      }
     }
   }
 
@@ -149,9 +153,9 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     // Make sure we have the file extensions...
     if (!fileAssoc.fileExtensions) return;
 
-    fileAssoc.fileExtensions.forEach((fileExtension) => {
+    for (const fileExtension of fileAssoc.fileExtensions) {
       // Skip the association if there is a custom assoc
-      if (this.shouldOverwriteFileNames(fileExtension)) return;
+      if (this.shouldOverwriteFileNames(fileExtension)) continue;
 
       // First, add the file extension
       if (!this.iconConfig.fileExtensions) {
@@ -186,7 +190,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         // And add the highContrast variant to the highContrast config
         this.iconConfig.highContrast.fileExtensions[fileExtension] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
       }
-    });
+    }
   }
 
   /**
@@ -198,9 +202,9 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     // Make sure we have the file names...
     if (!fileAssoc.fileNames) return;
 
-    fileAssoc.fileNames.forEach((fileName) => {
+    for (const fileName of fileAssoc.fileNames) {
       // Skip the association if there is a custom assoc
-      if (this.shouldOverwriteFileNames(fileName)) return;
+      if (this.shouldOverwriteFileNames(fileName)) continue;
 
       // First, add the file extension
       if (!this.iconConfig.fileNames) {
@@ -237,7 +241,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         // And add the highContrast variant to the highContrast config
         this.iconConfig.highContrast.fileNames[fileName] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
       }
-    });
+    }
   }
 
   /**
@@ -278,7 +282,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
    * @returns {Boolean}
    * @private
    */
-  private shouldOverwriteFileNames(extension: string): Boolean {
+  private shouldOverwriteFileNames(extension: string): boolean {
     const customFileAssociations = this.iconConfig.atomConfig?.filesAssociations ?? {};
 
     return Object.keys(customFileAssociations).some((key) => {
@@ -290,7 +294,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
       // check if the file name contains the particular file extension
       // (e.g. extension ".md" in "Readme.md" should be overwritten with the *.md icon)
       const customFileExtension = key.replace(WILDCARD_PATTERN, '.');
-      return extension.toLowerCase().indexOf(customFileExtension.toLowerCase()) > -1;
+      return extension.toLowerCase().includes(customFileExtension.toLowerCase());
     });
   }
 }

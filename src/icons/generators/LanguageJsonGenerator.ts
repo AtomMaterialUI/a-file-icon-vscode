@@ -1,9 +1,10 @@
-import type { LanguageAssociation } from 'src/@types/icons';
-import type { IconConfiguration } from 'src/models';
-import type { AtomConfig } from 'src/@types/config';
 import merge from 'lodash.merge';
-import { languageIcons } from 'src/icons/languageIcons';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
+import { languageIcons } from 'src/icons/languageIcons';
+
+import type { IconConfiguration } from 'src/models/IconConfiguration';
+import type { LanguageAssociation } from 'src/@types/associations';
+import type { AtomConfig } from 'src/@types/config';
 
 export class LanguageJsonGenerator extends AbstractJsonGenerator {
   constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
@@ -25,11 +26,11 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
     const allLanguageIcons = [...enabledLanguages, ...customIcons];
 
     // Load the language icons onto the config
-    allLanguageIcons.forEach((language) => {
-      if (language.disabled) return;
+    for (const language of allLanguageIcons) {
+      if (language.disabled) continue;
 
       this.loadLanguageAssociation(language);
-    });
+    }
   }
 
   /**
@@ -41,11 +42,11 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
     if (!languagesAssociations) return [];
 
     return Object.entries(languagesAssociations).map(([key, value]) => ({
-      name: key.toLowerCase(),
       icon: {
         name: value.toLowerCase(),
       },
       ids: [key.toLowerCase()],
+      name: key.toLowerCase(),
     }));
   }
 
@@ -102,9 +103,9 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   private addLanguageAssociation(assocName: string, languageIds: string[]) {
-    languageIds.forEach((languageId) => {
-      if (!this.iconConfig.languageIds) return;
+    for (const languageId of languageIds) {
+      if (!this.iconConfig.languageIds) continue;
       this.iconConfig.languageIds[languageId] = assocName;
-    });
+    }
   }
 }
