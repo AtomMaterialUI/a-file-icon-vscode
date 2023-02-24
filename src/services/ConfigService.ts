@@ -1,19 +1,19 @@
 import i18next from 'i18next';
-import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
 import { getDefaultConfig } from 'src/icons/configUtils';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
 
+import type { FolderTheme, ArrowTheme, AtomConfig, IconPack } from 'src/@types/config';
+import type { IconAssociations } from 'src/@types/icons';
 import type { IconConfiguration } from 'src/models';
 import type { WorkspaceConfiguration } from 'vscode';
-import type { IconAssociations } from 'src/@types/icons';
-import type { AtomConfig } from 'src/@types/config';
+
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
   get showReloadMessage(): boolean {
-    return this.getConfigValue<boolean>('showReloadMessage') ?? true;
+    return this.getConfigValue<boolean>('showReloadMessage') ?? getDefaultConfig().showReloadMessage;
   }
 
   set showReloadMessage(v: boolean) {
@@ -21,7 +21,7 @@ export class ConfigService implements AtomConfig {
   }
 
   get showUpdateMessage(): boolean {
-    return this.getConfigValue<boolean>('showUpdateMessage') ?? true;
+    return this.getConfigValue<boolean>('showUpdateMessage') ?? getDefaultConfig().showUpdateMessage;
   }
 
   set showUpdateMessage(v: boolean) {
@@ -29,15 +29,31 @@ export class ConfigService implements AtomConfig {
   }
 
   get showWelcomeMessage(): boolean {
-    return this.getConfigValue<boolean>('showWelcomeMessage') ?? true;
+    return this.getConfigValue<boolean>('showWelcomeMessage') ?? getDefaultConfig().showWelcomeMessage;
   }
 
   set showWelcomeMessage(v: boolean) {
     this.setConfigValue('showWelcomeMessage', v, ConfigurationTarget.Global);
   }
 
+  get arrowTheme(): ArrowTheme {
+    return this.getConfigValue<ArrowTheme>('arrowTheme') ?? getDefaultConfig().arrowTheme;
+  }
+
+  set arrowTheme(v: ArrowTheme) {
+    this.setConfigValue('arrowTheme', v, ConfigurationTarget.Workspace);
+  }
+
+  get folderTheme(): FolderTheme {
+    return this.getConfigValue<FolderTheme>('folderTheme') ?? getDefaultConfig().folderTheme;
+  }
+
+  set folderTheme(v: FolderTheme) {
+    this.setConfigValue('folderTheme', v, ConfigurationTarget.Workspace);
+  }
+
   get opacity(): number {
-    return this.getConfigValue<number>('opacity') ?? 1;
+    return this.getConfigValue<number>('opacity') ?? getDefaultConfig().opacity;
   }
 
   set opacity(v: number) {
@@ -45,7 +61,7 @@ export class ConfigService implements AtomConfig {
   }
 
   get saturation(): number {
-    return this.getConfigValue<number>('saturation') ?? 1;
+    return this.getConfigValue<number>('saturation') ?? getDefaultConfig().saturation;
   }
 
   set saturation(v: number) {
@@ -54,13 +70,7 @@ export class ConfigService implements AtomConfig {
 
   get activeIconPacks(): IconPack[] {
     return (
-      this.getConfigValue<IconPack[]>('activeIconPacks') ?? [
-        IconPack.Angular,
-        IconPack.React,
-        IconPack.Phalcon,
-        IconPack.Rails,
-        IconPack.Vue,
-      ]
+      this.getConfigValue<IconPack[]>('activeIconPacks') ?? getDefaultConfig().activeIconPacks
     );
   }
 
@@ -72,36 +82,32 @@ export class ConfigService implements AtomConfig {
     return this.getConfigValue<IconAssociations>('foldersAssociations');
   }
 
+  set foldersAssociations(v) {
+    this.setConfigValue('foldersAssociations', v, ConfigurationTarget.Workspace);
+  }
+
   get languagesAssociations(): IconAssociations | undefined {
     return this.getConfigValue<IconAssociations>('languagesAssociations');
+  }
+
+  set languagesAssociations(v) {
+    this.setConfigValue('languagesAssociations', v, ConfigurationTarget.Workspace);
   }
 
   get filesAssociations(): IconAssociations | undefined {
     return this.getConfigValue<IconAssociations>('filesAssociations');
   }
 
+  set filesAssociations(v) {
+    this.setConfigValue('filesAssociations', v, ConfigurationTarget.Workspace);
+  }
+
   get folderColor(): string {
-    return this.getConfigValue<string>('folderColor') ?? '#90a4ae';
+    return this.getConfigValue<string>('folderColor') ?? getDefaultConfig().folderColor;
   }
 
   set folderColor(v: string) {
     this.setConfigValue('folderColor', v, ConfigurationTarget.Workspace);
-  }
-
-  get folderTheme(): FolderTheme {
-    return this.getConfigValue<FolderTheme>('folderTheme') ?? FolderTheme.Specific;
-  }
-
-  set folderTheme(v: FolderTheme) {
-    this.setConfigValue('folderTheme', v, ConfigurationTarget.Workspace);
-  }
-
-  get arrowTheme(): ArrowTheme {
-    return this.getConfigValue<ArrowTheme>('arrowTheme') ?? ArrowTheme.Material;
-  }
-
-  set arrowTheme(v: ArrowTheme) {
-    this.setConfigValue('arrowTheme', v, ConfigurationTarget.Workspace);
   }
 
   // endregion
@@ -204,6 +210,10 @@ export class ConfigService implements AtomConfig {
     this.showReloadMessage = true;
     this.showUpdateMessage = true;
     this.showWelcomeMessage = true;
+
+    this.filesAssociations = undefined;
+    this.foldersAssociations = undefined;
+    this.languagesAssociations = undefined;
   }
 
   /**

@@ -1,4 +1,3 @@
-import { setThemeConfig } from 'src/helpers';
 import { EXTENSION_KEY } from 'src/helpers/constants';
 import { iconPackPicker } from 'src/pickers';
 import { arrowThemePicker } from 'src/pickers/ArrowThemePicker';
@@ -42,15 +41,6 @@ const changeArrowTheme = async () => {
 const restoreDefaultConfig = async () => {
   logger.info('Resetting default config');
   configService.resetConfig();
-
-  await setThemeConfig('activeIconPacks', undefined, true);
-  await setThemeConfig('folders.theme', undefined, true);
-  await setThemeConfig('folders.color', undefined, true);
-  await setThemeConfig('opacity', undefined, true);
-  await setThemeConfig('saturation', undefined, true);
-  await setThemeConfig('files.associations', undefined, true);
-  await setThemeConfig('folders.associations', undefined, true);
-  await setThemeConfig('languages.associations', undefined, true);
 };
 
 const extensionCommands: Record<string, () => Promise<void>> = {
