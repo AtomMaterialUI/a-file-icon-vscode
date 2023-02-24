@@ -5,6 +5,8 @@
   "confirmReload": "You have to restart VS Code to activate the changes to the icons.",
   "custom": "Custom",
   "customOpacity": "Enter a custom opacity value",
+  "customSaturation": "Enter a custom saturation value",
+  "desaturated": "Desaturated",
   "explorerArrows": {
     "disable": "Hide folder arrows",
     "enable": "Show folder arrows",
@@ -25,16 +27,17 @@
     "toggleIcons": "Pick a folder theme",
     "wrongHexCode": "Invalid HEX color code!"
   },
-  "grayscale": {
-    "disable": "Disable grayscale icons",
-    "enable": "Enable grayscale icons",
-    "toggle": "Toggle grayscale icons"
-  },
+  "grayscale": "Grayscale",
   "howToActivate": "How to activate icons",
   "iconPacks": {
     "description": "Select the '{{name}}' icon pack",
     "disabled": "Disable icon packs",
     "selectPack": "Select an icon pack"
+  },
+  "monochrome": {
+    "disable": "Disable monochromatic icons",
+    "enable": "Enable monochromatic icons",
+    "toggle": "Toggle monochromatic icons"
   },
   "neverShowAgain": "Never show again",
   "none": "None",
@@ -50,7 +53,10 @@
   "readChangelog": "Read changelog",
   "reload": "Restart",
   "saturation": {
+    "desaturated": "Make icons desaturated (about 70% saturation)",
+    "grayscale": "Make icons grayscale (0% saturation)",
     "inputPlaceholder": "Saturation value (between 0 and 1)",
+    "vivid": "Make icons vivid (100% saturation)",
     "wrongValue": "The value must be between 0 and 1!"
   },
   "selectOpacity": "Select an opacity value",
@@ -63,5 +69,6 @@
     "on": "ON"
   },
   "transparent": "Transparent",
-  "updateVSCode": "Update VS Code"
+  "updateVSCode": "Update VS Code",
+  "vivid": "Vivid Colors"
 }
