@@ -28,6 +28,13 @@ export enum PredefinedOpacity {
   Custom          = 'custom'
 }
 
+export enum PredefinedSaturation {
+  Grayscale   = 'grayscale',
+  Desaturated = 'desaturated',
+  Vivid       = 'vivid',
+  Custom      = 'custom'
+}
+
 export type AtomConfig = {
   activeIconPacks: IconPack[],
   filesAssociations?: IconAssociations,

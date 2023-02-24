@@ -9,18 +9,18 @@ import type { QuickPickItem } from 'vscode';
 const showQuickPickItems = (status: boolean) => {
   const on: QuickPickItem = {
     description: i18next.t('toggleSwitch.on'),
-    detail: i18next.t('grayscale.enable'),
+    detail: i18next.t('monochrome.enable'),
     label: status ? '\u2714' : '\u25FB',
   };
   const off: QuickPickItem = {
     description: i18next.t('toggleSwitch.off'),
-    detail: i18next.t('grayscale.disable'),
+    detail: i18next.t('monochrome.disable'),
     label: status ? '\u25FB' : '\u2714',
   };
   return window.showQuickPick([on, off], {
     ignoreFocusOut: false,
     matchOnDescription: true,
-    placeHolder: i18next.t('grayscale.toggle'),
+    placeHolder: i18next.t('monochrome.toggle'),
   });
 };
 

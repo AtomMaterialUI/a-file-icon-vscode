@@ -1,13 +1,43 @@
 import { toggleExplorerArrows } from 'src/commands/explorerArrows';
-import { changeFolderColor } from 'src/commands/folderColor';
-import { changeFolderTheme } from 'src/commands/folderTheme';
 import { toggleGrayscale } from 'src/commands/grayscale';
-import { toggleIconPacks } from 'src/commands/iconPacks';
-import { changeOpacity } from 'src/commands/opacity';
 import { restoreDefaultConfig } from 'src/commands/restoreConfig';
-import { changeSaturation } from 'src/commands/saturation';
 import { EXTENSION_KEY } from 'src/helpers/constants';
+import { logger, iconPackManager } from 'src/services';
+import { folderColorManager } from 'src/services/FolderColorManager';
+import { folderThemeManager } from 'src/services/FolderThemeManager';
+import { opacityManager } from 'src/services/OpacityManager';
+import { saturationManager } from 'src/services/SaturationManager';
 import { commands } from 'vscode';
+
+/** Command to change the folder color. */
+const changeFolderColor = async () => {
+  logger.info('Open select folder color popup');
+  await folderColorManager.openQuickPicker();
+};
+
+/** Command to change the folder theme. */
+const changeFolderTheme = async () => {
+  logger.info('Open select folder theme popup');
+  await folderThemeManager.openQuickPicker();
+};
+
+/** Command to toggle the icons packs */
+const toggleIconPacks = async () => {
+  logger.info('Open toggle icon pack popup');
+  await iconPackManager.openQuickPicker();
+};
+
+/** Command to set the opacity */
+const changeOpacity = async () => {
+  logger.info('Open opacity selection popup');
+  await opacityManager.openQuickPicker();
+};
+
+/** Command to set the opacity */
+const changeSaturation = async () => {
+  logger.info('Open saturation selection popup');
+  await saturationManager.openQuickPicker();
+};
 
 const extensionCommands: Record<string, () => Promise<void>> = {
   changeFolderColor,
