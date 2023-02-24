@@ -5,7 +5,7 @@ import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window, QuickPickItemKind } from 'vscode';
 
-export class FolderThemeManager {
+export class FolderThemePicker {
   async openQuickPicker() {
     const currentTheme = configService.folderTheme;
     const response = await this.showQuickPickItems(currentTheme);
@@ -85,4 +85,4 @@ export class FolderThemeManager {
   }
 }
 
-export const folderThemeManager = new FolderThemeManager();
+export const folderThemePicker = new FolderThemePicker();

@@ -79,9 +79,3 @@ export const getSVGRootElement = (svg: string) => {
   const result = new RegExp(/<svg[^>]*>/).exec(svg);
   return result?.[0];
 };
-
-export const validateHEXColorCode = (color = '') => {
-  const hexPattern = new RegExp(/^#([\dA-Fa-f]{6}|[\dA-Fa-f]{3})$/);
-  return color.length > 0 && hexPattern.test(color);
-};
-

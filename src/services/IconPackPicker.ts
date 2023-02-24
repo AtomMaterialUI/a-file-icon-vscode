@@ -5,7 +5,7 @@ import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, QuickPickItemKind, window } from 'vscode';
 
-export class IconPackManager {
+export class IconPackPicker {
   async openQuickPicker() {
     const activeIconPacks = configService.activeIconPacks;
     const response = await this.showQuickPickItems(activeIconPacks);
@@ -98,4 +98,4 @@ export class IconPackManager {
   }
 }
 
-export const iconPackManager = new IconPackManager();
+export const iconPackPicker = new IconPackPicker();

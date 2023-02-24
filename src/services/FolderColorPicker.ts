@@ -1,12 +1,11 @@
 import i18next from 'i18next';
 import { getFolderColors } from 'src/helpers/themes';
-import { validateHEXColorCode } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { window, QuickPickItemKind } from 'vscode';
 
 import type { QuickPickItem } from 'vscode';
 
-class FolderColorManager {
+class FolderColorPicker {
   async openQuickPicker() {
     const currentColor = configService.folderColor;
     const response = await this.showQuickPickItems(currentColor);
@@ -56,7 +55,7 @@ class FolderColorManager {
     if (!decision || !decision.description) return;
 
     if (decision.description === i18next.t('custom')) {
-      await this.handleCustomColor();
+      await this.handleCustom();
     }
     else {
       configService.folderColor = this.findTheme(decision);
@@ -79,12 +78,12 @@ class FolderColorManager {
    * @returns {Promise<void>}
    * @private
    */
-  private async handleCustomColor() {
+  private async handleCustom() {
     const color = await window.showInputBox({
       ignoreFocusOut: false,
       placeHolder: i18next.t('folders.hexCode'),
       validateInput: (value) => {
-        if (!validateHEXColorCode(value)) {
+        if (!this.isValid(value)) {
           return i18next.t('folders.wrongHexCode');
         }
         return;
@@ -107,6 +106,10 @@ class FolderColorManager {
     return color === currentColor;
   }
 
+  private isValid(color = '') {
+    const hexPattern = new RegExp(/^#([\dA-Fa-f]{6}|[\dA-Fa-f]{3})$/);
+    return color.length > 0 && hexPattern.test(color);
+  }
 }
 
-export const folderColorManager = new FolderColorManager();
+export const folderColorPicker = new FolderColorPicker();
