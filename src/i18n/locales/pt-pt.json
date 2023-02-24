@@ -60,6 +60,7 @@
     "wrongValue": "O valor deve estar entre 0 e 1!"
   },
   "selectOpacity": "Selecionar um valor de opacidade",
+  "selectSaturation": "Selecione uma opção de saturação",
   "semiTransparent": "Semi-Transparente",
   "specific": "Específicas",
   "themeInstalled": "O Atom Material Icons foi instalado.",

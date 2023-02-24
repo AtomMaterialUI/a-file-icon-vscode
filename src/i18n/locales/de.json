@@ -60,6 +60,7 @@
     "wrongValue": "Der Wert muss zwischen 0 und 1 liegen!"
   },
   "selectOpacity": "Wählen Sie einen Wert für die Deckkraft aus",
+  "selectSaturation": "Wählen Sie eine Sättigungsoption aus",
   "semiTransparent": "Halbtransparente",
   "specific": "Spezifische",
   "themeInstalled": "Atom Material Icons wurde installiert.",

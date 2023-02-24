@@ -60,6 +60,7 @@
     "wrongValue": "値は0から1の間にしてください！"
   },
   "selectOpacity": "不透明度の値を選択する",
+  "selectSaturation": "彩度オプションを選択する",
   "semiTransparent": "半透明",
   "specific": "特定",
   "themeInstalled": "Atom Material Icons がインストールされました。",

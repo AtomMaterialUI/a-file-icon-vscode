@@ -60,6 +60,7 @@
     "wrongValue": "Wartość musi być pomiędzy 0 i 1!"
   },
   "selectOpacity": "Wybierz wartość nieprzezroczystości",
+  "selectSaturation": "Wybierz opcję nasycenia",
   "semiTransparent": "Półprzezroczysty",
   "specific": "Określony",
   "themeInstalled": "Motyw Atom Material Icons został zainstalowany.",

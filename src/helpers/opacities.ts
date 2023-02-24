@@ -19,7 +19,6 @@ export const getOpacities = (): OpacityQuickPickItem[] => {
   return [
     {
       description: i18next.t('opacity.transparent'),
-      icon: '$(atom-folder-specific)',
       id: PredefinedOpacity.Transparent,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -28,7 +27,6 @@ export const getOpacities = (): OpacityQuickPickItem[] => {
     },
     {
       description: i18next.t('opacity.semiTransparent'),
-      icon: '$(atom-folder-classic)',
       id: PredefinedOpacity.SemiTransparent,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -37,7 +35,6 @@ export const getOpacities = (): OpacityQuickPickItem[] => {
     },
     {
       description: i18next.t('opacity.opaque'),
-      icon: '$(atom-folder-classic)',
       id: PredefinedOpacity.Opaque,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -50,7 +47,6 @@ export const getOpacities = (): OpacityQuickPickItem[] => {
     },
     {
       description: i18next.t('customOpacity'),
-      icon: '$(atom-folder-classic)',
       id: PredefinedOpacity.Custom,
       kind: QuickPickItemKind.Default,
       order: 2,

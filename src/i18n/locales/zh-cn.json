@@ -60,6 +60,7 @@
     "wrongValue": "该值必须在0和1之间!"
   },
   "selectOpacity": "选择不透明度值",
+  "selectSaturation": "选择饱和选项",
   "semiTransparent": "半透明",
   "specific": "特定",
   "themeInstalled": "Atom Material Icons 主题图标已安装",

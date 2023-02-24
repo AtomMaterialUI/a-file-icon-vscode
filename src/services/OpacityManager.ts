@@ -1,6 +1,5 @@
 import i18next from 'i18next';
 import { getOpacities } from 'src/helpers/opacities';
-import { validateOpacityValue } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
 
@@ -50,7 +49,7 @@ export class OpacityManager {
     if (!decision || !decision.description) return;
 
     if (decision.description === i18next.t('custom')) {
-      await this.handleCustomOpacity();
+      await this.handleCustom();
     }
     else {
       configService.opacity = this.findOpacity(decision);
@@ -73,12 +72,12 @@ export class OpacityManager {
    * @returns {Promise<void>}
    * @private
    */
-  private async handleCustomOpacity() {
+  private async handleCustom() {
     const opacity = await window.showInputBox({
       ignoreFocusOut: true,
       placeHolder: i18next.t('opacity.inputPlaceholder'),
       validateInput: (value) => {
-        if (!validateOpacityValue(Number(value))) {
+        if (!this.isValid(Number(value))) {
           return i18next.t('opacity.wrongValue');
         }
         return;
@@ -92,6 +91,14 @@ export class OpacityManager {
 
   private isOpacityPicked(opacity: number, value: number | undefined) {
     return opacity === value;
+  }
+
+  /**
+   * Validate the opacity value.
+   * @param opacity Opacity value
+   */
+  private isValid(opacity: number | undefined) {
+    return opacity !== undefined && opacity <= 1 && opacity >= 0;
   }
 }
 

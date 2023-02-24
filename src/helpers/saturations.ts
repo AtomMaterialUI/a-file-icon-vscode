@@ -19,7 +19,6 @@ export const getSaturations = (): SaturationQuickPickItem[] => {
   return [
     {
       description: i18next.t('saturation.grayscale'),
-      icon: '$(atom-folder-specific)',
       id: PredefinedSaturation.Grayscale,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -28,7 +27,6 @@ export const getSaturations = (): SaturationQuickPickItem[] => {
     },
     {
       description: i18next.t('saturation.desaturated'),
-      icon: '$(atom-folder-classic)',
       id: PredefinedSaturation.Desaturated,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -37,7 +35,6 @@ export const getSaturations = (): SaturationQuickPickItem[] => {
     },
     {
       description: i18next.t('saturation.vivid'),
-      icon: '$(atom-folder-classic)',
       id: PredefinedSaturation.Vivid,
       kind: QuickPickItemKind.Default,
       order: 1,

@@ -60,6 +60,7 @@
     "wrongValue": "Значення має бути від 0 до 1!"
   },
   "selectOpacity": "Виберіть значення непрозорості",
+  "selectSaturation": "Виберіть параметр насиченості",
   "semiTransparent": "Напівпрозорий",
   "specific": "Конкретне",
   "themeInstalled": "Atom Material Icons був встановлений.",

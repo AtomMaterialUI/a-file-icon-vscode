@@ -1,6 +1,5 @@
 import i18next from 'i18next';
-import { getOpacities } from 'src/helpers/opacities';
-import { validateOpacityValue } from 'src/helpers/utils';
+import { getSaturations } from 'src/helpers/saturations';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window } from 'vscode';
 
@@ -20,10 +19,10 @@ export class SaturationManager {
    * @param saturation
    */
   private showQuickPickItems(saturation: number) {
-    const opacities = getOpacities();
+    const saturations = getSaturations();
 
-    const options = opacities.map((item): QuickPickItem => {
-      const picked = this.isOpacityPicked(saturation, item.value);
+    const options = saturations.map((item): QuickPickItem => {
+      const picked = this.isSaturationPicked(saturation, item.value);
       return ({
         description: item.title,
         detail: item.description,
@@ -37,7 +36,7 @@ export class SaturationManager {
       ignoreFocusOut: false,
       matchOnDescription: true,
       matchOnDetail: true,
-      placeHolder: i18next.t('selectOpacity'),
+      placeHolder: i18next.t('selectSaturation'),
     });
   }
 
@@ -50,10 +49,10 @@ export class SaturationManager {
     if (!decision || !decision.description) return;
 
     if (decision.description === i18next.t('custom')) {
-      await this.handleCustomOpacity();
+      await this.handleCustom();
     }
     else {
-      configService.opacity = this.findOpacity(decision);
+      configService.saturation = this.findSaturation(decision);
     }
   }
 
@@ -63,8 +62,8 @@ export class SaturationManager {
    * @returns {number}
    * @private
    */
-  private findOpacity(decision: QuickPickItem): number {
-    const foundTheme = getOpacities().find((item) => item.title === decision.description);
+  private findSaturation(decision: QuickPickItem): number {
+    const foundTheme = getSaturations().find((item) => item.title === decision.description);
     return foundTheme?.value ?? 1;
   }
 
@@ -73,25 +72,33 @@ export class SaturationManager {
    * @returns {Promise<void>}
    * @private
    */
-  private async handleCustomOpacity() {
+  private async handleCustom() {
     const opacity = await window.showInputBox({
       ignoreFocusOut: true,
-      placeHolder: i18next.t('opacity.inputPlaceholder'),
+      placeHolder: i18next.t('saturation.inputPlaceholder'),
       validateInput: (value) => {
-        if (!validateOpacityValue(Number(value))) {
-          return i18next.t('opacity.wrongValue');
+        if (!this.isValid(Number(value))) {
+          return i18next.t('saturation.wrongValue');
         }
         return;
       },
     });
 
     if (opacity) {
-      configService.opacity = Number(opacity);
+      configService.saturation = Number(opacity);
     }
   }
 
-  private isOpacityPicked(opacity: number, value: number | undefined) {
+  private isSaturationPicked(opacity: number, value: number | undefined) {
     return opacity === value;
+  }
+
+  /**
+   * Validate the saturation value.
+   * @param saturation Saturation value
+   */
+  private isValid(saturation: number | undefined) {
+    return saturation !== undefined && saturation <= 1 && saturation >= 0;
   }
 }
 
