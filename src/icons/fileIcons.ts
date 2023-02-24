@@ -1,6 +1,6 @@
 import { IconPack } from 'src/@types/config';
 
-import type { FileIcons } from '../models/index';
+import type { FileIcons } from 'src/@types/fileTypes';
 
 /**
  * Defines file icons

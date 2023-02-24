@@ -1,5 +1,6 @@
 import type { IconPack } from 'src/@types/config';
 import type { RequireAtLeastOne } from 'src/@types/types';
+import type { DefaultIcon } from 'src/models/icons/defaultIcon';
 
 type BasicFileIcon = {
   /**
@@ -47,3 +48,15 @@ export type FileIcon = RequireAtLeastOne<
   BasicFileIcon,
   'fileExtensions' | 'fileNames'
 >;
+
+export type FileIcons = {
+  /**
+   * Define the default icon for folders.
+   */
+  defaultIcon: DefaultIcon;
+
+  /**
+   * Defines all folder icons.
+   */
+  icons: FileIcon[];
+};

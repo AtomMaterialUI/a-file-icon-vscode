@@ -1,4 +1,5 @@
 import type { IconPack } from 'src/@types/config';
+import type { DefaultIcon } from 'src/models/icons';
 
 export type FolderIcon = {
   /**
@@ -31,4 +32,26 @@ export type FolderIcon = {
    * Defines a pack to which this icon belongs. A pack can be toggled and all icons inside this pack can be enabled or disabled together.
    */
   enabledFor?: IconPack[];
+}
+
+export type FolderTheme = {
+  /**
+   * Name of the theme
+   */
+  name: string;
+
+  /**
+   * Define the default icon for folders in a theme.
+   */
+  defaultIcon: DefaultIcon;
+
+  /**
+   * Icon for root folders.
+   */
+  rootFolder?: DefaultIcon;
+
+  /**
+   * Defines folder icons for specific folder names.
+   */
+  icons?: FolderIcon[];
 }
