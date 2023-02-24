@@ -1,11 +1,12 @@
 import { toggleExplorerArrows } from 'src/commands/explorerArrows';
 import { restoreDefaultConfig } from 'src/commands/restoreConfig';
 import { EXTENSION_KEY } from 'src/helpers/constants';
-import { logger, iconPackPicker } from 'src/services';
-import { folderColorPicker } from 'src/services/FolderColorPicker';
-import { folderThemePicker } from 'src/services/FolderThemePicker';
-import { opacityPicker } from 'src/services/OpacityPicker';
-import { saturationPicker } from 'src/services/SaturationPicker';
+import { iconPackPicker } from 'src/pickers';
+import { folderColorPicker } from 'src/pickers/FolderColorPicker';
+import { folderThemePicker } from 'src/pickers/FolderThemePicker';
+import { opacityPicker } from 'src/pickers/OpacityPicker';
+import { saturationPicker } from 'src/pickers/SaturationPicker';
+import { logger } from 'src/services';
 import { commands } from 'vscode';
 
 /** Command to change the folder color. */
