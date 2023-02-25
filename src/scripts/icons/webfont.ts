@@ -29,7 +29,7 @@ webfont({
         object.name += '-folder';
         break;
       }
-      default: {
+      case filePath.path?.includes('files/'): {
         object.name += '-file';
         break;
       }
