@@ -6366,6 +6366,321 @@
     },
     "yarn-folder-open": {
       "fontCharacter": "\\f245"
+    },
+    "account": {
+      "fontCharacter": "\\f246"
+    },
+    "activate-breakpoints": {
+      "fontCharacter": "\\f247"
+    },
+    "add": {
+      "fontCharacter": "\\f248"
+    },
+    "arrow-arrow-down": {
+      "fontCharacter": "\\f249"
+    },
+    "arrow-arrow-right": {
+      "fontCharacter": "\\f24a"
+    },
+    "arrow-arrow-up": {
+      "fontCharacter": "\\f24b"
+    },
+    "arrow-down": {
+      "fontCharacter": "\\f24c"
+    },
+    "arrow-material-down": {
+      "fontCharacter": "\\f24d"
+    },
+    "arrow-material-right": {
+      "fontCharacter": "\\f24e"
+    },
+    "arrow-material-up": {
+      "fontCharacter": "\\f24f"
+    },
+    "arrow-plusminus-down": {
+      "fontCharacter": "\\f250"
+    },
+    "arrow-plusminus-right": {
+      "fontCharacter": "\\f251"
+    },
+    "arrow-plusminus-up": {
+      "fontCharacter": "\\f252"
+    },
+    "arrow-triangle-down": {
+      "fontCharacter": "\\f253"
+    },
+    "arrow-triangle-right": {
+      "fontCharacter": "\\f254"
+    },
+    "arrow-triangle-up": {
+      "fontCharacter": "\\f255"
+    },
+    "arrow-up": {
+      "fontCharacter": "\\f256"
+    },
+    "breakpoints-remove-all": {
+      "fontCharacter": "\\f257"
+    },
+    "bug": {
+      "fontCharacter": "\\f258"
+    },
+    "call-incoming": {
+      "fontCharacter": "\\f259"
+    },
+    "call-outgoing": {
+      "fontCharacter": "\\f25a"
+    },
+    "callstack-view-icon": {
+      "fontCharacter": "\\f25b"
+    },
+    "check": {
+      "fontCharacter": "\\f25c"
+    },
+    "chevron-down": {
+      "fontCharacter": "\\f25d"
+    },
+    "chevron-right": {
+      "fontCharacter": "\\f25e"
+    },
+    "chevron-up": {
+      "fontCharacter": "\\f25f"
+    },
+    "circle-large-outline": {
+      "fontCharacter": "\\f260"
+    },
+    "clear-all": {
+      "fontCharacter": "\\f261"
+    },
+    "close": {
+      "fontCharacter": "\\f262"
+    },
+    "cloud-download": {
+      "fontCharacter": "\\f263"
+    },
+    "code": {
+      "fontCharacter": "\\f264"
+    },
+    "collapse-all": {
+      "fontCharacter": "\\f265"
+    },
+    "comment-discussion": {
+      "fontCharacter": "\\f266"
+    },
+    "debug-alt": {
+      "fontCharacter": "\\f267"
+    },
+    "debug-breakpoint": {
+      "fontCharacter": "\\f268"
+    },
+    "debug-breakpoint-conditional": {
+      "fontCharacter": "\\f269"
+    },
+    "debug-breakpoint-conditional-disabled": {
+      "fontCharacter": "\\f26a"
+    },
+    "debug-breakpoint-conditional-unverified": {
+      "fontCharacter": "\\f26b"
+    },
+    "debug-breakpoint-data": {
+      "fontCharacter": "\\f26c"
+    },
+    "debug-breakpoint-data-disabled": {
+      "fontCharacter": "\\f26d"
+    },
+    "debug-breakpoint-data-unverified": {
+      "fontCharacter": "\\f26e"
+    },
+    "debug-breakpoint-disabled": {
+      "fontCharacter": "\\f26f"
+    },
+    "debug-breakpoint-function": {
+      "fontCharacter": "\\f270"
+    },
+    "debug-breakpoint-function-disabled": {
+      "fontCharacter": "\\f271"
+    },
+    "debug-breakpoint-function-unverified": {
+      "fontCharacter": "\\f272"
+    },
+    "debug-breakpoint-log": {
+      "fontCharacter": "\\f273"
+    },
+    "debug-breakpoint-log-disabled": {
+      "fontCharacter": "\\f274"
+    },
+    "debug-breakpoint-log-unverified": {
+      "fontCharacter": "\\f275"
+    },
+    "debug-breakpoint-unsupported": {
+      "fontCharacter": "\\f276"
+    },
+    "debug-breakpoint-unverified": {
+      "fontCharacter": "\\f277"
+    },
+    "debug-console": {
+      "fontCharacter": "\\f278"
+    },
+    "debug-console-evaluation-input": {
+      "fontCharacter": "\\f279"
+    },
+    "debug-console-evaluation-prompt": {
+      "fontCharacter": "\\f27a"
+    },
+    "debug-continue": {
+      "fontCharacter": "\\f27b"
+    },
+    "debug-disconnect": {
+      "fontCharacter": "\\f27c"
+    },
+    "debug-hint": {
+      "fontCharacter": "\\f27d"
+    },
+    "debug-pause": {
+      "fontCharacter": "\\f27e"
+    },
+    "debug-restart": {
+      "fontCharacter": "\\f27f"
+    },
+    "debug-restart-frame": {
+      "fontCharacter": "\\f280"
+    },
+    "debug-reverse-continue": {
+      "fontCharacter": "\\f281"
+    },
+    "debug-stackframe": {
+      "fontCharacter": "\\f282"
+    },
+    "debug-stackframe-focused": {
+      "fontCharacter": "\\f283"
+    },
+    "debug-start": {
+      "fontCharacter": "\\f284"
+    },
+    "debug-step-back": {
+      "fontCharacter": "\\f285"
+    },
+    "debug-step-into": {
+      "fontCharacter": "\\f286"
+    },
+    "debug-step-out": {
+      "fontCharacter": "\\f287"
+    },
+    "debug-step-over": {
+      "fontCharacter": "\\f288"
+    },
+    "debug-stop": {
+      "fontCharacter": "\\f289"
+    },
+    "discard": {
+      "fontCharacter": "\\f28a"
+    },
+    "error": {
+      "fontCharacter": "\\f28b"
+    },
+    "extensions": {
+      "fontCharacter": "\\f28c"
+    },
+    "file-code": {
+      "fontCharacter": "\\f28d"
+    },
+    "files": {
+      "fontCharacter": "\\f28e"
+    },
+    "filter": {
+      "fontCharacter": "\\f28f"
+    },
+    "gear": {
+      "fontCharacter": "\\f290"
+    },
+    "github": {
+      "fontCharacter": "\\f291"
+    },
+    "gripper": {
+      "fontCharacter": "\\f292"
+    },
+    "heart": {
+      "fontCharacter": "\\f293"
+    },
+    "info": {
+      "fontCharacter": "\\f294"
+    },
+    "lightbulb": {
+      "fontCharacter": "\\f295"
+    },
+    "pass-filled": {
+      "fontCharacter": "\\f296"
+    },
+    "pencil": {
+      "fontCharacter": "\\f297"
+    },
+    "play": {
+      "fontCharacter": "\\f298"
+    },
+    "preview": {
+      "fontCharacter": "\\f299"
+    },
+    "record-keys": {
+      "fontCharacter": "\\f29a"
+    },
+    "refresh": {
+      "fontCharacter": "\\f29b"
+    },
+    "remote": {
+      "fontCharacter": "\\f29c"
+    },
+    "remove": {
+      "fontCharacter": "\\f29d"
+    },
+    "replace": {
+      "fontCharacter": "\\f29e"
+    },
+    "replace-all": {
+      "fontCharacter": "\\f29f"
+    },
+    "run-all": {
+      "fontCharacter": "\\f2a0"
+    },
+    "selection": {
+      "fontCharacter": "\\f2a1"
+    },
+    "server-environment": {
+      "fontCharacter": "\\f2a2"
+    },
+    "settings-gear": {
+      "fontCharacter": "\\f2a3"
+    },
+    "sort-precedence": {
+      "fontCharacter": "\\f2a4"
+    },
+    "split-vertical": {
+      "fontCharacter": "\\f2a5"
+    },
+    "star": {
+      "fontCharacter": "\\f2a6"
+    },
+    "star-full": {
+      "fontCharacter": "\\f2a7"
+    },
+    "star-half": {
+      "fontCharacter": "\\f2a8"
+    },
+    "sync": {
+      "fontCharacter": "\\f2a9"
+    },
+    "sync-ignored": {
+      "fontCharacter": "\\f2aa"
+    },
+    "trash": {
+      "fontCharacter": "\\f2ab"
+    },
+    "warning": {
+      "fontCharacter": "\\f2ac"
+    },
+    "whitespace": {
+      "fontCharacter": "\\f2ad"
+    },
+    "window": {
+      "fontCharacter": "\\f2ae"
     }
   }
 }
