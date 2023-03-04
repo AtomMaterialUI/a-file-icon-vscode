@@ -35,7 +35,8 @@ export class ProductThemeGenerator {
     try {
       const json = merge({}, this.originalConfig, this.productConfig);
       writeJSONSync(join(this.distPath(), JSON_PRODUCT_FILE_NAME), json, { spaces: 2 });
-    } catch (error) {
+    }
+    catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
   }
@@ -80,36 +81,45 @@ export class ProductThemeGenerator {
         rightIcon = fontDefinitions['arrow-material-right'];
         upIcon = fontDefinitions['arrow-material-up'];
         downIcon = fontDefinitions['arrow-material-down'];
+        this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
+
         break;
       }
       case ArrowTheme.Triangle: {
         rightIcon = fontDefinitions['arrow-triangle-right'];
         upIcon = fontDefinitions['arrow-triangle-up'];
         downIcon = fontDefinitions['arrow-triangle-down'];
+        this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
+
         break;
       }
       case ArrowTheme.PlusMinus: {
         rightIcon = fontDefinitions['arrow-plusminus-right'];
         upIcon = fontDefinitions['arrow-plusminus-up'];
         downIcon = fontDefinitions['arrow-plusminus-down'];
+        this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
+
         break;
       }
       case ArrowTheme.Arrow: {
         rightIcon = fontDefinitions['arrow-arrow-right'];
         upIcon = fontDefinitions['arrow-arrow-up'];
         downIcon = fontDefinitions['arrow-arrow-down'];
+        this.productConfig.iconDefinitions['tree-item-expanded'] = fontDefinitions['arrow-down'];
+
         break;
       }
       case ArrowTheme.None: {
         rightIcon = fontDefinitions['zz_empty'];
         upIcon = fontDefinitions['zz_empty'];
         downIcon = fontDefinitions['zz_empty'];
+        this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
+
         break;
       }
     }
 
     this.productConfig.iconDefinitions['chevron-right'] = rightIcon;
-    this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
     this.productConfig.iconDefinitions['chevron-up'] = upIcon;
     this.productConfig.iconDefinitions['chevron-down'] = downIcon;
   }
