@@ -4,6 +4,7 @@ export const PUBLISHER_ID = 'atommaterial';
 export const EXTENSION_ID = `${PUBLISHER_ID}.${EXTENSION_KEY}`;
 export const VERSION_KEY = `${EXTENSION_KEY}.version`;
 export const JSON_FILE_NAME = `${EXTENSION_KEY}-icon-theme.json`;
+export const JSON_PRODUCT_FILE_NAME = `${EXTENSION_KEY}-product-icon-theme.json`;
 
 export const DEFAULT_FOLDER_COLOR = '#90a4ae';
 export const DEFAULT_OPACITY = 1;
