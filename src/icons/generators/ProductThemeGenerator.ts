@@ -35,8 +35,7 @@ export class ProductThemeGenerator {
     try {
       const json = merge({}, this.originalConfig, this.productConfig);
       writeJSONSync(join(this.distPath(), JSON_PRODUCT_FILE_NAME), json, { spaces: 2 });
-    }
-    catch (error) {
+    } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
   }
@@ -110,6 +109,7 @@ export class ProductThemeGenerator {
     }
 
     this.productConfig.iconDefinitions['chevron-right'] = rightIcon;
+    this.productConfig.iconDefinitions['tree-item-expanded'] = downIcon;
     this.productConfig.iconDefinitions['chevron-up'] = upIcon;
     this.productConfig.iconDefinitions['chevron-down'] = downIcon;
   }
