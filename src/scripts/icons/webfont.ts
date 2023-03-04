@@ -22,15 +22,15 @@ webfont({
     console.log('filePath %s - %s', filePath.path, object.name);
     switch (true) {
       case filePath.path?.includes('foldersOpen/'): {
-        object.name += '-folder-open';
+        object.name = `folder-open_${object.name}`;
         break;
       }
       case filePath.path?.includes('folders/'): {
-        object.name += '-folder';
+        object.name = `folder_${object.name}`;
         break;
       }
       case filePath.path?.includes('files/'): {
-        object.name += '-file';
+        object.name = `file_${object.name}`;
         break;
       }
     }

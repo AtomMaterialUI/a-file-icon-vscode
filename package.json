@@ -230,6 +230,25 @@
           "description": "%configuration.activeIconPacks%",
           "type": "array"
         },
+        "a-file-icon-vscode.arrowTheme": {
+          "default": "material",
+          "description": "%configuration.arrowTheme%",
+          "enum": [
+            "material",
+            "triangle",
+            "plusMinus",
+            "arrow",
+            "none"
+          ],
+          "enumDescriptions": [
+            "%configuration.arrowTheme.material%",
+            "%configuration.arrowTheme.triangle%",
+            "%configuration.arrowTheme.plusMinus%",
+            "%configuration.arrowTheme.arrow%",
+            "%configuration.arrowTheme.none%"
+          ],
+          "type": "string"
+        },
         "a-file-icon-vscode.filesAssociations": {
           "default": {},
           "description": "%configuration.files.associations%",
