@@ -358,7 +358,7 @@
       {
         "id": "a-file-icon-vscode-product-icon-theme",
         "label": "Atom Material Icons",
-        "path": "./productIcons/a-file-icon-vscode-product-icon-theme.json"
+        "path": "./dist/a-file-icon-vscode-product-icon-theme.json"
       }
     ]
   },
