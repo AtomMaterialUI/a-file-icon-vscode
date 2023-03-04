@@ -15,6 +15,7 @@ export const getArrowThemes = (): ArrowThemeQuickPickItem[] => {
   return [
     {
       description: i18next.t('arrowThemes.material'),
+      icon: '$(atom-arrows-material)',
       id: ArrowTheme.Material,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -22,7 +23,7 @@ export const getArrowThemes = (): ArrowThemeQuickPickItem[] => {
     },
     {
       description: i18next.t('arrowThemes.triangle'),
-      icon: '$(atom-folder-classic)',
+      icon: '$(atom-arrows-triangles)',
       id: ArrowTheme.Triangle,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -30,7 +31,7 @@ export const getArrowThemes = (): ArrowThemeQuickPickItem[] => {
     },
     {
       description: i18next.t('arrowThemes.plusMinus'),
-      icon: '$(atom-folder-classic)',
+      icon: '$(atom-arrows-plusMinus)',
       id: ArrowTheme.PlusMinus,
       kind: QuickPickItemKind.Default,
       order: 1,
@@ -38,7 +39,7 @@ export const getArrowThemes = (): ArrowThemeQuickPickItem[] => {
     },
     {
       description: i18next.t('arrowThemes.arrow'),
-      icon: '$(atom-folder-classic)',
+      icon: '$(atom-arrows-arrows)',
       id: ArrowTheme.Arrow,
       kind: QuickPickItemKind.Default,
       order: 1,

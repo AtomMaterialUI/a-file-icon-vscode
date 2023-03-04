@@ -181,6 +181,34 @@
           "fontPath": "./productIcons/a-file-icon-vscode.woff"
         },
         "description": "Classic Folders"
+      },
+      "atom-arrows-material": {
+        "default": {
+          "fontCharacter": "\\f257",
+          "fontPath": "./productIcons/a-file-icon-vscode.woff"
+        },
+        "description": "Material Arrows"
+      },
+      "atom-arrows-triangles": {
+        "default": {
+          "fontCharacter": "\\f25f",
+          "fontPath": "./productIcons/a-file-icon-vscode.woff"
+        },
+        "description": "Triangles"
+      },
+      "atom-arrows-plusMinus": {
+        "default": {
+          "fontCharacter": "\\f25a",
+          "fontPath": "./productIcons/a-file-icon-vscode.woff"
+        },
+        "description": "Plus-Minus"
+      },
+      "atom-arrows-arrows": {
+        "default": {
+          "fontCharacter": "\\f24d",
+          "fontPath": "./productIcons/a-file-icon-vscode.woff"
+        },
+        "description": "Arrows"
       }
     },
     "commands": [
