@@ -1,11 +1,11 @@
 {
   "command.activateIcons": "Icon Theme aktivieren",
+  "command.changeArrowTheme": "Explorer Pfeilsymbole umschalten",
   "command.changeFolderColor": "Ordner Farbe ändern",
   "command.changeFolderTheme": "Ordner Thema auswählen",
   "command.changeOpacity": "Deckkraft verändern",
   "command.changeSaturation": "Sättigung verändern",
   "command.restoreDefaultConfig": "Standard Einstellungen wiederherstellen",
-  "command.toggleExplorerArrows": "Explorer Pfeilsymbole umschalten",
   "command.toggleGrayscale": "Graustufen umschalten",
   "command.toggleIconPacks": "Icon Packs konfigurieren",
   "configuration.activeIconPacks": "Icon-Pack auswählen, die bestimme Icons aktivieren.",

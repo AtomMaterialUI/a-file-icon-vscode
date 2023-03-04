@@ -1,11 +1,11 @@
 {
   "command.activateIcons": "vuexAktywuj motyw ikon",
+  "command.changeArrowTheme": "vuexUkryj strzałki przy folderach",
   "command.changeFolderColor": "vuexZmień kolor folderów",
   "command.changeFolderTheme": "vuexZmień motyw folderów",
   "command.changeOpacity": "vuexZmień przezroczystość",
   "command.changeSaturation": "vuexZmień nasycenie ikon",
   "command.restoreDefaultConfig": "vuexPrzywróć domyślne ustawienia",
-  "command.toggleExplorerArrows": "vuexUkryj strzałki przy folderach",
   "command.toggleGrayscale": "vuexPrzełącz czarno-białe ikony",
   "command.toggleIconPacks": "vuexSkonfiguruj paczki ikon",
   "configuration.activeIconPacks": "Wybierz paczkę dla niektórych ikon.",

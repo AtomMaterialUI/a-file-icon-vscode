@@ -1,10 +1,10 @@
 {
   "command.activateIcons": "Activer les icônes",
+  "command.changeArrowTheme": "Configurer les flèches devant les dossiers",
   "command.changeFolderColor": "Changer la couleur du dossier",
   "command.changeFolderTheme": "Changer le thème du dossier",
   "command.changeOpacity": "Changer l'opacité",
   "command.restoreDefaultConfig": "Restaurer le paramètre par défaut",
-  "command.toggleExplorerArrows": "Configurer les flèches devant les dossiers",
   "command.toggleIconPacks": "Configurer les Packs d'icônes",
   "configuration.activeIconPacks": "Sélectionner un pack d'icônes qui active des icônes spécifiques.",
   "configuration.activeIconPacks.angular": "Icônes pour Angular.",

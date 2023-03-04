@@ -1,10 +1,10 @@
 {
   "command.activateIcons": "vuexАктивировать иконки темы",
+  "command.changeArrowTheme": "vuexСкрыть стрелки проводника перед папкой",
   "command.changeFolderColor": "vuexИзменить цвет папки",
   "command.changeFolderTheme": "vuexИзменить тему папки",
   "command.changeOpacity": "vuexИзменение непрозрачности",
   "command.restoreDefaultConfig": "vuexВосстановить настройки по умолчанию",
-  "command.toggleExplorerArrows": "vuexСкрыть стрелки проводника перед папкой",
   "command.toggleIconPacks": "vuexНастроить набор иконок",
   "configuration.activeIconPacks": "Выберите набор значков, которые включают определенные значки.",
   "configuration.activeIconPacks.angular": "Иконки для Angular.",

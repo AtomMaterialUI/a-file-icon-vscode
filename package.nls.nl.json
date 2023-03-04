@@ -1,11 +1,11 @@
 {
   "command.activateIcons": "Activeer Icon Thema",
+  "command.changeArrowTheme": "Configureer Folder Pijlen",
   "command.changeFolderColor": "Verander Folder Kleur",
   "command.changeFolderTheme": "Verander Folder Thema",
   "command.changeOpacity": "Verander Doorzichtbaarheid",
   "command.changeSaturation": "Verander Saturatie",
   "command.restoreDefaultConfig": "Zet Standaard Configuratie Terug",
-  "command.toggleExplorerArrows": "Configureer Folder Pijlen",
   "command.toggleGrayscale": "Zet Grijstinten Aan Of Uit",
   "command.toggleIconPacks": "Configureer Icon Packs",
   "configuration.activeIconPacks": "Selecteer een iconpakket dat bepaalde icons inschakelt.",

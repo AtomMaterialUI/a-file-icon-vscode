@@ -1,10 +1,10 @@
 {
   "command.activateIcons": "vuexHabilitar tema de ícones",
+  "command.changeArrowTheme": "vuexEsconder as setas ao lado dos directórios",
   "command.changeFolderColor": "vuexAlterar cor dos directórios",
   "command.changeFolderTheme": "vuexAlterar tema dos directórios",
   "command.changeOpacity": "vuexAlterar a opacidade",
   "command.restoreDefaultConfig": "vuexRestaurar configuração padrão",
-  "command.toggleExplorerArrows": "vuexEsconder as setas ao lado dos directórios",
   "command.toggleIconPacks": "vuexConfigurar pacote de ícones",
   "configuration.activeIconPacks": "Selecciona um pacote de ícones que habilitam ícones específicos.",
   "configuration.activeIconPacks.angular": "Ícones para Angular.",

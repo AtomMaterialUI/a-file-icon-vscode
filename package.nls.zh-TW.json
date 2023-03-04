@@ -1,10 +1,10 @@
 {
   "command.activateIcons": "vuex激活Atom Material Icons文件圖標主題",
+  "command.changeArrowTheme": "vuex隱藏文件夾箭頭",
   "command.changeFolderColor": "vuex更改文件夾顏色",
   "command.changeFolderTheme": "vuex切換文件夾圖標",
   "command.changeOpacity": "vuex改變不透明度",
   "command.restoreDefaultConfig": "vuex恢復默認設置",
-  "command.toggleExplorerArrows": "vuex隱藏文件夾箭頭",
   "command.toggleIconPacks": "vuex選擇一個圖標包",
   "configuration.activeIconPacks": "選擇一個圖標包。",
   "configuration.activeIconPacks.angular": "Angular的圖標。",

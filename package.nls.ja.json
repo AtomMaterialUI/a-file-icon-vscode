@@ -1,11 +1,11 @@
 {
   "command.activateIcons": "アイコンテーマを有効化",
+  "command.changeArrowTheme": "フォルダーの矢印を切り替え",
   "command.changeFolderColor": "フォルダーの色を変更",
   "command.changeFolderTheme": "フォルダーテーマを変更",
   "command.changeOpacity": "不透明度を変更",
   "command.changeSaturation": "彩度を変更",
   "command.restoreDefaultConfig": "初期設定に戻す",
-  "command.toggleExplorerArrows": "フォルダーの矢印を切り替え",
   "command.toggleGrayscale": "グレースケールを切り替え",
   "command.toggleIconPacks": "アイコンパックを設定",
   "configuration.activeIconPacks": "特定のアイコンを有効にするアイコンパックを選択する。",

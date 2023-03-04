@@ -183,13 +183,6 @@
         "description": "Classic Folders"
       }
     },
-    "productIconThemes": [
-      {
-        "id": "a-file-icon-vscode-product-icon-theme",
-        "label": "Atom Material Icons",
-        "path": "./productIcons/a-file-icon-vscode-product-icon-theme.json"
-      }
-    ],
     "commands": [
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
@@ -212,19 +205,14 @@
         "title": "%command.restoreDefaultConfig%"
       },
       {
-        "command": "a-file-icon-vscode.toggleExplorerArrows",
+        "command": "a-file-icon-vscode.changeArrowTheme",
         "category": "Atom Material Icons",
-        "title": "%command.toggleExplorerArrows%"
+        "title": "%command.changeArrowTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeOpacity",
         "category": "Atom Material Icons",
         "title": "%command.changeOpacity%"
-      },
-      {
-        "command": "a-file-icon-vscode.toggleGrayscale",
-        "category": "Atom Material Icons",
-        "title": "%command.toggleGrayscale%"
       },
       {
         "command": "a-file-icon-vscode.changeSaturation",

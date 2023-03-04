@@ -1,11 +1,11 @@
 {
   "command.activateIcons": "Activate Icon Theme",
+  "command.changeArrowTheme": "Toggle Explorer Arrows",
   "command.changeFolderColor": "Change Folder Color",
   "command.changeFolderTheme": "Change Folder Theme",
   "command.changeOpacity": "Change Opacity",
   "command.changeSaturation": "Change Saturation",
   "command.restoreDefaultConfig": "Restore Default Configuration",
-  "command.toggleExplorerArrows": "Toggle Explorer Arrows",
   "command.toggleGrayscale": "Toggle Grayscale",
   "command.toggleIconPacks": "Configure Icon Packs",
   "configuration.activeIconPacks": "Select an icon pack that enables specific icons.",

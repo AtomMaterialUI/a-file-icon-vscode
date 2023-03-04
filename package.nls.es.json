@@ -1,10 +1,10 @@
 {
   "command.activateIcons": "Activar los iconos",
+  "command.changeArrowTheme": "Deshabilitar flechas delante de carpetas",
   "command.changeFolderColor": "Cambiar color de carpeta",
   "command.changeFolderTheme": "Personalizar iconos de carpetas",
   "command.changeOpacity": "Cambiar la opacidad",
   "command.restoreDefaultConfig": "Restaurar la configuración predeterminada",
-  "command.toggleExplorerArrows": "Deshabilitar flechas delante de carpetas",
   "command.toggleIconPacks": "Configurar paquetes de iconos",
   "configuration.activeIconPacks": "Seleccione un paquete de iconos que permita iconos específicos.",
   "configuration.activeIconPacks.angular": "Iconos de Angular.",
