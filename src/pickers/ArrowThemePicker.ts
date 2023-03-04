@@ -5,6 +5,8 @@ import { findEnumKey } from 'src/helpers/utils';
 import { configService } from 'src/services/ConfigService';
 import { type QuickPickItem, window, QuickPickItemKind } from 'vscode';
 
+type ArrowThemeQuickPickItem = QuickPickItem & { id?: ArrowTheme };
+
 export class ArrowThemePicker {
   async openQuickPicker() {
     const currentTheme = configService.arrowTheme;
@@ -24,7 +26,7 @@ export class ArrowThemePicker {
     const isNoneActive = this.isNoneActive(currentTheme);
     const arrowThemes = getArrowThemes();
 
-    const options = arrowThemes.map((theme): QuickPickItem => {
+    const options = arrowThemes.map((theme): ArrowThemeQuickPickItem => {
       const isSeparator = theme.kind === QuickPickItemKind.Separator;
 
       if (isSeparator || !theme.id) {
@@ -38,6 +40,7 @@ export class ArrowThemePicker {
       return ({
         description: theme.title,
         detail: theme.description,
+        id: theme.id,
         label: picked ? '$(check)' : theme.icon ?? '',
         picked: picked,
       });
@@ -66,9 +69,9 @@ export class ArrowThemePicker {
    * @private
    * @param decision
    */
-  private handleQuickPickActions(decision: QuickPickItem): void {
-    if (!decision || !decision.description) return;
-    const enumKey = findEnumKey(ArrowTheme, decision.description.toLowerCase());
+  private handleQuickPickActions(decision: ArrowThemeQuickPickItem): void {
+    if (!decision || !decision.id) return;
+    const enumKey = findEnumKey(ArrowTheme, decision.id);
 
     configService.arrowTheme = enumKey ? ArrowTheme[enumKey] : ArrowTheme.None;
   }

@@ -4,10 +4,11 @@ import { getDefaultConfig } from 'src/icons/configUtils';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
 
-import type { IconConfiguration } from 'src/models/IconConfiguration';
+import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
-import type { IconAssociations } from 'src/@types/associations';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { FolderTheme, ArrowTheme, AtomConfig, IconPack } from 'src/@types/config';
+import type { IconAssociations } from 'src/@types/associations';
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
@@ -170,7 +171,7 @@ export class ConfigService implements AtomConfig {
     this.getPluginConfig().update(key, value, scope);
   }
 
-  public getChanges(config: IconConfiguration) {
+  public getIconConfigChanges(config: IconConfiguration) {
     const changes: Partial<AtomConfig> = {};
 
     if (this.opacity !== config.atomConfig?.opacity) {
@@ -185,15 +186,22 @@ export class ConfigService implements AtomConfig {
     if (this.folderTheme !== config.atomConfig?.folderTheme) {
       changes.folderTheme = this.folderTheme;
     }
-    if (this.arrowTheme !== config.atomConfig?.arrowTheme) {
-      changes.arrowTheme = this.arrowTheme;
-    }
     if (this.activeIconPacks !== config.atomConfig?.activeIconPacks) {
       changes.activeIconPacks = this.activeIconPacks;
     }
     // if (this.filesAssociations !== config.atomConfig?.filesAssociations) {
     //   changes.filesAssociations = this.filesAssociations;
     // }
+
+    return changes;
+  }
+
+  public getProductConfigChanges(config: ProductConfiguration) {
+    const changes: Partial<AtomConfig> = {};
+
+    if (this.arrowTheme !== config.atomConfig?.arrowTheme) {
+      changes.arrowTheme = this.arrowTheme;
+    }
 
     return changes;
   }

@@ -1,9 +1,11 @@
-import { getIconThemeFile } from 'src/helpers/vscodeUtils';
+import { getIconThemeFile, getProductThemeFile } from 'src/helpers/vscodeUtils';
 import { IconThemeGenerator } from 'src/icons/generators';
+import { ProductThemeGenerator } from 'src/icons/generators/ProductThemeGenerator';
 import { configService } from 'src/services/ConfigService';
 
-import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { AtomConfig } from 'src/@types/config';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
+import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 
 /**
  * This class is responsible for detecting changes in the config file and
@@ -11,21 +13,37 @@ import type { AtomConfig } from 'src/@types/config';
  */
 class ConfigChangeDetector {
   listenForChanges() {
-    const changes = this.getDelta();
+    const iconDelta = this.getIconDelta();
+    const productDelta = this.getProductDelta();
+    console.log(productDelta);
 
-    if (Object.keys(changes).length > 0) {
-      const generator = new IconThemeGenerator(changes);
-      generator.createJsonTheme();
+    if (Object.keys(iconDelta).length > 0) {
+      const iconThemeGenerator = new IconThemeGenerator(iconDelta);
+      iconThemeGenerator.createJsonTheme();
+    }
+
+    if (Object.keys(productDelta).length > 0) {
+      const productThemeGenerator = new ProductThemeGenerator(productDelta);
+      productThemeGenerator.createJsonTheme();
     }
   }
 
-  private getDelta() {
-    const oldConfig = getIconThemeFile() as IconConfiguration;
-    return this.compareConfigs(oldConfig);
+  private getIconDelta() {
+    const oldConfig = getIconThemeFile();
+    return this.compareIconConfigs(oldConfig);
   }
 
-  private compareConfigs(oldConfig: IconConfiguration): Partial<AtomConfig> {
-    return configService.getChanges(oldConfig);
+  private getProductDelta() {
+    const oldConfig = getProductThemeFile();
+    return this.compareProductConfigs(oldConfig);
+  }
+
+  private compareIconConfigs(oldConfig: IconConfiguration): Partial<AtomConfig> {
+    return configService.getIconConfigChanges(oldConfig);
+  }
+
+  private compareProductConfigs(oldConfig: ProductConfiguration): Partial<AtomConfig> {
+    return configService.getProductConfigChanges(oldConfig);
   }
 }
 

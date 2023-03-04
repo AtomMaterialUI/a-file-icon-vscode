@@ -12,13 +12,13 @@ import type { AtomConfig } from 'src/@types/config';
 export class ProductThemeGenerator {
   atomConfig: AtomConfig;
   productConfig: ProductConfiguration;
-  private originalConfig: ProductConfiguration;
+  private readonly originalConfig: ProductConfiguration;
 
-  constructor() {
+  constructor(updatedJSONConfig: Partial<AtomConfig> = {}) {
     // Read the originally generated product icons config
     this.originalConfig = readJSONSync(join(this.jsonPath(), JSON_PRODUCT_FILE_NAME));
 
-    const atomConfig = merge({}, getDefaultConfig());
+    const atomConfig = merge({}, getDefaultConfig(), updatedJSONConfig);
     const productConfig = new ProductConfiguration(atomConfig);
 
     this.atomConfig = atomConfig;
@@ -75,30 +75,42 @@ export class ProductThemeGenerator {
     const fontDefinitions = this.originalConfig.iconDefinitions;
     const arrowTheme = this.atomConfig.arrowTheme;
 
-    let iconDefinition;
+    let rightIcon, upIcon, downIcon;
     switch (arrowTheme) {
       case ArrowTheme.Material: {
-        iconDefinition = fontDefinitions['arrow-material-right'];
+        rightIcon = fontDefinitions['arrow-material-right'];
+        upIcon = fontDefinitions['arrow-material-up'];
+        downIcon = fontDefinitions['arrow-material-down'];
         break;
       }
       case ArrowTheme.Triangle: {
-        iconDefinition = fontDefinitions['arrow-triangle-right'];
+        rightIcon = fontDefinitions['arrow-triangle-right'];
+        upIcon = fontDefinitions['arrow-triangle-up'];
+        downIcon = fontDefinitions['arrow-triangle-down'];
         break;
       }
       case ArrowTheme.PlusMinus: {
-        iconDefinition = fontDefinitions['arrow-plusminus-right'];
+        rightIcon = fontDefinitions['arrow-plusminus-right'];
+        upIcon = fontDefinitions['arrow-plusminus-up'];
+        downIcon = fontDefinitions['arrow-plusminus-down'];
         break;
       }
       case ArrowTheme.Arrow: {
-        iconDefinition = fontDefinitions['arrow-arrow-right'];
+        rightIcon = fontDefinitions['arrow-arrow-right'];
+        upIcon = fontDefinitions['arrow-arrow-up'];
+        downIcon = fontDefinitions['arrow-arrow-down'];
         break;
       }
       case ArrowTheme.None: {
-        iconDefinition = fontDefinitions['zz_empty'];
+        rightIcon = fontDefinitions['zz_empty'];
+        upIcon = fontDefinitions['zz_empty'];
+        downIcon = fontDefinitions['zz_empty'];
         break;
       }
     }
 
-    this.productConfig.iconDefinitions['chevron-right'] = iconDefinition;
+    this.productConfig.iconDefinitions['chevron-right'] = rightIcon;
+    this.productConfig.iconDefinitions['chevron-up'] = upIcon;
+    this.productConfig.iconDefinitions['chevron-down'] = downIcon;
   }
 }

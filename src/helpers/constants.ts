@@ -1,7 +1,7 @@
 export const ICON_THEME_KEY = 'workbench.iconTheme';
 export const EXTENSION_KEY = 'a-file-icon-vscode';
 export const PUBLISHER_ID = 'atommaterial';
-export const FONT_NAME = `./${EXTENSION_KEY}.woff`;
+export const FONT_NAME = `${EXTENSION_KEY}.woff`;
 export const EXTENSION_ID = `${PUBLISHER_ID}.${EXTENSION_KEY}`;
 export const VERSION_KEY = `${EXTENSION_KEY}.version`;
 export const JSON_FILE_NAME = `${EXTENSION_KEY}-icon-theme.json`;
