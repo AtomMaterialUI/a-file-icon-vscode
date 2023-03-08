@@ -1,4 +1,4 @@
-# Atom Material Icons Plugin for Web
+# Atom Material Icons Plugin for VSCode
 
 <h1 align="center">
   <br>
@@ -20,12 +20,23 @@ and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon
 ## Features
 
 - Replaces **file icons** with their relevant logo icons
-    - According to their extension (Java, PHP, Ruby...)
+    - According to their extension (`.java`, `.php`, `.ruby`...)
     - According to the framework (Android, NPM, RSpec...)
-    - According to the program used with (Babel, Docker, CircleCI...)
-- Replaces **directories**:
-    - With a common pattern: src, main, app, img, docs...
-    - With a specific pattern: node_modules, .vscode, .git...
+    - According to the program used in conjonction (Babel, Docker, CircleCI...)
+    - According to the parent directory (`.github/*`, `.vscode/*`...)
+    - And others...
+- Replaces **folder icons**:
+    - From common patterns: `src`, `main`, `app`, `img`, `docs`...
+    - From specific use cases: `node_modules`, `.vscode`, `.git.`..
+- Provides it's own **Product Icons** from the _Material Design Icons_.
+
+## Associations
+
+You can find a list of all the available associations in the following links:
+
+- [File Associations](https://material-theme.com/docs/reference/associations/)
+- [Folder Associations](https://material-theme.com/docs/reference/folder-associations/)
+- Language Associations (TODO)
 
 ## File Icons
 
@@ -35,41 +46,128 @@ and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon
 
 ![Folder Icons](https://raw.githubusercontent.com/mallowigi/iconGenerator/master/assets/folders.png)
 
+
 ---- 
 
-### Settings
+## Usage
 
-#### Customize folder color
+Since this extension is based off the
+original [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme),
+you can find most of the original settings here as well.
 
-You can change the color of the default folder icon using the command palette:
+Therefore, this extension exposes a bunch of commands that you can invoke via the command palette:
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/set-folder-color.gif" alt="custom folder colors">
+![commandPalette.png](./docs/commandPalette.png)
+
+Just type `Atom Material` in order to see the commands that are available.
+
+----
+
+## Settings
+
+You can customize many aspects of the extension, either via the VSCode settings or by invoking the commands via the
+command palette.
+
+When setting the option via the _Preferences_, they will affect **all projects**, whereas the commands only
+affect the **current workspace**.
+
+---
+
+### Icon Packs
+
+While this extension contains a lot of icons, there are some icons that overlap with each other. For example, _Angular_,
+and _NestJS_ use similar icon filename patterns. If you are working with an angular project you wouldn't want to see
+NestJS icons and vice-versa.
+
+This command will allow you to decide which pack(s) to enable for the current workspace.
+
+![iconPacks.png](./docs/iconPacks.png)
+
+> **Note**: Since you can enable multiple packs, there is still a way to enable both overlapping icon packs. It's
+> recommended to not do as such as it would return unexpected results.
+
+---
+
+### Arrow Styles
+
+You can customize the look of the arrows in the tree view using the command palette:
+
+![arrowStyles.png](./docs/arrowStyles.png)
 
 or via user settings:
 
 ```json
 {
-  "a-file-icon-vscode.folders.color": "#ef5350"
+  "a-file-icon-vscode.arrowTheme": "material"
 }
 ```
 
-#### Folder themes
+The available options are:
 
-You can change the design of the folder icons using the command palette:
+- `material`: Material Design arrows (chevrons)
+- `triangle`: Triangle arrows
+- `plusMinus`: Plus and minus signs
+- `arrow`: Simple Arrows
+- `none`: No arrows
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/set-folder-theme.gif" alt="folder themes">
+> Note: This setting affects not only arrows from the tree view, but also arrows that you can find in many other places,
+> such as the collapsible sections, code folding, etc.
+
+> Another note: Arrows in the tree view work differently than arrows in the other places, as they are currently rotated
+> from
+> the "down arrow". As a result, some styles will display "weird results", such as the "Plus-Minus" style, that only
+> displays the minus sign, but rotated. This could be solved via custom CSS in the future.
+
+---
+
+### Custom Folder Color
+
+You can customize the color of the default folder icon using the command palette:
+
+![folderColor.png](./docs/folderColor.png)
 
 or via user settings:
 
 ```json
 {
-  "a-file-icon-vscode.folders.theme": "specific"
+  "a-file-icon-vscode.folderColor": "#ef5350"
+}
+
+```
+
+----
+
+### Folder Theme
+
+You can change the style of the folder icons using the command palette:
+
+![folderTheme.png](./docs/folderTheme.png)
+
+or via user settings:
+
+```json
+{
+  "a-file-icon-vscode.folderTheme": "specific"
 }
 ```
 
-## Custom icon opacity
+The available options are:
 
-You can set a custom opacity for the icons:
+- `specific`: Replace specific folders, such as `src`, `main`, `app`, `img`, `docs`, etc.
+- `classic`: Replace all folders with the default folder icon
+- `none`: No folder icons
+
+----
+
+#### Custom icons' opacity
+
+You can customize the opacity of the icons, between totally opaque to completely gone.
+
+You can either choose a predefined opacity or enter your own opacity via the command palette:
+
+![opacity.png](./docs/opacity.png)
+
+or via user settings:
 
 ```json
 {
@@ -77,10 +175,17 @@ You can set a custom opacity for the icons:
 }
 ```
 
-## Custom icon saturation
+---
 
-If colors do not make you happy you can change the icons to have less saturation making them look grayish or completely
-grayscale by setting saturation to 0:
+## Custom icons' saturation
+
+You can customize the saturation of the icons. The less saturated they are, the more grayscale they will appear.
+
+You can either choose a predefined saturation or enter your own saturation via the command palette:
+
+![saturation.png](./docs/saturation.png)
+
+or via user settings:
 
 ```json
 {
@@ -88,7 +193,13 @@ grayscale by setting saturation to 0:
 }
 ```
 
-## Custom icon associations
+------
+
+## Custom associations
+
+> IMPORTANT: While this setting exists in the
+> original [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme), it has not yet been implemented
+> in this extension. But I'll leave the definition for the future.
 
 You can customize the icon associations directly in the user settings.
 
@@ -130,8 +241,10 @@ folder:
 In the settings.json the icon can be associated to a file name or file extension like this:
 
 ```json
-"a-file-icon-vscode.files.associations": {
-"fileName.ts": "../../icons/sample"
+{
+  "a-file-icon-vscode.files.associations": {
+    "fileName.ts": "../../icons/sample"
+  }
 }
 ```
 
@@ -145,9 +258,11 @@ create nice combinations. For example you could change the folder theme to "clas
 folder names you like.
 
 ```json
-"a-file-icon-vscode.folders.associations": {
-"customFolderName": "src",
-"sample": "dist"
+{
+  "a-file-icon-vscode.folders.associations": {
+    "customFolderName": "src",
+    "sample": "dist"
+  }
 }
 ```
 
@@ -194,19 +309,17 @@ associations.
 
 ## Commands
 
-Press `Ctrl-Shift-P` to open the command palette and type `Atom Material Icons`.
+Here's a list of the available commands:
 
-<p></p>
-
-| Command                           | Description                                                                     |
-|-----------------------------------|---------------------------------------------------------------------------------|
-| **Arrows Style**                  | Change the style of the arrows in the project tree.                             |
-| **Change Folder Color**           | Change the color of the folder icons.                                           |
-| **Change Folder Theme**           | Change the design of the folder icons.                                          |
-| **Change Opacity**                | Change the opacity of the icons.                                                |
-| **Change Saturation**             | Change the saturation value of the icons.                                       |
-| **Configure Icon Packs**          | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx). |
-| **Restore Default Configuration** | Reset the default configurations of the icon theme.                             |
+| Command                           | Description                                                                        |
+|-----------------------------------|------------------------------------------------------------------------------------|
+| **Arrows Style**                  | Change the style of the arrows in the project tree.                                |
+| **Change Folder Color**           | Change the color of the folder icons.                                              |
+| **Change Folder Theme**           | Change the design of the folder icons.                                             |
+| **Change Opacity**                | Change the opacity of the icons.                                                   |
+| **Change Saturation**             | Change the saturation value of the icons.                                          |
+| **Icon Packs**                    | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx...). |
+| **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 
 ----
 
