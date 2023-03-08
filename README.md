@@ -192,31 +192,21 @@ associations.
 }
 ```
 
-## One-click activation
-
-After installation or update you can click on the 'Activate'-button to activate the icon theme, if you haven't already.
-The icons will be visible immediately.
-
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/oneclickactivation.png" alt="activation">
-
 ## Commands
 
 Press `Ctrl-Shift-P` to open the command palette and type `Atom Material Icons`.
 
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/main/images/commandPalette.png" alt="commands">
-
 <p></p>
 
-| Command                           | Description                                                                        |
-|-----------------------------------|------------------------------------------------------------------------------------|
-| **Activate Icon Theme**           | Activate the icon theme.                                                           |
-| **Change Folder Color**           | Change the color of the folder icons.                                              |
-| **Change Folder Theme**           | Change the design of the folder icons.                                             |
-| **Change Opacity**                | Change the opacity of the icons.                                                   |
-| **Change Saturation**             | Change the saturation value of the icons.                                          |
-| **Configure Icon Packs**          | Select an icon pack that enables additional icons (e.g. for Angular, React, Ngrx). |
-| **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
-| **Toggle Grayscale**              | Sets the saturation of the icons to zero, so that they are grayscale.              |
+| Command                           | Description                                                                     |
+|-----------------------------------|---------------------------------------------------------------------------------|
+| **Arrows Style**                  | Change the style of the arrows in the project tree.                             |
+| **Change Folder Color**           | Change the color of the folder icons.                                           |
+| **Change Folder Theme**           | Change the design of the folder icons.                                          |
+| **Change Opacity**                | Change the opacity of the icons.                                                |
+| **Change Saturation**             | Change the saturation value of the icons.                                       |
+| **Configure Icon Packs**          | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx). |
+| **Restore Default Configuration** | Reset the default configurations of the icon theme.                             |
 
 ----
 
