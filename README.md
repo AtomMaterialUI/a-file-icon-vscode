@@ -193,6 +193,16 @@ or via user settings:
 }
 ```
 
+----
+
+## Product Theme
+
+In addition to file, folder and language icons, this extension also modifies the IDE's product icons to match the icons
+of the JetBrains's equivalent extension and the Material Design Icons.
+
+![prodIcon.png](./docs/prodIcon.png)
+
+![productIconTheme.png](./docs/productIconTheme.png)
 ------
 
 ## Custom associations
