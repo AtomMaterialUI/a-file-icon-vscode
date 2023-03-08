@@ -19,6 +19,7 @@
   "scripts": {
     "build": "npm run compile:dev && npm run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
+    "oslllo-svg-fixer": "node node_modules/oslllo-svg-fixer/src/cli.js",
     "check": "ts-node ./src/scripts/icons/checks/runChecks.ts",
     "compile": "webpack --config ./build/webpack.config.js --mode production",
     "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
@@ -39,7 +40,8 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "fs-extra": "^11.1.0",
-    "lodash.merge": "4.6.2"
+    "lodash.merge": "4.6.2",
+    "oslllo-svg-fixer": "^2.2.0"
   },
   "devDependencies": {
     "@types/fs-extra": "^11.0.1",

@@ -13,6 +13,7 @@ const formatUnicode = (codepoint: number | string) => {
 webfont({
   centerHorizontally: true,
   files: 'iconGenerator/assets/icons/*/*.svg',
+  fixedWidth: true,
   fontHeight: 1024,
   fontName,
   formats: ['woff'],
