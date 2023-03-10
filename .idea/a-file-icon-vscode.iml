@@ -16,9 +16,11 @@
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/bin" />
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/assets" />
       <excludeFolder url="file://$MODULE_DIR$/iconGenerator/src" />
-      <excludeFolder url="file://$MODULE_DIR$/icons" />
       <excludeFolder url="file://$MODULE_DIR$/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/out" />
+      <excludeFolder url="file://$MODULE_DIR$/src/scripts/preview" />
     </content>
+    <content url="file://$MODULE_DIR$/iconGenerator/assets/icons/ui" />
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
