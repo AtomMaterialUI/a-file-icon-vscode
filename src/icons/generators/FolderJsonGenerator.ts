@@ -12,8 +12,8 @@ import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { folderIcons } from 'src/icons/index';
 
-import type { FolderAssociations, FolderAssociation, IconAssociations } from 'src/@types/associations';
 import type { AtomConfig } from 'src/@types/config';
+import type { FolderAssociations, FolderAssociation, IconAssociations } from 'src/@types/associations';
 import type { IconConfiguration } from 'src/models/iconConfiguration';
 
 export class FolderJsonGenerator extends AbstractJsonGenerator {
@@ -182,7 +182,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     const assocName = folderTheme.defaultIcon.name;
 
     const defaultFolderIconName = FOLDER_PREFIX + assocName; // folder-<name>
-    const defaultFolderIconExpandedName = FOLDER_PREFIX + defaultFolderIconName + OPENED_FOLDER_SUFFIX; // folder-<name>-open
+    const defaultFolderIconExpandedName = FOLDER_PREFIX + assocName + OPENED_FOLDER_SUFFIX; // folder-<name>-open
     if (!defaultFolderIconName) return;
 
     // Add default icons
