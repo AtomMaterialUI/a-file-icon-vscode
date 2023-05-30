@@ -1,3 +1,5 @@
+import {IconPack} from "../@types/config";
+
 import type {LanguageAssociation} from 'src/@types/associations';
 
 /**
@@ -296,14 +298,103 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['tslint', 'typescript'],
     name: 'typeScript'
   },
-  // { icon: { name: 'vim' }, ids: ['viml'] },
-  // { icon: { name: 'visualstudio' }, ids: ['testOutput', 'vb'] },
-  // { icon: { name: 'vlang' }, ids: ['v'] },
+
+  // region [U]
+  {
+    icon: {name: 'uos'},
+    ids: ['uos'],
+    name: 'uos'
+  },
+  {
+    icon: {name: 'unison'},
+    ids: ['unison'],
+    name: 'unison'
+  },
+  {
+    icon: {name: 'unreal'},
+    ids: ['unreal', 'unrealscript', 'unrealscript-pp'],
+    name: 'unreal'
+  },
+  // endregion
+
+  // region [V]
+  {
+    icon: {name: 'v'},
+    ids: ['v'],
+    name: 'v'
+  },
+  {
+    icon: {name: 'vala'},
+    ids: ['vala'],
+    name: 'vala'
+  },
+  {
+    icon: {name: 'vash'},
+    ids: ['vash'],
+    name: 'vash'
+  },
+  {
+    icon: {name: 'vcl'},
+    ids: ['vcl'],
+    name: 'vcl'
+  },
+  {
+    icon: {name: 'velocity'},
+    ids: ['velocity', 'vtl', 'fhtml'],
+    name: 'velocity'
+  },
+  {
+    icon: {name: 'vhdl'},
+    ids: ['vhd', 'vhdl'],
+    name: 'vhdl'
+  },
+  {
+    icon: {name: 'vim'},
+    ids: ['vim', 'viml', 'vim-help', 'vim-snippet', 'vim-markdown', 'vimrc'],
+    name: 'vim'
+  },
+  {
+    icon: {name: 'vb'},
+    ids: ['vb', 'visualbasic', 'testOutput'],
+    name: 'vb'
+  },
+  {
+    enabledFor: [IconPack.Volt],
+    icon: {name: 'volt'},
+    ids: ['volt'],
+    name: 'volt'
+  },
+  {
+    icon: {name: 'vray'},
+    ids: ['vray'],
+    name: 'vray'
+  },
+  {
+    icon: {name: 'vscodeignore'},
+    ids: ['vscodeignore'],
+    name: 'vscodeignore'
+  },
+  {
+    icon: {name: 'tfsignore'},
+    ids: ['tfignore', 'tfsignore'],
+    name: 'tfsignore'
+  },
   {
     icon: {name: 'vue'},
     ids: ['vue', 'vue-html', 'vue-postcss'],
     name: 'vue'
   },
+  {
+    icon: {name: 'vuex'},
+    ids: ['vuex'],
+    name: 'vuex'
+  },
+  {
+    icon: {name: 'vyper'},
+    ids: ['vyper'],
+    name: 'vyper'
+  },
+  // endregion
 
   // region [W]
   {
