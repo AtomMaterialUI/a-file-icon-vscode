@@ -25,5 +25,6 @@
     "iconGenerator/examples/folders/locale",
     "iconGenerator/examples/folders/locales",
     "iconGenerator/examples/folders/messages"
-  ]
+  ],
+  "a-file-icon-vscode.arrowTheme": "material"
 }
