@@ -221,41 +221,183 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'python'
   },
   // { icon: { name: 'python-misc' }, ids: ['pip-requirements'] },
-  // { icon: { name: 'r' }, ids: ['r', 'rsweave'] },
-  // { icon: { name: 'razor' }, ids: ['razor', 'aspnetcorerazor'] },
-  // { icon: { name: 'react' }, ids: ['javascriptreact'] },
-  // { icon: { name: 'react_ts' }, ids: ['typescriptreact'] },
-  // { icon: { name: 'reason' }, ids: ['reason', 'reason_lisp'] },
-  // { icon: { name: 'rescript' }, ids: ['rescript'] },
-  // { icon: { name: 'riot' }, ids: ['riot'] },
-  // { icon: { name: 'robot' }, ids: ['robotframework'] },
-  // { icon: { name: 'ruby' }, ids: ['ruby'] },
+  // region [R]
+  {
+    icon: {name: 'r'},
+    ids: ['r', 'rsweave', 'rd', 'debian-control.r', 'namespace.r'],
+    name: 'r'
+  },
+  {
+    icon: {name: 'rmd'},
+    ids: ['rmd', 'rmarkdown'],
+    name: 'rmd'
+  },
+  {
+    icon: {name: 'racket'},
+    ids: ['racket'],
+    name: 'racket'
+  },
+  {
+    icon: {name: 'raml'},
+    ids: ['raml'],
+    name: 'raml'
+  },
+  {
+    icon: {name: 'rails'},
+    ids: ['rails'],
+    name: 'rails'
+  },
+  {
+    icon: {name: 'rake'},
+    ids: ['rake', 'rakefile'],
+    name: 'rake'
+  },
+  {
+    icon: {name: 'razor'},
+    ids: ['razor', 'aspnetcorerazor'],
+    name: 'razor'
+  },
+  {
+    icon: {name: 'rascal'},
+    ids: ['rascal', 'rascalmpl', 'parametric-rascalmpl'],
+    name: 'rascal'
+  },
+  {
+    icon: {name: 'rbs'},
+    ids: ['rbs'],
+    name: 'rbs'
+  },
+  {
+    icon: {name: 'readthedocs'},
+    ids: ['readthedocs'],
+    name: 'readthedocs'
+  },
+  {
+    icon: {name: 'replit'},
+    ids: ['replit'],
+    name: 'replit'
+  },
+  {
+    icon: {name: 'restql'},
+    ids: ['restql'],
+    name: 'restql'
+  },
+  {
+    icon: {name: 'reason'},
+    ids: ['reason', 'reason-lisp'],
+    name: 'reason'
+  },
+  {
+    icon: {name: 'rebol'},
+    ids: ['rebol'],
+    name: 'rebol'
+  },
+  {
+    icon: {name: 'red'},
+    ids: ['red', 'reds'],
+    name: 'red'
+  },
+  {
+    icon: {name: 'redis'},
+    ids: ['redis'],
+    name: 'redis'
+  },
+  {
+    icon: {name: 'reek'},
+    ids: ['reek'],
+    name: 'reek'
+  },
+  {
+    icon: {name: 'regex'},
+    ids: ['regex', 'regexp'],
+    name: 'regex'
+  },
+  {
+    icon: {name: 'rehype'},
+    ids: ['rehype'],
+    name: 'rehype'
+  },
+  {
+    icon: {name: 'remark'},
+    ids: ['remark'],
+    name: 'remark'
+  },
+  {
+    icon: {name: 'rescript'},
+    ids: ['rescript'],
+    name: 'rescript'
+  },
+  {
+    icon: {name: 'rst'},
+    ids: ['rst', 'restructuredtext'],
+    name: 'rst'
+  },
+  {
+    icon: {name: 'rexx'},
+    ids: ['rexx'],
+    name: 'rexx'
+  },
+  {
+    icon: {name: 'rhino3d'},
+    ids: ['rhino3d', 'rhino', 'rhinolog'],
+    name: 'rhino3d'
+  },
+  {
+    icon: {name: 'ring'},
+    ids: ['ring'],
+    name: 'ring'
+  },
+  {
+    icon: {name: 'riot'},
+    ids: ['riot', 'jadetag', 'htmltag'],
+    name: 'riot'
+  },
+  {
+    icon: {name: 'robot'},
+    ids: ['robot', 'robotframework'],
+    name: 'robot'
+  },
+  {
+    icon: {name: 'rome'},
+    ids: ['rome', 'rome_syntax_tree'],
+    name: 'rome'
+  },
+  {
+    icon: {name: 'ron'},
+    ids: ['ron'],
+    name: 'ron'
+  },
+  {
+    icon: {name: 'rspec'},
+    ids: ['rspec'],
+    name: 'rspec'
+  },
+  {
+    icon: {name: 'rss'},
+    ids: ['rss'],
+    name: 'rss'
+  },
+  {
+    icon: {name: 'rubocop'},
+    ids: ['rubocop'],
+    name: 'rubocop'
+  },
   {
     icon: {name: 'ruby'},
-    ids: ['rabl', 'ruby'],
+    ids: ['rabl', 'ruby', 'rb'],
     name: 'ruby'
   },
-  // { icon: { name: 'rust' }, ids: ['rust'] },
-  // { icon: { name: 'salesforce' }, ids: ['apex'] },
-  // { icon: { name: 'sas' }, ids: ['sas'] },
-
-
-  // { icon: { name: 'search' }, ids: ['search-result'] },
-  // { icon: { name: 'shader' }, ids: ['hlsl', 'glsl', 'wgsl'] },
-
-  // { icon: { name: 'shaderlab' }, ids: ['shaderlab'] },
-  // { icon: { name: 'silverstripe' }, ids: ['ss'] },
-  // { icon: { name: 'slim' }, ids: ['slim'] },
-  // { icon: { name: 'sml' }, ids: ['sml'] },
-  // { icon: { name: 'solidity' }, ids: ['solidity'] },
-  // { icon: { name: 'stylus' }, ids: ['stylus'] },
-  // { icon: { name: 'svelte' }, ids: ['svelte'] },
-  // { icon: { name: 'svg' }, ids: ['svg'] },
   {
-    icon: {name: 'swift'},
-    ids: ['swift'],
-    name: 'swift'
+    icon: {name: 'rubygems'},
+    ids: ['rubygems', 'gem', 'gemspec'],
+    name: 'rubygems'
   },
+  {
+    icon: {name: 'rust'},
+    ids: ['rust', 'ra_syntax_tree'],
+    name: 'rust'
+  },
+  // endregion
 
   // region [S]
   {
@@ -365,7 +507,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'silverstripe'},
-    ids: ['silverstripe'],
+    ids: ['silverstripe', 'ss'],
     name: 'silverstripe'
   },
   {
@@ -597,6 +739,16 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'swig'},
     ids: ['swig'],
     name: 'swig'
+  },
+  {
+    icon: {name: 'swift'},
+    ids: ['swift'],
+    name: 'swift'
+  },
+  {
+    icon: {name: 'svg'},
+    ids: ['svg'],
+    name: 'svg'
   },
   // endregion
 
