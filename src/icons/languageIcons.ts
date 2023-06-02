@@ -116,24 +116,158 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'html'
   },
   // { icon: { name: 'idris' }, ids: ['idris'] },
+
+  // region [J]
+  {
+    icon: {name: 'j'},
+    ids: ['j'],
+    name: 'j'
+  },
+  {
+    icon: {name: 'jade'},
+    ids: ['jade', 'pug'],
+    name: 'pug'
+  },
+  {
+    icon: {name: 'jake'},
+    ids: ['jake'],
+    name: 'jake'
+  },
+  {
+    icon: {name: 'jakefile'},
+    ids: ['jakefile'],
+    name: 'jakefile'
+  },
+  {
+    icon: {name: 'janet'},
+    ids: ['janet'],
+    name: 'janet'
+  },
   {
     icon: {name: 'java'},
     ids: ['java'],
     name: 'java'
   },
   {
-    icon: {
-      name: 'js'
-    },
-    ids: ['cjs', 'javascript', 'mjs', 'es6'],
+    icon: {name: 'jekyll'},
+    ids: ['jekyll'],
+    name: 'jekyll'
+  },
+  {
+    icon: {name: 'jellycut'},
+    ids: ['jellycut', 'jelly'],
+    name: 'jellycut'
+  },
+  {
+    icon: {name: 'jenkins'},
+    ids: ['jenkins'],
+    name: 'jenkins'
+  },
+  {
+    icon: {name: 'jfd'},
+    ids: ['jfd', 'jformdesigner'],
+    name: 'jfd'
+  },
+  {
+    icon: {name: 'jinja'},
+    ids: [
+      'jinja-c',
+      'jinja-cisco',
+      'jinja-cpp',
+      'jinja-cs',
+      'jinja-css',
+      'jinja-cy',
+      'jinja-dart',
+      'jinja-django',
+      'jinja-dockerfile',
+      'jinja-elixir',
+      'jinja-elm',
+      'jinja-erlang',
+      'jinja-go',
+      'jinja-gradle',
+      'jinja-groovy',
+      'jinja-haskell',
+      'jinja-html',
+      'jinja-java',
+      'jinja-js',
+      'jinja-json',
+      'jinja-kotlin',
+      'jinja-latex',
+      'jinja-liquid',
+      'jinja-lua',
+      'jinja-makefile',
+      'jinja-md',
+      'jinja-nginx',
+      'jinja-objc',
+      'jinja-ocaml',
+      'jinja-perl',
+      'jinja-php',
+      'jinja-powershell',
+      'jinja-properties',
+      'jinja-puppet',
+      'jinja-py',
+      'jinja-r',
+      'jinja-rb',
+      'jinja-rust',
+      'jinja-sass',
+      'jinja-scala',
+      'jinja-scss',
+      'jinja-shell',
+      'jinja-sql',
+      'jinja-svg',
+      'jinja-swift',
+      'jinja-systemd',
+      'jinja-terraform',
+      'jinja-toml',
+      'jinja-twig',
+      'jinja-vue',
+      'jinja-xml',
+      'jinja-yaml',
+      'jinja',
+      'jinja2',
+    ],
+    name: 'jinja'
+  },
+  {
+    icon: {name: 'jison'},
+    ids: ['jison', 'jisonlex'],
+    name: 'jison'
+  },
+  {
+    icon: {name: 'jolie'},
+    ids: ['jolie'],
+    name: 'jolie'
+  },
+  {
+    icon: {name: 'joomla'},
+    ids: ['joomla', 'tpl'],
+    name: 'joomla'
+  },
+  {
+    icon: {name: 'jquery'},
+    ids: ['jquery', 'jq'],
+    name: 'jquery'
+  },
+  {
+    icon: {name: 'js'},
+    ids: ['js', 'cjs', 'javascript', 'mjs', 'ecmascript', 'es6'],
     name: 'js'
+  },
+  {
+    icon: {name: 'jsconfig'},
+    ids: ['jsconfig'],
+    name: 'jsconfig'
+  },
+  {
+    icon: {name: 'jscpd'},
+    ids: ['jscpd'],
+    name: 'jscpd'
   },
   {
     icon: {name: 'jsx'},
     ids: ['jsx', 'javascriptreact', 'typescriptreact'],
     name: 'jsx'
   },
-  // { icon: { name: 'jinja' }, ids: ['jinja'] },
   {
     icon: {name: 'json'},
     ids: ['cson', 'json', 'jsonc', 'ndjson', 'rdjson'],
@@ -144,8 +278,95 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['json5'],
     name: 'json5'
   },
-  // { icon: { name: 'julia' }, ids: ['julia'] },
-  // { icon: { name: 'jupyter' }, ids: ['jupyter'] },
+  {
+    icon: {name: 'jsonld'},
+    ids: ['jsonld'],
+    name: 'jsonld'
+  },
+  {
+    icon: {name: 'jsonnet'},
+    ids: ['jsonnet'],
+    name: 'jsonnet'
+  },
+  {
+    icon: {name: 'jsp'},
+    ids: ['jsp'],
+    name: 'jsp'
+  },
+  {
+    icon: {name: 'jss'},
+    ids: ['jss'],
+    name: 'jss'
+  },
+  {
+    icon: {name: 'julia'},
+    ids: ['julia', 'juliamarkdown'],
+    name: 'julia'
+  },
+  {
+    icon: {name: 'jupyter'},
+    ids: ['jupyter'],
+    name: 'jupyter'
+  },
+  {
+    icon: {name: 'junos'},
+    ids: ['junos'],
+    name: 'junos'
+  },
+  {
+    icon: {name: 'jwt'},
+    ids: ['jwt'],
+    name: 'jwt'
+  },
+  // endregion
+
+  // region [K]
+  {
+    icon: {name: 'kaitai'},
+    ids: ['kaitai'],
+    name: 'kaitai'
+  },
+  {
+    icon: {name: 'kerboscript'},
+    ids: ['kerboscript', 'kos'],
+    name: 'kerboscript'
+  },
+  {
+    icon: {name: 'kibo'},
+    ids: ['kibo'],
+    name: 'kibo'
+  },
+  {
+    icon: {name: 'kicad'},
+    ids: ['kicad'],
+    name: 'kicad'
+  },
+  {
+    icon: {name: 'kivy'},
+    ids: ['kivy', 'kv'],
+    name: 'kivy'
+  },
+  {
+    icon: {name: 'kml'},
+    ids: ['kml', 'gml', 'fgb', 'gpx'],
+    name: 'kml'
+  },
+  {
+    icon: {name: 'kl'},
+    ids: ['kl'],
+    name: 'kl'
+  },
+  {
+    icon: {name: 'knime'},
+    ids: ['knime'],
+    name: 'knime'
+  },
+  {
+    icon: {name: 'koka'},
+    ids: ['koka', 'kokadoc'],
+    light: true,
+    name: 'koka'
+  },
   {
     icon: {name: 'kotlin'},
     ids: ['kotlin'],
@@ -156,7 +377,18 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['kotlinscript'],
     name: 'kotlinscript'
   },
-  // { icon: { name: 'kusto' }, ids: ['kql'] },
+  {
+    icon: {name: 'kubernetes'},
+    ids: ['kubernetes'],
+    name: 'kubernetes'
+  },
+  {
+    icon: {name: 'kusto'},
+    ids: ['kusto'],
+    name: 'kusto'
+  },
+  // endregion
+
   {
     icon: {name: 'less'},
     ids: ['less'],
