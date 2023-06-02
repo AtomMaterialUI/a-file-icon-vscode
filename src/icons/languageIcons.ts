@@ -412,15 +412,176 @@ export const languageIcons: LanguageAssociation[] = [
   // { icon: { name: 'matlab' }, ids: ['matlab'] },
   // { icon: { name: 'minecraft' }, ids: ['mcfunction'] },
   // { icon: { name: 'mjml' }, ids: ['mjml'] },
-  // { icon: { name: 'nim' }, ids: ['nim', 'nimble'] },
-  // { icon: { name: 'nix' }, ids: ['nix'] },
+
+  // region [N]
+  {
+    icon: {name: 'nano'},
+    ids: ['nano'],
+    name: 'nano'
+  },
+  {
+    icon: {name: 'nasm'},
+    ids: ['nasm'],
+    name: 'nasm'
+  },
+  {
+    icon: {name: 'nearley'},
+    ids: ['nearley'],
+    name: 'nearley'
+  },
+  {
+    icon: {name: 'neko'},
+    ids: ['neko', 'nekoscript'],
+    name: 'neko'
+  },
+  {
+    icon: {name: 'neo4j'},
+    ids: ['neo4j', 'cypher'],
+    name: 'neo4j'
+  },
+  {
+    icon: {name: 'neon'},
+    ids: ['neon'],
+    light: true,
+    name: 'neon'
+  },
+  {
+    icon: {name: 'netlify'},
+    ids: ['netlify'],
+    name: 'netlify'
+  },
+  {
+    icon: {name: 'netlify_headers'},
+    ids: ['netlify_headers', 'netlifyheaders'],
+    name: 'netlify_headers'
+  },
+  {
+    icon: {name: 'netlify_redirects'},
+    ids: ['netlify_redirects', 'netlifyredirects'],
+    name: 'netlify_redirects'
+  },
+  {
+    icon: {name: 'netlinx'},
+    ids: ['netlinx', 'netlinx-source', 'netlinx-library'],
+    name: 'netlinx'
+  },
+  {
+    icon: {name: 'netlogo'},
+    ids: ['netlogo'],
+    name: 'netlogo'
+  },
+  {
+    icon: {name: 'nextflow'},
+    ids: ['nextflow'],
+    name: 'nextflow'
+  },
   {
     icon: {name: 'nginx'},
     ids: ['nginx'],
     name: 'nginx'
   },
-  // { icon: { name: 'nodejs_alt' }, ids: [] },
-  // { icon: { name: 'nunjucks' }, ids: ['nunjucks'] },
+  {
+    icon: {name: 'nib'},
+    ids: ['nib'],
+    name: 'nib'
+  },
+  {
+    icon: {name: 'nickle'},
+    ids: ['nickle'],
+    name: 'nickle'
+  },
+  {
+    icon: {name: 'nimble'},
+    ids: ['nimble'],
+    name: 'nimble'
+  },
+  {
+    icon: {name: 'nimrod'},
+    ids: ['nimrod', 'nim'],
+    name: 'nimrod'
+  },
+  {
+    icon: {name: 'nit'},
+    ids: ['nit'],
+    name: 'nit'
+  },
+  {
+    icon: {name: 'shuriken'},
+    ids: ['shuriken', 'ninja'],
+    name: 'shuriken'
+  },
+  {
+    icon: {name: 'nix'},
+    ids: ['nix'],
+    name: 'nix'
+  },
+  {
+    icon: {name: 'nmap'},
+    ids: ['nmap'],
+    name: 'nmap'
+  },
+  {
+    icon: {name: 'noc'},
+    ids: ['noc'],
+    name: 'noc'
+  },
+  {
+    icon: {name: 'nomad'},
+    ids: ['nomad'],
+    name: 'nomad'
+  },
+  {
+    icon: {name: 'noon'},
+    ids: ['noon'],
+    name: 'noon'
+  },
+  {
+    icon: {name: 'note'},
+    ids: ['note'],
+    name: 'note'
+  },
+  {
+    icon: {name: 'now'},
+    ids: ['now'],
+    name: 'now'
+  },
+  {
+    icon: {name: 'npm'},
+    ids: ['npm', 'npmrc'],
+    name: 'npm'
+  },
+  {
+    icon: {name: 'nsis'},
+    ids: ['nsis', 'nlf'],
+    name: 'nsis'
+  },
+  {
+    icon: {name: 'nunjucks'},
+    ids: ['nunjucks'],
+    name: 'nunjucks'
+  },
+  {
+    icon: {name: 'numpy'},
+    ids: ['numpy'],
+    name: 'numpy'
+  },
+  {
+    icon: {name: 'nuxt'},
+    ids: ['nuxt'],
+    name: 'nuxt'
+  },
+  {
+    icon: {name: 'nwscript'},
+    ids: ['nwscript'],
+    name: 'nwscript'
+  },
+  {
+    icon: {name: 'nxc'},
+    ids: ['nxc'],
+    name: 'nxc'
+  },
+  // endregion
+
   // { icon: { name: 'otne' }, ids: ['otne'] },
   // { icon: { name: 'pawn' }, ids: ['pawn'] },
   // { icon: { name: 'pdf' }, ids: ['pdf'] },

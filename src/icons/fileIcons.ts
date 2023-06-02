@@ -1,12 +1,12 @@
-import { IconPack } from 'src/@types/config';
+import {IconPack} from 'src/@types/config';
 
-import type { FileIcons } from 'src/@types/iconTypes';
+import type {FileIcons} from 'src/@types/iconTypes';
 
 /**
  * Defines file icons
  */
 export const fileIcons: FileIcons = {
-  defaultIcon: { name: 'file' },
+  defaultIcon: {name: 'file'},
   icons: [
     // region [Custom]
     {
@@ -5278,11 +5278,11 @@ export const fileIcons: FileIcons = {
       name: 'netlify_redirects',
     },
     {
-      fileExtensions: ['axi', 'axs'],
+      fileExtensions: ['axi', 'axs', 'axb'],
       name: 'netlinx',
     },
     {
-      fileExtensions: ['nlogo'],
+      fileExtensions: ['nlogo', 'nls'],
       name: 'netlogo',
     },
     {
