@@ -16,23 +16,359 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['properties', 'plist'],
     name: 'source',
   },
-  // {
-  //   icon: { name: 'twine' },
-  //   ids: ['twee3', 'twee3-harlowe-3', 'twee3-chapbook-1', 'twee3-sugarcube-2'],
-  // },
   // { icon: { name: 'angular' }, ids: ['ng-template'] },
   // { icon: { name: 'apiblueprint' }, ids: ['apiblueprint'] },
   // { icon: { name: 'applescript' }, ids: ['applescript'] },
   // { icon: { name: 'autoit' }, ids: ['autoit'] },
-  // { icon: { name: 'blink' }, ids: ['blink'] },
-  // { icon: { name: 'c' }, ids: ['c', 'objective-c', 'objective-cpp'] },
-  // { icon: { name: 'cabal' }, ids: ['cabal'] },
-  // { icon: { name: 'cake' }, ids: ['cake'] },
-  // { icon: { name: 'chess' }, ids: ['pgn'] },
+
+  // region [B]
+  {
+    icon: {name: 'babel'},
+    ids: ['babel', 'languagebabel'],
+    name: 'babel'
+  },
+  {
+    icon: {name: 'ballerina'},
+    ids: ['ballerina'],
+    name: 'ballerina'
+  },
+  {
+    icon: {name: 'baboon'},
+    ids: ['baboon'],
+    name: 'baboon'
+  },
+  {
+    icon: {name: 'basic'},
+    ids: ['basic', 'smallbasic', 'blitzmax', 'bml', 'bms', 'bmx'],
+    name: 'basic'
+  },
+  {
+    icon: {name: 'bazel'},
+    ids: ['bazel', 'starlark'],
+    name: 'bazel'
+  },
+  {
+    icon: {name: 'bazelconfig'},
+    ids: ['bazelconfig', 'bazelrc'],
+    name: 'bazelconfig'
+  },
+  {
+    icon: {name: 'bc'},
+    ids: ['bc'],
+    name: 'bc'
+  },
+  {
+    icon: {name: 'behat'},
+    ids: ['behat'],
+    name: 'behat'
+  },
+  {
+    icon: {name: 'bem'},
+    ids: ['bem', 'bemmet', 'bemy', 'bemhtml', 'bemjson'],
+    name: 'bem'
+  },
+  {
+    icon: {name: 'bibtex'},
+    ids: ['bibtex', 'bibtex-style'],
+    name: 'bibtex'
+  },
+  {
+    icon: {name: 'bicep'},
+    ids: ['bicep', 'bicep-params'],
+    name: 'bicep'
+  },
+  {
+    icon: {name: 'biml'},
+    ids: ['biml'],
+    name: 'biml'
+  },
+  {
+    icon: {name: 'bison'},
+    ids: ['bison', 'lex', 'yacc'],
+    name: 'bison'
+  },
+  {
+    icon: {name: 'blade'},
+    ids: ['blade', 'bladephp'],
+    name: 'blade'
+  },
+  {
+    icon: {name: 'blitzbasic'},
+    ids: ['blitzbasic'],
+    name: 'blitzbasic'
+  },
+  {
+    icon: {name: 'bluespec'},
+    ids: ['bluespec', 'bsv'],
+    name: 'bluespec'
+  },
+  {
+    icon: {name: 'blink'},
+    ids: ['blink', 'blinkscript', 'nuke'],
+    name: 'blink'
+  },
+  {
+    icon: {name: 'bnf'},
+    ids: ['bnf', 'ebnf', 'xbnf', 'lbnf'],
+    name: 'bnf'
+  },
+  {
+    icon: {name: 'boo'},
+    ids: ['boo'],
+    name: 'boo'
+  },
+  {
+    icon: {name: 'boot'},
+    ids: ['boot'],
+    name: 'boot'
+  },
+  {
+    icon: {name: 'bunlock'},
+    ids: ['bunlock', 'bun.lockb'],
+    name: 'bunlock'
+  },
+  {
+    icon: {name: 'bootstraprc'},
+    ids: ['bootstraprc'],
+    name: 'bootstraprc'
+  },
+  {
+    icon: {name: 'bosque'},
+    ids: ['bosque', 'bsq'],
+    name: 'bosque'
+  },
+  {
+    icon: {name: 'bower'},
+    ids: ['bower', 'bower_components', 'bowerrc'],
+    name: 'bower'
+  },
+  {
+    icon: {name: 'brainfuck'},
+    ids: ['brainfuck', 'bf', 'bfp'],
+    name: 'brainfuck'
+  },
+  {
+    icon: {name: 'brewfile'},
+    ids: ['brewfile', 'brew'],
+    name: 'brewfile'
+  },
+  {
+    icon: {name: 'bro'},
+    ids: ['bro', 'zeek'],
+    name: 'bro'
+  },
+  {
+    icon: {name: 'browserslist'},
+    ids: ['browserslist'],
+    name: 'browserslist'
+  },
+  {
+    icon: {name: 'broccoli'},
+    ids: ['broccoli', 'brocfile'],
+    name: 'broccoli'
+  },
+  {
+    icon: {name: 'buck'},
+    ids: ['buck'],
+    name: 'buck'
+  },
+  {
+    icon: {name: 'bucklescript'},
+    ids: ['bucklescript'],
+    name: 'bucklescript'
+  },
+  {
+    icon: {name: 'buildkite'},
+    ids: ['buildkite'],
+    name: 'buildkite'
+  },
+  {
+    icon: {name: 'bundle'},
+    ids: ['bundle', 'gemfile'],
+    name: 'bundle'
+  },
+  {
+    icon: {name: 'byond'},
+    ids: ['byond', 'dm'],
+    name: 'byond'
+  },
+  // endregion
+
+  // region [C]
+  {
+    icon: {name: 'c'},
+    ids: ['c', 'objective-c', 'clang'],
+    name: 'c'
+  },
+  {
+    icon: {name: 'cabal'},
+    ids: ['cabal'],
+    name: 'cabal'
+  },
+  {
+    icon: {name: 'caddy'},
+    ids: ['caddy', 'caddyfile'],
+    name: 'caddy'
+  },
+  {
+    icon: {name: 'cadence'},
+    ids: ['cadence'],
+    name: 'cadence'
+  },
+  {
+    icon: {name: 'caffe'},
+    ids: ['caffe', 'caffemodel'],
+    name: 'caffe'
+  },
+  {
+    icon: {name: 'caffe2'},
+    ids: ['caffe2', 'caffe2model', 'prototxt'],
+    name: 'caffe2'
+  },
+  {
+    icon: {name: 'cairo'},
+    ids: ['cairo'],
+    name: 'cairo'
+  },
+  {
+    icon: {name: 'cakefile'},
+    ids: ['cakefile'],
+    name: 'cakefile'
+  },
+  {
+    icon: {name: 'cakephp'},
+    ids: ['cakephp', 'cake'],
+    name: 'cakephp'
+  },
+  {
+    icon: {name: 'cakefile'},
+    ids: ['cakefile'],
+    name: 'cakefile'
+  },
+  {
+    icon: {name: 'calva'},
+    ids: ['calva'],
+    name: 'calva'
+  },
+  {
+    icon: {name: 'cap'},
+    ids: ['cap'],
+    name: 'cap'
+  },
+  {
+    icon: {name: 'carbon'},
+    ids: ['carbon'],
+    name: 'carbon'
+  },
+  {
+    icon: {name: 'casc'},
+    ids: ['casc'],
+    name: 'casc'
+  },
+  {
+    icon: {name: 'cddl'},
+    ids: ['cddl'],
+    name: 'cddl'
+  },
+  {
+    icon: {name: 'ceylon'},
+    ids: ['ceylon'],
+    name: 'ceylon'
+  },
+  {
+    icon: {name: 'cfc'},
+    ids: ['cfc'],
+    name: 'cfc'
+  },
+  {
+    icon: {name: 'chapel'},
+    ids: ['chapel'],
+    name: 'chapel'
+  },
+  {
+    icon: {name: 'cheetah'},
+    ids: ['cheetah'],
+    name: 'cheetah'
+  },
+  {
+    icon: {name: 'chef'},
+    ids: ['chef', 'chef_metadata', 'chef_inspec', 'chef_recipe_yaml'],
+    name: 'chef'
+  },
+  {
+    icon: {name: 'berksfile'},
+    ids: ['berksfile', 'chef_berkshelf'],
+    name: 'berksfile'
+  },
+  {
+    icon: {name: 'chuck'},
+    ids: ['chuck'],
+    name: 'chuck'
+  },
+  {
+    icon: {name: 'clarion'},
+    ids: ['clarion'],
+    name: 'clarion'
+  },
+  {
+    icon: {name: 'click'},
+    ids: ['click'],
+    name: 'click'
+  },
+  {
+    icon: {name: 'clean'},
+    ids: ['clean'],
+    name: 'clean'
+  },
+  {
+    icon: {name: 'clio'},
+    ids: ['clio'],
+    name: 'clio'
+  },
+  {
+    icon: {name: 'clips'},
+    ids: ['clips'],
+    name: 'clips'
+  },
   {
     icon: {name: 'clojure'},
     ids: ['clojure'],
     name: 'clojure'
+  },
+  {
+    icon: {name: 'closuretpl'},
+    ids: ['closuretpl', 'soy'],
+    name: 'closuretpl'
+  },
+  {
+    icon: {name: 'cmake'},
+    ids: ['cmake', 'cmake-cache'],
+    name: 'cmake'
+  },
+  {
+    icon: {name: 'cml'},
+    ids: ['cml'],
+    name: 'cml'
+  },
+  {
+    icon: {name: 'cobol'},
+    ids: ['cobol', 'jcl', 'pli', 'cblproj', 'mfu'],
+    name: 'cobol'
+  },
+  {
+    icon: {name: 'coconut'},
+    ids: ['coconut', 'coco'],
+    name: 'coconut'
+  },
+  {
+    icon: {name: 'codeowners'},
+    ids: ['codeowners'],
+    name: 'codeowners'
+  },
+  {
+    icon: {name: 'codeql'},
+    ids: ['codeql', 'ql', 'ql-summary'],
+    name: 'codeql'
   },
   {
     icon: {name: 'coffeescript'},
@@ -40,18 +376,116 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'coffeescript'
   },
   {
-    icon: {name: 'coldfusion'},
-    ids: ['coldfusion', 'lang-cfml'],
-    name: 'coldfusion'
+    icon: {name: 'cf'},
+    ids: ['cf', 'coldfusion', 'lang-cfml'],
+    name: 'cf'
   },
-  // { icon: { name: 'console' }, ids: ['bat', 'awk', 'shellscript'] },
-  // { icon: { name: 'cpp' }, ids: ['cpp'] },
-  // { icon: { name: 'csharp' }, ids: ['csharp'] },
+  {
+    icon: {name: 'conan'},
+    ids: ['conan', 'conanfile'],
+    name: 'conan'
+  },
+  {
+    icon: {name: 'conll'},
+    ids: ['conll', 'conllu'],
+    name: 'conll'
+  },
+  {
+    icon: {name: 'coq'},
+    ids: ['coq'],
+    name: 'coq'
+  },
+  {
+    icon: {name: 'cp'},
+    ids: ['cp'],
+    name: 'cp'
+  },
+  {
+    icon: {name: 'cpp'},
+    ids: ['cpp'],
+    name: 'cpp'
+  },
+  {
+    icon: {name: 'cpan'},
+    ids: ['cpan', 'cpanfile'],
+    name: 'cpan'
+  },
+  {
+    icon: {name: 'cpcdocs'},
+    ids: ['cpcdocs', 'cpc'],
+    name: 'cpcdocs'
+  },
+  {
+    icon: {name: 'creole'},
+    ids: ['creole'],
+    name: 'creole'
+  },
+  {
+    icon: {name: 'crystal'},
+    ids: ['crystal', 'cr', 'ecr', 'slang'],
+    name: 'crystal'
+  },
+  {
+    icon: {name: 'csharp'},
+    ids: ['csharp'],
+    name: 'csharp'
+  },
+  {
+    icon: {name: 'csound'},
+    ids: ['csound', 'csound-orc', 'csound-sco', 'csound-csd'],
+    light: true,
+    name: 'csound'
+  },
   {
     icon: {name: 'css'},
     ids: ['css', 'tss'],
     name: 'css'
   },
+  {
+    icon: {name: 'csv'},
+    ids: ['csv', 'tsv'],
+    name: 'csv'
+  },
+  {
+    icon: {name: 'cucumber'},
+    ids: ['cucumber', 'feature'],
+    name: 'cucumber'
+  },
+  {
+    icon: {name: 'nvidia'},
+    ids: ['nvidia', 'cu', 'cuda-cpp', 'cuda'],
+    name: 'nvidia'
+  },
+  {
+    icon: {name: 'csharp'},
+    ids: ['csharp'],
+    name: 'csharp'
+  },
+  {
+    icon: {name: 'cue'},
+    ids: ['cue'],
+    name: 'cue'
+  },
+  {
+    icon: {name: 'curry'},
+    ids: ['curry', 'icurry'],
+    name: 'curry'
+  },
+  {
+    icon: {name: 'cwl'},
+    ids: ['cwl'],
+    name: 'cwl'
+  },
+  {
+    icon: {name: 'cython'},
+    ids: ['cython'],
+    name: 'cython'
+  },
+  // endregion
+
+
+  // { icon: { name: 'cpp' }, ids: ['cpp'] },
+
   // { icon: { name: 'cucumber' }, ids: ['cucumber'] },
   {
     icon: {name: 'dart'},

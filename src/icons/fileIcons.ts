@@ -1183,7 +1183,7 @@ export const fileIcons: FileIcons = {
       name: 'bazaar',
     },
     {
-      fileExtensions: ['bazel', 'bzl'],
+      fileExtensions: ['bazel', 'bzl', 'sky', 'star'],
       name: 'bazel',
     },
     {
@@ -1307,11 +1307,11 @@ export const fileIcons: FileIcons = {
       name: 'bluespec',
     },
     {
-      fileExtensions: ['blink'],
+      fileExtensions: ['blink', 'nk', 'gizmo', 'blinkscript'],
       name: 'blink',
     },
     {
-      fileExtensions: ['abnf', 'bnf', 'ebnf', 'grammar', 'lbnf'],
+      fileExtensions: ['abnf', 'bnf', 'ebnf', 'grammar', 'lbnf', 'xnbf'],
       name: 'bnf',
     },
     {
@@ -1368,7 +1368,7 @@ export const fileIcons: FileIcons = {
       name: 'bower',
     },
     {
-      fileExtensions: ['b', 'bf', 'brainfuck'],
+      fileExtensions: ['b', 'bf', 'brainfuck', 'bfp'],
       name: 'brainfuck',
     },
     {
@@ -1727,7 +1727,7 @@ export const fileIcons: FileIcons = {
       name: 'coala',
     },
     {
-      fileExtensions: ['cbl', 'ccp', 'cob', 'cobol', 'cpy'],
+      fileExtensions: ['cbl', 'ccp', 'cob', 'cobol', 'cpy', 'jcl', 'pli'],
       name: 'cobol',
     },
     {
@@ -2013,7 +2013,7 @@ export const fileIcons: FileIcons = {
       name: 'curl',
     },
     {
-      fileExtensions: ['curry'],
+      fileExtensions: ['curry', 'icurry', 'fcy'],
       name: 'curry',
     },
     {
