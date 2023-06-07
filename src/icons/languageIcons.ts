@@ -483,10 +483,6 @@ export const languageIcons: LanguageAssociation[] = [
   },
   // endregion
 
-
-  // { icon: { name: 'cpp' }, ids: ['cpp'] },
-
-  // { icon: { name: 'cucumber' }, ids: ['cucumber'] },
   {
     icon: {name: 'dart'},
     ids: ['dart'],
@@ -515,6 +511,11 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['dfont', 'eot', 'otf', 'pfa', 'pfb', 'pfm', 'tfm', 'ttc', 'ttf', 'woff', 'woff2'],
     name: 'font'
   },
+  {
+    icon: {name: 'franca'},
+    ids: ['franca'],
+    name: 'franca'
+  },
   // { icon: { name: 'erlang' }, ids: ['erlang'] },
   // { icon: { name: 'fsharp' }, ids: ['fsharp'] },
   // { icon: { name: 'gemini' }, ids: ['gemini', 'text-gemini'] },
@@ -538,18 +539,223 @@ export const languageIcons: LanguageAssociation[] = [
   // { icon: { name: 'grain' }, ids: ['grain'] },
   // { icon: { name: 'graphql' }, ids: ['graphql'] },
   // { icon: { name: 'groovy' }, ids: ['groovy'] },
-  // { icon: { name: 'hack' }, ids: ['hack'] },
-  // { icon: { name: 'haml' }, ids: ['haml'] },
-  // { icon: { name: 'handlebars' }, ids: ['handlebars'] },
-  // { icon: { name: 'haskell' }, ids: ['haskell'] },
-  // { icon: { name: 'haxe' }, ids: ['haxe', 'hxml'] },
-  // { icon: { name: 'hcl' }, ids: ['hcl'] },
+
+  // region [H]
+  {
+    icon: {name: 'hh'},
+    ids: ['hh', 'h'],
+    name: 'hh'
+  },
+  {
+    icon: {name: 'hack'},
+    ids: ['hack'],
+    name: 'hack'
+  },
+  {
+    icon: {name: 'haml'},
+    ids: ['haml'],
+    name: 'haml'
+  },
+  {
+    icon: {name: 'handlebars'},
+    ids: ['handlebars', 'mustache'],
+    name: 'handlebars'
+  },
+  {
+    icon: {name: 'harbour'},
+    ids: ['harbour'],
+    name: 'harbour'
+  },
+  {
+    icon: {name: 'hcl'},
+    ids: ['hcl'],
+    name: 'hcl'
+  },
+  {
+    icon: {name: 'haskell'},
+    ids: ['haskell', 'literate haskell', 'c2hs', 'hsc2hs'],
+    name: 'haskell'
+  },
+  {
+    icon: {name: 'haxe'},
+    ids: ['haxe', 'hxml', 'haxe ast dump', 'haxe.type', 'haxe.argument'],
+    name: 'haxe'
+  },
+  {
+    icon: {name: 'helm'},
+    ids: ['helm', 'helmfile'],
+    name: 'helm'
+  },
+  {
+    icon: {name: 'heroku'},
+    ids: ['heroku', 'procfile'],
+    name: 'heroku'
+  },
+  {
+    icon: {name: 'hex'},
+    ids: ['hex'],
+    name: 'hex'
+  },
+  {
+    icon: {name: 'hjson'},
+    ids: ['hjson'],
+    name: 'hjson'
+  },
+  {
+    icon: {name: 'hlsl'},
+    ids: ['hlsl'],
+    name: 'hlsl'
+  },
+  {
+    icon: {name: 'hc'},
+    ids: ['hc'],
+    name: 'hc'
+  },
+  {
+    icon: {name: 'homeassistant'},
+    ids: ['homeassistant', 'home-assistant', 'home-assistant-jinja'],
+    name: 'homeassistant'
+  },
+  {
+    icon: {name: 'hoplon'},
+    ids: ['hoplon'],
+    name: 'hoplon'
+  },
+  {
+    icon: {name: 'houdini'},
+    ids: ['houdini', 'vfl', 'vex'],
+    name: 'houdini'
+  },
+  {
+    icon: {name: 'hp'},
+    ids: ['hp', 'hpg', 'hpgl'],
+    name: 'hp'
+  },
+  {
+    icon: {name: 'htaccess'},
+    ids: ['htaccess', 'apacheconf'],
+    name: 'htaccess'
+  },
+  {
+    icon: {name: 'http'},
+    ids: ['http', 'rest', 'httprequest', 'httpie'],
+    name: 'http'
+  },
   {
     icon: {name: 'html'},
     ids: ['html'],
     name: 'html'
   },
-  // { icon: { name: 'idris' }, ids: ['idris'] },
+  {
+    icon: {name: 'hugo'},
+    ids: ['hugo'],
+    name: 'hugo'
+  },
+  {
+    icon: {name: 'hunspell'},
+    ids: ['hunspell', 'hunspell.aff', 'hunspell.dic'],
+    name: 'hunspell'
+  },
+  {
+    icon: {name: 'husky'},
+    ids: ['husky'],
+    name: 'husky'
+  },
+  {
+    icon: {name: 'hy'},
+    ids: ['hy'],
+    name: 'hy'
+  },
+  {
+    icon: {name: 'hygen'},
+    ids: ['hygen'],
+    name: 'hygen'
+  },
+  {
+    icon: {name: 'hypr'},
+    ids: ['hypr'],
+    name: 'hypr'
+  },
+  // endregion
+
+  // region [I]
+  {
+    icon: {name: 'i18n'},
+    ids: ['i18n', 'po', 'pot'],
+    name: 'i18n'
+  },
+  {
+    icon: {name: 'icl'},
+    ids: ['icl'],
+    name: 'icl'
+  },
+  {
+    icon: {name: 'icu'},
+    ids: ['icu', 'nrl'],
+    name: 'icu'
+  },
+  {
+    icon: {name: 'idea'},
+    ids: ['idea', 'icls', 'iml', 'imljson'],
+    name: 'idea'
+  },
+  {
+    icon: {name: 'idris'},
+    ids: ['idris', 'lidris', 'ipkg', 'lidr', 'idris-markdown', 'idris2'],
+    name: 'idris'
+  },
+  {
+    icon: {name: 'idl'},
+    ids: ['idl'],
+    name: 'idl'
+  },
+  {
+    icon: {name: 'igor'},
+    ids: ['igor', 'igorpro', 'ipf'],
+    name: 'igor'
+  },
+  {
+    icon: {name: 'imba'},
+    ids: ['imba', 'imba1', 'imba2'],
+    name: 'imba'
+  },
+  {
+    icon: {name: 'informix'},
+    ids: ['informix', '4gl'],
+    name: 'informix'
+  },
+  {
+    icon: {name: 'inform'},
+    ids: ['inform', 'inform6', 'inform6template', 'inform7', 'i7x', 'inform7extension'],
+    name: 'inform'
+  },
+  {
+    icon: {name: 'ink'},
+    ids: ['ink', 'ink2'],
+    name: 'ink'
+  },
+  {
+    icon: {name: 'inno'},
+    ids: ['inno', 'innosetup', 'iss', 'innopascal'],
+    name: 'inno'
+  },
+  {
+    icon: {name: 'io'},
+    ids: ['io'],
+    name: 'io'
+  },
+  {
+    icon: {name: 'iodine'},
+    ids: ['iodine'],
+    name: 'iodine'
+  },
+  {
+    icon: {name: 'isabelle'},
+    ids: ['isabelle', 'isabelle-ml'],
+    light: true,
+    name: 'isabelle'
+  },
+  // endregion
 
   // region [J]
   {
