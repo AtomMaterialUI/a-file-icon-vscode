@@ -60,7 +60,7 @@
     "eslint-plugin-jsonc": "^2.6.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
-    "eslint-plugin-unicorn": "^45.0.2",
+    "eslint-plugin-unicorn": "^47.0.0",
     "glob": "^8.0.3",
     "i18next": "^22.4.9",
     "mocha": "^10.2.0",
