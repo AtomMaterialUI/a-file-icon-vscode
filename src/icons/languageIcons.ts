@@ -1,6 +1,6 @@
-import {IconPack} from "../@types/config";
+import { IconPack } from '../@types/config';
 
-import type {LanguageAssociation} from 'src/@types/associations';
+import type { LanguageAssociation } from 'src/@types/associations';
 
 /**
  * Defines icons for language ids
@@ -25,172 +25,172 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'babel'},
     ids: ['babel', 'languagebabel'],
-    name: 'babel'
+    name: 'babel',
   },
   {
     icon: {name: 'ballerina'},
     ids: ['ballerina'],
-    name: 'ballerina'
+    name: 'ballerina',
   },
   {
     icon: {name: 'baboon'},
     ids: ['baboon'],
-    name: 'baboon'
+    name: 'baboon',
   },
   {
     icon: {name: 'basic'},
     ids: ['basic', 'smallbasic', 'blitzmax', 'bml', 'bms', 'bmx'],
-    name: 'basic'
+    name: 'basic',
   },
   {
     icon: {name: 'bazel'},
     ids: ['bazel', 'starlark'],
-    name: 'bazel'
+    name: 'bazel',
   },
   {
     icon: {name: 'bazelconfig'},
     ids: ['bazelconfig', 'bazelrc'],
-    name: 'bazelconfig'
+    name: 'bazelconfig',
   },
   {
     icon: {name: 'bc'},
     ids: ['bc'],
-    name: 'bc'
+    name: 'bc',
   },
   {
     icon: {name: 'behat'},
     ids: ['behat'],
-    name: 'behat'
+    name: 'behat',
   },
   {
     icon: {name: 'bem'},
     ids: ['bem', 'bemmet', 'bemy', 'bemhtml', 'bemjson'],
-    name: 'bem'
+    name: 'bem',
   },
   {
     icon: {name: 'bibtex'},
     ids: ['bibtex', 'bibtex-style'],
-    name: 'bibtex'
+    name: 'bibtex',
   },
   {
     icon: {name: 'bicep'},
     ids: ['bicep', 'bicep-params'],
-    name: 'bicep'
+    name: 'bicep',
   },
   {
     icon: {name: 'biml'},
     ids: ['biml'],
-    name: 'biml'
+    name: 'biml',
   },
   {
     icon: {name: 'bison'},
     ids: ['bison', 'lex', 'yacc'],
-    name: 'bison'
+    name: 'bison',
   },
   {
     icon: {name: 'blade'},
     ids: ['blade', 'bladephp'],
-    name: 'blade'
+    name: 'blade',
   },
   {
     icon: {name: 'blitzbasic'},
     ids: ['blitzbasic'],
-    name: 'blitzbasic'
+    name: 'blitzbasic',
   },
   {
     icon: {name: 'bluespec'},
     ids: ['bluespec', 'bsv'],
-    name: 'bluespec'
+    name: 'bluespec',
   },
   {
     icon: {name: 'blink'},
     ids: ['blink', 'blinkscript', 'nuke'],
-    name: 'blink'
+    name: 'blink',
   },
   {
     icon: {name: 'bnf'},
     ids: ['bnf', 'ebnf', 'xbnf', 'lbnf'],
-    name: 'bnf'
+    name: 'bnf',
   },
   {
     icon: {name: 'boo'},
     ids: ['boo'],
-    name: 'boo'
+    name: 'boo',
   },
   {
     icon: {name: 'boot'},
     ids: ['boot'],
-    name: 'boot'
+    name: 'boot',
   },
   {
     icon: {name: 'bunlock'},
     ids: ['bunlock', 'bun.lockb'],
-    name: 'bunlock'
+    name: 'bunlock',
   },
   {
     icon: {name: 'bootstraprc'},
     ids: ['bootstraprc'],
-    name: 'bootstraprc'
+    name: 'bootstraprc',
   },
   {
     icon: {name: 'bosque'},
     ids: ['bosque', 'bsq'],
-    name: 'bosque'
+    name: 'bosque',
   },
   {
     icon: {name: 'bower'},
     ids: ['bower', 'bower_components', 'bowerrc'],
-    name: 'bower'
+    name: 'bower',
   },
   {
     icon: {name: 'brainfuck'},
     ids: ['brainfuck', 'bf', 'bfp'],
-    name: 'brainfuck'
+    name: 'brainfuck',
   },
   {
     icon: {name: 'brewfile'},
     ids: ['brewfile', 'brew'],
-    name: 'brewfile'
+    name: 'brewfile',
   },
   {
     icon: {name: 'bro'},
     ids: ['bro', 'zeek'],
-    name: 'bro'
+    name: 'bro',
   },
   {
     icon: {name: 'browserslist'},
     ids: ['browserslist'],
-    name: 'browserslist'
+    name: 'browserslist',
   },
   {
     icon: {name: 'broccoli'},
     ids: ['broccoli', 'brocfile'],
-    name: 'broccoli'
+    name: 'broccoli',
   },
   {
     icon: {name: 'buck'},
     ids: ['buck'],
-    name: 'buck'
+    name: 'buck',
   },
   {
     icon: {name: 'bucklescript'},
     ids: ['bucklescript'],
-    name: 'bucklescript'
+    name: 'bucklescript',
   },
   {
     icon: {name: 'buildkite'},
     ids: ['buildkite'],
-    name: 'buildkite'
+    name: 'buildkite',
   },
   {
     icon: {name: 'bundle'},
     ids: ['bundle', 'gemfile'],
-    name: 'bundle'
+    name: 'bundle',
   },
   {
     icon: {name: 'byond'},
     ids: ['byond', 'dm'],
-    name: 'byond'
+    name: 'byond',
   },
   // endregion
 
@@ -198,295 +198,295 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'c'},
     ids: ['c', 'objective-c', 'clang'],
-    name: 'c'
+    name: 'c',
   },
   {
     icon: {name: 'cabal'},
     ids: ['cabal'],
-    name: 'cabal'
+    name: 'cabal',
   },
   {
     icon: {name: 'caddy'},
     ids: ['caddy', 'caddyfile'],
-    name: 'caddy'
+    name: 'caddy',
   },
   {
     icon: {name: 'cadence'},
     ids: ['cadence'],
-    name: 'cadence'
+    name: 'cadence',
   },
   {
     icon: {name: 'caffe'},
     ids: ['caffe', 'caffemodel'],
-    name: 'caffe'
+    name: 'caffe',
   },
   {
     icon: {name: 'caffe2'},
     ids: ['caffe2', 'caffe2model', 'prototxt'],
-    name: 'caffe2'
+    name: 'caffe2',
   },
   {
     icon: {name: 'cairo'},
     ids: ['cairo'],
-    name: 'cairo'
+    name: 'cairo',
   },
   {
     icon: {name: 'cakefile'},
     ids: ['cakefile'],
-    name: 'cakefile'
+    name: 'cakefile',
   },
   {
     icon: {name: 'cakephp'},
     ids: ['cakephp', 'cake'],
-    name: 'cakephp'
+    name: 'cakephp',
   },
   {
     icon: {name: 'cakefile'},
     ids: ['cakefile'],
-    name: 'cakefile'
+    name: 'cakefile',
   },
   {
     icon: {name: 'calva'},
     ids: ['calva'],
-    name: 'calva'
+    name: 'calva',
   },
   {
     icon: {name: 'cap'},
     ids: ['cap'],
-    name: 'cap'
+    name: 'cap',
   },
   {
     icon: {name: 'carbon'},
     ids: ['carbon'],
-    name: 'carbon'
+    name: 'carbon',
   },
   {
     icon: {name: 'casc'},
     ids: ['casc'],
-    name: 'casc'
+    name: 'casc',
   },
   {
     icon: {name: 'cddl'},
     ids: ['cddl'],
-    name: 'cddl'
+    name: 'cddl',
   },
   {
     icon: {name: 'ceylon'},
     ids: ['ceylon'],
-    name: 'ceylon'
+    name: 'ceylon',
   },
   {
     icon: {name: 'cfc'},
     ids: ['cfc'],
-    name: 'cfc'
+    name: 'cfc',
   },
   {
     icon: {name: 'chapel'},
     ids: ['chapel'],
-    name: 'chapel'
+    name: 'chapel',
   },
   {
     icon: {name: 'cheetah'},
     ids: ['cheetah'],
-    name: 'cheetah'
+    name: 'cheetah',
   },
   {
     icon: {name: 'chef'},
     ids: ['chef', 'chef_metadata', 'chef_inspec', 'chef_recipe_yaml'],
-    name: 'chef'
+    name: 'chef',
   },
   {
     icon: {name: 'berksfile'},
     ids: ['berksfile', 'chef_berkshelf'],
-    name: 'berksfile'
+    name: 'berksfile',
   },
   {
     icon: {name: 'chuck'},
     ids: ['chuck'],
-    name: 'chuck'
+    name: 'chuck',
   },
   {
     icon: {name: 'clarion'},
     ids: ['clarion'],
-    name: 'clarion'
+    name: 'clarion',
   },
   {
     icon: {name: 'click'},
     ids: ['click'],
-    name: 'click'
+    name: 'click',
   },
   {
     icon: {name: 'clean'},
     ids: ['clean'],
-    name: 'clean'
+    name: 'clean',
   },
   {
     icon: {name: 'clio'},
     ids: ['clio'],
-    name: 'clio'
+    name: 'clio',
   },
   {
     icon: {name: 'clips'},
     ids: ['clips'],
-    name: 'clips'
+    name: 'clips',
   },
   {
     icon: {name: 'clojure'},
     ids: ['clojure'],
-    name: 'clojure'
+    name: 'clojure',
   },
   {
     icon: {name: 'closuretpl'},
     ids: ['closuretpl', 'soy'],
-    name: 'closuretpl'
+    name: 'closuretpl',
   },
   {
     icon: {name: 'cmake'},
     ids: ['cmake', 'cmake-cache'],
-    name: 'cmake'
+    name: 'cmake',
   },
   {
     icon: {name: 'cml'},
     ids: ['cml'],
-    name: 'cml'
+    name: 'cml',
   },
   {
     icon: {name: 'cobol'},
     ids: ['cobol', 'jcl', 'pli', 'cblproj', 'mfu'],
-    name: 'cobol'
+    name: 'cobol',
   },
   {
     icon: {name: 'coconut'},
     ids: ['coconut', 'coco'],
-    name: 'coconut'
+    name: 'coconut',
   },
   {
     icon: {name: 'codeowners'},
     ids: ['codeowners'],
-    name: 'codeowners'
+    name: 'codeowners',
   },
   {
     icon: {name: 'codeql'},
     ids: ['codeql', 'ql', 'ql-summary'],
-    name: 'codeql'
+    name: 'codeql',
   },
   {
     icon: {name: 'coffeescript'},
     ids: ['coffee', 'coffeescript', 'iced', 'litcoffee'],
-    name: 'coffeescript'
+    name: 'coffeescript',
   },
   {
     icon: {name: 'cf'},
     ids: ['cf', 'coldfusion', 'lang-cfml'],
-    name: 'cf'
+    name: 'cf',
   },
   {
     icon: {name: 'conan'},
     ids: ['conan', 'conanfile'],
-    name: 'conan'
+    name: 'conan',
   },
   {
     icon: {name: 'conll'},
     ids: ['conll', 'conllu'],
-    name: 'conll'
+    name: 'conll',
   },
   {
     icon: {name: 'coq'},
     ids: ['coq'],
-    name: 'coq'
+    name: 'coq',
   },
   {
     icon: {name: 'cp'},
     ids: ['cp'],
-    name: 'cp'
+    name: 'cp',
   },
   {
     icon: {name: 'cpp'},
     ids: ['cpp'],
-    name: 'cpp'
+    name: 'cpp',
   },
   {
     icon: {name: 'cpan'},
     ids: ['cpan', 'cpanfile'],
-    name: 'cpan'
+    name: 'cpan',
   },
   {
     icon: {name: 'cpcdocs'},
     ids: ['cpcdocs', 'cpc'],
-    name: 'cpcdocs'
+    name: 'cpcdocs',
   },
   {
     icon: {name: 'creole'},
     ids: ['creole'],
-    name: 'creole'
+    name: 'creole',
   },
   {
     icon: {name: 'crystal'},
     ids: ['crystal', 'cr', 'ecr', 'slang'],
-    name: 'crystal'
+    name: 'crystal',
   },
   {
     icon: {name: 'csharp'},
     ids: ['csharp'],
-    name: 'csharp'
+    name: 'csharp',
   },
   {
     icon: {name: 'csound'},
     ids: ['csound', 'csound-orc', 'csound-sco', 'csound-csd'],
     light: true,
-    name: 'csound'
+    name: 'csound',
   },
   {
     icon: {name: 'css'},
     ids: ['css', 'tss'],
-    name: 'css'
+    name: 'css',
   },
   {
     icon: {name: 'csv'},
     ids: ['csv', 'tsv'],
-    name: 'csv'
+    name: 'csv',
   },
   {
     icon: {name: 'cucumber'},
     ids: ['cucumber', 'feature'],
-    name: 'cucumber'
+    name: 'cucumber',
   },
   {
     icon: {name: 'nvidia'},
     ids: ['nvidia', 'cu', 'cuda-cpp', 'cuda'],
-    name: 'nvidia'
+    name: 'nvidia',
   },
   {
     icon: {name: 'csharp'},
     ids: ['csharp'],
-    name: 'csharp'
+    name: 'csharp',
   },
   {
     icon: {name: 'cue'},
     ids: ['cue'],
-    name: 'cue'
+    name: 'cue',
   },
   {
     icon: {name: 'curry'},
     ids: ['curry', 'icurry'],
-    name: 'curry'
+    name: 'curry',
   },
   {
     icon: {name: 'cwl'},
     ids: ['cwl'],
-    name: 'cwl'
+    name: 'cwl',
   },
   {
     icon: {name: 'cython'},
     ids: ['cython'],
-    name: 'cython'
+    name: 'cython',
   },
   // endregion
 
   {
     icon: {name: 'dart'},
     ids: ['dart'],
-    name: 'dart'
+    name: 'dart',
   },
   // { icon: { name: 'dhall' }, ids: ['dhall'] },
   // { icon: { name: 'diff' }, ids: ['diff'] },
@@ -494,12 +494,12 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'dlang'},
     ids: ['d', 'dlang'],
-    name: 'dlang'
+    name: 'dlang',
   },
   {
     icon: {name: 'db'},
     ids: ['db', 'termcap', 'terminfo'],
-    name: 'db'
+    name: 'db',
   },
   // { icon: { name: 'docker' }, ids: ['dockerfile'] },
   // { icon: { name: 'document' }, ids: ['plaintext'] },
@@ -509,172 +509,350 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'font'},
     ids: ['dfont', 'eot', 'otf', 'pfa', 'pfb', 'pfm', 'tfm', 'ttc', 'ttf', 'woff', 'woff2'],
-    name: 'font'
+    name: 'font',
   },
   {
     icon: {name: 'franca'},
     ids: ['franca'],
-    name: 'franca'
+    name: 'franca',
   },
   // { icon: { name: 'erlang' }, ids: ['erlang'] },
   // { icon: { name: 'fsharp' }, ids: ['fsharp'] },
-  // { icon: { name: 'gemini' }, ids: ['gemini', 'text-gemini'] },
+
+  // region [G]
+  {
+    icon: {name: 'galaxy'},
+    ids: ['galaxytool', 'galaxy'],
+    name: 'galaxy',
+  },
+  {
+    icon: {name: 'galen'},
+    ids: ['galen'],
+    name: 'galen',
+  },
+  {
+    icon: {name: 'gamemaker'},
+    ids: [
+      'gml',
+      'gml-gm81',
+      'gml-gms',
+      'gml-gms2',
+      'gmx-background',
+      'gmx-config',
+      'gmx-extension',
+      'gmx-font',
+      'gmx-object',
+      'gmx-options',
+      'gmx-path',
+      'gmx-project',
+      'gmx-room',
+      'gmx-shader',
+      'gmx-sound',
+      'gmx-sprite',
+      'gmx-timeline',
+      'yy',
+      'yy-config',
+      'yy-project',
+      'yyp',
+    ],
+    name: 'gamemaker',
+  },
+  {
+    icon: {name: 'gams'},
+    ids: ['gams'],
+    name: 'gams',
+  },
+  {
+    icon: {name: 'gap'},
+    ids: ['gap'],
+    name: 'gap',
+  },
+  {
+    icon: {name: 'gauge'},
+    ids: ['gauge'],
+    light: true,
+    name: 'gauge',
+  },
+  {
+    icon: {name: 'gcode'},
+    ids: ['gcode'],
+    name: 'gcode',
+  },
+  {
+    icon: {name: 'gemfile'},
+    ids: ['gemfile'],
+    name: 'gemfile',
+  },
+  {
+    icon: {name: 'gemini'},
+    ids: ['gemini'],
+    name: 'gemini',
+  },
+  {
+    icon: {name: 'genshi'},
+    ids: ['genshi', 'kid'],
+    name: 'genshi',
+  },
+  {
+    icon: {name: 'genstat'},
+    ids: ['genstat', 'genstat.output'],
+    name: 'genstat',
+  },
+  {
+    icon: {name: 'ghostscript'},
+    ids: ['ghostscript', 'postscript'],
+    name: 'ghostscript',
+  },
   {
     icon: {name: 'git'},
-    ids: ['git', 'gitattributes', 'git-commit', 'git-rebase'],
-    name: 'git'
+    ids: ['git', 'gitattributes'],
+    name: 'git',
   },
   {
     icon: {name: 'gitignore'},
-    ids: ['gitignore'],
-    name: 'gitignore'
+    ids: ['gitignore', 'ignore'],
+    name: 'gitignore',
+  },
+  {
+    icon: {name: 'gleam'},
+    ids: ['gleam'],
+    name: 'gleam',
+  },
+  {
+    icon: {name: 'glyphs'},
+    ids: ['glyphs'],
+    name: 'glyphs',
+  },
+  {
+    icon: {name: 'gn'},
+    ids: ['gn'],
+    name: 'gn',
+  },
+  {
+    icon: {name: 'gnuplot'},
+    ids: ['gnuplot'],
+    name: 'gnuplot',
+  },
+  {
+    icon: {name: 'goconfig'},
+    ids: ['goconfig', 'go.mod', 'go.work', 'go.sum'],
+    name: 'goconfig',
+  },
+  {
+    icon: {name: 'goTemplate'},
+    ids: ['gotemplate', 'gotmpl', 'gohtml', 'go-template'],
+    name: 'goTemplate',
+  },
+  {
+    icon: {name: 'godot'},
+    ids: [
+      'godot',
+      'gd',
+      'gdscript',
+      'gdresource',
+      'gdshader',
+      'godot-shader',
+      'godot-project',
+      'godot-resource',
+      'godot-scheme',
+      'godot-scene',
+      'godot-asset',
+    ],
+    name: 'godot',
+  },
+  {
+    icon: {name: 'gosu'},
+    ids: ['gosu'],
+    name: 'gosu'
+  },
+  {
+    icon: {name: 'goctl'},
+    ids: ['goctl'],
+    name: 'goctl'
   },
   {
     icon: {name: 'go'},
-    ids: ['go', 'go-template'],
-    name: 'go'
+    ids: ['go'],
+    name: 'go',
   },
-  // { icon: { name: 'go_gopher' }, ids: [] },
-  // { icon: { name: 'godot' }, ids: ['gdscript'] },
-  // { icon: { name: 'grain' }, ids: ['grain'] },
-  // { icon: { name: 'graphql' }, ids: ['graphql'] },
-  // { icon: { name: 'groovy' }, ids: ['groovy'] },
+  {
+    icon: {name: 'gradle'},
+    ids: ['gradle'],
+    name: 'gradle',
+  },
+  {
+    icon: {name: 'grain'},
+    ids: ['grain', 'grain-type'],
+    name: 'grain',
+  },
+  {
+    icon: {name: 'gf'},
+    ids: ['gf'],
+    name: 'gf',
+  },
+  {
+    icon: {name: 'graphql'},
+    ids: ['graphql', 'gql'],
+    name: 'graphql',
+  },
+  {
+    icon: {name: 'graphviz'},
+    ids: ['graphviz', 'dot'],
+    name: 'graphviz',
+  },
+  {
+    icon: {name: 'groovy'},
+    ids: ['groovy', 'gsp'],
+    name: 'groovy',
+  },
+  {
+    icon: {name: 'grunt'},
+    ids: ['grunt', 'gruntfile'],
+    name: 'grunt',
+  },
+  {
+    icon: {name: 'gulp'},
+    ids: ['gulp', 'gulpfile'],
+    name: 'gulp',
+  },
+
+  // endregion
 
   // region [H]
   {
     icon: {name: 'hh'},
     ids: ['hh', 'h'],
-    name: 'hh'
+    name: 'hh',
   },
   {
     icon: {name: 'hack'},
     ids: ['hack'],
-    name: 'hack'
+    name: 'hack',
   },
   {
     icon: {name: 'haml'},
     ids: ['haml'],
-    name: 'haml'
+    name: 'haml',
   },
   {
     icon: {name: 'handlebars'},
     ids: ['handlebars', 'mustache'],
-    name: 'handlebars'
+    name: 'handlebars',
   },
   {
     icon: {name: 'harbour'},
     ids: ['harbour'],
-    name: 'harbour'
+    name: 'harbour',
   },
   {
     icon: {name: 'hcl'},
     ids: ['hcl'],
-    name: 'hcl'
+    name: 'hcl',
   },
   {
     icon: {name: 'haskell'},
     ids: ['haskell', 'literate haskell', 'c2hs', 'hsc2hs'],
-    name: 'haskell'
+    name: 'haskell',
   },
   {
     icon: {name: 'haxe'},
     ids: ['haxe', 'hxml', 'haxe ast dump', 'haxe.type', 'haxe.argument'],
-    name: 'haxe'
+    name: 'haxe',
   },
   {
     icon: {name: 'helm'},
     ids: ['helm', 'helmfile'],
-    name: 'helm'
+    name: 'helm',
   },
   {
     icon: {name: 'heroku'},
     ids: ['heroku', 'procfile'],
-    name: 'heroku'
+    name: 'heroku',
   },
   {
     icon: {name: 'hex'},
     ids: ['hex'],
-    name: 'hex'
+    name: 'hex',
   },
   {
     icon: {name: 'hjson'},
     ids: ['hjson'],
-    name: 'hjson'
+    name: 'hjson',
   },
   {
     icon: {name: 'hlsl'},
     ids: ['hlsl'],
-    name: 'hlsl'
+    name: 'hlsl',
   },
   {
     icon: {name: 'hc'},
     ids: ['hc'],
-    name: 'hc'
+    name: 'hc',
   },
   {
     icon: {name: 'homeassistant'},
     ids: ['homeassistant', 'home-assistant', 'home-assistant-jinja'],
-    name: 'homeassistant'
+    name: 'homeassistant',
   },
   {
     icon: {name: 'hoplon'},
     ids: ['hoplon'],
-    name: 'hoplon'
+    name: 'hoplon',
   },
   {
     icon: {name: 'houdini'},
     ids: ['houdini', 'vfl', 'vex'],
-    name: 'houdini'
+    name: 'houdini',
   },
   {
     icon: {name: 'hp'},
     ids: ['hp', 'hpg', 'hpgl'],
-    name: 'hp'
+    name: 'hp',
   },
   {
     icon: {name: 'htaccess'},
     ids: ['htaccess', 'apacheconf'],
-    name: 'htaccess'
+    name: 'htaccess',
   },
   {
     icon: {name: 'http'},
     ids: ['http', 'rest', 'httprequest', 'httpie'],
-    name: 'http'
+    name: 'http',
   },
   {
     icon: {name: 'html'},
     ids: ['html'],
-    name: 'html'
+    name: 'html',
   },
   {
     icon: {name: 'hugo'},
     ids: ['hugo'],
-    name: 'hugo'
+    name: 'hugo',
   },
   {
     icon: {name: 'hunspell'},
     ids: ['hunspell', 'hunspell.aff', 'hunspell.dic'],
-    name: 'hunspell'
+    name: 'hunspell',
   },
   {
     icon: {name: 'husky'},
     ids: ['husky'],
-    name: 'husky'
+    name: 'husky',
   },
   {
     icon: {name: 'hy'},
     ids: ['hy'],
-    name: 'hy'
+    name: 'hy',
   },
   {
     icon: {name: 'hygen'},
     ids: ['hygen'],
-    name: 'hygen'
+    name: 'hygen',
   },
   {
     icon: {name: 'hypr'},
     ids: ['hypr'],
-    name: 'hypr'
+    name: 'hypr',
   },
   // endregion
 
@@ -682,78 +860,78 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'i18n'},
     ids: ['i18n', 'po', 'pot'],
-    name: 'i18n'
+    name: 'i18n',
   },
   {
     icon: {name: 'icl'},
     ids: ['icl'],
-    name: 'icl'
+    name: 'icl',
   },
   {
     icon: {name: 'icu'},
     ids: ['icu', 'nrl'],
-    name: 'icu'
+    name: 'icu',
   },
   {
     icon: {name: 'idea'},
     ids: ['idea', 'icls', 'iml', 'imljson'],
-    name: 'idea'
+    name: 'idea',
   },
   {
     icon: {name: 'idris'},
     ids: ['idris', 'lidris', 'ipkg', 'lidr', 'idris-markdown', 'idris2'],
-    name: 'idris'
+    name: 'idris',
   },
   {
     icon: {name: 'idl'},
     ids: ['idl'],
-    name: 'idl'
+    name: 'idl',
   },
   {
     icon: {name: 'igor'},
     ids: ['igor', 'igorpro', 'ipf'],
-    name: 'igor'
+    name: 'igor',
   },
   {
     icon: {name: 'imba'},
     ids: ['imba', 'imba1', 'imba2'],
-    name: 'imba'
+    name: 'imba',
   },
   {
     icon: {name: 'informix'},
     ids: ['informix', '4gl'],
-    name: 'informix'
+    name: 'informix',
   },
   {
     icon: {name: 'inform'},
     ids: ['inform', 'inform6', 'inform6template', 'inform7', 'i7x', 'inform7extension'],
-    name: 'inform'
+    name: 'inform',
   },
   {
     icon: {name: 'ink'},
     ids: ['ink', 'ink2'],
-    name: 'ink'
+    name: 'ink',
   },
   {
     icon: {name: 'inno'},
     ids: ['inno', 'innosetup', 'iss', 'innopascal'],
-    name: 'inno'
+    name: 'inno',
   },
   {
     icon: {name: 'io'},
     ids: ['io'],
-    name: 'io'
+    name: 'io',
   },
   {
     icon: {name: 'iodine'},
     ids: ['iodine'],
-    name: 'iodine'
+    name: 'iodine',
   },
   {
     icon: {name: 'isabelle'},
     ids: ['isabelle', 'isabelle-ml'],
     light: true,
-    name: 'isabelle'
+    name: 'isabelle',
   },
   // endregion
 
@@ -761,52 +939,52 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'j'},
     ids: ['j'],
-    name: 'j'
+    name: 'j',
   },
   {
     icon: {name: 'jade'},
     ids: ['jade', 'pug'],
-    name: 'pug'
+    name: 'pug',
   },
   {
     icon: {name: 'jake'},
     ids: ['jake'],
-    name: 'jake'
+    name: 'jake',
   },
   {
     icon: {name: 'jakefile'},
     ids: ['jakefile'],
-    name: 'jakefile'
+    name: 'jakefile',
   },
   {
     icon: {name: 'janet'},
     ids: ['janet'],
-    name: 'janet'
+    name: 'janet',
   },
   {
     icon: {name: 'java'},
     ids: ['java'],
-    name: 'java'
+    name: 'java',
   },
   {
     icon: {name: 'jekyll'},
     ids: ['jekyll'],
-    name: 'jekyll'
+    name: 'jekyll',
   },
   {
     icon: {name: 'jellycut'},
     ids: ['jellycut', 'jelly'],
-    name: 'jellycut'
+    name: 'jellycut',
   },
   {
     icon: {name: 'jenkins'},
     ids: ['jenkins'],
-    name: 'jenkins'
+    name: 'jenkins',
   },
   {
     icon: {name: 'jfd'},
     ids: ['jfd', 'jformdesigner'],
-    name: 'jfd'
+    name: 'jfd',
   },
   {
     icon: {name: 'jinja'},
@@ -866,97 +1044,97 @@ export const languageIcons: LanguageAssociation[] = [
       'jinja',
       'jinja2',
     ],
-    name: 'jinja'
+    name: 'jinja',
   },
   {
     icon: {name: 'jison'},
     ids: ['jison', 'jisonlex'],
-    name: 'jison'
+    name: 'jison',
   },
   {
     icon: {name: 'jolie'},
     ids: ['jolie'],
-    name: 'jolie'
+    name: 'jolie',
   },
   {
     icon: {name: 'joomla'},
     ids: ['joomla', 'tpl'],
-    name: 'joomla'
+    name: 'joomla',
   },
   {
     icon: {name: 'jquery'},
     ids: ['jquery', 'jq'],
-    name: 'jquery'
+    name: 'jquery',
   },
   {
     icon: {name: 'js'},
     ids: ['js', 'cjs', 'javascript', 'mjs', 'ecmascript', 'es6'],
-    name: 'js'
+    name: 'js',
   },
   {
     icon: {name: 'jsconfig'},
     ids: ['jsconfig'],
-    name: 'jsconfig'
+    name: 'jsconfig',
   },
   {
     icon: {name: 'jscpd'},
     ids: ['jscpd'],
-    name: 'jscpd'
+    name: 'jscpd',
   },
   {
     icon: {name: 'jsx'},
     ids: ['jsx', 'javascriptreact', 'typescriptreact'],
-    name: 'jsx'
+    name: 'jsx',
   },
   {
     icon: {name: 'json'},
     ids: ['cson', 'json', 'jsonc', 'ndjson', 'rdjson'],
-    name: 'json'
+    name: 'json',
   },
   {
     icon: {name: 'json5'},
     ids: ['json5'],
-    name: 'json5'
+    name: 'json5',
   },
   {
     icon: {name: 'jsonld'},
     ids: ['jsonld'],
-    name: 'jsonld'
+    name: 'jsonld',
   },
   {
     icon: {name: 'jsonnet'},
     ids: ['jsonnet'],
-    name: 'jsonnet'
+    name: 'jsonnet',
   },
   {
     icon: {name: 'jsp'},
     ids: ['jsp'],
-    name: 'jsp'
+    name: 'jsp',
   },
   {
     icon: {name: 'jss'},
     ids: ['jss'],
-    name: 'jss'
+    name: 'jss',
   },
   {
     icon: {name: 'julia'},
     ids: ['julia', 'juliamarkdown'],
-    name: 'julia'
+    name: 'julia',
   },
   {
     icon: {name: 'jupyter'},
     ids: ['jupyter'],
-    name: 'jupyter'
+    name: 'jupyter',
   },
   {
     icon: {name: 'junos'},
     ids: ['junos'],
-    name: 'junos'
+    name: 'junos',
   },
   {
     icon: {name: 'jwt'},
     ids: ['jwt'],
-    name: 'jwt'
+    name: 'jwt',
   },
   // endregion
 
@@ -964,75 +1142,75 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'kaitai'},
     ids: ['kaitai'],
-    name: 'kaitai'
+    name: 'kaitai',
   },
   {
     icon: {name: 'kerboscript'},
     ids: ['kerboscript', 'kos'],
-    name: 'kerboscript'
+    name: 'kerboscript',
   },
   {
     icon: {name: 'kibo'},
     ids: ['kibo'],
-    name: 'kibo'
+    name: 'kibo',
   },
   {
     icon: {name: 'kicad'},
     ids: ['kicad'],
-    name: 'kicad'
+    name: 'kicad',
   },
   {
     icon: {name: 'kivy'},
     ids: ['kivy', 'kv'],
-    name: 'kivy'
+    name: 'kivy',
   },
   {
     icon: {name: 'kml'},
     ids: ['kml', 'gml', 'fgb', 'gpx'],
-    name: 'kml'
+    name: 'kml',
   },
   {
     icon: {name: 'kl'},
     ids: ['kl'],
-    name: 'kl'
+    name: 'kl',
   },
   {
     icon: {name: 'knime'},
     ids: ['knime'],
-    name: 'knime'
+    name: 'knime',
   },
   {
     icon: {name: 'koka'},
     ids: ['koka', 'kokadoc'],
     light: true,
-    name: 'koka'
+    name: 'koka',
   },
   {
     icon: {name: 'kotlin'},
     ids: ['kotlin'],
-    name: 'kotlin'
+    name: 'kotlin',
   },
   {
     icon: {name: 'kotlinscript'},
     ids: ['kotlinscript'],
-    name: 'kotlinscript'
+    name: 'kotlinscript',
   },
   {
     icon: {name: 'kubernetes'},
     ids: ['kubernetes'],
-    name: 'kubernetes'
+    name: 'kubernetes',
   },
   {
     icon: {name: 'kusto'},
     ids: ['kusto'],
-    name: 'kusto'
+    name: 'kusto',
   },
   // endregion
 
   {
     icon: {name: 'less'},
     ids: ['less'],
-    name: 'less'
+    name: 'less',
   },
   // { icon: { name: 'lib' }, ids: ['bibtex', 'bibtex-style'] },
   // { icon: { name: 'livescript' }, ids: ['livescript'] },
@@ -1042,12 +1220,12 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'lua'},
     ids: ['lua'],
-    name: 'lua'
+    name: 'lua',
   },
   {
     icon: {name: 'markdown'},
     ids: ['markdown', 'pmd'],
-    name: 'markdown'
+    name: 'markdown',
   },
   // { icon: { name: 'matlab' }, ids: ['matlab'] },
   // { icon: { name: 'minecraft' }, ids: ['mcfunction'] },
@@ -1057,168 +1235,168 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'nano'},
     ids: ['nano'],
-    name: 'nano'
+    name: 'nano',
   },
   {
     icon: {name: 'nasm'},
     ids: ['nasm'],
-    name: 'nasm'
+    name: 'nasm',
   },
   {
     icon: {name: 'nearley'},
     ids: ['nearley'],
-    name: 'nearley'
+    name: 'nearley',
   },
   {
     icon: {name: 'neko'},
     ids: ['neko', 'nekoscript'],
-    name: 'neko'
+    name: 'neko',
   },
   {
     icon: {name: 'neo4j'},
     ids: ['neo4j', 'cypher'],
-    name: 'neo4j'
+    name: 'neo4j',
   },
   {
     icon: {name: 'neon'},
     ids: ['neon'],
     light: true,
-    name: 'neon'
+    name: 'neon',
   },
   {
     icon: {name: 'netlify'},
     ids: ['netlify'],
-    name: 'netlify'
+    name: 'netlify',
   },
   {
     icon: {name: 'netlify_headers'},
     ids: ['netlify_headers', 'netlifyheaders'],
-    name: 'netlify_headers'
+    name: 'netlify_headers',
   },
   {
     icon: {name: 'netlify_redirects'},
     ids: ['netlify_redirects', 'netlifyredirects'],
-    name: 'netlify_redirects'
+    name: 'netlify_redirects',
   },
   {
     icon: {name: 'netlinx'},
     ids: ['netlinx', 'netlinx-source', 'netlinx-library'],
-    name: 'netlinx'
+    name: 'netlinx',
   },
   {
     icon: {name: 'netlogo'},
     ids: ['netlogo'],
-    name: 'netlogo'
+    name: 'netlogo',
   },
   {
     icon: {name: 'nextflow'},
     ids: ['nextflow'],
-    name: 'nextflow'
+    name: 'nextflow',
   },
   {
     icon: {name: 'nginx'},
     ids: ['nginx'],
-    name: 'nginx'
+    name: 'nginx',
   },
   {
     icon: {name: 'nib'},
     ids: ['nib'],
-    name: 'nib'
+    name: 'nib',
   },
   {
     icon: {name: 'nickle'},
     ids: ['nickle'],
-    name: 'nickle'
+    name: 'nickle',
   },
   {
     icon: {name: 'nimble'},
     ids: ['nimble'],
-    name: 'nimble'
+    name: 'nimble',
   },
   {
     icon: {name: 'nimrod'},
     ids: ['nimrod', 'nim'],
-    name: 'nimrod'
+    name: 'nimrod',
   },
   {
     icon: {name: 'nit'},
     ids: ['nit'],
-    name: 'nit'
+    name: 'nit',
   },
   {
     icon: {name: 'shuriken'},
     ids: ['shuriken', 'ninja'],
-    name: 'shuriken'
+    name: 'shuriken',
   },
   {
     icon: {name: 'nix'},
     ids: ['nix'],
-    name: 'nix'
+    name: 'nix',
   },
   {
     icon: {name: 'nmap'},
     ids: ['nmap'],
-    name: 'nmap'
+    name: 'nmap',
   },
   {
     icon: {name: 'noc'},
     ids: ['noc'],
-    name: 'noc'
+    name: 'noc',
   },
   {
     icon: {name: 'nomad'},
     ids: ['nomad'],
-    name: 'nomad'
+    name: 'nomad',
   },
   {
     icon: {name: 'noon'},
     ids: ['noon'],
-    name: 'noon'
+    name: 'noon',
   },
   {
     icon: {name: 'note'},
     ids: ['note'],
-    name: 'note'
+    name: 'note',
   },
   {
     icon: {name: 'now'},
     ids: ['now'],
-    name: 'now'
+    name: 'now',
   },
   {
     icon: {name: 'npm'},
     ids: ['npm', 'npmrc'],
-    name: 'npm'
+    name: 'npm',
   },
   {
     icon: {name: 'nsis'},
     ids: ['nsis', 'nlf'],
-    name: 'nsis'
+    name: 'nsis',
   },
   {
     icon: {name: 'nunjucks'},
     ids: ['nunjucks'],
-    name: 'nunjucks'
+    name: 'nunjucks',
   },
   {
     icon: {name: 'numpy'},
     ids: ['numpy'],
-    name: 'numpy'
+    name: 'numpy',
   },
   {
     icon: {name: 'nuxt'},
     ids: ['nuxt'],
-    name: 'nuxt'
+    name: 'nuxt',
   },
   {
     icon: {name: 'nwscript'},
     ids: ['nwscript'],
-    name: 'nwscript'
+    name: 'nwscript',
   },
   {
     icon: {name: 'nxc'},
     ids: ['nxc'],
-    name: 'nxc'
+    name: 'nxc',
   },
   // endregion
 
@@ -1229,12 +1407,12 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'perl'},
     ids: ['perl', 'perl6'],
-    name: 'perl'
+    name: 'perl',
   },
   {
     icon: {name: 'php'},
     ids: ['php'],
-    name: 'php'
+    name: 'php',
   },
   // { icon: { name: 'php_elephant' }, ids: [] },
   // { icon: { name: 'php_elephant_pink' }, ids: [] },
@@ -1251,184 +1429,184 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'python'},
     ids: ['python'],
-    name: 'python'
+    name: 'python',
   },
   // { icon: { name: 'python-misc' }, ids: ['pip-requirements'] },
   // region [R]
   {
     icon: {name: 'r'},
     ids: ['r', 'rsweave', 'rd', 'debian-control.r', 'namespace.r'],
-    name: 'r'
+    name: 'r',
   },
   {
     icon: {name: 'rmd'},
     ids: ['rmd', 'rmarkdown'],
-    name: 'rmd'
+    name: 'rmd',
   },
   {
     icon: {name: 'racket'},
     ids: ['racket'],
-    name: 'racket'
+    name: 'racket',
   },
   {
     icon: {name: 'raml'},
     ids: ['raml'],
-    name: 'raml'
+    name: 'raml',
   },
   {
     icon: {name: 'rails'},
     ids: ['rails'],
-    name: 'rails'
+    name: 'rails',
   },
   {
     icon: {name: 'rake'},
     ids: ['rake', 'rakefile'],
-    name: 'rake'
+    name: 'rake',
   },
   {
     icon: {name: 'razor'},
     ids: ['razor', 'aspnetcorerazor'],
-    name: 'razor'
+    name: 'razor',
   },
   {
     icon: {name: 'rascal'},
     ids: ['rascal', 'rascalmpl', 'parametric-rascalmpl'],
-    name: 'rascal'
+    name: 'rascal',
   },
   {
     icon: {name: 'rbs'},
     ids: ['rbs'],
-    name: 'rbs'
+    name: 'rbs',
   },
   {
     icon: {name: 'readthedocs'},
     ids: ['readthedocs'],
-    name: 'readthedocs'
+    name: 'readthedocs',
   },
   {
     icon: {name: 'replit'},
     ids: ['replit'],
-    name: 'replit'
+    name: 'replit',
   },
   {
     icon: {name: 'restql'},
     ids: ['restql'],
-    name: 'restql'
+    name: 'restql',
   },
   {
     icon: {name: 'reason'},
     ids: ['reason', 'reason-lisp'],
-    name: 'reason'
+    name: 'reason',
   },
   {
     icon: {name: 'rebol'},
     ids: ['rebol'],
-    name: 'rebol'
+    name: 'rebol',
   },
   {
     icon: {name: 'red'},
     ids: ['red', 'reds'],
-    name: 'red'
+    name: 'red',
   },
   {
     icon: {name: 'redis'},
     ids: ['redis'],
-    name: 'redis'
+    name: 'redis',
   },
   {
     icon: {name: 'reek'},
     ids: ['reek'],
-    name: 'reek'
+    name: 'reek',
   },
   {
     icon: {name: 'regex'},
     ids: ['regex', 'regexp'],
-    name: 'regex'
+    name: 'regex',
   },
   {
     icon: {name: 'rehype'},
     ids: ['rehype'],
-    name: 'rehype'
+    name: 'rehype',
   },
   {
     icon: {name: 'remark'},
     ids: ['remark'],
-    name: 'remark'
+    name: 'remark',
   },
   {
     icon: {name: 'rescript'},
     ids: ['rescript'],
-    name: 'rescript'
+    name: 'rescript',
   },
   {
     icon: {name: 'rst'},
     ids: ['rst', 'restructuredtext'],
-    name: 'rst'
+    name: 'rst',
   },
   {
     icon: {name: 'rexx'},
     ids: ['rexx'],
-    name: 'rexx'
+    name: 'rexx',
   },
   {
     icon: {name: 'rhino3d'},
     ids: ['rhino3d', 'rhino', 'rhinolog'],
-    name: 'rhino3d'
+    name: 'rhino3d',
   },
   {
     icon: {name: 'ring'},
     ids: ['ring'],
-    name: 'ring'
+    name: 'ring',
   },
   {
     icon: {name: 'riot'},
     ids: ['riot', 'jadetag', 'htmltag'],
-    name: 'riot'
+    name: 'riot',
   },
   {
     icon: {name: 'robot'},
     ids: ['robot', 'robotframework'],
-    name: 'robot'
+    name: 'robot',
   },
   {
     icon: {name: 'rome'},
     ids: ['rome', 'rome_syntax_tree'],
-    name: 'rome'
+    name: 'rome',
   },
   {
     icon: {name: 'ron'},
     ids: ['ron'],
-    name: 'ron'
+    name: 'ron',
   },
   {
     icon: {name: 'rspec'},
     ids: ['rspec'],
-    name: 'rspec'
+    name: 'rspec',
   },
   {
     icon: {name: 'rss'},
     ids: ['rss'],
-    name: 'rss'
+    name: 'rss',
   },
   {
     icon: {name: 'rubocop'},
     ids: ['rubocop'],
-    name: 'rubocop'
+    name: 'rubocop',
   },
   {
     icon: {name: 'ruby'},
     ids: ['rabl', 'ruby', 'rb'],
-    name: 'ruby'
+    name: 'ruby',
   },
   {
     icon: {name: 'rubygems'},
     ids: ['rubygems', 'gem', 'gemspec'],
-    name: 'rubygems'
+    name: 'rubygems',
   },
   {
     icon: {name: 'rust'},
     ids: ['rust', 'ra_syntax_tree'],
-    name: 'rust'
+    name: 'rust',
   },
   // endregion
 
@@ -1436,352 +1614,352 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'sac'},
     ids: ['sac'],
-    name: 'sac'
+    name: 'sac',
   },
   {
     icon: {name: 'sage'},
     ids: ['sage'],
-    name: 'sage'
+    name: 'sage',
   },
   {
     icon: {name: 'saltstack'},
     ids: ['saltstack', 'sls', 'tst'],
-    name: 'saltstack'
+    name: 'saltstack',
   },
   {
     icon: {name: 'san'},
     ids: ['san', 'san-directives', 'san-interpolations', 'san-html', 'san-postcss'],
-    name: 'san'
+    name: 'san',
   },
   {
     icon: {name: 'sandbox'},
     ids: ['sandbox'],
-    name: 'sandbox'
+    name: 'sandbox',
   },
   {
     icon: {name: 'sas'},
     ids: ['sas', 'sas-log'],
-    name: 'sas'
+    name: 'sas',
   },
   {
     icon: {name: 'sass'},
     ids: ['sass'],
-    name: 'sass'
+    name: 'sass',
   },
   {
     icon: {name: 'sbt'},
     ids: ['sbt'],
-    name: 'sbt'
+    name: 'sbt',
   },
   {
     icon: {name: 'scala'},
     ids: ['scala'],
-    name: 'scala'
+    name: 'scala',
   },
   {
     icon: {name: 'scss'},
     ids: ['scss'],
-    name: 'scss'
+    name: 'scss',
   },
   {
     icon: {name: 'scheme'},
     ids: ['scheme'],
-    name: 'scheme'
+    name: 'scheme',
   },
   {
     icon: {name: 'scilla'},
     ids: ['scilla'],
-    name: 'scilla'
+    name: 'scilla',
   },
   {
     icon: {name: 'scilab'},
     ids: ['scilab'],
-    name: 'scilab'
+    name: 'scilab',
   },
   {
     icon: {name: 'scratch'},
     ids: ['scratch', 'sb2', 'sb3'],
-    name: 'scratch'
+    name: 'scratch',
   },
   {
     icon: {name: 'sdlang'},
     ids: ['sdlang', 'sdl'],
-    name: 'sdlang'
+    name: 'sdlang',
   },
   {
     icon: {name: 'self'},
     ids: ['self'],
-    name: 'self'
+    name: 'self',
   },
   {
     icon: {name: 'servicefabric'},
     ids: ['servicefabric', 'sf'],
-    name: 'servicefabric'
+    name: 'servicefabric',
   },
   {
     icon: {name: 'shellcheckrc'},
     ids: ['shellcheckrc', 'shellcheck-output'],
-    name: 'shellcheckrc'
+    name: 'shellcheckrc',
   },
   {
     icon: {name: 'shell'},
     ids: ['sh', 'shell', 'shellscript'],
-    name: 'shell'
+    name: 'shell',
   },
   {
     icon: {name: 'shen'},
     ids: ['shen'],
-    name: 'shen'
+    name: 'shen',
   },
   {
     icon: {name: 'shipit'},
     ids: ['shipit', 'shipitfile'],
-    name: 'shipit'
+    name: 'shipit',
   },
   {
     icon: {name: 'silverstripe'},
     ids: ['silverstripe', 'ss'],
-    name: 'silverstripe'
+    name: 'silverstripe',
   },
   {
     icon: {name: 'siyuan'},
     ids: ['siyuan'],
-    name: 'siyuan'
+    name: 'siyuan',
   },
   {
     icon: {name: 'skipper'},
     ids: ['skipper', 'eskip'],
-    name: 'skipper'
+    name: 'skipper',
   },
   {
     icon: {name: 'skript'},
     ids: ['skript', 'sk', 'skriptlang', 'sk-vsc'],
-    name: 'skript'
+    name: 'skript',
   },
   {
     icon: {name: 'slang'},
     ids: ['slang'],
-    name: 'slang'
+    name: 'slang',
   },
   {
     icon: {name: 'slash'},
     ids: ['slash'],
-    name: 'slash'
+    name: 'slash',
   },
   {
     icon: {name: 'slice'},
     ids: ['slice'],
-    name: 'slice'
+    name: 'slice',
   },
   {
     icon: {name: 'slim'},
     ids: ['slim'],
-    name: 'slim'
+    name: 'slim',
   },
   {
     icon: {name: 'slug'},
     ids: ['slug'],
-    name: 'slug'
+    name: 'slug',
   },
   {
     icon: {name: 'smarty'},
     ids: ['smarty'],
-    name: 'smarty'
+    name: 'smarty',
   },
   {
     icon: {name: 'smithy'},
     ids: ['smithy'],
-    name: 'smithy'
+    name: 'smithy',
   },
   {
     icon: {name: 'sml'},
     ids: ['sml'],
-    name: 'sml'
+    name: 'sml',
   },
   {
     icon: {name: 'snakemake'},
     ids: ['snakemake'],
-    name: 'snakemake'
+    name: 'snakemake',
   },
   {
     icon: {name: 'snapshot'},
     ids: ['snapshot', 'jest-snapshot'],
-    name: 'snapshot'
+    name: 'snapshot',
   },
   {
     icon: {name: 'snort'},
     ids: ['snort'],
-    name: 'snort'
+    name: 'snort',
   },
   {
     icon: {name: 'snyk'},
     ids: ['snyk'],
-    name: 'snyk'
+    name: 'snyk',
   },
   {
     icon: {name: 'solidity'},
     ids: ['solidity'],
-    name: 'solidity'
+    name: 'solidity',
   },
   {
     icon: {name: 'sonar'},
     ids: ['sonar', 'sonarlint', 'sonarqube'],
-    name: 'sonar'
+    name: 'sonar',
   },
   {
     icon: {name: 'sophia'},
     ids: ['sophia'],
-    name: 'sophia'
+    name: 'sophia',
   },
   {
     icon: {name: 'sorbet'},
     ids: ['sorbet'],
-    name: 'sorbet'
+    name: 'sorbet',
   },
   {
     icon: {name: 'spaceengine'},
     ids: ['spaceengine'],
-    name: 'spaceengine'
+    name: 'spaceengine',
   },
   {
     icon: {name: 'sparql'},
     ids: ['sparql'],
-    name: 'sparql'
+    name: 'sparql',
   },
   {
     icon: {name: 'spring'},
     ids: ['spring', 'spring-boot-properties', 'spring-boot-properties-yaml', 'spring-factories'],
-    name: 'spring'
+    name: 'spring',
   },
   {
     icon: {name: 'sqf'},
     ids: ['sqf'],
-    name: 'sqf'
+    name: 'sqf',
   },
   {
     icon: {name: 'sql'},
     ids: ['mysql', 'sql', 'plsql', 'oraclesql'],
-    name: 'sql'
+    name: 'sql',
   },
   {
     icon: {name: 'sqlite'},
     ids: ['sqlite'],
-    name: 'sqlite'
+    name: 'sqlite',
   },
   {
     icon: {name: 'squarespace'},
     ids: ['squarespace', 'jsont'],
-    name: 'squarespace'
+    name: 'squarespace',
   },
   {
     icon: {name: 'squirrel'},
     ids: ['squirrel'],
-    name: 'squirrel'
+    name: 'squirrel',
   },
   {
     icon: {name: 'stan'},
     ids: ['stan'],
-    name: 'stan'
+    name: 'stan',
   },
   {
     icon: {name: 'stata'},
     ids: ['stata', 'stata-dyndoc-latex', 'stata-dyndoc-md', 'stata-dyndoc'],
-    name: 'stata'
+    name: 'stata',
   },
   {
     icon: {name: 'stencil'},
     ids: ['stencil', 'stencil-html'],
-    name: 'stencil'
+    name: 'stencil',
   },
   {
     icon: {name: 'storyboard'},
     ids: ['storyboard'],
-    name: 'storyboard'
+    name: 'storyboard',
   },
   {
     icon: {name: 'storyist'},
     ids: ['storyist', 'story'],
-    name: 'storyist'
+    name: 'storyist',
   },
   {
     icon: {name: 'storybook'},
     ids: ['storybook'],
-    name: 'storybook'
+    name: 'storybook',
   },
   {
     icon: {name: 'stylelint'},
     ids: ['stylelint'],
-    name: 'stylelint'
+    name: 'stylelint',
   },
   {
     icon: {name: 'styleguidist'},
     ids: ['styleguidist'],
-    name: 'styleguidist'
+    name: 'styleguidist',
   },
   {
     icon: {name: 'stylable'},
     ids: ['stylable'],
-    name: 'stylable'
+    name: 'stylable',
   },
   {
     icon: {name: 'styledcomponents'},
     ids: ['styledcomponents', 'source.css.styled', 'styled-css', 'source.css.jsx.styled'],
-    name: 'styledcomponents'
+    name: 'styledcomponents',
   },
   {
     icon: {name: 'stylus'},
     ids: ['stylus', 'styl'],
-    name: 'stylus'
+    name: 'stylus',
   },
   {
     icon: {name: 'subtitle'},
     ids: ['subtitle', 'subtitles', 'lrc', 'srt', 'ass'],
-    name: 'subtitle'
+    name: 'subtitle',
   },
   {
     icon: {name: 'scd'},
     ids: ['scd'],
-    name: 'scd'
+    name: 'scd',
   },
   {
     icon: {name: 'sss'},
     ids: ['sss'],
-    name: 'sss'
+    name: 'sss',
   },
   {
     icon: {name: 'svelte'},
     ids: ['svelte'],
-    name: 'svelte'
+    name: 'svelte',
   },
   {
     icon: {name: 'svgo'},
     ids: ['svgo'],
-    name: 'svgo'
+    name: 'svgo',
   },
   {
     icon: {name: 'svx'},
     ids: ['svx', 'mdsvex'],
-    name: 'svx'
+    name: 'svx',
   },
   {
     icon: {name: 'swagger'},
     ids: ['swagger', 'swag'],
-    name: 'swagger'
+    name: 'swagger',
   },
   {
     icon: {name: 'swig'},
     ids: ['swig'],
-    name: 'swig'
+    name: 'swig',
   },
   {
     icon: {name: 'swift'},
     ids: ['swift'],
-    name: 'swift'
+    name: 'swift',
   },
   {
     icon: {name: 'svg'},
     ids: ['svg'],
-    name: 'svg'
+    name: 'svg',
   },
   // endregion
 
@@ -1789,167 +1967,167 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'toc'},
     ids: ['toc'],
-    name: 'toc'
+    name: 'toc',
   },
   {
     icon: {name: 'tailwindcss'},
     ids: ['tailwindcss'],
-    name: 'tailwindcss'
+    name: 'tailwindcss',
   },
   {
     icon: {name: 'todo'},
     ids: ['todo'],
-    name: 'todo'
+    name: 'todo',
   },
   {
     icon: {name: 'tcl'},
     ids: ['tcl'],
-    name: 'tcl'
+    name: 'tcl',
   },
   {
     icon: {name: 'tea'},
     ids: ['tea'],
-    name: 'tea'
+    name: 'tea',
   },
   {
     icon: {name: 'teal'},
     ids: ['teal'],
-    name: 'teal'
+    name: 'teal',
   },
   {
     icon: {name: 'telegram'},
     ids: ['telegram', 'tgiv'],
-    name: 'telegram'
+    name: 'telegram',
   },
   {
     icon: {name: 'tt'},
     ids: ['tt', 'tt2', 'tt4'],
-    name: 'tt'
+    name: 'tt',
   },
   {
     icon: {name: 'tera'},
     ids: ['tera', 'ttl'],
-    name: 'tera'
+    name: 'tera',
   },
   {
     icon: {name: 'terraform'},
     ids: ['terraform', 'tf', 'tfvars', 'terraform-vars'],
-    name: 'terraform'
+    name: 'terraform',
   },
   {
     icon: {name: 'template'},
     ids: ['template'],
-    name: 'template'
+    name: 'template',
   },
   {
     icon: {name: 'text'},
     ids: ['abt', 'ans', 'brf', 'dri', 'lcov', 'no', 'rtf', 'text', 'plaintext'],
-    name: 'text'
+    name: 'text',
   },
   {
     icon: {name: 'tex'},
     ids: ['tex', 'latex', 'doctex', 'latex-expl3', 'django-tex'],
-    name: 'tex'
+    name: 'tex',
   },
   {
     icon: {name: 'textile'},
     ids: ['textile'],
-    name: 'textile'
+    name: 'textile',
   },
   {
     icon: {name: 'textmate'},
     ids: ['textmate', 'json-tmlanguage', 'yaml-tmlanguage'],
-    name: 'textmate'
+    name: 'textmate',
   },
   {
     icon: {name: 'thor'},
     ids: ['thor'],
-    name: 'thor'
+    name: 'thor',
   },
   {
     icon: {name: 'thrift'},
     ids: ['thrift'],
-    name: 'thrift'
+    name: 'thrift',
   },
   {
     icon: {name: 'thunderclient'},
     ids: ['thunderclient', 'thunder'],
-    name: 'thunderclient'
+    name: 'thunderclient',
   },
   {
     icon: {name: 'tilt'},
     ids: ['tilt', 'tiltfile'],
-    name: 'tilt'
+    name: 'tilt',
   },
   {
     icon: {name: 'tla'},
     ids: ['tla', 'tlaplus', 'tlaplus_cfg', 'tlaplus_out'],
-    name: 'tla'
+    name: 'tla',
   },
   {
     icon: {name: 'tmux'},
     ids: ['tmux'],
-    name: 'tmux'
+    name: 'tmux',
   },
   {
     icon: {name: 'todo'},
     ids: ['todo'],
-    name: 'todo'
+    name: 'todo',
   },
   {
     icon: {name: 'toit'},
     ids: ['toit'],
-    name: 'toit'
+    name: 'toit',
   },
   {
     icon: {name: 'toml'},
     ids: ['toml'],
-    name: 'toml'
+    name: 'toml',
   },
   {
     icon: {name: 'tsconfig'},
     ids: ['tsconfig'],
-    name: 'tsconfig'
+    name: 'tsconfig',
   },
   {
     icon: {name: 'ttcn'},
     ids: ['ttcn', 'ttcn3'],
-    name: 'ttcn'
+    name: 'ttcn',
   },
   {
     icon: {name: 'tuc'},
     ids: ['tuc'],
-    name: 'tuc'
+    name: 'tuc',
   },
   {
     icon: {name: 'turing'},
     ids: ['turing'],
-    name: 'turing'
+    name: 'turing',
   },
   {
     icon: {name: 'twig'},
     ids: ['twig'],
-    name: 'twig'
+    name: 'twig',
   },
   {
     icon: {name: 'twine'},
     ids: ['twee', 'twine', 'twee3', 'twee3-chapbook-1', 'twee3-harlowe-3', 'twee3-sugarcube-2'],
-    name: 'twine'
+    name: 'twine',
   },
   {
     icon: {name: 'txl'},
     ids: ['txl'],
-    name: 'txl'
+    name: 'txl',
   },
   {
     icon: {name: 'typeScript'},
     ids: ['tslint', 'typescript'],
-    name: 'typeScript'
+    name: 'typeScript',
   },
   {
     icon: {name: 'typo3'},
     ids: ['typoscript'],
-    name: 'typo3'
+    name: 'typo3',
   },
   // endregion
 
@@ -1957,27 +2135,27 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'uml'},
     ids: ['uml', 'plantuml'],
-    name: 'uml'
+    name: 'uml',
   },
   {
     icon: {name: 'unity'},
     ids: ['unity'],
-    name: 'unity'
+    name: 'unity',
   },
   {
     icon: {name: 'uos'},
     ids: ['uos'],
-    name: 'uos'
+    name: 'uos',
   },
   {
     icon: {name: 'unison'},
     ids: ['unison'],
-    name: 'unison'
+    name: 'unison',
   },
   {
     icon: {name: 'unreal'},
     ids: ['unreal', 'unrealscript', 'unrealscript-pp'],
-    name: 'unreal'
+    name: 'unreal',
   },
   // endregion
 
@@ -1985,177 +2163,187 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'v'},
     ids: ['v'],
-    name: 'v'
+    name: 'v',
   },
   {
     icon: {name: 'vala'},
     ids: ['vala'],
-    name: 'vala'
+    name: 'vala',
   },
   {
     icon: {name: 'vash'},
     ids: ['vash'],
-    name: 'vash'
+    name: 'vash',
   },
   {
     icon: {name: 'vcl'},
     ids: ['vcl'],
-    name: 'vcl'
+    name: 'vcl',
   },
   {
     icon: {name: 'velocity'},
     ids: ['velocity', 'vtl', 'fhtml'],
-    name: 'velocity'
+    name: 'velocity',
   },
   {
     icon: {name: 'verilog'},
     ids: ['verilog', 'systemverilog', 'bhv'],
-    name: 'verilog'
+    name: 'verilog',
   },
   {
     icon: {name: 'vhdl'},
     ids: ['vhd', 'vhdl'],
-    name: 'vhdl'
+    name: 'vhdl',
   },
   {
     icon: {name: 'vim'},
     ids: ['vim', 'viml', 'vim-help', 'vim-snippet', 'vim-markdown', 'vimrc'],
-    name: 'vim'
+    name: 'vim',
   },
   {
     icon: {name: 'vb'},
     ids: ['vb', 'visualbasic', 'testOutput', 'vba', 'vb.net'],
-    name: 'vb'
+    name: 'vb',
   },
   {
     enabledFor: [IconPack.Volt],
     icon: {name: 'volt'},
     ids: ['volt'],
-    name: 'volt'
+    name: 'volt',
   },
   {
     icon: {name: 'vray'},
     ids: ['vray'],
-    name: 'vray'
+    name: 'vray',
   },
   {
     icon: {name: 'vscodeignore'},
     ids: ['vscodeignore'],
-    name: 'vscodeignore'
+    name: 'vscodeignore',
   },
   {
     icon: {name: 'tfsignore'},
     ids: ['tfignore', 'tfsignore'],
-    name: 'tfsignore'
+    name: 'tfsignore',
   },
   {
     icon: {name: 'vue'},
     ids: ['vue', 'vue-html', 'vue-postcss'],
-    name: 'vue'
+    name: 'vue',
   },
   {
     icon: {name: 'vuex'},
     ids: ['vuex'],
-    name: 'vuex'
+    name: 'vuex',
   },
   {
     icon: {name: 'vyper'},
     ids: ['vyper'],
-    name: 'vyper'
+    name: 'vyper',
   },
   // endregion
 
   // region [W]
   {
     icon: {name: 'wallaby'},
-    ids: ['quokka', 'quokka-output', 'quokka-recent', 'quokka-timeline', 'wallaby', 'wallaby-tests', 'wallaby-timeline', 'wallaby-inspector', 'wallaby-console'],
-    name: 'wallaby'
+    ids: [
+      'quokka',
+      'quokka-output',
+      'quokka-recent',
+      'quokka-timeline',
+      'wallaby',
+      'wallaby-tests',
+      'wallaby-timeline',
+      'wallaby-inspector',
+      'wallaby-console',
+    ],
+    name: 'wallaby',
   },
   {
     icon: {name: 'walt'},
     ids: ['walt'],
-    name: 'walt'
+    name: 'walt',
   },
   {
     icon: {name: 'webassembly'},
     ids: ['webassembly', 'wasm', 'wat', 'wai'],
-    name: 'webassembly'
+    name: 'webassembly',
   },
   {
     icon: {name: 'wdl'},
     ids: ['wdl'],
-    name: 'wdl'
+    name: 'wdl',
   },
   {
     icon: {name: 'webgl'},
     ids: ['glsl', 'webgl'],
-    name: 'webgl'
+    name: 'webgl',
   },
   {
     icon: {name: 'webvtt'},
     ids: ['vtt', 'webvtt'],
-    name: 'webvtt'
+    name: 'webvtt',
   },
   {
     icon: {name: 'wenyan'},
     ids: ['wenyan'],
-    name: 'wenyan'
+    name: 'wenyan',
   },
   {
     icon: {name: 'wepy'},
     ids: ['wepy'],
-    name: 'wepy'
+    name: 'wepy',
   },
   {
     icon: {name: 'wgsl'},
     ids: ['wgsl'],
-    name: 'wgsl'
+    name: 'wgsl',
   },
   {
     icon: {name: 'winui'},
     ids: ['winui', 'xaml'],
-    name: 'winui'
+    name: 'winui',
   },
   {
     icon: {name: 'wikitext'},
     ids: ['wikitext'],
     light: true,
-    name: 'wikitext'
+    name: 'wikitext',
   },
   {
     icon: {name: 'wolframlanguage'},
     ids: ['wolfram'],
-    name: 'wolfram'
+    name: 'wolfram',
   },
   {
     icon: {name: 'wurst'},
     ids: ['wurst'],
-    name: 'wurst'
+    name: 'wurst',
   },
   {
     icon: {name: 'wxml'},
     ids: ['wxml', 'wxml-pug'],
-    name: 'wxml'
+    name: 'wxml',
   },
   {
     icon: {name: 'wpml'},
     ids: ['wpml'],
-    name: 'wpml'
+    name: 'wpml',
   },
   {
     icon: {name: 'wxss'},
     ids: ['wxss'],
-    name: 'wxss'
+    name: 'wxss',
   },
   {
     icon: {name: 'wxs'},
     ids: ['wxs'],
-    name: 'wxs'
+    name: 'wxs',
   },
   {
     icon: {name: 'wsdl'},
     ids: ['wsdl'],
-    name: 'wsdl'
+    name: 'wsdl',
   },
   // endregion
 
@@ -2163,52 +2351,52 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'xcode'},
     ids: ['xcode', 'strings'],
-    name: 'xcode'
+    name: 'xcode',
   },
   {
     icon: {name: 'xib'},
     ids: ['xib'],
-    name: 'xib'
+    name: 'xib',
   },
   {
     icon: {name: 'xliff'},
     ids: ['xliff', 'xlf'],
-    name: 'xliff'
+    name: 'xliff',
   },
   {
     icon: {name: 'xmake'},
     ids: ['xmake'],
-    name: 'xmake'
+    name: 'xmake',
   },
   {
     icon: {name: 'xml'},
     ids: ['fxml', 'jnlp', 'jrxml', 'xslt', 'xul', 'xml', 'xquery'],
-    name: 'xml'
+    name: 'xml',
   },
   {
     icon: {name: 'xsd'},
     ids: ['xsl', 'xsd'],
-    name: 'xsd'
+    name: 'xsd',
   },
   {
     icon: {name: 'xtend'},
     ids: ['xtend'],
-    name: 'xtend'
+    name: 'xtend',
   },
   {
     icon: {name: 'xquery'},
     ids: ['xquery', 'xquery-ml'],
-    name: 'xquery'
+    name: 'xquery',
   },
   {
     icon: {name: 'xproc'},
     ids: ['xproc', 'xpl'],
-    name: 'xproc'
+    name: 'xproc',
   },
   {
     icon: {name: 'xubuntu'},
     ids: ['xubuntu', 'xdefaults'],
-    name: 'xubuntu'
+    name: 'xubuntu',
   },
   // endregion
 
@@ -2216,42 +2404,42 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'yandex'},
     ids: ['yandex', 'ydl'],
-    name: 'yandex'
+    name: 'yandex',
   },
   {
     icon: {name: 'yaml'},
     ids: ['info', 'yaml'],
-    name: 'yaml'
+    name: 'yaml',
   },
   {
     icon: {name: 'yang'},
     ids: ['yang'],
-    name: 'yang'
+    name: 'yang',
   },
   {
     icon: {name: 'yara'},
     ids: ['yara'],
-    name: 'yara'
+    name: 'yara',
   },
   {
     icon: {name: 'yarn'},
     ids: ['yarn', 'yarnlock'],
-    name: 'yarn'
+    name: 'yarn',
   },
   {
     icon: {name: 'yeoman'},
     ids: ['yeoman', 'yo'],
-    name: 'yeoman'
+    name: 'yeoman',
   },
   {
     icon: {name: 'yue'},
     ids: ['yue', 'yuescript'],
-    name: 'yue'
+    name: 'yue',
   },
   {
     icon: {name: 'yui'},
     ids: ['yui', 'yuiscript'],
-    name: 'yui'
+    name: 'yui',
   },
   // endregion
 
@@ -2259,43 +2447,43 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'zbrush'},
     ids: ['zbrush', 'zscript'],
-    name: 'zbrush'
+    name: 'zbrush',
   },
   {
     icon: {name: 'zeit'},
     ids: ['zeit', 'zeitignore'],
     light: true,
-    name: 'zeit'
+    name: 'zeit',
   },
   {
     icon: {name: 'zephir'},
     ids: ['zephir'],
-    name: 'zephir'
+    name: 'zephir',
   },
   {
     icon: {name: 'zig'},
     ids: ['zig'],
-    name: 'zig'
+    name: 'zig',
   },
   {
     icon: {name: 'zilog'},
     ids: ['zilog', 'z80', 'z80-macroasm', 'z80-asm-meter', 'asz80', 'as1802', 'retroasm_z80'],
-    name: 'zilog'
+    name: 'zilog',
   },
   {
     icon: {name: 'zimpl'},
     ids: ['zimpl'],
-    name: 'zimpl'
+    name: 'zimpl',
   },
   {
     icon: {name: 'zork'},
     ids: ['zork'],
-    name: 'zork'
+    name: 'zork',
   },
   {
     icon: {name: 'zenscript'},
     ids: ['zenscript', 'zs'],
-    name: 'zenscript'
+    name: 'zenscript',
   },
   // endregion
 ];
