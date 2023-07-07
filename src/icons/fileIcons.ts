@@ -4097,7 +4097,7 @@ export const fileIcons: FileIcons = {
       name: 'materialize',
     },
     {
-      fileExtensions: ['ma', 'mb', 'mt', 'nb', 'nbp'],
+      fileExtensions: ['ma', 'mb', 'mt', 'nb', 'nbp', 'math'],
       name: 'mathematica',
     },
     {
@@ -4159,7 +4159,7 @@ export const fileIcons: FileIcons = {
       name: 'maven',
     },
     {
-      fileExtensions: ['maxhelp', 'maxobj', 'maxpat', 'maxproj', 'maxref', 'mxt', 'pat'],
+      fileExtensions: ['maxhelp', 'maxobj', 'maxpat', 'maxproj', 'maxref', 'maxscript', 'mxt', 'pat'],
       name: 'max',
     },
     {

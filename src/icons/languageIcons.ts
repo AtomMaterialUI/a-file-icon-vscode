@@ -11,11 +11,6 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['ini'],
     name: 'preferences',
   },
-  {
-    icon: {name: 'source'},
-    ids: ['properties', 'plist'],
-    name: 'source',
-  },
   // { icon: { name: 'angular' }, ids: ['ng-template'] },
   // { icon: { name: 'apiblueprint' }, ids: ['apiblueprint'] },
   // { icon: { name: 'applescript' }, ids: ['applescript'] },
@@ -663,12 +658,12 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'gosu'},
     ids: ['gosu'],
-    name: 'gosu'
+    name: 'gosu',
   },
   {
     icon: {name: 'goctl'},
     ids: ['goctl'],
-    name: 'goctl'
+    name: 'goctl',
   },
   {
     icon: {name: 'go'},
@@ -1222,14 +1217,253 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['lua'],
     name: 'lua',
   },
+
+  // region [M]
+  {
+    icon: {name: 'macaulay'},
+    ids: ['macaulay', 'macaulay2', 'm2'],
+    name: 'macaulay',
+  },
+  {
+    icon: {name: 'magento'},
+    ids: ['magento'],
+    name: 'magento',
+  },
+  {
+    icon: {name: 'magit'},
+    ids: ['magit'],
+    name: 'magit',
+  },
+  {
+    icon: {name: 'make'},
+    ids: ['make'],
+    name: 'make',
+  },
+  {
+    icon: {name: 'makefile'},
+    ids: ['makefile', 'Makefile'],
+    name: 'makefile',
+  },
+  {
+    icon: {name: 'mako'},
+    ids: ['mako'],
+    name: 'mako',
+  },
+  {
+    icon: {name: 'manifest'},
+    ids: ['manifest'],
+    name: 'manifest',
+  },
+  {
+    icon: {name: 'mapbox'},
+    ids: ['mapbox', 'mss'],
+    name: 'mapbox',
+  },
   {
     icon: {name: 'markdown'},
     ids: ['markdown', 'pmd'],
     name: 'markdown',
   },
-  // { icon: { name: 'matlab' }, ids: ['matlab'] },
-  // { icon: { name: 'minecraft' }, ids: ['mcfunction'] },
-  // { icon: { name: 'mjml' }, ids: ['mjml'] },
+  {
+    icon: {name: 'marko'},
+    ids: ['marko'],
+    name: 'marko',
+  },
+  {
+    icon: {name: 'master'},
+    ids: ['master', 'master-css'],
+    name: 'master',
+  },
+  {
+    icon: {name: 'mathematica'},
+    ids: ['mathematica', 'mathlingua'],
+    name: 'mathematica',
+  },
+  {
+    icon: {name: 'matlab'},
+    ids: ['matlab'],
+    name: 'matlab',
+  },
+  {
+    icon: {name: 'mathjax'},
+    ids: ['mathjax'],
+    name: 'mathjax',
+  },
+  {
+    icon: {name: 'max'},
+    ids: ['max', 'maxscript'],
+    name: 'max',
+  },
+  {
+    icon: {name: 'maya'},
+    ids: ['maya', 'mel'],
+    name: 'maya',
+  },
+  {
+    icon: {name: 'mdx'},
+    ids: ['mdx'],
+    name: 'mdx',
+  },
+  {
+    icon: {name: 'mediawiki'},
+    ids: ['mediawiki'],
+    name: 'mediawiki',
+  },
+  {
+    icon: {name: 'mercurial'},
+    ids: ['mercurial', 'hg'],
+    name: 'mercurial',
+  },
+  {
+    icon: {name: 'mercury'},
+    ids: ['mercury'],
+    name: 'mercury',
+  },
+  {
+    icon: {name: 'merlin'},
+    ids: ['merlin', 'ocaml.merlin'],
+    name: 'merlin',
+  },
+  {
+    icon: {name: 'mermaid'},
+    ids: ['mermaid'],
+    name: 'mermaid',
+  },
+  {
+    icon: {name: 'meson'},
+    ids: ['meson'],
+    name: 'meson',
+  },
+  {
+    icon: {name: 'metal'},
+    ids: ['metal'],
+    name: 'metal',
+  },
+  {
+    icon: {name: 'metapost'},
+    ids: ['metapost', 'mp'],
+    name: 'metapost',
+  },
+  {
+    icon: {name: 'meteor'},
+    ids: ['meteor'],
+    name: 'meteor',
+  },
+  {
+    icon: {name: 'minecraft'},
+    ids: [
+      'bc-mcfunction',
+      'bc-minecraft-language',
+      'bc-minecraft-molang',
+      'bc-minecraft-project',
+      'mcscript',
+      'minecraft',
+      'minecraft-lang',
+    ],
+    name: 'minecraft',
+  },
+  {
+    icon: {name: 'minizinc'},
+    ids: ['minizinc'],
+    name: 'minizinc',
+  },
+  {
+    icon: {name: 'mint'},
+    ids: ['mint'],
+    name: 'mint',
+  },
+  {
+    icon: {name: 'mirc'},
+    ids: ['mirc', 'mrc', 'msl'],
+    name: 'mirc',
+  },
+  {
+    icon: {name: 'mjml'},
+    ids: ['mjml', 'mjmlslim'],
+    name: 'mjml',
+  },
+  {
+    icon: {name: 'mobx'},
+    ids: ['mobx'],
+    name: 'mobx',
+  },
+  {
+    icon: {name: 'modo'},
+    ids: ['modo'],
+    name: 'modo',
+  },
+  {
+    icon: {name: 'modelica'},
+    ids: ['modelica', 'optimica'],
+    name: 'modelica',
+  },
+  {
+    icon: {name: 'modula2'},
+    ids: ['modula2', 'm2'],
+    name: 'modula2',
+  },
+  {
+    icon: {name: 'modula3'},
+    ids: ['modula3', 'm3', 'quake'],
+    name: 'modula3',
+  },
+  {
+    icon: {name: 'moho'},
+    ids: ['moho'],
+    name: 'moho',
+  },
+  {
+    icon: {name: 'mojolicious'},
+    ids: ['mojolicious', 'perl+mojolicious'],
+    name: 'mojolicious',
+  },
+  {
+    icon: {name: 'monkey'},
+    ids: ['monkey', 'monkeyc'],
+    name: 'monkey',
+  },
+  {
+    icon: {name: 'mongo'},
+    ids: ['mongo', 'mongodb', 'mongodbRunner', 'mongod-config'],
+    name: 'mongo',
+  },
+  {
+    icon: {name: 'moonscript'},
+    ids: ['moonscript'],
+    name: 'moonscript',
+  },
+  {
+    icon: {name: 'mruby'},
+    ids: ['mruby', 'mrb'],
+    name: 'mruby',
+  },
+  {
+    icon: {name: 'mson'},
+    ids: ['mson'],
+    name: 'mson',
+  },
+  {
+    icon: {name: 'msql'},
+    ids: ['msql'],
+    name: 'msql',
+  },
+  {
+    icon: {name: 'mupad'},
+    ids: ['mupad'],
+    name: 'mupad',
+  },
+  {
+    icon: {name: 'mustache'},
+    ids: ['mustache', 'handlebars'],
+    name: 'mustache',
+  },
+  {
+    icon: {name: 'mxml'},
+    ids: ['mxml'],
+    name: 'mxml',
+  },
+
+  // endregion
 
   // region [N]
   {
@@ -1397,6 +1631,139 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'nxc'},
     ids: ['nxc'],
     name: 'nxc',
+  },
+  // endregion
+
+  // region [O]
+  {
+    icon: {name: 'oberon'},
+    ids: ['oberon', 'oberon07'],
+    name: 'oberon',
+  },
+  {
+    icon: {name: 'objc'},
+    ids: ['objc', 'objective-c', 'objective-cpp'],
+    name: 'objc',
+  },
+  {
+    icon: {name: 'objj'},
+    ids: ['objj', 'objective-j'],
+    name: 'objj',
+  },
+  {
+    icon: {name: 'ocaml'},
+    ids: ['ocaml', 'ocamllex', 'ocaml.hover.info', 'ocaml.hover.type', 'ocaml.ocamlbuild'],
+    name: 'ocaml',
+  },
+  {
+    icon: {name: 'octave'},
+    ids: ['octave'],
+    name: 'octave',
+  },
+  {
+    icon: {name: 'odin'},
+    ids: ['odin'],
+    name: 'odin',
+  },
+  {
+    icon: {name: 'ogone'},
+    ids: ['ogone'],
+    name: 'ogone',
+  },
+  {
+    icon: {name: 'ooc'},
+    ids: ['ooc'],
+    name: 'ooc',
+  },
+  {
+    icon: {name: 'opa'},
+    ids: ['opa'],
+    name: 'opa',
+  },
+  {
+    icon: {name: 'opam'},
+    ids: ['opam', 'ocaml.opam'],
+    name: 'opam',
+  },
+  {
+    icon: {name: 'openapi'},
+    ids: ['openapi'],
+    name: 'openapi',
+  },
+  {
+    icon: {name: 'opencl'},
+    ids: ['opencl'],
+    name: 'opencl',
+  },
+  {
+    icon: {name: 'progress'},
+    ids: ['progress', 'abl'],
+    name: 'progress',
+  },
+  {
+    icon: {name: 'opengl'},
+    ids: ['opengl', 'glsl', 'hlsl', 'cg'],
+    name: 'opengl',
+  },
+  {
+    icon: {name: 'vertex'},
+    ids: ['vertex', 'vert'],
+    name: 'vertex',
+  },
+  {
+    icon: {name: 'shader'},
+    ids: ['shader', 'q3shader'],
+    name: 'shader',
+  },
+  {
+    icon: {name: 'openhab'},
+    ids: ['openhab', 'things'],
+    name: 'openhab',
+  },
+  {
+    icon: {name: 'openindiana'},
+    ids: ['openindiana'],
+    name: 'openindiana',
+  },
+  {
+    icon: {name: 'openpolicy'},
+    ids: ['openpolicy', 'rego'],
+    name: 'openpolicy',
+  },
+  {
+    icon: {name: 'openscad'},
+    ids: ['openscad', 'scad'],
+    name: 'openscad',
+  },
+  {
+    icon: {name: 'openvms'},
+    ids: ['openvms', 'dcl'],
+    name: 'openvms',
+  },
+  {
+    icon: {name: 'openvpn'},
+    ids: ['openvpn', 'ovpn'],
+    name: 'openvpn',
+  },
+  {
+    icon: {name: 'oracle'},
+    ids: ['oracle', 'oraclesql'],
+    name: 'oracle',
+  },
+  {
+    icon: {name: 'orgmode'},
+    ids: ['orgmode', 'org'],
+    name: 'orgmode',
+  },
+  {
+    icon: {name: 'oxygene'},
+    ids: ['oxygene'],
+    name: 'oxygene',
+  },
+  {
+    icon: {name: 'oz'},
+    ids: ['oz'],
+    name: 'oz',
   },
   // endregion
 
