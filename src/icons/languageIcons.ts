@@ -1400,38 +1400,310 @@ export const languageIcons: LanguageAssociation[] = [
   },
   // endregion
 
-  // { icon: { name: 'otne' }, ids: ['otne'] },
-  // { icon: { name: 'pawn' }, ids: ['pawn'] },
-  // { icon: { name: 'pdf' }, ids: ['pdf'] },
-  // { icon: { name: 'perl' }, ids: ['perl', 'perl6'] },
+  // region [P]
+  {
+    icon: {name: 'paket'},
+    ids: ['paket', 'paket-dependencies', 'paket-lock', 'paket-references'],
+    name: 'paket',
+  },
+  {
+    icon: {name: 'pan'},
+    ids: ['pan'],
+    name: 'pan',
+  },
+  {
+    icon: {name: 'papyrus'},
+    ids: ['papyrus', 'papyrus-project', 'papyrus-assembly'],
+    name: 'papyrus',
+  },
+  {
+    icon: {name: 'parrot'},
+    ids: ['parrot'],
+    name: 'parrot',
+  },
+  {
+    icon: {name: 'parquet'},
+    ids: ['parquet'],
+    name: 'parquet',
+  },
+  {
+    icon: {name: 'pascal'},
+    ids: ['pascal'],
+    name: 'pascal',
+  },
+  {
+    icon: {name: 'pawn'},
+    ids: ['pawn'],
+    name: 'pawn',
+  },
+  {
+    icon: {name: 'pcd'},
+    ids: ['pcd'],
+    name: 'pcd',
+  },
+  {
+    icon: {name: 'pddl'},
+    ids: ['pddl', 'plan', 'happenings'],
+    name: 'pddl',
+  },
+  {
+    icon: {name: 'pdf'},
+    ids: ['pdf'],
+    name: 'pdf',
+  },
+  {
+    icon: {name: 'pegjs'},
+    ids: ['pegjs'],
+    name: 'pegjs',
+  },
   {
     icon: {name: 'perl'},
     ids: ['perl', 'perl6'],
     name: 'perl',
   },
   {
+    icon: {name: 'helix'},
+    ids: ['helix', 'p4'],
+    name: 'helix',
+  },
+  {
+    icon: {name: 'phalcon'},
+    ids: ['phalcon', 'volt'],
+    light: true,
+    name: 'phalcon',
+  },
+  {
     icon: {name: 'php'},
     ids: ['php'],
     name: 'php',
   },
-  // { icon: { name: 'php_elephant' }, ids: [] },
-  // { icon: { name: 'php_elephant_pink' }, ids: [] },
-  // { icon: { name: 'postcss' }, ids: ['postcss'] },
-  // { icon: { name: 'powershell' }, ids: ['powershell'] },
-  // { icon: { name: 'processing' }, ids: ['processing'] },
-  // { icon: { name: 'prolog' }, ids: ['prolog'] },
-  // { icon: { name: 'proto' }, ids: ['proto'] },
-  // { icon: { name: 'pug' }, ids: ['jade'] },
-  // { icon: { name: 'pug' }, ids: ['pug'] },
-  // { icon: { name: 'puppet' }, ids: ['puppet'] },
-  // { icon: { name: 'purescript' }, ids: ['purescript'] },
-  // { icon: { name: 'python' }, ids: ['python'] },
+  {
+    icon: {name: 'php2'},
+    ids: ['php2', 'phar', 'phpx'],
+    name: 'php2',
+  },
+  {
+    icon: {name: 'phtml'},
+    ids: ['phtml'],
+    name: 'phtml',
+  },
+  {
+    icon: {name: 'pickle'},
+    ids: ['pickle', 'pkl'],
+    name: 'pickle',
+  },
+  {
+    icon: {name: 'pico8'},
+    ids: ['pico8', 'pico-8', 'pico-8-lua', 'p8'],
+    name: 'pico8',
+  },
+  {
+    icon: {name: 'pike'},
+    ids: ['pike'],
+    name: 'pike',
+  },
+  {
+    icon: {name: 'pinescript'},
+    ids: ['pinescript', 'pine'],
+    name: 'pinescript',
+  },
+  {
+    icon: {name: 'pipfile'},
+    ids: ['pipfile'],
+    name: 'pipfile',
+  },
+  {
+    icon: {name: 'platformio'},
+    ids: ['platformio', 'platformio-debug.asm', 'platformio-debug.memoryview', 'platformio-debug.disassembly'],
+    name: 'platformio',
+  },
+  {
+    icon: {name: 'play'},
+    ids: ['play'],
+    name: 'play',
+  },
+  {
+    icon: {name: 'plist'},
+    ids: ['plist'],
+    name: 'plist',
+  },
+  {
+    icon: {name: 'pnpm'},
+    ids: ['pnpm'],
+    name: 'pnpm',
+  },
+  {
+    icon: {name: 'poetry'},
+    ids: ['poetry'],
+    name: 'poetry',
+  },
+  {
+    icon: {name: 'pony'},
+    ids: ['pony'],
+    name: 'pony',
+  },
+  {
+    icon: {name: 'postcss'},
+    ids: ['postcss'],
+    name: 'postcss',
+  },
+  {
+    icon: {name: 'posthtml'},
+    ids: ['posthtml'],
+    name: 'posthtml',
+  },
+  {
+    icon: {name: 'postscript'},
+    ids: ['postscript'],
+    name: 'postscript',
+  },
+  {
+    icon: {name: 'povray'},
+    ids: ['povray'],
+    name: 'povray',
+  },
+  {
+    icon: {name: 'powerbuilder'},
+    ids: ['powerbuilder', 'pb'],
+    name: 'powerbuilder',
+  },
+  {
+    icon: {name: 'powershell'},
+    ids: ['powershell'],
+    name: 'powershell',
+  },
+  {
+    icon: {name: 'preact'},
+    ids: ['preact'],
+    name: 'preact',
+  },
+  {
+    icon: {name: 'prettier'},
+    ids: ['prettier'],
+    name: 'prettier',
+  },
+  {
+    icon: {name: 'prisma'},
+    ids: ['prisma'],
+    name: 'prisma',
+  },
+  {
+    icon: {name: 'processing'},
+    ids: ['processing', 'pde'],
+    name: 'processing',
+  },
+  {
+    icon: {name: 'prolog'},
+    ids: ['prolog'],
+    name: 'prolog',
+  },
+  {
+    icon: {name: 'prometheus'},
+    ids: ['prometheus', 'prometheus2'],
+    name: 'prometheus',
+  },
+  {
+    icon: {name: 'propeller'},
+    ids: ['propeller', 'spin'],
+    name: 'propeller',
+  },
+  {
+    icon: {name: 'source'},
+    ids: ['source', 'properties', 'java-properties'],
+    name: 'source',
+  },
+  {
+    icon: {name: 'pros'},
+    ids: ['pros'],
+    name: 'pros',
+  },
+  {
+    icon: {name: 'proto'},
+    ids: ['proto', 'proto3'],
+    name: 'proto',
+  },
+  {
+    icon: {name: 'publiccode'},
+    ids: ['publiccode', 'publicode', 'publicodes'],
+    name: 'publiccode',
+  },
+  {
+    icon: {name: 'puppet'},
+    ids: ['puppet', 'puppetfile'],
+    name: 'puppet',
+  },
+  {
+    icon: {name: 'purescript'},
+    ids: ['purescript'],
+    name: 'purescript',
+  },
+  {
+    icon: {name: 'purebasic'},
+    ids: ['purebasic'],
+    name: 'purebasic',
+  },
+  {
+    icon: {name: 'pyret'},
+    ids: ['pyret'],
+    name: 'pyret',
+  },
+  {
+    icon: {name: 'pug'},
+    ids: ['pug'],
+    name: 'pug',
+  },
   {
     icon: {name: 'python'},
     ids: ['python'],
     name: 'python',
   },
-  // { icon: { name: 'python-misc' }, ids: ['pip-requirements'] },
+  {
+    icon: {name: 'pythonconfig'},
+    ids: ['pythonconfig', 'pip-requirements'],
+    name: 'pythonconfig',
+  },
+
+  // endregion [P]
+
+  // region [Q]
+  {
+    icon: {name: 'qs'},
+    ids: ['qs', 'qsharp'],
+    light: true,
+    name: 'qs',
+  },
+  {
+    icon: {name: 'kx'},
+    ids: ['kx', 'q'],
+    name: 'kx',
+  },
+  {
+    icon: {name: 'python'},
+    ids: ['python'],
+    name: 'python',
+  },
+  {
+    icon: {name: 'qasm'},
+    ids: ['qasm', 'qiskit', 'qasm-lang'],
+    name: 'qasm',
+  },
+  {
+    icon: {name: 'qlik'},
+    ids: ['qlik', 'qlikview'],
+    name: 'qlik',
+  },
+  {
+    icon: {name: 'qt'},
+    ids: ['qt', 'qml', 'qmldir', 'qss'],
+    name: 'qt',
+  },
+  {
+    icon: {name: 'qtn'},
+    ids: ['qtn', 'quantum'],
+    name: 'qtn',
+  },
+  // endregion
+
   // region [R]
   {
     icon: {name: 'r'},
