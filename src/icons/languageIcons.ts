@@ -1202,21 +1202,144 @@ export const languageIcons: LanguageAssociation[] = [
   },
   // endregion
 
+  // region [L]
+  {
+    icon: {name: 'lark'},
+    ids: ['lark'],
+    name: 'lark',
+  },
+  {
+    icon: {name: 'lasso'},
+    ids: ['lasso'],
+    name: 'lasso',
+  },
+  {
+    icon: {name: 'latino'},
+    ids: ['latino'],
+    name: 'latino',
+  },
+  {
+    icon: {name: 'latte'},
+    ids: ['latte'],
+    light: true,
+    name: 'latte'
+  },
+  {
+    icon: {name: 'leaflet'},
+    ids: ['leaflet'],
+    name: 'leaflet',
+  },
+  {
+    icon: {name: 'lean'},
+    ids: ['lean', 'leanmarkdown', 'lean3', 'hlean', 'lean4'],
+    name: 'lean',
+  },
+  {
+    icon: {name: 'leo'},
+    ids: ['leo', 'aleo', 'leoInput', 'leoHover'],
+    name: 'leo',
+  },
+  {
+    icon: {name: 'lektor'},
+    ids: ['lektor'],
+    name: 'lektor',
+  },
   {
     icon: {name: 'less'},
     ids: ['less'],
     name: 'less',
   },
-  // { icon: { name: 'lib' }, ids: ['bibtex', 'bibtex-style'] },
-  // { icon: { name: 'livescript' }, ids: ['livescript'] },
-  // { icon: { name: 'lock' }, ids: ['ssh_config'] },
-  // { icon: { name: 'log' }, ids: ['log'] },
-  // { icon: { name: 'lolcode' }, ids: ['lolcode'] },
+  {
+    icon: {name: 'lex'},
+    ids: ['lex', 'flex'],
+    name: 'lex',
+  },
+  {
+    icon: {name: 'lfe'},
+    ids: ['lfe'],
+    name: 'lfe',
+  },
+  {
+    icon: {name: 'lib'},
+    ids: ['lib', 'bibtex'],
+    name: 'lib',
+  },
+  {
+    icon: {name: 'lilypond'},
+    ids: ['lilypond'],
+    name: 'lilypond',
+  },
+  {
+    icon: {name: 'lime'},
+    ids: ['lime'],
+    name: 'lime',
+  },
+  {
+    icon: {name: 'liquid'},
+    ids: ['liquid', 'liquid-css', 'liquid-scss', 'liquid-javascript', 'log-liquid'],
+    name: 'liquid',
+  },
+  {
+    icon: {name: 'lisp'},
+    ids: ['lisp', 'commonlisp'],
+    name: 'lisp',
+  },
+  {
+    icon: {name: 'livescript'},
+    ids: ['livescript'],
+    name: 'livescript',
+  },
+  {
+    icon: {name: 'llvm'},
+    ids: ['llvm'],
+    name: 'llvm',
+  },
+  {
+    icon: {name: 'lock'},
+    ids: ['lock', 'ssh_config'],
+    name: 'lock',
+  },
+  {
+    icon: {name: 'log'},
+    ids: ['log'],
+    name: 'log',
+  },
+  {
+    icon: {name: 'logtalk'},
+    ids: ['logtalk'],
+    name: 'logtalk',
+  },
+  {
+    icon: {name: 'lolcode'},
+    ids: ['lolcode'],
+    name: 'lolcode',
+  },
+  {
+    icon: {name: 'lookml'},
+    ids: ['lookml'],
+    name: 'lookml',
+  },
+  {
+    icon: {name: 'lsl'},
+    ids: ['lsl'],
+    name: 'lsl',
+  },
   {
     icon: {name: 'lua'},
     ids: ['lua'],
     name: 'lua',
   },
+  {
+    icon: {name: 'luau'},
+    ids: ['luau', 'roblox'],
+    name: 'luau',
+  },
+  {
+    icon: {name: 'lync'},
+    ids: ['lync'],
+    name: 'lync',
+  },
+  // endregion
 
   // region [M]
   {
