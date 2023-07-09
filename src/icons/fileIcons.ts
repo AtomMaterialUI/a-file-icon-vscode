@@ -742,7 +742,6 @@ export const fileIcons: FileIcons = {
     {
       fileExtensions: ['appsemblerc', 'appsemblerc.yaml', 'appsemblerc.yml'],
       fileNames: ['app-definition.yaml', 'app-definition.yml'],
-
       name: 'appsemble',
     },
     {
@@ -2254,7 +2253,7 @@ export const fileIcons: FileIcons = {
       name: 'eiffel',
     },
     {
-      fileExtensions: ['ejs'],
+      fileExtensions: ['ejs', 'ets'],
       name: 'ejs',
     },
     {
@@ -2307,7 +2306,7 @@ export const fileIcons: FileIcons = {
       name: 'ensime',
     },
     {
-      fileExtensions: ['eq'],
+      fileExtensions: ['eq', 'eq1', 'eq2'],
       name: 'eq',
     },
     {
@@ -2396,7 +2395,7 @@ export const fileIcons: FileIcons = {
       name: 'fabfile',
     },
     {
-      fileExtensions: ['factor', 'factor-boot-rc', 'factor-rc'],
+      fileExtensions: ['factor', 'factor-boot-rc', 'factor-rc', 'facts'],
       name: 'factor',
     },
     {
@@ -2460,10 +2459,12 @@ export const fileIcons: FileIcons = {
       name: 'firebaserc',
     },
     {
+      fileExtensions: ['rules'],
       fileNames: ['firestore.rules', 'firestore.indexes.json'],
       name: 'firestore',
     },
     {
+      fileExtensions: ['indexes.json'],
       fileNames: ['firebase.json'],
       name: 'firebase',
     },
@@ -2554,7 +2555,7 @@ export const fileIcons: FileIcons = {
       name: 'fountain',
     },
     {
-      fileExtensions: ['fxp'],
+      fileExtensions: ['fxp', 'prg'],
       name: 'foxpro',
     },
     {

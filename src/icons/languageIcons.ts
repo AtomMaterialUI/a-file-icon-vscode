@@ -11,10 +11,243 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['ini'],
     name: 'preferences',
   },
-  // { icon: { name: 'angular' }, ids: ['ng-template'] },
-  // { icon: { name: 'apiblueprint' }, ids: ['apiblueprint'] },
-  // { icon: { name: 'applescript' }, ids: ['applescript'] },
-  // { icon: { name: 'autoit' }, ids: ['autoit'] },
+
+  // region [0]
+  {
+    icon: {name: '1c'},
+    ids: ['1c', 'bsl', 'sdbl'],
+    name: '1c',
+  },
+  {
+    icon: {name: '3dsmax'},
+    ids: ['3dsmax', '3ds'],
+    name: '3dsmax',
+  },
+  {
+    icon: {name: '4d'},
+    ids: ['4d'],
+    name: '4d',
+  },
+
+  // endregion
+
+  // region [A]
+  {
+    icon: {name: 'aplus'},
+    ids: ['aplus', 'a+'],
+    name: 'aplus',
+  },
+  {
+    icon: {name: 'abap'},
+    ids: ['abap'],
+    name: 'abap',
+  },
+  {
+    icon: {name: 'abc'},
+    ids: ['abc'],
+    name: 'abc',
+  },
+  {
+    icon: {name: 'abif'},
+    ids: ['abif'],
+    name: 'abif',
+  },
+  {
+    icon: {name: 'actionscript'},
+    ids: ['actionscript', 'as', 'actionscript3'],
+    name: 'actionscript',
+  },
+  {
+    icon: {name: 'ada'},
+    ids: ['ada', 'ali', 'gpr'],
+    name: 'ada',
+  },
+  {
+    icon: {name: 'advpl'},
+    ids: ['advpl'],
+    name: 'advpl',
+  },
+  {
+    icon: {name: 'agda'},
+    ids: ['agda'],
+    name: 'agda',
+  },
+  {
+    icon: {name: 'akka'},
+    ids: ['akka'],
+    name: 'akka',
+  },
+  {
+    icon: {name: 'al'},
+    ids: ['al'],
+    name: 'al',
+  },
+  {
+    icon: {name: 'alex'},
+    ids: ['alex'],
+    name: 'alex',
+  },
+  {
+    icon: {name: 'alloy'},
+    ids: ['alloy'],
+    name: 'alloy',
+  },
+  {
+    icon: {name: 'alpine'},
+    ids: ['alpine', 'inline-alpinejs'],
+    name: 'alpine',
+  },
+  {
+    icon: {name: 'ampl'},
+    ids: ['ampl'],
+    name: 'ampl',
+  },
+  {
+    icon: {name: 'androidSmali'},
+    ids: ['androidSmali', 'smali'],
+    name: 'androidSmali',
+  },
+  {
+    icon: {name: 'angelscript'},
+    ids: ['angelscript'],
+    name: 'angelscript',
+  },
+  {
+    icon: {name: 'animestudio'},
+    ids: ['animestudio'],
+    name: 'animestudio',
+  },
+  {
+    icon: {name: 'ansible'},
+    ids: ['ansible', 'ansible-jinja'],
+    name: 'ansible',
+  },
+  {
+    icon: {name: 'antlr'},
+    ids: ['antlr', 'antlr-injection', 'antlr4'],
+    name: 'antlr',
+  },
+  {
+    icon: {name: 'any'},
+    ids: ['any'],
+    name: 'any',
+  },
+  {
+    icon: {name: 'apacheconf'},
+    ids: ['apacheconf'],
+    name: 'apacheconf',
+  },
+  {
+    icon: {name: 'apache'},
+    ids: ['apache', 'thrift'],
+    name: 'apache',
+  },
+  {
+    icon: {name: 'apex'},
+    ids: ['apex', 'apex-anon'],
+    name: 'apex',
+  },
+  {
+    icon: {name: 'apib'},
+    ids: ['apib', 'apiblueprint'],
+    name: 'apib',
+  },
+  {
+    icon: {name: 'apl'},
+    ids: ['apl'],
+    name: 'apl',
+  },
+  {
+    icon: {name: 'applescript'},
+    ids: ['applescript', 'applescript-injection', 'jxa'],
+    name: 'applescript',
+  },
+  {
+    icon: {name: 'arc'},
+    ids: ['arc', 'arc18'],
+    name: 'arc',
+  },
+  {
+    icon: {name: 'arduino'},
+    ids: ['arduino', 'ino', 'arduino-output'],
+    name: 'arduino',
+  },
+  {
+    icon: {name: 'arend'},
+    ids: ['arend'],
+    name: 'arend',
+  },
+  {
+    icon: {name: 'arm'},
+    ids: ['arm'],
+    name: 'arm',
+  },
+  {
+    icon: {name: 'asciidoc'},
+    ids: ['asciidoc', 'adoc'],
+    name: 'asciidoc',
+  },
+  {
+    icon: {name: 'aspectj'},
+    ids: ['aspectj'],
+    name: 'aspectj',
+  },
+  {
+    icon: {name: 'asm'},
+    ids: ['asm', 'asm-collection', 'asm-list-file', 'asm-markdown-codeblock', 'asm-list-markdown-codeblock'],
+    name: 'asm',
+  },
+  {
+    icon: {name: 'asp'},
+    ids: ['asp'],
+    name: 'asp',
+  },
+  {
+    icon: {name: 'astro'},
+    ids: ['astro'],
+    name: 'astro',
+  },
+  {
+    icon: {name: 'asymptote'},
+    ids: ['asymptote'],
+    name: 'asymptote',
+  },
+  {
+    icon: {name: 'ats'},
+    ids: ['ats'],
+    name: 'ats',
+  },
+  {
+    icon: {name: 'ahk'},
+    ids: ['ahk', 'autohotkey'],
+    name: 'ahk',
+  },
+  {
+    icon: {name: 'autoit'},
+    ids: ['autoit', 'vscode-autoit-output', 'au3'],
+    name: 'autoit',
+  },
+  {
+    icon: {name: 'avr'},
+    ids: ['avr'],
+    name: 'avr',
+  },
+  {
+    icon: {name: 'avro'},
+    ids: ['avro'],
+    name: 'avro',
+  },
+  {
+    icon: {name: 'awk'},
+    ids: ['awk'],
+    name: 'awk',
+  },
+  {
+    icon: {name: 'azurepipelines'},
+    ids: ['azurepipelines', 'azure-pipelines'],
+    name: 'azurepipelines',
+  },
+  // endregion
 
   // region [B]
   {
@@ -498,21 +731,259 @@ export const languageIcons: LanguageAssociation[] = [
   },
   // { icon: { name: 'docker' }, ids: ['dockerfile'] },
   // { icon: { name: 'document' }, ids: ['plaintext'] },
-  // { icon: { name: 'editorconfig' }, ids: ['editorconfig'] },
-  // { icon: { name: 'elixir' }, ids: ['elixir'] },
-  // { icon: { name: 'elm' }, ids: ['elm'] },
+
+  // region [E]
+  {
+    icon: {name: 'e'},
+    ids: ['e', 'amigae'],
+    name: 'e',
+  },
+  {
+    icon: {name: 'earthly'},
+    ids: ['earthly', 'earthfile'],
+    name: 'earthly',
+  },
+  {
+    icon: {name: 'eagle'},
+    ids: ['eagle', 'eaglelang'],
+    name: 'eagle',
+  },
+  {
+    icon: {name: 'eas'},
+    ids: ['eas'],
+    name: 'eas',
+  },
+  {
+    icon: {name: 'ec'},
+    ids: ['ec'],
+    name: 'ec',
+  },
+  {
+    icon: {name: 'ecl'},
+    ids: ['ecl', 'kel'],
+    name: 'ecl',
+  },
+  {
+    icon: {name: 'editorconfig'},
+    ids: ['editorconfig'],
+    name: 'editorconfig',
+  },
+  {
+    icon: {name: 'edge'},
+    ids: ['edge'],
+    name: 'edge',
+  },
+  {
+    icon: {name: 'egg'},
+    ids: ['egg'],
+    name: 'egg',
+  },
+  {
+    icon: {name: 'eiffel'},
+    ids: ['eiffel'],
+    name: 'eiffel',
+  },
+  {
+    icon: {name: 'ejs'},
+    ids: ['ejs', 'ets'],
+    name: 'ejs',
+  },
+  {
+    icon: {name: 'elastic'},
+    ids: ['elastic', 'es', 'elasticsearch', 'edql'],
+    name: 'elastic',
+  },
+  {
+    icon: {name: 'elixir'},
+    ids: ['elixir', 'eex', 'html-eex'],
+    name: 'elixir',
+  },
+  {
+    icon: {name: 'elm'},
+    ids: ['elm'],
+    name: 'elm',
+  },
+  {
+    icon: {name: 'emacslisp'},
+    ids: ['emacslisp', 'el'],
+    name: 'emacslisp',
+  },
+  {
+    icon: {name: 'ember'},
+    ids: ['ember', 'els'],
+    name: 'ember',
+  },
+  {
+    icon: {name: 'emberscript'},
+    ids: ['emberscript'],
+    name: 'emberscript',
+  },
+  {
+    icon: {name: 'ensime'},
+    ids: ['ensime'],
+    name: 'ensime',
+  },
+  {
+    icon: {name: 'eq'},
+    ids: ['eq'],
+    name: 'eq',
+  },
+  {
+    icon: {name: 'eslint'},
+    ids: ['eslint'],
+    name: 'eslint',
+  },
+  {
+    icon: {name: 'erb'},
+    ids: ['erb'],
+    name: 'erb',
+  },
+  {
+    icon: {name: 'erlang'},
+    ids: ['erlang'],
+    name: 'erlang',
+  },
+  {
+    icon: {name: 'excel'},
+    ids: ['excel', 'xls'],
+    name: 'excel',
+  },
+
+  // endregion
+
+  // region [F]
+  {
+    icon: {name: 'fabric'},
+    ids: ['fabric'],
+    name: 'fabric',
+  },
+  {
+    icon: {name: 'factor'},
+    ids: ['factor'],
+    name: 'factor',
+  },
+  {
+    icon: {name: 'falcon'},
+    ids: ['falcon'],
+    name: 'falcon',
+  },
+  {
+    icon: {name: 'fancy'},
+    ids: ['fancy', 'fancypack'],
+    name: 'fancy',
+  },
+  {
+    icon: {name: 'fantom'},
+    ids: ['fantom'],
+    name: 'fantom',
+  },
+  {
+    icon: {name: 'fasta'},
+    ids: ['fasta'],
+    name: 'fasta',
+  },
+  {
+    icon: {name: 'fauna'},
+    ids: ['fauna', 'fql'],
+    name: 'fauna',
+  },
+  {
+    icon: {name: 'faust'},
+    ids: ['faust'],
+    name: 'faust',
+  },
+  {
+    icon: {name: 'fbx'},
+    ids: ['fbx'],
+    name: 'fbx',
+  },
+  {
+    icon: {name: 'firestore'},
+    ids: ['firestore', 'firestorerules', 'firerules'],
+    name: 'firestore',
+  },
+  {
+    icon: {name: 'firebasebolt'},
+    ids: ['firebasebolt', 'bolt'],
+    name: 'firebasebolt',
+  },
+  {
+    icon: {name: 'flash'},
+    ids: ['flash'],
+    name: 'flash',
+  },
+  {
+    icon: {name: 'flow'},
+    ids: ['flow'],
+    name: 'flow',
+  },
+  {
+    icon: {name: 'fontforge'},
+    ids: ['fontforge', 'sfd'],
+    name: 'fontforge',
+  },
   {
     icon: {name: 'font'},
     ids: ['dfont', 'eot', 'otf', 'pfa', 'pfb', 'pfm', 'tfm', 'ttc', 'ttf', 'woff', 'woff2'],
     name: 'font',
   },
   {
+    icon: {name: 'forth'},
+    ids: ['forth'],
+    name: 'forth',
+  },
+  {
+    icon: {name: 'fortran'},
+    ids: ['fortran', 'fortran-modern', 'FortranFreeForm', 'FortranFixedForm'],
+    name: 'fortran',
+  },
+  {
+    icon: {name: 'fossil'},
+    ids: ['fossil'],
+    name: 'fossil',
+  },
+  {
+    icon: {name: 'fountain'},
+    ids: ['fountain'],
+    name: 'fountain',
+  },
+  {
+    icon: {name: 'foxpro'},
+    ids: ['foxpro'],
+    name: 'foxpro',
+  },
+  {
     icon: {name: 'franca'},
-    ids: ['franca'],
+    ids: ['franca', 'lflang'],
     name: 'franca',
   },
-  // { icon: { name: 'erlang' }, ids: ['erlang'] },
-  // { icon: { name: 'fsharp' }, ids: ['fsharp'] },
+  {
+    icon: {name: 'freemarker'},
+    ids: ['freemarker', 'ftl'],
+    name: 'freemarker',
+  },
+  {
+    icon: {name: 'frege'},
+    ids: ['frege'],
+    name: 'frege',
+  },
+  {
+    icon: {name: 'fsharp'},
+    ids: ['fsharp', 'fslex', 'fsyacc'],
+    name: 'fsharp'
+  },
+  {
+    icon: {name: 'fthtml'},
+    ids: ['fthtml'],
+    name: 'fthtml',
+  },
+  {
+    icon: {name: 'futhark'},
+    ids: ['futhark'],
+    name: 'futhark',
+  },
+
+  // endregion
 
   // region [G]
   {
