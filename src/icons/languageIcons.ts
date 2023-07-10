@@ -8,7 +8,7 @@ import type { LanguageAssociation } from 'src/@types/associations';
 export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'preferences'},
-    ids: ['ini', 'env', 'dotenv'],
+    ids: ['ini', 'env', 'dotenv', 'config'],
     name: 'preferences',
   },
   {
@@ -59,7 +59,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'abif'},
-    ids: ['abif'],
+    ids: ['abif', 'bif'],
     name: 'abif',
   },
   {
@@ -74,7 +74,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'advpl'},
-    ids: ['advpl'],
+    ids: ['advpl', 'advpl-tlpp-header'],
     name: 'advpl',
   },
   {
@@ -119,7 +119,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'angelscript'},
-    ids: ['angelscript'],
+    ids: ['angelscript', 'angelscript_snippet'],
     name: 'angelscript',
   },
   {
@@ -211,8 +211,14 @@ export const languageIcons: LanguageAssociation[] = [
       'asm-markdown-codeblock',
       'asm-list-markdown-codeblock',
       'assembly',
+      'hla'
     ],
     name: 'asm',
+  },
+  {
+    icon: {name: 'intel'},
+    ids: ['intel', 'asm-intel-x86-generic'],
+    name: 'intel',
   },
   {
     icon: {name: 'asp'},
@@ -245,6 +251,11 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'autoit',
   },
   {
+    icon: {name: 'auto'},
+    ids: ['auto', 'm4'],
+    name: 'auto',
+  },
+  {
     icon: {name: 'avr'},
     ids: ['avr'],
     name: 'avr',
@@ -258,6 +269,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'awk'},
     ids: ['awk'],
     name: 'awk',
+  },
+  {
+    icon: {name: 'azure'},
+    ids: ['azcli'],
+    name: 'azure',
   },
   {
     icon: {name: 'azurepipelines'},
@@ -274,7 +290,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'ballerina'},
-    ids: ['ballerina'],
+    ids: ['ballerina', 'x-ballerina-output-log'],
     name: 'ballerina',
   },
   {
@@ -286,6 +302,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'basic'},
     ids: ['basic', 'smallbasic', 'blitzmax', 'bml', 'bms', 'bmx'],
     name: 'basic',
+  },
+  {
+    icon: {name: 'bats'},
+    ids: ['bats'],
+    name: 'bats',
   },
   {
     icon: {name: 'bazel'},
@@ -326,6 +347,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'biml'},
     ids: ['biml'],
     name: 'biml',
+  },
+  {
+    icon: {name: 'binary'},
+    ids: ['binary', 'bin', 'code-text-binary'],
+    name: 'binary',
   },
   {
     icon: {name: 'bison'},
@@ -542,7 +568,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'berksfile'},
-    ids: ['berksfile', 'chef_berkshelf'],
+    ids: ['berksfile', 'chef_berkshelf', 'chef_berksfile', 'chef_policyfile'],
     name: 'berksfile',
   },
   {
@@ -597,7 +623,23 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'cobol'},
-    ids: ['cobol', 'jcl', 'pli', 'cblproj', 'mfu'],
+    ids: [
+      'ACUCOBOL',
+      'BITLANG-COBOL',
+      'cblproj',
+      'cobol directive',
+      'cobol',
+      'COBOL_ACU_LISTFILE',
+      'COBOL_MF_LISTFILE',
+      'COBOL_MF_PREP',
+      'COBOL_PCOB_LISTFILE',
+      'COBOLIT',
+      'jcl',
+      'mfu',
+      'pli',
+      'RMCOBOL',
+      'COBOL Directives'
+    ],
     name: 'cobol',
   },
   {
@@ -622,7 +664,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'cf'},
-    ids: ['cf', 'coldfusion', 'lang-cfml', 'cfml'],
+    ids: ['cf', 'coldfusion', 'lang-cfml', 'cfml', 'cfmhtml'],
     name: 'cf',
   },
   {
@@ -672,7 +714,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'csharp'},
-    ids: ['csharp'],
+    ids: ['csharp', 'extended', 'official', 'extensions'],
     name: 'csharp',
   },
   {
@@ -688,7 +730,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'csv'},
-    ids: ['csv', 'tsv'],
+    ids: ['csv', 'tsv', 'csv (pipe)', 'csv (semicolon)', 'csv (whitespace)', 'dynamic csv'],
     name: 'csv',
   },
   {
@@ -802,12 +844,17 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'dlang'},
-    ids: ['d', 'dlang'],
+    ids: ['d', 'dlang', 'dpp', 'dml'],
     name: 'dlang',
   },
   {
+    icon: {name: 'dns'},
+    ids: ['dns', 'zone'],
+    name: 'dns',
+  },
+  {
     icon: {name: 'db'},
-    ids: ['db', 'termcap', 'terminfo'],
+    ids: ['db', 'termcap', 'terminfo', 'dbscheme'],
     name: 'db',
   },
   {
@@ -819,6 +866,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'docker'},
     ids: ['docker', 'dockerfile'],
     name: 'docker',
+  },
+  {
+    icon: {name: 'dockercompose'},
+    ids: ['dockercompose', 'compose'],
+    name: 'dockercompose',
   },
   {
     icon: {name: 'docpad'},
@@ -862,13 +914,18 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'dune'},
-    ids: ['dune'],
+    ids: ['dune', 'dune-project', 'dune-workspace'],
     name: 'dune',
   },
   {
     icon: {name: 'dustjs'},
     ids: ['dustjs', 'dust'],
     name: 'dustjs',
+  },
+  {
+    icon: {name: 'dtd'},
+    ids: ['dtd'],
+    name: 'dtd',
   },
   {
     icon: {name: 'dvc'},
@@ -896,7 +953,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'eagle'},
-    ids: ['eagle', 'eaglelang'],
+    ids: ['eagle', 'eaglelang', 'eaglecfg'],
     name: 'eagle',
   },
   {
@@ -910,9 +967,9 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'ec',
   },
   {
-    icon: {name: 'ecl'},
-    ids: ['ecl', 'kel'],
-    name: 'ecl',
+    icon: {name: 'clipse'},
+    ids: ['clipse', 'ecl', 'kel'],
+    name: 'clipse',
   },
   {
     icon: {name: 'editorconfig'},
@@ -941,13 +998,13 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'elastic'},
-    ids: ['elastic', 'es', 'elasticsearch', 'edql'],
+    ids: ['elastic', 'es', 'elasticsearch', 'edql', 'logstash'],
     name: 'elastic',
   },
   {
-    icon: {name: 'elixir'},
+    icon: {name: 'ex'},
     ids: ['elixir', 'eex', 'html-eex'],
-    name: 'elixir',
+    name: 'ex',
   },
   {
     icon: {name: 'elm'},
@@ -986,7 +1043,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'erb'},
-    ids: ['erb'],
+    ids: ['erb', 'css.erb', 'html.erb', 'js.erb', 'scss.erb', 'ts.erb'],
     name: 'erb',
   },
   {
@@ -1047,6 +1104,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'fbx'},
     ids: ['fbx'],
     name: 'fbx',
+  },
+  {
+    icon: {name: 'finder'},
+    ids: ['finder', 'desktop'],
+    name: 'finder',
   },
   {
     icon: {name: 'firestore'},
@@ -1222,7 +1284,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'git'},
-    ids: ['git', 'gitattributes'],
+    ids: ['git', 'gitattributes', 'git-commit', 'git-rebase'],
     name: 'git',
   },
   {
@@ -1257,7 +1319,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'goTemplate'},
-    ids: ['gotemplate', 'gotmpl', 'gohtml', 'go-template'],
+    ids: ['gotemplate', 'gotmpl', 'gohtml', 'go-template', 'nomad-pack-go-template'],
     name: 'goTemplate',
   },
   {
@@ -1407,6 +1469,11 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'hc',
   },
   {
+    icon: {name: 'hosts'},
+    ids: ['hosts'],
+    name: 'hosts',
+  },
+  {
     icon: {name: 'homeassistant'},
     ids: ['homeassistant', 'home-assistant', 'home-assistant-jinja'],
     name: 'homeassistant',
@@ -1438,7 +1505,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'html'},
-    ids: ['html'],
+    ids: ['html', 'cshtml', 'html-eex'],
     name: 'html',
   },
   {
@@ -1516,7 +1583,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'informix'},
-    ids: ['informix', '4gl'],
+    ids: ['informix', '4gl', '4GL'],
     name: 'informix',
   },
   {
@@ -1595,7 +1662,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'jenkins'},
-    ids: ['jenkins'],
+    ids: ['jenkins', 'jenkinsfile'],
     name: 'jenkins',
   },
   {
@@ -1685,7 +1752,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'js'},
-    ids: ['js', 'cjs', 'javascript', 'mjs', 'ecmascript', 'es6'],
+    ids: ['js', 'cjs', 'javascript', 'mjs', 'ecmascript', 'es6', 'jspp'],
     name: 'js',
   },
   {
@@ -1715,7 +1782,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'jsonld'},
-    ids: ['jsonld'],
+    ids: ['jsonld', 'jsonl'],
     name: 'jsonld',
   },
   {
@@ -1903,7 +1970,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'lisp'},
-    ids: ['lisp', 'commonlisp'],
+    ids: ['lisp', 'commonlisp', 'commonlisp-injection'],
     name: 'lisp',
   },
   {
@@ -1923,7 +1990,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'log'},
-    ids: ['log'],
+    ids: ['log', 'logfile', 'Log'],
     name: 'log',
   },
   {
@@ -2001,7 +2068,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'mapbox'},
-    ids: ['mapbox', 'mss'],
+    ids: ['mapbox', 'mss', 'mapfile'],
     name: 'mapbox',
   },
   {
@@ -2058,6 +2125,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'mercurial'},
     ids: ['mercurial', 'hg'],
     name: 'mercurial',
+  },
+  {
+    icon: {name: 'mercurialignore'},
+    ids: ['mercurialignore', 'ignore-hgignore'],
+    name: 'mercurialignore',
   },
   {
     icon: {name: 'mercury'},
@@ -2168,9 +2240,9 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'monkey',
   },
   {
-    icon: {name: 'mongo'},
+    icon: {name: 'mongodb'},
     ids: ['mongo', 'mongodb', 'mongodbRunner', 'mongod-config'],
-    name: 'mongo',
+    name: 'mongodb',
   },
   {
     icon: {name: 'moonscript'},
@@ -2191,6 +2263,11 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'msql'},
     ids: ['msql'],
     name: 'msql',
+  },
+  {
+    icon: {name: 'msdos'},
+    ids: ['msdos', 'msbuild'],
+    name: 'msdos',
   },
   {
     icon: {name: 'mupad'},
@@ -2274,7 +2351,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'nginx'},
-    ids: ['nginx'],
+    ids: ['nginx', 'nginx-log'],
     name: 'nginx',
   },
   {
@@ -2349,7 +2426,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'nsis'},
-    ids: ['nsis', 'nlf'],
+    ids: ['nsis', 'nlf', 'nsis-injection'],
     name: 'nsis',
   },
   {
@@ -2397,7 +2474,17 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'ocaml'},
-    ids: ['ocaml', 'ocamllex', 'ocaml.hover.info', 'ocaml.hover.type', 'ocaml.ocamlbuild'],
+    ids: [
+      'ocaml',
+      'ocamllex',
+      'ocaml.hover.info',
+      'ocaml.hover.type',
+      'ocaml.ocamlbuild',
+      'ocaml.interface',
+      'ocaml.ocamldoc',
+      'ocaml.ocamlformat',
+      'ocaml.ocamllex'
+    ],
     name: 'ocaml',
   },
   {
@@ -2416,6 +2503,11 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'ogone',
   },
   {
+    icon: {name: 'omnigraffle'},
+    ids: ['omnigraffle', 'diagram'],
+    name: 'omnigraffle',
+  },
+  {
     icon: {name: 'ooc'},
     ids: ['ooc'],
     name: 'ooc',
@@ -2427,7 +2519,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'opam'},
-    ids: ['opam', 'ocaml.opam'],
+    ids: ['opam', 'ocaml.opam', 'ocaml.opam-install'],
     name: 'opam',
   },
   {
@@ -2457,7 +2549,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'shader'},
-    ids: ['shader', 'q3shader'],
+    ids: ['shader', 'q3shader', 'shaderlab'],
     name: 'shader',
   },
   {
@@ -2580,7 +2672,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'phalcon'},
-    ids: ['phalcon', 'volt'],
+    ids: ['phalcon', 'volt', 'js.volt'],
     light: true,
     name: 'phalcon',
   },
@@ -2660,6 +2752,11 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'postcss',
   },
   {
+    icon: {name: 'pgsql'},
+    ids: ['postgres', 'postgresql', 'pgsql'],
+    name: 'pgsql',
+  },
+  {
     icon: {name: 'posthtml'},
     ids: ['posthtml'],
     name: 'posthtml',
@@ -2730,9 +2827,9 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'pros',
   },
   {
-    icon: {name: 'proto'},
-    ids: ['proto', 'proto3'],
-    name: 'proto',
+    icon: {name: 'protobuf'},
+    ids: ['proto', 'proto3', 'protobuf', 'textproto'],
+    name: 'protobuf',
   },
   {
     icon: {name: 'publiccode'},
@@ -2761,7 +2858,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'pug'},
-    ids: ['pug'],
+    ids: ['pug', 'jade'],
     name: 'pug',
   },
   {
@@ -2779,10 +2876,10 @@ export const languageIcons: LanguageAssociation[] = [
 
   // region [Q]
   {
-    icon: {name: 'qs'},
+    icon: {name: 'qsharp'},
     ids: ['qs', 'qsharp'],
     light: true,
-    name: 'qs',
+    name: 'qsharp',
   },
   {
     icon: {name: 'kx'},
@@ -2795,14 +2892,14 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'python',
   },
   {
-    icon: {name: 'qasm'},
+    icon: {name: 'qiskit'},
     ids: ['qasm', 'qiskit', 'qasm-lang'],
-    name: 'qasm',
+    name: 'qiskit',
   },
   {
-    icon: {name: 'qlik'},
+    icon: {name: 'qlikview'},
     ids: ['qlik', 'qlikview'],
-    name: 'qlik',
+    name: 'qlikview',
   },
   {
     icon: {name: 'qt'},
@@ -2819,7 +2916,7 @@ export const languageIcons: LanguageAssociation[] = [
   // region [R]
   {
     icon: {name: 'r'},
-    ids: ['r', 'rsweave', 'rd', 'debian-control.r', 'namespace.r'],
+    ids: ['r', 'rsweave', 'rd', 'debian-control.r', 'namespace.r', 'buildignore.r'],
     name: 'r',
   },
   {
@@ -2879,7 +2976,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'reason'},
-    ids: ['reason', 'reason-lisp'],
+    ids: ['reason', 'reason-lisp', 'reason_lisp', 'reason.hover.info', 'reason.hover.signature', 'reason.hover.type'],
     name: 'reason',
   },
   {
@@ -3027,7 +3124,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'sass'},
-    ids: ['sass'],
+    ids: ['sass', 'sass.hover'],
     name: 'sass',
   },
   {
@@ -3037,7 +3134,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'scala'},
-    ids: ['scala'],
+    ids: ['scala', 'scalascript'],
     name: 'scala',
   },
   {
@@ -3081,13 +3178,13 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'servicefabric',
   },
   {
-    icon: {name: 'shellcheckrc'},
+    icon: {name: 'shellcheck'},
     ids: ['shellcheckrc', 'shellcheck-output'],
-    name: 'shellcheckrc',
+    name: 'shellcheck',
   },
   {
     icon: {name: 'shell'},
-    ids: ['sh', 'shell', 'shellscript'],
+    ids: ['sh', 'shell', 'shellscript', 'fish'],
     name: 'shell',
   },
   {
@@ -3102,7 +3199,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'silverstripe'},
-    ids: ['silverstripe', 'ss'],
+    ids: ['silverstripe', 'ss', 'SilverStripe'],
     name: 'silverstripe',
   },
   {
@@ -3182,7 +3279,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'solidity'},
-    ids: ['solidity'],
+    ids: ['solidity', 'sol'],
     name: 'solidity',
   },
   {
@@ -3395,7 +3492,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'terraform'},
-    ids: ['terraform', 'tf', 'tfvars', 'terraform-vars'],
+    ids: ['terraform', 'tf', 'tfvars', 'terraform-vars', 'terragrunt'],
     name: 'terraform',
   },
   {
@@ -3410,7 +3507,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'tex'},
-    ids: ['tex', 'latex', 'doctex', 'latex-expl3', 'django-tex'],
+    ids: ['tex', 'latex', 'doctex', 'latex-expl3', 'django-tex', 'cpp_embedded_latex'],
     name: 'tex',
   },
   {
@@ -3427,11 +3524,6 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'thor'},
     ids: ['thor'],
     name: 'thor',
-  },
-  {
-    icon: {name: 'thrift'},
-    ids: ['thrift'],
-    name: 'thrift',
   },
   {
     icon: {name: 'thunderclient'},
@@ -3475,7 +3567,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'ttcn'},
-    ids: ['ttcn', 'ttcn3'],
+    ids: ['ttcn', 'ttcn3', 'ttcn3-out'],
     name: 'ttcn',
   },
   {
@@ -3538,7 +3630,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'unreal'},
-    ids: ['unreal', 'unrealscript', 'unrealscript-pp'],
+    ids: ['unreal', 'unrealscript', 'unrealscript-pp', 'urscript'],
     name: 'unreal',
   },
   // endregion
@@ -3571,7 +3663,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'verilog'},
-    ids: ['verilog', 'systemverilog', 'bhv'],
+    ids: ['verilog', 'systemverilog', 'bhv', 'verilog-filelist'],
     name: 'verilog',
   },
   {
@@ -3585,8 +3677,13 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'vim',
   },
   {
+    icon: {name: 'vm'},
+    ids: ['vm', 'vmoptions', 'jvmoptions'],
+    name: 'vm',
+  },
+  {
     icon: {name: 'vb'},
-    ids: ['vb', 'visualbasic', 'testOutput', 'vba', 'vb.net'],
+    ids: ['vb', 'visualbasic', 'testOutput', 'vba', 'vb.net', 'Visual Basic'],
     name: 'vb',
   },
   {
@@ -3685,8 +3782,13 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'winui'},
-    ids: ['winui', 'xaml'],
+    ids: ['winui', 'xaml', 'xdml'],
     name: 'winui',
+  },
+  {
+    icon: {name: 'windi'},
+    ids: ['windicss', 'windi'],
+    name: 'windi',
   },
   {
     icon: {name: 'wikitext'},
@@ -3695,7 +3797,12 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'wikitext',
   },
   {
-    icon: {name: 'wolframlanguage'},
+    icon: {name: 'windows'},
+    ids: ['windows', 'exe', 'bat', 'reg'],
+    name: 'windows',
+  },
+  {
+    icon: {name: 'wolfram'},
     ids: ['wolfram'],
     name: 'wolfram',
   },
@@ -3787,7 +3894,7 @@ export const languageIcons: LanguageAssociation[] = [
   // region [Y]
   {
     icon: {name: 'yandex'},
-    ids: ['yandex', 'ydl'],
+    ids: ['yandex', 'ydl', 'wiki'],
     name: 'yandex',
   },
   {
