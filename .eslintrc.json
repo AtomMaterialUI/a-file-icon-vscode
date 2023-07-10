@@ -36,6 +36,7 @@
         "@typescript-eslint/keyword-spacing": "error",
         "@typescript-eslint/lines-between-class-members": [
           "error",
+          "always",
           {
             "exceptAfterSingleLine": true
           }
@@ -86,7 +87,7 @@
         "@typescript-eslint/no-extraneous-class": "warn",
         "@typescript-eslint/no-inferrable-types": "error",
         "@typescript-eslint/prefer-namespace-keyword": "error",
-        "@typescript-eslint/sort-type-union-intersection-members": "error",
+        "@typescript-eslint/sort-type-constituents": "error",
         "camelcase": "error",
         "eqeqeq": [
           "error",

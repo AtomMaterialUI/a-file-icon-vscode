@@ -6,7 +6,7 @@
     "incremental": true,
     "isolatedModules": true,
     "lib": [
-      "es2020",
+      "es2023",
       "dom"
     ],
     "module": "commonjs",

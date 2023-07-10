@@ -1,10 +1,10 @@
 import merge from 'lodash.merge';
 import { FileMappingType } from 'src/@types/config';
 import {
-  WILDCARD_PATTERN,
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
   RELATIVE_DIST_FILES_FOLDER_PATH,
+  WILDCARD_PATTERN,
 } from 'src/helpers/constants';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
@@ -12,7 +12,7 @@ import { fileIcons } from 'src/icons/index';
 
 import type { AtomConfig } from 'src/@types/config';
 import type { FileAssociation, FileAssociations } from 'src/@types/associations';
-import type { IconConfiguration } from 'src/models/iconConfiguration';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
 
 export class FileJsonGenerator extends AbstractJsonGenerator {
   constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {

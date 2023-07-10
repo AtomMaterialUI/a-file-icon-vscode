@@ -8,8 +8,7 @@ const editDistance = (s1: string, s2: string) => {
     for (let j = 0; j <= s2.length; j++) {
       if (i === 0) {
         costs[j] = j;
-      }
-      else {
+      } else {
         if (j > 0) {
           let newValue = costs[j - 1];
           if (s1.charAt(i - 1) !== s2.charAt(j - 1)) {
@@ -29,7 +28,7 @@ const editDistance = (s1: string, s2: string) => {
 
 /** TitleCase all words in a string */
 export const toTitleCase = (string_: string): string => {
-  return string_.replace(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
+  return string_.replaceAll(/\w\S*/g, (txt) => txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase());
 };
 
 /**

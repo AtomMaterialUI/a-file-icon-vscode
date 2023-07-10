@@ -5,7 +5,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
 import { getDefaultConfig, getFileConfigHash } from 'src/icons/configUtils';
-import { IconConfiguration } from 'src/models/iconConfiguration';
+import { IconConfiguration } from 'src/models/IconConfiguration';
 
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
@@ -47,8 +47,7 @@ export class IconThemeGenerator {
     try {
       const json = this.iconConfig;
       outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf8');
-    }
-    catch (error) {
+    } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
   }

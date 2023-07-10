@@ -1,20 +1,20 @@
 import merge from 'lodash.merge';
 import { FolderTheme } from 'src/@types/config';
 import {
-  OPENED_FOLDER_SUFFIX,
   DARK_FILE_ENDING,
+  FOLDER_PREFIX,
   HIGH_CONTRAST_FILE_ENDING,
+  OPENED_FOLDER_SUFFIX,
   RELATIVE_DIST_FOLDERS_FOLDER_PATH,
   RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH,
-  FOLDER_PREFIX,
 } from 'src/helpers/constants';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { folderIcons } from 'src/icons/index';
 
 import type { AtomConfig } from 'src/@types/config';
-import type { FolderAssociations, FolderAssociation, IconAssociations } from 'src/@types/associations';
-import type { IconConfiguration } from 'src/models/iconConfiguration';
+import type { FolderAssociation, FolderAssociations, IconAssociations } from 'src/@types/associations';
+import type { IconConfiguration } from 'src/models/IconConfiguration';
 
 export class FolderJsonGenerator extends AbstractJsonGenerator {
   constructor(override readonly atomConfig: AtomConfig, override readonly iconConfig: IconConfiguration) {
