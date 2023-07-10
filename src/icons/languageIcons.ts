@@ -8,8 +8,18 @@ import type { LanguageAssociation } from 'src/@types/associations';
 export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'preferences'},
-    ids: ['ini'],
+    ids: ['ini', 'env', 'dotenv'],
     name: 'preferences',
+  },
+  {
+    icon: {name: 'githubActions'},
+    ids: ['githubActions', 'workflow'],
+    name: 'githubActions',
+  },
+  {
+    icon: {name: 'readme'},
+    ids: ['readme'],
+    name: 'readme',
   },
 
   // region [0]
@@ -194,7 +204,14 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'asm'},
-    ids: ['asm', 'asm-collection', 'asm-list-file', 'asm-markdown-codeblock', 'asm-list-markdown-codeblock'],
+    ids: [
+      'asm',
+      'asm-collection',
+      'asm-list-file',
+      'asm-markdown-codeblock',
+      'asm-list-markdown-codeblock',
+      'assembly',
+    ],
     name: 'asm',
   },
   {
@@ -605,7 +622,7 @@ export const languageIcons: LanguageAssociation[] = [
   },
   {
     icon: {name: 'cf'},
-    ids: ['cf', 'coldfusion', 'lang-cfml'],
+    ids: ['cf', 'coldfusion', 'lang-cfml', 'cfml'],
     name: 'cf',
   },
   {
@@ -711,14 +728,78 @@ export const languageIcons: LanguageAssociation[] = [
   },
   // endregion
 
+  // region [D]
+  {
+    icon: {name: 'dafny'},
+    ids: ['dafny'],
+    name: 'dafny',
+  },
   {
     icon: {name: 'dart'},
     ids: ['dart'],
     name: 'dart',
   },
-  // { icon: { name: 'dhall' }, ids: ['dhall'] },
-  // { icon: { name: 'diff' }, ids: ['diff'] },
-  // { icon: { name: 'django' }, ids: ['django-html', 'django-txt'] },
+  {
+    icon: {name: 'dataweave'},
+    ids: ['dataweave', 'data-weave'],
+    name: 'dataweave',
+  },
+  {
+    icon: {name: 'dbase'},
+    ids: ['dbase', 'harbour'],
+    name: 'dbase',
+  },
+  {
+    icon: {name: 'debian'},
+    ids: ['debian', 'debian-control', 'debian-copyright', 'debian-changelog', 'debian-upstream-metadata'],
+    name: 'debian',
+  },
+  {
+    icon: {name: 'delphi'},
+    ids: ['delphi', 'objectpascal'],
+    name: 'delphi',
+  },
+  {
+    icon: {name: 'denizen'},
+    ids: ['denizen', 'denizenscript'],
+    name: 'denizen',
+  },
+  {
+    icon: {name: 'devicetree'},
+    ids: ['devicetree', 'dts'],
+    name: 'devicetree',
+  },
+  {
+    icon: {name: 'dhall'},
+    ids: ['dhall'],
+    light: true,
+    name: 'dhall',
+  },
+  {
+    icon: {name: 'dia'},
+    ids: ['dia', 'dialang'],
+    name: 'dia',
+  },
+  {
+    icon: {name: 'diff'},
+    ids: ['diff', 'diffs'],
+    name: 'diff',
+  },
+  {
+    icon: {name: 'digdag'},
+    ids: ['digdag', 'dig'],
+    name: 'digdag',
+  },
+  {
+    icon: {name: 'dinophp'},
+    ids: ['dinophp', 'bubble'],
+    name: 'dinophp',
+  },
+  {
+    icon: {name: 'django'},
+    ids: ['django', 'django-html', 'django-txt'],
+    name: 'django',
+  },
   {
     icon: {name: 'dlang'},
     ids: ['d', 'dlang'],
@@ -729,8 +810,78 @@ export const languageIcons: LanguageAssociation[] = [
     ids: ['db', 'termcap', 'terminfo'],
     name: 'db',
   },
-  // { icon: { name: 'docker' }, ids: ['dockerfile'] },
-  // { icon: { name: 'document' }, ids: ['plaintext'] },
+  {
+    icon: {name: 'do'},
+    ids: ['do'],
+    name: 'do',
+  },
+  {
+    icon: {name: 'docker'},
+    ids: ['docker', 'dockerfile'],
+    name: 'docker',
+  },
+  {
+    icon: {name: 'docpad'},
+    ids: ['docpad'],
+    name: 'docpad',
+  },
+  {
+    icon: {name: 'docz'},
+    ids: ['docz'],
+    name: 'docz',
+  },
+  {
+    icon: {name: 'dogescript'},
+    ids: ['dogescript'],
+    name: 'dogescript',
+  },
+  {
+    icon: {name: 'dotjs'},
+    ids: ['dotjs', 'dot'],
+    name: 'dotjs',
+  },
+  {
+    icon: {name: 'doxyfile'},
+    ids: ['doxyfile'],
+    name: 'doxyfile',
+  },
+  {
+    icon: {name: 'doxygen'},
+    ids: ['doxygen'],
+    name: 'doxygen',
+  },
+  {
+    icon: {name: 'drawio'},
+    ids: ['drawio'],
+    name: 'drawio',
+  },
+  {
+    icon: {name: 'drools'},
+    ids: ['drools', 'drl'],
+    name: 'drools',
+  },
+  {
+    icon: {name: 'dune'},
+    ids: ['dune'],
+    name: 'dune',
+  },
+  {
+    icon: {name: 'dustjs'},
+    ids: ['dustjs', 'dust'],
+    name: 'dustjs',
+  },
+  {
+    icon: {name: 'dvc'},
+    ids: ['dvc'],
+    name: 'dvc',
+  },
+  {
+    icon: {name: 'dylan'},
+    ids: ['dylan', 'dylan-lid', 'lid'],
+    name: 'dylan',
+  },
+
+  // endregion
 
   // region [E]
   {
@@ -970,7 +1121,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'fsharp'},
     ids: ['fsharp', 'fslex', 'fsyacc'],
-    name: 'fsharp'
+    name: 'fsharp',
   },
   {
     icon: {name: 'fthtml'},
@@ -1693,7 +1844,7 @@ export const languageIcons: LanguageAssociation[] = [
     icon: {name: 'latte'},
     ids: ['latte'],
     light: true,
-    name: 'latte'
+    name: 'latte',
   },
   {
     icon: {name: 'leaflet'},

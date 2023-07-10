@@ -1875,7 +1875,7 @@ export const fileIcons: FileIcons = {
       name: 'd3',
     },
     {
-      fileExtensions: ['dafny', 'dfy'],
+      fileExtensions: ['dafny', 'dfy', 'dfyi'],
       name: 'dafny',
     },
     {
@@ -1964,7 +1964,7 @@ export const fileIcons: FileIcons = {
       name: 'devcontainer',
     },
     {
-      fileExtensions: ['dts', 'dtsi'],
+      fileExtensions: ['dts', 'dtsi', 'dtso', 'dts_compiled', 'overlay'],
       name: 'devicetree',
     },
     {
@@ -1973,7 +1973,7 @@ export const fileIcons: FileIcons = {
       name: 'dhall',
     },
     {
-      fileExtensions: ['dia'],
+      fileExtensions: ['dia', 'dial'],
       name: 'dia',
     },
     {
@@ -2155,7 +2155,7 @@ export const fileIcons: FileIcons = {
       name: 'dune',
     },
     {
-      fileExtensions: ['dust'],
+      fileExtensions: ['dust', 'dustjs'],
       name: 'dustjs',
     },
     {
