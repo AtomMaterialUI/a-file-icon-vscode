@@ -1,0 +1,73 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "Unthrottled",
+      "name": "Alex Simons",
+      "avatar_url": "https://avatars.githubusercontent.com/u/15972415?v=4",
+      "profile": "https://unthrottled.io",
+      "contributions": [
+        "infra",
+        "code",
+        "plugin"
+      ]
+    },
+    {
+      "login": "Joristdh",
+      "name": "Joris te Dorsthorst",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6518350?v=4",
+      "profile": "https://Joristdh.web.app",
+      "contributions": [
+        "ideas"
+      ]
+    },
+    {
+      "login": "godfather1103",
+      "name": "Jack Chu",
+      "avatar_url": "https://avatars.githubusercontent.com/u/11797964?v=4",
+      "profile": "https://github.com/godfather1103",
+      "contributions": [
+        "bug"
+      ]
+    },
+    {
+      "login": "donniean",
+      "name": "Donnie An",
+      "avatar_url": "https://avatars.githubusercontent.com/u/12584040?v=4",
+      "profile": "https://github.com/donniean",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "amstiel",
+      "name": "Alexey Kunitsky",
+      "avatar_url": "https://avatars.githubusercontent.com/u/9428948?v=4",
+      "profile": "https://github.com/amstiel",
+      "contributions": [
+        "code",
+        "ideas"
+      ]
+    },
+    {
+      "login": "aparajita",
+      "name": "Aparajita Fishman",
+      "avatar_url": "https://avatars.githubusercontent.com/u/22218?v=4",
+      "profile": "https://github.com/aparajita",
+      "contributions": [
+        "ideas",
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "a-file-icon-idea",
+  "projectOwner": "mallowigi",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
