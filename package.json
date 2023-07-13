@@ -2,7 +2,7 @@
   "name": "a-file-icon-vscode",
   "displayName": "Atom Material Icons",
   "description": "Atom Material Icons for Visual Studio Code",
-  "version": "2.0.0",
+  "version": "1.2.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mallowigi/a-file-icon-vscode.git"

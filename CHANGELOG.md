@@ -393,7 +393,7 @@ From here on is the changelog of the original repository:
 - Add `.astro` icon [`#1025`](https://github.com/PKief/vscode-material-icon-theme/pull/1025)
 - Fix unclosed bold tag [`21b6cdb`](https://github.com/PKief/vscode-material-icon-theme/commit/21b6cdb)
 - Fix description of how to use custom icons (Closes #984,
-  1004) [`a06913f`](https://github.com/PKief/vscode-material-icon-theme/commit/a06913f)
+    1004) [`a06913f`](https://github.com/PKief/vscode-material-icon-theme/commit/a06913f)
 - Fix description of how to use custom icons (Closes
   #1004) [`80c551b`](https://github.com/PKief/vscode-material-icon-theme/commit/80c551b)
 - Align circleci folder with github [`#1021`](https://github.com/PKief/vscode-material-icon-theme/pull/1021)
