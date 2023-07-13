@@ -15,7 +15,6 @@ class ConfigChangeDetector {
   listenForChanges() {
     const iconDelta = this.getIconDelta();
     const productDelta = this.getProductDelta();
-    console.log(productDelta);
 
     if (Object.keys(iconDelta).length > 0) {
       const iconThemeGenerator = new IconThemeGenerator(iconDelta);
