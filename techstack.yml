@@ -1,0 +1,443 @@
+repo_name: mallowigi/a-file-icon-vscode
+report_id: '09544c4cd83148c3122ddd94761aa5b1'
+repo_type: Public
+timestamp: '2023-11-19T07:55:44+00:00'
+requested_by: mallowigi
+provider: github
+branch: main
+detected_tools_count: 33
+tools:
+- name: JavaScript
+  description: Lightweight, interpreted, object-oriented language with first-class
+    functions
+  website_url: https://developer.mozilla.org/en-US/docs/Web/JavaScript
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1209/javascript.jpeg
+  detection_source: Repo Metadata
+- name: TypeScript
+  description: A superset of JavaScript that compiles to clean JavaScript output
+  website_url: http://www.typescriptlang.org
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1612/bynNY5dJ.jpg
+  detection_source: Repo Metadata
+- name: Node.js
+  description: A platform built on Chrome's JavaScript runtime for easily building
+    fast, scalable network applications
+  website_url: http://nodejs.org/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Frameworks (Full Stack)
+  image_url: https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-03-04 20:55:15.000000000 Z
+- name: ESLint
+  description: The fully pluggable JavaScript code quality tool
+  website_url: http://eslint.org/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/3337/Q4L7Jncy.jpg
+  detection_source: package.json
+  last_updated_by: Philipp Kief
+  last_updated_on: 2016-09-09 20:42:41.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source: ".github/workflows/release.yml"
+  last_updated_by: renovate[bot]
+  last_updated_on: 2023-03-10 11:43:27.000000000 Z
+- name: Mocha
+  description: Simple, flexible, fun javascript test framework for node.js &amp; the
+    browser
+  website_url: http://mochajs.org/
+  version: 10.2.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Javascript Testing Framework
+  image_url: https://img.stackshare.io/service/832/mocha.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-02-03 19:59:19.000000000 Z
+- name: Prettier
+  description: 'Prettier is an opinionated code formatter. '
+  website_url: https://prettier.io/
+  version: 3.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Code Review
+  image_url: https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: Puppeteer
+  description: Headless Chrome Node API
+  website_url: https://github.com/GoogleChrome/puppeteer
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Headless Browsers
+  image_url: https://img.stackshare.io/service/7553/puppeteer.png
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: Visual Studio Code
+  description: Build and debug modern web and cloud applications, by Microsoft
+  website_url: https://code.visualstudio.com/
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Text Editor
+  image_url: https://img.stackshare.io/service/4202/Visual_Studio_Code_logo.png
+  detection_source: ".vscode/tasks.json"
+  last_updated_by: PKief
+  last_updated_on: 2017-03-02 18:47:36.000000000 Z
+- name: Webpack
+  description: A bundler for javascript and friends
+  website_url: http://webpack.js.org
+  version: 5.88.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: JS Build Tools / JS Task Runners
+  image_url: https://img.stackshare.io/service/1682/IMG_4636.PNG
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-01-27 09:57:23.000000000 Z
+- name: npm
+  description: The package manager for JavaScript.
+  website_url: https://www.npmjs.com/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Front End Package Manager
+  image_url: https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png
+  detection_source: package.json
+  last_updated_by: Philipp Kief
+  last_updated_on: 2016-09-09 20:42:41.000000000 Z
+- name: i18next
+  description: Internationalization-framework written in and for JavaScript
+  website_url: https://www.i18next.com/
+  open_source: false
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Translation Service
+  image_url: https://img.stackshare.io/service/4747/default_82286a88bf01c80539ebd1d6dbea1b25df8af16d.png
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@types/fs-extra"
+  description: TypeScript definitions for fs-extra
+  package_url: https://www.npmjs.com/@types/fs-extra
+  version: 11.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16170/default_1f3a2fc7d882e29a43394ecdf491b8989ea3f0fa.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@types/glob"
+  description: TypeScript definitions for Glob
+  package_url: https://www.npmjs.com/@types/glob
+  version: 8.1.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16391/default_fc6e1fc17e404d936593b5b901d67abb3386daa3.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@types/mocha"
+  description: TypeScript definitions for mocha
+  package_url: https://www.npmjs.com/@types/mocha
+  version: 10.0.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15893/default_1d65e37e65b7f80761374f0202776043277d505d.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@types/node"
+  description: TypeScript definitions for Node.js
+  package_url: https://www.npmjs.com/@types/node
+  version: 20.4.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15809/default_5e5e8ac63beda29f31f1844df64d4b8247570a66.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@types/puppeteer"
+  description: TypeScript definitions for puppeteer
+  package_url: https://www.npmjs.com/@types/puppeteer
+  version: 7.0.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16766/default_c6eddffbed005d007ab4638fbcac90e4b79576b2.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@typescript-eslint/eslint-plugin"
+  description: TypeScript plugin for ESLint
+  package_url: https://www.npmjs.com/@typescript-eslint/eslint-plugin
+  version: 6.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15982/default_8b5680d4e916298d08363c291a0d6e34c07ceb15.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: "@typescript-eslint/parser"
+  description: An ESLint custom parser which leverages TypeScript ESTree
+  package_url: https://www.npmjs.com/@typescript-eslint/parser
+  version: 6.0.0
+  license: BSD-2-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15980/default_732016a20524708efe7a4c77497fe9bfeea19ba6.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: eslint-config-prettier
+  description: Turns off all rules that are unnecessary or might conflict with Prettier
+  package_url: https://www.npmjs.com/eslint-config-prettier
+  version: 8.8.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15879/default_0b10af8ca19c215f781dc07442e75bdc831089d0.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: eslint-plugin-import
+  description: Import with sanity
+  package_url: https://www.npmjs.com/eslint-plugin-import
+  version: 2.27.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15806/default_98aa227f51aa9d787815ec3fd98d0ab2bfebbb91.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: eslint-plugin-prettier
+  description: Runs prettier as an eslint rule
+  package_url: https://www.npmjs.com/eslint-plugin-prettier
+  version: 4.2.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15896/default_6e6e1d6bb189c8bb26c6410618bd597979578f39.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: eslint-plugin-unicorn
+  description: Various awesome ESLint rules
+  package_url: https://www.npmjs.com/eslint-plugin-unicorn
+  version: 47.0.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16871/default_2e3ed47575edcaf407097e6171e3d4cb8681a6b3.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: fs-extra
+  description: Fs-extra contains methods that aren't included in the vanilla Node.js
+    fs package
+  package_url: https://www.npmjs.com/fs-extra
+  version: 11.1.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15836/default_b71c906aeda030a5e2f1fe40bf12a93be52404ab.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: glob
+  description: A little globber
+  package_url: https://www.npmjs.com/glob
+  version: 7.2.3
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15875/default_7c39a83d4acd952df89b1ebfdb94c8646324fbf1.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: lodash.merge
+  description: The Lodash method `_.merge` exported as a module
+  package_url: https://www.npmjs.com/lodash.merge
+  version: 4.6.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16314/default_c47f6a56d74fae4d4404d77067b2fa35da6f1924.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: rimraf
+  description: A deep deletion module for node
+  package_url: https://www.npmjs.com/rimraf
+  version: 3.0.2
+  license: ISC
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15807/default_db4a7791d2f1174547374b9b587bc10fec088a5a.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: svgo
+  description: Nodejs-based tool for optimizing SVG vector graphics files
+  package_url: https://www.npmjs.com/svgo
+  version: 3.0.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16716/default_e3c0987b80983280e46e6e1723fcfcff50fa4824.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-02-03 19:59:19.000000000 Z
+- name: ts-loader
+  description: TypeScript loader for webpack
+  package_url: https://www.npmjs.com/ts-loader
+  version: 9.4.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15938/default_e0a4fb1126d7400f419f0931cf1669947a5bc552.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: ts-node
+  description: TypeScript execution environment and REPL for node.js
+  package_url: https://www.npmjs.com/ts-node
+  version: 10.9.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15830/default_6743ba96cf149a3c3c68a185199f9705d6eff80e.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: tsconfig-paths
+  description: Load node modules according to tsconfig paths
+  package_url: https://www.npmjs.com/tsconfig-paths
+  version: 3.14.1
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/16810/default_55e3ea76a7929df1b71c5ea0c9b4130cc87323a4.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
+- name: webpack-cli
+  description: CLI for webpack &amp; friends
+  package_url: https://www.npmjs.com/webpack-cli
+  version: 5.1.4
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: npm Packages
+  image_url: https://img.stackshare.io/package/15826/default_14fd11531839d935f920b6d55bd6f3528c890ad7.png
+  detection_source_url: package-lock.json
+  detection_source: package.json
+  last_updated_by: Elior
+  last_updated_on: 2023-07-10 18:58:34.000000000 Z
