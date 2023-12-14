@@ -1,9 +1,11 @@
 <!--
---- Readme.md Snippet without images Start ---
+&lt;--- Readme.md Snippet without images Start ---&gt;
 ## Tech Stack
 mallowigi/a-file-icon-vscode is built on the following main stack:
+
 - [Mocha](http://mochajs.org/) – Javascript Testing Framework
 - [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
+- [.NET](http://www.microsoft.com/net/) – Frameworks (Full Stack)
 - [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - [TypeScript](http://www.typescriptlang.org) – Languages
 - [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
@@ -15,13 +17,16 @@ mallowigi/a-file-icon-vscode is built on the following main stack:
 - [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet without images End ---
 
---- Readme.md Snippet with images Start ---
+&lt;--- Readme.md Snippet without images End ---&gt;
+
+&lt;--- Readme.md Snippet with images Start ---&gt;
 ## Tech Stack
 mallowigi/a-file-icon-vscode is built on the following main stack:
+
 - <img width='25' height='25' src='https://img.stackshare.io/service/832/mocha.png' alt='Mocha'/> [Mocha](http://mochajs.org/) – Javascript Testing Framework
 - <img width='25' height='25' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'/> [Node.js](http://nodejs.org/) – Frameworks (Full Stack)
+- <img width='25' height='25' src='https://img.stackshare.io/service/1014/IoPy1dce_400x400.png' alt='.NET'/> [.NET](http://www.microsoft.com/net/) – Frameworks (Full Stack)
 - <img width='25' height='25' src='https://img.stackshare.io/service/1209/javascript.jpeg' alt='JavaScript'/> [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1612/bynNY5dJ.jpg' alt='TypeScript'/> [TypeScript](http://www.typescriptlang.org) – Languages
 - <img width='25' height='25' src='https://img.stackshare.io/service/1682/IMG_4636.PNG' alt='Webpack'/> [Webpack](http://webpack.js.org) – JS Build Tools / JS Task Runners
@@ -33,14 +38,15 @@ mallowigi/a-file-icon-vscode is built on the following main stack:
 - <img width='25' height='25' src='https://img.stackshare.io/service/11563/actions.png' alt='GitHub Actions'/> [GitHub Actions](https://github.com/features/actions) – Continuous Integration
 
 Full tech stack [here](/techstack.md)
---- Readme.md Snippet with images End ---
+
+&lt;--- Readme.md Snippet with images End ---&gt;
 -->
 <div align="center">
 
 # Tech Stack File
 ![](https://img.stackshare.io/repo.svg "repo") [mallowigi/a-file-icon-vscode](https://github.com/mallowigi/a-file-icon-vscode)![](https://img.stackshare.io/public_badge.svg "public")
 <br/><br/>
-|33<br/>Tools used|11/19/23 <br/>Report generated|
+|35<br/>Tools used|12/14/23 <br/>Report generated|
 |------|------|
 </div>
 
@@ -65,9 +71,17 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (1)
+## <img src='https://img.stackshare.io/frameworks.svg'/> Frameworks (2)
 <table><tr>
   <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/1014/IoPy1dce_400x400.png' alt='.NET'>
+  <br>
+  <sub><a href="http://www.microsoft.com/net/">.NET</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1011/n1JRsFeB_400x400.png' alt='Node.js'>
   <br>
   <sub><a href="http://nodejs.org/">Node.js</a></sub>
@@ -78,7 +92,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## <img src='https://img.stackshare.io/devops.svg'/> DevOps (9)
+## <img src='https://img.stackshare.io/devops.svg'/> DevOps (10)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/3337/Q4L7Jncy.jpg' alt='ESLint'>
@@ -113,6 +127,14 @@ Full tech stack [here](/techstack.md)
 </td>
 
 <td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/2637/6I3oEOP4_400x400.jpg' alt='NuGet'>
+  <br>
+  <sub><a href="https://www.nuget.org/">NuGet</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/7035/default_66f265943abed56bcdbfca1c866a4261b1fbb063.jpg' alt='Prettier'>
   <br>
   <sub><a href="https://prettier.io/">Prettier</a></sub>
@@ -136,7 +158,9 @@ Full tech stack [here](/techstack.md)
   <sub></sub>
 </td>
 
-<td align='center'>
+</tr>
+<tr>
+  <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1682/IMG_4636.PNG' alt='Webpack'>
   <br>
   <sub><a href="http://webpack.js.org">Webpack</a></sub>
@@ -144,9 +168,7 @@ Full tech stack [here](/techstack.md)
   <sub>v5.88.1</sub>
 </td>
 
-</tr>
-<tr>
-  <td align='center'>
+<td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png' alt='npm'>
   <br>
   <sub><a href="https://www.npmjs.com/">npm</a></sub>
@@ -157,7 +179,7 @@ Full tech stack [here](/techstack.md)
 </tr>
 </table>
 
-## Other (1)
+## Other (2)
 <table><tr>
   <td align='center'>
   <img width='36' height='36' src='https://img.stackshare.io/service/4747/default_82286a88bf01c80539ebd1d6dbea1b25df8af16d.png' alt='i18next'>
@@ -167,13 +189,21 @@ Full tech stack [here](/techstack.md)
   <sub></sub>
 </td>
 
+<td align='center'>
+  <img width='36' height='36' src='https://img.stackshare.io/service/8443/2473585.png' alt='svgo'>
+  <br>
+  <sub><a href="https://github.com/svg/svgo">svgo</a></sub>
+  <br>
+  <sub></sub>
+</td>
+
 </tr>
 </table>
 
 
-## <img src='https://img.stackshare.io/group.svg' /> Open source packages (20)</h2>
+## <img src='https://img.stackshare.io/group.svg' /> Open source packages (19)</h2>
 
-## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (20)
+## <img width='24' height='24' src='https://img.stackshare.io/service/1120/lejvzrnlpb308aftn31u.png'/> npm (19)
 
 |NAME|VERSION|LAST UPDATED|LAST UPDATED BY|LICENSE|VULNERABILITIES|
 |:------|:------|:------|:------|:------|:------|
@@ -192,7 +222,6 @@ Full tech stack [here](/techstack.md)
 |[glob](https://www.npmjs.com/glob)|v7.2.3|07/10/23|Elior |ISC|N/A|
 |[lodash.merge](https://www.npmjs.com/lodash.merge)|v4.6.2|07/10/23|Elior |MIT|N/A|
 |[rimraf](https://www.npmjs.com/rimraf)|v3.0.2|07/10/23|Elior |ISC|N/A|
-|[svgo](https://www.npmjs.com/svgo)|v3.0.2|02/03/23|Elior |MIT|N/A|
 |[ts-loader](https://www.npmjs.com/ts-loader)|v9.4.4|07/10/23|Elior |MIT|N/A|
 |[ts-node](https://www.npmjs.com/ts-node)|v10.9.1|07/10/23|Elior |MIT|N/A|
 |[tsconfig-paths](https://www.npmjs.com/tsconfig-paths)|v3.14.1|07/10/23|Elior |MIT|N/A|
