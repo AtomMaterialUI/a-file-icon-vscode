@@ -180,7 +180,7 @@ export const cFiles = [
   {
     fileExtensions: ['circleci'],
     fileNames: ['circle.yml', 'circle.yaml'],
-    name: 'circleci',
+    name: 'circleciconf',
   },
   {
     fileExtensions: [
@@ -216,7 +216,7 @@ export const cFiles = [
       'pho',
       'sch',
     ],
-    name: 'circuit',
+    name: 'circuit2',
   },
   {
     fileExtensions: ['cirru'],
@@ -436,6 +436,14 @@ export const cFiles = [
     name: 'conll',
   },
   {
+    fileExtensions: ['containerfile'],
+    name: 'containerfile',
+  },
+  {
+    fileExtensions: ['containerignore'],
+    name: 'containerignore',
+  },
+  {
     fileExtensions: ['cml'],
     name: 'cml',
   },
@@ -482,6 +490,10 @@ export const cFiles = [
   {
     fileExtensions: ['cr', 'ecr'],
     name: 'crystal',
+  },
+  {
+    fileExtensions: ['csharpierrc', 'csharpierrc.json', 'csharpierrc.yaml', 'csharpierrc.yml'],
+    name: 'csharpier',
   },
   {
     fileExtensions: ['csc', 'ins', 'orc', 'sco', 'udo'],

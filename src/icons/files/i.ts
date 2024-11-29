@@ -5,6 +5,24 @@ export const iFiles = [
   },
   {
     fileExtensions: [
+      'nls.es.json',
+      'nls.de.json',
+      'nls.json',
+      'nls.fr.json',
+      'nls.it.json',
+      'nls.ja.json',
+      'nls.nl.json',
+      'nls.ko.json',
+      'nls.pt-br.json',
+      'nls.pt-pt.json',
+      'nls.ru.json',
+      'nls.zh-cn.json',
+      'nls.zh-tw.json',
+    ],
+    name: 'i18nlang',
+  },
+  {
+    fileExtensions: [
       'i18n/js',
       'i18n/jsx',
       'i18n/cjs',
@@ -72,7 +90,7 @@ export const iFiles = [
       'translations/yaml',
       'translations/yml',
     ],
-    name: 'i18nlang',
+    name: 'i18nlangfiles',
   },
   {
     fileExtensions: ['icl'],

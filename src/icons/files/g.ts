@@ -301,6 +301,11 @@ export const gFiles = [
       'gruntfile.cjs',
       'gruntfile.mjs',
       'gruntfile.ts',
+    ],
+    name: 'gruntfile',
+  },
+  {
+    fileNames: [
       'grunt/ts',
       'grunt/js',
       'grunt/cjs',
@@ -310,7 +315,7 @@ export const gFiles = [
       'gruntfiles/cjs',
       'gruntfiles/mjs',
     ],
-    name: 'gruntfile',
+    name: 'gruntfiles',
   },
   {
     fileNames: [
@@ -319,6 +324,11 @@ export const gFiles = [
       'gulpfile.cjs',
       'gulpfile.mjs',
       'gulpfile.ts',
+    ],
+    name: 'gulpfile',
+  },
+  {
+    fileNames: [
       'gulp/ts',
       'gulp/js',
       'gulp/cjs',
@@ -328,6 +338,6 @@ export const gFiles = [
       'gulpfiles/cjs',
       'gulpfiles/mjs',
     ],
-    name: 'gulpfile',
+    name: 'gulpfiles',
   },
 ];

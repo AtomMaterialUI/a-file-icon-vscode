@@ -74,7 +74,6 @@ export const jFiles = [
     name: 'jenkins',
   },
   {
-    fileExtensions: ['jest/cjs', 'jest/js', 'jest/mjs', 'jest/ts'],
     fileNames: [
       'jest.babel.cjs',
       'jest.babel.js',
@@ -100,6 +99,10 @@ export const jFiles = [
       'jest.teardown.ts',
     ],
     name: 'jest',
+  },
+  {
+    fileExtensions: ['jest/cjs', 'jest/js', 'jest/mjs', 'jest/ts'],
+    name: 'jestfiles',
   },
   {
     fileExtensions: ['jestrc', 'jestrc.cjs', 'jestrc.js', 'jestrc.json', 'jestrc.mjs', 'jestrc.ts'],
@@ -200,7 +203,7 @@ export const jFiles = [
   {
     fileExtensions: ['ipynb'],
     fileNames: ['Notebook'],
-    name: 'jupyter',
+    name: 'jupyternotebook',
   },
   {
     fileExtensions: ['jos', 'junos', 'slax'],

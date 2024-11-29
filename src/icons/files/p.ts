@@ -10,6 +10,10 @@ export const pFiles = [
     name: 'pan',
   },
   {
+    fileNames: ['panda.config.js', 'panda.config.ts', 'panda.config.cjs', 'panda.config.mjs'],
+    name: 'panda',
+  },
+  {
     fileExtensions: ['pex', 'psc'],
     name: 'papyrus',
   },
@@ -73,12 +77,8 @@ export const pFiles = [
     name: 'perlconfig',
   },
   {
-    fileExtensions: ['p4', 'p4config', 'p4include', 'p4info'],
-    name: 'helix',
-  },
-  {
-    fileExtensions: ['p4ignore'],
-    name: 'helixignore',
+    fileExtensions: ['perm', 'permify'],
+    name: 'permify',
   },
   {
     enabledFor: [IconPack.Phalcon],
@@ -96,8 +96,11 @@ export const pFiles = [
   },
   {
     fileExtensions: ['php_cs'],
-    fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
     name: 'phpcs',
+  },
+  {
+    fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
+    name: 'phpcsxml',
   },
   {
     fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
@@ -136,6 +139,16 @@ export const pFiles = [
     name: 'picolisp',
   },
   {
+    fileExtensions: [
+      'pid',
+      'sha',
+      'sha256',
+      'shasum',
+      'tld',
+    ],
+    name: 'pid',
+  },
+  {
     fileExtensions: ['pike', 'pmod'],
     name: 'pike',
   },
@@ -161,6 +174,16 @@ export const pFiles = [
     name: 'pkgsrc',
   },
   {
+    fileNames: [
+      'plastic.branchexplorer',
+      'plastic.selector',
+      'plastic.wktree',
+      'plastic.workspace',
+      'plastic.workspaces',
+    ],
+    name: 'plastic',
+  },
+  {
     fileNames: ['platformio.ini'],
     name: 'platformio',
   },
@@ -179,6 +202,10 @@ export const pFiles = [
   {
     fileNames: ['plopfile.js', 'plopfile.ts', 'plopfile.cjs', 'plopfile.mjs'],
     name: 'plopfile',
+  },
+  {
+    fileNames: ['META-INF/xml'],
+    name: 'pluginfiles',
   },
   {
     fileNames: [
@@ -238,6 +265,11 @@ export const pFiles = [
     fileExtensions: [
       'pcss',
       'postcss',
+    ],
+    name: 'postcss',
+  },
+  {
+    fileExtensions: [
       'postcssrc',
       'postcssrc.cjs',
       'postcssrc.js',
@@ -263,7 +295,7 @@ export const pFiles = [
       'postcssrc.config.yaml',
       'postcssrc.config.yml',
     ],
-    name: 'postcss',
+    name: 'postcssconfig',
   },
   {
     fileExtensions: [
@@ -466,9 +498,12 @@ export const pFiles = [
     name: 'pytyped',
   },
   {
-    fileExtensions: ['coveragerc', 'pylintrc'],
     fileNames: ['manifest.in', 'python-config.json', 'pythonconfig.json'],
     name: 'pythonconfig',
+  },
+  {
+    fileExtensions: ['coveragerc', 'pylintrc'],
+    name: 'pythonconfigs',
   },
   {
     fileExtensions: ['py-version', 'python-version', 'pythonversion'],

@@ -137,14 +137,6 @@ export const eFiles = [
   },
   {
     fileExtensions: [
-      'eslint/js',
-      'eslint/ts',
-      'eslint/cjs',
-      'eslint/ms',
-      'rules/js',
-      'rules/ts',
-      'rules/cjs',
-      'rules/ms',
       'eslintrc',
       'eslintrc.cjs',
       'eslintrc.js',
@@ -157,7 +149,24 @@ export const eFiles = [
     name: 'eslint',
   },
   {
-    fileExtensions: ['eslintcache', 'eslintignore'],
+    fileExtensions: [
+      'eslint/js',
+      'eslint/ts',
+      'eslint/cjs',
+      'eslint/ms',
+      'rules/js',
+      'rules/ts',
+      'rules/cjs',
+      'rules/ms',
+    ],
+    name: 'eslintrules',
+  },
+  {
+    fileExtensions: ['eslintcache'],
+    name: 'eslintcache',
+  },
+  {
+    fileExtensions: ['eslintignore'],
     name: 'eslintignore',
   },
   {
@@ -171,7 +180,7 @@ export const eFiles = [
   {
     fileExtensions: ['emakerfile', 'emakefile', 'emake'],
     fileNames: ['emakefile', 'emake'],
-    name: 'makefile',
+    name: 'emakefile',
   },
   {
     fileExtensions: ['odx', 'xla', 'xlam', 'xlm', 'xls', 'xlsb', 'xlsm', 'xlsx', 'xlt', 'xltm', 'xltx'],

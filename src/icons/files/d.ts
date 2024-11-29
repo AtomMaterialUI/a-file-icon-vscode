@@ -167,25 +167,30 @@ export const dFiles = [
     name: 'doclets',
   },
   {
+    fileNames: ['docker-bake.yaml', 'docker-bake.yml', 'docker-bake.hcl', 'docker-bake.json'],
+    name: 'dockerbake',
+  },
+  {
     fileExtensions: ['dockerfile'],
     fileNames: [
-      'docker/dockerfile',
       'dockerfile',
       'dockerfile.dev',
       'dockerfile.prod',
       'dockerfile.test',
-      'dockerfiles/dockerfile',
     ],
     name: 'docker',
+  },
+  {
+    fileNames: [
+      'docker/dockerfile',
+      'dockerfiles/dockerfile',
+    ],
+    name: 'dockerfiles',
   },
   {
     fileExtensions: [
       'docker-compose.yaml',
       'docker-compose.yml',
-      'docker/yaml',
-      'docker/yml',
-      'dockerfiles/yaml',
-      'dockerfiles/yml',
     ],
     fileNames: [
       'compose.yaml',
@@ -200,6 +205,15 @@ export const dFiles = [
       'docker-compose.yml',
     ],
     name: 'dockercompose',
+  },
+  {
+    fileExtensions: [
+      'docker/yaml',
+      'docker/yml',
+      'dockerfiles/yaml',
+      'dockerfiles/yml',
+    ],
+    name: 'dockercomposefiles',
   },
   {
     fileExtensions: ['dockerignore'],
@@ -236,7 +250,7 @@ export const dFiles = [
   {
     fileExtensions: ['dojo', 'dojorc'],
     fileNames: ['dojo.cjs', 'dojo.js', 'dojo.mjs'],
-    name: 'dojo',
+    name: 'dojorc',
   },
   {
     fileExtensions: ['component'],

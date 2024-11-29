@@ -14,27 +14,27 @@ export const tests = [
       'tests/coffee',
       'tests/litcoffee',
     ],
-    name: 'testcoffee',
+    name: 'testcoffeefiles',
   },
   {
     fileExtensions: ['spec.dart', 'spec/dart', 'specs/dart', 'test.dart', 'test/dart', 'tests/dart'],
-    name: 'testdart',
+    name: 'testdartfiles',
   },
   {
     fileExtensions: ['spec.go', 'spec/go', 'specs/go', 'test.go', 'test/go', 'tests/go'],
-    name: 'testgo',
+    name: 'testgofiles',
   },
   {
     fileExtensions: ['spec.hs', 'spec/hs', 'specs/hs', 'test.hs', 'test/hs', 'tests/hs'],
-    name: 'testhaskell',
+    name: 'testhaskellfiles',
   },
   {
     fileExtensions: ['junit/java', 'test/java', 'tests/java', 'unit/java'],
-    name: 'testjava',
+    name: 'testjavafiles',
   },
   {
     fileExtensions: ['junit/kt', 'test/kt', 'tests/kt', 'unit/kt'],
-    name: 'testkt',
+    name: 'testktfiles',
   },
   {
     fileExtensions: [
@@ -64,7 +64,7 @@ export const tests = [
       'tests/mjs',
     ],
     light: true,
-    name: 'testjs',
+    name: 'testjsfiles',
   },
   {
     fileExtensions: [
@@ -99,7 +99,7 @@ export const tests = [
       'tests/pl6',
       'tests/pm6',
     ],
-    name: 'testperl',
+    name: 'testperlfiles',
   },
   {
     fileExtensions: [
@@ -116,7 +116,7 @@ export const tests = [
       'tests/jsx',
       'tests/tsx',
     ],
-    name: 'testreact',
+    name: 'testreactfiles',
   },
   {
     fileExtensions: [
@@ -157,7 +157,7 @@ export const tests = [
       'tests/python',
       'tests/whl',
     ],
-    name: 'testpy',
+    name: 'testpyfiles',
   },
   {
     fileExtensions: [
@@ -180,19 +180,19 @@ export const tests = [
       'tests/rbs',
       'tests/ruby',
     ],
-    name: 'testruby',
+    name: 'testrubyfiles',
   },
   {
     fileExtensions: ['spec.rs', 'spec/rs', 'specs/rs', 'test.rs', 'test/rs', 'tests/rs'],
-    name: 'testrust',
+    name: 'testrustfiles',
   },
   {
     fileExtensions: ['spec.scala', 'spec/scala', 'specs/scala', 'test.scala', 'test/scala', 'tests/scala'],
-    name: 'testscala',
+    name: 'testscalafiles',
   },
   {
     fileExtensions: ['spec.ts', 'spec/ts', 'specs/ts', 'test.ts', 'test/ts', 'tests/ts'],
-    name: 'testts',
+    name: 'testtsfiles',
   },
   {
     fileExtensions: [
@@ -207,6 +207,6 @@ export const tests = [
       'units/php',
       'phpunit/php',
     ],
-    name: 'testphp',
+    name: 'testphpfiles',
   },
 ];

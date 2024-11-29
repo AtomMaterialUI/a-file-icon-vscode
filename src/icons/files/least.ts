@@ -6,7 +6,6 @@ export const least = [
   {
     fileExtensions: [
       '2da',
-      'cbor',
       'db',
       'db2',
       'db3',
@@ -14,19 +13,30 @@ export const least = [
       'ddl',
       'dict',
       'edn',
-      'eign',
-      'fea',
-      'icondb.js',
       'od',
-      'onlydata',
-      'pytb',
       'schema',
-      'syntax',
-      'termcap',
-      'terminfo',
-      'tgn',
     ],
     name: 'db',
+  },
+  {
+    fileExtensions: [
+      'cbor',
+      'eign',
+      'fea',
+      'onlydata',
+      'pytb',
+      'syntax',
+      'tgn',
+    ],
+    name: 'db2',
+  },
+  {
+    fileExtensions: [
+      'icondb.js',
+      'termcap',
+      'terminfo',
+    ],
+    name: 'db3',
   },
   {
     fileExtensions: ['dfont', 'eot', 'otf', 'pfa', 'pfb', 'pfm', 'tfm', 'ttc', 'ttf', 'woff', 'woff2'],

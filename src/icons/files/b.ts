@@ -60,7 +60,7 @@ export const bFiles = [
   },
   {
     fileExtensions: ['bean/java', 'bean/kt', 'beans/java', 'beans/kt'],
-    name: 'bean',
+    name: 'beanfiles',
   },
   {
     fileExtensions: ['feature.php'],
@@ -98,6 +98,19 @@ export const bFiles = [
   {
     fileExtensions: ['bintray.json'],
     name: 'bintray',
+  },
+  {
+    fileNames: [
+      'biome.js',
+      'biome.ts',
+      'biome.cjs',
+      'biome.mjs',
+      'biome.json',
+      'biome.toml',
+      'biome.yaml',
+      'biome.yml',
+    ],
+    name: 'biome',
   },
   {
     fileExtensions: ['bison', 'y', 'yacc', 'ypp', 'yy'],
@@ -144,17 +157,22 @@ export const bFiles = [
       'AppEvent.dart',
       'AppState.dart',
       'bloc.dart',
+      'flutter_bloc.dart',
+      'habit_event.dart',
+      'habit_state.dart',
+    ],
+    name: 'bloc',
+  },
+  {
+    fileNames: [
       'bloc/dart',
       'blocs/dart',
       'event/dart',
       'events/dart',
-      'flutter_bloc.dart',
-      'habit_event.dart',
-      'habit_state.dart',
       'state/dart',
       'states/dart',
     ],
-    name: 'bloc',
+    name: 'blocfiles',
   },
   {
     fileExtensions: ['bspec', 'bsv'],
@@ -219,7 +237,7 @@ export const bFiles = [
   {
     fileExtensions: ['bowerrc'],
     fileNames: ['bower.json', 'bowerfile'],
-    name: 'bower',
+    name: 'bowerfile',
   },
   {
     fileExtensions: ['b', 'bf', 'brainfuck', 'bfp'],

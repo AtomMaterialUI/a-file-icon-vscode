@@ -37,6 +37,10 @@ export const tFiles = [
     name: 'tauri',
   },
   {
+    fileExtensions: ['taurignore'],
+    name: 'taurignore',
+  },
+  {
     fileExtensions: ['adp', 'exp', 'itcl', 'itk', 'tcl', 'tkdiffrc', 'tkvcs', 'tm'],
     name: 'tcl',
   },
@@ -61,7 +65,20 @@ export const tFiles = [
     name: 'tera',
   },
   {
-    fileExtensions: ['tf', 'tf.json', 'tfplan', 'tfstate', 'tfvars'],
+    fileExtensions: [
+      'tf',
+      'tf.json',
+      'tfplan',
+      'tfplan.json',
+      'tfstate',
+      'tfstate.json',
+      'tfvars',
+      'tfvars.json',
+      'tfbackend',
+      'tfbackend.json',
+      'tfignore',
+      'tfignore.json',
+    ],
     name: 'terraform',
   },
   {
@@ -187,6 +204,9 @@ export const tFiles = [
   },
   {
     fileExtensions: ['taskpaper', 'todo'],
+    name: 'todofile',
+  },
+  {
     fileNames: [
       'todo',
       'todo.adoc',

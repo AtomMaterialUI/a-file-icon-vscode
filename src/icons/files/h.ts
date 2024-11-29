@@ -12,6 +12,10 @@ export const hFiles = [
     name: 'haml',
   },
   {
+    fileExtensions: ['hpx'],
+    name: 'hpx',
+  },
+  {
     fileNames: ['hardhat.config.cjs', 'hardhat.config.js', 'hardhat.config.mjs', 'hardhat.config.ts'],
     name: 'hardhat',
   },
@@ -73,6 +77,14 @@ export const hFiles = [
   {
     fileNames: ['haxelib.json'],
     name: 'haxelib',
+  },
+  {
+    fileExtensions: ['p4', 'p4config', 'p4include', 'p4info'],
+    name: 'helix',
+  },
+  {
+    fileExtensions: ['p4ignore'],
+    name: 'helixignore',
   },
   {
     fileExtensions: ['helm', 'helmfile', 'helmrc'],
@@ -144,7 +156,7 @@ export const hFiles = [
       'zsh_history',
     ],
     fileNames: ['history', 'history.md', 'history.txt', 'historyfile'],
-    name: 'history',
+    name: 'shellhistory',
   },
   {
     fileExtensions: ['hjson'],
@@ -210,8 +222,6 @@ export const hFiles = [
   },
   {
     fileNames: [
-      '.husky/sh',
-      'hooks/sh',
       'post-checkout',
       'post-commit',
       'post-merge',
@@ -224,6 +234,25 @@ export const hFiles = [
       'pre-rebase',
     ],
     name: 'huskyhooks',
+  },
+  {
+    fileNames: [
+      'hooks/sh',
+    ],
+    name: 'huskyhooksfiles',
+  },
+  {
+    fileNames: [
+      '.husky/sh',
+      '.husky/cjs',
+      '.husky/js',
+      '.husky/mjs',
+      '.husky/ts',
+      '.husky/yaml',
+      '.husky/yml',
+      '.husky/json',
+    ],
+    name: 'huskyfiles',
   },
   {
     fileExtensions: [

@@ -104,10 +104,6 @@ export const custom = [
     name: 'stalebot',
   },
   {
-    fileNames: ['META-INF/xml'],
-    name: 'plugin',
-  },
-  {
     fileExtensions: ['bundle.properties', 'messages/properties'],
     name: 'i18nProperties',
   },

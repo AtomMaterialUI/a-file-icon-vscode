@@ -184,19 +184,19 @@ export const fileIcons: FileIcons = {
     // endregion
 
     // region [Binaries]
-    binaries,
+    ...binaries,
     // endregion
 
     // region [Archive]
-    archive,
+    ...archive,
     // endregion
 
     // region [Audio]
-    audio,
+    ...audio,
     // endregion
 
     // region [Video]
-    video,
+    ...video,
     // endregion
 
     // region [Languages]

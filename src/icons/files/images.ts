@@ -22,18 +22,28 @@ export const images = [
   {
     fileExtensions: [
       'bpg',
-      'dcm',
       'djvu',
       'dpx',
+      'jng',
+      'jps',
+      'jxr',
+    ],
+    name: 'image',
+  },
+  {
+    fileExtensions: [
+      'dcm',
       'ecw',
       'hdp',
       'hdr',
       'heic',
       'heif',
       'iff',
-      'jng',
-      'jps',
-      'jxr',
+    ],
+    name: 'image2',
+  },
+  {
+    fileExtensions: [
       'pcx',
       'pict',
       'pxb',
@@ -48,7 +58,7 @@ export const images = [
       'vsdm',
       'wbm',
     ],
-    name: 'image',
+    name: 'image3',
   },
   {
     fileExtensions: ['svg', 'svgz'],

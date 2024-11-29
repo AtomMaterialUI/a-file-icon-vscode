@@ -317,7 +317,7 @@ export const aFiles = [
       'httpd.prod.conf',
       'httpd.vhost.conf',
     ],
-    name: 'apacheconf',
+    name: 'apacheconf2',
   },
   {
     fileExtensions: ['thrift', 'vhost'],
