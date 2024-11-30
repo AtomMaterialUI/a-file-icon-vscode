@@ -2,6 +2,7 @@ import type { IconAssociations } from './associations';
 
 export enum IconPack {
   Angular = 'angular',
+  Angular2 = 'angular2',
   Nest = 'nest',
   Next = 'next',
   Ngrx = 'ngrx',

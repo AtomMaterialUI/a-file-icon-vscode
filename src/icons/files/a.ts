@@ -171,36 +171,66 @@ export const aFiles = [
     name: 'angular',
   },
   {
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['ng-template', 'ng.html', 'ng.js', 'ng.ts', 'ngtemplate'],
+    name: 'angular2',
+  },
+  {
     fileExtensions: ['container.dart', 'container.js', 'container.ts'],
     name: 'ngrxjs',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['comp.dart', 'comp.js', 'comp.ts', 'component.dart', 'component.js', 'component.ts'],
     name: 'angularcomponent',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['comp.dart', 'comp.js', 'comp.ts', 'component.dart', 'component.js', 'component.ts'],
+    name: 'angular2component',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['controller.dart', 'controller.js', 'controller.ts', 'ctrl.dart', 'ctrl.js', 'ctrl.ts'],
     name: 'angularcontroller',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['controller.dart', 'controller.js', 'controller.ts', 'ctrl.dart', 'ctrl.js', 'ctrl.ts'],
+    name: 'angular2controller',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['directive.js', 'directive.ts', 'directive.dart'],
     name: 'angulardirective',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['directive.js', 'directive.ts', 'directive.dart'],
+    name: 'angular2directive',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['guard.js', 'guard.ts', 'guard.dart'],
     name: 'angularguard',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['guard.js', 'guard.ts', 'guard.dart'],
+    name: 'angular2guard',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['interceptor.js', 'interceptor.ts', 'interceptor.dart'],
     name: 'angularinterceptor',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['interceptor.js', 'interceptor.ts', 'interceptor.dart'],
+    name: 'angular2interceptor',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['routing.js', 'routing.ts', 'routing.dart'],
     fileNames: [
       'angular-routing.dart',
@@ -217,29 +247,49 @@ export const aFiles = [
     name: 'angularapprouting',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['module.js', 'module.ts', 'module.dart'],
     name: 'angularmodule',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['module.js', 'module.ts', 'module.dart'],
+    name: 'angular2module',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['service.js', 'service.ts', 'service.dart'],
     name: 'angularservice',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['service.js', 'service.ts', 'service.dart'],
+    name: 'angular2service',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['page.js', 'page.ts', 'page.dart'],
     name: 'ionic',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['pipe.js', 'pipe.ts', 'pipe.dart'],
     name: 'angularpipe',
   },
   {
-    enabledFor: [IconPack.Angular, IconPack.Ngrx],
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['pipe.js', 'pipe.ts', 'pipe.dart'],
+    name: 'angular2pipe',
+  },
+  {
+    enabledFor: [IconPack.Angular],
     fileExtensions: ['resolver.js', 'resolver.ts', 'resolver.dart'],
     name: 'angularresolver',
+  },
+  {
+    enabledFor: [IconPack.Angular2],
+    fileExtensions: ['resolver.js', 'resolver.ts', 'resolver.dart'],
+    name: 'angular2resolver',
   },
   {
     fileNames: ['ng-tailwind.js', 'ng-tailwind.ts', 'ng-tailwind.dart'],

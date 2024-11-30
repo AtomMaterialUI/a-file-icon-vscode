@@ -113,6 +113,7 @@ export const bFiles = [
       'biome.toml',
       'biome.yaml',
       'biome.yml',
+      'biome.jsonc',
     ],
     name: 'biome',
   },

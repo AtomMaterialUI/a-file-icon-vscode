@@ -126,6 +126,7 @@ export const vFiles = [
       'njsproj',
       'rc',
       'sln',
+      'slnx',
       'suo',
       'vs',
       'vsconfig',

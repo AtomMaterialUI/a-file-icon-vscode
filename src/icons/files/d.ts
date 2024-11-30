@@ -315,6 +315,10 @@ export const dFiles = [
     name: 'dub',
   },
   {
+    fileNames: ['duc.json'],
+    name: 'duc',
+  },
+  {
     fileNames: ['dune', 'dune-project', 'dune-workspace'],
     name: 'dune',
   },

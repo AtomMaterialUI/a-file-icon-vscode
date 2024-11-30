@@ -452,6 +452,10 @@ export const cFiles = [
     name: 'cml',
   },
   {
+    fileNames: ['contenthook.config.js', 'contenthook.config.cjs', 'contenthook.config.mjs', 'contenthook.config.ts'],
+    name: 'contenthook',
+  },
+  {
     fileExtensions: ['contributors'],
     name: 'contributors',
   },
