@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 import { dirname, join } from 'node:path';
 
 import type { AtomConfig } from 'src/@types/config';

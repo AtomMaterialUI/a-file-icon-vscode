@@ -26,7 +26,7 @@
     "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
     "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
     "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
-    "lint": "eslint -c .eslintrc.json --ext .ts ./src/**/*.ts",
+    "lint": "eslint ./src/**/*.ts",
     "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
     "postcompile": "bun run generateJson && bun run check",
     "pretest": "bun run build && tsc -p ./",
@@ -38,9 +38,14 @@
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
   },
   "dependencies": {
+    "@eslint/compat": "^1.2.3",
+    "@eslint/eslintrc": "^3.2.0",
+    "@eslint/js": "^9.16.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "fs-extra": "^11.2.0",
+    "globals": "^15.12.0",
+    "jsonc-eslint-parser": "^2.4.0",
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
@@ -379,7 +384,7 @@
     ]
   },
   "engines": {
-    "vscode": "^1.80.0"
+    "vscode": "^1.95.0"
   },
   "extensionKind": [
     "ui",
