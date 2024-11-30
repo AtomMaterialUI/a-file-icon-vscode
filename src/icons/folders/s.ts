@@ -8,6 +8,10 @@ export const sFolders = [
     name: 'scala',
   },
   {
+    folderNames: ['scons', 'scons_temp'],
+    name: 'scons',
+  },
+  {
     folderNames: [
       'capture',
       'captures',
@@ -46,6 +50,10 @@ export const sFolders = [
   {
     folderNames: ['security', 'secure'],
     name: 'security',
+  },
+  {
+    folderNames: ['seed', 'seeds', 'seeder', 'seeders'],
+    name: 'seed',
   },
   {
     folderNames: [
@@ -88,6 +96,10 @@ export const sFolders = [
     name: 'shared',
   },
   {
+    folderNames: ['skeleton', 'skeletons', 'placeholder', 'placeholders'],
+    name: 'skeleton',
+  },
+  {
     folderNames: [
       'buildSrc',
       'code',
@@ -96,6 +108,8 @@ export const sFolders = [
       'src',
       'srcs',
       'srcset',
+      'snippet',
+      'snippets',
     ],
     name: 'src',
   },
@@ -113,6 +127,10 @@ export const sFolders = [
       'sqlserver',
     ],
     name: 'sql',
+  },
+  {
+    folderNames: ['sst'],
+    name: 'sst',
   },
   {
     folderNames: ['stack', 'stacks', 'structure', 'structures'],
@@ -150,6 +168,10 @@ export const sFolders = [
   {
     folderNames: ['strategy', 'strategies'],
     name: 'strategy',
+  },
+  {
+    folderNames: ['styled', 'styled-components'],
+    name: 'styled',
   },
   {
     folderNames: ['css', 'style', 'styles', 'stylesheet', 'stylesheets'],

@@ -4,6 +4,10 @@ export const dFolders = [
     name: 'dapr',
   },
   {
+    folderNames: ['dart'],
+    name: 'dart',
+  },
+  {
     folderNames: [
       'database',
       'databases',
@@ -76,7 +80,7 @@ export const dFolders = [
     name: 'dist',
   },
   {
-    folderNames: ['docker', 'dockerfile', 'dockerfiles'],
+    folderNames: ['docker', 'dockerfile', 'dockerfiles', 'dockerhub'],
     name: 'docker',
   },
   {
@@ -97,6 +101,10 @@ export const dFolders = [
   {
     folderNames: ['download', 'downloads', 'dl', 'dls'],
     name: 'download',
+  },
+  {
+    folderNames: ['drizzle'],
+    name: 'drizzle',
   },
   {
     folderNames: ['dropbox', 'dropbox.cache'],

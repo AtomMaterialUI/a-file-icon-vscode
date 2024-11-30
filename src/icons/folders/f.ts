@@ -8,6 +8,10 @@ export const fFolders = [
     name: 'faq',
   },
   {
+    folderNames: ['favorite', 'favorites', 'favourite', 'favourites', 'fav', 'favs', 'bookmark', 'bookmarks'],
+    name: 'favorites',
+  },
+  {
     folderNames: ['feature', 'features', 'feat', 'feats'],
     name: 'features',
   },
@@ -31,7 +35,15 @@ export const fFolders = [
     name: 'flow',
   },
   {
-    folderNames: ['font', 'fonts'],
+    folderNames: ['fluig'],
+    name: 'fluig',
+  },
+  {
+    folderNames: ['flutter'],
+    name: 'flutter',
+  },
+  {
+    folderNames: ['font', 'fonts', 'typeface', 'typefaces', 'glyph', 'glyphs'],
     name: 'fonts',
   },
   {
@@ -46,6 +58,11 @@ export const fFolders = [
       'lambdas',
       'service',
       'services',
+      'proc',
+      'procs',
+      'procedure',
+      'procedures',
+      'rpc',
     ],
     name: 'functions',
   },

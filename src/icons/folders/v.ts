@@ -9,6 +9,7 @@ export const vFolders = [
       'libraries',
       'library',
       'libs',
+      'lib64',
       'pod',
       'pods',
       'stdlib',

@@ -25,6 +25,10 @@ export const eFolders = [
     name: 'emacs',
   },
   {
+    folderNames: ['empty', 'empties', 'stock', 'stocks'],
+    name: 'empty',
+  },
+  {
     folderNames: ['env', 'envs', 'environment', 'environments'],
     name: 'env',
   },
@@ -34,13 +38,13 @@ export const eFolders = [
       'errors',
       'exception',
       'exceptions',
-      'prod',
-      'production',
+      'crash',
+      'crashes',
     ],
     name: 'error',
   },
   {
-    folderNames: ['event', 'events'],
+    folderNames: ['event', 'events', 'signal', 'signals'],
     name: 'events',
   },
   {

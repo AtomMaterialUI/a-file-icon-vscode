@@ -13,11 +13,15 @@ export const wFolders = [
     name: 'web',
   },
   {
+    folderNames: ['web', 'webcomponents', 'web-components'],
+    name: 'webcomponents',
+  },
+  {
     folderNames: ['webpack', 'webpack.d', 'webpackfile', 'webpackfiles'],
     name: 'webpack',
   },
   {
-    folderNames: ['windows', 'win'],
+    folderNames: ['windows', 'win', 'win32', 'win64'],
     name: 'windows',
   },
   {

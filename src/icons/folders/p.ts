@@ -14,12 +14,20 @@ export const pFolders = [
     name: 'packages',
   },
   {
+    folderNames: ['parcel', 'parcel-cache'],
+    name: 'parcel',
+  },
+  {
     folderNames: ['perl', 'pl'],
     name: 'perl',
   },
   {
     folderNames: ['acrobat', 'adobe', 'pdf', 'pdfs'],
     name: 'pdf',
+  },
+  {
+    folderNames: ['pdm-build', 'pdm-plugins'],
+    name: 'pdm',
   },
   {
     folderNames: ['php', 'phpcs', 'phpmailer', 'phpt', 'phtml'],
@@ -32,6 +40,10 @@ export const pFolders = [
   {
     folderNames: ['pipe', 'pipes', 'filter', 'filters'],
     name: 'pipe',
+  },
+  {
+    folderNames: ['plastic'],
+    name: 'plastic',
   },
   {
     folderNames: ['pio', 'pioenv', 'pioenvs', 'platformio'],
@@ -49,6 +61,8 @@ export const pFolders = [
       'mu-plugins',
       'plugin',
       'plugins',
+      'mod',
+      'mods',
     ],
     name: 'plugin',
   },
@@ -67,6 +81,10 @@ export const pFolders = [
   {
     folderNames: ['private', 'privates'],
     name: 'private',
+  },
+  {
+    folderNames: ['profile', 'profiles', 'persona', 'personas'],
+    name: 'profile',
   },
   {
     folderNames: ['project', 'projects', 'proj'],

@@ -19,6 +19,10 @@ export const tFolders = [
       'tickets',
       'workflow',
       'workflows',
+      'shell',
+      'bash',
+      'zsh',
+      'fish',
     ],
     name: 'tasks',
   },
@@ -99,6 +103,27 @@ export const tFolders = [
       'themes',
     ],
     name: 'themes',
+  },
+  {
+    folderNames: [
+      'tool',
+      'toolbox',
+      'toolboxes',
+      'toolkit',
+      'toolkits',
+      'tools',
+      'util',
+      'utilities',
+      'utility',
+      'utils',
+      'tooling',
+      'devtools',
+    ],
+    name: 'tools',
+  },
+  {
+    folderNames: ['protheus', 'totvs', 'advpl'],
+    name: 'totvs',
   },
   {
     folderNames: [

@@ -30,7 +30,7 @@ export const iFolders = [
     name: 'icons',
   },
   {
-    folderNames: ['idea', 'META-INF'],
+    folderNames: ['idea', 'META-INF', 'intellijPlatform'],
     name: 'idea',
   },
   {
@@ -48,6 +48,11 @@ export const iFolders = [
       'pics',
       'picture',
       'pictures',
+      'png',
+      'pngs',
+      'jpg',
+      'jpeg',
+      'gif',
     ],
     name: 'images',
   },
@@ -66,8 +71,6 @@ export const iFolders = [
       'include',
       'included',
       'includes',
-      'input',
-      'inputs',
     ],
     name: 'include',
   },
@@ -96,6 +99,18 @@ export const iFolders = [
       'injects',
     ],
     name: 'injection',
+  },
+  {
+    folderNames: ['interceptor', 'interceptors'],
+    name: 'interceptor',
+  },
+  {
+    folderNames: ['internal', 'internals'],
+    name: 'internal',
+  },
+  {
+    folderNames: ['island', 'islands'],
+    name: 'islands',
   },
   {
     folderNames: ['istanbul', 'nyc', 'nyc_output', 'nyc-output'],

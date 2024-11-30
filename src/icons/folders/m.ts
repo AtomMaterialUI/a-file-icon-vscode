@@ -98,7 +98,7 @@ export const mFolders = [
     name: 'mercurial',
   },
   {
-    folderNames: ['meta', 'metadata', 'metas'],
+    folderNames: ['meta', 'metadata', 'metas', 'input', 'inputs', 'form', 'forms'],
     name: 'meta',
   },
   {
@@ -108,6 +108,10 @@ export const mFolders = [
   {
     folderNames: ['middleware', 'middlewares', 'thunk', 'thunks'],
     name: 'middleware',
+  },
+  {
+    folderNames: ['mindsdb'],
+    name: 'mindsdb',
   },
   {
     folderNames: ['mjml'],
@@ -144,6 +148,8 @@ export const mFolders = [
       'popups',
       'usecase',
       'usecases',
+      'dialogbox',
+      'dialogboxes',
     ],
     name: 'modals',
   },
@@ -174,5 +180,9 @@ export const mFolders = [
   {
     folderNames: ['moon', 'moonscript'],
     name: 'moon',
+  },
+  {
+    folderNames: ['msw'],
+    name: 'msw',
   },
 ];

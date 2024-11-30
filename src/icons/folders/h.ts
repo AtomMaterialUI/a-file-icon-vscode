@@ -36,7 +36,7 @@ export const hFolders = [
     name: 'home',
   },
   {
-    folderNames: ['hook', 'hooks', 'trigger', 'triggers'],
+    folderNames: ['hook', 'hooks', 'trigger', 'triggers', 'composable', 'composables'],
     name: 'hook',
   },
   {

@@ -16,6 +16,10 @@ export const cFolders = [
       'marketing',
       'shop',
       'shops',
+      'product',
+      'products',
+      'sku',
+      'skus',
     ],
     name: 'cart',
   },
@@ -67,7 +71,6 @@ export const cFolders = [
       'directives',
       'element',
       'elements',
-      'ui',
       'widget',
       'widgets',
     ],
@@ -76,6 +79,10 @@ export const cFolders = [
   {
     folderNames: ['composer'],
     name: 'composer',
+  },
+  {
+    folderNames: ['conductor', 'conductors'],
+    name: 'conductor',
   },
   {
     folderNames: [
@@ -87,6 +94,8 @@ export const cFolders = [
       'configurations',
       'setting',
       'settings',
+      'option',
+      'options',
     ],
     name: 'config',
   },

@@ -29,6 +29,7 @@ export const nFolders = [
       'jupyter-notebooks',
       'notebook',
       'notebooks',
+      'ipynb',
     ],
     name: 'notebooks',
   },
@@ -49,5 +50,9 @@ export const nFolders = [
   {
     folderNames: ['nuxt'],
     name: 'nuxt',
+  },
+  {
+    folderNames: ['nx'],
+    name: 'nx',
   },
 ];

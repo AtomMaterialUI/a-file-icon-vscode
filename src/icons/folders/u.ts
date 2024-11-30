@@ -1,5 +1,9 @@
 export const uFolders = [
   {
+    folderNames: ['ui', 'gui', 'ux', 'figma'],
+    name: 'ui',
+  },
+  {
     folderNames: ['unity', 'unity3d'],
     name: 'unity',
   },
@@ -37,20 +41,5 @@ export const uFolders = [
       'users',
     ],
     name: 'users',
-  },
-  {
-    folderNames: [
-      'tool',
-      'toolbox',
-      'toolboxes',
-      'toolkit',
-      'toolkits',
-      'tools',
-      'util',
-      'utilities',
-      'utility',
-      'utils',
-    ],
-    name: 'tools',
   },
 ];

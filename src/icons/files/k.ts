@@ -20,6 +20,10 @@ export const kFiles = [
     name: 'karma',
   },
   {
+    fileExtensions: ['k', 'kdb', 'q', 'quke'],
+    name: 'kx',
+  },
+  {
     fileNames: [
       'kdu.config.js',
       'kdu.config.cjs',

@@ -53,12 +53,13 @@ export const aFolders = [
       'group_vars',
       'host_vars',
       'playbooks',
+      'collections',
       'vars',
     ],
     name: 'ansible',
   },
   {
-    folderNames: ['api', 'apis', 'openapi', 'rest', 'swagger'],
+    folderNames: ['api', 'apis', 'openapi', 'rest', 'parsers'],
     name: 'api',
   },
   {
@@ -71,7 +72,7 @@ export const aFolders = [
     name: 'apollo',
   },
   {
-    folderNames: ['app', 'apps', 'application', 'applications'],
+    folderNames: ['app', 'apps', 'application', 'applications', 'sdk', 'sdks'],
     name: 'app',
   },
   {
@@ -110,6 +111,10 @@ export const aFolders = [
   {
     folderNames: ['art', 'arts', 'arttext', 'artx', 'wordart', 'wordarts'],
     name: 'arttext',
+  },
+  {
+    folderNames: ['astro'],
+    name: 'astro',
   },
   {
     folderNames: [
@@ -172,6 +177,7 @@ export const aFolders = [
       'aws',
       'aws-lambda',
       'cloudfront',
+      'cloudflare',
       'ecr',
       'ecs',
       's3',

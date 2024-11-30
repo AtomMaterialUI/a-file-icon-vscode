@@ -4,6 +4,10 @@ export const oFolders = [
     name: 'openshift',
   },
   {
+    folderNames: ['order', 'orders', 'list', 'lists', 'listing', 'listings'],
+    name: 'orders',
+  },
+  {
     folderNames: [
       'etc',
       'extra',

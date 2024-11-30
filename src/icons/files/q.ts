@@ -5,10 +5,6 @@ export const qFiles = [
     name: 'qsharp',
   },
   {
-    fileExtensions: ['k', 'kdb', 'q', 'quke'],
-    name: 'kx',
-  },
-  {
     fileExtensions: ['qasm', 'qiskit'],
     name: 'qiskit',
   },

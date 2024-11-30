@@ -47,6 +47,10 @@ export const bFolders = [
     name: 'bower',
   },
   {
+    folderNames: ['bot', 'bots', 'robot', 'robots'],
+    name: 'bot',
+  },
+  {
     folderNames: ['buildkite'],
     name: 'buildkite',
   },
