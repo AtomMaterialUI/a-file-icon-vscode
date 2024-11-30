@@ -2,37 +2,38 @@ import type { IconAssociations } from './associations';
 
 export enum IconPack {
   Angular = 'angular',
-  Nest    = 'nest',
-  Ngrx    = 'ngrx',
+  Nest = 'nest',
+  Next = 'next',
+  Ngrx = 'ngrx',
   Phalcon = 'phalcon',
-  Rails   = 'rails',
-  React   = 'react',
-  Recoil  = 'recoil',
-  Redux   = 'redux',
-  Volt    = 'volt',
-  Vue     = 'vue',
-  Vuex    = 'vuex',
-  None    = 'none',
+  Rails = 'rails',
+  React = 'react',
+  Recoil = 'recoil',
+  Redux = 'redux',
+  Volt = 'volt',
+  Vue = 'vue',
+  Vuex = 'vuex',
+  None = 'none',
 }
 
 export enum FolderTheme {
-  Classic  = 'classic',
-  None     = 'none',
+  Classic = 'classic',
+  None = 'none',
   Specific = 'specific',
 }
 
 export enum PredefinedOpacity {
-  Transparent     = 'transparent',
+  Transparent = 'transparent',
   SemiTransparent = 'semiTransparent',
-  Opaque          = 'opaque',
-  Custom          = 'custom'
+  Opaque = 'opaque',
+  Custom = 'custom'
 }
 
 export enum PredefinedSaturation {
-  Grayscale   = 'grayscale',
+  Grayscale = 'grayscale',
   Desaturated = 'desaturated',
-  Vivid       = 'vivid',
-  Custom      = 'custom'
+  Vivid = 'vivid',
+  Custom = 'custom'
 }
 
 export type AtomConfig = {
@@ -58,7 +59,7 @@ export enum UpdateStatus {
 
 export enum FileMappingType {
   FileExtensions = 'fileExtensions',
-  FileNames      = 'fileNames',
+  FileNames = 'fileNames',
 }
 
 export type Theme = {
@@ -116,9 +117,9 @@ export type ThemeColor = {
 }
 
 export enum ArrowTheme {
-  Material  = 'material',
-  Triangle  = 'triangle',
+  Material = 'material',
+  Triangle = 'triangle',
   PlusMinus = 'plusMinus',
-  Arrow     = 'arrow',
-  None      = 'none',
+  Arrow = 'arrow',
+  None = 'none',
 }

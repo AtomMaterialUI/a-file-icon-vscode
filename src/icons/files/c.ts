@@ -424,6 +424,10 @@ export const cFiles = [
     name: 'conan',
   },
   {
+    fileNames: ['concource.yml', 'concourse.yml'],
+    name: 'concourse',
+  },
+  {
     fileExtensions: ['condarc'],
     name: 'conda',
   },

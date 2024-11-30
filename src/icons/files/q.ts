@@ -33,4 +33,8 @@ export const qFiles = [
     fileExtensions: ['qtn'],
     name: 'quantum',
   },
+  {
+    fileNames: ['quokka.jsx', 'quokka.js', 'quokka.cjs', 'quokka.mjs', 'quokka.ts', 'quokka.tsx'],
+    name: 'quokka',
+  },
 ];

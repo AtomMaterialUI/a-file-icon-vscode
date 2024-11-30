@@ -53,6 +53,10 @@ export const sFiles = [
     name: 'scala',
   },
   {
+    fileExtensions: ['scons', 'scsub', 'sconscript', 'sconstruct', 'dblite'],
+    name: 'scons',
+  },
+  {
     fileExtensions: ['scheme', 'scm', 'sld', 'sps', 'xtm'],
     name: 'scheme',
   },
@@ -99,6 +103,16 @@ export const sFiles = [
   },
   {
     fileExtensions: ['sentryclirc'],
+    fileNames: [
+      'sentry.client.config.js',
+      'sentry.client.config.mjs',
+      'sentry.client.config.cjs',
+      'sentry.client.config.ts',
+      'sentry.server.config.js',
+      'sentry.server.config.mjs',
+      'sentry.server.config.cjs',
+      'sentry.server.config.ts',
+    ],
     name: 'sentry',
   },
   {
@@ -425,7 +439,7 @@ export const sFiles = [
     name: 'sqf',
   },
   {
-    fileExtensions: ['cql', 'hql', 'mysql', 'pdb', 'prc', 'psql', 'viw', 'xq', 'xql', 'xqm', 'xqy'],
+    fileExtensions: ['cql', 'hql', 'mysql', 'pdb', 'prc', 'viw', 'xq', 'xql', 'xqm', 'xqy'],
     name: 'sql',
   },
   {
@@ -439,6 +453,11 @@ export const sFiles = [
   {
     fileExtensions: ['gnut', 'nut', 'nutf'],
     name: 'squirrel',
+  },
+  {
+    fileExtensions: ['sst'],
+    fileNames: ['sst.config.js', 'sst.config.ts', 'sst.config.cjs', 'sst.config.mjs'],
+    name: 'sst',
   },
   {
     fileExtensions: ['stan'],
@@ -695,6 +714,10 @@ export const sFiles = [
     fileExtensions: ['swagger', 'swag'],
     fileNames: ['api.json', 'api.yaml', 'api.yml', 'swagger.json', 'swagger.yaml', 'swagger.yml'],
     name: 'swagger',
+  },
+  {
+    fileExtensions: ['sw'],
+    name: 'swlang',
   },
   {
     fileExtensions: ['swc'],

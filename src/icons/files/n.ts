@@ -81,6 +81,11 @@ export const nFiles = [
   },
   {
     enabledFor: [IconPack.Nest],
+    fileExtensions: ['command.ts', 'command.js', 'commands.ts', 'commands.js'],
+    name: 'nestcommands',
+  },
+  {
+    enabledFor: [IconPack.Nest],
     fileExtensions: ['constant.ts', 'constant.js', 'constants.ts', 'constants.js'],
     light: true,
     name: 'nestconstants',
@@ -89,6 +94,11 @@ export const nFiles = [
     enabledFor: [IconPack.Nest],
     fileExtensions: ['controller.ts', 'controller.js', 'controllers.ts', 'controllers.js'],
     name: 'nestcontroller',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['cron.ts', 'cron.js', 'task.ts', 'task.js', 'tasks.ts', 'tasks.js'],
+    name: 'nestcron',
   },
   {
     enabledFor: [IconPack.Nest],
@@ -132,6 +142,11 @@ export const nFiles = [
   },
   {
     enabledFor: [IconPack.Nest],
+    fileExtensions: ['handler.ts', 'handler.js', 'handlers.ts', 'handlers.js'],
+    name: 'nesthandlers',
+  },
+  {
+    enabledFor: [IconPack.Nest],
     fileExtensions: ['input.ts', 'input.js', 'inputs.ts', 'inputs.js'],
     name: 'nestinput',
   },
@@ -139,6 +154,11 @@ export const nFiles = [
     enabledFor: [IconPack.Nest],
     fileExtensions: ['interceptor.ts', 'interceptor.js', 'interceptors.ts', 'interceptors.js'],
     name: 'nestinterceptor',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['listener.ts', 'listener.js', 'listeners.ts', 'listeners.js'],
+    name: 'nestlisteners',
   },
   {
     enabledFor: [IconPack.Nest],
@@ -186,13 +206,8 @@ export const nFiles = [
   },
   {
     enabledFor: [IconPack.Nest],
-    fileExtensions: ['scalar.ts', 'scalar.js', 'scalars.ts', 'scalars.js'],
-    name: 'nestscalar',
-  },
-  {
-    enabledFor: [IconPack.Nest],
-    fileExtensions: ['schema.ts', 'schema.js', 'schemas.ts', 'schemas.js'],
-    name: 'nestschema',
+    fileExtensions: ['queue.ts', 'queue.js', 'queues.ts', 'queues.js'],
+    name: 'nestqueues',
   },
   {
     enabledFor: [IconPack.Nest],
@@ -203,6 +218,16 @@ export const nFiles = [
     enabledFor: [IconPack.Nest],
     fileExtensions: ['resolver.ts', 'resolver.js', 'resolvers.ts', 'resolvers.js'],
     name: 'nestresolver',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['scalar.ts', 'scalar.js', 'scalars.ts', 'scalars.js'],
+    name: 'nestscalar',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['schema.ts', 'schema.js', 'schemas.ts', 'schemas.js'],
+    name: 'nestschema',
   },
   {
     enabledFor: [IconPack.Nest],
@@ -218,6 +243,16 @@ export const nFiles = [
     enabledFor: [IconPack.Nest],
     fileExtensions: ['subscriber.ts', 'subscriber.js', 'subscribers.ts', 'subscribers.js'],
     name: 'nestsubscriber',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['type.ts', 'type.js', 'types.ts', 'types.js'],
+    name: 'nesttypes',
+  },
+  {
+    enabledFor: [IconPack.Nest],
+    fileExtensions: ['util.ts', 'util.js', 'utils.ts', 'utils.js'],
+    name: 'nestutil',
   },
   {
     fileNames: ['netlify.toml'],
@@ -254,6 +289,60 @@ export const nFiles = [
   {
     fileNames: ['next.config.cjs', 'next.config.js', 'next.config.mjs', 'next.config.ts'],
     name: 'nextjs',
+  },
+  {
+    enabledFor: [IconPack.Next],
+    fileExtensions: [
+      '404.js',
+      '404.jsx',
+      '404.ts',
+      '404.tsx',
+      'not-found.js',
+      'not-found.jsx',
+      'not-found.ts',
+      'not-found.tsx',
+    ],
+    name: 'next-404',
+  },
+  {
+    enabledFor: [IconPack.Next],
+    fileExtensions: [
+      'error.js',
+      'error.jsx',
+      'error.ts',
+      'error.tsx',
+    ],
+    name: 'next-error',
+  },
+  {
+    enabledFor: [IconPack.Next],
+    fileExtensions: [
+      'layout.js',
+      'layout.jsx',
+      'layout.ts',
+      'layout.tsx',
+    ],
+    name: 'next-layout',
+  },
+  {
+    enabledFor: [IconPack.Next],
+    fileExtensions: [
+      'page.js',
+      'page.jsx',
+      'page.ts',
+      'page.tsx',
+    ],
+    name: 'next-page',
+  },
+  {
+    enabledFor: [IconPack.Next],
+    fileExtensions: [
+      'route.js',
+      'route.jsx',
+      'route.ts',
+      'route.tsx',
+    ],
+    name: 'next-route',
   },
   {
     enabledFor: [IconPack.Ngrx],

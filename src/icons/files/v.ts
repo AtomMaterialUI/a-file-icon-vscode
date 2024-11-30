@@ -35,8 +35,23 @@ export const vFiles = [
     name: 'vcl',
   },
   {
+    fileExtensions: ['vedic', 'ved', 'veda'],
+    name: 'vedic',
+  },
+  {
     fileExtensions: ['fhtml', 'vm', 'vtl'],
     name: 'velocity',
+  },
+  {
+    fileNames: [
+      'velociraptor.js',
+      'velociraptor.ts',
+      'velociraptor.cjs',
+      'velociraptor.mjs',
+      'velociraptor.yaml',
+      'velociraptor.yml',
+    ],
+    name: 'velociraptor',
   },
   {
     fileNames: ['vercel.json', 'vercel.yml', 'vercel.yaml'],
@@ -121,7 +136,16 @@ export const vFiles = [
     name: 'vs',
   },
   {
-    fileNames: ['vitest.config.cjs', 'vitest.config.js', 'vitest.config.mjs', 'vitest.config.ts'],
+    fileNames: [
+      'vitest.config.cjs',
+      'vitest.config.js',
+      'vitest.config.mjs',
+      'vitest.config.ts',
+      'vitest.workspace.js',
+      'vitest.workspace.ts',
+      'vitest.workspace.cjs',
+      'vitest.workspace.mjs',
+    ],
     name: 'vitest',
   },
   {

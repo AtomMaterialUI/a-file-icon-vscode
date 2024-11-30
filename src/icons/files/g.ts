@@ -20,6 +20,10 @@ export const gFiles = [
     name: 'gap',
   },
   {
+    fileNames: ['project.garden.yml', 'project.garden.yaml', 'garden.yaml', 'garden.yml'],
+    name: 'garden',
+  },
+  {
     fileExtensions: ['gss'],
     name: 'gss',
   },

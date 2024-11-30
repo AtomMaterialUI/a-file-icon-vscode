@@ -244,6 +244,10 @@ export const mFiles = [
     name: 'meteor',
   },
   {
+    fileNames: ['mindsdb.js', 'mindsdb.ts', 'mindsdb.cjs', 'mindsdb.mjs', 'mindsdb.py'],
+    name: 'mindsdb',
+  },
+  {
     fileExtensions: ['mcfunction', 'mclevel', 'mcmeta', 'mcmod', 'mcpack', 'mcrcon', 'mcreator', 'mcworld'],
     name: 'minecraft',
   },

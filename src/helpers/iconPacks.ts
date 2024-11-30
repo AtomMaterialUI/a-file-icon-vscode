@@ -33,6 +33,13 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       title: IconPack.Nest.toLowerCase(),
     },
     {
+      icon: '$(atom-next)',
+      id: IconPack.Next,
+      kind: QuickPickItemKind.Default,
+      order: 1,
+      title: IconPack.Next.toLowerCase(),
+    },
+    {
       kind: QuickPickItemKind.Separator,
       order: 1,
     },

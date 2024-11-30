@@ -75,6 +75,10 @@ export const bFiles = [
     name: 'bem',
   },
   {
+    fileExtensions: ['bench.js', 'bench.json', 'bench.cjs', 'bench.mjs', 'bench.ts', 'bench.jsx', 'bench.tsx'],
+    name: 'bench',
+  },
+  {
     fileExtensions: ['bbl', 'bbx', 'bib', 'bst', 'cbx'],
     name: 'bibtex',
   },

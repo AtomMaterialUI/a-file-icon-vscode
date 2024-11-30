@@ -213,6 +213,10 @@ export const hFiles = [
     name: 'htmlhint',
   },
   {
+    fileExtensions: ['aff', 'dic'],
+    name: 'huff',
+  },
+  {
     fileNames: ['config.toml'],
     name: 'hugo',
   },

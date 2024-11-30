@@ -42,6 +42,11 @@ export const pFiles = [
     name: 'patreon',
   },
   {
+    fileNames: ['payload.config.js', 'payload.config.ts', 'payload.config.cjs', 'payload.config.mjs'],
+    light: true,
+    name: 'payload',
+  },
+  {
     fileExtensions: ['amx', 'fen', 'pawn', 'pgn', 'pwn'],
     name: 'pawn',
   },
@@ -56,6 +61,14 @@ export const pFiles = [
   {
     fileExtensions: ['pdf'],
     name: 'pdf',
+  },
+  {
+    fileExtensions: ['pdm.toml', 'pdm-python'],
+    name: 'pdm',
+  },
+  {
+    fileNames: ['pdm.lock'],
+    name: 'pdmlock',
   },
   {
     fileExtensions: ['pegjs', 'peg', 'pegcoffee', 'peggy'],
@@ -101,6 +114,10 @@ export const pFiles = [
   {
     fileNames: ['phpcs.xml', 'phpcs.xml.dist'],
     name: 'phpcsxml',
+  },
+  {
+    fileNames: ['phpstan.neon', 'phpstan.neon.dist'],
+    name: 'phpstan',
   },
   {
     fileNames: ['phpunit.xml', 'phpunit.xml.dist'],
@@ -172,6 +189,10 @@ export const pFiles = [
   {
     fileNames: ['mk.conf'],
     name: 'pkgsrc',
+  },
+  {
+    fileNames: ['PklProject', 'PklProject.deps.json'],
+    name: 'pkl',
   },
   {
     fileNames: [
@@ -258,7 +279,7 @@ export const pFiles = [
     name: 'pony',
   },
   {
-    fileExtensions: ['pgsql'],
+    fileExtensions: ['pgsql', 'psql', 'plpgsql'],
     name: 'pgsql',
   },
   {
@@ -467,6 +488,30 @@ export const pFiles = [
   {
     fileExtensions: ['epp', 'pp', 'puppet'],
     name: 'puppet',
+  },
+  {
+    fileExtensions: [
+      'puppeteerrc',
+      'puppeteerrc.json',
+      'puppeteerrc.js',
+      'puppeteerrc.mjs',
+      'puppeteerrc.cjs',
+      'puppeteerrc.yaml',
+      'puppeteerrc.yml',
+    ],
+    name: 'puppeteerrc',
+  },
+  {
+    fileNames: [
+      'puppeteer.config.js',
+      'puppeteer.config.ts',
+      'puppeteer.config.cjs',
+      'puppeteer.config.mjs',
+      'puppeteer.config.json',
+      'puppeteer.config.yaml',
+      'puppeteer.config.yml',
+    ],
+    name: 'puppeteer',
   },
   {
     fileExtensions: ['pure'],

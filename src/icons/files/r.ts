@@ -627,6 +627,10 @@ export const rFiles = [
     name: 'riemann',
   },
   {
+    fileNames: ['rindo.config.js', 'rindo.config.cjs', 'rindo.config.mjs', 'rindo.config.ts'],
+    name: 'rindo',
+  },
+  {
     fileExtensions: ['ring'],
     name: 'ring',
   },

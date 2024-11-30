@@ -100,6 +100,10 @@ export const aFiles = [
     name: 'alexignore',
   },
   {
+    fileExtensions: ['alfred', 'alfredworkflow', 'alfredpreferences'],
+    name: 'alfred',
+  },
+  {
     fileExtensions: ['all-contributorsrc', 'allcontributorsrc'],
     fileNames: ['all-contributorsrc', 'allcontributorsrc'],
     name: 'allcontributors',

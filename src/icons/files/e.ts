@@ -149,6 +149,17 @@ export const eFiles = [
     name: 'eslint',
   },
   {
+    fileNames: [
+      'eslint.config.cjs',
+      'eslint.config.js',
+      'eslint.config.json',
+      'eslint.config.mjs',
+      'eslint.config.ts',
+      'eslint.config.yaml',
+    ],
+    name: 'eslintconfig',
+  },
+  {
     fileExtensions: [
       'eslint/js',
       'eslint/ts',

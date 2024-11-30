@@ -107,6 +107,13 @@
         },
         "description": "Nest"
       },
+      "atom-next": {
+        "default": {
+          "fontCharacter": "\\ed57",
+          "fontPath": "./productIcons/a-file-icon-vscode.woff"
+        },
+        "description": "Next"
+      },
       "atom-ngrx": {
         "default": {
           "fontCharacter": "\\ed7b",

@@ -8,6 +8,10 @@ export const uFiles = [
     name: 'uikit',
   },
   {
+    fileExtensions: ['umirc', 'umirc.js', 'umirc.ts', 'umirc.tsx', 'umirc.cjs', 'umirc.jsx', 'umirc.mjs'],
+    name: 'umi',
+  },
+  {
     fileExtensions: ['iuml', 'plantuml', 'pu', 'puml', 'uml', 'wsd'],
     name: 'uml',
   },
