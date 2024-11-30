@@ -2,7 +2,7 @@
   "name": "a-file-icon-vscode",
   "displayName": "Atom Material Icons",
   "description": "Atom Material Icons for Visual Studio Code",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
@@ -21,7 +21,7 @@
     "changelog": "changelog-machine --config changelog.config.json",
     "oslllo-svg-fixer": "node node_modules/oslllo-svg-fixer/src/cli.js",
     "check": "ts-node ./src/scripts/icons/checks/runChecks.ts",
-    "compile": "webpack --config ./build/webpack.config.js --mode production",
+    "compile": "node esbuild.js --production",
     "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
     "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
     "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
@@ -33,7 +33,7 @@
     "test": "node ./out/test/runTest.js",
     "webfont": "ts-node ./src/scripts/icons/webfont.ts",
     "version": "bun run changelog && git add CHANGELOG.md",
-    "vsce": "vsce package",
+    "vsce": "vsce package --yarn",
     "vscode:prepublish": "bun run lint && bun run compile && bun run package-web",
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
   },
@@ -59,6 +59,7 @@
     "@typescript-eslint/parser": "^8.16.0",
     "@vscode/test-electron": "^2.4.1",
     "changelog-machine": "^1.1.0",
+    "esbuild": "^0.24.0",
     "eslint": "^9.16.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-i18next": "^6.1.1",
