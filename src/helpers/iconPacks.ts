@@ -19,6 +19,13 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       title: IconPack.Angular.toLowerCase(),
     },
     {
+      icon: '$(atom-angular2)',
+      id: IconPack.Angular2,
+      kind: QuickPickItemKind.Default,
+      order: 1,
+      title: IconPack.Angular2.toLowerCase(),
+    },
+    {
       icon: '$(atom-ngrx)',
       id: IconPack.Ngrx,
       kind: QuickPickItemKind.Default,
