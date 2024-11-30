@@ -264,8 +264,22 @@ export const tFiles = [
     name: 'toit',
   },
   {
+    fileNames: ['tikuiconfig.json'],
+    name: 'tikui',
+  },
+  {
+    fileNames: ['tsr.config.json'],
+    name: 'tanstack',
+  },
+  {
     fileNames: ['tox.ini'],
     name: 'tox',
+  },
+  {
+    fileExtensions: ['trunk'],
+    fileNames: ['trunk.yaml', 'trunk.yml'],
+    light: true,
+    name: 'trunk',
   },
   {
     fileExtensions: [

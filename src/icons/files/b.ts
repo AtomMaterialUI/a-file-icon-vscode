@@ -83,6 +83,10 @@ export const bFiles = [
     name: 'bibtex',
   },
   {
+    fileExtensions: ['bru'],
+    name: 'bruno',
+  },
+  {
     fileExtensions: ['bicep'],
     name: 'bicep',
   },

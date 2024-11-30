@@ -193,6 +193,10 @@ export const jFiles = [
     name: 'jsp',
   },
   {
+    fileNames: ['jsr.json', 'jsr.jsonc'],
+    name: 'jsr',
+  },
+  {
     fileExtensions: ['jss'],
     name: 'jss',
   },

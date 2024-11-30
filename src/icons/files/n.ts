@@ -817,6 +817,11 @@ export const nFiles = [
     name: 'nuclide',
   },
   {
+    fileExtensions: ['nixpacks'],
+    fileNames: ['nixpacks.toml'],
+    name: 'nixpacks',
+  },
+  {
     fileExtensions: ['nupkg', 'nuspec', 'psmdcp', 'snupkg'],
     name: 'nuget',
   },
@@ -829,6 +834,7 @@ export const nFiles = [
     name: 'nunjucks',
   },
   {
+    fileExtensions: ['nuxtrc'],
     fileNames: ['nuxt.config.cjs', 'nuxt.config.js', 'nuxt.config.mjs', 'nuxt.config.ts'],
     name: 'nuxt',
   },

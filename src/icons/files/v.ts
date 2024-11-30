@@ -104,6 +104,10 @@ export const vFiles = [
     name: 'vhdl',
   },
   {
+    fileNames: ['velite.config.js', 'velite.config.ts', 'velite.config.cjs', 'velite.config.mjs'],
+    name: 'velite',
+  },
+  {
     fileExtensions: ['exrc', 'gvimrc', 'vim', 'viml', 'vimrc'],
     name: 'vim',
   },

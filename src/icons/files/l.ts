@@ -188,6 +188,14 @@ export const lFiles = [
     name: 'lolcode',
   },
   {
+    fileNames: ['liara.json'],
+    name: 'liara',
+  },
+  {
+    fileExtensions: ['liaraignore'],
+    name: 'liaraignore',
+  },
+  {
     fileExtensions: ['lkml', 'lookml'],
     name: 'lookml',
   },

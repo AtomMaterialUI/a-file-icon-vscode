@@ -124,6 +124,10 @@ export const eFiles = [
     name: 'emberscript',
   },
   {
+    fileExtensions: ['excalidraw'],
+    name: 'excalidraw',
+  },
+  {
     fileExtensions: ['ensime'],
     name: 'ensime',
   },

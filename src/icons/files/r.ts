@@ -619,6 +619,23 @@ export const rFiles = [
     name: 'rexx',
   },
   {
+    fileNames: [
+      'rspack.config.js',
+      'rspack.config.cjs',
+      'rspack.config.mjs',
+      'rspack.config.ts',
+      'rsbuild.config.js',
+      'rsbuild.config.cjs',
+      'rsbuild.config.mjs',
+      'rsbuild.config.ts',
+      'rspress.config.js',
+      'rspress.config.cjs',
+      'rspress.config.mjs',
+      'rspress.config.ts',
+    ],
+    name: 'rspack',
+  },
+  {
     fileExtensions: ['3dmf', '3dmr', '3mf', '3mfz', '3mm', 'rvb'],
     name: 'rhino3d',
   },

@@ -108,6 +108,10 @@ export const pFiles = [
     name: 'php2',
   },
   {
+    fileExtensions: ['dib'],
+    name: 'polyglot',
+  },
+  {
     fileExtensions: ['php_cs'],
     name: 'phpcs',
   },

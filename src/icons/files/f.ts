@@ -115,7 +115,7 @@ export const fFiles = [
     name: 'flow',
   },
   {
-    fileExtensions: ['flutter-plugins', 'flutter-plugins-dependencies', 'metadata', 'packages'],
+    fileExtensions: ['flutter-plugins', 'flutter-plugins-dependencies', 'packages'],
     name: 'flutter',
   },
   {

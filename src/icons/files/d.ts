@@ -295,6 +295,29 @@ export const dFiles = [
     name: 'dragonflybsd',
   },
   {
+    fileExtensions: ['dbml'],
+    name: 'dbml',
+  },
+  {
+    fileExtensions: [
+      'dependency-cruiser.cjs',
+      'dependency-cruiser.js',
+      'dependency-cruiser.mjs',
+      'dependency-cruiser.ts',
+    ],
+    name: 'depcruiser',
+  },
+  {
+    fileExtensions: [
+      'drizzle.config.js',
+      'drizzle.config.cjs',
+      'drizzle.config.mjs',
+      'drizzle.config.ts',
+      'drizzle.config.json',
+    ],
+    name: 'drizzle',
+  },
+  {
     fileExtensions: ['dio', 'dio.png', 'dio.svg', 'drawio', 'drawio.png', 'drawio.svg'],
     name: 'drawio',
   },

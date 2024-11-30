@@ -171,12 +171,20 @@ export const hFiles = [
     name: 'hc',
   },
   {
+    fileNames: ['harmonix.config.js', 'harmonix.config.cjs', 'harmonix.config.mjs', 'harmonix.config.ts'],
+    name: 'harmonix',
+  },
+  {
     fileExtensions: ['homeassistant'],
     name: 'homeassistant',
   },
   {
     fileExtensions: ['hl', 'hoplon'],
     name: 'hoplon',
+  },
+  {
+    fileExtensions: ['hurl'],
+    name: 'hurl',
   },
   {
     fileExtensions: ['horusec', 'horusecignore', 'horusecrc'],

@@ -121,7 +121,12 @@ export const gFiles = [
     name: 'gimp',
   },
   {
-    fileExtensions: ['gitlab-ci.yml', 'gitlab-ci.yaml'],
+    fileExtensions: ['gitbook.yml', 'gitbook.yaml'],
+    light: true,
+    name: 'gitbook',
+  },
+  {
+    fileNames: ['gitlab-ci.yml', 'gitlab-ci.yaml'],
     name: 'gitlab',
   },
   {
@@ -210,12 +215,20 @@ export const gFiles = [
     name: 'gradle',
   },
   {
+    fileExtensions: ['aiexclude'],
+    name: 'geminiai',
+  },
+  {
     fileExtensions: ['gradle.kts'],
     name: 'gradlekts',
   },
   {
     fileNames: ['gradlew', 'gradlew.bat'],
     name: 'gradlew',
+  },
+  {
+    fileExtensions: ['alloy'],
+    name: 'grafana',
   },
   {
     fileExtensions: ['grain'],

@@ -248,6 +248,23 @@ export const mFiles = [
     name: 'mindsdb',
   },
   {
+    fileExtensions: ['markuplintrc'],
+    fileNames: [
+      'markuplint.config.js',
+      'markuplint.config.cjs',
+      'markuplint.config.mjs',
+      'markuplint.config.ts',
+      'markuplint.config.json',
+      'markuplint.config.yaml',
+      'markuplint.config.yml',
+    ],
+    name: 'markuplint',
+  },
+  {
+    fileExtensions: ['metadata', 'meta'],
+    name: 'metadata',
+  },
+  {
     fileExtensions: ['mcfunction', 'mclevel', 'mcmeta', 'mcmod', 'mcpack', 'mcrcon', 'mcreator', 'mcworld'],
     name: 'minecraft',
   },
@@ -258,6 +275,14 @@ export const mFiles = [
   {
     fileExtensions: ['mint'],
     name: 'mint',
+  },
+  {
+    fileNames: ['mint.json'],
+    name: 'mintlify',
+  },
+  {
+    fileNames: ['mist.cjs', 'mist.js', 'mist.jsx', 'mist.mjs', 'mist.ts', 'mist.tsx'],
+    name: 'mist',
   },
   {
     fileExtensions: ['druby', 'duby', 'mir', 'mirah'],

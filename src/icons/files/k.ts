@@ -49,6 +49,11 @@ export const kFiles = [
     name: 'key',
   },
   {
+    fileExtensions: ['k'],
+    fileNames: ['kcl.mod', 'kcl.yml', 'kcl.yaml'],
+    name: 'kcl',
+  },
+  {
     fileNames: ['publishToken', 'publishToken.md', 'publishToken.txt', 'publishToken.xml'],
     name: 'publishToken',
   },

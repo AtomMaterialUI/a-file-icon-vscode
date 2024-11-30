@@ -432,12 +432,29 @@ export const cFiles = [
     name: 'conda',
   },
   {
+    fileExtensions: ['coderabbit.yml', 'coderabbit.yaml'],
+    name: 'coderabbit',
+  },
+  {
+    fileNames: [
+      'contentlayer.config.js',
+      'contentlayer.config.cjs',
+      'contentlayer.config.mjs',
+      'contentlayer.config.ts',
+    ],
+    name: 'contentlayer',
+  },
+  {
     fileExtensions: ['confluence'],
     name: 'confluence',
   },
   {
     fileExtensions: ['conll', 'conllu'],
     name: 'conll',
+  },
+  {
+    fileExtensions: ['sfc', 'vgm', 'vgz', 'nsf', 'gym', 'sfx'],
+    name: 'chiptune',
   },
   {
     fileExtensions: ['containerfile'],

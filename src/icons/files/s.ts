@@ -707,8 +707,20 @@ export const sFiles = [
     name: 'svx',
   },
   {
+    fileNames: ['screwdriver.yaml', 'screwdriver.yml'],
+    name: 'screwdriver',
+  },
+  {
     fileExtensions: ['svn', 'svnignore'],
     name: 'svn',
+  },
+  {
+    fileExtensions: ['slint'],
+    name: 'slint',
+  },
+  {
+    fileNames: ['sigstore.json'],
+    name: 'sigstore',
   },
   {
     fileExtensions: ['swagger', 'swag'],

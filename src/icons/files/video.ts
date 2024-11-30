@@ -37,6 +37,7 @@ export const video = [
       'qt',
       'rm',
       'rmvb',
+      'tape',
       'vob',
       'webm',
       'wmv',
