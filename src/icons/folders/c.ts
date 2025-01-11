@@ -113,6 +113,10 @@ export const cFolders = [
     name: 'connection',
   },
   {
+    folderNames: ['constant', 'constants', 'const', 'consts', 'enum', 'enums'],
+    name: 'constants',
+  },
+  {
     folderNames: ['container', 'containers'],
     name: 'container',
   },
