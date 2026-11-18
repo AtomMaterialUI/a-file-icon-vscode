@@ -1,3 +1,5 @@
+import { IconPack } from 'src/@types/config';
+
 export const languages = [
   {
     fileExtensions: ['clj', 'cljc', 'cljs', 'cljx', 'clojure', 'hic', 'rg'],
@@ -11,6 +13,11 @@ export const languages = [
     fileExtensions: ['css', 'tss'],
     light: true,
     name: 'css',
+  },
+  {
+    enabledFor: [IconPack.Css],
+    fileExtensions: ['css', 'tss'],
+    name: 'css2',
   },
   {
     fileExtensions: ['dart'],

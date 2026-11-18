@@ -57,12 +57,14 @@ const iconsPath = join(iconGeneratorPath, 'assets', 'icons');
 const PACKS: Record<string, IconPack> = {
   ANGULAR: IconPack.Angular,
   ANGULAR2: IconPack.Angular2,
+  CSS: IconPack.Css,
   NEST: IconPack.Nest,
   NEXTJS: IconPack.Next,
   NGRX: IconPack.Ngrx,
   RAILS: IconPack.Rails,
   RECOIL: IconPack.Recoil,
   REDUX: IconPack.Redux,
+  TESTS: IconPack.Tests,
 };
 
 const readAssociations = (file: string): UpstreamAssociation[] => {

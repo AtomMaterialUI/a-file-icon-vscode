@@ -3,6 +3,7 @@ import type { IconAssociations } from './associations';
 export enum IconPack {
   Angular = 'angular',
   Angular2 = 'angular2',
+  Css = 'css',
   Nest = 'nest',
   Next = 'next',
   Ngrx = 'ngrx',
@@ -11,6 +12,7 @@ export enum IconPack {
   React = 'react',
   Recoil = 'recoil',
   Redux = 'redux',
+  Tests = 'tests',
   Volt = 'volt',
   Vue = 'vue',
   Vuex = 'vuex',

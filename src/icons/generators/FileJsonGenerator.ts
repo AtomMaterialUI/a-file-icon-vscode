@@ -26,10 +26,13 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
   public loadFileIconAssociations() {
     // first, remove languages by pack
     const enabledAssociations = this.disableAssociationsByPack(fileIcons);
+    // an active icon pack replaces the base icon of the same name or extension (css -> css2): load packs last
+    const baseAssociations = enabledAssociations.filter((icon) => !icon.enabledFor);
+    const packAssociations = enabledAssociations.filter((icon) => icon.enabledFor);
 
     // next, load custom file associations
     const customAssociations = this.getCustomAssociations();
-    const allFileAssociations = [...enabledAssociations, ...customAssociations];
+    const allFileAssociations = [...baseAssociations, ...packAssociations, ...customAssociations];
 
     for (const fileAssoc of allFileAssociations) {
       if (fileAssoc.disabled) continue;
@@ -168,6 +171,8 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.fileExtensions = {};
       }
       this.iconConfig.fileExtensions[fileExtension] = fileAssoc.name;
+      // drop the variants of a previous association of this extension that this one does not replace
+      this.clearVariants(FileMappingType.FileExtensions, fileExtension, fileAssoc);
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
@@ -217,6 +222,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.fileNames = {};
       }
       this.iconConfig.fileNames[fileName] = fileAssoc.name;
+      this.clearVariants(FileMappingType.FileNames, fileName, fileAssoc);
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
@@ -248,6 +254,15 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.highContrast.fileNames[fileName] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
       }
     }
+  }
+
+  /**
+   * Remove the light / high contrast mapping left by an earlier association of the same key,
+   * otherwise the light theme keeps showing the replaced icon (css_dark instead of css2).
+   */
+  private clearVariants(type: FileMappingType, key: string, fileAssoc: FileAssociation) {
+    if (!fileAssoc.light) delete this.iconConfig.light?.[type]?.[key];
+    if (!fileAssoc.highContrast) delete this.iconConfig.highContrast?.[type]?.[key];
   }
 
   /**

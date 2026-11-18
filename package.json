@@ -277,7 +277,8 @@
         "a-file-icon-vscode.activeIconPacks": {
           "default": [
             "angular",
-            "rails"
+            "rails",
+            "tests"
           ],
           "description": "%configuration.activeIconPacks%",
           "type": "array",
@@ -285,6 +286,7 @@
             "enum": [
               "angular",
               "angular2",
+              "css",
               "nest",
               "next",
               "ngrx",
@@ -293,6 +295,7 @@
               "react",
               "recoil",
               "redux",
+              "tests",
               "volt",
               "vue",
               "vuex"
