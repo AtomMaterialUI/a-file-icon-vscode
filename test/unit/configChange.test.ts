@@ -1,5 +1,5 @@
 import { strict as assert } from 'node:assert';
-import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync, utimesSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { basename, dirname, join } from 'node:path';
 import { JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
@@ -395,6 +395,198 @@ describe('ConfigChangeDetector', () => {
       applySettings({ filesAssociations: { '*.foo': join(iconsDirectory, 'missing.svg') } });
 
       assert.equal(readTheme().fileExtensions?.foo, undefined);
+    });
+  });
+
+  describe('fallbackIconTheme', () => {
+    const SVG = (color: string) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="${color}" d="M0 0h16v16H0z"/></svg>`;
+
+    /** A fake installed icon theme extension, like PKief.material-icon-theme */
+    const fallbackTheme = {
+      fileExtensions: { 'foo.zzq2': 'fb-file', py: 'fb-python', 'test.py': 'fb-python', zzq: 'fb-file' },
+      fileNames: {
+        'gone.zzz': 'fb-missing',
+        'package.json': 'fb-file',
+        'pic.zzz': 'fb-png',
+        'sub/zz-unknown2': 'fb-file',
+        'zz-unknown': 'fb-file',
+        zzbuildfile: 'fb-file',
+        zzbuildfile2: 'fb-file',
+      },
+      folderNames: { '.github/fb-sub': 'fb-folder', 'fb-folder': 'fb-folder', src: 'fb-folder' },
+      folderNamesExpanded: { 'fb-folder': 'fb-folder-open', src: 'fb-folder-open' },
+      iconDefinitions: {
+        'fb-file': { iconPath: './../icons/fb-file.svg' },
+        'fb-file-light': { iconPath: './../icons/fb-file-light.svg' },
+        'fb-folder': { iconPath: './../icons/fb-folder.svg' },
+        'fb-folder-open': { iconPath: './../icons/fb-folder-open.svg' },
+        'fb-lang': { iconPath: './../icons/fb-lang.svg' },
+        'fb-missing': { iconPath: './../icons/fb-missing.svg' },
+        'fb-png': { iconPath: './../icons/fb-png.png' },
+        'fb-python': { iconPath: './../icons/fb-python.svg' },
+      },
+      languageIds: { 'fb-lang': 'fb-lang', python: 'fb-python' },
+      light: { fileNames: { 'zz-unknown': 'fb-file-light' } },
+    };
+
+    let fallbackPath: string;
+    let fallbackJson: string;
+
+    const installFallbackTheme = (themeId = 'material-icon-theme') => {
+      fallbackPath = mkdtempSync(join(tmpdir(), 'afi-fallback-'));
+      fallbackJson = join(fallbackPath, 'dist', 'material-icons.json');
+      for (const name of Object.keys(fallbackTheme.iconDefinitions).filter((key) => !['fb-missing', 'fb-png'].includes(key))) {
+        writeFileAtomic(join(fallbackPath, 'icons', `${name}.svg`), SVG('#123456'));
+      }
+      writeFileAtomic(join(fallbackPath, 'icons', 'fb-png.png'), 'not an svg');
+      writeFileAtomic(fallbackJson, JSON.stringify(fallbackTheme));
+
+      testState.extensions = [
+        {
+          extensionPath: fallbackPath,
+          id: 'PKief.material-icon-theme',
+          packageJSON: {
+            contributes: { iconThemes: [{ id: themeId, path: './dist/material-icons.json' }] },
+            version: '5.0.0',
+          },
+        },
+        // declares that zzbuildfile is a Python file: this theme shows it with its Python language icon
+        {
+          extensionPath: fallbackPath,
+          id: 'test.languages',
+          packageJSON: { contributes: { languages: [{ filenames: ['ZZBuildFile'], id: 'python' }] } },
+        },
+      ];
+    };
+
+    /** The theme generated with the default settings and without any fallback theme */
+    const ownTheme = () => {
+      testState.extensions = [];
+      applySettings({ opacity: 0.99 });
+      applySettings({ opacity: undefined });
+      return readTheme();
+    };
+
+    beforeEach(() => {
+      testState.extensions = [];
+    });
+
+    afterEach(() => {
+      testState.extensions = [];
+      if (fallbackPath) rmSync(fallbackPath, { force: true, recursive: true });
+    });
+
+    it('gives the names this theme does not know the icon of the fallback theme', () => {
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      const theme = readTheme();
+
+      const definition = theme.fileNames?.['zz-unknown'];
+      assert.ok(definition, 'zz-unknown not mapped');
+      assert.equal(readIcon(theme, definition), SVG('#123456'));
+      assert.equal(theme.fileNames?.['sub/zz-unknown2'], definition);
+      assert.equal(theme.fileNames?.zzbuildfile2, definition);
+      assert.equal(theme.fileExtensions?.zzq, definition);
+      assert.equal(theme.fileExtensions?.['foo.zzq2'], definition);
+      assert.ok(theme.languageIds?.['fb-lang']);
+      // the light variant of the fallback theme
+      assert.ok(theme.light?.fileNames?.['zz-unknown']);
+      assert.notEqual(theme.light?.fileNames?.['zz-unknown'], definition);
+    });
+
+    it('keeps the icon of this theme for every name it knows, by name, extension or language', () => {
+      const own = ownTheme();
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      const theme = readTheme();
+
+      assert.equal(theme.fileNames?.['package.json'], own.fileNames?.['package.json']);
+      assert.equal(theme.fileExtensions?.py, own.fileExtensions?.py);
+      assert.equal(theme.fileExtensions?.['test.py'], own.fileExtensions?.['test.py']);
+      assert.equal(theme.languageIds?.python, own.languageIds?.python);
+      // a Python file by its name keeps the Python language icon of this theme
+      assert.equal(theme.fileNames?.zzbuildfile, undefined);
+      assert.equal(theme.folderNames?.src, own.folderNames?.src);
+      assert.equal(theme.folderNamesExpanded?.src, own.folderNamesExpanded?.src);
+      assert.equal(theme.file, own.file);
+      assert.equal(theme.folder, own.folder);
+    });
+
+    it('gives the folders this theme does not know the icons of the fallback theme', () => {
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      const theme = readTheme();
+
+      assert.ok(theme.folderNames?.['fb-folder']);
+      assert.ok(theme.folderNames?.['.github/fb-sub']);
+      assert.ok(theme.folderNamesExpanded?.['fb-folder']);
+      assert.notEqual(theme.folderNamesExpanded?.['fb-folder'], theme.folderNames?.['fb-folder']);
+    });
+
+    it('adds no folder with the classic folder theme and no file with hidden file icons', () => {
+      installFallbackTheme();
+      applySettings({ folderTheme: 'classic', hideFileIcons: true });
+      const theme = readTheme();
+
+      assert.equal(theme.folderNames?.['fb-folder'], undefined);
+      assert.equal(theme.fileNames?.['zz-unknown'], undefined);
+      assert.equal(theme.languageIds?.['fb-lang'], undefined);
+    });
+
+    it('skips the icons that are missing or are not svg files', () => {
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      const theme = readTheme();
+
+      assert.equal(theme.fileNames?.['gone.zzz'], undefined);
+      assert.equal(theme.fileNames?.['pic.zzz'], undefined);
+      for (const definition of Object.values(theme.iconDefinitions ?? {})) {
+        assert.ok(existsSync(join(testState.extensionPath, 'dist', definition.iconPath)), definition.iconPath);
+      }
+    });
+
+    it('applies the filters of this theme to the icons of the fallback theme', () => {
+      installFallbackTheme();
+      applySettings({ opacity: 0.5 });
+      const theme = readTheme();
+
+      const icon = readIcon(theme, theme.fileNames?.['zz-unknown'] ?? '');
+      assert.notEqual(icon, SVG('#123456'));
+      assert.match(icon, /opacity/);
+    });
+
+    it('removes the fallback icons when the setting is emptied', () => {
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      assert.ok(readTheme().fileNames?.['zz-unknown']);
+
+      applySettings({ fallbackIconTheme: '' });
+      const theme = readTheme();
+      assert.equal(theme.fileNames?.['zz-unknown'], undefined);
+      assert.ok(!Object.keys(theme.iconDefinitions ?? {}).some((key) => key.startsWith('fallback-')));
+      assert.deepEqual(readdirSync(join(testState.extensionPath, 'dist', 'fallback')), []);
+    });
+
+    it('uses another installed theme given by its id, and ignores an id that is not installed', () => {
+      installFallbackTheme('other-icons');
+      configChangeDetector.listenForChanges();
+      assert.equal(readTheme().fileNames?.['zz-unknown'], undefined);
+
+      applySettings({ fallbackIconTheme: 'other-icons' });
+      assert.ok(readTheme().fileNames?.['zz-unknown']);
+    });
+
+    it('regenerates the theme when the fallback theme changes', () => {
+      installFallbackTheme();
+      configChangeDetector.listenForChanges();
+      assert.equal(readTheme().fileNames?.['zz-later'], undefined);
+
+      writeFileAtomic(fallbackJson, JSON.stringify({ ...fallbackTheme, fileNames: { ...fallbackTheme.fileNames, 'zz-later': 'fb-file' } }));
+      const later = new Date(statSync(fallbackJson).mtimeMs + 10_000);
+      utimesSync(fallbackJson, later, later);
+      configChangeDetector.listenForChanges();
+
+      assert.ok(readTheme().fileNames?.['zz-later']);
     });
   });
 });

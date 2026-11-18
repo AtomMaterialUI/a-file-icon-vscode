@@ -43,6 +43,8 @@ export enum PredefinedSaturation {
 export type AtomConfig = {
   activeIconPacks: IconPack[],
   arrowTheme: ArrowTheme,
+  /** id of another installed file icon theme giving the icons of the names this theme does not know ('' = none) */
+  fallbackIconTheme: string,
   filesAssociations?: IconAssociations,
   foldersAssociations?: IconAssociations,
   folderColor: string,
@@ -134,6 +136,7 @@ export enum ArrowTheme {
 /** Settings that are baked into the generated icon theme json */
 export const ICON_SETTING_KEYS = [
   'activeIconPacks',
+  'fallbackIconTheme',
   'filesAssociations',
   'folderColor',
   'folderTheme',

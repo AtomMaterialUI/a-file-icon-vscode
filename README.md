@@ -232,6 +232,29 @@ Remove the file icons and keep the folder icons (`"a-file-icon-vscode.folderThem
 }
 ```
 
+## Fallback icon theme
+
+VS Code uses a single file icon theme at a time. This theme follows the JetBrains plugin, which focuses on the languages
+of the JetBrains IDEs: the files and folders it does not know get the default icon. Another installed icon theme can give
+them its icon instead, with this theme always first:
+
+1. this theme: every file name, extension, language and folder name it knows keeps its icon;
+2. the fallback theme: only for the names left with the default file or folder icon.
+
+The default is the [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
+(`material-icon-theme`): install it and its icons fill the gaps, without selecting it as the icon theme. Use the id of
+another theme (the value of `workbench.iconTheme` when it is selected), or an empty value to turn it off:
+
+```json
+{
+  "a-file-icon-vscode.fallbackIconTheme": "material-icon-theme"
+}
+```
+
+The icons of the fallback theme get the opacity, saturation and monochrome filters of this theme, and are updated when
+that theme or its settings change. Folders only come from the fallback theme with the `specific` folder theme, and
+files not at all with `hideFileIcons`. Only SVG icons can be used.
+
 ----
 
 ## Product Theme

@@ -23,6 +23,7 @@
   "configuration.activeIconPacks.volt": "Volt 用のアイ¡コンです。",
   "configuration.activeIconPacks.vue": "Vue 用のアイコンです。",
   "configuration.activeIconPacks.vuex": "Vue と Vuex 用のアイコンです。",
+  "configuration.fallbackIconTheme": "このテーマが知らないファイルとフォルダーに使う、インストール済みの別のファイルアイコンテーマの ID（`workbench.iconTheme` と同じ。例: `material-icon-theme`）。常にこのテーマが優先されます。空にすると無効になります。",
   "configuration.files.associations": "カスタムファイルアイコンの関連付けを設定する。",
   "configuration.folders.associations": "カスタムフォルダーアイコンの関連付けを設定する。",
   "configuration.folders.color": "フォルダーアイコンの色を変更する。",

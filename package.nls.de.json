@@ -23,6 +23,7 @@
   "configuration.activeIconPacks.volt": "Icons für Volt.",
   "configuration.activeIconPacks.vue": "Icons für Vue.",
   "configuration.activeIconPacks.vuex": "Icons für Vue und Vuex.",
+  "configuration.fallbackIconTheme": "ID eines anderen installierten Dateisymbol-Designs (wie in `workbench.iconTheme`, z. B. `material-icon-theme`), das für Dateien und Ordner verwendet wird, die dieses Design nicht kennt. Dieses Design hat immer Vorrang. Leer lassen zum Deaktivieren.",
   "configuration.files.associations": "Benutzerdefinierte Datei Icons konfigurieren.",
   "configuration.folders.associations": "Benutzerdefinierte Ordner Icons konfigurieren.",
   "configuration.folders.color": "Farbe der Ordner Icons verändern.",

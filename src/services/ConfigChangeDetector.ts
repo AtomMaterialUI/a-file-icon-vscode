@@ -1,4 +1,4 @@
-import { getGeneratorPaths, getIconThemeFile, getProductThemeFile } from 'src/helpers/vscodeUtils';
+import { findFallbackTheme, getGeneratorPaths, getIconThemeFile, getLanguageLookup, getProductThemeFile } from 'src/helpers/vscodeUtils';
 import { IconThemeGenerator } from 'src/icons/generators';
 import { ProductThemeGenerator } from 'src/icons/generators/ProductThemeGenerator';
 import { configService } from 'src/services/ConfigService';
@@ -13,11 +13,18 @@ import type { ProductConfiguration } from 'src/models/ProductConfiguration';
  */
 class ConfigChangeDetector {
   listenForChanges() {
-    const iconDelta = this.getIconDelta();
+    const oldConfig = getIconThemeFile();
+    const iconDelta = this.compareIconConfigs(oldConfig);
     const productDelta = this.getProductDelta();
 
-    if (iconDelta) {
-      const iconThemeGenerator = new IconThemeGenerator(iconDelta, getGeneratorPaths());
+    // the fallback theme changes on its own: updated, or regenerated after a change of its settings
+    const settings = iconDelta ?? configService.getIconSettings();
+    const fallback = findFallbackTheme(settings.fallbackIconTheme);
+    const fallbackChanged = (oldConfig.fallbackTheme ?? '') !== (fallback?.stamp ?? '');
+
+    if (iconDelta || fallbackChanged) {
+      const fallbackTheme = fallback && { ...fallback, languages: getLanguageLookup() };
+      const iconThemeGenerator = new IconThemeGenerator(settings, getGeneratorPaths(), fallbackTheme);
       iconThemeGenerator.createJsonTheme();
     }
 
@@ -25,11 +32,6 @@ class ConfigChangeDetector {
       const productThemeGenerator = new ProductThemeGenerator(productDelta);
       productThemeGenerator.createJsonTheme();
     }
-  }
-
-  private getIconDelta() {
-    const oldConfig = getIconThemeFile();
-    return this.compareIconConfigs(oldConfig);
   }
 
   private getProductDelta() {

@@ -21,6 +21,7 @@
   "configuration.activeIconPacks.volt": "Ícones para Volt.",
   "configuration.activeIconPacks.vue": "Ícones para Vue.",
   "configuration.activeIconPacks.vuex": "Ícones para Vue e Vuex.",
+  "configuration.fallbackIconTheme": "Id de outro tema de ícones de arquivo instalado (como em `workbench.iconTheme`, ex.: `material-icon-theme`) usado para os arquivos e pastas que este tema não conhece. Este tema sempre tem prioridade. Vazio para desativar.",
   "configuration.files.associations": "Definir ícones para associações de arquivos customizadas.",
   "configuration.folders.associations": "Definir ícones para associações de pastas customizadas.",
   "configuration.folders.color": "Alterar a cor dos ícones das pastas.",

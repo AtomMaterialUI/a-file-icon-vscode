@@ -23,6 +23,7 @@
   "configuration.activeIconPacks.volt": "Icons voor Volt.",
   "configuration.activeIconPacks.vue": "Icons voor Vue.",
   "configuration.activeIconPacks.vuex": "Icons voor Vue en Vuex.",
+  "configuration.fallbackIconTheme": "Id van een ander geïnstalleerd bestandspictogramthema (zoals in `workbench.iconTheme`, bijv. `material-icon-theme`) voor de bestanden en mappen die dit thema niet kent. Dit thema gaat altijd voor. Leeg om uit te schakelen.",
   "configuration.files.associations": "Stel eigen bestandsiconen in.",
   "configuration.folders.associations": "Stel eigen foldericonen in.",
   "configuration.folders.color": "Verander de kleur van de foldericons.",

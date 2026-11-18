@@ -27,7 +27,7 @@
     "compile:dev": "webpack --config ./build/webpack.config.js --mode none",
     "compile:watch": "webpack --config ./build/webpack.config.js --mode none --watch",
     "generateJson": "ts-node ./src/scripts/icons/generateJson.ts",
-    "lint": "eslint ./src/**/*.ts",
+    "lint": "eslint \"./src/**/*.ts\"",
     "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
     "postcompile": "bun run generateJson && bun run check",
     "pretest": "bun run build && tsc -p ./",
@@ -338,6 +338,11 @@
             "%configuration.arrowTheme.arrow%",
             "%configuration.arrowTheme.none%"
           ],
+          "type": "string"
+        },
+        "a-file-icon-vscode.fallbackIconTheme": {
+          "default": "material-icon-theme",
+          "description": "%configuration.fallbackIconTheme%",
           "type": "string"
         },
         "a-file-icon-vscode.filesAssociations": {

@@ -23,6 +23,7 @@
   "configuration.activeIconPacks.volt": "Ikony dla Volt.",
   "configuration.activeIconPacks.vue": "Ikony dla Vue.",
   "configuration.activeIconPacks.vuex": "Ikony dla Vue i Vuex.",
+  "configuration.fallbackIconTheme": "Id innego zainstalowanego motywu ikon plików (jak w `workbench.iconTheme`, np. `material-icon-theme`) używanego dla plików i folderów, których ten motyw nie zna. Ten motyw zawsze ma pierwszeństwo. Puste, aby wyłączyć.",
   "configuration.files.associations": "Ustaw niestandardowe ikony plików.",
   "configuration.folders.associations": "Ustaw niestandardowe ikony folderów.",
   "configuration.folders.color": "Zmień kolor ikon folderów.",

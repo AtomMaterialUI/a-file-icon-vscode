@@ -4,9 +4,19 @@
  * Only the APIs touched by the services under test are implemented.
  */
 
-export const testState: { config: Record<string, unknown>; extensionPath: string; lastTarget?: number } = {
+/** An installed extension, as `vscode.extensions.all` lists it */
+export type TestExtension = { extensionPath: string; id: string; packageJSON: Record<string, unknown> };
+
+export const testState: {
+  config: Record<string, unknown>;
+  extensionPath: string;
+  /** the other installed extensions */
+  extensions: TestExtension[];
+  lastTarget?: number;
+} = {
   config: {},
   extensionPath: '',
+  extensions: [],
 };
 
 export enum ConfigurationTarget {
@@ -45,7 +55,11 @@ export const workspace = {
 };
 
 export const extensions = {
+  get all(): TestExtension[] {
+    return testState.extensions;
+  },
   getExtension: () => ({ extensionPath: testState.extensionPath }),
+  onDidChange: () => disposable,
 };
 
 const noop = () => undefined;
