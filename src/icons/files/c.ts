@@ -518,6 +518,7 @@ export const cFiles = [
   },
   {
     fileExtensions: ['csharpierrc', 'csharpierrc.json', 'csharpierrc.yaml', 'csharpierrc.yml'],
+    light: true,
     name: 'csharpier',
   },
   {

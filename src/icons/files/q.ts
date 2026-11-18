@@ -1,7 +1,6 @@
 export const qFiles = [
   {
     fileExtensions: ['qs'],
-    light: true,
     name: 'qsharp',
   },
   {

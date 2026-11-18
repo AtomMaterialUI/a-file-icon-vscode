@@ -23,7 +23,7 @@ export const archive = [
       'saz',
       'sit',
     ],
-    name: 'archive2',
+    name: 'archive',
   },
   {
     fileExtensions: [
@@ -37,6 +37,6 @@ export const archive = [
       'zip',
       'zipx',
     ],
-    name: 'archive3',
+    name: 'archive',
   },
 ];

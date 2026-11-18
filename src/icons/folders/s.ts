@@ -97,7 +97,7 @@ export const sFolders = [
   },
   {
     folderNames: ['skeleton', 'skeletons', 'placeholder', 'placeholders'],
-    name: 'skeleton',
+    name: 'skeletons',
   },
   {
     folderNames: [

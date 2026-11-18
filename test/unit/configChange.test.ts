@@ -162,6 +162,70 @@ describe('ConfigChangeDetector', () => {
     });
   });
 
+  describe('theme integrity', () => {
+    it('points every mapping to an icon definition whose svg exists', () => {
+      applySettings({ opacity: 0.9 });
+
+      const theme = readTheme();
+      const broken: string[] = [];
+      for (const [variant, config] of [['base', theme], ['light', theme.light], ['highContrast', theme.highContrast]] as const) {
+        for (const key of ['fileExtensions', 'fileNames', 'languageIds', 'folderNames', 'folderNamesExpanded'] as const) {
+          for (const [entry, icon] of Object.entries(config?.[key] ?? {})) {
+            const iconPath = theme.iconDefinitions?.[icon]?.iconPath;
+            if (!iconPath || !existsSync(join(testState.extensionPath, 'dist', iconPath))) {
+              broken.push(`${variant}.${key}.${entry} -> ${icon}`);
+            }
+          }
+        }
+      }
+      assert.deepEqual(broken, []);
+    });
+  });
+
+  describe('light theme variants', () => {
+    it('uses the _dark icon in dark themes and the plain icon in light themes', () => {
+      applySettings({ opacity: 0.9 });
+
+      const theme = readTheme();
+      assert.equal(theme.fileExtensions?.['test.js'], 'testjs_dark');
+      assert.equal(theme.light?.fileExtensions?.['test.js'], 'testjs');
+      assert.equal(theme.languageIds?.csound, 'csound_dark');
+      assert.equal(theme.light?.languageIds?.csound, 'csound');
+    });
+  });
+
+  describe('language icons', () => {
+    it('defines language icons that no file association uses', () => {
+      applySettings({ opacity: 0.9 });
+
+      const theme = readTheme();
+      assert.equal(theme.languageIds?.bower, 'bower');
+      assert.equal(theme.languageIds?.gruntfile, 'gruntfile');
+      assert.equal(theme.languageIds?.dtd, 'markup');
+    });
+
+    it('keeps the case of custom language ids', () => {
+      applySettings({ languagesAssociations: { MyLang: 'rust' } });
+
+      assert.equal(readTheme().languageIds?.MyLang, 'rust');
+    });
+
+    it('accepts a custom SVG file', () => {
+      const directory = mkdtempSync(join(tmpdir(), 'afi-lang-'));
+      try {
+        writeFileSync(join(directory, 'lang.svg'), '<svg xmlns="http://www.w3.org/2000/svg"><path fill="#abcdef"/></svg>');
+        applySettings({ languagesAssociations: { mylang: join(directory, 'lang.svg') } });
+
+        const theme = readTheme();
+        const name = theme.languageIds?.mylang ?? '';
+        assert.match(name, /^custom-lang-/);
+        assert.match(readIcon(theme, name), /#abcdef/);
+      } finally {
+        rmSync(directory, { force: true, recursive: true });
+      }
+    });
+  });
+
   describe('Tests icon pack', () => {
     it('shows the test icons by default', () => {
       applySettings({ opacity: 0.9 });

@@ -3,11 +3,9 @@ import { FileMappingType } from 'src/@types/config';
 import {
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
-  RELATIVE_DIST_FILES_FOLDER_PATH,
   WILDCARD_PATTERN,
 } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
-import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
 
@@ -56,43 +54,25 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
   private loadFileAssociation(fileAssoc: FileAssociation): void {
     const assocName = fileAssoc.name;
     // Add regular file association
-    this.addFileAssociation(assocName);
+    this.addFileIconDefinition(assocName);
 
     // add light variant if needed
     if (fileAssoc.light) {
       // todo check if it indeed works with light/dark
       this.iconConfig.light = merge({}, this.iconConfig.light);
-      this.addFileAssociation(assocName, DARK_FILE_ENDING);
+      this.addFileIconDefinition(assocName, DARK_FILE_ENDING);
     }
 
     // add highContrast variant if needed
     if (fileAssoc.highContrast) {
       // todo check if it indeed works with highContrast
       this.iconConfig.highContrast = merge({}, this.iconConfig.highContrast);
-      this.addFileAssociation(assocName, HIGH_CONTRAST_FILE_ENDING);
+      this.addFileIconDefinition(assocName, HIGH_CONTRAST_FILE_ENDING);
     }
 
     // next, load the file extensions and file names
     this.mapIconsToAssociations(fileAssoc, FileMappingType.FileExtensions);
     this.mapIconsToAssociations(fileAssoc, FileMappingType.FileNames);
-  }
-
-  /**
-   * Add a file association to the icon configuration
-   * @param {string} assocName the association name
-   * @param {string} suffix an optional suffix (dark, light, etc)
-   * @private
-   */
-  private addFileAssociation(assocName: string, suffix = ''): void {
-    if (!this.iconConfig.iconDefinitions) return;
-
-    // First generates a hash to append to the icon if custom color, opacity or saturation
-    const fileConfigHash = getFileConfigHash(this.atomConfig);
-
-    // Then add the file association
-    this.iconConfig.iconDefinitions[`${assocName}${suffix}`] = {
-      iconPath: `${RELATIVE_DIST_FILES_FOLDER_PATH}/${assocName}${suffix}${fileConfigHash}.svg`,
-    };
   }
 
   /**
@@ -191,8 +171,8 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
         // Replace the original extension to icon with the '_dark' suffix
         this.iconConfig.fileExtensions[fileExtension] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
-        // And add the light variant to the light config
-        this.iconConfig.light.fileExtensions[fileExtension] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
+        // and the plain icon (meant for light backgrounds) to the light config
+        this.iconConfig.light.fileExtensions[fileExtension] = fileAssoc.name;
       }
 
       // Then add the highContrast variant if needed
@@ -241,8 +221,8 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
         // Replace the original extension to icon with the '_dark' suffix
         this.iconConfig.fileNames[fileName] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
-        // And add the light variant to the light config
-        this.iconConfig.light.fileNames[fileName] = `${fileAssoc.name}${DARK_FILE_ENDING}`;
+        // and the plain icon (meant for light backgrounds) to the light config
+        this.iconConfig.light.fileNames[fileName] = fileAssoc.name;
       }
 
       // Then add the highContrast variant if needed
@@ -276,11 +256,11 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   private loadDefaultFileAssociation() {
-    this.addFileAssociation(fileIcons.defaultIcon.name);
+    this.addFileIconDefinition(fileIcons.defaultIcon.name);
     this.iconConfig.file = fileIcons.defaultIcon.name;
 
     if (fileIcons.defaultIcon.light) {
-      this.addFileAssociation(fileIcons.defaultIcon.name, DARK_FILE_ENDING);
+      this.addFileIconDefinition(fileIcons.defaultIcon.name, DARK_FILE_ENDING);
       // Replace the default file with the variant with the '_dark' suffix
       this.iconConfig.file = fileIcons.defaultIcon.name + DARK_FILE_ENDING;
 
@@ -292,7 +272,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     }
 
     if (fileIcons.defaultIcon.highContrast) {
-      this.addFileAssociation(fileIcons.defaultIcon.name, HIGH_CONTRAST_FILE_ENDING);
+      this.addFileIconDefinition(fileIcons.defaultIcon.name, HIGH_CONTRAST_FILE_ENDING);
 
       // Add the original icon to the hc config
       if (!this.iconConfig.highContrast) {

@@ -40,7 +40,7 @@ export const images = [
       'heif',
       'iff',
     ],
-    name: 'image2',
+    name: 'image',
   },
   {
     fileExtensions: [
@@ -58,7 +58,7 @@ export const images = [
       'vsdm',
       'wbm',
     ],
-    name: 'image3',
+    name: 'image',
   },
   {
     fileExtensions: ['svg', 'svgz'],

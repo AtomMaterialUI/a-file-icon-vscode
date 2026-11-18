@@ -25,10 +25,6 @@ export const eFolders = [
     name: 'emacs',
   },
   {
-    folderNames: ['empty', 'empties', 'stock', 'stocks'],
-    name: 'empty',
-  },
-  {
     folderNames: ['env', 'envs', 'environment', 'environments'],
     name: 'env',
   },
