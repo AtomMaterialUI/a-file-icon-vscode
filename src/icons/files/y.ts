@@ -46,6 +46,7 @@ export const yFiles = [
   },
   {
     fileExtensions: ['yorick'],
+    light: true,
     name: 'yorick',
   },
   {

@@ -14,6 +14,10 @@ All notable changes to this project will be documented in this file. Dates are d
 - fix: theme files are written atomically (#67) and generation errors are shown (#73)
 - fix: commands write to the user settings when no folder is opened (#73)
 - fix: an active icon pack replaces the base icon in light themes too
+- fix: language icons that no file association used had no icon (bower, gruntfile, gulpfile, jupyter...)
+- fix: light themes use the plain icon instead of the `_dark` variant made for dark backgrounds
+- fix: icons pointing to missing svgs (image2/3, archive2/3, empty, profile, skeleton, zod folders, plastic open folder)
+- feat: custom SVG files in `languagesAssociations`, language ids keep their case
 - note: test icons now come from the `tests` pack. If you set `activeIconPacks` yourself, add `"tests"` to keep them.
 
 From here on is the changelog of the original repository:

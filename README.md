@@ -36,7 +36,8 @@ You can find a list of all the available associations in the following links:
 
 - [File Associations](https://material-theme.com/docs/reference/associations/)
 - [Folder Associations](https://material-theme.com/docs/reference/folder-associations/)
-- Language Associations (TODO)
+- Language Associations: [`src/icons/languageIcons.ts`](./src/icons/languageIcons.ts) (VS Code language ids, used when no file
+  name or extension matches)
 
 ## File Icons
 
@@ -308,10 +309,15 @@ associations.
 {
   "a-file-icon-vscode.languagesAssociations": {
     "languageId": "iconName",
-    "json": "json"
+    "json": "json",
+    "mylang": "~/icons/mylang.svg"
   }
 }
 ```
+
+The key is a [language identifier](https://code.visualstudio.com/docs/languages/identifiers) (case-sensitive). VS Code
+uses it only for files whose name and extension have no icon. The value is a bundled icon name or the path of a custom
+SVG file, as for the [file associations](#custom-svg-icons).
 
 ## Commands
 

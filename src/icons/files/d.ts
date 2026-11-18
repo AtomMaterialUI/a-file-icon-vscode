@@ -140,6 +140,7 @@ export const dFiles = [
   },
   {
     fileExtensions: ['diff', 'diffs'],
+    light: true,
     name: 'diff',
   },
   {

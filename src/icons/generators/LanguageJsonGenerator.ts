@@ -1,5 +1,7 @@
-import merge from 'lodash.merge';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING } from 'src/helpers/constants';
+import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
+import { fileIcons } from 'src/icons/index';
 import { languageIcons } from 'src/icons/languageIcons';
 
 import type { IconConfiguration } from 'src/models/IconConfiguration';
@@ -13,8 +15,6 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
 
   /**
    * Load the language icon definitions onto the icon configuration object.
-   * @returns {IconConfiguration} a new icon configuration object with the language icons loaded
-   * @private
    */
   public loadLanguageIconAssociations() {
     // languages only give file icons
@@ -37,27 +37,37 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
   }
 
   /**
-   * Convert custom icon associations into icons
-   * @private
+   * Convert custom icon associations into icons.
+   * The value is a bundled icon name or the path of a custom SVG file.
    */
   public getCustomLanguageAssociations(): LanguageAssociation[] {
     const languagesAssociations = this.atomConfig.languagesAssociations;
     if (!languagesAssociations) return [];
 
-    return Object.entries(languagesAssociations).map(([key, value]) => ({
-      icon: {
-        name: value.toLowerCase(),
-      },
-      ids: [key.toLowerCase()],
-      name: key.toLowerCase(),
-    }));
+    return Object.entries(languagesAssociations)
+      .filter(([key, value]) => key.trim().length > 0 && typeof value === 'string' && value.length > 0)
+      // a custom SVG that does not exist would point to a missing file
+      .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
+      .map(([key, value]) => {
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
+        // reuse the light/high contrast variants of the built-in icon, if any
+        const builtIn = fileIcons.icons.find((icon) => icon.name === name);
+
+        return {
+          highContrast: builtIn?.highContrast,
+          icon: { name },
+          // language ids are case-sensitive (`javascriptreact`, `COBOL`...)
+          ids: [key.trim()],
+          light: builtIn?.light,
+          name: key.trim(),
+        };
+      });
   }
 
   /**
    * Filter language list by whether or not they are relevant with the chosen icon packs
    * @param {LanguageAssociation[]} languageIcons
    * @returns {LanguageAssociation[]}
-   * @private
    */
   public disableLanguagesByPack(languageIcons: LanguageAssociation[]): LanguageAssociation[] {
     const activeIconPacks = this.atomConfig.activeIconPacks;
@@ -71,44 +81,62 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
   }
 
   /**
-   * Load the language association onto the iconDefinitions
+   * Map the language ids to their icon, defining the icon itself: a language icon does not need
+   * a file association of the same name.
+   * As for files, `<name>_dark.svg` is the variant for dark backgrounds (the default theme)
+   * and the plain icon goes to the light theme.
    * @param {LanguageAssociation} language the language definition
    * @private
    */
   private loadLanguageAssociation(language: LanguageAssociation) {
-    const assocName = language.icon.name;
-    // First create the file association to map the language ids to
-    // this.addFileAssociation(assocName);
+    const name = language.icon.name;
+    this.addFileIconDefinition(name);
 
-    // Add regular language association
-    this.addLanguageAssociation(assocName, language.ids);
-
-    // Add a light variant if necessary
     if (language.light) {
-      // todo check if it indeed works with light/dark
-      this.iconConfig.light = merge({}, this.iconConfig.light);
-      this.addLanguageAssociation(assocName, language.ids);
+      this.addFileIconDefinition(name, DARK_FILE_ENDING);
+      this.addLanguageAssociation(this.iconConfig, `${name}${DARK_FILE_ENDING}`, language.ids);
+      this.addLanguageAssociation(this.lightConfig(), name, language.ids);
+    } else {
+      this.addLanguageAssociation(this.iconConfig, name, language.ids);
+      // drop the light variant of an earlier association of these ids
+      this.removeLanguageAssociation(this.iconConfig.light, language.ids);
     }
 
-    // Add a high contrast variant if necessary
     if (language.highContrast) {
-      // todo check if it indeed works with high contrast
-      this.iconConfig.highContrast = merge({}, this.iconConfig.highContrast);
-      this.addLanguageAssociation(assocName, language.ids);
+      this.addFileIconDefinition(name, HIGH_CONTRAST_FILE_ENDING);
+      this.addLanguageAssociation(this.highContrastConfig(), `${name}${HIGH_CONTRAST_FILE_ENDING}`, language.ids);
+    } else {
+      this.removeLanguageAssociation(this.iconConfig.highContrast, language.ids);
     }
   }
 
+  private lightConfig(): IconConfiguration {
+    this.iconConfig.light ??= {};
+    return this.iconConfig.light;
+  }
+
+  private highContrastConfig(): IconConfiguration {
+    this.iconConfig.highContrast ??= {};
+    return this.iconConfig.highContrast;
+  }
+
   /**
-   * Add a mapping of language ids to the assoc name
-   * @param {string} assocName the assoc name
-   * @param {string[]} languageIds list of ids to map to the assocName
-   * @returns {IconConfiguration}
+   * Add a mapping of language ids to the icon
+   * @param {IconConfiguration} config the base, light or high contrast config
+   * @param {string} iconName the icon definition
+   * @param {string[]} languageIds list of ids to map to the icon
    * @private
    */
-  private addLanguageAssociation(assocName: string, languageIds: string[]) {
+  private addLanguageAssociation(config: IconConfiguration, iconName: string, languageIds: string[]) {
+    config.languageIds ??= {};
     for (const languageId of languageIds) {
-      if (!this.iconConfig.languageIds) continue;
-      this.iconConfig.languageIds[languageId] = assocName;
+      config.languageIds[languageId] = iconName;
+    }
+  }
+
+  private removeLanguageAssociation(config: IconConfiguration | undefined, languageIds: string[]) {
+    for (const languageId of languageIds) {
+      delete config?.languageIds?.[languageId];
     }
   }
 }

@@ -19,6 +19,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'readme'},
     ids: ['readme'],
+    light: true,
     name: 'readme',
   },
 
@@ -306,6 +307,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'bats'},
     ids: ['bats'],
+    light: true,
     name: 'bats',
   },
   {
@@ -419,7 +421,7 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'brainfuck',
   },
   {
-    icon: {name: 'brewfile'},
+    icon: {name: 'brew'},
     ids: ['brewfile', 'brew'],
     name: 'brewfile',
   },
@@ -726,6 +728,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'css'},
     ids: ['css', 'tss'],
+    light: true,
     name: 'css',
   },
   {
@@ -825,6 +828,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'diff'},
     ids: ['diff', 'diffs'],
+    light: true,
     name: 'diff',
   },
   {
@@ -923,7 +927,7 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'dustjs',
   },
   {
-    icon: {name: 'dtd'},
+    icon: {name: 'markup'},
     ids: ['dtd'],
     name: 'dtd',
   },
@@ -1128,6 +1132,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'flow'},
     ids: ['flow'],
+    light: true,
     name: 'flow',
   },
   {
@@ -1385,12 +1390,12 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'groovy',
   },
   {
-    icon: {name: 'grunt'},
+    icon: {name: 'gruntfile'},
     ids: ['grunt', 'gruntfile'],
     name: 'grunt',
   },
   {
-    icon: {name: 'gulp'},
+    icon: {name: 'gulpfile'},
     ids: ['gulp', 'gulpfile'],
     name: 'gulp',
   },
@@ -1414,7 +1419,7 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'haml',
   },
   {
-    icon: {name: 'handlebars'},
+    icon: {name: 'mustache'},
     ids: ['handlebars', 'mustache'],
     name: 'handlebars',
   },
@@ -2878,7 +2883,6 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'qsharp'},
     ids: ['qs', 'qsharp'],
-    light: true,
     name: 'qsharp',
   },
   {
@@ -2907,7 +2911,7 @@ export const languageIcons: LanguageAssociation[] = [
     name: 'qt',
   },
   {
-    icon: {name: 'qtn'},
+    icon: {name: 'quantum'},
     ids: ['qtn', 'quantum'],
     name: 'qtn',
   },
@@ -3215,6 +3219,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'skript'},
     ids: ['skript', 'sk', 'skriptlang', 'sk-vsc'],
+    light: true,
     name: 'skript',
   },
   {
@@ -3440,6 +3445,7 @@ export const languageIcons: LanguageAssociation[] = [
   {
     icon: {name: 'svg'},
     ids: ['svg'],
+    light: true,
     name: 'svg',
   },
   // endregion
@@ -3690,6 +3696,7 @@ export const languageIcons: LanguageAssociation[] = [
     enabledFor: [IconPack.Volt],
     icon: {name: 'volt'},
     ids: ['volt'],
+    light: true,
     name: 'volt',
   },
   {

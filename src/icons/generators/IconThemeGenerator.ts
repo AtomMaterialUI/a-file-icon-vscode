@@ -148,8 +148,26 @@ export class IconThemeGenerator {
     this.applyFiltersAndCopy(filesPath, distributionFilesPath);
     this.applyFiltersAndCopy(foldersPath, distributionFoldersPath);
     this.applyFiltersAndCopy(foldersOpenPath, distributionFoldersOpenPath);
+    this.copyMissingOpenFolders(foldersPath, foldersOpenPath, distributionFoldersOpenPath);
 
     this.copyCustomIcons(distributionPath);
+  }
+
+  /**
+   * A folder icon without an expanded variant (`plastic`) keeps its closed icon when expanded,
+   * instead of pointing the theme to a missing file.
+   * @private
+   */
+  private copyMissingOpenFolders(foldersPath: string, foldersOpenPath: string, destination: string) {
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
+    const openIcons = new Set(readdirSync(foldersOpenPath));
+
+    for (const iconFile of readdirSync(foldersPath)) {
+      if (openIcons.has(iconFile)) continue;
+
+      const hashedFile = iconFile.replace(/(^[^.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`);
+      writeFileAtomic(join(destination, hashedFile), this.applyFilters(join(foldersPath, iconFile)));
+    }
   }
 
   /**
@@ -160,7 +178,12 @@ export class IconThemeGenerator {
   private copyCustomIcons(distributionPath: string) {
     const fileConfigHash = getFileConfigHash(this.atomConfig);
 
-    for (const value of customValues(this.atomConfig.filesAssociations)) {
+    // language icons are file icons too
+    const fileValues = [
+      ...customValues(this.atomConfig.filesAssociations),
+      ...customValues(this.atomConfig.languagesAssociations),
+    ];
+    for (const value of fileValues) {
       const source = findCustomIcon(value);
       if (!source) continue;
       const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;

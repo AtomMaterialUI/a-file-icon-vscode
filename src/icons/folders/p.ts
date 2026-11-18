@@ -84,7 +84,7 @@ export const pFolders = [
   },
   {
     folderNames: ['profile', 'profiles', 'persona', 'personas'],
-    name: 'profile',
+    name: 'users',
   },
   {
     folderNames: ['project', 'projects', 'proj'],
