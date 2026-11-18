@@ -7,8 +7,13 @@ import { folderColorPicker } from 'src/pickers/FolderColorPicker';
 import { folderThemePicker } from 'src/pickers/FolderThemePicker';
 import { opacityPicker } from 'src/pickers/OpacityPicker';
 import { saturationPicker } from 'src/pickers/SaturationPicker';
+import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { logger, configService } from 'src/services';
 import { commands, window } from 'vscode';
+
+import type { ExtensionContext } from 'vscode';
+
+let extensionContext: ExtensionContext | undefined;
 
 const changeFolderColor = async () => {
   logger.info('Open select folder color popup');
@@ -59,6 +64,11 @@ const changeMonochromeColor = async () => {
   if (!configService.monochrome) configService.monochrome = true;
 };
 
+const openThemeMixer = async () => {
+  logger.info('Open the theme mixer');
+  if (extensionContext) ThemeMixerPanel.show(extensionContext);
+};
+
 const restoreDefaultConfig = async () => {
   logger.info('Resetting default config');
   configService.resetConfig();
@@ -71,19 +81,23 @@ const extensionCommands: Record<string, () => Promise<void>> = {
   changeMonochromeColor,
   changeOpacity,
   changeSaturation,
+  openThemeMixer,
   restoreDefaultConfig,
   toggleIconPacks,
   toggleMonochrome,
 };
 
 /**
- * List of registered commands from package.json
- * @type {Disposable[]}
+ * Register the commands of package.json
+ * @returns their disposables
  */
-export const registeredCommands = Object.keys(extensionCommands).map((commandName) => {
-  const callCommand = () => extensionCommands[commandName]();
-  return commands.registerCommand(
-    `${EXTENSION_KEY}.${commandName}`,
-    callCommand,
-  );
-});
+export const registerCommands = (context: ExtensionContext) => {
+  extensionContext = context;
+  return Object.keys(extensionCommands).map((commandName) => {
+    const callCommand = () => extensionCommands[commandName]();
+    return commands.registerCommand(
+      `${EXTENSION_KEY}.${commandName}`,
+      callCommand,
+    );
+  });
+};

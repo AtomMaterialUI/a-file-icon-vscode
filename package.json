@@ -280,6 +280,11 @@
         "command": "a-file-icon-vscode.changeMonochromeColor",
         "category": "Atom Material Icons",
         "title": "%command.changeMonochromeColor%"
+      },
+      {
+        "command": "a-file-icon-vscode.openThemeMixer",
+        "category": "Atom Material Icons",
+        "title": "%command.openThemeMixer%"
       }
     ],
     "configuration": {

@@ -238,6 +238,18 @@ export class ConfigService implements AtomConfig {
   }
 
   /**
+   * Set a value in the settings that already define it: the workspace settings when they do, else the user settings,
+   * else the given scope. Writing another scope would leave the existing value shadowing the new one.
+   */
+  public setConfigValueWhereDefined(key: keyof AtomConfig, value: unknown, scope: ConfigurationTarget) {
+    const inspected = this.getPluginConfig().inspect(key);
+    let target = scope;
+    if (inspected?.workspaceValue !== undefined) target = ConfigurationTarget.Workspace;
+    else if (inspected?.globalValue !== undefined) target = ConfigurationTarget.Global;
+    this.setConfigValue(key, value, target);
+  }
+
+  /**
    * Snapshot of every setting that affects the file icon theme.
    * The full snapshot (not only the changed keys) must be given to the generator,
    * otherwise unchanged settings fall back to their defaults.

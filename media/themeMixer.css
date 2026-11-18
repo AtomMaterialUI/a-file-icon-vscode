@@ -1,0 +1,218 @@
+body {
+  padding: 0 20px 24px;
+  color: var(--vscode-foreground);
+  background: var(--vscode-editor-background);
+  font-family: var(--vscode-font-family);
+  font-size: var(--vscode-font-size);
+}
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+h2 {
+  margin: 1.6em 0 0.3em;
+  font-size: 1.15em;
+  font-weight: 600;
+}
+
+section {
+  max-width: 1100px;
+}
+
+.hint,
+.empty {
+  margin: 0.3em 0 0.8em;
+  color: var(--vscode-descriptionForeground);
+}
+
+.warning {
+  padding: 8px 12px;
+  border-left: 3px solid var(--vscode-editorWarning-foreground);
+  background: var(--vscode-textBlockQuote-background);
+}
+
+.badge {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  color: var(--vscode-badge-foreground);
+  background: var(--vscode-badge-background);
+  font-size: 0.85em;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 4px 10px 4px 0;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  color: var(--vscode-descriptionForeground);
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.actions {
+  white-space: nowrap;
+}
+
+.add {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+button {
+  padding: 3px 10px;
+  border: 1px solid var(--vscode-button-border, transparent);
+  border-radius: 2px;
+  color: var(--vscode-button-secondaryForeground);
+  background: var(--vscode-button-secondaryBackground);
+  font: inherit;
+  cursor: pointer;
+}
+
+button:hover:not(:disabled) {
+  background: var(--vscode-button-secondaryHoverBackground);
+}
+
+button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.add button:first-of-type {
+  color: var(--vscode-button-foreground);
+  background: var(--vscode-button-background);
+}
+
+.add button:first-of-type:hover {
+  background: var(--vscode-button-hoverBackground);
+}
+
+select,
+input,
+textarea {
+  padding: 3px 6px;
+  border: 1px solid var(--vscode-dropdown-border, var(--vscode-input-border, transparent));
+  color: var(--vscode-input-foreground);
+  background: var(--vscode-input-background);
+  font: inherit;
+}
+
+select {
+  color: var(--vscode-dropdown-foreground);
+  background: var(--vscode-dropdown-background);
+}
+
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 600px;
+  font-family: var(--vscode-editor-font-family);
+}
+
+details {
+  margin-top: 12px;
+}
+
+summary {
+  cursor: pointer;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+.preview th {
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.preview td {
+  padding: 2px 6px 2px 0;
+}
+
+.preview th.result,
+.preview td.result {
+  padding-right: 14px;
+  border-right: 1px solid var(--vscode-widget-border, var(--vscode-panel-border));
+}
+
+.preview td.name {
+  padding-right: 16px;
+  white-space: nowrap;
+}
+
+.cell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 24px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: transparent;
+}
+
+.cell:hover:not(:disabled) {
+  border-color: var(--vscode-focusBorder);
+  background: var(--vscode-list-hoverBackground);
+}
+
+.cell.pinned {
+  border-color: var(--vscode-focusBorder);
+  background: var(--vscode-list-activeSelectionBackground);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+/* the glyph sizes of icon themes (150%) are relative to the font size of the tree, like this page's */
+.icon.glyph {
+  width: 22px;
+  height: 22px;
+}
+
+.icon.none {
+  color: var(--vscode-disabledForeground, var(--vscode-descriptionForeground));
+}
+
+.icon.mask {
+  background-color: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+}
+
+.applying {
+  display: none;
+  margin-left: 12px;
+  color: var(--vscode-descriptionForeground);
+  font-size: 0.6em;
+  font-weight: normal;
+}
+
+.pending .applying {
+  display: inline;
+}
+
+.pending .preview {
+  opacity: 0.5;
+}

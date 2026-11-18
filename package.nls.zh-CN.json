@@ -4,6 +4,7 @@
   "command.changeFolderColor": "vuex更改文件夹颜色",
   "command.changeFolderTheme": "vuex切换文件夹图标",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "vuex改变不透明度",
   "command.restoreDefaultConfig": "vuex恢复默认设置",
   "command.toggleIconPacks": "vuex选择一个图标包",

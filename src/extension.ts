@@ -1,11 +1,12 @@
 import { unwatchFile, watchFile } from 'node:fs';
-import { registeredCommands } from 'src/commands/commands';
+import { registerCommands } from 'src/commands/commands';
 import { VERSION_KEY } from 'src/helpers/constants';
 import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
+import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
 import { updatesService } from 'src/services/UpdatesService';
 import { extensions, window, workspace } from 'vscode';
@@ -27,6 +28,8 @@ const regenerateTheme = () => {
     window.showErrorMessage(`Atom Material Icons: ${error instanceof Error ? error.message : String(error)}`);
   }
   watchLayerThemes();
+  // the theme mixer previews the regenerated theme
+  ThemeMixerPanel.refresh();
 };
 
 /**
@@ -75,7 +78,7 @@ export const activate = async (context: ExtensionContext) => {
     notificationsService.showStartMessages(status);
 
     // Subscribe to the extension commands
-    context.subscriptions.push(...registeredCommands);
+    context.subscriptions.push(...registerCommands(context));
 
     // Initially trigger the config change detection
     regenerateTheme();

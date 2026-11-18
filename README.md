@@ -292,6 +292,14 @@ Themes made of font glyphs, like the built-in Seti theme (`vs-seti`), can be mix
 font, and their colors get the saturation and monochrome filters. The opacity does not apply to them, since VS Code
 takes no transparency in the color of a glyph. PNG icons are skipped.
 
+### Mix Icon Themes page
+
+The **Mix Icon Themes (with Preview)** command opens a page to edit both settings without writing json: add, order and
+remove the layers and choose their mode for files and folders, and give single names their own theme. Its preview
+lists sample names (the default ones, the files and folders at the top of the workspace, or your own) with the icon of
+the result and the icon of each installed theme. Click the icon of a theme to use it for that name (`iconThemeByName`),
+click it again to stop.
+
 ----
 
 ## Product Theme
@@ -403,6 +411,7 @@ Here's a list of the available commands:
 | **Change Opacity**                | Change the opacity of the icons.                                                   |
 | **Change Saturation**             | Change the saturation value of the icons.                                          |
 | **Icon Packs**                    | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx...). |
+| **Mix Icon Themes (with Preview)** | Mix other installed icon themes, with a preview of their icons and of the result.  |
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 | **Toggle Monochrome Icons**       | Switch between colored and monochrome icons.                                       |
 

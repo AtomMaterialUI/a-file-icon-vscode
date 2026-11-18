@@ -4,6 +4,7 @@
   "command.changeFolderColor": "Change Folder Color",
   "command.changeFolderTheme": "Change Folder Theme",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "Change Opacity",
   "command.changeSaturation": "Change Saturation",
   "command.restoreDefaultConfig": "Restore Default Configuration",
