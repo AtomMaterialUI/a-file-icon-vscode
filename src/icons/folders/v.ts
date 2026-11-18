@@ -39,6 +39,8 @@ export const vFolders = [
       'html',
       'page',
       'pages',
+      // UI layer of the clean architecture (#65)
+      'presentation',
       'template',
       'templates',
       'view',
