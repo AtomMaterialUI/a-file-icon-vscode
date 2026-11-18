@@ -8,7 +8,6 @@ import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
 import { FallbackThemeGenerator } from './FallbackThemeGenerator';
-
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';

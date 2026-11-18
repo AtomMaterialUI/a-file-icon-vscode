@@ -74,11 +74,13 @@ export const activate = async (context: ExtensionContext) => {
     // Initially trigger the config change detection
     regenerateTheme();
 
-    // Observe changes in the config
-    context.subscriptions.push(workspace.onDidChangeConfiguration(() => regenerateTheme()));
-
-    // The fallback icon theme can be installed, updated or removed
-    context.subscriptions.push(extensions.onDidChange(() => regenerateTheme()), { dispose: unwatchFallbackTheme });
+    context.subscriptions.push(
+      // Observe changes in the config
+      workspace.onDidChangeConfiguration(() => regenerateTheme()),
+      // The fallback icon theme can be installed, updated or removed
+      extensions.onDidChange(() => regenerateTheme()),
+      { dispose: unwatchFallbackTheme },
+    );
 
     // Observe if the window got focused to trigger config changes
     window.onDidChangeWindowState((state) => {

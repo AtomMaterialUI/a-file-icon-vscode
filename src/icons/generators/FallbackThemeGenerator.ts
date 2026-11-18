@@ -7,30 +7,8 @@ import { writeFileAtomic } from 'src/helpers/fsUtils';
 import type { AtomConfig } from 'src/@types/config';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
 
-/** Folder of `dist` receiving the icons taken from the fallback theme */
-export const FALLBACK_FOLDER = 'fallback';
 /** Prefix of the icon definitions taken from the fallback theme, so they never replace one of this theme */
 const DEFINITION_PREFIX = 'fallback-';
-
-/** Language of the file names and extensions, as declared by the installed extensions and `files.associations` */
-export type LanguageLookup = {
-  /** lower case extension without the dot -> language id */
-  extensions: Record<string, string>;
-  /** lower case file name -> language id */
-  fileNames: Record<string, string>;
-};
-
-/** Another installed file icon theme, used for the names this theme does not know */
-export type FallbackTheme = {
-  /** Theme id, as in `workbench.iconTheme` */
-  id: string;
-  /** Path of the theme json */
-  path: string;
-  /** Changes when the theme json changes (extension version and modification time of the json) */
-  stamp: string;
-  /** Languages of the names, so a name this theme shows through its language keeps that icon */
-  languages?: LanguageLookup;
-};
 
 type NameMap = Record<string, string>;
 type Section = {
@@ -60,6 +38,29 @@ const extensionsOf = (fileName: string): string[] => {
 
 /** Last segment of a name: VS Code also accepts names with their parent folders (`.github/workflows`) */
 const lastSegment = (name: string) => name.slice(name.lastIndexOf('/') + 1);
+
+/** Folder of `dist` receiving the icons taken from the fallback theme */
+export const FALLBACK_FOLDER = 'fallback';
+
+/** Language of the file names and extensions, as declared by the installed extensions and `files.associations` */
+export type LanguageLookup = {
+  /** lower case extension without the dot -> language id */
+  extensions: Record<string, string>;
+  /** lower case file name -> language id */
+  fileNames: Record<string, string>;
+};
+
+/** Another installed file icon theme, used for the names this theme does not know */
+export type FallbackTheme = {
+  /** Theme id, as in `workbench.iconTheme` */
+  id: string;
+  /** Path of the theme json */
+  path: string;
+  /** Changes when the theme json changes (extension version and modification time of the json) */
+  stamp: string;
+  /** Languages of the names, so a name this theme shows through its language keeps that icon */
+  languages?: LanguageLookup;
+};
 
 /**
  * Adds the associations of another icon theme for the file names, extensions, languages and folder names
@@ -179,7 +180,7 @@ export class FallbackThemeGenerator {
   }
 
   /** Map the name in the light or high contrast section, when the fallback theme has a variant for it */
-  private addVariant(variant: 'light' | 'highContrast', definition: string | undefined, theme: ThemeJson, map: MapKey, name: string) {
+  private addVariant(variant: 'highContrast' | 'light', definition: string | undefined, theme: ThemeJson, map: MapKey, name: string) {
     if (!definition) return;
 
     const target = this.definition(theme, definition);
