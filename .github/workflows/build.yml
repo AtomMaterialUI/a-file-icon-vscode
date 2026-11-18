@@ -1,45 +1,58 @@
 name: Build + Test
 
-on: [push, pull_request]
+on:
+  push:
+  pull_request:
 
 jobs:
   test:
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
-        os: [windows-latest, ubuntu-latest]
-        node-version: [16.x]
+        os: [ubuntu-latest, windows-latest]
 
-    name: ${{ matrix.os }} (Node.js ${{ matrix.node-version }})
+    name: ${{ matrix.os }}
+
+    env:
+      # puppeteer is only used by the screenshot scripts
+      PUPPETEER_SKIP_DOWNLOAD: '1'
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
-      - name: Setup Node.js ${{ matrix.node-version }} ⚙
-        uses: actions/setup-node@v3
+        uses: actions/checkout@v4
         with:
-          node-version: ${{ matrix.node-version }}
-      - name: Run display server 🖥
-        run: /usr/bin/Xvfb :99 -screen 0 1024x768x24 > /dev/null 2>&1 & echo "Started xvfb"
-        shell: bash
-        if: ${{ success() && matrix.os == 'ubuntu-latest' }}
+          submodules: true
+
+      # same versions as environment.yml
+      - name: Setup Node.js ⚙
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Setup bun ⚙
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
       - name: Install node_modules 📦
-        run: npm ci
-      - name: Cache node_modules 💾
-        uses: actions/cache@v3
-        env:
-          cache-name: cache-node-modules
+        run: bun install
+
+      - name: Lint 🔍
+        run: bun run lint
+
+      - name: Build ⚒
+        run: bun run build
+
+      - name: Unit tests 🧪
+        run: bun run test:unit
+
+      - name: Package VSIX 📦
+        if: matrix.os == 'ubuntu-latest'
+        run: npx --yes @vscode/vsce@3.6.0 package --no-dependencies --allow-missing-repository --skip-license -o a-file-icon-vscode.vsix
+
+      - name: Upload VSIX ⬆
+        if: matrix.os == 'ubuntu-latest'
+        uses: actions/upload-artifact@v4
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-      - name: Test + Build 🚀
-        run: |
-          npm test
-          npm run vscode:prepublish
-        env:
-          DISPLAY: ':99.0'
+          name: vsix
+          path: a-file-icon-vscode.vsix
