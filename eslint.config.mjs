@@ -157,6 +157,7 @@ export default [...compat.extends(
     "unicorn/prevent-abbreviations": ["error", {
       replacements: {
         env: false,
+        e: false,
         i: false,
         j: false,
       },

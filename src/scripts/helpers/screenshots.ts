@@ -1,4 +1,4 @@
-import path from 'path';
+import path from 'node:path';
 import puppeteer from 'puppeteer';
 
 /**
@@ -19,14 +19,14 @@ export const createScreenshot = async (filePath: string, fileName: string) => {
     await page.goto(htmlFilePath);
 
     await page.screenshot({
-      path: `images/${fileName}.png`,
-      omitBackground: true,
       fullPage: true,
+      omitBackground: true,
+      path: `images/${fileName}.png`,
     });
 
     await browser.close();
   } catch (error) {
     console.error(error);
-    throw Error('Could not create screenshot for a preview');
+    throw new Error('Could not create screenshot for a preview');
   }
 };

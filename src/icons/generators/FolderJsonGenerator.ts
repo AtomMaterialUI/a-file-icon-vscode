@@ -35,7 +35,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
     const enabledAssociations = this.disableAssociationsByPack(folderThemeAssociations);
 
     // next, load custom file associations
-    const customAssociations = this.getCustomAssociations(this.atomConfig.foldersAssociations);
+    const customAssociations = this.getCustomAssociations(folderThemeAssociations, this.atomConfig.foldersAssociations);
     const allFolderAssociations = [...enabledAssociations, ...customAssociations];
 
     // next, load the folder associations inside the json
@@ -80,17 +80,27 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
 
   /**
    * Convert custom icon associations into icons
+   * @param {FolderAssociations} folderTheme the active folder theme, used to reuse light/high contrast variants
    * @param {IconAssociations} folderAssociations
    * @returns {FolderAssociation[]}
    * @private
    */
-  private getCustomAssociations(folderAssociations?: IconAssociations): FolderAssociation[] {
+  private getCustomAssociations(folderTheme: FolderAssociations, folderAssociations?: IconAssociations): FolderAssociation[] {
     if (!folderAssociations) return [];
 
-    return Object.entries(folderAssociations).map(([key, value]) => ({
-      folderNames: [key.toLowerCase()],
-      name: value?.toLowerCase() ?? 'folder',
-    }));
+    return Object.entries(folderAssociations)
+      .filter(([key, value]) => key.length > 0 && typeof value === 'string' && value.length > 0)
+      .map(([key, value]) => {
+        const name = value.toLowerCase();
+        const builtIn = folderTheme.icons?.find((icon) => icon.name === name);
+
+        return {
+          folderNames: [key.toLowerCase()],
+          highContrast: builtIn?.highContrast,
+          light: builtIn?.light,
+          name,
+        };
+      });
   }
 
   /**

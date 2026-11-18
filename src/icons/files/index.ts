@@ -29,6 +29,7 @@ export * from './s';
 export * from './t';
 export * from './tests';
 export * from './u';
+export * from './upstream';
 export * from './v';
 export * from './video';
 export * from './w';

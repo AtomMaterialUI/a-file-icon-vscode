@@ -74,6 +74,22 @@ export const getHash = (value: string) => {
   return hash;
 };
 
+/**
+ * Structural equality for JSON-like values (settings). Object key order is ignored.
+ */
+export const isDeepEqual = (a: unknown, b: unknown): boolean => {
+  if (a === b) return true;
+  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
+  if (Array.isArray(a) !== Array.isArray(b)) return false;
+
+  const keysA = Object.keys(a);
+  const keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+
+  return keysA.every((key) =>
+    Object.hasOwn(b, key) && isDeepEqual((a as Record<string, unknown>)[key], (b as Record<string, unknown>)[key]));
+};
+
 export const getSVGRootElement = (svg: string) => {
   const result = new RegExp(/<svg[^>]*>/).exec(svg);
   return result?.[0];

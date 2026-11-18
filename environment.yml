@@ -1,0 +1,7 @@
+name: a-file-icon-vscode
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - nodejs=24
+  - bun=1.4

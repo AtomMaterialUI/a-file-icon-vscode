@@ -207,11 +207,8 @@ of the JetBrains's equivalent extension and the Material Design Icons.
 
 ## Custom associations
 
-> IMPORTANT: While this setting exists in the
-> original [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme), it has not yet been implemented
-> in this extension. But I'll leave the definition for the future.
-
-You can customize the icon associations directly in the user settings.
+You can customize the icon associations directly in the user settings. The value is the name of one of the bundled
+icons (the file name without `.svg` in `iconGenerator/assets/icons/files` or `.../folders`).
 
 ### File associations
 
@@ -224,7 +221,7 @@ If there's no leading `*` it will be automatically configured as filename and no
 
 ```json
 {
-  "a-file-icon-vscode.files.associations": {
+  "a-file-icon-vscode.filesAssociations": {
     "*.ts": "typescript",
     "**.json": "json",
     "fileName.ts": "angular"
@@ -233,6 +230,8 @@ If there's no leading `*` it will be automatically configured as filename and no
 ```
 
 #### Custom SVG icons
+
+> Not supported yet: only the bundled icon names work for now.
 
 It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist
 folder. However, the restriction applies that the directory in which the custom icons are located must be within
@@ -252,7 +251,7 @@ In the settings.json the icon can be associated to a file name or file extension
 
 ```json
 {
-  "a-file-icon-vscode.files.associations": {
+  "a-file-icon-vscode.filesAssociations": {
     "fileName.ts": "../../icons/sample"
   }
 }
@@ -269,7 +268,7 @@ folder names you like.
 
 ```json
 {
-  "a-file-icon-vscode.folders.associations": {
+  "a-file-icon-vscode.foldersAssociations": {
     "customFolderName": "src",
     "sample": "dist"
   }
@@ -277,6 +276,8 @@ folder names you like.
 ```
 
 #### Custom SVG folder icons
+
+> Not supported yet: only the bundled icon names work for now.
 
 Similar to the files, it is also possible to reference your own SVG icons for folder icons. Here it's important to
 provide two SVG files: one for the folder if it's closed and another one for the opened state. These two files - let's
@@ -297,7 +298,7 @@ In the settings.json the folder icons can be associated to a folder name (e.g. "
 
 ```json
 {
-  "a-file-icon-vscode.folders.associations": {
+  "a-file-icon-vscode.foldersAssociations": {
     "src": "../../../../icons/folder-sample"
   }
 }
@@ -310,7 +311,7 @@ associations.
 
 ```json
 {
-  "a-file-icon-vscode.languages.associations": {
+  "a-file-icon-vscode.languagesAssociations": {
     "languageId": "iconName",
     "json": "json"
   }

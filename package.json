@@ -20,6 +20,7 @@
     "build": "bun run compile:dev && bun run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
     "oslllo-svg-fixer": "node node_modules/oslllo-svg-fixer/src/cli.js",
+    "sync:upstream": "ts-node ./src/scripts/icons/syncUpstream.ts",
     "check": "ts-node ./src/scripts/icons/checks/runChecks.ts",
     "compile": "node esbuild.js --production",
     "compile-web": "webpack --config ./build/web-extension.webpack.config.js",
@@ -31,6 +32,7 @@
     "postcompile": "bun run generateJson && bun run check",
     "pretest": "bun run build && tsc -p ./",
     "test": "node ./out/test/runTest.js",
+    "test:unit": "node ./test/run-unit.js",
     "webfont": "ts-node ./src/scripts/icons/webfont.ts",
     "version": "bun run changelog && git add CHANGELOG.md",
     "vsce": "vsce package --yarn",
@@ -278,7 +280,26 @@
             "rails"
           ],
           "description": "%configuration.activeIconPacks%",
-          "type": "array"
+          "type": "array",
+          "items": {
+            "enum": [
+              "angular",
+              "angular2",
+              "nest",
+              "next",
+              "ngrx",
+              "phalcon",
+              "rails",
+              "react",
+              "recoil",
+              "redux",
+              "volt",
+              "vue",
+              "vuex"
+            ],
+            "type": "string"
+          },
+          "uniqueItems": true
         },
         "a-file-icon-vscode.arrowTheme": {
           "default": "material",
