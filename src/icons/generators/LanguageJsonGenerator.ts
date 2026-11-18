@@ -1,5 +1,6 @@
-import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING } from 'src/helpers/constants';
+import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING, PYCHARM_PYTHON_ICON } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
+import { IconPack } from 'src/@types/config';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
 import { languageIcons } from 'src/icons/languageIcons';
@@ -23,10 +24,15 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
     // first, remove languages by pack
     const enabledLanguages = this.disableLanguagesByPack(languageIcons);
 
+    // PyCharm pack: the Python language gets the PyCharm Python icon, like the .py files
+    const pycharmLanguages: LanguageAssociation[] = this.atomConfig.activeIconPacks.includes(IconPack.PyCharm)
+      ? [{ icon: { name: PYCHARM_PYTHON_ICON }, ids: ['python'], light: true, name: 'python' }]
+      : [];
+
     // Fetch custom language associations
     const customIcons = this.getCustomLanguageAssociations();
 
-    const allLanguageIcons = [...enabledLanguages, ...customIcons];
+    const allLanguageIcons = [...enabledLanguages, ...pycharmLanguages, ...customIcons];
 
     // Load the language icons onto the config
     for (const language of allLanguageIcons) {

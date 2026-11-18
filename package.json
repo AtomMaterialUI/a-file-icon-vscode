@@ -287,6 +287,7 @@
         "a-file-icon-vscode.activeIconPacks": {
           "default": [
             "angular",
+            "pycharm",
             "rails",
             "tests"
           ],
@@ -301,6 +302,7 @@
               "next",
               "ngrx",
               "phalcon",
+              "pycharm",
               "rails",
               "react",
               "recoil",

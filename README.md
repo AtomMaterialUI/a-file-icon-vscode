@@ -86,6 +86,8 @@ As in the JetBrains plugin, two packs do not belong to a framework:
 
 - **tests** (enabled by default): `*.test.ts`, `*.spec.py`... use the test icon of their language.
 - **css** (disabled by default): `.css` files use the alternative CSS icon.
+- **pycharm** (enabled by default): Python files look like in PyCharm. Every `.py`, `.pyi` and `.pyw` file, whatever its
+  name (`manage.py`, `__init__.py`, `test_app.py`...), uses the two-tone Python icon of PyCharm instead of the Atom icons.
 
 ![iconPacks.png](./docs/iconPacks.png)
 
@@ -347,6 +349,9 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 ----
 
 ## Credits
+
+- The PyCharm Python icon comes from [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)
+  (Apache License 2.0), see [assets/icons/NOTICE.md](./assets/icons/NOTICE.md)
 
 Special credits to:
 

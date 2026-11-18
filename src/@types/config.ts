@@ -8,6 +8,7 @@ export enum IconPack {
   Next = 'next',
   Ngrx = 'ngrx',
   Phalcon = 'phalcon',
+  PyCharm = 'pycharm',
   Rails = 'rails',
   React = 'react',
   Recoil = 'recoil',

@@ -13,15 +13,20 @@ import type { IconConfiguration } from 'src/models/IconConfiguration';
 
 const repoRoot = join(__dirname, '..', '..');
 
+/** Icon sources of the extension: the iconGenerator submodule and the icons of this fork */
+const LINKED_FOLDERS = ['iconGenerator', 'assets'];
+
 /**
- * Creates a fake installed extension: a copy of the built `dist` theme files and a junction to the icons.
+ * Creates a fake installed extension: a copy of the built `dist` theme files and junctions to the icons.
  */
 const createExtensionDirectory = (): string => {
   const extensionPath = mkdtempSync(join(tmpdir(), 'afi-test-'));
   for (const file of [JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME]) {
     cpSync(join(repoRoot, 'dist', file), join(extensionPath, 'dist', file));
   }
-  symlinkSync(join(repoRoot, 'iconGenerator'), join(extensionPath, 'iconGenerator'), 'junction');
+  for (const folder of LINKED_FOLDERS) {
+    symlinkSync(join(repoRoot, folder), join(extensionPath, folder), 'junction');
+  }
   return extensionPath;
 };
 
@@ -55,8 +60,10 @@ describe('ConfigChangeDetector', () => {
   });
 
   afterEach(() => {
-    // remove the junction first so the real icons are never touched
-    rmSync(join(testState.extensionPath, 'iconGenerator'), { force: true, recursive: false });
+    // remove the junctions first so the real icons are never touched
+    for (const folder of LINKED_FOLDERS) {
+      rmSync(join(testState.extensionPath, folder), { force: true, recursive: false });
+    }
     rmSync(testState.extensionPath, { force: true, recursive: true });
   });
 
@@ -261,12 +268,43 @@ describe('ConfigChangeDetector', () => {
     });
   });
 
+  describe('PyCharm icon pack', () => {
+    it('gives every Python file the PyCharm Python icon, like PyCharm', () => {
+      applySettings({ opacity: 0.9 });
+
+      const theme = readTheme();
+      for (const extension of ['py', 'pyi', 'test.py']) {
+        assert.equal(theme.fileExtensions?.[extension], 'pycharm-python_dark', extension);
+        assert.equal(theme.light?.fileExtensions?.[extension], 'pycharm-python', extension);
+      }
+      for (const name of ['manage.py', '__init__.py']) {
+        assert.equal(theme.fileNames?.[name], 'pycharm-python_dark', name);
+      }
+      assert.equal(theme.languageIds?.python, 'pycharm-python_dark');
+      assert.match(readIcon(theme, 'pycharm-python_dark'), /#548AF7/);
+    });
+
+    it('keeps the Atom icons when the pack is disabled', () => {
+      applySettings({ activeIconPacks: ['angular', 'rails', 'tests'] });
+
+      const theme = readTheme();
+      assert.equal(theme.fileExtensions?.py, 'python');
+      assert.equal(theme.fileNames?.['manage.py'], 'djangoconfig');
+    });
+
+    it('lets a custom association win', () => {
+      applySettings({ filesAssociations: { 'manage.py': 'docker' } });
+
+      assert.equal(readTheme().fileNames?.['manage.py'], 'docker');
+    });
+  });
+
   describe('Tests icon pack', () => {
     it('shows the test icons by default', () => {
       applySettings({ opacity: 0.9 });
 
       assert.equal(readTheme().fileExtensions?.['test.ts'], 'testts');
-      assert.equal(readTheme().fileExtensions?.['spec.py'], 'testpy');
+      assert.equal(readTheme().fileExtensions?.['spec.go'], 'testgo');
     });
 
     it('hides them when the pack is disabled', () => {
