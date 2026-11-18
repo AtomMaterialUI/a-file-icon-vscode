@@ -417,7 +417,8 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 ## Credits
 
 - The PyCharm Python icon comes from [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)
-  (Apache License 2.0), see [assets/icons/NOTICE.md](./assets/icons/NOTICE.md)
+  (Apache License 2.0, copy in [assets/icons/LICENSE-APACHE-2.0.txt](./assets/icons/LICENSE-APACHE-2.0.txt)),
+  see [assets/icons/NOTICE.md](./assets/icons/NOTICE.md)
 
 Special credits to:
 
