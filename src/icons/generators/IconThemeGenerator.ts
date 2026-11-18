@@ -129,7 +129,7 @@ export class IconThemeGenerator {
       this.layers.languages,
       distributionPath,
       getFileConfigHash(this.atomConfig),
-      (svgPath) => this.applyFilters(svgPath),
+      (svg) => this.filterSvg(svg),
       (color) => filterFontColor(color, this.atomConfig),
     );
     // a theme that cannot be read (being rewritten) is left out, so the fingerprint differs and it is read again
@@ -283,7 +283,12 @@ export class IconThemeGenerator {
    * @private
    */
   private applyFilters(filePath: string) {
-    let svg = readFileSync(filePath, 'utf8');
+    return this.filterSvg(readFileSync(filePath, 'utf8'));
+  }
+
+  /** The filters of {@link applyFilters}, for the content of an svg file */
+  private filterSvg(content: string) {
+    let svg = content;
 
     // folder color
     svg = folderColorService.applyFolderColor(svg, this.atomConfig.folderColor);

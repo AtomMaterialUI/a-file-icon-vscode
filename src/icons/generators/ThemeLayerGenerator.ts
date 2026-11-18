@@ -47,6 +47,11 @@ const FONT_FORMATS = new Set(['embedded-opentype', 'opentype', 'svg', 'truetype'
 /** The size VS Code gives the glyphs of a theme whose first font has none */
 const DEFAULT_FONT_SIZE = '150%';
 
+/** The color theme kind an icon is copied for: it gives the color of the svg files drawn with `currentColor` */
+type Tone = 'dark' | 'light';
+/** The text color of the explorer in the default dark and light color themes (Dark Modern, Light Modern) */
+const CURRENT_COLORS: Record<Tone, string> = { dark: '#cccccc', light: '#3b3b3b' };
+
 /** A font of another theme with its files copied to `dist/layers`, or undefined when it cannot be used */
 type CopiedFont = { font: IconFont; size: string } | undefined;
 
@@ -98,6 +103,8 @@ const lowerSection = (section?: Section): Section => {
 
 /** Finds the icon another theme shows for a name, the way VS Code does */
 export class LayerReader {
+  /** VS Code draws the svg files of this theme with the color of the text */
+  readonly usesCurrentColor: boolean;
   private readonly sections: Record<Variant | 'base', Section>;
 
   constructor(
@@ -110,6 +117,7 @@ export class LayerReader {
       highContrast: lowerSection(json.highContrast),
       light: lowerSection(json.light),
     };
+    this.usesCurrentColor = json.usesCurrentColor === true;
   }
 
   /** The names of one of its maps */
@@ -207,6 +215,9 @@ export class LayerReader {
  * 4. `fill` layers (the first listed wins): only the names left with the default file or folder icon.
  * Svg icons get the same filters as the icons of this theme. Glyphs of font themes (like Seti) come with their font,
  * their color gets the color filters (not the opacity: VS Code takes no alpha in a font color).
+ * The svg files of `usesCurrentColor` themes (like VS Code Modern) are drawn by VS Code with the color of the text, but
+ * only for the theme that declares it: they get the text color of the dark themes, and a light variant with the text
+ * color of the light themes.
  */
 export class ThemeLayerGenerator {
   /** theme id + definition id -> definition id in this theme ('' when its icon cannot be used) */
@@ -223,7 +234,8 @@ export class ThemeLayerGenerator {
     private readonly languages: LanguageLookup,
     private readonly distributionPath: string,
     private readonly fileConfigHash: string,
-    private readonly applyFilters: (svgPath: string) => string,
+    /** the filters of this theme, for the content of an svg file */
+    private readonly applyFilters: (svg: string) => string,
     private readonly filterColor: (color: unknown) => string | undefined,
   ) {}
 
@@ -433,7 +445,7 @@ export class ThemeLayerGenerator {
     this.iconConfig[map][key] = base;
 
     for (const variant of VARIANTS) {
-      const definition = this.definition(reader, reader.lookup(variant, hit));
+      const definition = this.variantDefinition(reader, variant, hit);
       if (definition) {
         this.iconConfig[variant] ??= {};
         this.iconConfig[variant][map] ??= {};
@@ -451,7 +463,7 @@ export class ThemeLayerGenerator {
 
     this.iconConfig[key] = base;
     for (const variant of VARIANTS) {
-      const definition = this.definition(reader, reader.lookup(variant, { map: key }));
+      const definition = this.variantDefinition(reader, variant, { map: key });
       if (definition) {
         this.iconConfig[variant] ??= {};
         this.iconConfig[variant][key] = definition;
@@ -465,18 +477,20 @@ export class ThemeLayerGenerator {
    * The definition of this theme for a definition of the other theme: its svg copied to `dist/layers` through the
    * same filters as the icons of this theme, or its glyph with the font copied there. Other icons (png) are skipped.
    */
-  private definition(reader: LayerReader, definition: string | undefined): string | undefined {
+  private definition(reader: LayerReader, definition: string | undefined, tone: Tone = 'dark'): string | undefined {
     if (!definition) return undefined;
 
-    const cacheKey = `${reader.theme.id}\n${definition}`;
+    // only the svg files drawn with `currentColor` differ between dark and light themes
+    const toned = reader.usesCurrentColor && tone === 'light';
+    const cacheKey = `${reader.theme.id}\n${definition}${toned ? '\nlight' : ''}`;
     const known = this.definitions.get(cacheKey);
     if (known !== undefined) return known || undefined;
 
     const source = reader.json.iconDefinitions?.[definition];
-    const safeName = `${reader.theme.id}_${definition}`.replaceAll(/[^\w.-]/g, '_');
+    const safeName = `${reader.theme.id}_${definition}${toned ? '_light' : ''}`.replaceAll(/[^\w.-]/g, '_');
     const id = `${DEFINITION_PREFIX}${safeName}`;
     const created = typeof source?.iconPath === 'string'
-      ? this.svgDefinition(reader, source.iconPath, safeName)
+      ? this.svgDefinition(reader, source.iconPath, safeName, tone)
       : this.glyphDefinition(reader, source);
     if (!created) {
       this.definitions.set(cacheKey, '');
@@ -489,12 +503,27 @@ export class ThemeLayerGenerator {
     return id;
   }
 
-  private svgDefinition(reader: LayerReader, iconPath: string, safeName: string) {
+  /**
+   * The definition of a variant of a hit: the variant of the other theme, or for a `usesCurrentColor` theme without a
+   * light variant, its base icon in the text color of the light themes
+   */
+  private variantDefinition(reader: LayerReader, variant: Variant, hit: Hit): string | undefined {
+    const tone: Tone = variant === 'light' ? 'light' : 'dark';
+    const own = this.definition(reader, reader.lookup(variant, hit), tone);
+    if (own || variant !== 'light' || !reader.usesCurrentColor) return own;
+    return this.definition(reader, reader.lookup('base', hit), 'light');
+  }
+
+  private svgDefinition(reader: LayerReader, iconPath: string, safeName: string, tone: Tone) {
     const source = resolve(dirname(reader.theme.path), iconPath);
     if (!/\.svg$/i.test(source) || !existsSync(source)) return;
 
+    let svg = readFileSync(source, 'utf8');
+    // VS Code gives the text color only to the icons of the theme declaring `usesCurrentColor`: elsewhere, black
+    if (reader.usesCurrentColor) svg = svg.replaceAll(/currentColor/gi, CURRENT_COLORS[tone]);
+
     const file = `${safeName}${this.fileConfigHash}.svg`;
-    writeFileAtomic(join(this.distributionPath, LAYERS_FOLDER, file), this.applyFilters(source));
+    writeFileAtomic(join(this.distributionPath, LAYERS_FOLDER, file), this.applyFilters(svg));
     this.written.add(file);
     return { iconPath: `${RELATIVE_DIST}/${LAYERS_FOLDER}/${file}` };
   }
