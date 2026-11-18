@@ -45,6 +45,10 @@ export const normalizeLayers = (layers: unknown): NormalizedLayer[] => {
   return result;
 };
 
+/** The setting value of normalized layers: the theme id alone when files and folders are both `fill` */
+export const serializeLayers = (layers: NormalizedLayer[]): IconThemeLayer[] =>
+  layers.map(({ files, folders, theme }) => (files === 'fill' && folders === 'fill' ? theme : { files, folders, theme }));
+
 /** What a key of `iconThemeByName` targets */
 export type NameTarget = { kind: 'extension' | 'file' | 'folder'; name: string };
 

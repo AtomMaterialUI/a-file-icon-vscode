@@ -4,6 +4,7 @@
   "command.changeFolderColor": "Cambiar color de carpeta",
   "command.changeFolderTheme": "Personalizar iconos de carpetas",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "Cambiar la opacidad",
   "command.restoreDefaultConfig": "Restaurar la configuración predeterminada",
   "command.toggleIconPacks": "Configurar paquetes de iconos",

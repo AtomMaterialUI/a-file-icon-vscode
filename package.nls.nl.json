@@ -4,6 +4,7 @@
   "command.changeFolderColor": "Verander Folder Kleur",
   "command.changeFolderTheme": "Verander Folder Thema",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "Verander Doorzichtbaarheid",
   "command.changeSaturation": "Verander Saturatie",
   "command.restoreDefaultConfig": "Zet Standaard Configuratie Terug",

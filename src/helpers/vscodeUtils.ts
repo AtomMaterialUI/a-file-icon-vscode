@@ -98,6 +98,32 @@ export const findIconTheme = (id: string): LayerTheme | undefined => {
   return undefined;
 };
 
+/** A file icon theme contributed by another installed extension */
+export type InstalledIconTheme = { extensionPath: string; id: string; label: string; path: string };
+
+/**
+ * The file icon themes of the other installed extensions, which can be mixed with this theme.
+ * A label still written as a `%key%` of the extension's translations shows the theme id instead.
+ */
+export const listIconThemes = (): InstalledIconTheme[] => {
+  const result: InstalledIconTheme[] = [];
+  for (const extension of extensions.all) {
+    if (extension.id.toLowerCase() === EXTENSION_ID.toLowerCase()) continue;
+
+    const themes: Array<ContributedIconTheme & { label?: unknown }> = extension.packageJSON?.contributes?.iconThemes ?? [];
+    if (!Array.isArray(themes)) continue;
+
+    for (const theme of themes) {
+      if (typeof theme?.id !== 'string' || typeof theme.path !== 'string' || theme.id === EXTENSION_KEY) continue;
+      if (result.some((item) => item.id === theme.id)) continue;
+
+      const label = typeof theme.label === 'string' && !/^%.*%$/.test(theme.label) ? theme.label : theme.id;
+      result.push({ extensionPath: extension.extensionPath, id: theme.id, label, path: join(extension.extensionPath, theme.path) });
+    }
+  }
+  return result.sort((a, b) => a.label.localeCompare(b.label));
+};
+
 /** The installed file icon themes the settings mix with this theme; the ones not installed are left out */
 export const findLayerThemes = (config: Pick<AtomConfig, 'iconThemeByName' | 'iconThemeLayers'>): LayerTheme[] =>
   usedThemeIds(config)

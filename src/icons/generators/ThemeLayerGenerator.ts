@@ -31,6 +31,8 @@ type Section = Partial<Record<DefaultKey, string>> & Partial<Record<MapKey, Name
 type ThemeDefinition = { fontCharacter?: unknown; fontColor?: unknown; fontId?: unknown; fontSize?: unknown; iconPath?: unknown };
 type ThemeJson = Section & {
   fonts?: unknown;
+  /** the svg files are drawn with the color of the text */
+  usesCurrentColor?: unknown;
   highContrast?: Section;
   iconDefinitions?: Record<string, ThemeDefinition>;
   light?: Section;
@@ -95,7 +97,7 @@ const lowerSection = (section?: Section): Section => {
 };
 
 /** Finds the icon another theme shows for a name, the way VS Code does */
-class LayerReader {
+export class LayerReader {
   private readonly sections: Record<Variant | 'base', Section>;
 
   constructor(
@@ -173,6 +175,21 @@ class LayerReader {
 
   hitDefault(key: DefaultKey): Hit | undefined {
     return this.lookup('base', { map: key }) ? { map: key } : undefined;
+  }
+
+  /** The icon VS Code shows in the tree for a file (`name`) or a closed folder (`name/`), the default icon included */
+  hitTreeItem(name: string): Hit | undefined {
+    const lower = name.trim().toLowerCase();
+    if (lower.endsWith('/')) {
+      const folder = lower.replace(/\/+$/, '');
+      return (folder ? this.hitFolder('folderNames', folder) : undefined) ?? this.hitDefault('folder');
+    }
+    return (lower ? this.hitFile(lastSegment(lower)) : undefined) ?? this.hitDefault('file');
+  }
+
+  /** The definition of a hit for a light or a dark color theme: the light section falls back to the base one */
+  definitionOf(hit: Hit, light: boolean): string | undefined {
+    return (light ? this.lookup('light', hit) : undefined) ?? this.lookup('base', hit);
   }
 
   private hit(map: MapKey, key: string): Hit | undefined {
@@ -546,3 +563,6 @@ export class ThemeLayerGenerator {
     return copied;
   }
 }
+
+export { DEFAULT_FONT_SIZE, FONT_FORMATS, FONT_SIZE_PATTERN };
+export type { ThemeJson };

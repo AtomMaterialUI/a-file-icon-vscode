@@ -4,6 +4,7 @@
   "command.changeFolderColor": "vuexZmień kolor folderów",
   "command.changeFolderTheme": "vuexZmień motyw folderów",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "vuexZmień przezroczystość",
   "command.changeSaturation": "vuexZmień nasycenie ikon",
   "command.restoreDefaultConfig": "vuexPrzywróć domyślne ustawienia",

@@ -55,6 +55,10 @@
     우리 변형을 지운다. SVG 는 필터 적용 복사, Seti 같은 글꼴 테마는 글꼴을 `dist/layers` 에 복사하고 글리프마다
     `fontId`·`fontSize` 를 명시(VS Code 는 첫 글꼴을 모든 아이콘의 기본으로 씀). 글꼴 색은 채도·모노크롬만(VS Code 가 알파 없는
     `#rrggbb` 만 받아 불투명도는 못 씀). PNG 는 건너뜀.
+  - 섞기 화면(`openThemeMixer` 명령, `src/panels/ThemeMixerPanel.ts` + `media/themeMixer.{js,css}`, 빌드 없는 정적 파일):
+    두 설정을 고치고, 미리보기는 `helpers/themePreview.ts`(`LayerReader` 재사용)로 각 테마 json 과 생성된 우리 json 에서
+    이름별 아이콘을 찾는다. 설정 쓰기 → 테마 재생성 → `extension.ts` 의 `regenerateTheme` 가 `ThemeMixerPanel.refresh()`.
+    화면 문구는 `en.json` 의 `themeMixer.*`(다른 언어는 영어로 대체됨).
   - 쓰는 테마들의 지문(`layerThemes`, 확장 버전 + json 수정 시각)을 테마 json 에 저장해 바뀌면 다시 만든다
     (`extension.ts` 가 각 json 을 watchFile). 스크립트·parity 테스트는 다른 테마 없이 돈다.
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은

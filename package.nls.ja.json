@@ -4,6 +4,7 @@
   "command.changeFolderColor": "フォルダーの色を変更",
   "command.changeFolderTheme": "フォルダーテーマを変更",
   "command.changeMonochromeColor": "Change Monochrome Color",
+  "command.openThemeMixer": "Mix Icon Themes (with Preview)",
   "command.changeOpacity": "不透明度を変更",
   "command.changeSaturation": "彩度を変更",
   "command.restoreDefaultConfig": "初期設定に戻す",
