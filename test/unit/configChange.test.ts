@@ -1,7 +1,7 @@
 import { strict as assert } from 'node:assert';
 import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { basename, dirname, join } from 'node:path';
 import { JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
@@ -31,6 +31,9 @@ const readIcon = (theme: IconConfiguration, definition: string) => {
   assert.ok(iconPath, `${definition} icon definition missing`);
   return readFileSync(join(testState.extensionPath, 'dist', iconPath), 'utf8');
 };
+
+/** existsSync with the exact case of the file name, as on Linux, even on Windows and macOS */
+const existsWithCase = (path: string) => existsSync(path) && readdirSync(dirname(path)).includes(basename(path));
 
 const readTheme = (): IconConfiguration =>
   JSON.parse(readFileSync(join(testState.extensionPath, 'dist', JSON_FILE_NAME), 'utf8'));
@@ -78,7 +81,8 @@ describe('ConfigChangeDetector', () => {
       applySettings({ filesAssociations: { '*.foo': 'typescript', 'special.txt': 'docker' } });
 
       const theme = readTheme();
-      assert.equal(theme.fileExtensions?.foo, 'typescript');
+      // the svg is typeScript.svg: the name typed in lower case is resolved to it
+      assert.equal(theme.fileExtensions?.foo, 'typeScript');
       assert.equal(theme.fileNames?.['special.txt'], 'docker');
     });
 
@@ -163,22 +167,42 @@ describe('ConfigChangeDetector', () => {
   });
 
   describe('theme integrity', () => {
-    it('points every mapping to an icon definition whose svg exists', () => {
-      applySettings({ opacity: 0.9 });
-
+    /** Mappings of the current theme whose svg does not exist (with the exact case) */
+    const findBrokenMappings = () => {
       const theme = readTheme();
       const broken: string[] = [];
       for (const [variant, config] of [['base', theme], ['light', theme.light], ['highContrast', theme.highContrast]] as const) {
+        for (const key of ['file', 'folder', 'folderExpanded', 'rootFolder', 'rootFolderExpanded'] as const) {
+          const icon = config?.[key];
+          if (typeof icon === 'string') checkIcon(theme, icon, `${variant}.${key}`, broken);
+        }
         for (const key of ['fileExtensions', 'fileNames', 'languageIds', 'folderNames', 'folderNamesExpanded'] as const) {
           for (const [entry, icon] of Object.entries(config?.[key] ?? {})) {
-            const iconPath = theme.iconDefinitions?.[icon]?.iconPath;
-            if (!iconPath || !existsSync(join(testState.extensionPath, 'dist', iconPath))) {
-              broken.push(`${variant}.${key}.${entry} -> ${icon}`);
-            }
+            checkIcon(theme, icon, `${variant}.${key}.${entry}`, broken);
           }
         }
       }
-      assert.deepEqual(broken, []);
+      return broken;
+    };
+
+    const checkIcon = (theme: IconConfiguration, icon: string, label: string, broken: string[]) => {
+      const iconPath = theme.iconDefinitions?.[icon]?.iconPath;
+      if (!iconPath || !existsWithCase(join(testState.extensionPath, 'dist', iconPath))) {
+        broken.push(`${label} -> ${icon}`);
+      }
+    };
+
+    it('points every mapping to an icon definition whose svg exists', () => {
+      applySettings({ opacity: 0.9 });
+
+      assert.deepEqual(findBrokenMappings(), []);
+    });
+
+    it('does the same with every icon pack and the classic folders', () => {
+      const packs = ['angular', 'angular2', 'css', 'nest', 'next', 'ngrx', 'phalcon', 'rails', 'react', 'recoil', 'redux', 'tests', 'volt', 'vue', 'vuex'];
+      applySettings({ activeIconPacks: packs, folderTheme: 'classic' });
+
+      assert.deepEqual(findBrokenMappings(), []);
     });
   });
 
@@ -202,6 +226,17 @@ describe('ConfigChangeDetector', () => {
       assert.equal(theme.languageIds?.bower, 'bower');
       assert.equal(theme.languageIds?.gruntfile, 'gruntfile');
       assert.equal(theme.languageIds?.dtd, 'markup');
+    });
+
+    it('finds a bundled icon typed in another case (svg names are case-sensitive on Linux)', () => {
+      applySettings({
+        filesAssociations: { '*.foo': 'githubactions' },
+        languagesAssociations: { mylang: 'GROOVYFILE' },
+      });
+
+      const theme = readTheme();
+      assert.equal(theme.fileExtensions?.foo, 'githubActions');
+      assert.equal(theme.languageIds?.mylang, 'groovyFile');
     });
 
     it('keeps the case of custom language ids', () => {

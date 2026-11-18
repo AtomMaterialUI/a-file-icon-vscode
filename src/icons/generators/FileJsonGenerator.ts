@@ -105,7 +105,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
       .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
         const pattern = key.toLowerCase();
-        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : this.resolveFileIconName(value);
         // reuse the light/high contrast variants of the built-in icon, if any
         const builtIn = fileIcons.icons.find((icon) => icon.name === name);
         const variants = { highContrast: builtIn?.highContrast, light: builtIn?.light };

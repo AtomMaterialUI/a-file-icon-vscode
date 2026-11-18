@@ -309,7 +309,7 @@ export const gFiles = [
   },
   {
     fileNames: ['groovyfile', 'groovyfile.groovy'],
-    name: 'groovyfile',
+    name: 'groovyFile',
   },
   {
     fileNames: [

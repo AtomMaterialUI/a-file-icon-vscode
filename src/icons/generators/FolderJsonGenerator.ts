@@ -237,21 +237,21 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   private loadRootFolderAssociation(folderTheme: FolderAssociations) {
-    const rootFolderName = FOLDER_PREFIX + folderTheme.rootFolder?.name; // folder-<name>
-    const rootFolderExpandedName = FOLDER_PREFIX + folderTheme.rootFolder?.name + OPENED_FOLDER_SUFFIX; // folder-<name>-open
-    if (!rootFolderName) {
+    if (!folderTheme.rootFolder?.name) {
       this.iconConfig.rootFolder = this.iconConfig.folder;
       this.iconConfig.rootFolderExpanded = this.iconConfig.folderExpanded;
       return;
     }
+    const rootFolderName = FOLDER_PREFIX + folderTheme.rootFolder.name; // folder-<name>
+    const rootFolderExpandedName = FOLDER_PREFIX + folderTheme.rootFolder.name + OPENED_FOLDER_SUFFIX; // folder-<name>-open
 
-    // todo check if those `addFolderAssociations` are needed
-    // this.addFolderAssociation(config, rootFolderName);
+    // the root folder icon is not used by any folder name: define it here
+    this.addFolderAssociation(folderTheme.rootFolder.name);
     this.iconConfig.rootFolder = rootFolderName;
     this.iconConfig.rootFolderExpanded = rootFolderExpandedName;
 
-    if (folderTheme.rootFolder?.light) {
-      // this.addFolderAssociation(config, folderTheme.rootFolder?.name, DARK_FILE_ENDING);
+    if (folderTheme.rootFolder.light) {
+      this.addFolderAssociation(folderTheme.rootFolder.name, DARK_FILE_ENDING);
       // Replace the default folder with the variant with the '_dark' suffix
       this.iconConfig.rootFolder = rootFolderName + DARK_FILE_ENDING;
       this.iconConfig.rootFolderExpanded = rootFolderExpandedName + DARK_FILE_ENDING;
