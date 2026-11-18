@@ -18,4 +18,16 @@ yarn.lock
 build/**
 svgo.config.js
 .eslintignore
+.idea/**
+techstack.md
+techstack.yml
+renovate.json
+.all-contributorsrc
+CLAUDE.md
+# Mixed icons of other installed themes are copied here at runtime: never ship them
+dist/layers/**
+# The theme is regenerated from the icon SVGs at runtime; the rest of the submodule (sources, associations) is not needed
+iconGenerator/**
+!iconGenerator/assets/icons/**
+!iconGenerator/LICENSE
 material-colors.yml

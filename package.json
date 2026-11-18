@@ -1,21 +1,20 @@
 {
   "name": "a-file-icon-vscode",
-  "displayName": "Atom Material Icons",
-  "description": "Atom Material Icons for Visual Studio Code",
+  "displayName": "Atom Material Icons (Fork)",
+  "description": "Atom Material Icons for Visual Studio Code (unofficial fork)",
   "version": "2.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mallowigi/a-file-icon-vscode.git"
+    "url": "https://github.com/WoogaJJangka/a-file-icon-vscode.git"
   },
   "author": {
-    "email": "elior@material-theme.com",
-    "name": "Elior Boukhobza",
-    "url": "https://www.material-theme.com"
+    "name": "siwon Jeon",
+    "url": "https://github.com/WoogaJJangka"
   },
   "license": "MIT",
   "main": "./dist/extension",
   "icon": "logo.png",
-  "homepage": "https://github.com/mallowigi/a-file-icon-vscode/blob/main/README.md",
+  "homepage": "https://github.com/WoogaJJangka/a-file-icon-vscode/blob/main/README.md",
   "scripts": {
     "build": "bun run compile:dev && bun run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
@@ -88,7 +87,7 @@
   "badges": [],
   "browser": "./dist/web/extension.js",
   "bugs": {
-    "url": "https://github.com/mallowigi/a-file-icon-vscode/issues"
+    "url": "https://github.com/WoogaJJangka/a-file-icon-vscode/issues"
   },
   "capabilities": {
     "untrustedWorkspaces": {
@@ -519,7 +518,6 @@
     "ui",
     "workspace"
   ],
-  "funding": "https://github.com/sponsors/mallowigi",
   "galleryBanner": {
     "color": "#263238",
     "theme": "dark"
@@ -532,13 +530,10 @@
     "icon-theme",
     "customization"
   ],
-  "publisher": "atommaterial",
-  "qna": "https://github.com/mallowigi/a-file-icon-vscode/issues",
+  "publisher": "woogajjangka",
+  "qna": "https://github.com/WoogaJJangka/a-file-icon-vscode/issues",
   "activationEvents": [
     "onStartupFinished"
   ],
-  "sideEffects": false,
-  "sponsor": {
-    "url": "https://opencollective.com/atom-material-themes-and-plugins"
-  }
+  "sideEffects": false
 }
