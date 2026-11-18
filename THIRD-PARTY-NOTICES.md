@@ -22,7 +22,11 @@ projects for the exact terms (for example, Font Awesome 4.7 icons are CC BY 4.0,
 - [MFixx](https://github.com/file-icons/MFixx), [Devicons](https://github.com/file-icons/DevOpicons)
 - [Octicons](https://primer.style/foundations/icons)
 - [Material Design Icons](https://pictogrammers.com/library/mdi/)
-- [Scientifics Study Vectors](https://www.svgrepo.com/svg/121720/atom) (CC0) — the extension logo
+
+## Extension logo
+
+`logo.svg` and `logo.png` were drawn for this fork and are covered by the MIT license of this repository
+(the original project's atom logo is not used).
 
 ## Icons added by this fork
 

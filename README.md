@@ -445,7 +445,6 @@ Special credits to:
 - [VSCode Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme) for the implementation
 - [Atom File Icons](https://github.com/file-icons/atom)
   and [Sublime Text A File Icon](https://github.com/SublimeText/AFileIcon) for the idea
-- [Scientifics Study Vectors](https://www.svgrepo.com/svg/121720/atom) for the plugin icon
 - [File-Icons](https://github.com/file-icons/source/blob/master/charmap.md)
 - [FontAwesome 4.7.0](https://fontawesome.com/v4.7.0/cheatsheet/)
 - [MFixx](https://github.com/file-icons/MFixx/blob/master/charmap.md)
