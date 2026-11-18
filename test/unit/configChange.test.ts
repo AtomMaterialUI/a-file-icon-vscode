@@ -1,11 +1,13 @@
 import { strict as assert } from 'node:assert';
-import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, statSync, symlinkSync } from 'node:fs';
+import { cpSync, existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
+import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
+import { configService } from 'src/services/ConfigService';
 
-import { testState } from '../mocks/vscode';
+import { ConfigurationTarget, testState, workspace } from '../mocks/vscode';
 
 import type { IconConfiguration } from 'src/models/IconConfiguration';
 
@@ -21,6 +23,13 @@ const createExtensionDirectory = (): string => {
   }
   symlinkSync(join(repoRoot, 'iconGenerator'), join(extensionPath, 'iconGenerator'), 'junction');
   return extensionPath;
+};
+
+/** Content of the svg the theme uses for the given icon definition */
+const readIcon = (theme: IconConfiguration, definition: string) => {
+  const iconPath = theme.iconDefinitions?.[definition]?.iconPath;
+  assert.ok(iconPath, `${definition} icon definition missing`);
+  return readFileSync(join(testState.extensionPath, 'dist', iconPath), 'utf8');
 };
 
 const readTheme = (): IconConfiguration =>
@@ -151,5 +160,138 @@ describe('ConfigChangeDetector', () => {
 
       assert.equal(statSync(themePath).mtimeMs, before);
     });
+  });
+
+  describe('Tests icon pack', () => {
+    it('shows the test icons by default', () => {
+      applySettings({ opacity: 0.9 });
+
+      assert.equal(readTheme().fileExtensions?.['test.ts'], 'testts');
+      assert.equal(readTheme().fileExtensions?.['spec.py'], 'testpy');
+    });
+
+    it('hides them when the pack is disabled', () => {
+      applySettings({ activeIconPacks: ['angular'] });
+
+      assert.equal(readTheme().fileExtensions?.['test.ts'], undefined);
+    });
+  });
+
+  describe('CSS icon pack', () => {
+    it('replaces the css icon, including its light variant', () => {
+      applySettings({ activeIconPacks: ['css'] });
+
+      const theme = readTheme();
+      assert.equal(theme.fileExtensions?.css, 'css2');
+      assert.equal(theme.light?.fileExtensions?.css, undefined);
+    });
+
+    it('keeps the base css icon when disabled', () => {
+      applySettings({ opacity: 0.9 });
+
+      assert.notEqual(readTheme().fileExtensions?.css, 'css2');
+    });
+  });
+
+  describe('monochrome', () => {
+    it('recolors the icons with the hue of the chosen color', () => {
+      applySettings({ monochrome: true, monochromeColor: '#ff0000' });
+
+      const theme = readTheme();
+      const svg = readIcon(theme, theme.fileExtensions?.ts ?? '');
+      const colors = [...svg.matchAll(/fill="#([\dA-Fa-f]{6})"/g)].map(([, hex]) => hex.toLowerCase());
+      assert.ok(colors.length > 0, 'no fill color in the ts icon');
+      for (const hex of colors) {
+        // red hue: the green and blue channels are equal
+        assert.equal(hex.slice(2, 4), hex.slice(4, 6), `#${hex} is not a shade of red`);
+      }
+    });
+
+    it('ignores the color while disabled', () => {
+      applySettings({ monochromeColor: '#ff0000' });
+
+      assert.equal(readTheme().atomConfig?.monochrome, false);
+    });
+  });
+
+  describe('hideFileIcons', () => {
+    it('removes the file icons and keeps the folder icons', () => {
+      applySettings({ hideFileIcons: true });
+
+      const theme = readTheme();
+      assert.equal(theme.file, undefined);
+      assert.deepEqual(theme.fileExtensions, {});
+      assert.deepEqual(theme.languageIds ?? {}, {});
+      assert.equal(theme.folderNames?.src, 'folder-src');
+    });
+  });
+
+  describe('custom SVG icons', () => {
+    let iconsDirectory = '';
+
+    beforeEach(() => {
+      iconsDirectory = mkdtempSync(join(tmpdir(), 'afi-icons-'));
+      writeFileSync(join(iconsDirectory, 'foo.svg'), '<svg xmlns="http://www.w3.org/2000/svg"><path fill="#123456"/></svg>');
+      writeFileSync(join(iconsDirectory, 'foo-open.svg'), '<svg xmlns="http://www.w3.org/2000/svg"><path fill="#654321"/></svg>');
+    });
+
+    afterEach(() => rmSync(iconsDirectory, { force: true, recursive: true }));
+
+    it('copies a custom file icon and associates it', () => {
+      applySettings({ filesAssociations: { '*.foo': join(iconsDirectory, 'foo.svg') } });
+
+      const theme = readTheme();
+      const name = theme.fileExtensions?.foo ?? '';
+      assert.match(name, /^custom-foo-/);
+      assert.match(readIcon(theme, name), /#123456/);
+    });
+
+    it('uses the -open sibling for expanded folders', () => {
+      applySettings({ foldersAssociations: { recipes: join(iconsDirectory, 'foo.svg') } });
+
+      const theme = readTheme();
+      assert.match(readIcon(theme, theme.folderNames?.recipes ?? ''), /#123456/);
+      assert.match(readIcon(theme, theme.folderNamesExpanded?.recipes ?? ''), /#654321/);
+    });
+
+    it('ignores a missing file', () => {
+      applySettings({ filesAssociations: { '*.foo': join(iconsDirectory, 'missing.svg') } });
+
+      assert.equal(readTheme().fileExtensions?.foo, undefined);
+    });
+  });
+});
+
+describe('writeFileAtomic', () => {
+  it('writes the content without leaving temporary files', () => {
+    const directory = mkdtempSync(join(tmpdir(), 'afi-write-'));
+    try {
+      writeFileAtomic(join(directory, 'nested', 'theme.json'), '{"a":1}');
+      writeFileAtomic(join(directory, 'nested', 'theme.json'), '{"a":2}');
+
+      assert.equal(readFileSync(join(directory, 'nested', 'theme.json'), 'utf8'), '{"a":2}');
+      assert.deepEqual(readdirSync(join(directory, 'nested')), ['theme.json']);
+    } finally {
+      rmSync(directory, { force: true, recursive: true });
+    }
+  });
+});
+
+describe('ConfigService.setConfigValue (#73)', () => {
+  afterEach(() => {
+    workspace.workspaceFolders = undefined;
+  });
+
+  it('writes to the user settings when no folder is opened', () => {
+    configService.folderColor = '#ff0000';
+
+    assert.equal(testState.lastTarget, ConfigurationTarget.Global);
+  });
+
+  it('writes to the workspace settings when a folder is opened', () => {
+    workspace.workspaceFolders = [{}];
+    configService.folderColor = '#ff0000';
+
+    assert.equal(testState.lastTarget, ConfigurationTarget.Workspace);
   });
 });
