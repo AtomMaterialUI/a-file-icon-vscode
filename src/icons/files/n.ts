@@ -158,7 +158,7 @@ export const nFiles = [
   {
     enabledFor: [IconPack.Nest],
     fileExtensions: ['listener.ts', 'listener.js', 'listeners.ts', 'listeners.js'],
-    name: 'nestlisteners',
+    name: 'nestlistener',
   },
   {
     enabledFor: [IconPack.Nest],

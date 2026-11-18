@@ -75,7 +75,10 @@ export class IconThemeGenerator {
    */
   private generateJsonConfig() {
     // Apply filters and copy icons to dist
-    this.prepareIcons();
+    const fileIconNames = this.prepareIcons();
+    for (const generator of [this.languageGenerator, this.fileGenerator]) {
+      generator.setFileIconNames(fileIconNames);
+    }
 
     // Load language icons onto the config
     this.languageGenerator.loadLanguageIconAssociations();
@@ -126,9 +129,10 @@ export class IconThemeGenerator {
 
   /**
    * Apply filters to the icons and copy them to dist
+   * @returns the names of the bundled file icons, without `.svg`
    * @private
    */
-  private prepareIcons() {
+  private prepareIcons(): string[] {
     const iconGeneratorPath = join(this.iconGeneratorPath(), 'assets', 'icons');
 
     const filesPath = getFilesPath(iconGeneratorPath);
@@ -151,6 +155,8 @@ export class IconThemeGenerator {
     this.copyMissingOpenFolders(foldersPath, foldersOpenPath, distributionFoldersOpenPath);
 
     this.copyCustomIcons(distributionPath);
+
+    return readdirSync(filesPath).map((file) => file.replace(/\.svg$/, ''));
   }
 
   /**

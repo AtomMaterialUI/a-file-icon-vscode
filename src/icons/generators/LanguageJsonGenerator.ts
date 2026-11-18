@@ -49,7 +49,7 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
       // a custom SVG that does not exist would point to a missing file
       .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
-        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : this.resolveFileIconName(value);
         // reuse the light/high contrast variants of the built-in icon, if any
         const builtIn = fileIcons.icons.find((icon) => icon.name === name);
 
