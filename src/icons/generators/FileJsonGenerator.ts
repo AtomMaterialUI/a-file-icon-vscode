@@ -112,14 +112,20 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     const fileAssociations = this.atomConfig.filesAssociations;
     if (!fileAssociations) return [];
 
-    return Object.entries(fileAssociations).map(([key, value]) => ({
-      icon: {
-        fileExtensions: [key.toLowerCase().replace(WILDCARD_PATTERN, '')],
-        fileNames: [key.toLowerCase()],
-        name: value.toLowerCase(),
-      },
-      name: key.toLowerCase(),
-    }));
+    return Object.entries(fileAssociations)
+      .filter(([key, value]) => key.length > 0 && typeof value === 'string' && value.length > 0)
+      .map(([key, value]) => {
+        const pattern = key.toLowerCase();
+        const name = value.toLowerCase();
+        // reuse the light/high contrast variants of the built-in icon, if any
+        const builtIn = fileIcons.icons.find((icon) => icon.name === name);
+        const variants = { highContrast: builtIn?.highContrast, light: builtIn?.light };
+
+        // `*.ext` and `**.ext` target an extension, anything else is an exact file name
+        return WILDCARD_PATTERN.test(pattern)
+          ? { ...variants, fileExtensions: [pattern.replace(WILDCARD_PATTERN, '')], name }
+          : { ...variants, fileNames: [pattern], name };
+      });
   }
 
   /**

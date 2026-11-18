@@ -124,3 +124,17 @@ export enum ArrowTheme {
   Arrow = 'arrow',
   None = 'none',
 }
+
+/** Settings that are baked into the generated icon theme json */
+export const ICON_SETTING_KEYS = [
+  'activeIconPacks',
+  'filesAssociations',
+  'folderColor',
+  'folderTheme',
+  'foldersAssociations',
+  'languagesAssociations',
+  'opacity',
+  'saturation',
+] as const;
+
+export type IconSettings = Pick<AtomConfig, (typeof ICON_SETTING_KEYS)[number]>;

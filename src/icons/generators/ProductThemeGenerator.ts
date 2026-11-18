@@ -1,10 +1,10 @@
-/* eslint-disable unicorn/prefer-module */
+
 import {readJSONSync, writeJSONSync} from 'fs-extra';
 import merge from 'lodash.merge';
 import {basename, join} from 'node:path';
 import {ArrowTheme} from 'src/@types/config';
 import {JSON_PRODUCT_FILE_NAME} from 'src/helpers/constants';
-import {getDefaultConfig} from 'src/icons/configUtils';
+import {withDefaults} from 'src/icons/configUtils';
 import {ProductConfiguration} from 'src/models/ProductConfiguration';
 
 import type {AtomConfig} from 'src/@types/config';
@@ -18,7 +18,7 @@ export class ProductThemeGenerator {
     // Read the originally generated product icons config
     this.originalConfig = readJSONSync(join(this.jsonPath(), JSON_PRODUCT_FILE_NAME));
 
-    const atomConfig = merge({}, getDefaultConfig(), updatedJSONConfig);
+    const atomConfig = withDefaults(updatedJSONConfig);
     const productConfig = new ProductConfiguration(atomConfig);
 
     this.atomConfig = atomConfig;

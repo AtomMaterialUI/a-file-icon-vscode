@@ -1,5 +1,7 @@
 import i18next from 'i18next';
 import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
+import { ICON_SETTING_KEYS } from 'src/@types/config';
+import { isDeepEqual } from 'src/helpers/utils';
 import { getDefaultConfig } from 'src/icons/configUtils';
 import { notificationsService } from 'src/services/NotificationsService';
 import { ConfigurationTarget, workspace } from 'vscode';
@@ -7,8 +9,15 @@ import { ConfigurationTarget, workspace } from 'vscode';
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
-import type { FolderTheme, ArrowTheme, AtomConfig, IconPack } from 'src/@types/config';
+import type { FolderTheme, ArrowTheme, AtomConfig, IconPack, IconSettings } from 'src/@types/config';
 import type { IconAssociations } from 'src/@types/associations';
+
+/** Theme files generated before associations were stored have no value for them */
+const EMPTY_DEFAULTS: Partial<IconSettings> = {
+  filesAssociations: {},
+  foldersAssociations: {},
+  languagesAssociations: {},
+};
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
@@ -171,29 +180,34 @@ export class ConfigService implements AtomConfig {
     this.getPluginConfig().update(key, value, scope);
   }
 
-  public getIconConfigChanges(config: IconConfiguration) {
-    const changes: Partial<AtomConfig> = {};
+  /**
+   * Snapshot of every setting that affects the file icon theme.
+   * The full snapshot (not only the changed keys) must be given to the generator,
+   * otherwise unchanged settings fall back to their defaults.
+   */
+  public getIconSettings(): IconSettings {
+    return {
+      activeIconPacks: [...this.activeIconPacks],
+      filesAssociations: this.filesAssociations ?? {},
+      folderColor: this.folderColor,
+      folderTheme: this.folderTheme,
+      foldersAssociations: this.foldersAssociations ?? {},
+      languagesAssociations: this.languagesAssociations ?? {},
+      opacity: this.opacity,
+      saturation: this.saturation,
+    };
+  }
 
-    if (this.opacity !== config.atomConfig?.opacity) {
-      changes.opacity = this.opacity;
-    }
-    if (this.saturation !== config.atomConfig?.saturation) {
-      changes.saturation = this.saturation;
-    }
-    if (this.folderColor !== config.atomConfig?.folderColor) {
-      changes.folderColor = this.folderColor;
-    }
-    if (this.folderTheme !== config.atomConfig?.folderTheme) {
-      changes.folderTheme = this.folderTheme;
-    }
-    if (this.activeIconPacks !== config.atomConfig?.activeIconPacks) {
-      changes.activeIconPacks = this.activeIconPacks;
-    }
-    // if (this.filesAssociations !== config.atomConfig?.filesAssociations) {
-    //   changes.filesAssociations = this.filesAssociations;
-    // }
+  /**
+   * Returns the icon settings if they differ from the ones the current theme file was generated with,
+   * or undefined when the theme is up to date.
+   */
+  public getIconConfigChanges(config: IconConfiguration): IconSettings | undefined {
+    const current = this.getIconSettings();
+    const previous = config.atomConfig ?? {};
 
-    return changes;
+    const changed = ICON_SETTING_KEYS.some((key) => !isDeepEqual(current[key], previous[key] ?? EMPTY_DEFAULTS[key]));
+    return changed ? current : undefined;
   }
 
   public getProductConfigChanges(config: ProductConfiguration) {

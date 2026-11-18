@@ -1,10 +1,9 @@
-/* eslint-disable unicorn/prefer-module */
+
 import { outputFileSync } from 'fs-extra';
-import merge from 'lodash.merge';
 import { readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
-import { getDefaultConfig, getFileConfigHash } from 'src/icons/configUtils';
+import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
 import { FileJsonGenerator } from './FileJsonGenerator';
@@ -16,6 +15,16 @@ import { saturationService } from './SaturationService';
 
 import type { AtomConfig } from 'src/@types/config';
 
+/**
+ * Explicit locations used by the generators. When omitted, they are guessed from `__dirname`.
+ */
+export type GeneratorPaths = {
+  /** Folder receiving the generated theme json and processed icons */
+  dist: string;
+  /** Root of the iconGenerator submodule */
+  iconGenerator: string;
+};
+
 export class IconThemeGenerator {
   atomConfig: AtomConfig;
   iconConfig: IconConfiguration;
@@ -24,9 +33,11 @@ export class IconThemeGenerator {
   fileGenerator: FileJsonGenerator;
   folderGenerator: FolderJsonGenerator;
 
-  constructor(updatedJSONConfig: Partial<AtomConfig> = {}) {
+  constructor(updatedJSONConfig: Partial<AtomConfig> = {}, private readonly paths?: GeneratorPaths) {
     // Initializes the config with the default values and provided changes
-    const atomConfig = merge({}, getDefaultConfig(), updatedJSONConfig);
+    // A shallow merge on purpose: lodash.merge would merge arrays index by index,
+    // mixing the user's activeIconPacks with the default ones (#71)
+    const atomConfig = withDefaults(updatedJSONConfig);
     const iconConfig = new IconConfiguration(atomConfig);
 
     this.languageGenerator = new LanguageJsonGenerator(atomConfig, iconConfig);
@@ -77,6 +88,8 @@ export class IconThemeGenerator {
    * @private
    */
   private iconPath() {
+    if (this.paths) return this.paths.dist;
+
     let iconJsonPath = __dirname;
     // if executed via script
     if (basename(__dirname) !== 'dist') {
@@ -92,6 +105,8 @@ export class IconThemeGenerator {
    * @private
    */
   private iconGeneratorPath() {
+    if (this.paths) return this.paths.iconGenerator;
+
     let iconJsonPath = __dirname;
     // if executed via script
     if (basename(__dirname) !== 'dist') {

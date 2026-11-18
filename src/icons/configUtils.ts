@@ -28,6 +28,15 @@ export const getDefaultConfig = (): AtomConfig => {
 };
 
 /**
+ * Fill the missing (undefined) settings with their default values.
+ * Unlike lodash.merge, arrays and objects provided by the user replace the defaults entirely.
+ */
+export const withDefaults = (config: Partial<AtomConfig> = {}): AtomConfig => {
+  const defined = Object.fromEntries(Object.entries(config).filter(([, value]) => value !== undefined));
+  return { ...getDefaultConfig(), ...defined };
+};
+
+/**
  * Generates a hash of the current config
  */
 export const getFileConfigHash = (config: AtomConfig): string => {

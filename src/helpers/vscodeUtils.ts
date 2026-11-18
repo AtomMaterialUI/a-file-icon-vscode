@@ -3,6 +3,7 @@ import { join } from 'node:path';
 import { EXTENSION_ID, JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
 import { env, Uri, extensions } from 'vscode';
 
+import type { GeneratorPaths } from 'src/icons/generators/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 
@@ -17,6 +18,17 @@ export const openBrowser = (url: string) => {
 /** Return the path of the extension in the file system. */
 export const getExtensionPath = () => {
   return extensions.getExtension(EXTENSION_ID)?.extensionPath ?? '';
+};
+
+/**
+ * Paths used to regenerate the theme inside the installed extension
+ */
+export const getGeneratorPaths = (): GeneratorPaths => {
+  const extensionPath = getExtensionPath();
+  return {
+    dist: join(extensionPath, 'dist'),
+    iconGenerator: join(extensionPath, 'iconGenerator'),
+  };
 };
 
 /**
