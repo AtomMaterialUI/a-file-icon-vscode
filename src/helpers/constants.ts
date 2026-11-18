@@ -12,6 +12,12 @@ export const DEFAULT_OPACITY = 1;
 export const DEFAULT_SATURATION = 1;
 export const DEFAULT_MONOCHROME_COLOR = '#90a4ae';
 
+/** Icon of Python files in PyCharm (assets/icons/files, from JetBrains/intellij-community) */
+export const PYCHARM_PYTHON_ICON = 'pycharm-python';
+export const PYTHON_EXTENSIONS = ['py', 'pyi', 'pyw'];
+/** A file name or extension of a Python file: `py`, `manage.py`, `test.py`... */
+export const PYTHON_FILE = /(?:^|\.)(?:py|pyi|pyw)$/;
+
 export const FOLDER_PREFIX = 'folder-';
 export const ICON_GENERATOR_PATH = 'iconGenerator/assets/icons';
 export const FILES_SUBPATH = 'files';

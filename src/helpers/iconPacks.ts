@@ -123,6 +123,13 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 5,
     },
     {
+      icon: '$(file-code)',
+      id: IconPack.PyCharm,
+      kind: QuickPickItemKind.Default,
+      order: 6,
+      title: IconPack.PyCharm.toLowerCase(),
+    },
+    {
       icon: '$(beaker)',
       id: IconPack.Tests,
       kind: QuickPickItemKind.Default,

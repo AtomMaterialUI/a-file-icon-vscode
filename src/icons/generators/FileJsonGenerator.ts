@@ -1,8 +1,11 @@
 import merge from 'lodash.merge';
-import { FileMappingType } from 'src/@types/config';
+import { FileMappingType, IconPack } from 'src/@types/config';
 import {
   DARK_FILE_ENDING,
   HIGH_CONTRAST_FILE_ENDING,
+  PYCHARM_PYTHON_ICON,
+  PYTHON_EXTENSIONS,
+  PYTHON_FILE,
   WILDCARD_PATTERN,
 } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
@@ -32,18 +35,38 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     const baseAssociations = enabledAssociations.filter((icon) => !icon.enabledFor);
     const packAssociations = enabledAssociations.filter((icon) => icon.enabledFor);
 
-    // next, load custom file associations
-    const customAssociations = this.getCustomAssociations();
-    const allFileAssociations = [...baseAssociations, ...packAssociations, ...customAssociations];
-
-    for (const fileAssoc of allFileAssociations) {
+    for (const fileAssoc of [...baseAssociations, ...packAssociations]) {
       if (fileAssoc.disabled) continue;
 
       this.loadFileAssociation(fileAssoc);
     }
 
+    // PyCharm shows every Python file with the Python icon, whatever its name (manage.py, __init__.py...)
+    if (this.atomConfig.activeIconPacks.includes(IconPack.PyCharm)) {
+      this.loadFileAssociation(this.getPythonFilesAssociation());
+    }
+
+    // last, the user's custom file associations win over everything
+    for (const fileAssoc of this.getCustomAssociations()) {
+      this.loadFileAssociation(fileAssoc);
+    }
+
     // next, add the default file icon
     this.loadDefaultFileAssociation();
+  }
+
+  /**
+   * The PyCharm Python icon for every file name and extension of a Python file already mapped by another icon
+   * (`manage.py` -> djangoconfig, `test.py` -> testpy...), plus the Python extensions themselves.
+   * @private
+   */
+  private getPythonFilesAssociation(): FileAssociation {
+    return {
+      fileExtensions: [...new Set([...PYTHON_EXTENSIONS, ...Object.keys(this.iconConfig.fileExtensions ?? {}).filter((key) => PYTHON_FILE.test(key))])],
+      fileNames: Object.keys(this.iconConfig.fileNames ?? {}).filter((key) => PYTHON_FILE.test(key)),
+      light: true,
+      name: PYCHARM_PYTHON_ICON,
+    };
   }
 
   /**

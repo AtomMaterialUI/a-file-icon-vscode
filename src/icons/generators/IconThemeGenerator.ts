@@ -154,9 +154,14 @@ export class IconThemeGenerator {
     this.applyFiltersAndCopy(foldersOpenPath, distributionFoldersOpenPath);
     this.copyMissingOpenFolders(foldersPath, foldersOpenPath, distributionFoldersOpenPath);
 
+    // icons of this fork that are not in iconGenerator (assets/icons/NOTICE.md), next to the submodule
+    const extraFilesPath = getFilesPath(join(this.iconGeneratorPath(), '..', 'assets', 'icons'));
+    const extraFiles = existsSync(extraFilesPath) ? readdirSync(extraFilesPath) : [];
+    if (extraFiles.length > 0) this.applyFiltersAndCopy(extraFilesPath, distributionFilesPath);
+
     this.copyCustomIcons(distributionPath);
 
-    return readdirSync(filesPath).map((file) => file.replace(/\.svg$/, ''));
+    return [...readdirSync(filesPath), ...extraFiles].map((file) => file.replace(/\.svg$/, ''));
   }
 
   /**

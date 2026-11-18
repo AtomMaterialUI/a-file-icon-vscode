@@ -4,6 +4,7 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: `pycharm` icon pack (on by default): Python files use the two-tone Python icon of PyCharm
 - feat: Tests icon pack (on by default) and CSS icon pack (off by default) from the JetBrains plugin
 - feat: monochrome icons (`monochrome`, `monochromeColor`) with toggle and color commands
 - feat: `hideFileIcons` setting
