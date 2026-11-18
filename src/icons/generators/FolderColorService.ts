@@ -22,7 +22,7 @@ class FolderColorService {
     const themedPattern = new RegExp(/themed="true"/g);
 
     if (pattern.test(svg) && themedPattern.test(svg)) {
-      return svg.replace(pattern, ` fill="${folderColor}"`);
+      return svg.replaceAll(pattern, ` fill="${folderColor}"`);
     }
     return svg;
   }
