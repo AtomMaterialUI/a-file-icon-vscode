@@ -24,3 +24,4 @@ export * from './w';
 export * from './x';
 export * from './y';
 export * from './z';
+export * from './upstream';
