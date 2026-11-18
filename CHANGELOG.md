@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: the icons follow the JetBrains plugin: every file and folder name it knows gets the icon PyCharm shows
+  (`CONTRIBUTING.md`, `Jenkinsfile`, `index.php`, `setup.cfg`, `.devcontainer`...), in dark and light themes
+- feat: default icon packs are the JetBrains defaults (Angular 2 instead of AngularJS, Nest, Next, NgRx, Recoil, Redux)
+- fix: file names and extensions are written in lower case, as VS Code reads them (a light theme kept a replaced icon)
 - feat: `pycharm` icon pack (on by default): Python files use the two-tone Python icon of PyCharm
 - feat: Tests icon pack (on by default) and CSS icon pack (off by default) from the JetBrains plugin
 - feat: monochrome icons (`monochrome`, `monochromeColor`) with toggle and color commands

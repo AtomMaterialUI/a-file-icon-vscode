@@ -32,6 +32,11 @@ and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon
 
 ## Associations
 
+The icons follow what PyCharm shows with the [Atom Material Icons plugin for JetBrains IDEs](https://github.com/AtomMaterialUI/a-file-icon-idea):
+for every file and folder name the JetBrains plugin knows and VS Code can express (a file name, an extension, a folder
+name), the theme uses the icon the JetBrains plugin picks. Names the JetBrains plugin does not know keep the icons of
+this extension.
+
 You can find a list of all the available associations in the following links:
 
 - [File Associations](https://material-theme.com/docs/reference/associations/)
@@ -82,10 +87,14 @@ NestJS icons and vice-versa.
 
 This command will allow you to decide which pack(s) to enable for the current workspace.
 
+By default the packs of the JetBrains plugin are enabled (Angular 2, Nest, Next, NgRx, Rails, Recoil, Redux, Tests), plus
+`pycharm`. AngularJS (`angular`) is disabled, as in the JetBrains plugin.
+
 As in the JetBrains plugin, two packs do not belong to a framework:
 
 - **tests** (enabled by default): `*.test.ts`, `*.spec.py`... use the test icon of their language.
-- **css** (disabled by default): `.css` files use the alternative CSS icon.
+- **css** (disabled by default): `.css` files use the alternative CSS icon. It is enabled in the JetBrains plugin, but
+  its icon loses against the regular CSS icon there, so PyCharm shows the regular one.
 - **pycharm** (enabled by default): Python files look like in PyCharm. Every `.py`, `.pyi` and `.pyw` file, whatever its
   name (`manage.py`, `__init__.py`, `test_app.py`...), uses the two-tone Python icon of PyCharm instead of the Atom icons.
 

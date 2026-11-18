@@ -1,43 +1,35 @@
 /**
- * Port the associations of the JetBrains plugin (iconGenerator/*_associations.json) to VS Code.
+ * Port the associations of the JetBrains plugin (iconGenerator/*_associations.json) to VS Code,
+ * so that VS Code shows the icons PyCharm (with Atom Material Icons) shows.
  *
  * The JetBrains plugin matches with regexes, VS Code only with exact file names, extensions and folder names.
- * Each upstream association carries a list of example names (`fileNames` / `folderNames`), which are converted:
+ * Each upstream association carries a list of example names (`fileNames` / `folderNames`), which give the names
+ * VS Code can express:
  *   - `*.ext`      -> file extension `ext`
  *   - `name.ext`   -> file name
  *   - anything with a path or an inner wildcard is skipped (not expressible in VS Code)
  *
- * Only names that are not already claimed by the hand-written associations are emitted, so the manual
- * choices made for VS Code always win. The output files are generated: do not edit them by hand.
+ * For each of those names, the icon is the one the JetBrains plugin picks (regex + priority, see jetbrainsMatcher),
+ * with its default icon packs. A name is emitted when the hand-written associations give it another icon (or none):
+ * the JetBrains choice wins. Names that JetBrains does not know keep their hand-written icon.
+ * The output files are generated and applied after the hand-written ones: do not edit them by hand.
  *
  * Usage: bun run sync:upstream
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, readdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { IconPack } from 'src/@types/config';
 import { DARK_FILE_ENDING, HIGH_CONTRAST_FILE_ENDING } from 'src/helpers/constants';
 import { fileIcons } from 'src/icons/fileIcons';
+import { getDefaultConfig } from 'src/icons/configUtils';
 import { folderIcons } from 'src/icons/folderIcons';
 import { upstreamFiles } from 'src/icons/files/upstream';
 import { upstreamFolders } from 'src/icons/folders/upstream';
 
-/** Hand-written associations only: the previous output of this script must not count as claimed */
-const manualFileIcons = fileIcons.icons.filter((icon) => !new Set<unknown>(upstreamFiles).has(icon));
+import { fileKeys, findAssociation, folderKeys, iconName, loadDefaultAssociations, readAssociations } from './jetbrainsMatcher';
 
-/**
- * Upstream example names that only illustrate a regex (`users_controller.rb` for `.*_controller\.rb$`):
- * they would only match that exact made-up name in VS Code.
- */
-const SAMPLE_NAME = /^(my|bla\.|users?_|test_)|materialthemebundle|\\|\d+\.\d+\.\d+/;
-
-type UpstreamAssociation = {
-  name: string;
-  icon: string;
-  pattern?: string;
-  fileNames?: string;
-  folderNames?: string;
-  iconPack?: string;
-};
+import type { CompiledAssociation, FileKey } from './jetbrainsMatcher';
+import type { FileAssociation } from 'src/@types/associations';
 
 type GeneratedEntry = {
   name: string;
@@ -67,20 +59,14 @@ const PACKS: Record<string, IconPack> = {
   TESTS: IconPack.Tests,
 };
 
-const readAssociations = (file: string): UpstreamAssociation[] => {
-  const json = JSON.parse(readFileSync(join(iconGeneratorPath, file), 'utf8'));
-  const { regex = [], type = [] } = json.associations.associations;
-  return [...regex, ...type].map((entry: { value: UpstreamAssociation }) => entry.value);
-};
+/** The packs of the default settings: the generated entries correct what the default theme shows */
+const DEFAULT_PACKS = new Set<IconPack>(getDefaultConfig().activeIconPacks);
 
-const iconName = (iconPath: string) => iconPath.split('/').pop()!.replace(/\.svg$/, '');
-
-const splitNames = (names?: string) =>
-  (names ?? '')
-    // some upstream lists are wrapped over several lines, sometimes without a comma
-    .split(/[\s,]+/)
-    .map((name) => name.toLowerCase())
-    .filter((name) => name.length > 0);
+/** Real svg names by lower case name: the json writes `groovyfile` for `groovyFile.svg` (case-sensitive on Linux) */
+const svgNames = (folder: string) =>
+  new Map(readdirSync(join(iconsPath, folder)).map((file) => [file.toLowerCase(), file.replace(/\.svg$/, '')]));
+const fileSvgs = svgNames('files');
+const folderSvgs = svgNames('folders');
 
 const hasVariant = (folder: string, name: string, suffix: string) => existsSync(join(iconsPath, folder, `${name}${suffix}.svg`));
 
@@ -89,121 +75,162 @@ const variants = (folder: string, name: string) => ({
   ...(hasVariant(folder, name, DARK_FILE_ENDING) && { light: true }),
 });
 
-const sorted = (values: Set<string>) => [...values].sort();
+const sorted = (values: Iterable<string>) => [...new Set(values)].sort();
 
-/** Group the converted names by icon, preserving the upstream order of first appearance */
-const groupByIcon = <T>(items: Iterable<[string, T]>) => {
-  const groups = new Map<string, T[]>();
-  for (const [key, value] of items) {
-    groups.set(key, [...(groups.get(key) ?? []), value]);
-  }
-  return groups;
+/** The pack of an upstream association in VS Code, null when VS Code has no such pack */
+const packOf = (association: CompiledAssociation): IconPack | null | undefined =>
+  association.iconPack ? (PACKS[association.iconPack] ?? null) : undefined;
+
+/** Hand-written associations active with the JetBrains default packs, in the order the generator applies them */
+const manualInGeneratorOrder = <T extends { enabledFor?: IconPack[] }>(icons: T[], generated: unknown[]) => {
+  const manual = icons.filter((icon) => !new Set<unknown>(generated).has(icon));
+  const active = manual.filter((icon) => !icon.enabledFor || icon.enabledFor.some((pack) => DEFAULT_PACKS.has(pack)));
+  return [...active.filter((icon) => !icon.enabledFor), ...active.filter((icon) => icon.enabledFor)];
 };
 
-/** Map every name of the hand-written associations to its icon */
-const claimedBy = (key: 'fileExtensions' | 'fileNames') =>
-  new Map(manualFileIcons.flatMap((icon) => (icon[key] ?? []).map((value): [string, string] => [value.toLowerCase(), icon.name])));
+/** Collects the generated entries, one per icon and pack */
+class EntryCollector {
+  private readonly entries = new Map<string, { name: string; pack?: IconPack; names: Set<string>; extensions: Set<string> }>();
+
+  add(name: string, pack: IconPack | undefined, key: { extension?: string; fileName?: string; folderName?: string }) {
+    const id = `${name}|${pack ?? ''}`;
+    const entry = this.entries.get(id) ?? { extensions: new Set<string>(), name, names: new Set<string>(), pack };
+    if (key.extension) entry.extensions.add(key.extension);
+    if (key.fileName) entry.names.add(key.fileName);
+    if (key.folderName) entry.names.add(key.folderName);
+    this.entries.set(id, entry);
+  }
+
+  toFileEntries(): GeneratedEntry[] {
+    return this.sortedEntries().map((entry) => ({
+      ...(entry.pack && { enabledFor: [entry.pack] }),
+      ...(entry.extensions.size > 0 && { fileExtensions: sorted(entry.extensions) }),
+      ...(entry.names.size > 0 && { fileNames: sorted(entry.names) }),
+      ...variants('files', entry.name),
+      name: entry.name,
+    }));
+  }
+
+  toFolderEntries(): GeneratedEntry[] {
+    return this.sortedEntries().map((entry) => ({
+      folderNames: sorted(entry.names),
+      ...variants('folders', entry.name),
+      name: entry.name,
+    }));
+  }
+
+  private sortedEntries() {
+    return [...this.entries.values()].sort((a, b) => a.name.localeCompare(b.name) || (a.pack ?? '').localeCompare(b.pack ?? ''));
+  }
+}
 
 const syncFiles = (): GeneratedEntry[] => {
-  const claimedNames = claimedBy('fileNames');
-  const claimedExtensions = claimedBy('fileExtensions');
+  const associations = loadDefaultAssociations(iconGeneratorPath, 'icon_associations.json');
 
-  /** Icon VS Code currently shows for a file name: exact name first, then the longest matching extension */
-  const resolve = (fileName: string) => {
-    if (claimedNames.has(fileName)) return claimedNames.get(fileName);
+  // icon given to each name by the hand-written associations (the last one wins, as in the generator)
+  const manual = manualInGeneratorOrder<FileAssociation>(fileIcons.icons, upstreamFiles);
+  const manualNames = new Map<string, string>();
+  const manualExtensions = new Map<string, string>();
+  for (const icon of manual) {
+    for (const name of icon.fileNames ?? []) manualNames.set(name.toLowerCase(), icon.name);
+    for (const extension of icon.fileExtensions ?? []) manualExtensions.set(extension.toLowerCase(), icon.name);
+  }
+
+  // extensions given by the generated entries, which replace the hand-written ones
+  const generatedExtensions = new Map<string, string>();
+
+  /** Icon VS Code shows for a file name: exact name, then longest extension (generated or hand-written) */
+  const currentIcon = (fileName: string) => {
+    if (manualNames.has(fileName)) return manualNames.get(fileName);
     const parts = fileName.split('.');
     for (let index = 1; index < parts.length; index++) {
-      const icon = claimedExtensions.get(parts.slice(index).join('.'));
+      const extension = parts.slice(index).join('.');
+      const icon = generatedExtensions.get(extension) ?? manualExtensions.get(extension);
       if (icon) return icon;
     }
     return;
   };
 
-  /** Keep an upstream file name only if it changes what VS Code shows, without overriding a dot-file rule */
-  const isUseful = (fileName: string, icon: string) => {
-    const current = resolve(fileName);
-    if (current === icon || claimedNames.has(fileName)) return false;
-    // `.eslintrc`-like names are matched as an extension by VS Code: that is an explicit choice, keep it
-    return !(current && /^\.[^.]+$/.test(fileName));
+  /** The svg of the icon JetBrains shows for this name, and its pack; undefined when there is none or not ported */
+  const jetbrainsIcon = (matchedName: string) => {
+    const winner = findAssociation(associations, matchedName);
+    const name = winner && fileSvgs.get(`${iconName(winner.icon)}.svg`.toLowerCase());
+    const pack = winner && packOf(winner);
+    return name && pack !== null ? { name, pack } : undefined;
   };
 
-  const entries = new Map<string, { names: Set<string>; extensions: Set<string>; packs: Set<IconPack> }>();
-  // Upstream lists both a light and dark association for some icons: first association for a name wins
-  const seen = new Set<string>();
+  // the example names of the JetBrains associations, then every name of the hand-written associations;
+  // names with a folder (`.github/build.yaml`) never match in VS Code
+  const keys: FileKey[] = [
+    ...fileKeys(readAssociations(iconGeneratorPath, 'icon_associations.json')),
+    ...[...manualNames.keys()].map((fileName) => ({ fileName, matchedName: fileName })),
+    ...[...manualExtensions.keys()].map((extension) => ({ extension, matchedName: `file.${extension}` })),
+  ].filter(({ matchedName }) => !matchedName.includes('/'));
 
-  for (const assoc of readAssociations('icon_associations.json')) {
-    if (assoc.iconPack && !PACKS[assoc.iconPack]) continue;
+  const collector = new EntryCollector();
 
-    const name = iconName(assoc.icon);
-    if (!existsSync(join(iconsPath, 'files', `${name}.svg`))) continue;
-
-    const entry = entries.get(name) ?? { extensions: new Set(), names: new Set(), packs: new Set() };
-    if (assoc.iconPack) entry.packs.add(PACKS[assoc.iconPack]);
-
-    // `.*\.(service|socket)$` lists its extensions as `.service,.socket`
-    const isExtensionPattern = (assoc.pattern ?? '').startsWith(String.raw`.*\.`);
-
-    for (const hint of splitNames(assoc.fileNames)) {
-      if (hint.includes('/') || SAMPLE_NAME.test(hint)) continue;
-
-      const extension = /^\*\.([^*]+)$/.exec(hint)?.[1] ?? (isExtensionPattern ? /^\.([^.*]+)$/.exec(hint)?.[1] : undefined);
-      if (extension) {
-        if (claimedExtensions.has(extension) || seen.has(`*.${extension}`)) continue;
-        seen.add(`*.${extension}`);
-        entry.extensions.add(extension);
-      } else if (!hint.includes('*')) {
-        if (!isUseful(hint, name) || seen.has(hint)) continue;
-        seen.add(hint);
-        entry.names.add(hint);
-      }
-    }
-
-    entries.set(name, entry);
+  // extensions first: a file name is compared with what its extension gives once corrected
+  const extensions = new Set(keys.flatMap(({ extension }) => (extension ? [extension] : [])));
+  for (const extension of extensions) {
+    const icon = jetbrainsIcon(`file.${extension}`);
+    if (!icon || currentIcon(`file.${extension}`) === icon.name) continue;
+    collector.add(icon.name, icon.pack, { extension });
+    // a pack entry only applies when the pack is on
+    if (!icon.pack || DEFAULT_PACKS.has(icon.pack)) generatedExtensions.set(extension, icon.name);
   }
 
-  return [...entries.entries()]
-    .filter(([, entry]) => entry.names.size > 0 || entry.extensions.size > 0)
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([name, entry]) => ({
-      ...(entry.packs.size > 0 && { enabledFor: sorted(entry.packs as Set<string>) as IconPack[] }),
-      ...(entry.extensions.size > 0 && { fileExtensions: sorted(entry.extensions) }),
-      ...(entry.names.size > 0 && { fileNames: sorted(entry.names) }),
-      ...variants('files', name),
-      name,
-    }));
+  // VS Code also applies an extension to the dot file of that name (`pre-commit-config.yaml` to
+  // `.pre-commit-config.yaml`), which JetBrains may match with another association: check it as a file name too
+  // An extension is not applied to the file of that exact name: `test.js` gets the `js` icon in VS Code and `czrc`
+  // none, while JetBrains matches them with `.*\.?(test|spec)\.js` and `^\.?czrc$`: check them as file names too
+  const fileNames = new Set([
+    ...keys.flatMap(({ fileName }) => (fileName ? [fileName] : [])),
+    ...[...extensions].map((extension) => `.${extension}`),
+    ...extensions,
+  ]);
+  for (const fileName of fileNames) {
+    const icon = jetbrainsIcon(fileName);
+    if (!icon || currentIcon(fileName) === icon.name) continue;
+    collector.add(icon.name, icon.pack, { fileName });
+  }
+
+  return collector.toFileEntries();
 };
 
 const syncFolders = (): GeneratedEntry[] => {
+  const associations = loadDefaultAssociations(iconGeneratorPath, 'folder_associations.json');
+
   const specific = folderIcons.find((theme) => theme.name === 'specific');
-  const manual = (specific?.icons ?? []).filter((icon) => !new Set<unknown>(upstreamFolders).has(icon));
-  const claimed = new Set(manual.flatMap((icon) => icon.folderNames).map((n) => n.toLowerCase()));
+  const manual = manualInGeneratorOrder(specific?.icons ?? [], upstreamFolders);
+  const manualFolders = new Map<string, string>();
+  for (const icon of manual) {
+    for (const name of icon.folderNames) manualFolders.set(name.toLowerCase(), icon.name);
+  }
+
+  const collector = new EntryCollector();
+  // the example names of the JetBrains associations, then every name of the hand-written associations
+  const keys = [
+    ...folderKeys(readAssociations(iconGeneratorPath, 'folder_associations.json')),
+    ...[...manualFolders.keys()].map((folderName) => ({ folderName, matchedName: folderName })),
+  ];
   const seen = new Set<string>();
 
-  // the generator adds the `.name` and `_name` variants by itself
-  const pairs = readAssociations('folder_associations.json').flatMap((assoc) => {
-    const name = iconName(assoc.icon);
-    const exists = existsSync(join(iconsPath, 'folders', `${name}.svg`)) && existsSync(join(iconsPath, 'foldersOpen', `${name}.svg`));
-    if (!exists) return [];
+  for (const { folderName, matchedName } of keys) {
+    if (seen.has(folderName)) continue;
+    seen.add(folderName);
 
-    return splitNames(assoc.folderNames)
-      // `.github` / `_github` -> `github`, but keep `__pycache__` intact
-      .map((hint) => hint.replace(/^[._](?=[^._])/, ''))
-      .filter((hint) => hint.length > 0 && !/[*/]/.test(hint))
-      .filter((hint) => {
-        if (claimed.has(hint) || seen.has(hint)) return false;
-        seen.add(hint);
-        return true;
-      })
-      .map((hint): [string, string] => [name, hint]);
-  });
+    const winner = findAssociation(associations, matchedName);
+    if (!winner) continue;
 
-  return [...groupByIcon(pairs).entries()]
-    .sort(([a], [b]) => a.localeCompare(b))
-    .map(([name, folderNames]) => ({
-      folderNames: [...new Set(folderNames)].sort(),
-      ...variants('folders', name),
-      name,
-    }));
+    // a folder without an expanded variant uses its closed icon (IconThemeGenerator)
+    const name = folderSvgs.get(`${iconName(winner.icon)}.svg`.toLowerCase());
+    if (!name) continue;
+    if ((manualFolders.get(folderName) ?? 'folder') === name) continue;
+
+    collector.add(name, undefined, { folderName });
+  }
+
+  return collector.toFolderEntries();
 };
 
 /** Serialize as TypeScript in the style of the hand-written files (unquoted keys, single quotes, IconPack enum) */
@@ -220,8 +247,9 @@ const toTs = (exportName: string, entries: GeneratedEntry[]) => {
 
   const usesPacks = body.includes('IconPack.');
   return `/**
- * GENERATED by src/scripts/icons/syncUpstream.ts from the iconGenerator submodule. Do not edit by hand:
- * add or override associations in the hand-written files instead, then run \`bun run sync:upstream\`.
+ * GENERATED by src/scripts/icons/syncUpstream.ts from the iconGenerator submodule. Do not edit by hand.
+ * These associations are applied after the hand-written ones: they give each name the icon of the JetBrains plugin.
+ * Run \`bun run sync:upstream\` after changing the hand-written associations or updating iconGenerator.
  */
 ${usesPacks ? "import { IconPack } from 'src/@types/config';\n\n" : ''}export const ${exportName} = ${body};
 `;
