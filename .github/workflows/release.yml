@@ -1,10 +1,15 @@
 name: Release + Publish
 
-# Bumps the version, builds the VSIX and creates a GitHub release.
+# Builds the VSIX with the next version, publishes it and creates a GitHub release.
+#
+# `main` is protected (changes need a pull request), so this workflow never commits to it. The version is not stored
+# in package.json: the next one is computed from the latest GitHub release of this repository (or from package.json
+# for the first release) and written only into the VSIX. package.json keeps the version of the first release.
+#
 # Publishing to the registries only runs when their token secret is set:
 #   OPEN_VSX_TOKEN        -> Open VSX
-#   VS_MARKETPLACE_TOKEN  -> Visual Studio Marketplace
-# Set the extension name and publisher in package.json before adding them.
+#   VS_MARKETPLACE_TOKEN  -> Visual Studio Marketplace (Azure DevOps token with the Marketplace "Manage" scope;
+#                            it expires, create a new one and replace the secret when publishing fails with 401/403)
 
 on:
   workflow_dispatch:
@@ -14,9 +19,9 @@ on:
         description: Select the version change
         required: true
         options:
-          - major
-          - minor
           - patch
+          - minor
+          - major
 
 permissions:
   contents: write
@@ -27,13 +32,13 @@ jobs:
     env:
       VERSION_CHANGE: ${{ github.event.inputs.versionChange }}
       PUPPETEER_SKIP_DOWNLOAD: '1'
+      GH_TOKEN: ${{ github.token }}
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
       VS_MARKETPLACE_TOKEN: ${{ secrets.VS_MARKETPLACE_TOKEN }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0
           submodules: true
 
       - name: Setup Node.js ⚙️
@@ -45,37 +50,41 @@ jobs:
         with:
           bun-version: 1.4.2
 
+      - name: Compute the next version 🔢
+        run: |
+          # The tags of the original project (v5.x) are not releases of this repository: only releases count
+          BASE=$(gh release view --json tagName --jq '.tagName' 2>/dev/null || true)
+          BASE=${BASE#v}
+          if [ -z "$BASE" ]; then BASE=$(node -p "require('./package.json').version"); fi
+          IFS=. read -r MAJOR MINOR PATCH <<< "$BASE"
+          case "$VERSION_CHANGE" in
+            major) VERSION="$((MAJOR + 1)).0.0" ;;
+            minor) VERSION="$MAJOR.$((MINOR + 1)).0" ;;
+            patch) VERSION="$MAJOR.$MINOR.$((PATCH + 1))" ;;
+            *) echo "Unknown version change: $VERSION_CHANGE"; exit 1 ;;
+          esac
+          echo "Previous version $BASE, next version $VERSION"
+          echo VERSION=$VERSION >> $GITHUB_ENV
+          echo NAME=$(node -p "require('./package.json').name") >> $GITHUB_ENV
+          echo DISPLAY_NAME=$(node -p "require('./package.json').displayName") >> $GITHUB_ENV
+
       - name: Install node_modules 📦
         run: bun install
-
-      - name: Update version ↗
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          npm version ${{ env.VERSION_CHANGE }} --no-git-tag-version
-          VERSION=$(node -p -e "require('./package.json').version")
-          echo VERSION=$VERSION >> $GITHUB_ENV
-          echo NAME=$(node -p -e "require('./package.json').name") >> $GITHUB_ENV
-          echo DISPLAY_NAME=$(node -p -e "require('./package.json').displayName") >> $GITHUB_ENV
-          git commit -am "Release $VERSION"
-          git tag "v$VERSION"
 
       - name: Build ⚒️
         run: |
           bun run build
           bun run test:unit
-          npx --yes @vscode/vsce@3.6.0 package --no-dependencies -o ${{ env.NAME }}-${{ env.VERSION }}.vsix
+          npx --yes @vscode/vsce@3.6.0 package ${{ env.VERSION }} --no-update-package-json --no-git-tag-version --no-dependencies -o ${{ env.NAME }}-${{ env.VERSION }}.vsix
 
-      - name: Push tags 📌
-        run: git push --follow-tags
-
-      - name: Release ${{ env.VERSION }} 🔆
-        uses: softprops/action-gh-release@v2
+      # Publish first: when it fails, no tag or release is left behind
+      - name: Publish to Visual Studio Marketplace 🌐
+        if: env.VS_MARKETPLACE_TOKEN != ''
+        uses: HaaLeo/publish-vscode-extension@v2
         with:
-          files: ${{ env.NAME }}-${{ env.VERSION }}.vsix
-          tag_name: v${{ env.VERSION }}
-          name: ${{ env.DISPLAY_NAME }} v${{ env.VERSION }}
-          generate_release_notes: true
+          pat: ${{ env.VS_MARKETPLACE_TOKEN }}
+          registryUrl: https://marketplace.visualstudio.com
+          extensionFile: ${{ env.NAME }}-${{ env.VERSION }}.vsix
 
       - name: Publish to Open VSX Registry 🌐
         if: env.OPEN_VSX_TOKEN != ''
@@ -84,10 +93,11 @@ jobs:
           pat: ${{ env.OPEN_VSX_TOKEN }}
           extensionFile: ${{ env.NAME }}-${{ env.VERSION }}.vsix
 
-      - name: Publish to Visual Studio Marketplace 🌐
-        if: env.VS_MARKETPLACE_TOKEN != ''
-        uses: HaaLeo/publish-vscode-extension@v2
+      - name: Release ${{ env.VERSION }} 🔆
+        uses: softprops/action-gh-release@v2
         with:
-          pat: ${{ env.VS_MARKETPLACE_TOKEN }}
-          registryUrl: https://marketplace.visualstudio.com
-          extensionFile: ${{ env.NAME }}-${{ env.VERSION }}.vsix
+          files: ${{ env.NAME }}-${{ env.VERSION }}.vsix
+          tag_name: v${{ env.VERSION }}
+          target_commitish: ${{ github.sha }}
+          name: ${{ env.DISPLAY_NAME }} v${{ env.VERSION }}
+          generate_release_notes: true
