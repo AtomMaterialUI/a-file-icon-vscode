@@ -10,6 +10,7 @@ import {
 } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
+import { upstreamFiles } from 'src/icons/files/upstream';
 import { fileIcons } from 'src/icons/index';
 
 import type { AtomConfig } from 'src/@types/config';
@@ -31,11 +32,18 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     // first, remove languages by pack
     const enabledAssociations = this.disableAssociationsByPack(fileIcons);
-    // an active icon pack replaces the base icon of the same name or extension (css -> css2): load packs last
-    const baseAssociations = enabledAssociations.filter((icon) => !icon.enabledFor);
-    const packAssociations = enabledAssociations.filter((icon) => icon.enabledFor);
+    // Order, the last one wins: hand-written associations, then their icon packs (an active pack replaces the base
+    // icon of the same name), then the associations generated from the JetBrains plugin, which decide the icon
+    // of every name the JetBrains plugin knows, as PyCharm shows it
+    const upstream = new Set<unknown>(upstreamFiles);
+    const manualAssociations = enabledAssociations.filter((icon) => !upstream.has(icon));
+    const ordered = [
+      ...manualAssociations.filter((icon) => !icon.enabledFor),
+      ...manualAssociations.filter((icon) => icon.enabledFor),
+      ...enabledAssociations.filter((icon) => upstream.has(icon)),
+    ];
 
-    for (const fileAssoc of [...baseAssociations, ...packAssociations]) {
+    for (const fileAssoc of ordered) {
       if (fileAssoc.disabled) continue;
 
       this.loadFileAssociation(fileAssoc);
@@ -171,7 +179,8 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     // Make sure we have the file extensions...
     if (!fileAssoc.fileExtensions) return;
 
-    for (const fileExtension of fileAssoc.fileExtensions) {
+    // VS Code lowercases the keys: two spellings of a key would be two entries, one silently overriding the other
+    for (const fileExtension of fileAssoc.fileExtensions.map((key) => key.toLowerCase())) {
       // Skip the association if there is a custom assoc
       if (this.shouldOverwriteFileNames(fileExtension)) continue;
 
@@ -222,7 +231,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     // Make sure we have the file names...
     if (!fileAssoc.fileNames) return;
 
-    for (const fileName of fileAssoc.fileNames) {
+    for (const fileName of fileAssoc.fileNames.map((key) => key.toLowerCase())) {
       // Skip the association if there is a custom assoc
       if (this.shouldOverwriteFileNames(fileName)) continue;
 

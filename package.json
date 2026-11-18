@@ -286,9 +286,14 @@
       "properties": {
         "a-file-icon-vscode.activeIconPacks": {
           "default": [
-            "angular",
+            "angular2",
+            "nest",
+            "next",
+            "ngrx",
             "pycharm",
             "rails",
+            "recoil",
+            "redux",
             "tests"
           ],
           "description": "%configuration.activeIconPacks%",
