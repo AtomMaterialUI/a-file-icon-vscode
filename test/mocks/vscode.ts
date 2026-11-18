@@ -4,7 +4,7 @@
  * Only the APIs touched by the services under test are implemented.
  */
 
-export const testState: { config: Record<string, unknown>; extensionPath: string } = {
+export const testState: { config: Record<string, unknown>; extensionPath: string; lastTarget?: number } = {
   config: {},
   extensionPath: '',
 };
@@ -35,11 +35,13 @@ export const workspace = {
   getConfiguration: (section?: string) => ({
     get: <T>(key: string): T | undefined => (section ? testState.config[key] : undefined) as T | undefined,
     inspect: () => undefined,
-    update: async (key: string, value: unknown) => {
+    update: async (key: string, value: unknown, target?: number) => {
       testState.config[key] = value;
+      testState.lastTarget = target;
     },
   }),
   onDidChangeConfiguration: () => disposable,
+  workspaceFolders: undefined as unknown[] | undefined,
 };
 
 export const extensions = {
@@ -59,6 +61,7 @@ const outputChannel = {
 export const window = {
   createOutputChannel: () => outputChannel,
   onDidChangeWindowState: () => disposable,
+  showErrorMessage: async () => undefined,
   showInformationMessage: async () => undefined,
   showInputBox: async () => undefined,
   showQuickPick: async () => undefined,

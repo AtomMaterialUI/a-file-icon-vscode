@@ -1,8 +1,9 @@
 
-import { outputFileSync } from 'fs-extra';
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
+import { findCustomIcon, findCustomOpenFolderIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
+import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
@@ -10,10 +11,15 @@ import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
 import { LanguageJsonGenerator } from './LanguageJsonGenerator';
+import { monochromeService } from './MonochromeService';
 import { opacityService } from './OpacityService';
 import { saturationService } from './SaturationService';
 
 import type { AtomConfig } from 'src/@types/config';
+
+/** Association values that are paths to custom SVG files */
+const customValues = (associations?: Record<string, string>) =>
+  Object.values(associations ?? {}).filter((value) => typeof value === 'string' && isCustomIconPath(value));
 
 /**
  * Explicit locations used by the generators. When omitted, they are guessed from `__dirname`.
@@ -57,7 +63,7 @@ export class IconThemeGenerator {
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf8');
+      writeFileAtomic(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2));
     } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
@@ -126,6 +132,10 @@ export class IconThemeGenerator {
     const iconGeneratorPath = join(this.iconGeneratorPath(), 'assets', 'icons');
 
     const filesPath = getFilesPath(iconGeneratorPath);
+    // A package built without the iconGenerator submodule cannot regenerate anything (#73)
+    if (!existsSync(filesPath)) {
+      throw new Error(`Icon sources not found in ${iconGeneratorPath}: the extension package is incomplete`);
+    }
     const foldersPath = getFoldersPath(iconGeneratorPath);
     const foldersOpenPath = getFoldersOpenPath(iconGeneratorPath);
 
@@ -138,6 +148,32 @@ export class IconThemeGenerator {
     this.applyFiltersAndCopy(filesPath, distributionFilesPath);
     this.applyFiltersAndCopy(foldersPath, distributionFoldersPath);
     this.applyFiltersAndCopy(foldersOpenPath, distributionFoldersOpenPath);
+
+    this.copyCustomIcons(distributionPath);
+  }
+
+  /**
+   * Copy the user's custom SVG icons next to the bundled ones, with the same filters.
+   * Missing files are skipped: the generators then drop their association.
+   * @private
+   */
+  private copyCustomIcons(distributionPath: string) {
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
+
+    for (const value of customValues(this.atomConfig.filesAssociations)) {
+      const source = findCustomIcon(value);
+      if (!source) continue;
+      const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
+      writeFileAtomic(join(getFilesPath(distributionPath), target), this.applyFilters(source));
+    }
+
+    for (const value of customValues(this.atomConfig.foldersAssociations)) {
+      const source = findCustomIcon(value);
+      if (!source) continue;
+      const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
+      writeFileAtomic(join(getFoldersPath(distributionPath), target), this.applyFilters(source));
+      writeFileAtomic(join(getFoldersOpenPath(distributionPath), target), this.applyFilters(findCustomOpenFolderIcon(source)));
+    }
   }
 
   /**
@@ -156,7 +192,7 @@ export class IconThemeGenerator {
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 
-      outputFileSync(join(destination, hashedFile), svg, 'utf8');
+      writeFileAtomic(join(destination, hashedFile), svg);
     }
   }
 
@@ -171,6 +207,9 @@ export class IconThemeGenerator {
 
     // folder color
     svg = folderColorService.applyFolderColor(svg, this.atomConfig.folderColor);
+
+    // Monochrome
+    svg = monochromeService.applyMonochrome(svg, this.atomConfig.monochrome, this.atomConfig.monochromeColor);
 
     // Opacity
     svg = opacityService.applyOpacity(svg, this.atomConfig.opacity);

@@ -81,6 +81,11 @@ NestJS icons and vice-versa.
 
 This command will allow you to decide which pack(s) to enable for the current workspace.
 
+As in the JetBrains plugin, two packs do not belong to a framework:
+
+- **tests** (enabled by default): `*.test.ts`, `*.spec.py`... use the test icon of their language.
+- **css** (disabled by default): `.css` files use the alternative CSS icon.
+
 ![iconPacks.png](./docs/iconPacks.png)
 
 > **Note**: Since you can enable multiple packs, there is still a way to enable both overlapping icon packs. It's
@@ -193,6 +198,28 @@ or via user settings:
 }
 ```
 
+## Monochrome icons
+
+Display every file and folder icon in shades of a single color, like the _Monochrome icons_ option of the JetBrains
+plugin. Use the **Toggle Monochrome Icons** and **Change Monochrome Color** commands, or the settings:
+
+```json
+{
+  "a-file-icon-vscode.monochrome": true,
+  "a-file-icon-vscode.monochromeColor": "#90a4ae"
+}
+```
+
+## Hide file icons
+
+Remove the file icons and keep the folder icons (`"a-file-icon-vscode.folderTheme": "none"` does the opposite):
+
+```json
+{
+  "a-file-icon-vscode.hideFileIcons": true
+}
+```
+
 ----
 
 ## Product Theme
@@ -231,34 +258,27 @@ If there's no leading `*` it will be automatically configured as filename and no
 
 #### Custom SVG icons
 
-> Not supported yet: only the bundled icon names work for now.
-
-It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist
-folder. However, the restriction applies that the directory in which the custom icons are located must be within
-the `extensions` directory of the `.vscode` folder in the user directory.
-
-For example a custom SVG file called `sample.svg` can be placed in an `icons` folder inside of VS Code's `extensions`
-folder:
-
-```
-.vscode
- ┗ extensions
-   ┗ icons
-     ┗ sample.svg
-```
-
-In the settings.json the icon can be associated to a file name or file extension like this:
+Instead of a bundled icon name, the value can be the path of your own SVG file. Use an absolute path, or a path starting
+with `~` for your home directory:
 
 ```json
 {
   "a-file-icon-vscode.filesAssociations": {
-    "fileName.ts": "../../icons/sample"
+    "*.foo": "~/icons/foo.svg",
+    "fileName.ts": "C:/icons/sample.svg"
+  },
+  "a-file-icon-vscode.foldersAssociations": {
+    "recipes": "~/icons/recipes.svg"
   }
 }
 ```
 
-_Note: The custom file name must be configured in the settings without the file ending `.svg` as shown in the example
-above._
+The file is copied into the extension when the theme is regenerated, with the same opacity, saturation and monochrome
+filters as the bundled icons. For a folder, a `recipes-open.svg` (or `recipes_open.svg`) next to it is used for the
+expanded state, otherwise the same icon is used. A path that does not exist is ignored.
+
+_Note: the icon is copied when the settings change. After editing the SVG file itself, change any setting (or remove and
+add the association again) to pick up the new version._
 
 ### Folder associations
 
@@ -277,32 +297,7 @@ folder names you like.
 
 #### Custom SVG folder icons
 
-> Not supported yet: only the bundled icon names work for now.
-
-Similar to the files, it is also possible to reference your own SVG icons for folder icons. Here it's important to
-provide two SVG files: one for the folder if it's closed and another one for the opened state. These two files - let's
-call them "folder-sample.svg" and "folder-sample-open.svg" - have to be placed into a directory which is relative to the
-extensions dist folder. This directory has to be somewhere inside of the `.vscode/extensions` folder.
-
-In our example we place them into an `icons` folder inside of the `.vscode/extensions` folder:
-
-```
-.vscode
- ┗ extensions
-   ┗ icons
-     ┣ folder-sample.svg
-     ┗ folder-sample-open.svg
-```
-
-In the settings.json the folder icons can be associated to a folder name (e.g. "src") like this:
-
-```json
-{
-  "a-file-icon-vscode.foldersAssociations": {
-    "src": "../../../../icons/folder-sample"
-  }
-}
-```
+See [Custom SVG icons](#custom-svg-icons): the same paths work in `foldersAssociations`.
 
 ### Language associations
 
@@ -327,10 +322,21 @@ Here's a list of the available commands:
 | **Arrows Style**                  | Change the style of the arrows in the project tree.                                |
 | **Change Folder Color**           | Change the color of the folder icons.                                              |
 | **Change Folder Theme**           | Change the design of the folder icons.                                             |
+| **Change Monochrome Color**       | Pick the color of the monochrome icons (and enable them).                          |
 | **Change Opacity**                | Change the opacity of the icons.                                                   |
 | **Change Saturation**             | Change the saturation value of the icons.                                          |
 | **Icon Packs**                    | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx...). |
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
+| **Toggle Monochrome Icons**       | Switch between colored and monochrome icons.                                       |
+
+## Differences with the JetBrains plugin
+
+Some options of the JetBrains plugin cannot be built with the VS Code icon theme API:
+
+- **Hollow folders** (folders that contain open files): an icon theme does not know which files are open.
+- **Accent color**: it colors UI icons, and VS Code product icons are a font that takes the color of the theme.
+- **Icon size and row height**, **PSI icons** (icons based on the file content), and icons of the whole IDE UI.
+- Associations based on the parent folder (`tests/*.ts`): VS Code matches only file names and extensions.
 
 ----
 

@@ -6,6 +6,7 @@ import {
   RELATIVE_DIST_FILES_FOLDER_PATH,
   WILDCARD_PATTERN,
 } from 'src/helpers/constants';
+import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
@@ -24,12 +25,18 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   public loadFileIconAssociations() {
+    // JetBrains "Hide file icons": no file icon at all, not even the default one
+    if (this.atomConfig.hideFileIcons) return;
+
     // first, remove languages by pack
     const enabledAssociations = this.disableAssociationsByPack(fileIcons);
+    // an active icon pack replaces the base icon of the same name or extension (css -> css2): load packs last
+    const baseAssociations = enabledAssociations.filter((icon) => !icon.enabledFor);
+    const packAssociations = enabledAssociations.filter((icon) => icon.enabledFor);
 
     // next, load custom file associations
     const customAssociations = this.getCustomAssociations();
-    const allFileAssociations = [...enabledAssociations, ...customAssociations];
+    const allFileAssociations = [...baseAssociations, ...packAssociations, ...customAssociations];
 
     for (const fileAssoc of allFileAssociations) {
       if (fileAssoc.disabled) continue;
@@ -114,9 +121,11 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     return Object.entries(fileAssociations)
       .filter(([key, value]) => key.length > 0 && typeof value === 'string' && value.length > 0)
+      // a custom SVG that does not exist would point to a missing file
+      .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
         const pattern = key.toLowerCase();
-        const name = value.toLowerCase();
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
         // reuse the light/high contrast variants of the built-in icon, if any
         const builtIn = fileIcons.icons.find((icon) => icon.name === name);
         const variants = { highContrast: builtIn?.highContrast, light: builtIn?.light };
@@ -168,6 +177,8 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.fileExtensions = {};
       }
       this.iconConfig.fileExtensions[fileExtension] = fileAssoc.name;
+      // drop the variants of a previous association of this extension that this one does not replace
+      this.clearVariants(FileMappingType.FileExtensions, fileExtension, fileAssoc);
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
@@ -217,6 +228,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.fileNames = {};
       }
       this.iconConfig.fileNames[fileName] = fileAssoc.name;
+      this.clearVariants(FileMappingType.FileNames, fileName, fileAssoc);
 
       // Then add the light variant if needed
       if (fileAssoc.light) {
@@ -248,6 +260,15 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
         this.iconConfig.highContrast.fileNames[fileName] = `${fileAssoc.name}${HIGH_CONTRAST_FILE_ENDING}`;
       }
     }
+  }
+
+  /**
+   * Remove the light / high contrast mapping left by an earlier association of the same key,
+   * otherwise the light theme keeps showing the replaced icon (css_dark instead of css2).
+   */
+  private clearVariants(type: FileMappingType, key: string, fileAssoc: FileAssociation) {
+    if (!fileAssoc.light) delete this.iconConfig.light?.[type]?.[key];
+    if (!fileAssoc.highContrast) delete this.iconConfig.highContrast?.[type]?.[key];
   }
 
   /**

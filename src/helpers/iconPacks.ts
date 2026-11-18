@@ -123,10 +123,28 @@ export const getIconPacks = (): IconPackQuickItem[] => {
       order: 5,
     },
     {
+      icon: '$(beaker)',
+      id: IconPack.Tests,
+      kind: QuickPickItemKind.Default,
+      order: 6,
+      title: IconPack.Tests.toLowerCase(),
+    },
+    {
+      icon: '$(symbol-color)',
+      id: IconPack.Css,
+      kind: QuickPickItemKind.Default,
+      order: 6,
+      title: IconPack.Css.toLowerCase(),
+    },
+    {
+      kind: QuickPickItemKind.Separator,
+      order: 6,
+    },
+    {
       icon: '',
       id: IconPack.None,
       kind: QuickPickItemKind.Default,
-      order: 6,
+      order: 7,
       title: IconPack.None.toLowerCase(),
     },
   ];

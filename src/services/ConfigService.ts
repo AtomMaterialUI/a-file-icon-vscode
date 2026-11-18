@@ -3,8 +3,9 @@ import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
 import { ICON_SETTING_KEYS } from 'src/@types/config';
 import { isDeepEqual } from 'src/helpers/utils';
 import { getDefaultConfig } from 'src/icons/configUtils';
+import { logger } from 'src/services/LoggingService';
 import { notificationsService } from 'src/services/NotificationsService';
-import { ConfigurationTarget, workspace } from 'vscode';
+import { ConfigurationTarget, window, workspace } from 'vscode';
 
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
@@ -16,7 +17,10 @@ import type { IconAssociations } from 'src/@types/associations';
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
   filesAssociations: {},
   foldersAssociations: {},
+  hideFileIcons: false,
   languagesAssociations: {},
+  monochrome: false,
+  monochromeColor: getDefaultConfig().monochromeColor,
 };
 
 export class ConfigService implements AtomConfig {
@@ -119,6 +123,30 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('folderColor', v, ConfigurationTarget.Workspace);
   }
 
+  get hideFileIcons(): boolean {
+    return this.getConfigValue<boolean>('hideFileIcons') ?? getDefaultConfig().hideFileIcons;
+  }
+
+  set hideFileIcons(v: boolean) {
+    this.setConfigValue('hideFileIcons', v, ConfigurationTarget.Workspace);
+  }
+
+  get monochrome(): boolean {
+    return this.getConfigValue<boolean>('monochrome') ?? getDefaultConfig().monochrome;
+  }
+
+  set monochrome(v: boolean) {
+    this.setConfigValue('monochrome', v, ConfigurationTarget.Workspace);
+  }
+
+  get monochromeColor(): string {
+    return this.getConfigValue<string>('monochromeColor') ?? getDefaultConfig().monochromeColor;
+  }
+
+  set monochromeColor(v: string) {
+    this.setConfigValue('monochromeColor', v, ConfigurationTarget.Workspace);
+  }
+
   // endregion
 
   // region --------------------- Icon Theme Config ----------------------
@@ -177,7 +205,17 @@ export class ConfigService implements AtomConfig {
     value: unknown,
     scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder,
   ): void {
-    this.getPluginConfig().update(key, value, scope);
+    // Without an opened folder there is no workspace settings file: writing there rejects
+    // and the command silently does nothing (#73). Fall back to the user settings.
+    const target = scope !== ConfigurationTarget.Global && !workspace.workspaceFolders?.length
+      ? ConfigurationTarget.Global
+      : scope;
+
+    this.getPluginConfig().update(key, value, target).then(undefined, (error: unknown) => {
+      const message = error instanceof Error ? error.message : String(error);
+      logger.error(`Failed to update ${key}: ${message}`);
+      window.showErrorMessage(`Atom Material Icons: ${message}`);
+    });
   }
 
   /**
@@ -192,7 +230,10 @@ export class ConfigService implements AtomConfig {
       folderColor: this.folderColor,
       folderTheme: this.folderTheme,
       foldersAssociations: this.foldersAssociations ?? {},
+      hideFileIcons: this.hideFileIcons,
       languagesAssociations: this.languagesAssociations ?? {},
+      monochrome: this.monochrome,
+      monochromeColor: this.monochromeColor,
       opacity: this.opacity,
       saturation: this.saturation,
     };
@@ -226,6 +267,9 @@ export class ConfigService implements AtomConfig {
     this.arrowTheme = defaultConfig.arrowTheme;
     this.folderColor = defaultConfig.folderColor;
     this.folderTheme = defaultConfig.folderTheme;
+    this.hideFileIcons = defaultConfig.hideFileIcons;
+    this.monochrome = defaultConfig.monochrome;
+    this.monochromeColor = defaultConfig.monochromeColor;
     this.opacity = defaultConfig.opacity;
     this.saturation = defaultConfig.saturation;
     this.showReloadMessage = true;

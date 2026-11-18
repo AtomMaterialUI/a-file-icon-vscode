@@ -1110,7 +1110,6 @@ export const upstreamFiles = [
   },
   {
     fileNames: [
-      'controller_spec.rb',
       'model_spec.rb'
     ],
     name: 'rspec'
@@ -1281,6 +1280,15 @@ export const upstreamFiles = [
       'taze.config.ts'
     ],
     name: 'taze'
+  },
+  {
+    enabledFor: [
+      IconPack.Tests
+    ],
+    fileNames: [
+      'controller_spec.rb'
+    ],
+    name: 'testruby'
   },
   {
     fileNames: [

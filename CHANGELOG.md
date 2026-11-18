@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### Unreleased (fork)
+
+- feat: Tests icon pack (on by default) and CSS icon pack (off by default) from the JetBrains plugin
+- feat: monochrome icons (`monochrome`, `monochromeColor`) with toggle and color commands
+- feat: `hideFileIcons` setting
+- feat: custom SVG files in `filesAssociations` / `foldersAssociations`
+- feat: `presentation` folders use the views icon (#65)
+- feat: icons and associations synced from the JetBrains plugin (`bun run sync:upstream`, weekly CI)
+- fix: settings changes rebuild the theme from all the settings (#74, #71, #70)
+- fix: theme files are written atomically (#67) and generation errors are shown (#73)
+- fix: commands write to the user settings when no folder is opened (#73)
+- fix: an active icon pack replaces the base icon in light themes too
+- note: test icons now come from the `tests` pack. If you set `activeIconPacks` yourself, add `"tests"` to keep them.
+
 From here on is the changelog of the original repository:
 
 #### [v4.20.0](https://github.com/PKief/vscode-material-icon-theme/compare/v4.19.0...v4.20.0)

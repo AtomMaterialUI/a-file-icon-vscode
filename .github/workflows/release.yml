@@ -1,5 +1,11 @@
 name: Release + Publish
 
+# Bumps the version, builds the VSIX and creates a GitHub release.
+# Publishing to the registries only runs when their token secret is set:
+#   OPEN_VSX_TOKEN        -> Open VSX
+#   VS_MARKETPLACE_TOKEN  -> Visual Studio Marketplace
+# Set the extension name and publisher in package.json before adding them.
+
 on:
   workflow_dispatch:
     inputs:
@@ -12,62 +18,76 @@ on:
           - minor
           - patch
 
+permissions:
+  contents: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
     env:
       VERSION_CHANGE: ${{ github.event.inputs.versionChange }}
+      PUPPETEER_SKIP_DOWNLOAD: '1'
+      OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
+      VS_MARKETPLACE_TOKEN: ${{ secrets.VS_MARKETPLACE_TOKEN }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: true
+
       - name: Setup Node.js ⚙️
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: 24
+      - name: Setup bun ⚙️
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.4.2
+
       - name: Install node_modules 📦
-        run: |
-          npm ci
-          npm install --global vsce
+        run: bun install
+
       - name: Update version ↗
         run: |
-          git config --global user.name 'Elior Boukhobza'
-          git config --global user.email 'mallowigi@users.noreply.github.com'
-          git config --global push.followTags true
-          npm version ${{ env.VERSION_CHANGE }} -m "Release %s"
-      - name: Get meta data 🔍
-        run: |
-          NODE_VERSION=$(node -p -e "require('./package.json').version")
-          echo VERSION=$NODE_VERSION >> $GITHUB_ENV
-          NODE_NAME=$(node -p -e "require('./package.json').name")
-          echo NAME=$NODE_NAME >> $GITHUB_ENV
-          NODE_DISPLAY_NAME=$(node -p -e "require('./package.json').displayName")
-          echo DISPLAY_NAME=$NODE_DISPLAY_NAME >> $GITHUB_ENV
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          npm version ${{ env.VERSION_CHANGE }} --no-git-tag-version
+          VERSION=$(node -p -e "require('./package.json').version")
+          echo VERSION=$VERSION >> $GITHUB_ENV
+          echo NAME=$(node -p -e "require('./package.json').name") >> $GITHUB_ENV
+          echo DISPLAY_NAME=$(node -p -e "require('./package.json').displayName") >> $GITHUB_ENV
+          git commit -am "Release $VERSION"
+          git tag "v$VERSION"
+
       - name: Build ⚒️
-        run: vsce package
+        run: |
+          bun run build
+          bun run test:unit
+          npx --yes @vscode/vsce@3.6.0 package --no-dependencies -o ${{ env.NAME }}-${{ env.VERSION }}.vsix
+
       - name: Push tags 📌
-        run: git push
+        run: git push --follow-tags
+
       - name: Release ${{ env.VERSION }} 🔆
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: ${{ env.NAME }}-${{ env.VERSION }}.vsix
           tag_name: v${{ env.VERSION }}
           name: ${{ env.DISPLAY_NAME }} v${{ env.VERSION }}
           generate_release_notes: true
+
       - name: Publish to Open VSX Registry 🌐
-        uses: HaaLeo/publish-vscode-extension@v1
+        if: env.OPEN_VSX_TOKEN != ''
+        uses: HaaLeo/publish-vscode-extension@v2
         with:
-          pat: ${{ secrets.OPEN_VSX_TOKEN }}
+          pat: ${{ env.OPEN_VSX_TOKEN }}
           extensionFile: ${{ env.NAME }}-${{ env.VERSION }}.vsix
+
       - name: Publish to Visual Studio Marketplace 🌐
-        uses: HaaLeo/publish-vscode-extension@v1
+        if: env.VS_MARKETPLACE_TOKEN != ''
+        uses: HaaLeo/publish-vscode-extension@v2
         with:
-          pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
+          pat: ${{ env.VS_MARKETPLACE_TOKEN }}
           registryUrl: https://marketplace.visualstudio.com
           extensionFile: ${{ env.NAME }}-${{ env.VERSION }}.vsix
-      - name: Publish to NPM Registry 🌐
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

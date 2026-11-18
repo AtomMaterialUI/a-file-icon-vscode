@@ -8,6 +8,7 @@ import {
   RELATIVE_DIST_FOLDERS_FOLDER_PATH,
   RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH,
 } from 'src/helpers/constants';
+import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { folderIcons } from 'src/icons/index';
@@ -90,8 +91,10 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
 
     return Object.entries(folderAssociations)
       .filter(([key, value]) => key.length > 0 && typeof value === 'string' && value.length > 0)
+      // a custom SVG that does not exist would point to a missing file
+      .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
-        const name = value.toLowerCase();
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
         const builtIn = folderTheme.icons?.find((icon) => icon.name === name);
 
         return {

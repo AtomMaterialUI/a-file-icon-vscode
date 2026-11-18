@@ -1,4 +1,6 @@
+import i18next from 'i18next';
 import { EXTENSION_KEY } from 'src/helpers/constants';
+import { isValidHexColorCode } from 'src/helpers/utils';
 import { iconPackPicker } from 'src/pickers';
 import { arrowThemePicker } from 'src/pickers/ArrowThemePicker';
 import { folderColorPicker } from 'src/pickers/FolderColorPicker';
@@ -6,7 +8,7 @@ import { folderThemePicker } from 'src/pickers/FolderThemePicker';
 import { opacityPicker } from 'src/pickers/OpacityPicker';
 import { saturationPicker } from 'src/pickers/SaturationPicker';
 import { logger, configService } from 'src/services';
-import { commands } from 'vscode';
+import { commands, window } from 'vscode';
 
 const changeFolderColor = async () => {
   logger.info('Open select folder color popup');
@@ -38,6 +40,25 @@ const changeArrowTheme = async () => {
   await arrowThemePicker.openQuickPicker();
 };
 
+const toggleMonochrome = async () => {
+  logger.info('Toggle monochrome icons');
+  configService.monochrome = !configService.monochrome;
+};
+
+const changeMonochromeColor = async () => {
+  logger.info('Open monochrome color input');
+  const color = await window.showInputBox({
+    placeHolder: i18next.t('folders.hexCode'),
+    validateInput: (value) => (isValidHexColorCode(value) ? undefined : i18next.t('folders.wrongHexCode')),
+    value: configService.monochromeColor,
+  });
+  if (!color) return;
+
+  configService.monochromeColor = color;
+  // picking a color means the user wants to see it
+  if (!configService.monochrome) configService.monochrome = true;
+};
+
 const restoreDefaultConfig = async () => {
   logger.info('Resetting default config');
   configService.resetConfig();
@@ -47,10 +68,12 @@ const extensionCommands: Record<string, () => Promise<void>> = {
   changeArrowTheme,
   changeFolderColor,
   changeFolderTheme,
+  changeMonochromeColor,
   changeOpacity,
   changeSaturation,
   restoreDefaultConfig,
   toggleIconPacks,
+  toggleMonochrome,
 };
 
 /**
