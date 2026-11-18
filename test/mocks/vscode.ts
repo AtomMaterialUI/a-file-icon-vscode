@@ -40,6 +40,7 @@ export const workspace = {
     },
   }),
   onDidChangeConfiguration: () => disposable,
+  workspaceFolders: undefined as unknown[] | undefined,
 };
 
 export const extensions = {
@@ -59,6 +60,7 @@ const outputChannel = {
 export const window = {
   createOutputChannel: () => outputChannel,
   onDidChangeWindowState: () => disposable,
+  showErrorMessage: async () => undefined,
   showInformationMessage: async () => undefined,
   showInputBox: async () => undefined,
   showQuickPick: async () => undefined,

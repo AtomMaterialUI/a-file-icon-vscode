@@ -3,8 +3,9 @@ import { EXTENSION_KEY, ICON_THEME_KEY } from 'src/helpers/constants';
 import { ICON_SETTING_KEYS } from 'src/@types/config';
 import { isDeepEqual } from 'src/helpers/utils';
 import { getDefaultConfig } from 'src/icons/configUtils';
+import { logger } from 'src/services/LoggingService';
 import { notificationsService } from 'src/services/NotificationsService';
-import { ConfigurationTarget, workspace } from 'vscode';
+import { ConfigurationTarget, window, workspace } from 'vscode';
 
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
@@ -177,7 +178,17 @@ export class ConfigService implements AtomConfig {
     value: unknown,
     scope: ConfigurationTarget = ConfigurationTarget.WorkspaceFolder,
   ): void {
-    this.getPluginConfig().update(key, value, scope);
+    // Without an opened folder there is no workspace settings file: writing there rejects
+    // and the command silently does nothing (#73). Fall back to the user settings.
+    const target = scope !== ConfigurationTarget.Global && !workspace.workspaceFolders?.length
+      ? ConfigurationTarget.Global
+      : scope;
+
+    this.getPluginConfig().update(key, value, target).then(undefined, (error: unknown) => {
+      const message = error instanceof Error ? error.message : String(error);
+      logger.error(`Failed to update ${key}: ${message}`);
+      window.showErrorMessage(`Atom Material Icons: ${message}`);
+    });
   }
 
   /**

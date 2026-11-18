@@ -1,9 +1,10 @@
 
-import {readJSONSync, writeJSONSync} from 'fs-extra';
+import {readJSONSync} from 'fs-extra';
 import merge from 'lodash.merge';
 import {basename, join} from 'node:path';
 import {ArrowTheme} from 'src/@types/config';
 import {JSON_PRODUCT_FILE_NAME} from 'src/helpers/constants';
+import {writeFileAtomic} from 'src/helpers/fsUtils';
 import {withDefaults} from 'src/icons/configUtils';
 import {ProductConfiguration} from 'src/models/ProductConfiguration';
 
@@ -34,7 +35,7 @@ export class ProductThemeGenerator {
 
     try {
       const json = merge({}, this.originalConfig, this.productConfig);
-      writeJSONSync(join(this.distPath(), JSON_PRODUCT_FILE_NAME), json, {spaces: 2});
+      writeFileAtomic(join(this.distPath(), JSON_PRODUCT_FILE_NAME), JSON.stringify(json, undefined, 2));
     } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }

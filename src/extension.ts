@@ -10,6 +10,19 @@ import { window, workspace } from 'vscode';
 import type { ExtensionContext } from 'vscode';
 
 /**
+ * Regenerate the theme files from the settings. A failure is shown to the user instead of only being logged,
+ * otherwise the commands look like they do nothing (#73).
+ */
+const regenerateTheme = () => {
+  try {
+    configChangeDetector.listenForChanges();
+  } catch (error) {
+    logger.error(String(error));
+    window.showErrorMessage(`Atom Material Icons: ${error instanceof Error ? error.message : String(error)}`);
+  }
+};
+
+/**
  * When the extension gets activated
  * @param {ExtensionContext} context
  * @returns {Promise<void>}
@@ -34,10 +47,10 @@ export const activate = async (context: ExtensionContext) => {
     context.subscriptions.push(...registeredCommands);
 
     // Initially trigger the config change detection
-    configChangeDetector.listenForChanges();
+    regenerateTheme();
 
     // Observe changes in the config
-    workspace.onDidChangeConfiguration(() => configChangeDetector.listenForChanges());
+    context.subscriptions.push(workspace.onDidChangeConfiguration(() => regenerateTheme()));
 
     // Observe if the window got focused to trigger config changes
     window.onDidChangeWindowState((state) => {

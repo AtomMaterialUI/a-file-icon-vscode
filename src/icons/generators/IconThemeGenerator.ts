@@ -1,8 +1,8 @@
 
-import { outputFileSync } from 'fs-extra';
-import { readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
+import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
@@ -57,7 +57,7 @@ export class IconThemeGenerator {
 
     try {
       const json = this.iconConfig;
-      outputFileSync(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2), 'utf8');
+      writeFileAtomic(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2));
     } catch (error) {
       throw new Error('Failed to create icon file: ' + error);
     }
@@ -126,6 +126,10 @@ export class IconThemeGenerator {
     const iconGeneratorPath = join(this.iconGeneratorPath(), 'assets', 'icons');
 
     const filesPath = getFilesPath(iconGeneratorPath);
+    // A package built without the iconGenerator submodule cannot regenerate anything (#73)
+    if (!existsSync(filesPath)) {
+      throw new Error(`Icon sources not found in ${iconGeneratorPath}: the extension package is incomplete`);
+    }
     const foldersPath = getFoldersPath(iconGeneratorPath);
     const foldersOpenPath = getFoldersOpenPath(iconGeneratorPath);
 
@@ -156,7 +160,7 @@ export class IconThemeGenerator {
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 
-      outputFileSync(join(destination, hashedFile), svg, 'utf8');
+      writeFileAtomic(join(destination, hashedFile), svg);
     }
   }
 
