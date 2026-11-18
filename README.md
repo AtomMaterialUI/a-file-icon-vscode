@@ -292,6 +292,10 @@ Themes made of font glyphs, like the built-in Seti theme (`vs-seti`), can be mix
 font, and their colors get the saturation and monochrome filters. The opacity does not apply to them, since VS Code
 takes no transparency in the color of a glyph. PNG icons are skipped.
 
+Themes drawn with the color of the text (`usesCurrentColor`, like the built-in VS Code Modern theme) get the text color
+of the default dark themes (`#cccccc`), and of the default light themes (`#3b3b3b`) in light color themes: VS Code only
+paints the icons of the selected theme with the text color.
+
 ### Mix Icon Themes page
 
 The **Mix Icon Themes (with Preview)** command opens a page to edit both settings without writing json: add, order and

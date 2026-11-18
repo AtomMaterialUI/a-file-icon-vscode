@@ -697,6 +697,26 @@ describe('ConfigChangeDetector', () => {
       assert.ok(readTheme().fileNames?.['zz-later']);
     });
 
+    it('gives the svg files of a usesCurrentColor theme the text color of the dark and of the light themes', () => {
+      // like the built-in VS Code Modern theme: no light variants, every svg drawn with the color of the text
+      installTheme('vscode-modern-icons', { ...fallbackTheme, usesCurrentColor: true }, 'currentColor');
+      applySettings({ iconThemeLayers: ['vscode-modern-icons'] });
+      let theme = readTheme();
+
+      assert.equal(colorOf(theme, theme.fileExtensions?.zzq), '#cccccc');
+      assert.equal(colorOf(theme, theme.light?.fileExtensions?.zzq), '#3b3b3b', 'a light variant made from the base icon');
+      assert.equal(colorOf(theme, theme.light?.fileNames?.['zz-unknown']), '#3b3b3b', 'the light variant of the theme, toned');
+      assert.equal(theme.highContrast?.fileExtensions?.zzq, undefined, 'high contrast themes take the base icon');
+
+      // the filters of this theme apply on top
+      applySettings({ opacity: 0.5 });
+      theme = readTheme();
+      const icon = readIcon(theme, theme.fileExtensions?.zzq ?? '');
+      assert.match(icon, /opacity="0.5"/);
+      assert.equal(colorOf(theme, theme.fileExtensions?.zzq), '#cccccc');
+      assert.ok(!icon.includes('currentColor'));
+    });
+
     describe('font icon themes (Seti)', () => {
       /** Like the built-in vs-seti theme: glyphs of one font, a light variant, no folder icons */
       const setiTheme = {
