@@ -340,11 +340,6 @@
           ],
           "type": "string"
         },
-        "a-file-icon-vscode.fallbackIconTheme": {
-          "default": "material-icon-theme",
-          "description": "%configuration.fallbackIconTheme%",
-          "type": "string"
-        },
         "a-file-icon-vscode.filesAssociations": {
           "default": {},
           "description": "%configuration.files.associations%",
@@ -380,6 +375,72 @@
           "default": false,
           "description": "%configuration.hideFileIcons%",
           "type": "boolean"
+        },
+        "a-file-icon-vscode.iconThemeByName": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "description": "%configuration.iconThemeByName%",
+          "type": "object"
+        },
+        "a-file-icon-vscode.iconThemeLayers": {
+          "default": [
+            "material-icon-theme"
+          ],
+          "description": "%configuration.iconThemeLayers%",
+          "items": {
+            "anyOf": [
+              {
+                "description": "%configuration.iconThemeLayers.theme%",
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "files": {
+                    "default": "fill",
+                    "description": "%configuration.iconThemeLayers.files%",
+                    "enum": [
+                      "fill",
+                      "override",
+                      "off"
+                    ],
+                    "enumDescriptions": [
+                      "%configuration.iconThemeLayers.mode.fill%",
+                      "%configuration.iconThemeLayers.mode.override%",
+                      "%configuration.iconThemeLayers.mode.off%"
+                    ],
+                    "type": "string"
+                  },
+                  "folders": {
+                    "default": "fill",
+                    "description": "%configuration.iconThemeLayers.folders%",
+                    "enum": [
+                      "fill",
+                      "override",
+                      "off"
+                    ],
+                    "enumDescriptions": [
+                      "%configuration.iconThemeLayers.mode.fill%",
+                      "%configuration.iconThemeLayers.mode.override%",
+                      "%configuration.iconThemeLayers.mode.off%"
+                    ],
+                    "type": "string"
+                  },
+                  "theme": {
+                    "description": "%configuration.iconThemeLayers.theme%",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "theme"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
         },
         "a-file-icon-vscode.languagesAssociations": {
           "default": {},

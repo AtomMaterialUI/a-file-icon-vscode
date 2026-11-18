@@ -1,4 +1,5 @@
-import { findFallbackTheme, getGeneratorPaths, getIconThemeFile, getLanguageLookup, getProductThemeFile } from 'src/helpers/vscodeUtils';
+import { layerStamp } from 'src/helpers/themeLayers';
+import { findLayerThemes, getGeneratorPaths, getIconThemeFile, getLanguageLookup, getProductThemeFile } from 'src/helpers/vscodeUtils';
 import { IconThemeGenerator } from 'src/icons/generators';
 import { ProductThemeGenerator } from 'src/icons/generators/ProductThemeGenerator';
 import { configService } from 'src/services/ConfigService';
@@ -17,14 +18,14 @@ class ConfigChangeDetector {
     const iconDelta = this.compareIconConfigs(oldConfig);
     const productDelta = this.getProductDelta();
 
-    // the fallback theme changes on its own: updated, or regenerated after a change of its settings
+    // the other themes change on their own: installed, updated, removed, or regenerated after a change of their settings
     const settings = iconDelta ?? configService.getIconSettings();
-    const fallback = findFallbackTheme(settings.fallbackIconTheme);
-    const fallbackChanged = (oldConfig.fallbackTheme ?? '') !== (fallback?.stamp ?? '');
+    const themes = findLayerThemes(settings);
+    const layersChanged = (oldConfig.layerThemes ?? '') !== layerStamp(themes);
 
-    if (iconDelta || fallbackChanged) {
-      const fallbackTheme = fallback && { ...fallback, languages: getLanguageLookup() };
-      const iconThemeGenerator = new IconThemeGenerator(settings, getGeneratorPaths(), fallbackTheme);
+    if (iconDelta || layersChanged) {
+      const layers = themes.length > 0 ? { languages: getLanguageLookup(), themes } : undefined;
+      const iconThemeGenerator = new IconThemeGenerator(settings, getGeneratorPaths(), layers);
       iconThemeGenerator.createJsonTheme();
     }
 

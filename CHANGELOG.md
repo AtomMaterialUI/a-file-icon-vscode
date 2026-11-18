@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: mix other installed icon themes (`iconThemeLayers`: `fill` the names this theme does not know or `override`
+  its icons, for files and folders separately; `iconThemeByName`: one name from a given theme). By default the
+  Material Icon Theme, when installed, fills the names this theme does not know
 - feat: the icons follow the JetBrains plugin: every file and folder name it knows gets the icon PyCharm shows
   (`CONTRIBUTING.md`, `Jenkinsfile`, `index.php`, `setup.cfg`, `.devcontainer`...), in dark and light themes
 - feat: default icon packs are the JetBrains defaults (Angular 2 instead of AngularJS, Nest, Next, NgRx, Recoil, Redux)

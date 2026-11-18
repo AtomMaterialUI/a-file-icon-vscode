@@ -6,7 +6,7 @@ export const EXTENSION_ID = `${PUBLISHER_ID}.${EXTENSION_KEY}`;
 export const VERSION_KEY = `${EXTENSION_KEY}.version`;
 export const JSON_FILE_NAME = `${EXTENSION_KEY}-icon-theme.json`;
 /** Theme id of the Material Icon Theme extension (PKief.material-icon-theme) */
-export const DEFAULT_FALLBACK_ICON_THEME = 'material-icon-theme';
+export const MATERIAL_ICON_THEME = 'material-icon-theme';
 export const JSON_PRODUCT_FILE_NAME = `${EXTENSION_KEY}-product-icon-theme.json`;
 
 export const DEFAULT_FOLDER_COLOR = '#90a4ae';

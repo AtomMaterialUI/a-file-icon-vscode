@@ -10,15 +10,16 @@ import { ConfigurationTarget, window, workspace } from 'vscode';
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
 import type { WorkspaceConfiguration } from 'vscode';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
-import type { FolderTheme, ArrowTheme, AtomConfig, IconPack, IconSettings } from 'src/@types/config';
+import type { FolderTheme, ArrowTheme, AtomConfig, IconPack, IconSettings, IconThemeLayer } from 'src/@types/config';
 import type { IconAssociations } from 'src/@types/associations';
 
 /** Theme files generated before associations were stored have no value for them */
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
-  fallbackIconTheme: '',
   filesAssociations: {},
   foldersAssociations: {},
   hideFileIcons: false,
+  iconThemeByName: {},
+  iconThemeLayers: [],
   languagesAssociations: {},
   monochrome: false,
   monochromeColor: getDefaultConfig().monochromeColor,
@@ -92,12 +93,21 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('activeIconPacks', v, ConfigurationTarget.Workspace);
   }
 
-  get fallbackIconTheme(): string {
-    return this.getConfigValue<string>('fallbackIconTheme') ?? getDefaultConfig().fallbackIconTheme;
+  get iconThemeLayers(): IconThemeLayer[] {
+    const value = this.getConfigValue<IconThemeLayer[]>('iconThemeLayers');
+    return Array.isArray(value) ? value : getDefaultConfig().iconThemeLayers;
   }
 
-  set fallbackIconTheme(v: string) {
-    this.setConfigValue('fallbackIconTheme', v, ConfigurationTarget.Global);
+  set iconThemeLayers(v: IconThemeLayer[]) {
+    this.setConfigValue('iconThemeLayers', v, ConfigurationTarget.Global);
+  }
+
+  get iconThemeByName(): Record<string, string> | undefined {
+    return this.getConfigValue<Record<string, string>>('iconThemeByName');
+  }
+
+  set iconThemeByName(v) {
+    this.setConfigValue('iconThemeByName', v, ConfigurationTarget.Workspace);
   }
 
   get foldersAssociations(): IconAssociations | undefined {
@@ -235,12 +245,13 @@ export class ConfigService implements AtomConfig {
   public getIconSettings(): IconSettings {
     return {
       activeIconPacks: [...this.activeIconPacks],
-      fallbackIconTheme: this.fallbackIconTheme.trim(),
       filesAssociations: this.filesAssociations ?? {},
       folderColor: this.folderColor,
       folderTheme: this.folderTheme,
       foldersAssociations: this.foldersAssociations ?? {},
       hideFileIcons: this.hideFileIcons,
+      iconThemeByName: this.iconThemeByName ?? {},
+      iconThemeLayers: this.iconThemeLayers,
       languagesAssociations: this.languagesAssociations ?? {},
       monochrome: this.monochrome,
       monochromeColor: this.monochromeColor,
@@ -275,10 +286,10 @@ export class ConfigService implements AtomConfig {
     const defaultConfig = getDefaultConfig();
     this.activeIconPacks = defaultConfig.activeIconPacks;
     this.arrowTheme = defaultConfig.arrowTheme;
-    this.fallbackIconTheme = defaultConfig.fallbackIconTheme;
     this.folderColor = defaultConfig.folderColor;
     this.folderTheme = defaultConfig.folderTheme;
     this.hideFileIcons = defaultConfig.hideFileIcons;
+    this.iconThemeLayers = defaultConfig.iconThemeLayers;
     this.monochrome = defaultConfig.monochrome;
     this.monochromeColor = defaultConfig.monochromeColor;
     this.opacity = defaultConfig.opacity;
@@ -289,6 +300,7 @@ export class ConfigService implements AtomConfig {
 
     this.filesAssociations = undefined;
     this.foldersAssociations = undefined;
+    this.iconThemeByName = undefined;
     this.languagesAssociations = undefined;
   }
 

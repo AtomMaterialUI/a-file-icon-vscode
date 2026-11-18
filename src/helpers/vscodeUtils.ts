@@ -1,9 +1,11 @@
 import { readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { EXTENSION_ID, EXTENSION_KEY, JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
+import { usedThemeIds } from 'src/helpers/themeLayers';
 import { env, Uri, extensions, workspace } from 'vscode';
 
-import type { FallbackTheme, LanguageLookup } from 'src/icons/generators/FallbackThemeGenerator';
+import type { AtomConfig } from 'src/@types/config';
+import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
 import type { GeneratorPaths } from 'src/icons/generators/IconThemeGenerator';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { ProductConfiguration } from 'src/models/ProductConfiguration';
@@ -71,10 +73,10 @@ export const getProductThemeFile = (): ProductConfiguration => {
   }
 };
 /**
- * The installed file icon theme with the given id (`workbench.iconTheme` value), to use for the names this theme
- * does not know. Undefined when the id is empty, is this theme, or no installed extension contributes it.
+ * The installed file icon theme with the given id (`workbench.iconTheme` value), to mix with this theme.
+ * Undefined when the id is empty, is this theme, or no installed extension contributes it.
  */
-export const findFallbackTheme = (id: string): FallbackTheme | undefined => {
+export const findIconTheme = (id: string): LayerTheme | undefined => {
   if (!id || id === EXTENSION_KEY) return undefined;
 
   for (const extension of extensions.all) {
@@ -95,6 +97,12 @@ export const findFallbackTheme = (id: string): FallbackTheme | undefined => {
   }
   return undefined;
 };
+
+/** The installed file icon themes the settings mix with this theme; the ones not installed are left out */
+export const findLayerThemes = (config: Pick<AtomConfig, 'iconThemeByName' | 'iconThemeLayers'>): LayerTheme[] =>
+  usedThemeIds(config)
+    .map((id) => findIconTheme(id))
+    .filter((theme): theme is LayerTheme => theme !== undefined);
 
 /**
  * The language of the file names and extensions declared by the installed extensions and by `files.associations`

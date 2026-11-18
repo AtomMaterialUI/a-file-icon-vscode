@@ -45,11 +45,16 @@
 - 테마에 들어가는 설정을 추가할 때 고칠 곳: `@types/config.ts`(`AtomConfig`, `ICON_SETTING_KEYS`), `configUtils.getDefaultConfig`
   (+ SVG 를 바꾸면 `getFileConfigHash`), `ConfigService`(getter/setter, `getIconSettings`, `resetConfig`, `EMPTY_DEFAULTS`),
   `package.json` `contributes.configuration`, `package.nls*.json` 전부.
-- 대체 테마(`fallbackIconTheme`, 기본 `material-icon-theme`): VS Code 는 아이콘 테마를 하나만 쓰므로, 생성 마지막에
-  `FallbackThemeGenerator` 가 설치된 다른 테마 json 에서 **우리가 모르는 이름만**(이름·확장자 접미사·언어·폴더 이름의
-  마지막 조각으로 판단) 가져와 `dist/fallback/` 에 SVG 를 필터 적용해 복사한다. 그 테마의 지문(`fallbackTheme`, 확장
-  버전 + json 수정 시각)을 테마 json 에 저장해 바뀌면 다시 만든다(`extension.ts` 가 json 을 watchFile). 스크립트·
-  parity 테스트는 대체 테마 없이 돈다.
+- 테마 섞기(방향: Atom 이 기본, 다른 테마는 겹쳐 쓰기): VS Code 는 아이콘 테마를 하나만 쓰므로, 생성 마지막에
+  `ThemeLayerGenerator` 가 설치된 다른 테마 json 을 읽어 섞고 SVG 를 필터 적용해 `dist/layers/` 에 복사한다.
+  - `iconThemeLayers`(기본 `["material-icon-theme"]`): 테마 id 또는 `{theme, files, folders}`, 모드는 `fill`(아무 테마도
+    모르는 이름만, 이름·확장자 접미사·언어·폴더 이름의 마지막 조각으로 판단) / `override`(그 테마가 아이콘을 주는 이름은
+    전부 그 테마, 기본 파일·폴더 아이콘도) / `off`. `iconThemeByName`: `파일이름`·`*.ext`·`폴더/` → 테마 id.
+  - 우선순위: byName > override 층(앞이 이김, 사용자 `*Associations` 이름은 건드리지 않음) > Atom > fill 층(앞이 이김).
+  - 이름 해석은 VS Code 와 같게(파일 이름 > 긴 확장자부터 > 언어). 밝은·고대비 변형은 같은 항목의 것만 쓰고 없으면
+    우리 변형을 지운다. SVG 아이콘만(Seti 같은 글꼴 테마는 안 됨).
+  - 쓰는 테마들의 지문(`layerThemes`, 확장 버전 + json 수정 시각)을 테마 json 에 저장해 바뀌면 다시 만든다
+    (`extension.ts` 가 각 json 을 watchFile). 스크립트·parity 테스트는 다른 테마 없이 돈다.
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은
   `package.json` 기본값과 `getDefaultConfig` 를 같이 고친다.
 - dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67).

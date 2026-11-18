@@ -82,10 +82,10 @@ export class IconConfiguration {
   highContrast?: IconConfiguration;
 
   /**
-   * Fingerprint of the fallback icon theme the names unknown to this theme were taken from ('' = none),
-   * to regenerate the theme when that theme changes
+   * Fingerprint of the other icon themes mixed with this theme ('' = none),
+   * to regenerate the theme when one of them changes
    */
-  fallbackTheme?: string;
+  layerThemes?: string;
 
   /**
    * Atom file config

@@ -232,28 +232,62 @@ Remove the file icons and keep the folder icons (`"a-file-icon-vscode.folderThem
 }
 ```
 
-## Fallback icon theme
+## Mixing icon themes
 
 VS Code uses a single file icon theme at a time. This theme follows the JetBrains plugin, which focuses on the languages
-of the JetBrains IDEs: the files and folders it does not know get the default icon. Another installed icon theme can give
-them its icon instead, with this theme always first:
-
-1. this theme: every file name, extension, language and folder name it knows keeps its icon;
-2. the fallback theme: only for the names left with the default file or folder icon.
-
-The default is the [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme)
-(`material-icon-theme`): install it and its icons fill the gaps, without selecting it as the icon theme. Use the id of
-another theme (the value of `workbench.iconTheme` when it is selected), or an empty value to turn it off:
+of the JetBrains IDEs: the files and folders it does not know get the default icon. Other installed icon themes can be
+mixed in, without selecting them as the icon theme. Each one is a layer, given by its id (the value of
+`workbench.iconTheme` when it is selected):
 
 ```json
 {
-  "a-file-icon-vscode.fallbackIconTheme": "material-icon-theme"
+  "a-file-icon-vscode.iconThemeLayers": [
+    "material-icon-theme",
+    { "theme": "vscode-icons", "files": "override", "folders": "off" }
+  ]
 }
 ```
 
-The icons of the fallback theme get the opacity, saturation and monochrome filters of this theme, and are updated when
-that theme or its settings change. Folders only come from the fallback theme with the `specific` folder theme, and
-files not at all with `hideFileIcons`. Only SVG icons can be used.
+A layer mixes in one of three ways, for files and for folders separately (a plain id is `fill` for both):
+
+- `fill`: only for the names left with the default file or folder icon;
+- `override`: its icon wins for every name it gives an icon to, and its default file or folder icon too;
+- `off`: not used.
+
+From the strongest to the weakest:
+
+1. `iconThemeByName` (below);
+2. the `override` layers, the first listed wins. Your own `filesAssociations`, `languagesAssociations` and
+   `foldersAssociations` keep their icon;
+3. this theme;
+4. the `fill` layers, the first listed wins.
+
+The default is `["material-icon-theme"]`: install the
+[Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme) and its icons fill
+the gaps. An empty list uses this theme only.
+
+### One name from another theme
+
+`iconThemeByName` gives a file name, an extension (`*.ext`) or a folder name (ending with `/`) the icon another installed
+theme shows for it, or that theme's default icon when it has none. It wins over everything else:
+
+```json
+{
+  "a-file-icon-vscode.iconThemeByName": {
+    "*.svelte": "material-icon-theme",
+    "package.json": "vscode-icons",
+    "src/": "material-icon-theme"
+  }
+}
+```
+
+Like `*.ext` in `filesAssociations`, an extension does not replace the icon of the specific file names this theme knows
+with that extension.
+
+The icons of the other themes get the opacity, saturation and monochrome filters of this theme, and are updated when
+those themes or their settings change. Folders only come from other themes with the `specific` folder theme, and files
+not at all with `hideFileIcons`. Only SVG icons can be used: themes made of font glyphs, like the built-in Seti theme,
+cannot be mixed in.
 
 ----
 

@@ -43,13 +43,15 @@ export enum PredefinedSaturation {
 export type AtomConfig = {
   activeIconPacks: IconPack[],
   arrowTheme: ArrowTheme,
-  /** id of another installed file icon theme giving the icons of the names this theme does not know ('' = none) */
-  fallbackIconTheme: string,
   filesAssociations?: IconAssociations,
   foldersAssociations?: IconAssociations,
   folderColor: string,
   folderTheme: FolderTheme,
   hideFileIcons: boolean,
+  /** file name, `*.ext` or `folder/` -> id of the installed file icon theme giving its icon */
+  iconThemeByName?: Record<string, string>,
+  /** other installed file icon themes mixed with this theme, the first listed wins */
+  iconThemeLayers: IconThemeLayer[],
   languagesAssociations?: IconAssociations,
   monochrome: boolean,
   monochromeColor: string,
@@ -59,6 +61,17 @@ export type AtomConfig = {
   showUpdateMessage: boolean,
   showWelcomeMessage: boolean,
 }
+
+/**
+ * How a layer theme mixes with this theme, for files or for folders:
+ * - fill: only for the names no theme above gives an icon to
+ * - override: its icon wins for every name it gives an icon to, and its default file or folder icon too
+ * - off: nothing
+ */
+export type LayerMode = 'fill' | 'off' | 'override';
+
+/** Another installed file icon theme: its id (`fill` for files and folders), or its id with a mode for each */
+export type IconThemeLayer = string | { files?: LayerMode; folders?: LayerMode; theme: string };
 
 export enum UpdateStatus {
   NeverUsedBefore,
@@ -136,12 +149,13 @@ export enum ArrowTheme {
 /** Settings that are baked into the generated icon theme json */
 export const ICON_SETTING_KEYS = [
   'activeIconPacks',
-  'fallbackIconTheme',
   'filesAssociations',
   'folderColor',
   'folderTheme',
   'foldersAssociations',
   'hideFileIcons',
+  'iconThemeByName',
+  'iconThemeLayers',
   'languagesAssociations',
   'monochrome',
   'monochromeColor',
