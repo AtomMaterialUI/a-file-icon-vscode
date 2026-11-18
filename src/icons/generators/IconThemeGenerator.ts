@@ -7,7 +7,6 @@ import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
-import { FallbackThemeGenerator } from './FallbackThemeGenerator';
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
@@ -15,13 +14,17 @@ import { LanguageJsonGenerator } from './LanguageJsonGenerator';
 import { monochromeService } from './MonochromeService';
 import { opacityService } from './OpacityService';
 import { saturationService } from './SaturationService';
+import { ThemeLayerGenerator } from './ThemeLayerGenerator';
 
 import type { AtomConfig } from 'src/@types/config';
-import type { FallbackTheme } from './FallbackThemeGenerator';
+import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
 
 /** Association values that are paths to custom SVG files */
 const customValues = (associations?: Record<string, string>) =>
   Object.values(associations ?? {}).filter((value) => typeof value === 'string' && isCustomIconPath(value));
+
+/** The installed icon themes mixed with this theme, and the languages of the file names and extensions */
+export type ThemeLayers = { languages: LanguageLookup; themes: LayerTheme[] };
 
 /**
  * Explicit locations used by the generators. When omitted, they are guessed from `__dirname`.
@@ -44,12 +47,12 @@ export class IconThemeGenerator {
   /**
    * @param updatedJSONConfig the settings, missing ones get their default value
    * @param paths where to read the icons and write the theme
-   * @param fallback another installed icon theme for the names this theme does not know
+   * @param layers the installed icon themes the settings mix with this theme, and the languages of the names
    */
   constructor(
     updatedJSONConfig: Partial<AtomConfig> = {},
     private readonly paths?: GeneratorPaths,
-    private readonly fallback?: FallbackTheme,
+    private readonly layers?: ThemeLayers,
   ) {
     // Initializes the config with the default values and provided changes
     // A shallow merge on purpose: lodash.merge would merge arrays index by index,
@@ -100,34 +103,35 @@ export class IconThemeGenerator {
     // Load folder icons onto the config
     this.folderGenerator.loadFolderIconAssociations();
 
-    // Last, the names this theme does not know get the icon of the fallback theme
-    this.loadFallbackTheme();
+    // Last, mix the other installed icon themes
+    this.loadThemeLayers();
   }
 
   /**
-   * Add the associations of the fallback theme for the names this theme does not know.
-   * The fingerprint of that theme is stored in the json to regenerate the theme when it changes.
+   * Mix the other installed icon themes of `iconThemeLayers` and `iconThemeByName` with this theme.
+   * Their fingerprint is stored in the json to regenerate the theme when one of them changes.
    * @private
    */
-  private loadFallbackTheme() {
+  private loadThemeLayers() {
     const distributionPath = this.iconPath();
-    this.iconConfig.fallbackTheme = '';
+    this.iconConfig.layerThemes = '';
 
-    if (!this.fallback) {
-      FallbackThemeGenerator.clean(distributionPath);
+    if (!this.layers?.themes.length) {
+      ThemeLayerGenerator.clean(distributionPath);
       return;
     }
 
-    const generator = new FallbackThemeGenerator(
+    const generator = new ThemeLayerGenerator(
       this.atomConfig,
       this.iconConfig,
-      this.fallback,
+      this.layers.themes,
+      this.layers.languages,
       distributionPath,
       getFileConfigHash(this.atomConfig),
       (svgPath) => this.applyFilters(svgPath),
     );
-    // a theme that cannot be read (being rewritten) is stored as missing, so it is read again next time
-    if (generator.apply()) this.iconConfig.fallbackTheme = this.fallback.stamp;
+    // a theme that cannot be read (being rewritten) is left out, so the fingerprint differs and it is read again
+    this.iconConfig.layerThemes = generator.apply();
   }
 
   /**

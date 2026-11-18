@@ -4,7 +4,7 @@
  * @private
  */
 import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
-import { DEFAULT_FALLBACK_ICON_THEME, DEFAULT_FOLDER_COLOR, DEFAULT_MONOCHROME_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
+import { DEFAULT_FOLDER_COLOR, DEFAULT_MONOCHROME_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION, MATERIAL_ICON_THEME } from 'src/helpers/constants';
 import { getHash } from 'src/helpers/utils';
 
 import type { AtomConfig } from 'src/@types/config';
@@ -29,11 +29,12 @@ export const getDefaultConfig = (): AtomConfig => {
       IconPack.Tests,
     ],
     arrowTheme: ArrowTheme.Material,
-    // the names this theme does not know get the icon of this theme when it is installed. Keep in sync with package.json
-    fallbackIconTheme: DEFAULT_FALLBACK_ICON_THEME,
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
     hideFileIcons: false,
+    // the names this theme does not know get the icon of the Material Icon Theme when it is installed.
+    // Keep in sync with package.json
+    iconThemeLayers: [MATERIAL_ICON_THEME],
     monochrome: false,
     monochromeColor: DEFAULT_MONOCHROME_COLOR,
     opacity: DEFAULT_OPACITY,

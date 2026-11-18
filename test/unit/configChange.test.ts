@@ -398,7 +398,7 @@ describe('ConfigChangeDetector', () => {
     });
   });
 
-  describe('fallbackIconTheme', () => {
+  describe('iconThemeLayers, iconThemeByName', () => {
     const SVG = (color: string) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="${color}" d="M0 0h16v16H0z"/></svg>`;
 
     /** A fake installed icon theme extension, like PKief.material-icon-theme */
@@ -429,37 +429,44 @@ describe('ConfigChangeDetector', () => {
       light: { fileNames: { 'zz-unknown': 'fb-file-light' } },
     };
 
-    let fallbackPath: string;
+    /** Folders of the fake installed themes */
+    let themePaths: string[] = [];
+    /** Json of the last installed fake theme */
     let fallbackJson: string;
 
-    const installFallbackTheme = (themeId = 'material-icon-theme') => {
-      fallbackPath = mkdtempSync(join(tmpdir(), 'afi-fallback-'));
-      fallbackJson = join(fallbackPath, 'dist', 'material-icons.json');
+    /**
+     * Installs a fake icon theme extension next to the others, its svg icons filled with the given color.
+     * The first one also declares that zzbuildfile is a Python file: this theme shows it with its Python language icon.
+     */
+    const installTheme = (themeId = 'material-icon-theme', json: object = fallbackTheme, color = '#123456') => {
+      const themePath = mkdtempSync(join(tmpdir(), 'afi-layer-'));
+      themePaths.push(themePath);
+      fallbackJson = join(themePath, 'dist', 'material-icons.json');
       for (const name of Object.keys(fallbackTheme.iconDefinitions).filter((key) => !['fb-missing', 'fb-png'].includes(key))) {
-        writeFileAtomic(join(fallbackPath, 'icons', `${name}.svg`), SVG('#123456'));
+        writeFileAtomic(join(themePath, 'icons', `${name}.svg`), SVG(color));
       }
-      writeFileAtomic(join(fallbackPath, 'icons', 'fb-png.png'), 'not an svg');
-      writeFileAtomic(fallbackJson, JSON.stringify(fallbackTheme));
+      writeFileAtomic(join(themePath, 'icons', 'fb-png.png'), 'not an svg');
+      writeFileAtomic(fallbackJson, JSON.stringify(json));
 
-      testState.extensions = [
-        {
-          extensionPath: fallbackPath,
-          id: 'PKief.material-icon-theme',
-          packageJSON: {
-            contributes: { iconThemes: [{ id: themeId, path: './dist/material-icons.json' }] },
-            version: '5.0.0',
-          },
-        },
-        // declares that zzbuildfile is a Python file: this theme shows it with its Python language icon
-        {
-          extensionPath: fallbackPath,
+      if (testState.extensions.length === 0) {
+        testState.extensions.push({
+          extensionPath: themePath,
           id: 'test.languages',
           packageJSON: { contributes: { languages: [{ filenames: ['ZZBuildFile'], id: 'python' }] } },
+        });
+      }
+      testState.extensions.push({
+        extensionPath: themePath,
+        id: `test.${themeId}`,
+        packageJSON: {
+          contributes: { iconThemes: [{ id: themeId, path: './dist/material-icons.json' }] },
+          version: '5.0.0',
         },
-      ];
+      });
     };
+    const installFallbackTheme = (themeId = 'material-icon-theme') => installTheme(themeId);
 
-    /** The theme generated with the default settings and without any fallback theme */
+    /** The theme generated with the default settings and without any other theme */
     const ownTheme = () => {
       testState.extensions = [];
       applySettings({ opacity: 0.99 });
@@ -467,16 +474,21 @@ describe('ConfigChangeDetector', () => {
       return readTheme();
     };
 
+    /** Color of the svg of the icon the theme gives to a name of one of its maps */
+    const colorOf = (theme: IconConfiguration, definition: string | undefined) =>
+      /fill="(#\w+)"/.exec(readIcon(theme, definition ?? ''))?.[1];
+
     beforeEach(() => {
       testState.extensions = [];
     });
 
     afterEach(() => {
       testState.extensions = [];
-      if (fallbackPath) rmSync(fallbackPath, { force: true, recursive: true });
+      for (const themePath of themePaths) rmSync(themePath, { force: true, recursive: true });
+      themePaths = [];
     });
 
-    it('gives the names this theme does not know the icon of the fallback theme', () => {
+    it('gives the names this theme does not know the icon of a fill layer', () => {
       installFallbackTheme();
       configChangeDetector.listenForChanges();
       const theme = readTheme();
@@ -489,7 +501,7 @@ describe('ConfigChangeDetector', () => {
       assert.equal(theme.fileExtensions?.zzq, definition);
       assert.equal(theme.fileExtensions?.['foo.zzq2'], definition);
       assert.ok(theme.languageIds?.['fb-lang']);
-      // the light variant of the fallback theme
+      // the light variant of the layer
       assert.ok(theme.light?.fileNames?.['zz-unknown']);
       assert.notEqual(theme.light?.fileNames?.['zz-unknown'], definition);
     });
@@ -512,7 +524,7 @@ describe('ConfigChangeDetector', () => {
       assert.equal(theme.folder, own.folder);
     });
 
-    it('gives the folders this theme does not know the icons of the fallback theme', () => {
+    it('gives the folders this theme does not know the icons of a fill layer', () => {
       installFallbackTheme();
       configChangeDetector.listenForChanges();
       const theme = readTheme();
@@ -545,7 +557,7 @@ describe('ConfigChangeDetector', () => {
       }
     });
 
-    it('applies the filters of this theme to the icons of the fallback theme', () => {
+    it('applies the filters of this theme to the icons of the other themes', () => {
       installFallbackTheme();
       applySettings({ opacity: 0.5 });
       const theme = readTheme();
@@ -555,16 +567,16 @@ describe('ConfigChangeDetector', () => {
       assert.match(icon, /opacity/);
     });
 
-    it('removes the fallback icons when the setting is emptied', () => {
+    it('removes the icons of the other themes when the layers are emptied', () => {
       installFallbackTheme();
       configChangeDetector.listenForChanges();
       assert.ok(readTheme().fileNames?.['zz-unknown']);
 
-      applySettings({ fallbackIconTheme: '' });
+      applySettings({ iconThemeLayers: [] });
       const theme = readTheme();
       assert.equal(theme.fileNames?.['zz-unknown'], undefined);
-      assert.ok(!Object.keys(theme.iconDefinitions ?? {}).some((key) => key.startsWith('fallback-')));
-      assert.deepEqual(readdirSync(join(testState.extensionPath, 'dist', 'fallback')), []);
+      assert.ok(!Object.keys(theme.iconDefinitions ?? {}).some((key) => key.startsWith('layer-')));
+      assert.deepEqual(readdirSync(join(testState.extensionPath, 'dist', 'layers')), []);
     });
 
     it('uses another installed theme given by its id, and ignores an id that is not installed', () => {
@@ -572,11 +584,107 @@ describe('ConfigChangeDetector', () => {
       configChangeDetector.listenForChanges();
       assert.equal(readTheme().fileNames?.['zz-unknown'], undefined);
 
-      applySettings({ fallbackIconTheme: 'other-icons' });
+      applySettings({ iconThemeLayers: ['not-installed', { theme: 'other-icons' }] });
       assert.ok(readTheme().fileNames?.['zz-unknown']);
     });
 
-    it('regenerates the theme when the fallback theme changes', () => {
+    it('fills with the first listed theme first', () => {
+      installTheme('first', fallbackTheme, '#111111');
+      installTheme('second', { ...fallbackTheme, fileNames: { 'zz-second': 'fb-file', 'zz-unknown': 'fb-file' } }, '#222222');
+      applySettings({ iconThemeLayers: ['first', 'second'] });
+      const theme = readTheme();
+
+      assert.equal(colorOf(theme, theme.fileNames?.['zz-unknown']), '#111111');
+      // the names only the second one knows
+      assert.equal(colorOf(theme, theme.fileNames?.['zz-second']), '#222222');
+    });
+
+    it('gives the icons of an override layer to every name it knows, and keeps the folders when they are off', () => {
+      const own = ownTheme();
+      installTheme('material-icon-theme', { ...fallbackTheme, file: 'fb-file', folder: 'fb-folder' });
+      applySettings({ iconThemeLayers: [{ files: 'override', folders: 'off', theme: 'material-icon-theme' }] });
+      const theme = readTheme();
+
+      const python = theme.fileExtensions?.py;
+      assert.ok(python?.startsWith('layer-'), python);
+      assert.equal(theme.fileExtensions?.['test.py'], python);
+      assert.equal(theme.languageIds?.python, python);
+      assert.ok(theme.fileNames?.['package.json']?.startsWith('layer-'));
+      // a name only this theme knows keeps its icon
+      assert.equal(theme.fileExtensions?.ts, own.fileExtensions?.ts);
+      assert.ok(theme.file?.startsWith('layer-'));
+      // folders off
+      assert.equal(theme.folderNames?.src, own.folderNames?.src);
+      assert.equal(theme.folderNames?.['fb-folder'], undefined);
+      assert.equal(theme.folder, own.folder);
+    });
+
+    it('gives the folder icons of an override layer, its default ones too', () => {
+      installTheme('material-icon-theme', { ...fallbackTheme, folder: 'fb-folder', folderExpanded: 'fb-folder-open' });
+      applySettings({ iconThemeLayers: [{ files: 'off', folders: 'override', theme: 'material-icon-theme' }] });
+      const theme = readTheme();
+
+      assert.ok(theme.folderNames?.src?.startsWith('layer-'));
+      assert.ok(theme.folderNamesExpanded?.src?.startsWith('layer-'));
+      assert.notEqual(theme.folderNamesExpanded?.src, theme.folderNames?.src);
+      assert.equal(theme.folder, theme.folderNames?.src);
+      assert.equal(theme.folderExpanded, theme.folderNamesExpanded?.src);
+      // files off
+      assert.equal(theme.fileNames?.['zz-unknown'], undefined);
+    });
+
+    it('removes the light variant of this theme for a name an override layer gives its icon to', () => {
+      const own = ownTheme();
+      const extension = Object.keys(own.light?.fileExtensions ?? {}).find((key) => !key.includes('.'));
+      assert.ok(extension, 'no light variant in this theme');
+      installTheme('material-icon-theme', { ...fallbackTheme, fileExtensions: { [extension]: 'fb-python' } });
+      applySettings({ iconThemeLayers: [{ files: 'override', theme: 'material-icon-theme' }] });
+      const theme = readTheme();
+
+      assert.ok(theme.fileExtensions?.[extension]?.startsWith('layer-'));
+      assert.equal(theme.light?.fileExtensions?.[extension], undefined);
+    });
+
+    it('keeps the user associations over an override layer, and the first listed override wins', () => {
+      installTheme('first', fallbackTheme, '#111111');
+      installTheme('second', fallbackTheme, '#222222');
+      applySettings({
+        filesAssociations: { '*.py': 'json' },
+        iconThemeLayers: [{ files: 'override', theme: 'first' }, { files: 'override', theme: 'second' }],
+      });
+      const theme = readTheme();
+
+      assert.ok(!theme.fileExtensions?.py?.startsWith('layer-'), theme.fileExtensions?.py);
+      assert.equal(colorOf(theme, theme.fileNames?.['package.json']), '#111111');
+      assert.equal(colorOf(theme, theme.fileNames?.['zz-unknown']), '#111111');
+    });
+
+    it('gives a name the icon of the theme of iconThemeByName, over every layer', () => {
+      installTheme('first', { ...fallbackTheme, file: 'fb-python', folderNames: { src: 'fb-folder' }, folderNamesExpanded: {} }, '#111111');
+      installTheme('second', fallbackTheme, '#222222');
+      applySettings({
+        iconThemeByName: {
+          '*.ts': 'first',
+          'nothing.here': 'first',
+          'package.json': 'first',
+          'src/': 'first',
+          'zz-unknown': 'first',
+        },
+        iconThemeLayers: [{ files: 'override', theme: 'second' }],
+      });
+      const theme = readTheme();
+
+      assert.equal(colorOf(theme, theme.fileNames?.['zz-unknown']), '#111111');
+      assert.equal(colorOf(theme, theme.fileNames?.['package.json']), '#111111');
+      // no icon for the name in that theme: its default file icon
+      assert.equal(colorOf(theme, theme.fileExtensions?.ts), '#111111');
+      assert.equal(theme.fileExtensions?.ts, theme.fileNames?.['nothing.here']);
+      assert.equal(colorOf(theme, theme.folderNames?.src), '#111111');
+      // the expanded folder falls back to the closed one
+      assert.equal(theme.folderNamesExpanded?.src, theme.folderNames?.src);
+    });
+
+    it('regenerates the theme when a layer theme changes', () => {
       installFallbackTheme();
       configChangeDetector.listenForChanges();
       assert.equal(readTheme().fileNames?.['zz-later'], undefined);
