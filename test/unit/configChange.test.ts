@@ -553,7 +553,7 @@ describe('ConfigChangeDetector', () => {
       assert.equal(theme.fileNames?.['gone.zzz'], undefined);
       assert.equal(theme.fileNames?.['pic.zzz'], undefined);
       for (const definition of Object.values(theme.iconDefinitions ?? {})) {
-        assert.ok(existsSync(join(testState.extensionPath, 'dist', definition.iconPath)), definition.iconPath);
+        assert.ok(existsSync(join(testState.extensionPath, 'dist', definition.iconPath ?? '')), definition.iconPath);
       }
     });
 
@@ -695,6 +695,109 @@ describe('ConfigChangeDetector', () => {
       configChangeDetector.listenForChanges();
 
       assert.ok(readTheme().fileNames?.['zz-later']);
+    });
+
+    describe('font icon themes (Seti)', () => {
+      /** Like the built-in vs-seti theme: glyphs of one font, a light variant, no folder icons */
+      const setiTheme = {
+        file: '_default',
+        fileExtensions: { zzq: '_zz' },
+        fileNames: { 'zz-named': '_named' },
+        fonts: [{ id: 'seti', size: '150%', src: [{ format: 'woff', path: './seti.woff' }], style: 'normal', weight: 'normal' }],
+        iconDefinitions: {
+          _default: { fontCharacter: String.raw`\E023`, fontColor: '#d4d7d6' },
+          _named: { fontCharacter: String.raw`\E002`, fontColor: '#ff0000', fontSize: '120%' },
+          _no_font: { fontCharacter: String.raw`\E004`, fontId: 'missing' },
+          _zz: { fontCharacter: String.raw`\E001`, fontColor: '#519aba' },
+          _zz_light: { fontCharacter: String.raw`\E001`, fontColor: '#498ba7' },
+        },
+        light: { fileExtensions: { zzq: '_zz_light' } },
+      };
+      let fontPath: string;
+
+      const installSeti = (json: object = setiTheme, font = 'woff font v1') => {
+        const themePath = mkdtempSync(join(tmpdir(), 'afi-seti-'));
+        themePaths.push(themePath);
+        const jsonPath = join(themePath, 'icons', 'vs-seti-icon-theme.json');
+        fontPath = join(themePath, 'icons', 'seti.woff');
+        writeFileAtomic(fontPath, font);
+        writeFileAtomic(jsonPath, JSON.stringify(json));
+        testState.extensions.push({
+          extensionPath: themePath,
+          id: 'vscode.theme-seti',
+          packageJSON: { contributes: { iconThemes: [{ id: 'vs-seti', path: './icons/vs-seti-icon-theme.json' }] }, version: '10.0.0' },
+        });
+      };
+
+      /** The copy of the font of a glyph definition, as the theme json gives it */
+      const fontOf = (theme: IconConfiguration, definition: string | undefined) => {
+        const fontId = theme.iconDefinitions?.[definition ?? '']?.fontId;
+        return theme.fonts?.find((font) => font.id === fontId);
+      };
+
+      it('gives the names this theme does not know a glyph of a fill layer, with its font copied', () => {
+        installSeti();
+        applySettings({ iconThemeLayers: ['vs-seti'] });
+        const theme = readTheme();
+
+        const definition = theme.iconDefinitions?.[theme.fileExtensions?.zzq ?? ''];
+        assert.deepEqual(definition, { fontCharacter: String.raw`\E001`, fontColor: '#519aba', fontId: 'layer-vs-seti-seti', fontSize: '150%' });
+        assert.equal(theme.iconDefinitions?.[theme.fileNames?.['zz-named'] ?? '']?.fontSize, '120%');
+        assert.equal(theme.iconDefinitions?.[theme.light?.fileExtensions?.zzq ?? '']?.fontColor, '#498ba7');
+
+        const font = fontOf(theme, theme.fileExtensions?.zzq);
+        assert.equal(theme.fonts?.length, 1);
+        assert.equal(font?.src.length, 1);
+        assert.equal(font?.src[0].format, 'woff');
+        assert.equal(readFileSync(join(testState.extensionPath, 'dist', font?.src[0].path ?? ''), 'utf8'), 'woff font v1');
+        // the svg icons of this theme are kept
+        assert.ok(theme.iconDefinitions?.[theme.fileExtensions?.ts ?? '']?.iconPath);
+        assert.ok(theme.iconDefinitions?.[theme.file ?? '']?.iconPath);
+      });
+
+      it('skips the glyphs of a font the theme does not have, and the fonts whose file is missing', () => {
+        installSeti({ ...setiTheme, fileNames: { 'zz-no-font': '_no_font' } });
+        rmSync(fontPath);
+        applySettings({ iconThemeLayers: ['vs-seti'] });
+        const theme = readTheme();
+
+        assert.equal(theme.fileNames?.['zz-no-font'], undefined);
+        assert.equal(theme.fileExtensions?.zzq, undefined);
+        assert.equal(theme.fonts, undefined);
+      });
+
+      it('gives the default glyph of an override layer, and the color filters to the glyphs', () => {
+        installSeti();
+        applySettings({ iconThemeLayers: [{ files: 'override', theme: 'vs-seti' }], saturation: 0 });
+        const theme = readTheme();
+
+        assert.equal(theme.iconDefinitions?.[theme.file ?? '']?.fontCharacter, String.raw`\E023`);
+        const color = theme.iconDefinitions?.[theme.fileExtensions?.zzq ?? '']?.fontColor ?? '';
+        assert.match(color, /^#([\da-f]{2})\1\1$/, color);
+
+        applySettings({ monochrome: true, monochromeColor: '#ff0000', saturation: 1 });
+        const red = readTheme().iconDefinitions?.[readTheme().fileNames?.['zz-named'] ?? '']?.fontColor;
+        assert.equal(red, '#ff0000');
+      });
+
+      it('renames the copy of the font when it changes, and removes the fonts when the layers are emptied', () => {
+        installSeti();
+        applySettings({ iconThemeLayers: ['vs-seti'] });
+        const before = fontOf(readTheme(), readTheme().fileExtensions?.zzq)?.src[0].path;
+
+        writeFileAtomic(fontPath, 'woff font v2');
+        const jsonPath = join(dirname(fontPath), 'vs-seti-icon-theme.json');
+        const later = new Date(statSync(jsonPath).mtimeMs + 10_000);
+        utimesSync(jsonPath, later, later);
+        configChangeDetector.listenForChanges();
+        const after = fontOf(readTheme(), readTheme().fileExtensions?.zzq)?.src[0].path;
+        assert.ok(after && after !== before, `${before} -> ${after}`);
+        assert.equal(readdirSync(join(testState.extensionPath, 'dist', 'layers')).length, 1);
+
+        applySettings({ iconThemeLayers: [] });
+        assert.equal(readTheme().fonts, undefined);
+        assert.deepEqual(readdirSync(join(testState.extensionPath, 'dist', 'layers')), []);
+      });
     });
   });
 });

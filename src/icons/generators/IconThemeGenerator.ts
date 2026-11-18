@@ -10,6 +10,7 @@ import { IconConfiguration } from 'src/models/IconConfiguration';
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
+import { filterFontColor } from './FontColorService';
 import { LanguageJsonGenerator } from './LanguageJsonGenerator';
 import { monochromeService } from './MonochromeService';
 import { opacityService } from './OpacityService';
@@ -129,6 +130,7 @@ export class IconThemeGenerator {
       distributionPath,
       getFileConfigHash(this.atomConfig),
       (svgPath) => this.applyFilters(svgPath),
+      (color) => filterFontColor(color, this.atomConfig),
     );
     // a theme that cannot be read (being rewritten) is left out, so the fingerprint differs and it is read again
     this.iconConfig.layerThemes = generator.apply();

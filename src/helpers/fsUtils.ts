@@ -8,7 +8,7 @@ let counter = 0;
  * Several editor windows regenerate the theme at the same time, and the editor reads the theme json while it is
  * being written: a plain write can expose a truncated or interleaved file ("End of file expected", #67).
  */
-export const writeFileAtomic = (path: string, content: string) => {
+export const writeFileAtomic = (path: string, content: Uint8Array | string) => {
   mkdirSync(dirname(path), { recursive: true });
   const temporary = `${path}.${process.pid}.${counter++}.tmp`;
 

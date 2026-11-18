@@ -1,5 +1,6 @@
+import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, rmSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, extname, join, resolve } from 'node:path';
 import { FolderTheme } from 'src/@types/config';
 import { RELATIVE_DIST, WILDCARD_PATTERN } from 'src/helpers/constants';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
@@ -7,7 +8,7 @@ import { layerStamp, normalizeByName, normalizeLayers } from 'src/helpers/themeL
 
 import type { AtomConfig } from 'src/@types/config';
 import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
-import type { IconConfiguration } from 'src/models/IconConfiguration';
+import type { IconConfiguration, IconFont } from 'src/models/IconConfiguration';
 
 /** Folder of `dist` receiving the icons taken from the other themes */
 const LAYERS_FOLDER = 'layers';
@@ -27,13 +28,25 @@ type MapKey =
   | 'rootFolderNamesExpanded';
 type DefaultKey = 'file' | 'folder' | 'folderExpanded' | 'rootFolder' | 'rootFolderExpanded';
 type Section = Partial<Record<DefaultKey, string>> & Partial<Record<MapKey, NameMap>>;
+type ThemeDefinition = { fontCharacter?: unknown; fontColor?: unknown; fontId?: unknown; fontSize?: unknown; iconPath?: unknown };
 type ThemeJson = Section & {
+  fonts?: unknown;
   highContrast?: Section;
-  iconDefinitions?: Record<string, { iconPath?: unknown }>;
+  iconDefinitions?: Record<string, ThemeDefinition>;
   light?: Section;
 };
 type Variant = 'highContrast' | 'light';
 type Category = 'files' | 'folders';
+
+/** What VS Code accepts in the fonts and glyphs of an icon theme (`fileIconThemeData.ts`) */
+const FONT_ID_PATTERN = /^[\w-]+$/;
+const FONT_SIZE_PATTERN = /^[\w.%+-]+$/;
+const FONT_FORMATS = new Set(['embedded-opentype', 'opentype', 'svg', 'truetype', 'woff', 'woff2']);
+/** The size VS Code gives the glyphs of a theme whose first font has none */
+const DEFAULT_FONT_SIZE = '150%';
+
+/** A font of another theme with its files copied to `dist/layers`, or undefined when it cannot be used */
+type CopiedFont = { font: IconFont; size: string } | undefined;
 
 /** Where a theme found the icon of a name: an entry of one of its maps, or one of its default icons */
 type Hit = { key?: string; map: DefaultKey | MapKey };
@@ -175,11 +188,14 @@ class LayerReader {
  *    of the user's own associations;
  * 3. this theme;
  * 4. `fill` layers (the first listed wins): only the names left with the default file or folder icon.
- * Only svg icons can be used: they get the same filters as the icons of this theme.
+ * Svg icons get the same filters as the icons of this theme. Glyphs of font themes (like Seti) come with their font,
+ * their color gets the color filters (not the opacity: VS Code takes no alpha in a font color).
  */
 export class ThemeLayerGenerator {
-  /** theme id + definition id -> definition id in this theme ('' when its svg cannot be used) */
+  /** theme id + definition id -> definition id in this theme ('' when its icon cannot be used) */
   private readonly definitions = new Map<string, string>();
+  /** theme id + font id -> its copy */
+  private readonly fonts = new Map<string, CopiedFont>();
   private readonly readers = new Map<string, LayerReader | undefined>();
   private readonly written = new Set<string>();
 
@@ -191,6 +207,7 @@ export class ThemeLayerGenerator {
     private readonly distributionPath: string,
     private readonly fileConfigHash: string,
     private readonly applyFilters: (svgPath: string) => string,
+    private readonly filterColor: (color: unknown) => string | undefined,
   ) {}
 
   /** Remove the icons of the themes no longer used */
@@ -225,6 +242,10 @@ export class ThemeLayerGenerator {
       }
     }
     this.applyByName();
+
+    const fonts = [...this.fonts.values()].flatMap((copied) => (copied ? [copied.font] : []));
+    if (fonts.length > 0) this.iconConfig.fonts = fonts;
+    else delete this.iconConfig.fonts;
 
     ThemeLayerGenerator.clean(this.distributionPath, this.written);
 
@@ -424,8 +445,8 @@ export class ThemeLayerGenerator {
   }
 
   /**
-   * The definition of this theme for a definition of the other theme, with its svg copied to `dist/layers`
-   * through the same filters as the icons of this theme. Only svg files can be filtered: other icons are skipped.
+   * The definition of this theme for a definition of the other theme: its svg copied to `dist/layers` through the
+   * same filters as the icons of this theme, or its glyph with the font copied there. Other icons (png) are skipped.
    */
   private definition(reader: LayerReader, definition: string | undefined): string | undefined {
     if (!definition) return undefined;
@@ -434,22 +455,94 @@ export class ThemeLayerGenerator {
     const known = this.definitions.get(cacheKey);
     if (known !== undefined) return known || undefined;
 
-    const iconPath = reader.json.iconDefinitions?.[definition]?.iconPath;
-    const source = typeof iconPath === 'string' ? resolve(dirname(reader.theme.path), iconPath) : '';
-    if (!/\.svg$/i.test(source) || !existsSync(source)) {
+    const source = reader.json.iconDefinitions?.[definition];
+    const safeName = `${reader.theme.id}_${definition}`.replaceAll(/[^\w.-]/g, '_');
+    const id = `${DEFINITION_PREFIX}${safeName}`;
+    const created = typeof source?.iconPath === 'string'
+      ? this.svgDefinition(reader, source.iconPath, safeName)
+      : this.glyphDefinition(reader, source);
+    if (!created) {
       this.definitions.set(cacheKey, '');
       return undefined;
     }
 
-    const safeName = `${reader.theme.id}_${definition}`.replaceAll(/[^\w.-]/g, '_');
+    this.iconConfig.iconDefinitions ??= {};
+    this.iconConfig.iconDefinitions[id] = created;
+    this.definitions.set(cacheKey, id);
+    return id;
+  }
+
+  private svgDefinition(reader: LayerReader, iconPath: string, safeName: string) {
+    const source = resolve(dirname(reader.theme.path), iconPath);
+    if (!/\.svg$/i.test(source) || !existsSync(source)) return;
+
     const file = `${safeName}${this.fileConfigHash}.svg`;
     writeFileAtomic(join(this.distributionPath, LAYERS_FOLDER, file), this.applyFilters(source));
     this.written.add(file);
+    return { iconPath: `${RELATIVE_DIST}/${LAYERS_FOLDER}/${file}` };
+  }
 
-    const id = `${DEFINITION_PREFIX}${safeName}`;
-    this.iconConfig.iconDefinitions ??= {};
-    this.iconConfig.iconDefinitions[id] = { iconPath: `${RELATIVE_DIST}/${LAYERS_FOLDER}/${file}` };
-    this.definitions.set(cacheKey, id);
-    return id;
+  /**
+   * A glyph of a font theme. Its font and size are always given: VS Code gives the first font of this theme and its
+   * size to the glyphs that name none, which would be another theme's font.
+   */
+  private glyphDefinition(reader: LayerReader, source: ThemeDefinition | undefined) {
+    if (typeof source?.fontCharacter !== 'string' || !source.fontCharacter) return;
+
+    const copied = this.font(reader, typeof source.fontId === 'string' ? source.fontId : undefined);
+    if (!copied) return;
+
+    const fontSize = typeof source.fontSize === 'string' && FONT_SIZE_PATTERN.test(source.fontSize) ? source.fontSize : copied.size;
+    const fontColor = this.filterColor(source.fontColor);
+    return {
+      fontCharacter: source.fontCharacter,
+      ...(fontColor ? { fontColor } : {}),
+      fontId: copied.font.id,
+      fontSize,
+    };
+  }
+
+  /**
+   * A font of the other theme (its first one without an id, as VS Code does) with its files copied to `dist/layers`.
+   * The file names carry a hash of the content, so a new version of the font is not taken from the cache.
+   */
+  private font(reader: LayerReader, fontId: string | undefined): CopiedFont {
+    const fonts = Array.isArray(reader.json.fonts) ? (reader.json.fonts as Array<Partial<IconFont> | undefined>) : [];
+    const first = fonts[0];
+    const source = fontId === undefined ? first : fonts.find((item) => item?.id === fontId);
+    const cacheKey = `${reader.theme.id}\n${source?.id}`;
+    if (this.fonts.has(cacheKey)) return this.fonts.get(cacheKey);
+
+    let copied: CopiedFont;
+    if (source && typeof source.id === 'string' && Array.isArray(source.src)) {
+      const safeName = `${reader.theme.id}-${source.id}`.replaceAll(/[^\w-]/g, '_');
+      const files = source.src.flatMap((item) => {
+        const path = typeof item?.path === 'string' ? resolve(dirname(reader.theme.path), item.path) : '';
+        if (typeof item?.format !== 'string' || !FONT_FORMATS.has(item.format) || !path || !existsSync(path)) return [];
+
+        const content = readFileSync(path);
+        const file = `${safeName}_${createHash('md5').update(content).digest('hex').slice(0, 8)}${extname(path)}`;
+        writeFileAtomic(join(this.distributionPath, LAYERS_FOLDER, file), content);
+        this.written.add(file);
+        return [{ format: item.format, path: `${RELATIVE_DIST}/${LAYERS_FOLDER}/${file}` }];
+      });
+
+      const size = [source.size, first?.size].find((item) => typeof item === 'string' && FONT_SIZE_PATTERN.test(item)) ?? DEFAULT_FONT_SIZE;
+      const id = `${DEFINITION_PREFIX}${safeName}`;
+      if (files.length > 0 && FONT_ID_PATTERN.test(id)) {
+        copied = {
+          font: {
+            id,
+            size,
+            src: files,
+            style: typeof source.style === 'string' ? source.style : 'normal',
+            weight: typeof source.weight === 'string' ? source.weight : 'normal',
+          },
+          size,
+        };
+      }
+    }
+    this.fonts.set(cacheKey, copied);
+    return copied;
   }
 }

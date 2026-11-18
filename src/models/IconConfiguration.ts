@@ -1,7 +1,21 @@
 import type { AtomConfig } from 'src/@types/config';
 
+/** An svg icon, or a glyph of one of the `fonts` (only the icons taken from a font icon theme like Seti) */
 type IconDefinition = {
-  iconPath: string;
+  fontCharacter?: string;
+  fontColor?: string;
+  fontId?: string;
+  fontSize?: string;
+  iconPath?: string;
+};
+
+/** A font of the glyphs taken from a font icon theme */
+export type IconFont = {
+  id: string;
+  size?: string;
+  src: Array<{ format: string; path: string }>;
+  style?: string;
+  weight?: string;
 };
 
 /**
@@ -69,6 +83,12 @@ export class IconConfiguration {
    * @type {Record<string, IconDefinition>}
    */
   iconDefinitions?: Record<string, IconDefinition>;
+
+  /**
+   * Fonts of the glyphs taken from font icon themes; absent when none is used.
+   * VS Code gives the size of the first one to every icon, the svg icons ignore it.
+   */
+  fonts?: IconFont[];
 
   /**
    * Light variants
