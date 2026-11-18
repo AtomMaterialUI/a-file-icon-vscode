@@ -21,6 +21,7 @@
   "configuration.activeIconPacks.volt": "Volt的圖標。",
   "configuration.activeIconPacks.vue": "Vue的圖標。",
   "configuration.activeIconPacks.vuex": "Vue和Vuex的圖標。",
+  "configuration.fallbackIconTheme": "另一個已安裝的檔案圖示主題的 ID（與 `workbench.iconTheme` 相同，例如 `material-icon-theme`），用於此主題不認識的檔案和資料夾。永遠以此主題優先。留空則停用。",
   "configuration.files.associations": "設置自定義文件圖標關聯。",
   "configuration.folders.associations": "設置自定義文件夾圖標關聯。",
   "configuration.folders.color": "更改文件夾圖標的顏色。",

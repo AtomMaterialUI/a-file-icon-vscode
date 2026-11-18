@@ -340,6 +340,11 @@
           ],
           "type": "string"
         },
+        "a-file-icon-vscode.fallbackIconTheme": {
+          "default": "material-icon-theme",
+          "description": "%configuration.fallbackIconTheme%",
+          "type": "string"
+        },
         "a-file-icon-vscode.filesAssociations": {
           "default": {},
           "description": "%configuration.files.associations%",

@@ -33,6 +33,15 @@ export class IconConfiguration {
   folderNamesExpanded?: Record<string, string>;
 
   /**
+   * Associate root folder names to paths
+   */
+  rootFolderNames?: Record<string, string>;
+  /**
+   * Associate root folder names to paths when expanded
+   */
+  rootFolderNamesExpanded?: Record<string, string>;
+
+  /**
    * Root folder icon
    */
   rootFolder?: string;
@@ -71,6 +80,12 @@ export class IconConfiguration {
    * @type {IconConfiguration}
    */
   highContrast?: IconConfiguration;
+
+  /**
+   * Fingerprint of the fallback icon theme the names unknown to this theme were taken from ('' = none),
+   * to regenerate the theme when that theme changes
+   */
+  fallbackTheme?: string;
 
   /**
    * Atom file config

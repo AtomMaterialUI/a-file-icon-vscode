@@ -15,6 +15,7 @@ import type { IconAssociations } from 'src/@types/associations';
 
 /** Theme files generated before associations were stored have no value for them */
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
+  fallbackIconTheme: '',
   filesAssociations: {},
   foldersAssociations: {},
   hideFileIcons: false,
@@ -89,6 +90,14 @@ export class ConfigService implements AtomConfig {
 
   set activeIconPacks(v: IconPack[]) {
     this.setConfigValue('activeIconPacks', v, ConfigurationTarget.Workspace);
+  }
+
+  get fallbackIconTheme(): string {
+    return this.getConfigValue<string>('fallbackIconTheme') ?? getDefaultConfig().fallbackIconTheme;
+  }
+
+  set fallbackIconTheme(v: string) {
+    this.setConfigValue('fallbackIconTheme', v, ConfigurationTarget.Global);
   }
 
   get foldersAssociations(): IconAssociations | undefined {
@@ -226,6 +235,7 @@ export class ConfigService implements AtomConfig {
   public getIconSettings(): IconSettings {
     return {
       activeIconPacks: [...this.activeIconPacks],
+      fallbackIconTheme: this.fallbackIconTheme.trim(),
       filesAssociations: this.filesAssociations ?? {},
       folderColor: this.folderColor,
       folderTheme: this.folderTheme,
@@ -265,6 +275,7 @@ export class ConfigService implements AtomConfig {
     const defaultConfig = getDefaultConfig();
     this.activeIconPacks = defaultConfig.activeIconPacks;
     this.arrowTheme = defaultConfig.arrowTheme;
+    this.fallbackIconTheme = defaultConfig.fallbackIconTheme;
     this.folderColor = defaultConfig.folderColor;
     this.folderTheme = defaultConfig.folderTheme;
     this.hideFileIcons = defaultConfig.hideFileIcons;

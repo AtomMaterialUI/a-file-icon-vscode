@@ -7,6 +7,8 @@ import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
 
+import { FallbackThemeGenerator } from './FallbackThemeGenerator';
+
 import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
@@ -16,6 +18,7 @@ import { opacityService } from './OpacityService';
 import { saturationService } from './SaturationService';
 
 import type { AtomConfig } from 'src/@types/config';
+import type { FallbackTheme } from './FallbackThemeGenerator';
 
 /** Association values that are paths to custom SVG files */
 const customValues = (associations?: Record<string, string>) =>
@@ -39,7 +42,16 @@ export class IconThemeGenerator {
   fileGenerator: FileJsonGenerator;
   folderGenerator: FolderJsonGenerator;
 
-  constructor(updatedJSONConfig: Partial<AtomConfig> = {}, private readonly paths?: GeneratorPaths) {
+  /**
+   * @param updatedJSONConfig the settings, missing ones get their default value
+   * @param paths where to read the icons and write the theme
+   * @param fallback another installed icon theme for the names this theme does not know
+   */
+  constructor(
+    updatedJSONConfig: Partial<AtomConfig> = {},
+    private readonly paths?: GeneratorPaths,
+    private readonly fallback?: FallbackTheme,
+  ) {
     // Initializes the config with the default values and provided changes
     // A shallow merge on purpose: lodash.merge would merge arrays index by index,
     // mixing the user's activeIconPacks with the default ones (#71)
@@ -88,6 +100,35 @@ export class IconThemeGenerator {
 
     // Load folder icons onto the config
     this.folderGenerator.loadFolderIconAssociations();
+
+    // Last, the names this theme does not know get the icon of the fallback theme
+    this.loadFallbackTheme();
+  }
+
+  /**
+   * Add the associations of the fallback theme for the names this theme does not know.
+   * The fingerprint of that theme is stored in the json to regenerate the theme when it changes.
+   * @private
+   */
+  private loadFallbackTheme() {
+    const distributionPath = this.iconPath();
+    this.iconConfig.fallbackTheme = '';
+
+    if (!this.fallback) {
+      FallbackThemeGenerator.clean(distributionPath);
+      return;
+    }
+
+    const generator = new FallbackThemeGenerator(
+      this.atomConfig,
+      this.iconConfig,
+      this.fallback,
+      distributionPath,
+      getFileConfigHash(this.atomConfig),
+      (svgPath) => this.applyFilters(svgPath),
+    );
+    // a theme that cannot be read (being rewritten) is stored as missing, so it is read again next time
+    if (generator.apply()) this.iconConfig.fallbackTheme = this.fallback.stamp;
   }
 
   /**

@@ -21,6 +21,7 @@
   "configuration.activeIconPacks.volt": "Icônes pour Volt.",
   "configuration.activeIconPacks.vue": "Icônes pour Vue.",
   "configuration.activeIconPacks.vuex": "Icônes pour Vue et Vuex.",
+  "configuration.fallbackIconTheme": "Id d'un autre thème d'icônes de fichiers installé (comme dans `workbench.iconTheme`, p. ex. `material-icon-theme`) utilisé pour les fichiers et dossiers que ce thème ne connaît pas. Ce thème a toujours la priorité. Vide pour désactiver.",
   "configuration.files.associations": "Configurer des associations d'icônes de fichiers personnalisés.",
   "configuration.folders.associations": "Configurer des associations d'icônes de dossier personnalisées.",
   "configuration.folders.color": "Changer la couleur des icônes du dossier.",

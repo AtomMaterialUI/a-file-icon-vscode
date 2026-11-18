@@ -21,6 +21,7 @@
   "configuration.activeIconPacks.volt": "Иконки для Volt.",
   "configuration.activeIconPacks.vue": "Иконки для Vue.",
   "configuration.activeIconPacks.vuex": "Иконки для Vue и Vuex.",
+  "configuration.fallbackIconTheme": "Id другой установленной темы значков файлов (как в `workbench.iconTheme`, например `material-icon-theme`) для файлов и папок, которых эта тема не знает. Эта тема всегда в приоритете. Оставьте пустым, чтобы отключить.",
   "configuration.files.associations": "Настройка пользовательских ассоциаций значков файлов.",
   "configuration.folders.associations": "Настройка пользовательских ассоциаций значков папок.",
   "configuration.folders.color": "Изменение цвета иконок папок.",
