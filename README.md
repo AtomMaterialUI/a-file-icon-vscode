@@ -2,7 +2,7 @@
 
 <h1 align="center">
   <br>
-    <img src="https://raw.githubusercontent.com/mallowigi/a-file-icon-vscode/master/logo.png?sanitize=true" alt="logo" width="200">
+    <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="200">
   <br><br>
   Atom Material File Icons for VSCode
   <br>
@@ -431,6 +431,10 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 ----
 
 ## Credits
+
+This is an unofficial fork of [AtomMaterialUI/a-file-icon-vscode](https://github.com/AtomMaterialUI/a-file-icon-vscode),
+not affiliated with or endorsed by its authors or JetBrains. Product names and logos shown in the icons belong to their
+owners. All licenses and sources are listed in [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md).
 
 - The PyCharm Python icon comes from [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)
   (Apache License 2.0, copy in [assets/icons/LICENSE-APACHE-2.0.txt](./assets/icons/LICENSE-APACHE-2.0.txt)),
