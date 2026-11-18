@@ -231,34 +231,27 @@ If there's no leading `*` it will be automatically configured as filename and no
 
 #### Custom SVG icons
 
-> Not supported yet: only the bundled icon names work for now.
-
-It's possible to add custom icons by adding a path to an SVG file which is located relative to the extension's dist
-folder. However, the restriction applies that the directory in which the custom icons are located must be within
-the `extensions` directory of the `.vscode` folder in the user directory.
-
-For example a custom SVG file called `sample.svg` can be placed in an `icons` folder inside of VS Code's `extensions`
-folder:
-
-```
-.vscode
- ┗ extensions
-   ┗ icons
-     ┗ sample.svg
-```
-
-In the settings.json the icon can be associated to a file name or file extension like this:
+Instead of a bundled icon name, the value can be the path of your own SVG file. Use an absolute path, or a path starting
+with `~` for your home directory:
 
 ```json
 {
   "a-file-icon-vscode.filesAssociations": {
-    "fileName.ts": "../../icons/sample"
+    "*.foo": "~/icons/foo.svg",
+    "fileName.ts": "C:/icons/sample.svg"
+  },
+  "a-file-icon-vscode.foldersAssociations": {
+    "recipes": "~/icons/recipes.svg"
   }
 }
 ```
 
-_Note: The custom file name must be configured in the settings without the file ending `.svg` as shown in the example
-above._
+The file is copied into the extension when the theme is regenerated, with the same opacity, saturation and monochrome
+filters as the bundled icons. For a folder, a `recipes-open.svg` (or `recipes_open.svg`) next to it is used for the
+expanded state, otherwise the same icon is used. A path that does not exist is ignored.
+
+_Note: the icon is copied when the settings change. After editing the SVG file itself, change any setting (or remove and
+add the association again) to pick up the new version._
 
 ### Folder associations
 

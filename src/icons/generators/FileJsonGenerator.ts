@@ -6,6 +6,7 @@ import {
   RELATIVE_DIST_FILES_FOLDER_PATH,
   WILDCARD_PATTERN,
 } from 'src/helpers/constants';
+import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { fileIcons } from 'src/icons/index';
@@ -120,9 +121,11 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
 
     return Object.entries(fileAssociations)
       .filter(([key, value]) => key.length > 0 && typeof value === 'string' && value.length > 0)
+      // a custom SVG that does not exist would point to a missing file
+      .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
         const pattern = key.toLowerCase();
-        const name = value.toLowerCase();
+        const name = isCustomIconPath(value) ? getCustomIconName(value) : value.toLowerCase();
         // reuse the light/high contrast variants of the built-in icon, if any
         const builtIn = fileIcons.icons.find((icon) => icon.name === name);
         const variants = { highContrast: builtIn?.highContrast, light: builtIn?.light };

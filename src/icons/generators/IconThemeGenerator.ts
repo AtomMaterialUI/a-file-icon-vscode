@@ -2,6 +2,7 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
+import { findCustomIcon, findCustomOpenFolderIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { getFileConfigHash, withDefaults } from 'src/icons/configUtils';
 import { IconConfiguration } from 'src/models/IconConfiguration';
@@ -15,6 +16,10 @@ import { opacityService } from './OpacityService';
 import { saturationService } from './SaturationService';
 
 import type { AtomConfig } from 'src/@types/config';
+
+/** Association values that are paths to custom SVG files */
+const customValues = (associations?: Record<string, string>) =>
+  Object.values(associations ?? {}).filter((value) => typeof value === 'string' && isCustomIconPath(value));
 
 /**
  * Explicit locations used by the generators. When omitted, they are guessed from `__dirname`.
@@ -143,6 +148,32 @@ export class IconThemeGenerator {
     this.applyFiltersAndCopy(filesPath, distributionFilesPath);
     this.applyFiltersAndCopy(foldersPath, distributionFoldersPath);
     this.applyFiltersAndCopy(foldersOpenPath, distributionFoldersOpenPath);
+
+    this.copyCustomIcons(distributionPath);
+  }
+
+  /**
+   * Copy the user's custom SVG icons next to the bundled ones, with the same filters.
+   * Missing files are skipped: the generators then drop their association.
+   * @private
+   */
+  private copyCustomIcons(distributionPath: string) {
+    const fileConfigHash = getFileConfigHash(this.atomConfig);
+
+    for (const value of customValues(this.atomConfig.filesAssociations)) {
+      const source = findCustomIcon(value);
+      if (!source) continue;
+      const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
+      writeFileAtomic(join(getFilesPath(distributionPath), target), this.applyFilters(source));
+    }
+
+    for (const value of customValues(this.atomConfig.foldersAssociations)) {
+      const source = findCustomIcon(value);
+      if (!source) continue;
+      const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
+      writeFileAtomic(join(getFoldersPath(distributionPath), target), this.applyFilters(source));
+      writeFileAtomic(join(getFoldersOpenPath(distributionPath), target), this.applyFilters(findCustomOpenFolderIcon(source)));
+    }
   }
 
   /**
