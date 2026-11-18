@@ -6,6 +6,7 @@ export type Language =
     | 'es'
     | 'fr'
     | 'ja'
+    | 'ko'
     | 'nl'
     | 'pl'
     | 'pt-br'

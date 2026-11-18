@@ -30,6 +30,7 @@ export const initI18next = async () => {
         es: { translation: await import('./locales/es.json') },
         fr: { translation: await import('./locales/fr.json') },
         ja: { translation: await import('./locales/ja.json') },
+        ko: { translation: await import('./locales/ko.json') },
         nl: { translation: await import('./locales/nl.json') },
         pl: { translation: await import('./locales/pl.json') },
         'pt-br': { translation: await import('./locales/pt-br.json') },
