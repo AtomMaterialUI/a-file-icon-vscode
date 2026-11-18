@@ -35,7 +35,7 @@ describe('JetBrains parity', () => {
     new Map(Object.entries(map ?? {}).map(([key, value]) => [key.toLowerCase(), value]));
   /** Icon file of a definition, without the config hash nor the `_dark` variant */
   const iconOf = (definition?: string) =>
-    (definition && theme.iconDefinitions?.[definition]?.iconPath.split('/').pop()?.replace(/(~[^.]*)?\.svg$/, '').replace(/_dark$/, '')) ?? undefined;
+    (definition && theme.iconDefinitions?.[definition]?.iconPath?.split('/').pop()?.replace(/(~[^.]*)?\.svg$/, '').replace(/_dark$/, '')) ?? undefined;
 
   before(() => {
     dist = mkdtempSync(join(tmpdir(), 'afi-parity-'));

@@ -286,8 +286,11 @@ with that extension.
 
 The icons of the other themes get the opacity, saturation and monochrome filters of this theme, and are updated when
 those themes or their settings change. Folders only come from other themes with the `specific` folder theme, and files
-not at all with `hideFileIcons`. Only SVG icons can be used: themes made of font glyphs, like the built-in Seti theme,
-cannot be mixed in.
+not at all with `hideFileIcons`.
+
+Themes made of font glyphs, like the built-in Seti theme (`vs-seti`), can be mixed in too: their glyphs come with their
+font, and their colors get the saturation and monochrome filters. The opacity does not apply to them, since VS Code
+takes no transparency in the color of a glyph. PNG icons are skipped.
 
 ----
 
