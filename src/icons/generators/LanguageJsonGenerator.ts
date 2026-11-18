@@ -17,6 +17,9 @@ export class LanguageJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   public loadLanguageIconAssociations() {
+    // languages only give file icons
+    if (this.atomConfig.hideFileIcons) return;
+
     // first, remove languages by pack
     const enabledLanguages = this.disableLanguagesByPack(languageIcons);
 

@@ -270,6 +270,16 @@
         "command": "a-file-icon-vscode.changeSaturation",
         "category": "Atom Material Icons",
         "title": "%command.changeSaturation%"
+      },
+      {
+        "command": "a-file-icon-vscode.toggleMonochrome",
+        "category": "Atom Material Icons",
+        "title": "%command.toggleMonochrome%"
+      },
+      {
+        "command": "a-file-icon-vscode.changeMonochromeColor",
+        "category": "Atom Material Icons",
+        "title": "%command.changeMonochromeColor%"
       }
     ],
     "configuration": {
@@ -328,16 +338,16 @@
           "description": "%configuration.files.associations%",
           "type": "object"
         },
-        "a-file-icon-vscode.foldersAssociations": {
-          "default": {},
-          "description": "%configuration.folders.associations%",
-          "type": "object"
-        },
         "a-file-icon-vscode.folderColor": {
           "default": "#90a4ae",
           "description": "%configuration.folders.color%",
           "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
           "type": "string"
+        },
+        "a-file-icon-vscode.foldersAssociations": {
+          "default": {},
+          "description": "%configuration.folders.associations%",
+          "type": "object"
         },
         "a-file-icon-vscode.folderTheme": {
           "default": "specific",
@@ -354,10 +364,26 @@
           ],
           "type": "string"
         },
+        "a-file-icon-vscode.hideFileIcons": {
+          "default": false,
+          "description": "%configuration.hideFileIcons%",
+          "type": "boolean"
+        },
         "a-file-icon-vscode.languagesAssociations": {
           "default": {},
           "description": "%configuration.languages.associations%",
           "type": "object"
+        },
+        "a-file-icon-vscode.monochrome": {
+          "default": false,
+          "description": "%configuration.monochrome%",
+          "type": "boolean"
+        },
+        "a-file-icon-vscode.monochromeColor": {
+          "default": "#90a4ae",
+          "description": "%configuration.monochromeColor%",
+          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+          "type": "string"
         },
         "a-file-icon-vscode.opacity": {
           "default": 1,

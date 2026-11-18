@@ -4,7 +4,7 @@
  * @private
  */
 import { FolderTheme, IconPack, ArrowTheme } from 'src/@types/config';
-import { DEFAULT_FOLDER_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
+import { DEFAULT_FOLDER_COLOR, DEFAULT_MONOCHROME_COLOR, DEFAULT_OPACITY, DEFAULT_SATURATION } from 'src/helpers/constants';
 import { getHash } from 'src/helpers/utils';
 
 import type { AtomConfig } from 'src/@types/config';
@@ -20,6 +20,9 @@ export const getDefaultConfig = (): AtomConfig => {
     arrowTheme: ArrowTheme.Material,
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
+    hideFileIcons: false,
+    monochrome: false,
+    monochromeColor: DEFAULT_MONOCHROME_COLOR,
     opacity: DEFAULT_OPACITY,
     saturation: DEFAULT_SATURATION,
     showReloadMessage: true,
@@ -47,7 +50,9 @@ export const getFileConfigHash = (config: AtomConfig): string => {
   if (
     config.saturation !== defaults.saturation ||
     config.opacity !== defaults.opacity ||
-    config.folderColor !== defaults.folderColor
+    config.folderColor !== defaults.folderColor ||
+    config.monochrome !== defaults.monochrome ||
+    (config.monochrome && config.monochromeColor !== defaults.monochromeColor)
   ) {
     fileConfigString += `~${getHash(JSON.stringify(config))}`;
   }

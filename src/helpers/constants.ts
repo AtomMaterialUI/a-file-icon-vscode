@@ -10,6 +10,7 @@ export const JSON_PRODUCT_FILE_NAME = `${EXTENSION_KEY}-product-icon-theme.json`
 export const DEFAULT_FOLDER_COLOR = '#90a4ae';
 export const DEFAULT_OPACITY = 1;
 export const DEFAULT_SATURATION = 1;
+export const DEFAULT_MONOCHROME_COLOR = '#90a4ae';
 
 export const FOLDER_PREFIX = 'folder-';
 export const ICON_GENERATOR_PATH = 'iconGenerator/assets/icons';

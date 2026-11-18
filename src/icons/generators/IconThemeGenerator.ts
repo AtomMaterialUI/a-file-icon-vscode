@@ -10,6 +10,7 @@ import { FileJsonGenerator } from './FileJsonGenerator';
 import { folderColorService } from './FolderColorService';
 import { FolderJsonGenerator } from './FolderJsonGenerator';
 import { LanguageJsonGenerator } from './LanguageJsonGenerator';
+import { monochromeService } from './MonochromeService';
 import { opacityService } from './OpacityService';
 import { saturationService } from './SaturationService';
 
@@ -175,6 +176,9 @@ export class IconThemeGenerator {
 
     // folder color
     svg = folderColorService.applyFolderColor(svg, this.atomConfig.folderColor);
+
+    // Monochrome
+    svg = monochromeService.applyMonochrome(svg, this.atomConfig.monochrome, this.atomConfig.monochromeColor);
 
     // Opacity
     svg = opacityService.applyOpacity(svg, this.atomConfig.opacity);

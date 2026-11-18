@@ -24,6 +24,9 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
    * @private
    */
   public loadFileIconAssociations() {
+    // JetBrains "Hide file icons": no file icon at all, not even the default one
+    if (this.atomConfig.hideFileIcons) return;
+
     // first, remove languages by pack
     const enabledAssociations = this.disableAssociationsByPack(fileIcons);
     // an active icon pack replaces the base icon of the same name or extension (css -> css2): load packs last

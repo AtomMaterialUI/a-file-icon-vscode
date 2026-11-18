@@ -17,7 +17,10 @@ import type { IconAssociations } from 'src/@types/associations';
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
   filesAssociations: {},
   foldersAssociations: {},
+  hideFileIcons: false,
   languagesAssociations: {},
+  monochrome: false,
+  monochromeColor: getDefaultConfig().monochromeColor,
 };
 
 export class ConfigService implements AtomConfig {
@@ -120,6 +123,30 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('folderColor', v, ConfigurationTarget.Workspace);
   }
 
+  get hideFileIcons(): boolean {
+    return this.getConfigValue<boolean>('hideFileIcons') ?? getDefaultConfig().hideFileIcons;
+  }
+
+  set hideFileIcons(v: boolean) {
+    this.setConfigValue('hideFileIcons', v, ConfigurationTarget.Workspace);
+  }
+
+  get monochrome(): boolean {
+    return this.getConfigValue<boolean>('monochrome') ?? getDefaultConfig().monochrome;
+  }
+
+  set monochrome(v: boolean) {
+    this.setConfigValue('monochrome', v, ConfigurationTarget.Workspace);
+  }
+
+  get monochromeColor(): string {
+    return this.getConfigValue<string>('monochromeColor') ?? getDefaultConfig().monochromeColor;
+  }
+
+  set monochromeColor(v: string) {
+    this.setConfigValue('monochromeColor', v, ConfigurationTarget.Workspace);
+  }
+
   // endregion
 
   // region --------------------- Icon Theme Config ----------------------
@@ -203,7 +230,10 @@ export class ConfigService implements AtomConfig {
       folderColor: this.folderColor,
       folderTheme: this.folderTheme,
       foldersAssociations: this.foldersAssociations ?? {},
+      hideFileIcons: this.hideFileIcons,
       languagesAssociations: this.languagesAssociations ?? {},
+      monochrome: this.monochrome,
+      monochromeColor: this.monochromeColor,
       opacity: this.opacity,
       saturation: this.saturation,
     };
@@ -237,6 +267,9 @@ export class ConfigService implements AtomConfig {
     this.arrowTheme = defaultConfig.arrowTheme;
     this.folderColor = defaultConfig.folderColor;
     this.folderTheme = defaultConfig.folderTheme;
+    this.hideFileIcons = defaultConfig.hideFileIcons;
+    this.monochrome = defaultConfig.monochrome;
+    this.monochromeColor = defaultConfig.monochromeColor;
     this.opacity = defaultConfig.opacity;
     this.saturation = defaultConfig.saturation;
     this.showReloadMessage = true;
