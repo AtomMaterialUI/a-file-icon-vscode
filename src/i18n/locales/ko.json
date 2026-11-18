@@ -1,0 +1,122 @@
+{
+  "activate": "활성화",
+  "activated": "Atom Material Icons가 활성화되었습니다.",
+  "arrowThemes": {
+    "arrow": "화살표 아이콘",
+    "material": "Material 아이콘",
+    "none": "화살표 없음",
+    "pickTheme": "화살표 스타일 선택",
+    "plusMinus": "더하기/빼기 아이콘",
+    "triangle": "삼각형 아이콘"
+  },
+  "arrows": "화살표",
+  "classic": "기본형",
+  "confirmReload": "아이콘 변경 사항을 적용하려면 VS Code를 다시 시작해야 합니다.",
+  "custom": "직접 입력",
+  "customOpacity": "불투명도 값 직접 입력",
+  "customSaturation": "채도 값 직접 입력",
+  "desaturated": "채도 낮춤",
+  "explorerArrows": {
+    "disable": "폴더 화살표 숨기기",
+    "enable": "폴더 화살표 표시",
+    "toggle": "폴더 화살표 전환"
+  },
+  "folderThemes": {
+    "classicFolders": "기본형 폴더 아이콘 사용",
+    "noFolders": "폴더 아이콘 없음",
+    "specificFolders": "폴더별 아이콘 사용"
+  },
+  "folders": {
+    "color": "폴더 색 선택",
+    "disabled": "폴더 아이콘 없음",
+    "hexCode": "HEX 색 코드 입력",
+    "theme": {
+      "description": "'{{name}}' 폴더 테마 선택 ({{color}})"
+    },
+    "toggleIcons": "폴더 테마 선택",
+    "wrongHexCode": "올바른 HEX 색 코드가 아닙니다!"
+  },
+  "grayscale": {
+    "disable": "단색 아이콘 끄기",
+    "enable": "단색 아이콘 켜기",
+    "toggle": "단색 아이콘 전환"
+  },
+  "grayscales": "흑백",
+  "howToActivate": "아이콘 활성화 방법",
+  "iconPacks": {
+    "description": "'{{name}}' 아이콘 팩 선택",
+    "disabled": "아이콘 팩 끄기",
+    "selectPack": "아이콘 팩 선택"
+  },
+  "material": "Material",
+  "neverShowAgain": "다시 표시 안 함",
+  "none": "없음",
+  "opacity": {
+    "inputPlaceholder": "불투명도 값 (0부터 1 사이)",
+    "opaque": "아이콘을 불투명하게",
+    "semiTransparent": "아이콘을 반투명하게",
+    "transparent": "아이콘을 투명하게",
+    "wrongValue": "값은 0부터 1 사이여야 합니다!"
+  },
+  "opaque": "불투명",
+  "outdatedVersion": "이 명령을 쓰려면 VS Code를 업데이트해야 합니다.",
+  "plusMinus": "더하기/빼기",
+  "readChangelog": "변경 내역 보기",
+  "reload": "다시 시작",
+  "saturation": {
+    "desaturated": "아이콘 채도 낮추기 (약 70%)",
+    "grayscale": "아이콘을 흑백으로 (채도 0%)",
+    "inputPlaceholder": "채도 값 (0부터 1 사이)",
+    "vivid": "아이콘을 선명하게 (채도 100%)",
+    "wrongValue": "값은 0부터 1 사이여야 합니다!"
+  },
+  "selectOpacity": "불투명도 선택",
+  "selectSaturation": "채도 선택",
+  "semiTransparent": "반투명",
+  "specific": "폴더별",
+  "themeMixer": {
+    "add": "추가",
+    "addLayer": "층 추가",
+    "applying": "적용 중…",
+    "byName": "이름별 지정",
+    "byNameHint": "파일 이름, 확장자(*.ext), 폴더(name/)의 아이콘을 가져올 테마입니다. 층보다 우선합니다. 미리보기에서 아이콘을 눌러도 지정됩니다.",
+    "defaultSamples": "기본 이름",
+    "files": "파일",
+    "folders": "폴더",
+    "inactive": "지금 파일 아이콘 테마가 Atom Material Icons가 아닙니다. 결과 열은 이 테마를 선택했을 때의 모습입니다(기본 설정: 파일 아이콘 테마).",
+    "layers": "층",
+    "layersHint": "Atom Material Icons와 섞을, 설치된 다른 아이콘 테마입니다. 채우기: Atom에 아이콘이 없는 이름에만. 덮어쓰기: 그 테마에 아이콘이 있는 모든 이름에. 위에 있는 층이 우선합니다.",
+    "modeFill": "채우기",
+    "modeOff": "끔",
+    "modeOverride": "덮어쓰기",
+    "moveDown": "아래로",
+    "moveUp": "위로",
+    "name": "이름",
+    "namePlaceholder": "index.html, *.md, docs/",
+    "noByName": "따로 지정한 이름이 없습니다.",
+    "noLayers": "섞은 테마가 없습니다. Atom Material Icons만 씁니다.",
+    "noThemes": "설치된 다른 파일 아이콘 테마가 없습니다.",
+    "notInstalled": "설치 안 됨",
+    "pin": "이 아이콘 쓰기",
+    "preview": "미리보기",
+    "previewHint": "결과: 탐색기에 보이는 아이콘. 다른 열: 설치된 테마별 아이콘. 누르면 그 이름에 그 아이콘을 쓰고, 다시 누르면 해제합니다.",
+    "remove": "삭제",
+    "result": "결과",
+    "samples": "미리볼 이름",
+    "samplesHint": "한 줄에 하나씩, 폴더는 /로 끝납니다.",
+    "title": "아이콘 테마 섞기",
+    "unpin": "이 아이콘 그만 쓰기",
+    "updateSamples": "적용",
+    "workspaceSamples": "이 작업 영역의 이름"
+  },
+  "themeInstalled": "Atom Material Icons가 설치되었습니다.",
+  "themeUpdated": "Atom Material Icons가 업데이트되었습니다.",
+  "toggleSwitch": {
+    "off": "끔",
+    "on": "켬"
+  },
+  "transparent": "투명",
+  "triangle": "삼각형",
+  "updateVSCode": "VS Code 업데이트",
+  "vivid": "선명한 색"
+}
