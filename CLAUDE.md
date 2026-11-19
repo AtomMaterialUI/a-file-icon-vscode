@@ -1,8 +1,18 @@
 # a-file-icon-vscode — Claude Code 작업 메모
 
-`AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons)의 포크. 원본은 2025-01 이후 방치됐고,
-목표는 JetBrains 마켓의 Atom Material Icons(`AtomMaterialUI/a-file-icon-idea`) 수준까지 따라잡는 것.
-진행 상황·다음 단계는 메모리(`project-status`)에 있다.
+`AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 이름 "Cool Icon"
+(`woogajjangka.cool-icon-vscode`).
+
+## 방향 (2026-11-19 전면 수정)
+- **JetBrains(PyCharm New UI, Islands) 모양의 기본 테마 묶음**을 VS Code 에 준다: 파일 아이콘(지금 것), 색 테마
+  (Islands Dark/Light), 제품 아이콘(New UI), 폰트 기본값. 기준은 사용자 PyCharm 화면이다.
+- VS Code 는 종류마다 테마를 하나만 고를 수 있다 → **JetBrains 기본 위에 다른 설치된 테마를 우선순위·예외로 얹는다**
+  (파일 아이콘의 `iconThemeLayers`·`iconThemeByName` 과 같은 규칙을 색·제품 아이콘에도). 섞은 결과는 테마 파일을 다시
+  써서 반영하고, VS Code 가 다시 읽지 않는 것(색·제품 아이콘)은 창 다시 로드를 권한다.
+- 폰트: 사용자가 지정하지 않은 곳만 `configurationDefaults` 로 JetBrains 글꼴(JetBrains Mono, UI 쪽은 Inter) + 한글 대체 글꼴.
+  VS Code 화면(UI) 글꼴은 확장이 못 바꾼다.
+- 한국어 호환이 중요하다: 사용자 글꼴 `'Roboto Mono', 'D2Coding', monospace` 로 한글 이름·주석·화면 문구가 깨지지 않는지 확인.
+- 단계별 로드맵은 포크 이슈 #19~#23, 진행 상황은 메모리(`project-status`).
 
 ## 환경 (Node·bun 은 conda env)
 - conda env `a-file-icon-vscode` = Node 24 + bun 1.4 (`environment.yml`). 이 PC 에는 시스템 Node 가 없다.
@@ -11,6 +21,7 @@
   - Git Bash: `E=/c/Users/siwon/miniconda3/envs/a-file-icon-vscode; export PATH="$E:$E/Library/bin:$PATH"`
   - PowerShell: `conda run -n a-file-icon-vscode --no-capture-output bun run build`
 - 처음 한 번: `git submodule update --init` → `PUPPETEER_SKIP_DOWNLOAD=1 bun install` (puppeteer 의 Chrome 다운로드 생략).
+  잠금 파일은 텍스트 `bun.lock`(2026-11-19 `bun.lockb` 에서 변환, Dependabot `bun` 이 읽는 형식).
 - `conda.bat` 인자에 `>=` 를 쓰면 cmd 가 리다이렉트로 읽어 파일이 생긴다. 버전 조건은 `=` 로 쓴다.
 
 ## 명령
@@ -81,4 +92,8 @@
 
 ## git
 - remote: `origin` = 포크 `WoogaJJangka/a-file-icon-vscode`, `upstream` = 원본. 작업 브랜치는 같은 이름의 origin 브랜치를 추적.
-- 이슈 번호(#74 등)는 원본 저장소 것. 포크에서는 링크되지 않는다.
+  머지된 PR 의 브랜치는 GitHub 가 자동으로 지운다(저장소 설정) → 로컬에서도 `git fetch --prune` 후 `git branch -d`.
+- 이 문서·코드 주석의 #74·#71·#70·#67 같은 번호는 원본 저장소 이슈다. 포크 이슈는 #17 부터(로드맵 #19~#23).
+- 의존성 갱신은 `.github/dependabot.yml`(Actions 매주, bun 매월 묶음). 원본의 Renovate·semantic-release·techstack 설정은 지웠다.
+- `.idea/` 는 추적하지 않는다(D:\dev 규칙). `.vscode/{launch,tasks,extensions}.json`·`settings.json` 은 확장 실행·디버그에
+  쓰여서 예외로 커밋한다.

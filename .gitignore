@@ -6,6 +6,11 @@ node_modules
 .vscode-test/**
 *.vsix
 
+# IDE and local Claude Code files (.vscode/launch.json, tasks.json and extensions.json stay: they run the extension)
+.idea/
+.claude/settings.local.json
+.claude/worktrees/
+
 productIcons/folder.svg
 productIcons/folder-open.svg
 productIcons/folder-root.svg
