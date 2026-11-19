@@ -5,11 +5,12 @@ import { EXTENSION_ID } from 'src/helpers/constants';
 import { getExtensionPath } from 'src/helpers/vscodeUtils';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
+import { offerReload } from 'src/services/reloadNotice';
 import { kindOfUiTheme, normalizeColorByKey, normalizeColorLayers, usedColorThemeIds } from 'src/themes/colorLayers';
 import { ColorThemeGenerator } from 'src/themes/ColorThemeGenerator';
 import { THEMES_FOLDER } from 'src/themes/colorThemes';
 import { readColorTheme } from 'src/themes/readColorTheme';
-import { commands, extensions, window, workspace } from 'vscode';
+import { extensions, workspace } from 'vscode';
 
 import type { ColorMix } from 'src/themes/ColorThemeGenerator';
 import type { ColorThemeData, ThemeKind } from 'src/themes/colorLayers';
@@ -71,9 +72,6 @@ export const listColorThemes = (): InstalledColorTheme[] => {
  * reload the window when the selected color theme changed (VS Code reads a color theme again only then).
  */
 export class ColorThemeService {
-  /** A reload notice is open */
-  private asking = false;
-
   /** The files of the color themes the settings mix in, to regenerate when one changes */
   watchedPaths(): string[] {
     const ids = new Set(usedColorThemeIds(configService.colorThemeLayers, configService.colorThemeByKey));
@@ -125,14 +123,7 @@ export class ColorThemeService {
     logger.info(`Color themes written: ${written.join(', ')}`);
 
     const selected = workspace.getConfiguration('workbench').get<string>('colorTheme');
-    // one notice at a time while the settings are being edited
-    if (!selected || !written.includes(selected) || !configService.showReloadMessage || this.asking) return;
-    this.asking = true;
-    const reload = { title: i18next.t('colors.reloadWindow') };
-    window.showInformationMessage(i18next.t('colors.reload', { theme: selected }), reload).then((action) => {
-      this.asking = false;
-      if (action === reload) commands.executeCommand('workbench.action.reloadWindow');
-    });
+    if (selected && written.includes(selected)) offerReload(i18next.t('colors.reload', { theme: selected }));
   }
 }
 

@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: **Cool Islands Icons** product icon theme: the JetBrains New UI icons (tool windows, tree arrows, editor and panel
+  actions, find, problems, run and debug, source control, symbols), built into a font by `bun run build:product-icons`
+- feat: mix other product icon themes into Cool Islands Icons: `productIconThemeLayers` (`fill` / `override` / `off`,
+  Cool Material Icons included) and `productIconByName` (icon ids or globs), with a Product icons tab in the Mix Themes
+  page and a reload notification
+
 - feat: mix other installed color themes into Cool Islands: `colorThemeLayers` (`fill` / `override` / `off` for the
   workbench colors and the syntax colors separately, into the Cool Islands theme of the same kind or `applyTo`) and
   `colorThemeByKey` (single color ids or globs, `scope:` TextMate scopes and `semantic:` selectors from a theme). A

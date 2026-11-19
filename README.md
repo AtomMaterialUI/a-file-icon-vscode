@@ -24,7 +24,7 @@ Korean coding fonts such as D2Coding.
 |---------------|-----------------------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
 | File icons    | **Cool Icons**                          | Atom Material Icons, as PyCharm shows them         | Available, with other icon themes [mixed in](#mixing-icon-themes)                    |
 | Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), with other color themes [mixed in](#mixing-color-themes) |
-| Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | Planned ([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23))       |
+| Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | [Available](#product-theme), with other product icon themes [mixed in](#mixing-product-icon-themes) |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
 | Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | [Available](#fonts-and-korean)                                                       |
 
@@ -412,15 +412,47 @@ the icons and one for the colors.
   the workbench and the syntax and the Cool Islands theme they mix into, and give single keys their own theme. Its
   preview shows workbench colors and a line of Python with Korean text in the result, in Cool Islands alone and in each
   theme mixed in.
+- **Product icons**: add, order and remove the product icon layers and give single icons their own theme, with a
+  preview of common workbench icons in the result, in Cool Islands Icons alone and in each theme mixed in.
 
 ----
 
 ## Product Theme
 
-**Cool Material Icons** (**Preferences: Product Icon Theme**) replaces the icons of the VS Code interface with the
-Material Design Icons of the original extension. Its arrows follow the [arrow style](#arrow-styles) setting.
-**Cool Islands Icons**, with the JetBrains New UI icons, is planned
-([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23)).
+Two product icon themes replace the icons of the VS Code interface (**Preferences: Product Icon Theme**):
+
+- **Cool Islands Icons**: the icons of the JetBrains New UI, as PyCharm shows them: the tool window buttons (Project,
+  Find, Commit, Debug, Plugins…), the arrows of the trees, the editor and panel actions, find options, problems,
+  run and debug, source control, and the symbols of the outline. The icons VS Code has no New UI equivalent for keep
+  the VS Code icon. The font is built from the New UI SVGs of
+  [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community) (`bun run build:product-icons`): each
+  icon is turned into a one-color glyph, as VS Code draws product icons with the color of the theme.
+- **Cool Material Icons**: the Material Design Icons of the original extension. Its arrows follow the
+  [arrow style](#arrow-styles) setting.
+
+### Mixing product icon themes
+
+Other installed product icon themes can be mixed into Cool Islands Icons, given by their id (the value of
+`workbench.productIconTheme`), Cool Material Icons included:
+
+```json
+{
+  "a-file-icon-vscode.productIconThemeLayers": [
+    "a-file-icon-vscode-product-icon-theme",
+    { "theme": "fluent-icons", "mode": "override" }
+  ],
+  "a-file-icon-vscode.productIconByName": {
+    "debug-*": "fluent-icons"
+  }
+}
+```
+
+A layer is `fill` (a plain id: only the icons Cool Islands Icons has none for), `override` (every icon the theme has) or
+`off`. `productIconByName` gives icon ids, or globs of them, the icon of a theme. From the strongest to the weakest:
+`productIconByName` > the `override` layers (the first listed wins) > Cool Islands Icons > the `fill` layers (the first
+listed wins). The fonts of the other themes are copied into this extension's folder. When Cool Islands Icons is the
+selected product icon theme and its icons change, a notification offers to reload the window. The Product icons tab of
+the [Mix Themes page](#mix-themes-page) edits both settings with a preview.
 
 ![prodIcon.png](./docs/prodIcon.png)
 

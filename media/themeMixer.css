@@ -291,3 +291,10 @@ summary {
 .pending .preview.colors {
   opacity: 0.5;
 }
+
+/* Product icons: glyphs of a product icon font, at the size VS Code draws them */
+.icon.glyph.product {
+  width: 18px;
+  height: 18px;
+  font-size: 16px;
+}

@@ -1,4 +1,5 @@
 import type { IconAssociations } from './associations';
+import type { ProductIconLayer } from 'src/productIcons/productIconLayers';
 import type { ColorThemeLayer } from 'src/themes/colorLayers';
 
 export enum IconPack {
@@ -61,6 +62,10 @@ export type AtomConfig = {
   monochrome: boolean,
   monochromeColor: string,
   opacity: number,
+  /** icon id or glob -> id of the installed product icon theme giving its icon (not an icon setting) */
+  productIconByName?: Record<string, string>,
+  /** other installed product icon themes mixed with Cool Islands Icons, the first listed wins (not an icon setting) */
+  productIconThemeLayers: ProductIconLayer[],
   saturation: number,
   /** suggest installing the fonts of the default editor font when they are missing */
   showFontMessage: boolean,

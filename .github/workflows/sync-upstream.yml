@@ -51,6 +51,9 @@ jobs:
       - name: Sync color themes 🎨
         run: bun run sync:colors -- --latest
 
+      - name: Build product icons 🖼
+        run: bun run build:product-icons
+
       # the pull request is only opened if everything still builds
       - name: Build + test ⚒
         run: |
@@ -68,6 +71,7 @@ jobs:
             src/icons/files/upstream.ts
             src/icons/folders/upstream.ts
             themes
+            productIcons
           commit-message: 'chore(icons): sync iconGenerator (${{ steps.submodule.outputs.commit }}) and JetBrains colors'
           title: 'chore: sync icons and colors from JetBrains'
           body: |

@@ -6,8 +6,13 @@ import { normalizeByName, normalizeLayers, parseNameKey, serializeLayers } from 
 import { ThemePreview } from 'src/helpers/themePreview';
 import { getExtensionPath, getLanguageLookup, listIconThemes } from 'src/helpers/vscodeUtils';
 import { colorMixerState } from 'src/panels/colorMixerState';
+import { productMixerState } from 'src/panels/productMixerState';
+import { ISLANDS_PRODUCT_THEME_ID } from 'src/productIcons/islandsProductTheme';
+import { ProductIconGenerator } from 'src/productIcons/ProductIconGenerator';
+import { normalizeProductByName, normalizeProductLayers, serializeProductLayers } from 'src/productIcons/productIconLayers';
 import { colorThemeService, listColorThemes } from 'src/services/ColorThemeService';
 import { configService } from 'src/services/ConfigService';
+import { listProductThemes, productIconService } from 'src/services/ProductIconService';
 import { logger } from 'src/services/LoggingService';
 import { normalizeColorLayers, parseColorKey, serializeColorLayers } from 'src/themes/colorLayers';
 import { ColorThemeGenerator, kindOf } from 'src/themes/ColorThemeGenerator';
@@ -49,7 +54,7 @@ const DEFAULT_SAMPLES = [
   'node_modules/',
 ];
 
-type MixerTab = 'colors' | 'icons';
+type MixerTab = 'colors' | 'icons' | 'product';
 
 /** An icon as the webview draws it */
 type ViewIcon =
@@ -60,7 +65,8 @@ type ViewIcon =
 type ViewMessage =
   | { byKey: unknown; type: 'colorByKey' }
   | { byName: unknown; type: 'byName' }
-  | { layers: unknown; type: 'colorLayers' | 'layers' }
+  | { byName: unknown; type: 'productByName' }
+  | { layers: unknown; type: 'colorLayers' | 'layers' | 'productLayers' }
   | { samples: unknown; type: 'samples' }
   | { type: 'defaultSamples' | 'ready' | 'workspaceSamples' };
 
@@ -90,9 +96,22 @@ const TRANSLATED = [
   'noColorByKey',
   'noColorLayers',
   'noColorThemes',
+  'noProductByName',
+  'noProductLayers',
+  'noProductThemes',
+  'productByName',
+  'productByNameHint',
+  'productInactive',
+  'productKeyPlaceholder',
+  'productLayers',
+  'productLayersHint',
+  'productPreview',
+  'productPreviewHint',
+  'vscodeIcon',
   'syntax',
   'tabColors',
   'tabIcons',
+  'tabProduct',
   'ui',
   'files',
   'folders',
@@ -184,7 +203,11 @@ export class ThemeMixerPanel {
 
   /** The folders the page may load icons and fonts from: this extension and the extensions of the other themes */
   private static resourceRoots(): Uri[] {
-    const paths = new Set([getExtensionPath(), ...listIconThemes().map((theme) => theme.extensionPath)]);
+    const paths = new Set([
+      getExtensionPath(),
+      ...listIconThemes().map((theme) => theme.extensionPath),
+      ...listProductThemes().map((theme) => theme.extensionPath),
+    ]);
     return [...paths].filter(Boolean).map((path) => Uri.file(path));
   }
 
@@ -224,6 +247,22 @@ export class ThemeMixerPanel {
         case 'colorLayers': {
           const layers = normalizeColorLayers(Array.isArray(message.layers) ? message.layers : []);
           configService.setConfigValueWhereDefined('colorThemeLayers', serializeColorLayers(layers), ConfigurationTarget.Global);
+          break;
+        }
+        case 'productLayers': {
+          const layers = normalizeProductLayers(Array.isArray(message.layers) ? message.layers : []);
+          configService.setConfigValueWhereDefined('productIconThemeLayers', serializeProductLayers(layers), ConfigurationTarget.Global);
+          break;
+        }
+        case 'productByName': {
+          const byName: Record<string, string> = {};
+          for (const entry of (Array.isArray(message.byName) ? message.byName : []) as Array<Record<string, unknown> | undefined>) {
+            const key = typeof entry?.key === 'string' ? entry.key.trim() : '';
+            const theme = typeof entry?.theme === 'string' ? entry.theme.trim() : '';
+            if (key && theme) byName[key] = theme;
+          }
+          const valid = normalizeProductByName(byName).map((entry) => [entry.key, entry.theme]);
+          configService.setConfigValueWhereDefined('productIconByName', valid.length > 0 ? Object.fromEntries(valid) : undefined, ConfigurationTarget.Global);
           break;
         }
         case 'colorByKey': {
@@ -372,6 +411,17 @@ export class ThemeMixerPanel {
       mix: colorThemeService.mix(),
     });
 
+    const product = productMixerState({
+      byName: configService.productIconByName,
+      distPath: join(extensionPath, 'dist'),
+      generator: new ProductIconGenerator({ dist: join(extensionPath, 'dist'), productIcons: join(extensionPath, 'productIcons') }),
+      installed: listProductThemes(),
+      labels: { base: 'Cool Islands Icons', result: i18next.t('themeMixer.result') },
+      layers: configService.productIconThemeLayers,
+      mix: productIconService.mix(),
+    });
+    for (const font of product.fonts) fonts.set(font.key, font);
+
     return {
       active: configService.iconTheme === EXTENSION_KEY,
       byName,
@@ -385,6 +435,8 @@ export class ThemeMixerPanel {
         weight: font.weight,
       })),
       layers: layers.map((layer) => ({ ...layer, installed: installed(layer.theme), label: label(layer.theme) })),
+      product: { ...product, fonts: undefined },
+      productActive: workspace.getConfiguration('workbench').get<string>('productIconTheme') === ISLANDS_PRODUCT_THEME_ID,
       rows,
       samples: this.samples(),
       strings: Object.fromEntries(TRANSLATED.map((key) => [key, i18next.t(`themeMixer.${key}`)])),

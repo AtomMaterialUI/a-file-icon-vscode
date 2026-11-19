@@ -2,8 +2,8 @@
 
 `AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme"
 (확장 ID `woogajjangka.cool-icon-vscode`, 2026-11-19 에 "Cool Icon" 에서 바꿈).
-- 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme", 파일 아이콘 테마 = "Cool Icons", 제품 아이콘 = "Cool Material Icons"
-  (예정: 색 "Cool Islands Dark/Light", 제품 아이콘 "Cool Islands Icons"). 테마 id·설정 id 는 바꾸지 않는다(사용자 설정이 가리킴).
+- 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme", 파일 아이콘 테마 = "Cool Icons", 색 = "Cool Islands Dark/Light",
+  제품 아이콘 = "Cool Islands Icons"(id `cool-islands-product-icons`)·"Cool Material Icons". 테마 id·설정 id 는 바꾸지 않는다(사용자 설정이 가리킴).
   `test/unit/packageIdentity.test.ts` 가 지킨다. 한국어 조사는 읽는 소리 기준: "Cool Theme이/과", "Cool Icons가/와".
 
 ## 방향 (2026-11-19 전면 수정)
@@ -35,6 +35,7 @@
 | lint (`vsce package` 가 먼저 돌림, 0 errors 유지) | `bun run lint` |
 | JetBrains 연결 규칙 동기화 | `bun run sync:upstream` |
 | JetBrains 색 테마 동기화 (고정 커밋 / 최신) | `bun run sync:colors` / `bun run sync:colors -- --latest` |
+| New UI 제품 아이콘 글꼴 만들기 (확인용 그림 포함) | `bun run build:product-icons` (`-- --sheet <png>`) |
 | VSIX 만들기 | `npx --yes @vscode/vsce@3.6.0 package --no-dependencies --allow-missing-repository --skip-license -o <경로>.vsix` |
 
 - `tsc --noEmit` 의 `@types/lodash` ↔ TS lib `WeakMap` 오류 4개는 원래 있던 것. 그 밖의 오류만 본다.
@@ -105,6 +106,15 @@
   (VS Code 1.147 기본 테마 id 는 "Dark Modern" 처럼 "Default" 없이). JSONC 는 `jsonc-parser` 대신 자체 `stripJsonComments`
   (jsonc-parser 의 UMD 빌드는 esbuild 번들에서 깨짐). 섞기 화면은 아이콘/색 탭(`openColorMixer` 명령은 색 탭으로 연다),
   색 탭 상태는 `panels/colorMixerState.ts`. 격리 확인에서 탭 전환은 클릭 대신 이 명령으로.
+- 제품 아이콘(Cool Islands Icons, `src/productIcons/`): `jetbrainsMap.ts`(VS Code 아이콘 id → New UI SVG, 손으로 관리, 폴더 없는 경로는
+  `platform/icons/src/expui/`, 플러그인 것은 전체 경로)로 `buildJetbrainsFont.ts` 가 고정 커밋(`themes/jetbrains-source.json`)의 SVG 를
+  받아 흑백으로 바꾸고(진한 색 검정, 흰색·밝은 채움은 구멍) resvg 로 그린 뒤 potrace 로 따서 `webfont` 로 글꼴을 만든다
+  (`productIcons/cool-islands-icons.woff`·`cool-islands-product-icon-theme.json`, 생성물·**손대지 않는다**, ttf ts=0 이라 같은 입력이면 같은 파일).
+  svg-fixer 는 그리기 전에 채움을 검정으로 덮어 흰 구멍이 사라져서 쓰지 않는다. 매핑에 없는 id 는 VS Code 코디콘.
+  New UI 이름 대응은 `platform/icons/src/PlatformIconMappings.json` 이 참고가 된다(예: 브랜치 = `general/vcs`).
+  섞기: `productIconThemeLayers`(fill/override/off)·`productIconByName`(id glob), 우선순위는 색·아이콘과 같다. 다른 테마 글꼴은
+  `dist/layers/product/<테마>/` 로 복사하고 글리프마다 `fontId`(Islands 글꼴이 첫 번째라 fontId 없는 정의는 Islands). Cool Material Icons 도
+  층으로 고를 수 있다. 화살표 스타일(`arrowTheme`)은 Material 테마에만 적용. 섞기 화면 제품 아이콘 탭(`openThemeMixer` 에 'product' 인자).
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은
   `package.json` 기본값과 `getDefaultConfig` 를 같이 고친다.
 - dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67).

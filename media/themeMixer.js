@@ -39,7 +39,7 @@
   let pendingTimer = 0;
 
   const send = (/** @type {any} */ message) => {
-    if (['byName', 'colorByKey', 'colorLayers', 'layers'].includes(message.type)) {
+    if (['byName', 'colorByKey', 'colorLayers', 'layers', 'productByName', 'productLayers'].includes(message.type)) {
       document.body.classList.add('pending');
       clearTimeout(pendingTimer);
       pendingTimer = setTimeout(() => document.body.classList.remove('pending'), 30_000);
@@ -426,15 +426,135 @@
     ]);
   };
 
+  // ---------------------------------------------------------------- Product icons tab
+
+  const PRODUCT_MODES = ['fill', 'override', 'off'];
+
+  const productLabel = (/** @type {string} */ id) => {
+    const theme = state.product.themes.find((/** @type {any} */ item) => item.id === id);
+    return theme ? theme.label : id;
+  };
+
+  /**
+   * @param {string} selected
+   * @param {string[]} exclude
+   */
+  const productThemeSelect = (selected, exclude = []) => {
+    const ids = state.product.themes.map((/** @type {any} */ theme) => theme.id).filter((/** @type {string} */ id) => !exclude.includes(id));
+    if (selected && !ids.includes(selected)) ids.unshift(selected);
+    return /** @type {HTMLSelectElement} */ (
+      h('select', {}, ids.map((/** @type {string} */ id) => h('option', { selected: id === selected, text: productLabel(id), value: id })))
+    );
+  };
+
+  const sendProductLayers = () =>
+    send({ layers: state.product.layers.map((/** @type {any} */ l) => ({ mode: l.mode, theme: l.theme })), type: 'productLayers' });
+  const sendProductByName = () => send({ byName: state.product.byName, type: 'productByName' });
+
+  const productLayersSection = () => {
+    const layers = state.product.layers;
+    const rows = layers.map((/** @type {any} */ layer, /** @type {number} */ index) =>
+      h('tr', {}, [
+        h('td', {}, [h('span', { text: layer.label }), !layer.installed && h('span', { className: 'badge', text: t('notInstalled') })]),
+        h('td', {}, [
+          h(
+            'select',
+            { onChange: (/** @type {Event} */ event) => { layer.mode = /** @type {HTMLSelectElement} */ (event.target).value; sendProductLayers(); } },
+            PRODUCT_MODES.map((mode) => h('option', { selected: mode === layer.mode, text: t(`mode${mode[0].toUpperCase()}${mode.slice(1)}`), value: mode })),
+          ),
+        ]),
+        h('td', { className: 'actions' }, [
+          button('↑', () => { const [item] = layers.splice(index, 1); layers.splice(index - 1, 0, item); render(); sendProductLayers(); }, { disabled: index === 0, title: t('moveUp') }),
+          button('↓', () => { const [item] = layers.splice(index, 1); layers.splice(index + 1, 0, item); render(); sendProductLayers(); }, { disabled: index === layers.length - 1, title: t('moveDown') }),
+          button('✕', () => { layers.splice(index, 1); render(); sendProductLayers(); }, { title: t('remove') }),
+        ]),
+      ]),
+    );
+    const used = layers.map((/** @type {any} */ layer) => layer.theme);
+    const available = state.product.themes.filter((/** @type {any} */ theme) => !used.includes(theme.id));
+    const select = available.length > 0 ? productThemeSelect(available[0].id, used) : undefined;
+
+    return h('section', {}, [
+      h('h2', { text: t('productLayers') }),
+      h('p', { className: 'hint', text: t('productLayersHint') }),
+      layers.length > 0 ? h('table', { className: 'layers' }, [h('tbody', {}, rows)]) : h('p', { className: 'empty', text: t('noProductLayers') }),
+      select
+        ? h('div', { className: 'add' }, [
+          select,
+          button(t('addLayer'), () => {
+            layers.push({ installed: true, label: productLabel(select.value), mode: 'fill', theme: select.value });
+            render();
+            sendProductLayers();
+          }),
+        ])
+        : state.product.themes.length === 0 && h('p', { className: 'empty', text: t('noProductThemes') }),
+    ]);
+  };
+
+  const productByNameSection = () => {
+    const entries = state.product.byName;
+    const rows = entries.map((/** @type {any} */ entry, /** @type {number} */ index) => {
+      const select = productThemeSelect(entry.theme);
+      select.addEventListener('change', () => { entry.theme = select.value; sendProductByName(); });
+      return h('tr', {}, [
+        h('td', {}, [h('code', { text: entry.key })]),
+        h('td', {}, [select]),
+        h('td', { className: 'actions' }, [button('✕', () => { entries.splice(index, 1); render(); sendProductByName(); }, { title: t('remove') })]),
+      ]);
+    });
+    const input = /** @type {HTMLInputElement} */ (h('input', { placeholder: t('productKeyPlaceholder'), type: 'text' }));
+    const select = state.product.themes.length > 0 ? productThemeSelect(state.product.themes[0].id) : undefined;
+    const add = () => {
+      const key = input.value.trim();
+      if (!key || !select) return;
+      state.product.byName = entries.filter((/** @type {any} */ entry) => entry.key !== key);
+      state.product.byName.push({ key, theme: select.value });
+      render();
+      sendProductByName();
+    };
+    input.addEventListener('keydown', (event) => { if (event.key === 'Enter') add(); });
+
+    return h('section', {}, [
+      h('h2', { text: t('productByName') }),
+      h('p', { className: 'hint', text: t('productByNameHint') }),
+      entries.length > 0 ? h('table', { className: 'by-name' }, [h('tbody', {}, rows)]) : h('p', { className: 'empty', text: t('noProductByName') }),
+      select && h('div', { className: 'add' }, [input, select, button(t('add'), add)]),
+    ]);
+  };
+
+  const productPreviewSection = () => {
+    const columns = state.product.columns;
+    const head = h('tr', {}, [h('th', { text: '' }), ...columns.map((/** @type {any} */ column) => h('th', { className: column.id === 'result' ? 'result' : undefined, text: column.label }))]);
+    const rows = state.product.icons.map((/** @type {string} */ icon) =>
+      h('tr', {}, [
+        h('td', { className: 'name' }, [h('code', { text: icon })]),
+        ...columns.map((/** @type {any} */ column) => {
+          const glyph = column.glyphs[icon];
+          const cell = glyph
+            ? h('span', { className: 'icon glyph product', text: glyph.character })
+            : h('span', { className: 'icon none', text: '–', title: t('vscodeIcon') });
+          if (glyph) cell.style.fontFamily = `"afi-${glyph.font}"`;
+          return h('td', { className: column.id === 'result' ? 'result' : undefined }, [cell]);
+        }),
+      ]),
+    );
+    return h('section', {}, [
+      h('h2', { text: t('productPreview') }),
+      h('p', { className: 'hint', text: t('productPreviewHint') }),
+      h('div', { className: 'table-scroll' }, [h('table', { className: 'preview' }, [h('thead', {}, [head]), h('tbody', {}, rows)])]),
+    ]);
+  };
+
   // ---------------------------------------------------------------- Page
 
-  /** @type {'colors' | 'icons'} */
+  /** @type {'colors' | 'icons' | 'product'} */
   let tab = (vscode.getState() && vscode.getState().tab) || 'icons';
 
   const tabs = () =>
     h('div', { className: 'tabs', role: 'tablist' }, [
       ['icons', 'tabIcons'],
       ['colors', 'tabColors'],
+      ['product', 'tabProduct'],
     ].map(([id, key]) =>
       h('button', {
         'aria-selected': String(tab === id),
@@ -448,15 +568,23 @@
 
   const render = () => {
     const open = app.querySelector('details')?.open;
-    const children = tab === 'colors'
-      ? [
-        h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]),
-        tabs(),
+    const title = h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]);
+    const pages = {
+      colors: () => [
         state.colorActive ? undefined : h('p', { className: 'warning', text: t('colorInactive') }),
         colorLayersSection(),
         colorByKeySection(),
         colorPreviewSection(),
-      ]
+      ],
+      product: () => [
+        state.productActive ? undefined : h('p', { className: 'warning', text: t('productInactive') }),
+        productLayersSection(),
+        productByNameSection(),
+        productPreviewSection(),
+      ],
+    };
+    const children = tab === 'colors' || tab === 'product'
+      ? [title, tabs(), ...pages[tab]()]
       : [
         h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]),
         tabs(),
@@ -479,7 +607,7 @@
 
   window.addEventListener('message', (event) => {
     const message = event.data;
-    if (message?.type === 'tab' && (message.tab === 'colors' || message.tab === 'icons')) {
+    if (message?.type === 'tab' && ['colors', 'icons', 'product'].includes(message.tab)) {
       tab = message.tab;
       vscode.setState({ tab });
       if (state) render();

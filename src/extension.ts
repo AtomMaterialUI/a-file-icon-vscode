@@ -8,6 +8,7 @@ import { colorThemeService } from 'src/services/ColorThemeService';
 import { configService } from 'src/services/ConfigService';
 import { fontCheckService } from 'src/services/FontCheckService';
 import { logger } from 'src/services/LoggingService';
+import { productIconService } from 'src/services/ProductIconService';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
 import { updatesService } from 'src/services/UpdatesService';
@@ -31,6 +32,7 @@ const regenerateTheme = () => {
   }
   try {
     colorThemeService.regenerate();
+    productIconService.regenerate();
   } catch (error) {
     logger.error(String(error));
     window.showErrorMessage(`Cool Theme: ${error instanceof Error ? error.message : String(error)}`);
@@ -46,7 +48,7 @@ const regenerateTheme = () => {
  * Polling the modification time works the same on every platform, unlike fs.watch.
  */
 const watchLayerThemes = () => {
-  const paths = new Set([...findLayerThemes(configService.getIconSettings()).map((theme) => theme.path), ...colorThemeService.watchedPaths()]);
+  const paths = new Set([...findLayerThemes(configService.getIconSettings()).map((theme) => theme.path), ...colorThemeService.watchedPaths(), ...productIconService.watchedPaths()]);
 
   for (const path of watchedThemes) {
     if (paths.has(path)) continue;
