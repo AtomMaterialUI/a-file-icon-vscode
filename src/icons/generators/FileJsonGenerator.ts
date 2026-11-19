@@ -9,6 +9,7 @@ import {
   WILDCARD_PATTERN,
 } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
+import { normalizeName } from 'src/helpers/utils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { upstreamFiles } from 'src/icons/files/upstream';
 import { fileIcons } from 'src/icons/index';
@@ -135,7 +136,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
       // a custom SVG that does not exist would point to a missing file
       .filter(([, value]) => !isCustomIconPath(value) || findCustomIcon(value))
       .map(([key, value]) => {
-        const pattern = key.toLowerCase();
+        const pattern = normalizeName(key);
         const name = isCustomIconPath(value) ? getCustomIconName(value) : this.resolveFileIconName(value);
         // reuse the light/high contrast variants of the built-in icon, if any
         const builtIn = fileIcons.icons.find((icon) => icon.name === name);
@@ -180,7 +181,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     if (!fileAssoc.fileExtensions) return;
 
     // VS Code lowercases the keys: two spellings of a key would be two entries, one silently overriding the other
-    for (const fileExtension of fileAssoc.fileExtensions.map((key) => key.toLowerCase())) {
+    for (const fileExtension of fileAssoc.fileExtensions.map((key) => normalizeName(key))) {
       // Skip the association if there is a custom assoc
       if (this.shouldOverwriteFileNames(fileExtension)) continue;
 
@@ -231,7 +232,7 @@ export class FileJsonGenerator extends AbstractJsonGenerator {
     // Make sure we have the file names...
     if (!fileAssoc.fileNames) return;
 
-    for (const fileName of fileAssoc.fileNames.map((key) => key.toLowerCase())) {
+    for (const fileName of fileAssoc.fileNames.map((key) => normalizeName(key))) {
       // Skip the association if there is a custom assoc
       if (this.shouldOverwriteFileNames(fileName)) continue;
 

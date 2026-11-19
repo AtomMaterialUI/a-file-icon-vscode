@@ -26,7 +26,7 @@ Korean coding fonts such as D2Coding.
 | Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), mixing other color themes planned ([#22](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/22)) |
 | Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | Planned ([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23))       |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
-| Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | Planned ([#21](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/21))       |
+| Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | [Available](#fonts-and-korean)                                                       |
 
 Select them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
 
@@ -51,6 +51,29 @@ which JetBrains color each VS Code color takes:
 - Bracket pairs keep the text color: the JetBrains IDEs do not color them. Turn
   `editor.bracketPairColorization.enabled` off to remove the VS Code setting itself.
 - VS Code cannot draw the rounded islands: the panels get the island color and the space between them the window color.
+
+## Fonts and Korean
+
+Where you have not chosen a font, Cool Theme gives the fonts of the JetBrains IDEs. They are only defaults: a font you
+set in your settings always wins.
+
+| Setting                       | Default given by Cool Theme                                                                                       |
+|-------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| `editor.fontFamily`           | `'JetBrains Mono', 'D2Coding', Consolas, Menlo, 'Droid Sans Mono', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans Mono CJK KR', 'Courier New', monospace` |
+| `markdown.preview.fontFamily` | `Inter, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Ubuntu, 'Droid Sans', sans-serif` |
+
+- VS Code draws each character with the first font of the list that has it: the Korean fonts after JetBrains Mono and
+  Inter draw the Hangul they do not have. D2Coding comes first among them because its Hangul is exactly two columns
+  wide, so Korean text stays aligned.
+- The terminal, the debug console, the inlay hints and the code lens use the editor font, as VS Code does by default.
+- An extension cannot install fonts: when JetBrains Mono is missing (and D2Coding, with a Korean interface), a
+  notification links to their download pages, once (`a-file-icon-vscode.showFontMessage` turns it off).
+- An extension cannot change the font of the VS Code interface (menus, side bar, tabs) either: it stays the font of the
+  system, with Malgun Gothic or Apple SD Gothic Neo for Korean.
+
+Korean is checked in every part: the interface and the settings are translated (a test keeps the translation complete),
+Korean file and folder names in your associations match in any Unicode form (macOS gives decomposed names), and the
+Mix Icon Themes page breaks Korean lines between words.
 
 ## File icon features
 
@@ -464,6 +487,8 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 - **Accent color**: it colors UI icons, and VS Code product icons are a font that takes the color of the theme.
 - **Icon size and row height**, **PSI icons** (icons based on the file content), and icons of the whole IDE UI.
 - Associations based on the parent folder (`tests/*.ts`): VS Code matches only file names and extensions.
+- **Interface font** (Inter in the JetBrains IDEs): VS Code has no setting for it. Cool Theme gives the editor and
+  Markdown preview fonts only.
 
 ----
 

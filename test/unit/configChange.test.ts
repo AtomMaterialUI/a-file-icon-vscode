@@ -100,6 +100,22 @@ describe('ConfigChangeDetector', () => {
     });
   });
 
+  describe('Korean names', () => {
+    it('writes Korean file, extension and folder names in NFC, the form of the names in the explorer', () => {
+      const decomposed = (text: string) => text.normalize('NFD');
+      applySettings({
+        filesAssociations: { [decomposed('*.한글')]: 'typescript', [decomposed('보고서.md')]: 'docker' },
+        foldersAssociations: { [decomposed('도구')]: 'tools' },
+      });
+
+      const theme = readTheme();
+      assert.equal(theme.fileNames?.['보고서.md'], 'docker');
+      assert.equal(theme.fileExtensions?.['한글'], 'typeScript');
+      assert.equal(theme.folderNames?.['도구'], 'folder-tools');
+      assert.equal(theme.fileNames?.[decomposed('보고서.md')], undefined);
+    });
+  });
+
   describe('languagesAssociations', () => {
     it('maps a language id to the chosen icon', () => {
       applySettings({ languagesAssociations: { mylang: 'rust' } });

@@ -99,3 +99,8 @@ export const isValidHexColorCode = (color: string) => {
   const hexPattern = new RegExp(/^#([\dA-Fa-f]{6}|[\dA-Fa-f]{3})$/);
   return color.length > 0 && hexPattern.test(color);
 };
+/**
+ * A file, extension or folder name the way VS Code matches it in an icon theme: lower case, in Unicode NFC, so that a
+ * Korean name typed or pasted in its decomposed form (NFD, the form of macOS file names) matches the explorer's name.
+ */
+export const normalizeName = (name: string): string => name.normalize('NFC').toLowerCase();

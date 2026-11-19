@@ -9,6 +9,7 @@ import {
   RELATIVE_DIST_FOLDERS_OPEN_FOLDER_PATH,
 } from 'src/helpers/constants';
 import { findCustomIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
+import { normalizeName } from 'src/helpers/utils';
 import { getFileConfigHash } from 'src/icons/configUtils';
 import { AbstractJsonGenerator } from 'src/icons/generators/AbstractJsonGenerator';
 import { folderIcons } from 'src/icons/index';
@@ -98,7 +99,7 @@ export class FolderJsonGenerator extends AbstractJsonGenerator {
         const builtIn = folderTheme.icons?.find((icon) => icon.name === name);
 
         return {
-          folderNames: [key.toLowerCase()],
+          folderNames: [normalizeName(key)],
           highContrast: builtIn?.highContrast,
           light: builtIn?.light,
           name,

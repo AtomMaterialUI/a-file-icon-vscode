@@ -1,4 +1,5 @@
 import { EXTENSION_KEY } from 'src/helpers/constants';
+import { normalizeName } from 'src/helpers/utils';
 
 import type { AtomConfig, IconThemeLayer, LayerMode } from 'src/@types/config';
 
@@ -54,7 +55,7 @@ export type NameTarget = { kind: 'extension' | 'file' | 'folder'; name: string }
 
 /** `*.ext` and `**.ext` -> extension, `name/` -> folder, anything else -> file name. Lower case. */
 export const parseNameKey = (key: string): NameTarget | undefined => {
-  const name = key.trim().toLowerCase();
+  const name = normalizeName(key.trim());
   if (/^\*{1,2}\./.test(name)) {
     const extension = name.replace(/^\*{1,2}\./, '');
     return extension ? { kind: 'extension', name: extension } : undefined;

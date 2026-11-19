@@ -36,6 +36,10 @@
     "toggleIcons": "폴더 테마 선택",
     "wrongHexCode": "올바른 HEX 색 코드가 아닙니다!"
   },
+  "fonts": {
+    "get": "{{font}} 받기",
+    "missing": "Cool Theme은 에디터에 JetBrains IDE와 같은 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다."
+  },
   "grayscale": {
     "disable": "단색 아이콘 끄기",
     "enable": "단색 아이콘 켜기",

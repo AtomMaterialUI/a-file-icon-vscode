@@ -288,6 +288,10 @@
         "title": "%command.openThemeMixer%"
       }
     ],
+    "configurationDefaults": {
+      "editor.fontFamily": "'JetBrains Mono', 'D2Coding', Consolas, Menlo, 'Droid Sans Mono', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans Mono CJK KR', 'Courier New', monospace",
+      "markdown.preview.fontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Ubuntu, 'Droid Sans', sans-serif"
+    },
     "configuration": {
       "properties": {
         "a-file-icon-vscode.activeIconPacks": {
@@ -477,6 +481,11 @@
           "maximum": 1,
           "minimum": 0,
           "type": "number"
+        },
+        "a-file-icon-vscode.showFontMessage": {
+          "default": true,
+          "description": "%configuration.showFontMessage%",
+          "type": "boolean"
         },
         "a-file-icon-vscode.showReloadMessage": {
           "default": true,
