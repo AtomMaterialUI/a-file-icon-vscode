@@ -1,6 +1,6 @@
 {
   "activate": "Активувати",
-  "activated": "Atom Material Icons активований.",
+  "activated": "Cool Icon активований.",
   "arrowThemes": {
     "arrow": "Піктограми стрілок",
     "material": "Піктограми Матеріал",
@@ -74,8 +74,8 @@
   "selectSaturation": "Виберіть параметр насиченості",
   "semiTransparent": "Напівпрозорий",
   "specific": "Конкретне",
-  "themeInstalled": "Atom Material Icons був встановлений.",
-  "themeUpdated": "Atom Material Icons був оновлений.",
+  "themeInstalled": "Cool Icon був встановлений.",
+  "themeUpdated": "Cool Icon був оновлений.",
   "toggleSwitch": {
     "off": "Відключити",
     "on": "Включити"

@@ -1,6 +1,6 @@
 {
   "activate": "Habilitar",
-  "activated": "O Atom Material Icons está habilitado.",
+  "activated": "O Cool Icon está habilitado.",
   "arrowThemes": {
     "arrow": "Ícones de flechas",
     "material": "Ícones de Material",
@@ -74,8 +74,8 @@
   "selectSaturation": "Selecione uma opção de saturação",
   "semiTransparent": "Semi-Transparente",
   "specific": "Específicas",
-  "themeInstalled": "O Atom Material Icons foi instalado.",
-  "themeUpdated": "O Atom Material Icons foi atualizado.",
+  "themeInstalled": "O Cool Icon foi instalado.",
+  "themeUpdated": "O Cool Icon foi atualizado.",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

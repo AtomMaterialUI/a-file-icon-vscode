@@ -1,6 +1,6 @@
 {
   "activate": "有効化",
-  "activated": "Atom Material Icons は有効です。",
+  "activated": "Cool Icon は有効です。",
   "arrowThemes": {
     "arrow": "矢印アイコン",
     "material": "マテリアルアイコン",
@@ -74,8 +74,8 @@
   "selectSaturation": "彩度オプションを選択する",
   "semiTransparent": "半透明",
   "specific": "特定",
-  "themeInstalled": "Atom Material Icons がインストールされました。",
-  "themeUpdated": "Atom Material Icons が更新されました。",
+  "themeInstalled": "Cool Icon がインストールされました。",
+  "themeUpdated": "Cool Icon が更新されました。",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

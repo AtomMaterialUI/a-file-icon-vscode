@@ -1,6 +1,6 @@
 {
   "activate": "Activeer",
-  "activated": "Atom Material Icons Thema is actief.",
+  "activated": "Cool Icon Thema is actief.",
   "arrowThemes": {
     "arrow": "Pijlpictogrammen",
     "material": "Material pictogrammen",
@@ -74,8 +74,8 @@
   "selectSaturation": "Selecteer een saturatieoptie",
   "semiTransparent": "Semi-Transparante",
   "specific": "Specifiek",
-  "themeInstalled": "Atom Material Icons Thema is geïnstalleerd.",
-  "themeUpdated": "Atom Material Icons Thema is geüpdated.",
+  "themeInstalled": "Cool Icon Thema is geïnstalleerd.",
+  "themeUpdated": "Cool Icon Thema is geüpdated.",
   "toggleSwitch": {
     "off": "UIT",
     "on": "AAN"

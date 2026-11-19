@@ -1,6 +1,6 @@
 {
   "activate": "激活",
-  "activated": "Atom Material Icons 主题图标已激活",
+  "activated": "Cool Icon 主题图标已激活",
   "arrowThemes": {
     "arrow": "箭头图标",
     "material": "材料图标",
@@ -74,8 +74,8 @@
   "selectSaturation": "选择饱和选项",
   "semiTransparent": "半透明",
   "specific": "特定",
-  "themeInstalled": "Atom Material Icons 主题图标已安装",
-  "themeUpdated": "Atom Material Icons 主题图标已更新",
+  "themeInstalled": "Cool Icon 主题图标已安装",
+  "themeUpdated": "Cool Icon 主题图标已更新",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

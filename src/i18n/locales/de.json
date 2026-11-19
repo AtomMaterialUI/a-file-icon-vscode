@@ -1,6 +1,6 @@
 {
   "activate": "Aktivieren",
-  "activated": "Atom Material Icons ist jetzt aktiviert.",
+  "activated": "Cool Icon ist jetzt aktiviert.",
   "arrowThemes": {
     "arrow": "Pfeilsymbole",
     "material": "Materialsymbole",
@@ -74,8 +74,8 @@
   "selectSaturation": "Wählen Sie eine Sättigungsoption aus",
   "semiTransparent": "Halbtransparente",
   "specific": "Spezifische",
-  "themeInstalled": "Atom Material Icons wurde installiert.",
-  "themeUpdated": "Das Atom Material Icons wurde aktualisiert.",
+  "themeInstalled": "Cool Icon wurde installiert.",
+  "themeUpdated": "Das Cool Icon wurde aktualisiert.",
   "toggleSwitch": {
     "off": "AUS",
     "on": "EIN"

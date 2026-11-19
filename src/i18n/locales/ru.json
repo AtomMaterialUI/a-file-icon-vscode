@@ -1,6 +1,6 @@
 {
   "activate": "Активировать",
-  "activated": "Atom Material Icons активен.",
+  "activated": "Cool Icon активен.",
   "arrowThemes": {
     "arrow": "Иконки со стрелками",
     "material": "Материаль иконки",
@@ -74,8 +74,8 @@
   "selectSaturation": "Выберите параметр насыщения",
   "semiTransparent": "Полупрозрачный",
   "specific": "Спесифический",
-  "themeInstalled": "Atom Material Icons был установлен.",
-  "themeUpdated": "Atom Material Icons был обновлен.",
+  "themeInstalled": "Cool Icon был установлен.",
+  "themeUpdated": "Cool Icon был обновлен.",
   "toggleSwitch": {
     "off": "Выключить",
     "on": "Включить"
