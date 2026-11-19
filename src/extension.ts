@@ -1,6 +1,6 @@
 import { unwatchFile, watchFile } from 'node:fs';
 import { registerCommands } from 'src/commands/commands';
-import { VERSION_KEY } from 'src/helpers/constants';
+import { EXTENSION_KEY, VERSION_KEY } from 'src/helpers/constants';
 import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
@@ -13,10 +13,34 @@ import { notificationsService } from 'src/services/NotificationsService';
 import { updatesService } from 'src/services/UpdatesService';
 import { extensions, window, workspace } from 'vscode';
 
-import type { ExtensionContext } from 'vscode';
+import type { ConfigurationChangeEvent, ExtensionContext } from 'vscode';
 
 /** Json files of the other icon themes being watched */
 const watchedThemes = new Set<string>();
+
+/**
+ * Events often come in bursts (two settings written by the theme mixer, an extension installed with its dependencies,
+ * a theme json rewritten in several steps): the theme is regenerated once after the last one.
+ */
+const REGENERATE_DELAY = 300;
+let regenerateTimer: NodeJS.Timeout | undefined;
+
+const scheduleRegenerate = () => {
+  clearTimeout(regenerateTimer);
+  regenerateTimer = setTimeout(() => {
+    regenerateTimer = undefined;
+    regenerateTheme();
+  }, REGENERATE_DELAY);
+};
+
+const cancelRegenerate = () => {
+  clearTimeout(regenerateTimer);
+  regenerateTimer = undefined;
+};
+
+/** The settings the generated theme reads: this extension's, and the file associations for the mixed themes */
+const affectsTheme = (event: ConfigurationChangeEvent) =>
+  event.affectsConfiguration(EXTENSION_KEY) || event.affectsConfiguration('files.associations');
 
 /**
  * Regenerate the theme files from the settings. A failure is shown to the user instead of only being logged,
@@ -50,18 +74,18 @@ const watchLayerThemes = () => {
 
   for (const path of watchedThemes) {
     if (paths.has(path)) continue;
-    unwatchFile(path, regenerateTheme);
+    unwatchFile(path, scheduleRegenerate);
     watchedThemes.delete(path);
   }
   for (const path of paths) {
     if (watchedThemes.has(path)) continue;
-    watchFile(path, { interval: 5000, persistent: false }, regenerateTheme);
+    watchFile(path, { interval: 5000, persistent: false }, scheduleRegenerate);
     watchedThemes.add(path);
   }
 };
 
 const unwatchLayerThemes = () => {
-  for (const path of watchedThemes) unwatchFile(path, regenerateTheme);
+  for (const path of watchedThemes) unwatchFile(path, scheduleRegenerate);
   watchedThemes.clear();
 };
 
@@ -92,30 +116,27 @@ export const activate = async (context: ExtensionContext) => {
     // Subscribe to the extension commands
     context.subscriptions.push(...registerCommands(context));
 
-    // Initially trigger the config change detection
-    regenerateTheme();
+    // Initially trigger the config change detection, after the activation so it does not delay it
+    scheduleRegenerate();
 
     context.subscriptions.push(
-      // Observe changes in the config
-      workspace.onDidChangeConfiguration(() => regenerateTheme()),
+      // Observe changes in the settings the theme reads: VS Code fires this event for every setting of every extension
+      workspace.onDidChangeConfiguration((event) => {
+        if (affectsTheme(event)) scheduleRegenerate();
+      }),
       // The fallback icon theme can be installed, updated or removed
-      extensions.onDidChange(() => regenerateTheme()),
+      extensions.onDidChange(() => scheduleRegenerate()),
+      { dispose: cancelRegenerate },
       { dispose: unwatchLayerThemes },
     );
-
-    // Observe if the window got focused to trigger config changes
-    window.onDidChangeWindowState((state) => {
-      if (state.focused) {
-        // configChangeDetector.listenForChanges();
-      }
-    });
   }
   catch (error) {
     logger.error(String(error));
   }
 };
 
-/** This method is called when the extension is deactivated */
+/** This method is called when the extension is deactivated: nothing is left pending or watched */
 export const deactivate = () => {
-  // do nothing
+  cancelRegenerate();
+  unwatchLayerThemes();
 };
