@@ -5,8 +5,13 @@ import { EXTENSION_KEY, JSON_FILE_NAME } from 'src/helpers/constants';
 import { normalizeByName, normalizeLayers, parseNameKey, serializeLayers } from 'src/helpers/themeLayers';
 import { ThemePreview } from 'src/helpers/themePreview';
 import { getExtensionPath, getLanguageLookup, listIconThemes } from 'src/helpers/vscodeUtils';
+import { colorMixerState } from 'src/panels/colorMixerState';
+import { colorThemeService, listColorThemes } from 'src/services/ColorThemeService';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
+import { normalizeColorLayers, parseColorKey, serializeColorLayers } from 'src/themes/colorLayers';
+import { ColorThemeGenerator, kindOf } from 'src/themes/ColorThemeGenerator';
+import { COLOR_THEMES, THEMES_FOLDER } from 'src/themes/colorThemes';
 import { ColorThemeKind, ConfigurationTarget, FileType, Uri, ViewColumn, window, workspace } from 'vscode';
 
 import type { LayerMode } from 'src/@types/config';
@@ -44,6 +49,8 @@ const DEFAULT_SAMPLES = [
   'node_modules/',
 ];
 
+type MixerTab = 'colors' | 'icons';
+
 /** An icon as the webview draws it */
 type ViewIcon =
   | { character: string; color?: string; font: string; kind: 'glyph'; size: string }
@@ -51,18 +58,42 @@ type ViewIcon =
 
 /** Messages of the webview */
 type ViewMessage =
+  | { byKey: unknown; type: 'colorByKey' }
   | { byName: unknown; type: 'byName' }
-  | { layers: unknown; type: 'layers' }
+  | { layers: unknown; type: 'colorLayers' | 'layers' }
   | { samples: unknown; type: 'samples' }
   | { type: 'defaultSamples' | 'ready' | 'workspaceSamples' };
 
 const TRANSLATED = [
   'add',
   'addLayer',
+  'applyAuto',
+  'applyBoth',
+  'applyDark',
+  'applyLight',
+  'applyTo',
   'applying',
+  'base',
   'byName',
   'byNameHint',
+  'colorByKey',
+  'colorByKeyHint',
+  'colorInactive',
+  'colorLayers',
+  'colorLayersHint',
+  'colorPreview',
+  'colorPreviewHint',
+  'dark',
   'defaultSamples',
+  'keyPlaceholder',
+  'light',
+  'noColorByKey',
+  'noColorLayers',
+  'noColorThemes',
+  'syntax',
+  'tabColors',
+  'tabIcons',
+  'ui',
   'files',
   'folders',
   'inactive',
@@ -110,6 +141,8 @@ export class ThemeMixerPanel {
   private readonly disposables: Disposable[] = [];
   private refreshTimer: NodeJS.Timeout | undefined;
   private roots = '';
+  /** The tab the page opens on, sent once the page is ready */
+  private tab: MixerTab = 'icons';
 
   private constructor(
     private readonly panel: WebviewPanel,
@@ -123,10 +156,12 @@ export class ThemeMixerPanel {
     );
   }
 
-  /** Open the page, or show it when it is already open */
-  static show(context: ExtensionContext) {
+  /** Open the page on a tab, or show it on that tab when it is already open */
+  static show(context: ExtensionContext, tab: MixerTab) {
     if (ThemeMixerPanel.current) {
+      ThemeMixerPanel.current.tab = tab;
       ThemeMixerPanel.current.panel.reveal();
+      ThemeMixerPanel.current.postTab();
       return;
     }
     const panel = window.createWebviewPanel(VIEW_TYPE, i18next.t('themeMixer.title'), ViewColumn.Active, {
@@ -135,6 +170,7 @@ export class ThemeMixerPanel {
       retainContextWhenHidden: true,
     });
     ThemeMixerPanel.current = new ThemeMixerPanel(panel, context);
+    ThemeMixerPanel.current.tab = tab;
   }
 
   /** Redraw the open page, after the theme was regenerated or the installed themes changed */
@@ -173,6 +209,7 @@ export class ThemeMixerPanel {
     try {
       switch (message?.type) {
         case 'ready': {
+          this.postTab();
           this.post();
           break;
         }
@@ -182,6 +219,22 @@ export class ThemeMixerPanel {
         }
         case 'byName': {
           this.writeByName(message.byName);
+          break;
+        }
+        case 'colorLayers': {
+          const layers = normalizeColorLayers(Array.isArray(message.layers) ? message.layers : []);
+          configService.setConfigValueWhereDefined('colorThemeLayers', serializeColorLayers(layers), ConfigurationTarget.Global);
+          break;
+        }
+        case 'colorByKey': {
+          const byKey: Record<string, string> = {};
+          for (const entry of (Array.isArray(message.byKey) ? message.byKey : []) as Array<Record<string, unknown> | undefined>) {
+            const key = typeof entry?.key === 'string' ? entry.key.trim() : '';
+            const theme = typeof entry?.theme === 'string' ? entry.theme.trim() : '';
+            if (key && theme && parseColorKey(key)) byKey[key] = theme;
+          }
+          const empty = Object.keys(byKey).length === 0;
+          configService.setConfigValueWhereDefined('colorThemeByKey', empty ? undefined : byKey, ConfigurationTarget.Global);
           break;
         }
         case 'samples': {
@@ -242,6 +295,10 @@ export class ThemeMixerPanel {
     return cleanSamples([...folders.sort(compare), ...files.sort(compare)]);
   }
 
+  private postTab() {
+    this.panel.webview.postMessage({ tab: this.tab, type: 'tab' }).then(undefined, (error: unknown) => logger.error(String(error)));
+  }
+
   /** Send the whole state of the page */
   private post() {
     const webview = this.panel.webview;
@@ -300,9 +357,26 @@ export class ThemeMixerPanel {
       result: view(result.icon(name, light)),
     }));
 
+    const selectedColorTheme = workspace.getConfiguration('workbench').get<string>('colorTheme') ?? '';
+    // the selected Cool Islands theme, else the one of the kind of the selected color theme
+    const islands = COLOR_THEMES.find((info) => info.label === selectedColorTheme);
+    const colorKind = islands ? kindOf(islands) : (light ? 'light' : 'dark');
+    const extensionPath = getExtensionPath();
+    const colors = colorMixerState({
+      byKey: configService.colorThemeByKey,
+      generator: new ColorThemeGenerator({ dist: join(extensionPath, 'dist'), themes: join(extensionPath, THEMES_FOLDER) }),
+      installed: listColorThemes(),
+      kind: colorKind,
+      labels: { base: i18next.t('themeMixer.base'), result: i18next.t('themeMixer.result') },
+      layers: configService.colorThemeLayers,
+      mix: colorThemeService.mix(),
+    });
+
     return {
       active: configService.iconTheme === EXTENSION_KEY,
       byName,
+      colorActive: COLOR_THEMES.some((info) => info.label === selectedColorTheme),
+      colors,
       columns,
       fonts: [...fonts.values()].map((font) => ({
         family: `afi-${font.key}`,

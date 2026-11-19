@@ -23,7 +23,7 @@ Korean coding fonts such as D2Coding.
 | Kind          | Name in the VS Code picker              | Base                                               | Status                                                                               |
 |---------------|-----------------------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
 | File icons    | **Cool Icons**                          | Atom Material Icons, as PyCharm shows them         | Available, with other icon themes [mixed in](#mixing-icon-themes)                    |
-| Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), mixing other color themes planned ([#22](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/22)) |
+| Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), with other color themes [mixed in](#mixing-color-themes) |
 | Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | Planned ([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23))       |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
 | Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | [Available](#fonts-and-korean)                                                       |
@@ -52,6 +52,51 @@ which JetBrains color each VS Code color takes:
   `editor.bracketPairColorization.enabled` off to remove the VS Code setting itself.
 - VS Code cannot draw the rounded islands: the panels get the island color and the space between them the window color.
 
+### Mixing color themes
+
+VS Code uses a single color theme at a time. Other installed color themes can be mixed into Cool Islands, without
+selecting them, for the workbench colors (`ui`) and the syntax colors (`syntax`) separately. Each one is a layer, given
+by its id (the value of `workbench.colorTheme` when it is selected):
+
+```json
+{
+  "a-file-icon-vscode.colorThemeLayers": [
+    { "theme": "GitHub Dark", "ui": "off", "syntax": "override" },
+    "Monokai"
+  ]
+}
+```
+
+- `fill` (a plain id is `fill` for both): only what Cool Islands has no color for (the colors of other extensions, the
+  scopes it has no rule for);
+- `override`: the workbench colors of the theme win; for the syntax, its token and semantic colors replace the ones of
+  Cool Islands;
+- `off`: not used.
+
+A theme mixes into the Cool Islands theme of its own kind: a dark theme into Cool Islands Dark, a light one into Cool
+Islands Light. `"applyTo": "dark" | "light" | "both"` changes that.
+
+`colorThemeByKey` takes single colors from a theme, over every layer: a workbench color id or a glob of them, a TextMate
+scope (`scope:`) or a semantic token selector (`semantic:`). A later key wins over an earlier one:
+
+```json
+{
+  "a-file-icon-vscode.colorThemeByKey": {
+    "terminal.ansi*": "Dark Modern",
+    "scope:comment": "Monokai",
+    "semantic:parameter": "GitHub Dark"
+  }
+}
+```
+
+From the strongest to the weakest: `colorThemeByKey` > the `override` layers (the first listed wins) > Cool Islands > the
+`fill` layers (the first listed wins). The theme files are read the way VS Code reads them (comments, `include`, token
+colors in another file); TextMate `.tmTheme` files are not read.
+
+VS Code reads a color theme again only when the window reloads: when the mixed colors of the selected Cool Islands
+theme change, a notification offers to reload the window. The **Mix Color Themes (with Preview)** command opens the
+[Mix Themes page](#mix-themes-page) on its Colors tab.
+
 ## Fonts and Korean
 
 Where you have not chosen a font, Cool Theme gives the fonts of the JetBrains IDEs. They are only defaults: a font you
@@ -73,7 +118,7 @@ set in your settings always wins.
 
 Korean is checked in every part: the interface and the settings are translated (a test keeps the translation complete),
 Korean file and folder names in your associations match in any Unicode form (macOS gives decomposed names), and the
-Mix Icon Themes page breaks Korean lines between words.
+Mix Themes page breaks Korean lines between words.
 
 ## File icon features
 
@@ -354,13 +399,19 @@ Themes drawn with the color of the text (`usesCurrentColor`, like the built-in V
 of the default dark themes (`#cccccc`), and of the default light themes (`#3b3b3b`) in light color themes: VS Code only
 paints the icons of the selected theme with the text color.
 
-### Mix Icon Themes page
+### Mix Themes page
 
-The **Mix Icon Themes (with Preview)** command opens a page to edit both settings without writing json: add, order and
-remove the layers and choose their mode for files and folders, and give single names their own theme. Its preview
-lists sample names (the default ones, the files and folders at the top of the workspace, or your own) with the icon of
-the result and the icon of each installed theme. Click the icon of a theme to use it for that name (`iconThemeByName`),
-click it again to stop.
+The **Mix Themes (with Preview)** command opens a page to edit the layer settings without writing json, with a tab for
+the icons and one for the colors.
+
+- **Icons**: add, order and remove the layers and choose their mode for files and folders, and give single names their
+  own theme. Its preview lists sample names (the default ones, the files and folders at the top of the workspace, or
+  your own) with the icon of the result and the icon of each installed theme. Click the icon of a theme to use it for
+  that name (`iconThemeByName`), click it again to stop.
+- **Colors** (also **Mix Color Themes (with Preview)**): add, order and remove the color layers, choose their mode for
+  the workbench and the syntax and the Cool Islands theme they mix into, and give single keys their own theme. Its
+  preview shows workbench colors and a line of Python with Korean text in the result, in Cool Islands alone and in each
+  theme mixed in.
 
 ----
 
@@ -475,7 +526,8 @@ Here's a list of the available commands:
 | **Change Opacity**                | Change the opacity of the icons.                                                   |
 | **Change Saturation**             | Change the saturation value of the icons.                                          |
 | **Icon Packs**                    | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx...). |
-| **Mix Icon Themes (with Preview)** | Mix other installed icon themes, with a preview of their icons and of the result.  |
+| **Mix Themes (with Preview)**      | Mix other installed icon and color themes, with a preview of the result.           |
+| **Mix Color Themes (with Preview)** | The same page, on its Colors tab.                                                 |
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 | **Toggle Monochrome Icons**       | Switch between colored and monochrome icons.                                       |
 

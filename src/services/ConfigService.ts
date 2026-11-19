@@ -12,6 +12,7 @@ import type { WorkspaceConfiguration } from 'vscode';
 import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { FolderTheme, ArrowTheme, AtomConfig, IconPack, IconSettings, IconThemeLayer } from 'src/@types/config';
 import type { IconAssociations } from 'src/@types/associations';
+import type { ColorThemeLayer } from 'src/themes/colorLayers';
 
 /** Theme files generated before associations were stored have no value for them */
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
@@ -108,6 +109,23 @@ export class ConfigService implements AtomConfig {
 
   set iconThemeLayers(v: IconThemeLayer[]) {
     this.setConfigValue('iconThemeLayers', v, ConfigurationTarget.Global);
+  }
+
+  get colorThemeLayers(): ColorThemeLayer[] {
+    const value = this.getConfigValue<ColorThemeLayer[]>('colorThemeLayers');
+    return Array.isArray(value) ? value : getDefaultConfig().colorThemeLayers;
+  }
+
+  set colorThemeLayers(v: ColorThemeLayer[]) {
+    this.setConfigValue('colorThemeLayers', v, ConfigurationTarget.Global);
+  }
+
+  get colorThemeByKey(): Record<string, string> | undefined {
+    return this.getConfigValue<Record<string, string>>('colorThemeByKey');
+  }
+
+  set colorThemeByKey(v) {
+    this.setConfigValue('colorThemeByKey', v, ConfigurationTarget.Global);
   }
 
   get iconThemeByName(): Record<string, string> | undefined {
@@ -306,6 +324,8 @@ export class ConfigService implements AtomConfig {
     const defaultConfig = getDefaultConfig();
     this.activeIconPacks = defaultConfig.activeIconPacks;
     this.arrowTheme = defaultConfig.arrowTheme;
+    this.colorThemeLayers = defaultConfig.colorThemeLayers;
+    this.colorThemeByKey = undefined;
     this.folderColor = defaultConfig.folderColor;
     this.folderTheme = defaultConfig.folderTheme;
     this.hideFileIcons = defaultConfig.hideFileIcons;

@@ -286,6 +286,11 @@
         "command": "a-file-icon-vscode.openThemeMixer",
         "category": "Cool Theme",
         "title": "%command.openThemeMixer%"
+      },
+      {
+        "category": "Cool Theme",
+        "command": "a-file-icon-vscode.openColorMixer",
+        "title": "%command.openColorMixer%"
       }
     ],
     "configurationDefaults": {
@@ -349,6 +354,79 @@
             "%configuration.arrowTheme.none%"
           ],
           "type": "string"
+        },
+        "a-file-icon-vscode.colorThemeByKey": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "description": "%configuration.colorThemeByKey%",
+          "type": "object"
+        },
+        "a-file-icon-vscode.colorThemeLayers": {
+          "default": [],
+          "description": "%configuration.colorThemeLayers%",
+          "items": {
+            "anyOf": [
+              {
+                "description": "%configuration.colorThemeLayers.theme%",
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "applyTo": {
+                    "description": "%configuration.colorThemeLayers.applyTo%",
+                    "enum": [
+                      "dark",
+                      "light",
+                      "both"
+                    ],
+                    "type": "string"
+                  },
+                  "syntax": {
+                    "default": "fill",
+                    "description": "%configuration.colorThemeLayers.syntax%",
+                    "enum": [
+                      "fill",
+                      "override",
+                      "off"
+                    ],
+                    "enumDescriptions": [
+                      "%configuration.colorThemeLayers.mode.fill%",
+                      "%configuration.colorThemeLayers.mode.override%",
+                      "%configuration.colorThemeLayers.mode.off%"
+                    ],
+                    "type": "string"
+                  },
+                  "theme": {
+                    "description": "%configuration.colorThemeLayers.theme%",
+                    "type": "string"
+                  },
+                  "ui": {
+                    "default": "fill",
+                    "description": "%configuration.colorThemeLayers.ui%",
+                    "enum": [
+                      "fill",
+                      "override",
+                      "off"
+                    ],
+                    "enumDescriptions": [
+                      "%configuration.colorThemeLayers.mode.fill%",
+                      "%configuration.colorThemeLayers.mode.override%",
+                      "%configuration.colorThemeLayers.mode.off%"
+                    ],
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "theme"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
         },
         "a-file-icon-vscode.filesAssociations": {
           "default": {},

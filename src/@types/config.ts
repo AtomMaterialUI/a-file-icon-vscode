@@ -1,4 +1,5 @@
 import type { IconAssociations } from './associations';
+import type { ColorThemeLayer } from 'src/themes/colorLayers';
 
 export enum IconPack {
   Angular = 'angular',
@@ -43,6 +44,10 @@ export enum PredefinedSaturation {
 export type AtomConfig = {
   activeIconPacks: IconPack[],
   arrowTheme: ArrowTheme,
+  /** color id glob, `scope:<TextMate scope>` or `semantic:<selector>` -> id of the installed color theme giving it */
+  colorThemeByKey?: Record<string, string>,
+  /** other installed color themes mixed with Cool Islands, the first listed wins (not an icon setting) */
+  colorThemeLayers: ColorThemeLayer[],
   filesAssociations?: IconAssociations,
   foldersAssociations?: IconAssociations,
   folderColor: string,

@@ -39,7 +39,7 @@
   let pendingTimer = 0;
 
   const send = (/** @type {any} */ message) => {
-    if (message.type === 'layers' || message.type === 'byName') {
+    if (['byName', 'colorByKey', 'colorLayers', 'layers'].includes(message.type)) {
       document.body.classList.add('pending');
       clearTimeout(pendingTimer);
       pendingTimer = setTimeout(() => document.body.classList.remove('pending'), 30_000);
@@ -251,15 +251,220 @@
     ]);
   };
 
+  // ---------------------------------------------------------------- Colors tab
+
+  const APPLY_TO = ['', 'dark', 'light', 'both'];
+  const APPLY_LABELS = { '': 'applyAuto', both: 'applyBoth', dark: 'applyDark', light: 'applyLight' };
+
+  const colorLabel = (/** @type {string} */ id) => {
+    const theme = state.colors.themes.find((/** @type {any} */ item) => item.id === id);
+    return theme ? theme.label : id;
+  };
+
+  /**
+   * @param {string} selected
+   * @param {string[]} exclude
+   */
+  const colorThemeSelect = (selected, exclude = []) => {
+    const themes = state.colors.themes.filter((/** @type {any} */ theme) => !exclude.includes(theme.id));
+    const ids = themes.map((/** @type {any} */ theme) => theme.id);
+    if (selected && !ids.includes(selected)) ids.unshift(selected);
+    return /** @type {HTMLSelectElement} */ (
+      h('select', {}, ids.map((/** @type {string} */ id) => {
+        const theme = state.colors.themes.find((/** @type {any} */ item) => item.id === id);
+        return h('option', { selected: id === selected, text: theme ? `${theme.label} (${t(theme.kind)})` : id, value: id });
+      }))
+    );
+  };
+
+  const sendColorLayers = () =>
+    send({
+      layers: state.colors.layers.map((/** @type {any} */ l) => ({ ...(l.applyTo ? { applyTo: l.applyTo } : {}), syntax: l.syntax, theme: l.theme, ui: l.ui })),
+      type: 'colorLayers',
+    });
+  const sendColorByKey = () => send({ byKey: state.colors.byKey, type: 'colorByKey' });
+
+  /**
+   * @param {number} index
+   * @param {number} offset
+   */
+  const moveColorLayer = (index, offset) => {
+    const [layer] = state.colors.layers.splice(index, 1);
+    state.colors.layers.splice(index + offset, 0, layer);
+    render();
+    sendColorLayers();
+  };
+
+  const colorLayersSection = () => {
+    const layers = state.colors.layers;
+    const rows = layers.map((/** @type {any} */ layer, /** @type {number} */ index) =>
+      h('tr', {}, [
+        h('td', {}, [
+          h('span', { text: layer.label }),
+          layer.kind && h('span', { className: 'badge', text: t(layer.kind) }),
+          !layer.installed && h('span', { className: 'badge', text: t('notInstalled') }),
+        ]),
+        h('td', {}, [modeSelect(layer.ui, (value) => { layer.ui = value; sendColorLayers(); }, t('ui'))]),
+        h('td', {}, [modeSelect(layer.syntax, (value) => { layer.syntax = value; sendColorLayers(); }, t('syntax'))]),
+        h('td', {}, [
+          h(
+            'select',
+            {
+              onChange: (/** @type {Event} */ event) => {
+                layer.applyTo = /** @type {HTMLSelectElement} */ (event.target).value || undefined;
+                sendColorLayers();
+              },
+              title: t('applyTo'),
+            },
+            APPLY_TO.map((value) => h('option', { selected: (layer.applyTo || '') === value, text: t(/** @type {any} */ (APPLY_LABELS)[value]), value })),
+          ),
+        ]),
+        h('td', { className: 'actions' }, [
+          button('↑', () => moveColorLayer(index, -1), { disabled: index === 0, title: t('moveUp') }),
+          button('↓', () => moveColorLayer(index, 1), { disabled: index === layers.length - 1, title: t('moveDown') }),
+          button('✕', () => { layers.splice(index, 1); render(); sendColorLayers(); }, { title: t('remove') }),
+        ]),
+      ]),
+    );
+
+    const used = layers.map((/** @type {any} */ layer) => layer.theme);
+    const available = state.colors.themes.filter((/** @type {any} */ theme) => !used.includes(theme.id));
+    const select = available.length > 0 ? colorThemeSelect(available[0].id, used) : undefined;
+
+    return h('section', {}, [
+      h('h2', { text: t('colorLayers') }),
+      h('p', { className: 'hint', text: t('colorLayersHint') }),
+      layers.length > 0
+        ? h('table', { className: 'layers' }, [
+          h('thead', {}, [h('tr', {}, [h('th', { text: '' }), h('th', { text: t('ui') }), h('th', { text: t('syntax') }), h('th', { text: t('applyTo') }), h('th', { text: '' })])]),
+          h('tbody', {}, rows),
+        ])
+        : h('p', { className: 'empty', text: t('noColorLayers') }),
+      select
+        ? h('div', { className: 'add' }, [
+          select,
+          button(t('addLayer'), () => {
+            const theme = state.colors.themes.find((/** @type {any} */ item) => item.id === select.value);
+            layers.push({ installed: true, kind: theme && theme.kind, label: colorLabel(select.value), syntax: 'fill', theme: select.value, ui: 'fill' });
+            render();
+            sendColorLayers();
+          }),
+        ])
+        : state.colors.themes.length === 0 && h('p', { className: 'empty', text: t('noColorThemes') }),
+    ]);
+  };
+
+  const colorByKeySection = () => {
+    const entries = state.colors.byKey;
+    const rows = entries.map((/** @type {any} */ entry, /** @type {number} */ index) => {
+      const select = colorThemeSelect(entry.theme);
+      select.addEventListener('change', () => { entry.theme = select.value; sendColorByKey(); });
+      return h('tr', {}, [
+        h('td', {}, [h('code', { text: entry.key })]),
+        h('td', {}, [select]),
+        h('td', { className: 'actions' }, [button('✕', () => { entries.splice(index, 1); render(); sendColorByKey(); }, { title: t('remove') })]),
+      ]);
+    });
+
+    const input = /** @type {HTMLInputElement} */ (h('input', { placeholder: t('keyPlaceholder'), type: 'text' }));
+    const select = state.colors.themes.length > 0 ? colorThemeSelect(state.colors.themes[0].id) : undefined;
+    const add = () => {
+      const key = input.value.trim();
+      if (!key || !select) return;
+      state.colors.byKey = entries.filter((/** @type {any} */ entry) => entry.key !== key);
+      state.colors.byKey.push({ key, theme: select.value });
+      render();
+      sendColorByKey();
+    };
+    input.addEventListener('keydown', (event) => { if (event.key === 'Enter') add(); });
+
+    return h('section', {}, [
+      h('h2', { text: t('colorByKey') }),
+      h('p', { className: 'hint', text: t('colorByKeyHint') }),
+      entries.length > 0 ? h('table', { className: 'by-name' }, [h('tbody', {}, rows)]) : h('p', { className: 'empty', text: t('noColorByKey') }),
+      select && h('div', { className: 'add' }, [input, select, button(t('add'), add)]),
+    ]);
+  };
+
+  const colorPreviewSection = () => {
+    const columns = state.colors.preview;
+    const head = h('tr', {}, [h('th', { text: '' }), ...columns.map((/** @type {any} */ column) => h('th', { className: column.id === 'result' ? 'result' : undefined, text: column.label }))]);
+    const swatchRows = state.colors.previewColors.map((/** @type {string} */ key) =>
+      h('tr', {}, [
+        h('td', { className: 'name' }, [h('code', { text: key })]),
+        ...columns.map((/** @type {any} */ column) => {
+          const value = column.colors[key];
+          const swatch = h('span', { className: value ? 'swatch' : 'swatch none', title: value || '–' });
+          if (value) swatch.style.background = value;
+          return h('td', { className: column.id === 'result' ? 'result' : undefined }, [swatch, h('span', { className: 'hex', text: value || '–' })]);
+        }),
+      ]),
+    );
+    const codeRow = h('tr', {}, [
+      h('td', { className: 'name' }, [h('code', { text: 'Python' })]),
+      ...columns.map((/** @type {any} */ column) => {
+        const block = h('pre', { className: 'code' }, column.code.map((/** @type {any[]} */ line) =>
+          h('div', {}, line.map((part) => {
+            const span = h('span', { text: part.text });
+            if (part.foreground) span.style.color = part.foreground;
+            if (part.fontStyle && part.fontStyle.includes('italic')) span.style.fontStyle = 'italic';
+            if (part.fontStyle && part.fontStyle.includes('bold')) span.style.fontWeight = 'bold';
+            if (part.fontStyle && part.fontStyle.includes('underline')) span.style.textDecoration = 'underline';
+            return span;
+          })),
+        ));
+        if (column.colors['editor.background']) block.style.background = column.colors['editor.background'];
+        if (column.colors['editor.foreground']) block.style.color = column.colors['editor.foreground'];
+        return h('td', { className: column.id === 'result' ? 'result' : undefined }, [block]);
+      }),
+    ]);
+
+    return h('section', {}, [
+      h('h2', { text: t('colorPreview') }),
+      h('p', { className: 'hint', text: t('colorPreviewHint') }),
+      h('div', { className: 'table-scroll' }, [h('table', { className: 'preview colors' }, [h('thead', {}, [head]), h('tbody', {}, [codeRow, ...swatchRows])])]),
+    ]);
+  };
+
+  // ---------------------------------------------------------------- Page
+
+  /** @type {'colors' | 'icons'} */
+  let tab = (vscode.getState() && vscode.getState().tab) || 'icons';
+
+  const tabs = () =>
+    h('div', { className: 'tabs', role: 'tablist' }, [
+      ['icons', 'tabIcons'],
+      ['colors', 'tabColors'],
+    ].map(([id, key]) =>
+      h('button', {
+        'aria-selected': String(tab === id),
+        className: tab === id ? 'tab selected' : 'tab',
+        onClick: () => { tab = /** @type {any} */ (id); vscode.setState({ tab }); render(); },
+        role: 'tab',
+        text: t(key),
+        type: 'button',
+      }),
+    ));
+
   const render = () => {
     const open = app.querySelector('details')?.open;
-    const children = [
-      h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]),
-      state.active ? undefined : h('p', { className: 'warning', text: t('inactive') }),
-      layersSection(),
-      byNameSection(),
-      previewSection(),
-    ];
+    const children = tab === 'colors'
+      ? [
+        h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]),
+        tabs(),
+        state.colorActive ? undefined : h('p', { className: 'warning', text: t('colorInactive') }),
+        colorLayersSection(),
+        colorByKeySection(),
+        colorPreviewSection(),
+      ]
+      : [
+        h('h1', {}, [t('title'), h('span', { className: 'applying', text: t('applying') })]),
+        tabs(),
+        state.active ? undefined : h('p', { className: 'warning', text: t('inactive') }),
+        layersSection(),
+        byNameSection(),
+        previewSection(),
+      ];
     app.replaceChildren(...children.filter((child) => child !== undefined));
     const details = app.querySelector('details');
     if (details && open) details.open = true;
@@ -274,6 +479,12 @@
 
   window.addEventListener('message', (event) => {
     const message = event.data;
+    if (message?.type === 'tab' && (message.tab === 'colors' || message.tab === 'icons')) {
+      tab = message.tab;
+      vscode.setState({ tab });
+      if (state) render();
+      return;
+    }
     if (message?.type !== 'state') return;
     state = message.state;
     clearTimeout(pendingTimer);
