@@ -21,6 +21,15 @@ environment.yml
 esbuild.js
 eslint.config.mjs
 .claude/**
+.commitlintrc.yml
+.gitmodules
+.markdownlint.yaml
+.markdownlintignore
+.nvmrc
+.pre-commit-config.yaml
+.prettierrc
+.svglintrc.js
+.yamllint.yaml
 build/**
 svgo.config.js
 .eslintignore
