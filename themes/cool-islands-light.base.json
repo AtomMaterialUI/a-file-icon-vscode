@@ -1419,7 +1419,8 @@
       "scope": [
         "punctuation.definition.character-class.regexp",
         "punctuation.character.set.begin.regexp",
-        "punctuation.character.set.end.regexp"
+        "punctuation.character.set.end.regexp",
+        "punctuation.character.set constant.other.set.regexp"
       ],
       "settings": {
         "fontStyle": "",
@@ -1466,12 +1467,18 @@
       "name": "JavaScript regex",
       "scope": [
         "string.regexp.ts",
-        "string.regexp.tsx",
-        "string.regexp.js",
+        "string.regexp.ts punctuation.definition.string",
+        "string.regexp.ts keyword.other.ts",
         "string.regexp.ts constant.other.character-class.set.regexp",
         "string.regexp.ts constant.other.character-class.range.regexp",
+        "string.regexp.tsx",
+        "string.regexp.tsx punctuation.definition.string",
+        "string.regexp.tsx keyword.other.tsx",
         "string.regexp.tsx constant.other.character-class.set.regexp",
         "string.regexp.tsx constant.other.character-class.range.regexp",
+        "string.regexp.js",
+        "string.regexp.js punctuation.definition.string",
+        "string.regexp.js keyword.other.js",
         "string.regexp.js constant.other.character-class.set.regexp",
         "string.regexp.js constant.other.character-class.range.regexp"
       ],

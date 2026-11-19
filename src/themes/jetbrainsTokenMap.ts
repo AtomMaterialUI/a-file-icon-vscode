@@ -112,7 +112,7 @@ export const TOKEN_RULES: TokenRule[] = [
   { from: ['REGEXP.DOT', 'DEFAULT_DOT', 'TEXT'], name: 'Regex dot', scope: ['support.other.match.any.regexp'] },
   { from: ['REGEXP.ESC_CHARACTER', 'DEFAULT_VALID_STRING_ESCAPE'], name: 'Regex escape', scope: ['constant.character.escape.backslash.regexp', 'constant.character.escape.regexp', 'constant.character.control.regexp', 'constant.character.numeric.regexp', 'constant.character.unicode.regexp', 'keyword.other.back-reference.regexp', 'entity.name.tag.backreference.regexp', 'entity.name.tag.named.backreference.regexp'] },
   { from: ['REGEXP.META', 'DEFAULT_KEYWORD'], name: 'Regex meta', scope: ['keyword.operator.quantifier.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.or.regexp', 'keyword.operator.disjunction.regexp', 'keyword.operator.negation.regexp', 'support.other.match.begin.regexp', 'support.other.match.end.regexp'] },
-  { from: ['REGEXP.BRACKETS', 'DEFAULT_BRACKETS', 'TEXT'], name: 'Regex brackets', scope: ['punctuation.definition.character-class.regexp', 'punctuation.character.set.begin.regexp', 'punctuation.character.set.end.regexp'] },
+  { from: ['REGEXP.BRACKETS', 'DEFAULT_BRACKETS', 'TEXT'], name: 'Regex brackets', scope: ['punctuation.definition.character-class.regexp', 'punctuation.character.set.begin.regexp', 'punctuation.character.set.end.regexp', 'punctuation.character.set constant.other.set.regexp'] },
   {
     from: ['REGEXP.PARENTHS', 'DEFAULT_PARENTHS', 'TEXT'],
     name: 'Regex parentheses',
@@ -122,12 +122,18 @@ export const TOKEN_RULES: TokenRule[] = [
   { from: ['REGEXP.NAME', 'DEFAULT_IDENTIFIER', 'TEXT'], name: 'Regex group name', scope: ['entity.name.tag.named.group.regexp'] },
   { from: ['REGEXP.OPTIONS', 'DEFAULT_PREDEFINED_SYMBOL'], name: 'Regex flags', scope: ['storage.modifier.flag.regexp'] },
 
-  // JavaScript and TypeScript: a regex literal has the JS.REGEXP color (the scheme only has it, JS.REGEXP is not in
-  // this repository: its fallback is the one the theme had before)
+  // JavaScript and TypeScript: a regex literal, its slashes and flags too, has the JS.REGEXP color (the scheme only has
+  // it, JS.REGEXP is not in this repository: its fallback is the one the theme had before)
   {
     from: ['JS.REGEXP', 'DEFAULT_VALID_STRING_ESCAPE'],
     name: 'JavaScript regex',
-    scope: ['string.regexp.ts', 'string.regexp.tsx', 'string.regexp.js', ...['ts', 'tsx', 'js'].flatMap((suffix) => [`string.regexp.${suffix} constant.other.character-class.set.regexp`, `string.regexp.${suffix} constant.other.character-class.range.regexp`])],
+    scope: ['ts', 'tsx', 'js'].flatMap((suffix) => [
+      `string.regexp.${suffix}`,
+      `string.regexp.${suffix} punctuation.definition.string`,
+      `string.regexp.${suffix} keyword.other.${suffix}`,
+      `string.regexp.${suffix} constant.other.character-class.set.regexp`,
+      `string.regexp.${suffix} constant.other.character-class.range.regexp`,
+    ]),
   },
 
   // Shell
