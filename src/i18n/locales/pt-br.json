@@ -1,6 +1,6 @@
 {
   "activate": "Ativar",
-  "activated": "O Cool Theme está ativo.",
+  "activated": "O Cool Theme Kit está ativo.",
   "arrowThemes": {
     "arrow": "Ícones de flechas",
     "material": "Ícones de Material",
@@ -74,8 +74,8 @@
   "selectSaturation": "Selecione uma opção de saturação",
   "semiTransparent": "Semi-Transparente",
   "specific": "Específicas",
-  "themeInstalled": "O Cool Theme foi instalado.",
-  "themeUpdated": "O Cool Theme foi atualizado.",
+  "themeInstalled": "O Cool Theme Kit foi instalado.",
+  "themeUpdated": "O Cool Theme Kit foi atualizado.",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

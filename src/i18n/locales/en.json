@@ -1,6 +1,6 @@
 {
   "activate": "Activate",
-  "activated": "Cool Theme is active.",
+  "activated": "Cool Theme Kit is active.",
   "arrowThemes": {
     "arrow": "Arrow Icons",
     "material": "Material Icons",
@@ -42,7 +42,7 @@
   },
   "fonts": {
     "get": "Get {{font}}",
-    "missing": "Cool Theme gives the editor the fonts of the JetBrains IDEs. Not installed: {{fonts}}. Until then, the editor uses the next font of the list."
+    "missing": "Cool Theme Kit gives the editor the fonts of the JetBrains IDEs. Not installed: {{fonts}}. Until then, the editor uses the next font of the list."
   },
   "grayscale": {
     "disable": "Disable monochromatic icons",
@@ -156,8 +156,8 @@
     "vscodeIcon": "VS Code icon",
     "workspaceSamples": "Names of this workspace"
   },
-  "themeInstalled": "Cool Theme has been installed.",
-  "themeUpdated": "Cool Theme has been updated.",
+  "themeInstalled": "Cool Theme Kit has been installed.",
+  "themeUpdated": "Cool Theme Kit has been updated.",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

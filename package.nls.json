@@ -68,9 +68,9 @@
   "configuration.productIconThemeLayers.mode.override": "Every icon the theme has.",
   "configuration.productIconThemeLayers.theme": "Id of an installed product icon theme, as in `workbench.productIconTheme`.",
   "configuration.saturation": "Change the saturation of the icons.",
-  "configuration.showFontMessage": "Suggest installing JetBrains Mono (and D2Coding with a Korean interface) when the default editor font of Cool Theme is used without it.",
+  "configuration.showFontMessage": "Suggest installing JetBrains Mono (and D2Coding with a Korean interface) when the default editor font of Cool Theme Kit is used without it.",
   "configuration.showReloadMessage": "Show restart notification.",
   "configuration.showUpdateMessage": "Show the update message after each update.",
   "configuration.showWelcomeMessage": "Show the welcome message after first installation.",
-  "configuration.title": "Cool Theme"
+  "configuration.title": "Cool Theme Kit"
 }
