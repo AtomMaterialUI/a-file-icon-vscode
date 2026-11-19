@@ -1,6 +1,6 @@
 {
   "activate": "활성화",
-  "activated": "Cool Theme이 활성화되었습니다.",
+  "activated": "Cool Theme Kit이 활성화되었습니다.",
   "arrowThemes": {
     "arrow": "화살표 아이콘",
     "material": "Material 아이콘",
@@ -42,7 +42,7 @@
   },
   "fonts": {
     "get": "{{font}} 받기",
-    "missing": "Cool Theme은 에디터에 JetBrains IDE와 같은 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다."
+    "missing": "Cool Theme Kit은 에디터에 JetBrains IDE와 같은 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다."
   },
   "grayscale": {
     "disable": "단색 아이콘 끄기",
@@ -156,8 +156,8 @@
     "vscodeIcon": "VS Code 아이콘",
     "workspaceSamples": "이 작업 영역의 이름"
   },
-  "themeInstalled": "Cool Theme이 설치되었습니다.",
-  "themeUpdated": "Cool Theme이 업데이트되었습니다.",
+  "themeInstalled": "Cool Theme Kit이 설치되었습니다.",
+  "themeUpdated": "Cool Theme Kit이 업데이트되었습니다.",
   "toggleSwitch": {
     "off": "끔",
     "on": "켬"

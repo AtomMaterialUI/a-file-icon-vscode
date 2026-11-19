@@ -14,7 +14,7 @@ const packageJson = JSON.parse(read('package.json')) as {
   publisher: string;
 };
 
-const DISPLAY_NAME = 'Cool Theme';
+const DISPLAY_NAME = 'Cool Theme Kit';
 const nlsFiles = readdirSync(root).filter((file) => /^package\.nls(\.[\w-]+)?\.json$/.test(file));
 const localeFiles = readdirSync(join(root, 'src', 'i18n', 'locales')).map((file) => join('src', 'i18n', 'locales', file));
 
@@ -26,7 +26,7 @@ describe('package identity', () => {
     assert.equal(EXTENSION_ID, `${packageJson.publisher}.${packageJson.name}`);
   });
 
-  it('shows Cool Theme as the extension name, command category and settings title', () => {
+  it('shows Cool Theme Kit as the extension name, command category and settings title', () => {
     assert.equal(packageJson.displayName, DISPLAY_NAME);
     for (const command of packageJson.contributes.commands) {
       assert.equal(command.category, DISPLAY_NAME, command.command);
@@ -57,6 +57,8 @@ describe('package identity', () => {
       const text = read(file);
       assert.doesNotMatch(text, /Cool Icon(?!s)/, file);
       assert.doesNotMatch(text, /Atom Material Icons/, file);
+      // "Cool Theme" alone is the display name of other extensions on the Marketplace, which refuses a taken name
+      assert.doesNotMatch(text, /Cool Theme(?! Kit)/, file);
     }
   });
 

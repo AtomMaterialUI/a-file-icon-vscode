@@ -1,19 +1,19 @@
-# Cool Theme for VS Code
+# Cool Theme Kit for VS Code
 
 <h1 align="center">
   <br>
     <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="200">
   <br><br>
-  Cool Theme for VS Code
+  Cool Theme Kit for VS Code
   <br>
   <br>
 </h1>
 
 
-Cool Theme brings the look of the JetBrains IDEs (PyCharm with the New UI and its Islands themes) to VS Code, and lets
+Cool Theme Kit brings the look of the JetBrains IDEs (PyCharm with the New UI and its Islands themes) to VS Code, and lets
 you put other installed themes on top of it, where you want them.
 
-VS Code uses a single file icon theme, color theme and product icon theme at a time. Cool Theme gives each of them a
+VS Code uses a single file icon theme, color theme and product icon theme at a time. Cool Theme Kit gives each of them a
 JetBrains base and mixes the themes you choose into it: in layers ordered by priority, and for single names as
 exceptions. Korean is a first-class language: the interface is translated, and Korean names and text are checked with
 Korean coding fonts such as D2Coding.
@@ -30,7 +30,7 @@ Korean coding fonts such as D2Coding.
 
 Select them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
 
-Cool Theme is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port
+Cool Theme Kit is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port
 of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspired by the
 [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme) and
 [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon-idea).
@@ -99,10 +99,10 @@ theme change, a notification offers to reload the window. The **Mix Color Themes
 
 ## Fonts and Korean
 
-Where you have not chosen a font, Cool Theme gives the fonts of the JetBrains IDEs. They are only defaults: a font you
+Where you have not chosen a font, Cool Theme Kit gives the fonts of the JetBrains IDEs. They are only defaults: a font you
 set in your settings always wins.
 
-| Setting                       | Default given by Cool Theme                                                                                       |
+| Setting                       | Default given by Cool Theme Kit                                                                                   |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | `editor.fontFamily`           | `'JetBrains Mono', 'D2Coding', Consolas, Menlo, 'Droid Sans Mono', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans Mono CJK KR', 'Courier New', monospace` |
 | `markdown.preview.fontFamily` | `Inter, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Ubuntu, 'Droid Sans', sans-serif` |
@@ -168,7 +168,7 @@ Therefore, this extension exposes a bunch of commands that you can invoke via th
 
 ![commandPalette.png](./docs/commandPalette.png)
 
-Just type `Cool Theme` in order to see the commands that are available.
+Just type `Cool Theme Kit` in order to see the commands that are available.
 
 ----
 
@@ -571,7 +571,7 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 - **Accent color**: it colors UI icons, and VS Code product icons are a font that takes the color of the theme.
 - **Icon size and row height**, **PSI icons** (icons based on the file content), and icons of the whole IDE UI.
 - Associations based on the parent folder (`tests/*.ts`): VS Code matches only file names and extensions.
-- **Interface font** (Inter in the JetBrains IDEs): VS Code has no setting for it. Cool Theme gives the editor and
+- **Interface font** (Inter in the JetBrains IDEs): VS Code has no setting for it. Cool Theme Kit gives the editor and
   Markdown preview fonts only.
 
 ----

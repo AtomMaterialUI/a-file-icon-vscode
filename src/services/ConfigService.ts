@@ -277,7 +277,7 @@ export class ConfigService implements AtomConfig {
     this.getPluginConfig().update(key, value, target).then(undefined, (error: unknown) => {
       const message = error instanceof Error ? error.message : String(error);
       logger.error(`Failed to update ${key}: ${message}`);
-      window.showErrorMessage(`Cool Theme: ${message}`);
+      window.showErrorMessage(`Cool Theme Kit: ${message}`);
     });
   }
 

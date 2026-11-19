@@ -1,6 +1,6 @@
 {
   "activate": "Активувати",
-  "activated": "Cool Theme активований.",
+  "activated": "Cool Theme Kit активований.",
   "arrowThemes": {
     "arrow": "Піктограми стрілок",
     "material": "Піктограми Матеріал",
@@ -74,8 +74,8 @@
   "selectSaturation": "Виберіть параметр насиченості",
   "semiTransparent": "Напівпрозорий",
   "specific": "Конкретне",
-  "themeInstalled": "Cool Theme був встановлений.",
-  "themeUpdated": "Cool Theme був оновлений.",
+  "themeInstalled": "Cool Theme Kit був встановлений.",
+  "themeUpdated": "Cool Theme Kit був оновлений.",
   "toggleSwitch": {
     "off": "Відключити",
     "on": "Включити"

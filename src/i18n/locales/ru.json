@@ -1,6 +1,6 @@
 {
   "activate": "Активировать",
-  "activated": "Cool Theme активен.",
+  "activated": "Cool Theme Kit активен.",
   "arrowThemes": {
     "arrow": "Иконки со стрелками",
     "material": "Материаль иконки",
@@ -74,8 +74,8 @@
   "selectSaturation": "Выберите параметр насыщения",
   "semiTransparent": "Полупрозрачный",
   "specific": "Спесифический",
-  "themeInstalled": "Cool Theme был установлен.",
-  "themeUpdated": "Cool Theme был обновлен.",
+  "themeInstalled": "Cool Theme Kit был установлен.",
+  "themeUpdated": "Cool Theme Kit был обновлен.",
   "toggleSwitch": {
     "off": "Выключить",
     "on": "Включить"

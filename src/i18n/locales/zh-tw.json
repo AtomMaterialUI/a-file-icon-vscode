@@ -1,6 +1,6 @@
 {
   "activate": "激活",
-  "activated": "Cool Theme 已啟用",
+  "activated": "Cool Theme Kit 已啟用",
   "arrowThemes": {
     "arrow": "箭頭圖示",
     "material": "材質圖示",
@@ -74,8 +74,8 @@
   "selectSaturation": "選擇飽和度選項",
   "semiTransparent": "半透明",
   "specific": "特定",
-  "themeInstalled": "Cool Theme 已安裝",
-  "themeUpdated": "Cool Theme 已更新",
+  "themeInstalled": "Cool Theme Kit 已安裝",
+  "themeUpdated": "Cool Theme Kit 已更新",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

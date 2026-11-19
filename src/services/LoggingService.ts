@@ -2,7 +2,7 @@ import { window, LogLevel } from 'vscode';
 
 export class LoggingService {
   public logLevel: LogLevel = LogLevel.Info;
-  private outputChannel = window.createOutputChannel('Cool Theme');
+  private outputChannel = window.createOutputChannel('Cool Theme Kit');
 
   /**
    * Logs a debug message

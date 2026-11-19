@@ -1,6 +1,6 @@
 {
   "activate": "有効化",
-  "activated": "Cool Theme は有効です。",
+  "activated": "Cool Theme Kit は有効です。",
   "arrowThemes": {
     "arrow": "矢印アイコン",
     "material": "マテリアルアイコン",
@@ -74,8 +74,8 @@
   "selectSaturation": "彩度オプションを選択する",
   "semiTransparent": "半透明",
   "specific": "特定",
-  "themeInstalled": "Cool Theme がインストールされました。",
-  "themeUpdated": "Cool Theme が更新されました。",
+  "themeInstalled": "Cool Theme Kit がインストールされました。",
+  "themeUpdated": "Cool Theme Kit が更新されました。",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

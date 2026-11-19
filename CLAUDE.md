@@ -1,10 +1,10 @@
 # a-file-icon-vscode — Claude Code 작업 메모
 
-`AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme"
+`AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme Kit"("Cool Theme" 은 Marketplace 에 이미 있어 게시가 거부돼 2026-11-20 바꿈)
 (확장 ID `woogajjangka.cool-icon-vscode`, 2026-11-19 에 "Cool Icon" 에서 바꿈).
-- 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme", 파일 아이콘 테마 = "Cool Icons", 색 = "Cool Islands Dark/Light",
+- 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme Kit", 파일 아이콘 테마 = "Cool Icons", 색 = "Cool Islands Dark/Light",
   제품 아이콘 = "Cool Islands Icons"(id `cool-islands-product-icons`)·"Cool Material Icons". 테마 id·설정 id 는 바꾸지 않는다(사용자 설정이 가리킴).
-  `test/unit/packageIdentity.test.ts` 가 지킨다. 한국어 조사는 읽는 소리 기준: "Cool Theme이/과", "Cool Icons가/와".
+  `test/unit/packageIdentity.test.ts` 가 지킨다. 한국어 조사는 읽는 소리 기준: "Cool Theme Kit이/과", "Cool Icons가/와".
 
 ## 방향 (2026-11-19 전면 수정)
 - **JetBrains(PyCharm New UI, Islands) 모양의 기본 테마 묶음**을 VS Code 에 준다: 파일 아이콘(지금 것), 색 테마

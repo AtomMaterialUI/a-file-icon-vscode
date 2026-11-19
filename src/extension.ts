@@ -52,14 +52,14 @@ const regenerateTheme = () => {
     configChangeDetector.listenForChanges();
   } catch (error) {
     logger.error(String(error));
-    window.showErrorMessage(`Cool Theme: ${error instanceof Error ? error.message : String(error)}`);
+    window.showErrorMessage(`Cool Theme Kit: ${error instanceof Error ? error.message : String(error)}`);
   }
   try {
     colorThemeService.regenerate();
     productIconService.regenerate();
   } catch (error) {
     logger.error(String(error));
-    window.showErrorMessage(`Cool Theme: ${error instanceof Error ? error.message : String(error)}`);
+    window.showErrorMessage(`Cool Theme Kit: ${error instanceof Error ? error.message : String(error)}`);
   }
   watchLayerThemes();
   // the theme mixer previews the regenerated theme

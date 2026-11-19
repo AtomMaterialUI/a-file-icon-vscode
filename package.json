@@ -1,6 +1,6 @@
 {
   "name": "cool-icon-vscode",
-  "displayName": "Cool Theme",
+  "displayName": "Cool Theme Kit",
   "description": "JetBrains (PyCharm New UI) style theme for VS Code: file icons, colors and product icons, with other installed themes layered on top by priority",
   "version": "1.0.0",
   "repository": {
@@ -242,56 +242,56 @@
     "commands": [
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.toggleIconPacks%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderTheme",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeFolderTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderColor",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeFolderColor%"
       },
       {
         "command": "a-file-icon-vscode.restoreDefaultConfig",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.restoreDefaultConfig%"
       },
       {
         "command": "a-file-icon-vscode.changeArrowTheme",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeArrowTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeOpacity",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeOpacity%"
       },
       {
         "command": "a-file-icon-vscode.changeSaturation",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeSaturation%"
       },
       {
         "command": "a-file-icon-vscode.toggleMonochrome",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.toggleMonochrome%"
       },
       {
         "command": "a-file-icon-vscode.changeMonochromeColor",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.changeMonochromeColor%"
       },
       {
         "command": "a-file-icon-vscode.openThemeMixer",
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "title": "%command.openThemeMixer%"
       },
       {
-        "category": "Cool Theme",
+        "category": "Cool Theme Kit",
         "command": "a-file-icon-vscode.openColorMixer",
         "title": "%command.openColorMixer%"
       }
