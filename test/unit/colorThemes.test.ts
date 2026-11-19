@@ -10,7 +10,7 @@ import { SEMANTIC_RULES, TOKEN_RULES } from 'src/themes/jetbrainsTokenMap';
 import { UI_MAP } from 'src/themes/jetbrainsUiMap';
 
 import type { VsCodeColorTheme } from 'src/themes/convertJetbrainsTheme';
-import type { UiThemeJson } from 'src/themes/jetbrainsTheme';
+import type { TextAttributes, UiThemeJson } from 'src/themes/jetbrainsTheme';
 
 const root = join(__dirname, '..', '..');
 const COLOR = /^#[\da-f]{6}([\da-f]{2})?$/;
@@ -151,6 +151,38 @@ describe('JetBrains themes', () => {
     assert.deepEqual(theme.semanticTokenColors['*.deprecated'], { bold: false, italic: false, strikethrough: true, underline: false });
     assert.equal(theme.semanticTokenColors.selfParameter.foreground, '#94558d');
     assert.deepEqual(unresolved, ['missing.color', 'token: Missing', 'semantic: unknown']);
+  });
+
+  it('colors tags, regular expressions and JavaScript members with the keys of the language before the defaults', () => {
+    const attributes: Record<string, TextAttributes> = {
+      DEFAULT_INSTANCE_METHOD: { foreground: '#000006' },
+      DEFAULT_PARENTHS: {},
+      DEFAULT_STRING: { foreground: '#000004' },
+      DEFAULT_TAG: { foreground: '#000001' },
+      DEFAULT_VALID_STRING_ESCAPE: { foreground: '#000009' },
+      HTML_TAG: { foreground: '#000002' },
+      'JS.INSTANCE_MEMBER_FUNCTION': { foreground: '#000007' },
+      'JS.REGEXP': { foreground: '#000005' },
+      'REGEXP.CHAR_CLASS': { fontType: 1, foreground: '#000008' },
+      TEXT: { foreground: '#00000a' },
+      XML_TAG: { foreground: '#000003' },
+    };
+    const scheme = { attributes: (key: string) => attributes[key], chain: ['Test'], color: () => undefined };
+    const { theme } = convertJetbrainsTheme('Test', resolved().ui, scheme);
+    const token = (name: string) => theme.tokenColors.find((rule) => rule.name === name)?.settings;
+
+    // the tag key colors the brackets of the tag, not the default tag key
+    assert.equal(token('Tag punctuation')?.foreground, '#000002');
+    assert.equal(token('XML tag')?.foreground, '#000003');
+    // plain characters of a regex are strings, a regex literal of JavaScript has its own color
+    assert.equal(token('Regex')?.foreground, '#000004');
+    assert.equal(token('JavaScript regex')?.foreground, '#000005');
+    assert.deepEqual(token('Regex class'), { fontStyle: 'bold', foreground: '#000008' });
+    assert.equal(token('Regex escape')?.foreground, '#000009');
+    // a key without a color takes the color of the next one
+    assert.equal(token('Regex parentheses')?.foreground, '#00000a');
+    assert.equal(theme.semanticTokenColors['method:typescript'].foreground, '#000007');
+    assert.equal(theme.semanticTokenColors.method.foreground, '#000006');
   });
 
   it('only uses known sources in the maps', () => {
