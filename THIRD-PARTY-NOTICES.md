@@ -35,6 +35,16 @@ projects for the exact terms (for example, Font Awesome 4.7 icons are CC BY 4.0,
   Copyright 2000-2024 JetBrains s.r.o. and contributors. See [assets/icons/NOTICE.md](./assets/icons/NOTICE.md) and
   [assets/icons/LICENSE-APACHE-2.0.txt](./assets/icons/LICENSE-APACHE-2.0.txt).
 
+## Colors from the JetBrains IDEs
+
+The color themes (`themes/cool-islands-*.base.json` and the `dist/cool-islands-*-color-theme.json` made from them) are
+derived from the Islands, Dark, Light, Darcula and IntelliJ themes and color schemes of
+[JetBrains/intellij-community](https://github.com/JetBrains/intellij-community) and of the Python, Markdown, YAML,
+shell and XML plugins in it, at the commit given in `themes/jetbrains-source.json`. Apache License 2.0,
+Copyright 2000-2026 JetBrains s.r.o. and contributors; the license text is in
+[assets/icons/LICENSE-APACHE-2.0.txt](./assets/icons/LICENSE-APACHE-2.0.txt). The colors were converted to the VS Code
+color theme format by `src/scripts/themes/syncJetbrainsColors.ts`.
+
 ## Trademarks
 
 Product names, logos and brands (Angular, React, Vue, Python, and so on) are the property of their respective owners.
