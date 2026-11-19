@@ -74,22 +74,15 @@ const getAllUsedFileIcons = (): string[] => {
 };
 
 const getAllUsedFolderIcons = (): string[] => {
-  const icons = folderIcons
-    .map((theme) => (theme.name === 'none' ? [] : getAllFolderIcons(theme)))
-    .reduce((a, b) => [...a, ...b]);
-  return icons
-    .map((icon) => {
-      return [
-        icon.name,
-        icon.name + OPENED_FOLDER_SUFFIX,
-        icon.light ? icon.name + DARK_FILE_ENDING : '',
-        icon.light ? icon.name + OPENED_FOLDER_SUFFIX + DARK_FILE_ENDING : '',
-        icon.highContrast ? icon.name + HIGH_CONTRAST_FILE_ENDING : '',
-        icon.highContrast ? icon.name + OPENED_FOLDER_SUFFIX + HIGH_CONTRAST_FILE_ENDING : '',
-      ];
-    })
-    .filter((icon) => icon !== undefined)
-    .reduce((a, b) => [...a, ...b]);
+  const icons = folderIcons.flatMap((theme) => (theme.name === 'none' ? [] : getAllFolderIcons(theme)));
+  return icons.flatMap((icon) => [
+    icon.name,
+    icon.name + OPENED_FOLDER_SUFFIX,
+    icon.light ? icon.name + DARK_FILE_ENDING : '',
+    icon.light ? icon.name + OPENED_FOLDER_SUFFIX + DARK_FILE_ENDING : '',
+    icon.highContrast ? icon.name + HIGH_CONTRAST_FILE_ENDING : '',
+    icon.highContrast ? icon.name + OPENED_FOLDER_SUFFIX + HIGH_CONTRAST_FILE_ENDING : '',
+  ]);
 };
 
 const getAllFolderIcons = (theme: FolderAssociations): Array<DefaultIcon | FolderIcon> => {

@@ -75,7 +75,10 @@ const variants = (folder: string, name: string) => ({
   ...(hasVariant(folder, name, DARK_FILE_ENDING) && { light: true }),
 });
 
-const sorted = (values: Iterable<string>) => [...new Set(values)].sort();
+/** Code unit order, not `localeCompare`: the generated file must not depend on the locale of the machine */
+const byCodeUnit = (a: string, b: string) => (a < b ? -1 : Number(a > b));
+
+const sorted = (values: Iterable<string>) => [...new Set(values)].sort(byCodeUnit);
 
 /** The pack of an upstream association in VS Code, null when VS Code has no such pack */
 const packOf = (association: CompiledAssociation): IconPack | null | undefined =>

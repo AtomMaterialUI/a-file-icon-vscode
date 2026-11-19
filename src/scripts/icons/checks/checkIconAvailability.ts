@@ -85,9 +85,7 @@ const isIconAvailable = (
  * Check if the folder icons from the configuration are available on the file system.
  */
 const checkFolderIcons = () => {
-  for (const icon of folderIcons
-    .map((theme) => (theme.name === 'none' ? [] : getAllFolderIcons(theme)))
-    .reduce((a, b) => [...a, ...b])) {
+  for (const icon of folderIcons.flatMap((theme) => (theme.name === 'none' ? [] : getAllFolderIcons(theme)))) {
     if (icon) {
       isIconAvailable(icon, IconType.folderIcons, IconColor.default);
       isIconAvailable(icon, IconType.folderIcons, IconColor.default, true);

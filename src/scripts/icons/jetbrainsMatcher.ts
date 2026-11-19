@@ -62,7 +62,7 @@ export const iconName = (iconPath: string) => iconPath.split('/').pop()!.replace
  * Upstream example names that only illustrate a regex (`users_controller.rb` for `.*_controller\.rb$`):
  * they would only match that exact made-up name in VS Code.
  */
-export const SAMPLE_NAME = /^(my|bla\.|users?_|test_)|materialthemebundle|\\|\d+\.\d+\.\d+/;
+export const SAMPLE_NAME = /(?:^(?:my|bla\.|users?_|test_))|materialthemebundle|\\|\d\.\d+\.\d/;
 
 export const splitNames = (names?: string) =>
   (names ?? '')
