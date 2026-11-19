@@ -187,6 +187,39 @@ describe('ConfigChangeDetector', () => {
 
       assert.equal(statSync(themePath).mtimeMs, before);
     });
+
+    // writing the thousands of icons again blocked the extension host for seconds (fork #28)
+    it('does not write the icons again when a setting that does not change them changes', () => {
+      applySettings({ opacity: 0.5 });
+      const iconPath = readTheme().iconDefinitions?.[readTheme().fileExtensions?.ts ?? '']?.iconPath;
+      assert.ok(iconPath, 'no icon for .ts files');
+      const svgPath = join(testState.extensionPath, 'dist', iconPath);
+      const past = new Date('2020-01-01');
+      utimesSync(svgPath, past, past);
+
+      applySettings({ filesAssociations: { 'keys.txt': 'secret' } });
+
+      assert.equal(readTheme().iconDefinitions?.[readTheme().fileExtensions?.ts ?? '']?.iconPath, iconPath);
+      assert.equal(statSync(svgPath).mtimeMs, past.getTime());
+    });
+
+    it('removes the icons written for previous filter settings', () => {
+      const filesFolder = join(testState.extensionPath, 'dist', 'files');
+      const hashed = () => readdirSync(filesFolder).filter((file) => file.includes('~'));
+
+      applySettings({ opacity: 0.5 });
+      const first = hashed();
+      assert.ok(first.length > 0, 'no icon written for the opacity');
+
+      applySettings({ opacity: 0.6 });
+      const second = hashed();
+      assert.ok(second.length > 0, 'no icon written for the new opacity');
+      assert.ok(first.every((file) => !second.includes(file)), 'the icons were not renamed');
+      assert.equal(second.length, first.length, 'the icons of the previous opacity are left');
+
+      applySettings({ opacity: 1 });
+      assert.deepEqual(hashed(), []);
+    });
   });
 
   describe('theme integrity', () => {

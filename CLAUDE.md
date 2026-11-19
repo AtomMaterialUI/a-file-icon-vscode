@@ -107,7 +107,10 @@
   색 탭 상태는 `panels/colorMixerState.ts`. 격리 확인에서 탭 전환은 클릭 대신 이 명령으로.
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은
   `package.json` 기본값과 `getDefaultConfig` 를 같이 고친다.
-- dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67).
+- dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67). 내용이 같으면 쓰지 않는다: 아이콘 ~2,500개를
+  다시 쓰면 Windows 에서 확장 호스트가 6~9초 멈춘다(포크 #28). 아이콘 파일 이름의 해시(`getFileConfigHash`)는 SVG 필터 설정
+  (색·불투명도·채도·모노크롬)만으로 만들고, 생성기가 이번에 쓰지 않은 `~해시`·`custom-` 아이콘은 지운다.
+  재생성은 `extension.ts` 의 `scheduleRegenerate`(300ms 묶기, 이 확장·`files.associations` 설정만)로만 부른다.
 - CI(`.github/workflows`): `build.yml`(lint·build·test·VSIX), `sync-upstream.yml`(매주 iconGenerator 최신화 → PR,
   저장소 설정 "Allow GitHub Actions to create … pull requests" 필요), `release.yml`(수동, 토큰 시크릿 있을 때만 배포). main 이 보호돼 있어 커밋하지 않는다: 다음 버전은 이 저장소의
   마지막 GitHub Release 태그(없으면 package.json)에서 계산해 VSIX 안에만 넣고, package.json 버전은 그대로 둔다

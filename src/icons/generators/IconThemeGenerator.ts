@@ -1,5 +1,5 @@
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { getFilesPath, getFoldersOpenPath, getFoldersPath, JSON_FILE_NAME } from 'src/helpers/constants';
 import { findCustomIcon, findCustomOpenFolderIcon, getCustomIconName, isCustomIconPath } from 'src/helpers/customIcons';
@@ -24,6 +24,12 @@ import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
 const customValues = (associations?: Record<string, string>) =>
   Object.values(associations ?? {}).filter((value) => typeof value === 'string' && isCustomIconPath(value));
 
+/**
+ * Icons written for other settings: `name~hash.svg` (a filter setting that is not the default) and the custom icons
+ * of the user (`custom-…`). Without a cleanup, every filter change left a full copy of the icons in the extension folder.
+ */
+const isGeneratedIcon = (file: string) => /~-?\d+\.svg$/.test(file) || file.startsWith('custom-');
+
 /** The installed icon themes mixed with this theme, and the languages of the file names and extensions */
 export type ThemeLayers = { languages: LanguageLookup; themes: LayerTheme[] };
 
@@ -40,6 +46,9 @@ export type GeneratorPaths = {
 export class IconThemeGenerator {
   atomConfig: AtomConfig;
   iconConfig: IconConfiguration;
+
+  /** The icon files written in each dist folder by this generation */
+  private readonly writtenIcons = new Map<string, Set<string>>();
 
   languageGenerator: LanguageJsonGenerator;
   fileGenerator: FileJsonGenerator;
@@ -207,6 +216,8 @@ export class IconThemeGenerator {
 
     this.copyCustomIcons(distributionPath);
 
+    for (const [folder, written] of this.writtenIcons) this.removeStaleIcons(folder, written);
+
     return [...readdirSync(filesPath), ...extraFiles].map((file) => file.replace(/\.svg$/, ''));
   }
 
@@ -223,7 +234,7 @@ export class IconThemeGenerator {
       if (openIcons.has(iconFile)) continue;
 
       const hashedFile = iconFile.replace(/(^[^.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`);
-      writeFileAtomic(join(destination, hashedFile), this.applyFilters(join(foldersPath, iconFile)));
+      this.writeIcon(destination, hashedFile, this.applyFilters(join(foldersPath, iconFile)));
     }
   }
 
@@ -244,15 +255,15 @@ export class IconThemeGenerator {
       const source = findCustomIcon(value);
       if (!source) continue;
       const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
-      writeFileAtomic(join(getFilesPath(distributionPath), target), this.applyFilters(source));
+      this.writeIcon(getFilesPath(distributionPath), target, this.applyFilters(source));
     }
 
     for (const value of customValues(this.atomConfig.foldersAssociations)) {
       const source = findCustomIcon(value);
       if (!source) continue;
       const target = `${getCustomIconName(value)}${fileConfigHash}.svg`;
-      writeFileAtomic(join(getFoldersPath(distributionPath), target), this.applyFilters(source));
-      writeFileAtomic(join(getFoldersOpenPath(distributionPath), target), this.applyFilters(findCustomOpenFolderIcon(source)));
+      this.writeIcon(getFoldersPath(distributionPath), target, this.applyFilters(source));
+      this.writeIcon(getFoldersOpenPath(distributionPath), target, this.applyFilters(findCustomOpenFolderIcon(source)));
     }
   }
 
@@ -272,7 +283,29 @@ export class IconThemeGenerator {
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 
-      writeFileAtomic(join(destination, hashedFile), svg);
+      this.writeIcon(destination, hashedFile, svg);
+    }
+  }
+
+  /** Write an icon to a dist folder and remember it, to keep it in {@link removeStaleIcons} */
+  private writeIcon(folder: string, file: string, svg: string) {
+    let written = this.writtenIcons.get(folder);
+    if (!written) {
+      written = new Set();
+      this.writtenIcons.set(folder, written);
+    }
+    written.add(file);
+    writeFileAtomic(join(folder, file), svg);
+  }
+
+  /**
+   * Remove the icons generated for previous settings, which the theme no longer uses.
+   * The bundled icons without a hash are kept: the packaged theme points to them.
+   * @private
+   */
+  private removeStaleIcons(folder: string, written: Set<string>) {
+    for (const file of readdirSync(folder)) {
+      if (isGeneratedIcon(file) && !written.has(file)) rmSync(join(folder, file), { force: true });
     }
   }
 
