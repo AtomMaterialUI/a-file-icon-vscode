@@ -31,6 +31,35 @@ section {
   color: var(--vscode-descriptionForeground);
 }
 
+.accent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.accent-picker {
+  width: 40px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--vscode-widget-border, var(--vscode-contrastBorder, transparent));
+  background: none;
+  cursor: pointer;
+}
+
+.swatch {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.swatch.selected {
+  border-color: var(--vscode-foreground);
+}
+
 .warning {
   padding: 8px 12px;
   border-left: 3px solid var(--vscode-editorWarning-foreground);

@@ -6,6 +6,7 @@ import { getExtensionPath } from 'src/helpers/vscodeUtils';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
 import { offerReload } from 'src/services/reloadNotice';
+import { normalizeAccent } from 'src/themes/accent';
 import { kindOfUiTheme, normalizeColorByKey, normalizeColorLayers, usedColorThemeIds } from 'src/themes/colorLayers';
 import { ColorThemeGenerator } from 'src/themes/ColorThemeGenerator';
 import { THEMES_FOLDER } from 'src/themes/colorThemes';
@@ -100,7 +101,11 @@ export class ColorThemeService {
       return cache.get(id);
     };
 
+    const accent = normalizeAccent(configService.accentColor);
+    if (configService.accentColor && !accent) logger.error(`Accent color ignored, it is not a #rrggbb color: ${configService.accentColor}`);
+
     return {
+      accent,
       byKey: normalizeColorByKey(configService.colorThemeByKey).flatMap(({ target, theme }) => {
         const data = read(theme);
         return data ? [{ data, target }] : [];

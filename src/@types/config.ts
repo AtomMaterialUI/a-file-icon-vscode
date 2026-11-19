@@ -43,6 +43,8 @@ export enum PredefinedSaturation {
 }
 
 export type AtomConfig = {
+  /** `#rrggbb` replacing the blue of Cool Islands (not an icon setting); empty for the Islands blue */
+  accentColor?: string,
   activeIconPacks: IconPack[],
   arrowTheme: ArrowTheme,
   /** color id glob, `scope:<TextMate scope>` or `semantic:<selector>` -> id of the installed color theme giving it */

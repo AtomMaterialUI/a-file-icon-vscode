@@ -5,9 +5,12 @@
  *     A layer applies to the Islands theme of its own kind (a dark theme to Cool Islands Dark), unless `applyTo` says.
  *   - `colorThemeByKey`: single keys from a given theme, whatever the layers: a workbench color id or a glob of them
  *     (`terminal.*`), a TextMate scope (`scope:comment`) or a semantic token selector (`semantic:parameter`).
- * From the strongest to the weakest: by key > override layers (the first listed wins) > Islands > fill layers (the first
- * listed wins). Pure functions: the themes are read by the caller.
+ *   - `accentColor`: the blue of Islands (focus, buttons, links, active tab, selection), see `accent.ts`.
+ * From the strongest to the weakest: by key > accent color > override layers (the first listed wins) > Islands > fill
+ * layers (the first listed wins). Pure functions: the themes are read by the caller.
  */
+import { accentColors } from './accent';
+
 import type { SemanticStyle, TokenColor, VsCodeColorTheme } from './convertJetbrainsTheme';
 
 const MODES = new Set<unknown>(['fill', 'off', 'override']);
@@ -154,7 +157,13 @@ export function tokenStyleFor(rules: TokenColor[], scope: string): TokenColor['s
  * @param layers the layers in the order of the setting, with the colors of their theme (themes not installed left out)
  * @param byKey the single keys in the order of the setting, with the colors of their theme
  */
-export const mixColorTheme = (base: VsCodeColorTheme, kind: ThemeKind, layers: MixedTheme[], byKey: MixedKey[]): VsCodeColorTheme => {
+export const mixColorTheme = (
+  base: VsCodeColorTheme,
+  kind: ThemeKind,
+  layers: MixedTheme[],
+  byKey: MixedKey[],
+  accent?: string,
+): VsCodeColorTheme => {
   const active = layers.filter(({ data, layer }) => appliesTo(layer, data, kind));
   const part = (name: 'syntax' | 'ui', value: ColorLayerMode) => active.filter(({ layer }) => layer[name] === value).map(({ data }) => data);
 
@@ -183,6 +192,9 @@ export const mixColorTheme = (base: VsCodeColorTheme, kind: ThemeKind, layers: M
     tokenColors = [...added, ...tokenColors];
     semanticTokenColors = { ...data.semanticTokenColors, ...semanticTokenColors };
   }
+
+  // The accent color wins over the layers: it is a choice of the user for the blue of Islands, measured from the Islands colors
+  if (accent) Object.assign(colors, accentColors(base.colors, accent));
 
   // Single keys win over everything, a later key over an earlier one
   for (const { data, target } of byKey) {

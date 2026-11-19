@@ -86,6 +86,9 @@
   "semiTransparent": "Semi-Transparent",
   "specific": "Specific",
   "themeMixer": {
+    "accent": "Accent color",
+    "accentHint": "Replaces the blue of Cool Islands (focus ring, buttons, links, active tab, selection). It wins over the layers, and a key below wins over it. Reload the window to see it.",
+    "accentReset": "Islands blue",
     "add": "Add",
     "addLayer": "Add layer",
     "applyAuto": "Same kind",

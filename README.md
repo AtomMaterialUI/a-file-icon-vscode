@@ -92,9 +92,31 @@ scope (`scope:`) or a semantic token selector (`semantic:`). A later key wins ov
 }
 ```
 
-From the strongest to the weakest: `colorThemeByKey` > the `override` layers (the first listed wins) > Cool Islands > the
+From the strongest to the weakest: `colorThemeByKey` > `accentColor` > the `override` layers (the first listed wins) > Cool Islands > the
 `fill` layers (the first listed wins). The theme files are read the way VS Code reads them (comments, `include`, token
 colors in another file); TextMate `.tmTheme` files are not read.
+
+### Accent color
+
+`accentColor` replaces the blue of the JetBrains Islands themes (`#3871e1`) in Cool Islands Dark and Light, for example
+to match the green accent of a Material Theme UI setup in PyCharm. Leave it empty for the Islands blue:
+
+```json
+{
+  "a-file-icon-vscode.accentColor": "#79cb60"
+}
+```
+
+It changes the focus ring, buttons, the progress bar, links, the badge on the activity bar, the active tab, and the
+selection of lists, menus and the editor. The pale selection of the light theme and the dark navy of the dark one keep
+their lightness, so they stay readable: only their hue (and the saturation, by the same ratio) follows the accent, and
+the text on a button or badge turns black or white when the accent would make it hard to read. Colors that only happen
+to be blue but mean something else (git decorations, the terminal's blue, the debugger's stack frame, find matches)
+are not touched.
+
+The accent wins over the `colorThemeLayers` and loses to `colorThemeByKey`. The Colors tab of the
+[Mix Themes page](#mix-themes-page) has a color picker with a few swatches. Like the rest of the color mixing, it
+needs a window reload, and it works in the desktop app only (VS Code for the Web has the built-in colors).
 
 VS Code reads a color theme again only when the window reloads: when the mixed colors of the selected Cool Islands
 theme change, a notification offers to reload the window. The **Mix Color Themes (with Preview)** command opens the

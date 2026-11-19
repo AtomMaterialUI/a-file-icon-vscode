@@ -2,6 +2,7 @@
  * The Colors tab of the theme mixer: the color layers and keys of the settings, and a preview of a few workbench colors
  * and of a line of code in the result, in Cool Islands alone and in each theme mixed in.
  */
+import { ACCENT_PRESETS, DEFAULT_ACCENT } from 'src/themes/accent';
 import { normalizeColorByKey, normalizeColorLayers, tokenStyleFor } from 'src/themes/colorLayers';
 import { kindOf } from 'src/themes/ColorThemeGenerator';
 import { COLOR_THEMES } from 'src/themes/colorThemes';
@@ -93,6 +94,8 @@ const previewColumn = ({ colors, id, label, tokenColors }: Column): ColorPreview
  * @param kind the Cool Islands theme to preview: the selected one, else the dark one
  */
 export const colorMixerState = (options: {
+  /** the setting `accentColor`, already normalized */
+  accent?: string;
   byKey: unknown;
   generator: ColorThemeGenerator;
   installed: InstalledColorTheme[];
@@ -129,6 +132,9 @@ export const colorMixerState = (options: {
   }
 
   return {
+    accent: options.accent ?? '',
+    accentDefault: DEFAULT_ACCENT,
+    accentPresets: [...ACCENT_PRESETS],
     byKey,
     kind,
     layers: layers.map((layer) => ({ ...layer, installed: Boolean(find(layer.theme)), kind: find(layer.theme)?.kind, label: label(layer.theme) })),

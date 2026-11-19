@@ -12,7 +12,7 @@ import type { VsCodeColorTheme } from './convertJetbrainsTheme';
 export type ColorThemePaths = { dist: string; themes: string };
 
 /** The other color themes mixed in (`colorThemeLayers`, `colorThemeByKey`), already read */
-export type ColorMix = { byKey: MixedKey[]; layers: MixedTheme[] };
+export type ColorMix = { accent?: string; byKey: MixedKey[]; layers: MixedTheme[] };
 
 export const kindOf = (info: ColorThemeInfo): ThemeKind => (info.uiTheme === 'vs' ? 'light' : 'dark');
 
@@ -34,7 +34,7 @@ export class ColorThemeGenerator {
   /** The theme of `contributes.themes` as it would be written */
   createTheme(info: ColorThemeInfo, mix?: ColorMix): VsCodeColorTheme {
     const base = JSON.parse(readFileSync(join(this.paths.themes, info.base), 'utf8')) as VsCodeColorTheme;
-    return mixColorTheme({ ...base, name: info.label }, kindOf(info), mix?.layers ?? [], mix?.byKey ?? []);
+    return mixColorTheme({ ...base, name: info.label }, kindOf(info), mix?.layers ?? [], mix?.byKey ?? [], mix?.accent);
   }
 
   /**
