@@ -1,6 +1,6 @@
 {
   "activate": "Aktywuj",
-  "activated": "Motyw Cool Icon jest aktywny.",
+  "activated": "Cool Theme jest aktywny.",
   "arrowThemes": {
     "arrow": "Ikony strzałek",
     "material": "Ikony Material",
@@ -74,8 +74,8 @@
   "selectSaturation": "Wybierz opcję nasycenia",
   "semiTransparent": "Półprzezroczysty",
   "specific": "Określony",
-  "themeInstalled": "Motyw Cool Icon został zainstalowany.",
-  "themeUpdated": "Motyw Cool Icon został zaktualizowany.",
+  "themeInstalled": "Cool Theme został zainstalowany.",
+  "themeUpdated": "Cool Theme został zaktualizowany.",
   "toggleSwitch": {
     "off": "WYŁĄCZONE",
     "on": "WŁĄCZONE"

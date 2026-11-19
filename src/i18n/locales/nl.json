@@ -1,6 +1,6 @@
 {
   "activate": "Activeer",
-  "activated": "Cool Icon Thema is actief.",
+  "activated": "Cool Theme is actief.",
   "arrowThemes": {
     "arrow": "Pijlpictogrammen",
     "material": "Material pictogrammen",
@@ -74,8 +74,8 @@
   "selectSaturation": "Selecteer een saturatieoptie",
   "semiTransparent": "Semi-Transparante",
   "specific": "Specifiek",
-  "themeInstalled": "Cool Icon Thema is geïnstalleerd.",
-  "themeUpdated": "Cool Icon Thema is geüpdated.",
+  "themeInstalled": "Cool Theme is geïnstalleerd.",
+  "themeUpdated": "Cool Theme is geüpdated.",
   "toggleSwitch": {
     "off": "UIT",
     "on": "AAN"

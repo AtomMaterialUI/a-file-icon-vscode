@@ -1,23 +1,41 @@
-# Cool Icon for VSCode
+# Cool Theme for VS Code
 
 <h1 align="center">
   <br>
     <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="200">
   <br><br>
-  Cool Icon for VSCode
+  Cool Theme for VS Code
   <br>
   <br>
 </h1>
 
 
-Cool Icon is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port of the [Atom File Icons](https://github.com/file-icons/atom) for VSCode.
+Cool Theme brings the look of the JetBrains IDEs (PyCharm with the New UI and its Islands themes) to VS Code, and lets
+you put other installed themes on top of it, where you want them.
 
-It replaces the icons and folder icons with better suited icons, related to the file type, framework or language.
+VS Code uses a single file icon theme, color theme and product icon theme at a time. Cool Theme gives each of them a
+JetBrains base and mixes the themes you choose into it: in layers ordered by priority, and for single names as
+exceptions. Korean is a first-class language: the interface is translated, and Korean names and text are checked with
+Korean coding fonts such as D2Coding.
 
-This plugin is inspired by the [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme)
-and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon-idea).
+## Themes
 
-## Features
+| Kind          | Name in the VS Code picker              | Base                                               | Status                                                                               |
+|---------------|-----------------------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
+| File icons    | **Cool Icons**                          | Atom Material Icons, as PyCharm shows them         | Available, with other icon themes [mixed in](#mixing-icon-themes)                    |
+| Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | Planned ([#20](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/20)), mixing other color themes ([#22](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/22)) |
+| Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | Planned ([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23))       |
+| Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
+| Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | Planned ([#21](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/21))       |
+
+Select them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
+
+Cool Theme is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port
+of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspired by the
+[Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme) and
+[Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon-idea).
+
+## File icon features
 
 - Replaces **file icons** with their relevant logo icons
     - According to their extension (`.java`, `.php`, `.ruby`...)
@@ -28,7 +46,7 @@ and [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon
 - Replaces **folder icons**:
     - From common patterns: `src`, `main`, `app`, `img`, `docs`...
     - From specific use cases: `node_modules`, `.vscode`, `.git.`..
-- Provides it's own **Product Icons** from the _Material Design Icons_.
+- Mixes in **other installed icon themes** for the names you choose, or for the names it has no icon for.
 
 ## Associations
 
@@ -65,7 +83,7 @@ Therefore, this extension exposes a bunch of commands that you can invoke via th
 
 ![commandPalette.png](./docs/commandPalette.png)
 
-Just type `Cool Icon` in order to see the commands that are available.
+Just type `Cool Theme` in order to see the commands that are available.
 
 ----
 
@@ -308,8 +326,10 @@ click it again to stop.
 
 ## Product Theme
 
-In addition to file, folder and language icons, this extension also modifies the IDE's product icons to match the icons
-of the JetBrains's equivalent extension and the Material Design Icons.
+**Cool Material Icons** (**Preferences: Product Icon Theme**) replaces the icons of the VS Code interface with the
+Material Design Icons of the original extension. Its arrows follow the [arrow style](#arrow-styles) setting.
+**Cool Islands Icons**, with the JetBrains New UI icons, is planned
+([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23)).
 
 ![prodIcon.png](./docs/prodIcon.png)
 

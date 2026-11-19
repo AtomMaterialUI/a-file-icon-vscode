@@ -1,13 +1,13 @@
 {
-  "command.activateIcons": "vuexАктивировать иконки темы",
-  "command.changeArrowTheme": "vuexСкрыть стрелки проводника перед папкой",
-  "command.changeFolderColor": "vuexИзменить цвет папки",
-  "command.changeFolderTheme": "vuexИзменить тему папки",
+  "command.activateIcons": "Активировать тему иконок",
+  "command.changeArrowTheme": "Скрыть стрелки проводника перед папкой",
+  "command.changeFolderColor": "Изменить цвет папки",
+  "command.changeFolderTheme": "Изменить тему папки",
   "command.changeMonochromeColor": "Change Monochrome Color",
   "command.openThemeMixer": "Mix Icon Themes (with Preview)",
-  "command.changeOpacity": "vuexИзменение непрозрачности",
-  "command.restoreDefaultConfig": "vuexВосстановить настройки по умолчанию",
-  "command.toggleIconPacks": "vuexНастроить набор иконок",
+  "command.changeOpacity": "Изменение непрозрачности",
+  "command.restoreDefaultConfig": "Восстановить настройки по умолчанию",
+  "command.toggleIconPacks": "Настроить набор иконок",
   "command.toggleMonochrome": "Toggle Monochrome Icons",
   "configuration.activeIconPacks": "Выберите набор значков, которые включают определенные значки.",
   "configuration.activeIconPacks.angular": "Иконки для Angular.",
@@ -45,5 +45,5 @@
   "configuration.showReloadMessage": "Показывать сообщение перезагрузки.",
   "configuration.showUpdateMessage": "Показывать сообщение об обновлении после каждого обновления.",
   "configuration.showWelcomeMessage": "Показывать приветственное сообщение после первой установки.",
-  "configuration.title": "Cool Icon"
+  "configuration.title": "Cool Theme"
 }

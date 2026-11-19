@@ -1,15 +1,15 @@
 {
-  "command.activateIcons": "vuexAktywuj motyw ikon",
-  "command.changeArrowTheme": "vuexUkryj strzałki przy folderach",
-  "command.changeFolderColor": "vuexZmień kolor folderów",
-  "command.changeFolderTheme": "vuexZmień motyw folderów",
+  "command.activateIcons": "Aktywuj motyw ikon",
+  "command.changeArrowTheme": "Ukryj strzałki przy folderach",
+  "command.changeFolderColor": "Zmień kolor folderów",
+  "command.changeFolderTheme": "Zmień motyw folderów",
   "command.changeMonochromeColor": "Change Monochrome Color",
   "command.openThemeMixer": "Mix Icon Themes (with Preview)",
-  "command.changeOpacity": "vuexZmień przezroczystość",
-  "command.changeSaturation": "vuexZmień nasycenie ikon",
-  "command.restoreDefaultConfig": "vuexPrzywróć domyślne ustawienia",
-  "command.toggleGrayscale": "vuexPrzełącz czarno-białe ikony",
-  "command.toggleIconPacks": "vuexSkonfiguruj paczki ikon",
+  "command.changeOpacity": "Zmień przezroczystość",
+  "command.changeSaturation": "Zmień nasycenie ikon",
+  "command.restoreDefaultConfig": "Przywróć domyślne ustawienia",
+  "command.toggleGrayscale": "Przełącz czarno-białe ikony",
+  "command.toggleIconPacks": "Skonfiguruj paczki ikon",
   "command.toggleMonochrome": "Toggle Monochrome Icons",
   "configuration.activeIconPacks": "Wybierz paczkę dla niektórych ikon.",
   "configuration.activeIconPacks.angular": "Ikony dla Angulara.",
@@ -48,5 +48,5 @@
   "configuration.showReloadMessage": "Wyświetl wiadomość o restarcie.",
   "configuration.showUpdateMessage": "Wyświetl wiadomość po każdej aktualizacji.",
   "configuration.showWelcomeMessage": "Wyświetl wiadomość powitalną przy pierwszej instalacji.",
-  "configuration.title": "Cool Icon"
+  "configuration.title": "Cool Theme"
 }

@@ -1,6 +1,6 @@
 {
   "activate": "Activate",
-  "activated": "Cool Icon is active.",
+  "activated": "Cool Theme is active.",
   "arrowThemes": {
     "arrow": "Arrow Icons",
     "material": "Material Icons",
@@ -83,9 +83,9 @@
     "defaultSamples": "Default names",
     "files": "Files",
     "folders": "Folders",
-    "inactive": "Cool Icon is not the current file icon theme: the result is what it shows once selected (Preferences: File Icon Theme).",
+    "inactive": "Cool Icons is not the current file icon theme: the result is what it shows once selected (Preferences: File Icon Theme).",
     "layers": "Layers",
-    "layersHint": "Other installed icon themes mixed with Cool Icon. Fill: only the names Cool Icon has no icon for. Override: every name the theme has an icon for. The first listed wins.",
+    "layersHint": "Other installed icon themes mixed with Cool Icons. Fill: only the names Cool Icons has no icon for. Override: every name the theme has an icon for. The first listed wins.",
     "modeFill": "Fill",
     "modeOff": "Off",
     "modeOverride": "Override",
@@ -94,7 +94,7 @@
     "name": "Name",
     "namePlaceholder": "index.html, *.md or docs/",
     "noByName": "No name has its own theme.",
-    "noLayers": "No other theme is mixed: Cool Icon only.",
+    "noLayers": "No other theme is mixed: Cool Icons only.",
     "noThemes": "No other file icon theme is installed.",
     "notInstalled": "not installed",
     "pin": "Use this icon",
@@ -109,8 +109,8 @@
     "updateSamples": "Update",
     "workspaceSamples": "Names of this workspace"
   },
-  "themeInstalled": "Cool Icon has been installed.",
-  "themeUpdated": "Cool Icon has been updated.",
+  "themeInstalled": "Cool Theme has been installed.",
+  "themeUpdated": "Cool Theme has been updated.",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"

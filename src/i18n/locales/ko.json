@@ -1,6 +1,6 @@
 {
   "activate": "활성화",
-  "activated": "Cool Icon가 활성화되었습니다.",
+  "activated": "Cool Theme이 활성화되었습니다.",
   "arrowThemes": {
     "arrow": "화살표 아이콘",
     "material": "Material 아이콘",
@@ -83,9 +83,9 @@
     "defaultSamples": "기본 이름",
     "files": "파일",
     "folders": "폴더",
-    "inactive": "지금 파일 아이콘 테마가 Cool Icon가 아닙니다. 결과 열은 이 테마를 선택했을 때의 모습입니다(기본 설정: 파일 아이콘 테마).",
+    "inactive": "지금 파일 아이콘 테마가 Cool Icons가 아닙니다. 결과 열은 이 테마를 선택했을 때의 모습입니다(기본 설정: 파일 아이콘 테마).",
     "layers": "층",
-    "layersHint": "Cool Icon와 섞을, 설치된 다른 아이콘 테마입니다. 채우기: Cool Icon에 아이콘이 없는 이름에만. 덮어쓰기: 그 테마에 아이콘이 있는 모든 이름에. 위에 있는 층이 우선합니다.",
+    "layersHint": "Cool Icons와 섞을, 설치된 다른 아이콘 테마입니다. 채우기: Cool Icons에 아이콘이 없는 이름에만. 덮어쓰기: 그 테마에 아이콘이 있는 모든 이름에. 위에 있는 층이 우선합니다.",
     "modeFill": "채우기",
     "modeOff": "끔",
     "modeOverride": "덮어쓰기",
@@ -94,7 +94,7 @@
     "name": "이름",
     "namePlaceholder": "index.html, *.md, docs/",
     "noByName": "따로 지정한 이름이 없습니다.",
-    "noLayers": "섞은 테마가 없습니다. Cool Icon만 씁니다.",
+    "noLayers": "섞은 테마가 없습니다. Cool Icons만 씁니다.",
     "noThemes": "설치된 다른 파일 아이콘 테마가 없습니다.",
     "notInstalled": "설치 안 됨",
     "pin": "이 아이콘 쓰기",
@@ -109,8 +109,8 @@
     "updateSamples": "적용",
     "workspaceSamples": "이 작업 영역의 이름"
   },
-  "themeInstalled": "Cool Icon가 설치되었습니다.",
-  "themeUpdated": "Cool Icon가 업데이트되었습니다.",
+  "themeInstalled": "Cool Theme이 설치되었습니다.",
+  "themeUpdated": "Cool Theme이 업데이트되었습니다.",
   "toggleSwitch": {
     "off": "끔",
     "on": "켬"

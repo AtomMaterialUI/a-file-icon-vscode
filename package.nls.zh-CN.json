@@ -1,13 +1,13 @@
 {
-  "command.activateIcons": "vuex激活Cool Icon文件图标主题",
-  "command.changeArrowTheme": "vuex隐藏文件夹箭头",
-  "command.changeFolderColor": "vuex更改文件夹颜色",
-  "command.changeFolderTheme": "vuex切换文件夹图标",
+  "command.activateIcons": "激活文件图标主题",
+  "command.changeArrowTheme": "隐藏文件夹箭头",
+  "command.changeFolderColor": "更改文件夹颜色",
+  "command.changeFolderTheme": "切换文件夹图标",
   "command.changeMonochromeColor": "Change Monochrome Color",
   "command.openThemeMixer": "Mix Icon Themes (with Preview)",
-  "command.changeOpacity": "vuex改变不透明度",
-  "command.restoreDefaultConfig": "vuex恢复默认设置",
-  "command.toggleIconPacks": "vuex选择一个图标包",
+  "command.changeOpacity": "改变不透明度",
+  "command.restoreDefaultConfig": "恢复默认设置",
+  "command.toggleIconPacks": "选择一个图标包",
   "command.toggleMonochrome": "Toggle Monochrome Icons",
   "configuration.activeIconPacks": "选择一个图标包。",
   "configuration.activeIconPacks.angular": "Angular的图标。",
@@ -45,5 +45,5 @@
   "configuration.showReloadMessage": "显示重启消息。",
   "configuration.showUpdateMessage": "更新后显示升级信息。",
   "configuration.showWelcomeMessage": "首次安装后显示欢迎信息。",
-  "configuration.title": "Cool Icon"
+  "configuration.title": "Cool Theme"
 }
