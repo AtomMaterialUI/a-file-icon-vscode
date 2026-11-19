@@ -42,3 +42,5 @@ iconGenerator/**
 !iconGenerator/assets/icons/**
 !iconGenerator/LICENSE
 material-colors.yml
+# Written at runtime beside the generated theme (what the theme files were generated with)
+dist/.state.json

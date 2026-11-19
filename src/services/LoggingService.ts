@@ -1,4 +1,9 @@
+import { performance } from 'node:perf_hooks';
+import { setFlagsFromString } from 'node:v8';
+import { runInNewContext } from 'node:vm';
 import { window, LogLevel } from 'vscode';
+
+const mb = (bytes: number) => (bytes / 1_048_576).toFixed(1);
 
 export class LoggingService {
   public logLevel: LogLevel = LogLevel.Info;
@@ -66,6 +71,26 @@ export class LoggingService {
     if (data) {
       this.logObject(data);
     }
+  }
+
+  /**
+   * Logs the memory of the extension host (after a garbage collection, so what is kept) and the time since `since`.
+   * Only when the environment variable COOL_THEME_KIT_MEMORY is set: it is how the cost of the extension is measured,
+   * nothing is logged or collected for the users.
+   * @param {string} label
+   * @param {number} since a `performance.now()` of the start of what is measured
+   */
+  public memory(label: string, since?: number) {
+    if (!process.env.COOL_THEME_KIT_MEMORY) return;
+    try {
+      setFlagsFromString('--expose-gc');
+      (runInNewContext('gc') as () => void)();
+    } catch {
+      // without a collection the numbers include garbage
+    }
+    const { heapUsed, rss } = process.memoryUsage();
+    const time = since === undefined ? '' : ` time=${(performance.now() - since).toFixed(0)}ms`;
+    this.log(`${label}: heapUsed=${mb(heapUsed)}MB rss=${mb(rss)}MB${time}`, 'MEMORY');
   }
 
   /**

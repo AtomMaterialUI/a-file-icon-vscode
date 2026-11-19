@@ -1,14 +1,15 @@
 import { unwatchFile, watchFile } from 'node:fs';
+import { performance } from 'node:perf_hooks';
 import { registerCommands } from 'src/commands/commands';
 import { EXTENSION_KEY, VERSION_KEY } from 'src/helpers/constants';
 import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
-import { colorThemeService } from 'src/services/ColorThemeService';
+import { colorThemeService, forgetInstalledColorThemes } from 'src/services/ColorThemeService';
 import { configService } from 'src/services/ConfigService';
 import { fontCheckService } from 'src/services/FontCheckService';
 import { logger } from 'src/services/LoggingService';
-import { productIconService } from 'src/services/ProductIconService';
+import { forgetInstalledProductThemes, productIconService } from 'src/services/ProductIconService';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
 import { updatesService } from 'src/services/UpdatesService';
@@ -48,6 +49,7 @@ const affectsTheme = (event: ConfigurationChangeEvent) =>
  * otherwise the commands look like they do nothing (#73).
  */
 const regenerateTheme = () => {
+  const started = performance.now();
   try {
     configChangeDetector.listenForChanges();
   } catch (error) {
@@ -64,6 +66,7 @@ const regenerateTheme = () => {
   watchLayerThemes();
   // the theme mixer previews the regenerated theme
   ThemeMixerPanel.refresh();
+  logger.memory('regenerated', started);
 };
 
 /**
@@ -97,6 +100,7 @@ const unwatchLayerThemes = () => {
  * @returns {Promise<void>}
  */
 export const activate = async (context: ExtensionContext) => {
+  const started = performance.now();
   try {
     // Translations
     await initI18next();
@@ -127,10 +131,15 @@ export const activate = async (context: ExtensionContext) => {
         if (affectsTheme(event)) scheduleRegenerate();
       }),
       // The fallback icon theme can be installed, updated or removed
-      extensions.onDidChange(() => scheduleRegenerate()),
+      extensions.onDidChange(() => {
+        forgetInstalledColorThemes();
+        forgetInstalledProductThemes();
+        scheduleRegenerate();
+      }),
       { dispose: cancelRegenerate },
       { dispose: unwatchLayerThemes },
     );
+    logger.memory('activated', started);
   }
   catch (error) {
     logger.error(String(error));

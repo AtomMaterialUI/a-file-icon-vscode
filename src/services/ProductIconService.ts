@@ -17,13 +17,13 @@ import type { ReadProductTheme } from 'src/productIcons/productIconLayers';
 type ContributedProductTheme = { id?: unknown; label?: unknown; path?: unknown };
 
 /** A product icon theme of an installed extension, Cool Material Icons of this one too */
-export type InstalledProductTheme = { extensionPath: string; id: string; label: string; path: string };
+type InstalledProductTheme = { extensionPath: string; id: string; label: string; path: string };
 
 /**
  * The product icon themes that can be mixed with Cool Islands Icons: the ones of the other installed extensions, and
  * Cool Material Icons of this extension. The id is the value of `workbench.productIconTheme`.
  */
-export const listProductThemes = (): InstalledProductTheme[] => {
+const scanProductThemes = (): InstalledProductTheme[] => {
   const result: InstalledProductTheme[] = [];
   for (const extension of extensions.all) {
     const own = extension.id.toLowerCase() === EXTENSION_ID.toLowerCase();
@@ -39,6 +39,16 @@ export const listProductThemes = (): InstalledProductTheme[] => {
   return result.sort((a, b) => a.label.localeCompare(b.label));
 };
 
+/** The scan reads the manifest of every installed extension: it is kept until an extension is installed, updated or removed */
+let installedProductThemes: InstalledProductTheme[] | undefined;
+
+export const listProductThemes = (): InstalledProductTheme[] => (installedProductThemes ??= scanProductThemes());
+
+/** An extension was installed, updated or removed: the next list reads the manifests again */
+export const forgetInstalledProductThemes = () => {
+  installedProductThemes = undefined;
+};
+
 /**
  * Mixes the other product icon themes of the settings into Cool Islands Icons of the installed extension, and offers to
  * reload the window when it is the selected product icon theme
@@ -47,6 +57,7 @@ export class ProductIconService {
   /** The files of the product icon themes the settings mix in, to regenerate when one changes */
   watchedPaths(): string[] {
     const ids = new Set(usedProductThemeIds(configService.productIconThemeLayers, configService.productIconByName));
+    if (ids.size === 0) return [];
     return listProductThemes()
       .filter((theme) => ids.has(theme.id))
       .map((theme) => theme.path);
@@ -54,11 +65,13 @@ export class ProductIconService {
 
   /** The themes of the settings, read; the ones not installed or not readable are left out */
   mix(): ProductMix {
-    const installed = new Map(listProductThemes().map((theme) => [theme.id, theme]));
+    // listed only when a theme is mixed in: most users mix none
+    let installedById: Map<string, InstalledProductTheme> | undefined;
     const cache = new Map<string, ReadProductTheme | undefined>();
     const read = (id: string): ReadProductTheme | undefined => {
       if (!cache.has(id)) {
-        const theme = installed.get(id);
+        installedById ??= new Map(listProductThemes().map((item) => [item.id, item]));
+        const theme = installedById.get(id);
         let data: ReadProductTheme | undefined;
         if (theme && existsSync(theme.path)) {
           try {
@@ -100,3 +113,5 @@ export class ProductIconService {
 }
 
 export const productIconService = new ProductIconService();
+
+export type { InstalledProductTheme };

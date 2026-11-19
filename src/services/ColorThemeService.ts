@@ -36,13 +36,13 @@ const translatedLabel = (extensionPath: string, label: string): string | undefin
 };
 
 /** A color theme contributed by another installed extension */
-export type InstalledColorTheme = { extensionPath: string; id: string; kind: ThemeKind; label: string; path: string; uiTheme: string };
+type InstalledColorTheme = { extensionPath: string; id: string; kind: ThemeKind; label: string; path: string; uiTheme: string };
 
 /**
  * The color themes of the other installed extensions (VS Code's own ones too), which can be mixed with Cool Islands.
  * The id is the value of `workbench.colorTheme`: the `id` of the theme, else its label.
  */
-export const listColorThemes = (): InstalledColorTheme[] => {
+const scanColorThemes = (): InstalledColorTheme[] => {
   const result: InstalledColorTheme[] = [];
   for (const extension of extensions.all) {
     if (extension.id.toLowerCase() === EXTENSION_ID.toLowerCase()) continue;
@@ -68,6 +68,16 @@ export const listColorThemes = (): InstalledColorTheme[] => {
   return result.sort((a, b) => a.label.localeCompare(b.label));
 };
 
+/** The scan reads the manifest of every installed extension: it is kept until an extension is installed, updated or removed */
+let installedColorThemes: InstalledColorTheme[] | undefined;
+
+export const listColorThemes = (): InstalledColorTheme[] => (installedColorThemes ??= scanColorThemes());
+
+/** An extension was installed, updated or removed: the next list reads the manifests again */
+export const forgetInstalledColorThemes = () => {
+  installedColorThemes = undefined;
+};
+
 /**
  * Mixes the other color themes of the settings into the Cool Islands themes of the installed extension, and offers to
  * reload the window when the selected color theme changed (VS Code reads a color theme again only then).
@@ -76,6 +86,7 @@ export class ColorThemeService {
   /** The files of the color themes the settings mix in, to regenerate when one changes */
   watchedPaths(): string[] {
     const ids = new Set(usedColorThemeIds(configService.colorThemeLayers, configService.colorThemeByKey));
+    if (ids.size === 0) return [];
     return listColorThemes()
       .filter((theme) => ids.has(theme.id))
       .map((theme) => theme.path);
@@ -83,11 +94,13 @@ export class ColorThemeService {
 
   /** The themes of the settings, read; the ones not installed or not readable are left out */
   mix(): ColorMix {
-    const installed = new Map(listColorThemes().map((theme) => [theme.id, theme]));
+    // listed only when a theme is mixed in: most users mix none
+    let installedById: Map<string, InstalledColorTheme> | undefined;
     const cache = new Map<string, ColorThemeData | undefined>();
     const read = (id: string): ColorThemeData | undefined => {
       if (!cache.has(id)) {
-        const theme = installed.get(id);
+        installedById ??= new Map(listColorThemes().map((item) => [item.id, item]));
+        const theme = installedById.get(id);
         let data: ColorThemeData | undefined;
         if (theme && existsSync(theme.path)) {
           try {
@@ -133,3 +146,5 @@ export class ColorThemeService {
 }
 
 export const colorThemeService = new ColorThemeService();
+
+export type { InstalledColorTheme };
