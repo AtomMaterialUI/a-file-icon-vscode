@@ -9,6 +9,11 @@ All notable changes to this project will be documented in this file. Dates are d
   Icons** in the pickers; their ids, the extension id and the settings do not change
 - feat: **Cool Islands Dark** and **Cool Islands Light** color themes, generated from the JetBrains Islands themes
   and color schemes (with the PyCharm colors for Python), `bun run sync:colors`
+- feat: JetBrains fonts as defaults for the settings you leave empty: `editor.fontFamily` (JetBrains Mono, then D2Coding
+  and the Korean system fonts) and `markdown.preview.fontFamily` (Inter, then the Korean system fonts), with a one-time
+  notification to download the missing fonts (`showFontMessage`)
+- fix: Korean file and folder names typed in their decomposed Unicode form (NFD) now match in the associations and
+  `iconThemeByName`; the Mix Icon Themes page uses Korean fallback fonts and breaks Korean lines between words
 - fix: the Polish, Portuguese, Russian and Chinese command titles started with a stray "vuex"
 - fix: Korean messages use the right particles after the theme names
 - feat: mix other installed icon themes (`iconThemeLayers`: `fill` the names this theme does not know or `override`

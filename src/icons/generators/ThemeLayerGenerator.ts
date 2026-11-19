@@ -5,6 +5,7 @@ import { FolderTheme } from 'src/@types/config';
 import { RELATIVE_DIST, WILDCARD_PATTERN } from 'src/helpers/constants';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { layerStamp, normalizeByName, normalizeLayers } from 'src/helpers/themeLayers';
+import { normalizeName } from 'src/helpers/utils';
 
 import type { AtomConfig } from 'src/@types/config';
 import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
@@ -84,7 +85,7 @@ const lastSegment = (name: string) => name.slice(name.lastIndexOf('/') + 1);
 
 /** The lower case names of the user's associations, without the `*.` and `**.` of the extensions */
 const names = (associations?: Record<string, string>) =>
-  new Set(Object.keys(associations ?? {}).map((key) => key.toLowerCase().replace(WILDCARD_PATTERN, '')));
+  new Set(Object.keys(associations ?? {}).map((key) => normalizeName(key).replace(WILDCARD_PATTERN, '')));
 
 /** A section with lower case names, as VS Code compares them */
 const lowerSection = (section?: Section): Section => {
@@ -93,7 +94,7 @@ const lowerSection = (section?: Section): Section => {
 
   for (const map of [...MAPS.files, ...MAPS.folders]) {
     const entries = Object.entries(section[map] ?? {}).filter(([, value]) => typeof value === 'string');
-    result[map] = Object.fromEntries(entries.map(([key, value]) => [key.toLowerCase(), value]));
+    result[map] = Object.fromEntries(entries.map(([key, value]) => [normalizeName(key), value]));
   }
   for (const key of [...DEFAULTS.files, ...DEFAULTS.folders]) {
     if (typeof section[key] === 'string') result[key] = section[key];
@@ -187,7 +188,7 @@ export class LayerReader {
 
   /** The icon VS Code shows in the tree for a file (`name`) or a closed folder (`name/`), the default icon included */
   hitTreeItem(name: string): Hit | undefined {
-    const lower = name.trim().toLowerCase();
+    const lower = normalizeName(name.trim());
     if (lower.endsWith('/')) {
       const folder = lower.replace(/\/+$/, '');
       return (folder ? this.hitFolder('folderNames', folder) : undefined) ?? this.hitDefault('folder');

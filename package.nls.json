@@ -51,6 +51,7 @@
   "configuration.monochromeColor": "Color of the icons when monochrome is enabled.",
   "configuration.opacity": "Change the opacity of the icons.",
   "configuration.saturation": "Change the saturation of the icons.",
+  "configuration.showFontMessage": "Suggest installing JetBrains Mono (and D2Coding with a Korean interface) when the default editor font of Cool Theme is used without it.",
   "configuration.showReloadMessage": "Show restart notification.",
   "configuration.showUpdateMessage": "Show the update message after each update.",
   "configuration.showWelcomeMessage": "Show the welcome message after first installation.",

@@ -5,6 +5,7 @@ import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
 import { configService } from 'src/services/ConfigService';
+import { fontCheckService } from 'src/services/FontCheckService';
 import { logger } from 'src/services/LoggingService';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
@@ -76,6 +77,9 @@ export const activate = async (context: ExtensionContext) => {
 
     // Start notification
     notificationsService.showStartMessages(status);
+
+    // Suggest the fonts of the default editor font when they are missing (not awaited: it waits for the user)
+    fontCheckService.check(context).catch((error: unknown) => logger.error(String(error)));
 
     // Subscribe to the extension commands
     context.subscriptions.push(...registerCommands(context));

@@ -59,7 +59,15 @@
   바뀐 값만 넘기거나 `lodash.merge` 로 합치면 #74·#71·#70 이 되살아난다(`configUtils.withDefaults` 사용).
 - 테마에 들어가는 설정을 추가할 때 고칠 곳: `@types/config.ts`(`AtomConfig`, `ICON_SETTING_KEYS`), `configUtils.getDefaultConfig`
   (+ SVG 를 바꾸면 `getFileConfigHash`), `ConfigService`(getter/setter, `getIconSettings`, `resetConfig`, `EMPTY_DEFAULTS`),
-  `package.json` `contributes.configuration`, `package.nls*.json` 전부.
+  `package.json` `contributes.configuration`, `package.nls.json` + `package.nls.ko.json`(한국어는 필수, 다른 언어는 없으면 영어로
+  대체). 화면 문구(`src/i18n/locales/`)도 `en.json` + `ko.json`. `test/unit/korean.test.ts` 가 한국어 누락·`{{자리}}` 불일치·
+  다른 언어의 남는 키를 잡는다.
+- 이름 비교는 `helpers/utils.normalizeName`(NFC + 소문자, VS Code 와 같은 소문자 비교에 한글 NFD 대응)만 쓴다. `toLowerCase()` 를
+  따로 쓰지 않는다.
+- 글꼴(`helpers/fonts.ts`): `package.json` `configurationDefaults` 의 `editor.fontFamily`·`markdown.preview.fontFamily` 는 여기
+  상수와 같아야 한다(`fonts.test.ts`). `FontCheckService` 는 사용자가 에디터 글꼴을 안 정했을 때만 글꼴 폴더에서 JetBrains Mono
+  (한국어 화면이면 D2Coding 도)를 찾고, 없으면 같은 조합에 대해 한 번만 알린다(globalState `fontMessageShown`).
+  VS Code UI 글꼴은 확장이 못 바꾼다.
 - 테마 섞기(방향: Atom 이 기본, 다른 테마는 겹쳐 쓰기): VS Code 는 아이콘 테마를 하나만 쓰므로, 생성 마지막에
   `ThemeLayerGenerator` 가 설치된 다른 테마 json 을 읽어 섞고 SVG 를 필터 적용해 `dist/layers/` 에 복사한다.
   - `iconThemeLayers`(기본 `["material-icon-theme"]`): 테마 id 또는 `{theme, files, folders}`, 모드는 `fill`(아무 테마도

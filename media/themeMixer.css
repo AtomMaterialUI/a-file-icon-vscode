@@ -1,9 +1,13 @@
+/* The fonts of VS Code have no Hangul: the Korean fonts come right after them, before the generic fallback of the system */
 body {
   padding: 0 20px 24px;
   color: var(--vscode-foreground);
   background: var(--vscode-editor-background);
-  font-family: var(--vscode-font-family);
+  font-family: var(--vscode-font-family), 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
   font-size: var(--vscode-font-size);
+  /* break Korean between words, not inside them, and still wrap long names */
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 h1 {
@@ -117,7 +121,7 @@ textarea {
   box-sizing: border-box;
   width: 100%;
   max-width: 600px;
-  font-family: var(--vscode-editor-font-family);
+  font-family: var(--vscode-editor-font-family), 'D2Coding', 'Malgun Gothic', 'Apple SD Gothic Neo', monospace;
 }
 
 details {

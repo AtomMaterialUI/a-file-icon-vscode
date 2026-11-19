@@ -39,6 +39,7 @@ export const getDefaultConfig = (): AtomConfig => {
     monochromeColor: DEFAULT_MONOCHROME_COLOR,
     opacity: DEFAULT_OPACITY,
     saturation: DEFAULT_SATURATION,
+    showFontMessage: true,
     showReloadMessage: true,
     showUpdateMessage: true,
     showWelcomeMessage: true,

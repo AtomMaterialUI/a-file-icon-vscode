@@ -36,6 +36,10 @@
     "toggleIcons": "Pick a folder theme",
     "wrongHexCode": "Invalid HEX color code!"
   },
+  "fonts": {
+    "get": "Get {{font}}",
+    "missing": "Cool Theme gives the editor the fonts of the JetBrains IDEs. Not installed: {{fonts}}. Until then, the editor uses the next font of the list."
+  },
   "grayscale": {
     "disable": "Disable monochromatic icons",
     "enable": "Enable monochromatic icons",

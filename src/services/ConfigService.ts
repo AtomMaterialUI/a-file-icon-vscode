@@ -27,6 +27,14 @@ const EMPTY_DEFAULTS: Partial<IconSettings> = {
 
 export class ConfigService implements AtomConfig {
   // region ------------------------ Atom Config -----------------------
+  get showFontMessage(): boolean {
+    return this.getConfigValue<boolean>('showFontMessage') ?? getDefaultConfig().showFontMessage;
+  }
+
+  set showFontMessage(v: boolean) {
+    this.setConfigValue('showFontMessage', v, ConfigurationTarget.Global);
+  }
+
   get showReloadMessage(): boolean {
     return this.getConfigValue<boolean>('showReloadMessage') ?? getDefaultConfig().showReloadMessage;
   }
@@ -306,6 +314,7 @@ export class ConfigService implements AtomConfig {
     this.monochromeColor = defaultConfig.monochromeColor;
     this.opacity = defaultConfig.opacity;
     this.saturation = defaultConfig.saturation;
+    this.showFontMessage = true;
     this.showReloadMessage = true;
     this.showUpdateMessage = true;
     this.showWelcomeMessage = true;

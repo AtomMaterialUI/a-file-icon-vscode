@@ -57,6 +57,8 @@ export type AtomConfig = {
   monochromeColor: string,
   opacity: number,
   saturation: number,
+  /** suggest installing the fonts of the default editor font when they are missing */
+  showFontMessage: boolean,
   showReloadMessage: boolean,
   showUpdateMessage: boolean,
   showWelcomeMessage: boolean,

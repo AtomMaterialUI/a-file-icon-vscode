@@ -51,6 +51,7 @@
   "configuration.monochromeColor": "단색 아이콘을 켰을 때의 아이콘 색.",
   "configuration.opacity": "아이콘의 불투명도를 바꿉니다.",
   "configuration.saturation": "아이콘의 채도를 바꿉니다.",
+  "configuration.showFontMessage": "Cool Theme의 기본 에디터 글꼴을 쓰는데 JetBrains Mono(한국어 화면이면 D2Coding도)가 없을 때 설치를 권합니다.",
   "configuration.showReloadMessage": "다시 시작 알림을 표시합니다.",
   "configuration.showUpdateMessage": "업데이트할 때마다 업데이트 메시지를 표시합니다.",
   "configuration.showWelcomeMessage": "처음 설치했을 때 환영 메시지를 표시합니다.",
