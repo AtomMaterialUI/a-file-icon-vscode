@@ -58,7 +58,9 @@ export const withDefaults = (config: Partial<AtomConfig> = {}): AtomConfig => {
 };
 
 /**
- * Generates a hash of the current config
+ * The suffix of the icon file names for the settings that change the content of the icons (the SVG filters), empty
+ * with their default values. Only those settings are hashed: the icons keep their name, and are not written again,
+ * when another setting changes (fork #28). A new name still makes VS Code load the icons again after a filter change.
  */
 export const getFileConfigHash = (config: AtomConfig): string => {
   const defaults = getDefaultConfig();
@@ -71,7 +73,14 @@ export const getFileConfigHash = (config: AtomConfig): string => {
     config.monochrome !== defaults.monochrome ||
     (config.monochrome && config.monochromeColor !== defaults.monochromeColor)
   ) {
-    fileConfigString += `~${getHash(JSON.stringify(config))}`;
+    const filters = {
+      folderColor: config.folderColor,
+      monochrome: config.monochrome,
+      monochromeColor: config.monochrome ? config.monochromeColor : undefined,
+      opacity: config.opacity,
+      saturation: config.saturation,
+    };
+    fileConfigString += `~${getHash(JSON.stringify(filters))}`;
   }
   return fileConfigString;
 };

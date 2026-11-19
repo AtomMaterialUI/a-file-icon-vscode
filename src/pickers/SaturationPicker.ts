@@ -9,7 +9,7 @@ class SaturationPicker {
     const response = await this.showQuickPickItems(saturation);
 
     if (response) {
-      this.handleQuickPickActions(response);
+      await this.handleQuickPickActions(response);
     }
   }
 
