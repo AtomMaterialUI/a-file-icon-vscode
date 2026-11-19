@@ -39,7 +39,10 @@ of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspir
 
 **Cool Islands Dark** and **Cool Islands Light** are the Islands Dark and Islands Light themes of the JetBrains IDEs
 with the New UI: the colors of the windows, tool windows, tabs, lists and popups, and the
-editor color scheme with the colors PyCharm adds for Python, Markdown, YAML and shell scripts.
+editor color scheme with the colors PyCharm adds for Python, Markdown, YAML and shell scripts, and the colors of the
+scheme for HTML and XML tags, regular expressions, properties files and JavaScript/TypeScript (regex literals, members
+and the globals of the standard library). Other languages get the default colors of the scheme (keywords, strings,
+functions…), which is also what the JetBrains IDEs fall back to.
 
 They are generated from the theme files of [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)
 the way the IDE reads them (parent themes, named colors, `*` keys, parent schemes, inherited attributes), with a map of

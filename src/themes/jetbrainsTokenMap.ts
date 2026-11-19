@@ -8,6 +8,10 @@
  * `DEFAULT_INSTANCE_FIELD`, `YAML_SCALAR_KEY` -> `DEFAULT_KEYWORD`): those fallbacks are written here.
  * The order of the rules is kept in the theme: for the same scope depth, a later rule wins in VS Code.
  */
+/** Semantic keys of the JavaScript plugin (its fallbacks are not in this repository: the default ones are written) */
+const JS_MEMBER_FUNCTION = ['JS.INSTANCE_MEMBER_FUNCTION', 'DEFAULT_INSTANCE_METHOD', 'DEFAULT_FUNCTION_CALL', 'TEXT'];
+const JS_GLOBAL_VARIABLE = ['JS.GLOBAL_VARIABLE', 'DEFAULT_GLOBAL_VARIABLE'];
+
 export type TokenRule = { from: string[]; name: string; scope: string[] };
 
 export const TOKEN_RULES: TokenRule[] = [
@@ -40,7 +44,8 @@ export const TOKEN_RULES: TokenRule[] = [
   { from: ['DEFAULT_PARAMETER', 'DEFAULT_IDENTIFIER', 'TEXT'], name: 'Parameter', scope: ['variable.parameter'] },
   { from: ['DEFAULT_METADATA'], name: 'Annotation', scope: ['meta.decorator', 'entity.name.function.decorator', 'punctuation.definition.decorator', 'storage.type.annotation', 'meta.annotation'] },
   { from: ['DEFAULT_LABEL', 'DEFAULT_IDENTIFIER'], name: 'Label', scope: ['entity.name.label'] },
-  { from: ['DEFAULT_TAG', 'HTML_TAG', 'TEXT'], name: 'Tag punctuation', scope: ['punctuation.definition.tag', 'meta.tag punctuation'] },
+  // The tag key colors the whole tag, its brackets too (XmlHighlighterColors: HTML_TAG -> DEFAULT_TAG)
+  { from: ['HTML_TAG', 'DEFAULT_TAG', 'TEXT'], name: 'Tag punctuation', scope: ['punctuation.definition.tag', 'meta.tag punctuation'] },
   { from: ['HTML_TAG_NAME', 'XML_TAG_NAME', 'DEFAULT_KEYWORD'], name: 'Tag name', scope: ['entity.name.tag'] },
   { from: ['HTML_ATTRIBUTE_NAME', 'XML_ATTRIBUTE_NAME', 'DEFAULT_INSTANCE_FIELD'], name: 'Attribute name', scope: ['entity.other.attribute-name'] },
   { from: ['HTML_ATTRIBUTE_VALUE', 'XML_ATTRIBUTE_VALUE', 'DEFAULT_STRING'], name: 'Attribute value', scope: ['meta.attribute-with-value string', 'meta.tag string'] },
@@ -69,6 +74,7 @@ export const TOKEN_RULES: TokenRule[] = [
   { from: ['YAML_SCALAR_KEY', 'DEFAULT_KEYWORD'], name: 'YAML key', scope: ['entity.name.tag.yaml'] },
   { from: ['YAML_ANCHOR', 'DEFAULT_IDENTIFIER'], name: 'YAML anchor', scope: ['entity.name.type.anchor.yaml', 'variable.other.alias.yaml', 'punctuation.definition.anchor.yaml', 'punctuation.definition.alias.yaml'] },
   { from: ['PROPERTIES.KEY', 'DEFAULT_KEYWORD'], name: 'Properties key', scope: ['support.type.property-name.properties', 'keyword.other.definition.ini', 'entity.name.section.group-title.ini'] },
+  { from: ['PROPERTIES.KEY_VALUE_SEPARATOR', 'DEFAULT_OPERATION_SIGN', 'TEXT'], name: 'Properties separator', scope: ['punctuation.separator.key-value.ini'] },
   { from: ['CSS.PROPERTY_NAME', 'DEFAULT_INSTANCE_FIELD'], name: 'CSS property', scope: ['support.type.property-name.css', 'support.type.vendored.property-name.css', 'support.type.property-name.scss', 'support.type.property-name.less'] },
   { from: ['CSS.PROPERTY_VALUE', 'DEFAULT_IDENTIFIER', 'TEXT'], name: 'CSS value', scope: ['support.constant.property-value.css', 'meta.property-value.css'] },
   { from: ['CSS.TAG_NAME', 'DEFAULT_KEYWORD'], name: 'CSS selector', scope: ['entity.name.tag.css', 'entity.other.attribute-name.class.css', 'entity.other.attribute-name.id.css'] },
@@ -90,8 +96,45 @@ export const TOKEN_RULES: TokenRule[] = [
   { from: ['DIFF_INSERTED', 'CONSOLE_GREEN_OUTPUT'], name: 'Inserted', scope: ['markup.inserted'] },
   { from: ['DIFF_DELETED', 'CONSOLE_RED_OUTPUT'], name: 'Deleted', scope: ['markup.deleted'] },
   { from: ['DIFF_MODIFIED', 'CONSOLE_BLUE_OUTPUT'], name: 'Changed', scope: ['markup.changed'] },
-  { from: ['REGEXP.CHAR_CLASS', 'JS.REGEXP', 'DEFAULT_VALID_STRING_ESCAPE'], name: 'Regex', scope: ['string.regexp', 'constant.other.character-class.regexp'] },
-  { from: ['REGEXP.META', 'DEFAULT_KEYWORD'], name: 'Regex meta', scope: ['keyword.operator.quantifier.regexp', 'keyword.control.anchor.regexp', 'punctuation.definition.group.regexp'] },
+
+  // XML (XmlHighlighterColors.java) and the custom elements of HTML
+  { from: ['XML_TAG', 'DEFAULT_TAG', 'TEXT'], name: 'XML tag', scope: ['punctuation.definition.tag.xml'] },
+  { from: ['XML_TAG_NAME', 'DEFAULT_KEYWORD'], name: 'XML tag name', scope: ['entity.name.tag.xml', 'entity.name.tag.localname.xml'] },
+  { from: ['XML_ATTRIBUTE_NAME', 'DEFAULT_ATTRIBUTE', 'DEFAULT_INSTANCE_FIELD'], name: 'XML attribute name', scope: ['entity.other.attribute-name.xml', 'entity.other.attribute-name.localname.xml'] },
+  { from: ['XML_NS_PREFIX', 'DEFAULT_INSTANCE_FIELD'], name: 'XML namespace prefix', scope: ['entity.name.tag.namespace.xml', 'entity.other.attribute-name.namespace.xml'] },
+  { from: ['XML_PROLOGUE', 'TEXT'], name: 'XML prologue', scope: ['meta.tag.preprocessor.xml punctuation.definition.tag.xml', 'meta.tag.preprocessor.xml entity.name.tag.xml'] },
+  { from: ['HTML_CUSTOM_TAG_NAME', 'HTML_TAG_NAME', 'DEFAULT_KEYWORD'], name: 'HTML custom element', scope: ['meta.tag.custom entity.name.tag'] },
+
+  // Regular expressions (keys and fallbacks of RegExpHighlighter.java), for the regex scopes of the TypeScript,
+  // JavaScript and Python grammars. Plain characters are strings; brackets and parentheses have the brace color.
+  { from: ['REGEXP.CHARACTER', 'DEFAULT_STRING'], name: 'Regex', scope: ['string.regexp', 'constant.other.character-class.set.regexp', 'constant.other.character-class.range.regexp', 'constant.other.set.regexp', 'constant.character.set.regexp'] },
+  { from: ['REGEXP.CHAR_CLASS', 'DEFAULT_ENTITY'], name: 'Regex class', scope: ['constant.other.character-class.regexp', 'support.other.escape.special.regexp'] },
+  { from: ['REGEXP.DOT', 'DEFAULT_DOT', 'TEXT'], name: 'Regex dot', scope: ['support.other.match.any.regexp'] },
+  { from: ['REGEXP.ESC_CHARACTER', 'DEFAULT_VALID_STRING_ESCAPE'], name: 'Regex escape', scope: ['constant.character.escape.backslash.regexp', 'constant.character.escape.regexp', 'constant.character.control.regexp', 'constant.character.numeric.regexp', 'constant.character.unicode.regexp', 'keyword.other.back-reference.regexp', 'entity.name.tag.backreference.regexp', 'entity.name.tag.named.backreference.regexp'] },
+  { from: ['REGEXP.META', 'DEFAULT_KEYWORD'], name: 'Regex meta', scope: ['keyword.operator.quantifier.regexp', 'keyword.control.anchor.regexp', 'keyword.operator.or.regexp', 'keyword.operator.disjunction.regexp', 'keyword.operator.negation.regexp', 'support.other.match.begin.regexp', 'support.other.match.end.regexp'] },
+  { from: ['REGEXP.BRACKETS', 'DEFAULT_BRACKETS', 'TEXT'], name: 'Regex brackets', scope: ['punctuation.definition.character-class.regexp', 'punctuation.character.set.begin.regexp', 'punctuation.character.set.end.regexp', 'punctuation.character.set constant.other.set.regexp'] },
+  {
+    from: ['REGEXP.PARENTHS', 'DEFAULT_PARENTHS', 'TEXT'],
+    name: 'Regex parentheses',
+    // the IDE reads "(?=", "(?<!", "(?P<" as one parenthesis token
+    scope: ['punctuation.definition.group.regexp', 'punctuation.definition.group.assertion.regexp', 'punctuation.definition.group.no-capture.regexp', 'support.other.parenthesis.regexp', 'string.regexp punctuation.parenthesis', 'string.regexp keyword.operator.lookahead', 'string.regexp keyword.operator.lookbehind', 'string.regexp keyword.operator.conditional'],
+  },
+  { from: ['REGEXP.NAME', 'DEFAULT_IDENTIFIER', 'TEXT'], name: 'Regex group name', scope: ['entity.name.tag.named.group.regexp'] },
+  { from: ['REGEXP.OPTIONS', 'DEFAULT_PREDEFINED_SYMBOL'], name: 'Regex flags', scope: ['storage.modifier.flag.regexp'] },
+
+  // JavaScript and TypeScript: a regex literal, its slashes and flags too, has the JS.REGEXP color (the scheme only has
+  // it, JS.REGEXP is not in this repository: its fallback is the one the theme had before)
+  {
+    from: ['JS.REGEXP', 'DEFAULT_VALID_STRING_ESCAPE'],
+    name: 'JavaScript regex',
+    scope: ['ts', 'tsx', 'js'].flatMap((suffix) => [
+      `string.regexp.${suffix}`,
+      `string.regexp.${suffix} punctuation.definition.string`,
+      `string.regexp.${suffix} keyword.other.${suffix}`,
+      `string.regexp.${suffix} constant.other.character-class.set.regexp`,
+      `string.regexp.${suffix} constant.other.character-class.range.regexp`,
+    ]),
+  },
 
   // Shell
   { from: ['BASH.EXTERNAL_COMMAND', 'DEFAULT_FUNCTION_CALL', 'TEXT'], name: 'Shell command', scope: ['support.function.builtin.shell', 'entity.name.command.shell'] },
@@ -119,7 +162,13 @@ export const SEMANTIC_RULES: Record<string, string[]> = {
   'method.declaration': ['DEFAULT_FUNCTION_DECLARATION'],
   'method.declaration:python': ['PY.FUNC_DEFINITION', 'DEFAULT_FUNCTION_DECLARATION'],
   'method.static': ['DEFAULT_STATIC_METHOD', 'DEFAULT_INSTANCE_METHOD', 'TEXT'],
+  // JavaScript and TypeScript (keys of the JavaScript plugin that the Islands scheme colors): members, and the globals
+  // of the standard and DOM libraries (console, window, Math…), which the language server marks `defaultLibrary`
+  'method:javascript': JS_MEMBER_FUNCTION,
+  'method:javascriptreact': JS_MEMBER_FUNCTION,
   'method:python': ['PY.METHOD_CALL', 'PY.FUNCTION_CALL', 'DEFAULT_FUNCTION_CALL', 'TEXT'],
+  'method:typescript': JS_MEMBER_FUNCTION,
+  'method:typescriptreact': JS_MEMBER_FUNCTION,
   namespace: ['DEFAULT_IDENTIFIER', 'TEXT'],
   parameter: ['DEFAULT_PARAMETER', 'DEFAULT_IDENTIFIER', 'TEXT'],
   property: ['DEFAULT_INSTANCE_FIELD'],
@@ -128,5 +177,9 @@ export const SEMANTIC_RULES: Record<string, string[]> = {
   'property:python': ['DEFAULT_IDENTIFIER', 'TEXT'],
   selfParameter: ['PY.SELF_PARAMETER', 'DEFAULT_KEYWORD'],
   typeParameter: ['TYPE_PARAMETER_NAME_ATTRIBUTES'],
+  'variable.defaultLibrary:javascript': JS_GLOBAL_VARIABLE,
+  'variable.defaultLibrary:javascriptreact': JS_GLOBAL_VARIABLE,
+  'variable.defaultLibrary:typescript': JS_GLOBAL_VARIABLE,
+  'variable.defaultLibrary:typescriptreact': JS_GLOBAL_VARIABLE,
   'variable:python': ['PY.LOCAL_VARIABLE', 'DEFAULT_LOCAL_VARIABLE', 'DEFAULT_IDENTIFIER', 'TEXT'],
 };

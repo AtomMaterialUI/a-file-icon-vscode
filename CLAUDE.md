@@ -94,7 +94,10 @@
   + 추가 속성(그 scheme 을 부모로 둔 scheme 이 물려받음). `jetbrainsUiMap.ts`(VS Code 색 id ← `ui:`/`color:`/`fg:`·`bg:`… 후보)와
   `jetbrainsTokenMap.ts`(TextMate·semantic ← 속성 키 후보, 코드에만 있는 대체 키는 여기 적음)로 `themes/cool-islands-*.base.json`
   (생성물, **손대지 않는다**)을 만들고, `ColorThemeGenerator` 가 빌드 때 `dist/` 로 쓴다. Python 규칙은 PyCharm `PyHighlighter.java`
-  의 키·대체 키 기준(상수·속성 색 없음, 메서드 호출 = 함수 호출). 화면 확인은 격리 VS Code 를 `--remote-debugging-port` 로 띄워
+  의 키·대체 키 기준(상수·속성 색 없음, 메서드 호출 = 함수 호출). 정규식은 `RegExpHighlighter.java`, XML·HTML 은 `XmlHighlighterColors.java`,
+  properties 는 `PropertiesHighlighter.java` 의 대체 키를 따른다. 닫힌 플러그인 키(JS.*)는 scheme 에 있는 값만 쓰고 대체 키는 원래 규칙을 둔다.
+  Sass·Less·Kotlin·JSX 컴포넌트 키는 VS Code 쪽 scope 를 확정할 수 없거나(VS Code 에 Kotlin 문법 없음) 쓰임을 공개 소스로 확인할 수 없어 넣지 않았다.
+  scope 이름은 VS Code 에 들어 있는 문법(`resources/app/extensions/*/syntaxes`)에서 확인한다. 화면 확인은 격리 VS Code 를 `--remote-debugging-port` 로 띄워
   CDP `Page.captureScreenshot` 으로 캡처(창을 앞으로 가져오지 않아 사용자 작업을 방해하지 않음).
 - 색 테마 섞기(`src/themes/colorLayers.ts` 순수 엔진, `readColorTheme.ts` JSONC·`include`·`tokenColors` 경로 읽기,
   `services/ColorThemeService.ts` 설치된 테마 목록·섞기·다시 로드 알림): `colorThemeLayers`(테마 id 또는 `{theme, ui, syntax, applyTo}`,
