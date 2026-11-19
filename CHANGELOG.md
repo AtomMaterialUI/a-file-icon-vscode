@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: the extension is now **Cool Theme**: a JetBrains (PyCharm New UI) style base theme for VS Code, with other
+  installed themes layered on top. The file icon theme is **Cool Icons** and the product icon theme **Cool Material
+  Icons** in the pickers; their ids, the extension id and the settings do not change
+- fix: the Polish, Portuguese, Russian and Chinese command titles started with a stray "vuex"
+- fix: Korean messages use the right particles after the theme names
 - feat: mix other installed icon themes (`iconThemeLayers`: `fill` the names this theme does not know or `override`
   its icons, for files and folders separately; `iconThemeByName`: one name from a given theme). By default the
   Material Icon Theme, when installed, fills the names this theme does not know

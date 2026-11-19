@@ -1,7 +1,7 @@
 {
   "name": "cool-icon-vscode",
-  "displayName": "Cool Icon",
-  "description": "Atom Material Icons for Visual Studio Code (unofficial fork)",
+  "displayName": "Cool Theme",
+  "description": "JetBrains (PyCharm New UI) style theme for VS Code: file icons, colors and product icons, with other installed themes layered on top by priority",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -237,52 +237,52 @@
     "commands": [
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.toggleIconPacks%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderTheme",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeFolderTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderColor",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeFolderColor%"
       },
       {
         "command": "a-file-icon-vscode.restoreDefaultConfig",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.restoreDefaultConfig%"
       },
       {
         "command": "a-file-icon-vscode.changeArrowTheme",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeArrowTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeOpacity",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeOpacity%"
       },
       {
         "command": "a-file-icon-vscode.changeSaturation",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeSaturation%"
       },
       {
         "command": "a-file-icon-vscode.toggleMonochrome",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.toggleMonochrome%"
       },
       {
         "command": "a-file-icon-vscode.changeMonochromeColor",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.changeMonochromeColor%"
       },
       {
         "command": "a-file-icon-vscode.openThemeMixer",
-        "category": "Cool Icon",
+        "category": "Cool Theme",
         "title": "%command.openThemeMixer%"
       }
     ],
@@ -499,14 +499,14 @@
       {
         "_watch": true,
         "id": "a-file-icon-vscode",
-        "label": "Cool Icon",
+        "label": "Cool Icons",
         "path": "./dist/a-file-icon-vscode-icon-theme.json"
       }
     ],
     "productIconThemes": [
       {
         "id": "a-file-icon-vscode-product-icon-theme",
-        "label": "Cool Icon (Product)",
+        "label": "Cool Material Icons",
         "path": "./dist/a-file-icon-vscode-product-icon-theme.json"
       }
     ]
@@ -523,11 +523,21 @@
     "theme": "dark"
   },
   "keywords": [
-    "icons",
+    "jetbrains",
+    "pycharm",
+    "intellij",
+    "islands",
+    "new-ui",
     "theme",
+    "icon-theme",
+    "product-icon-theme",
+    "color-theme",
+    "icons",
     "material",
     "atom",
-    "icon-theme",
+    "mix",
+    "layers",
+    "korean",
     "customization"
   ],
   "publisher": "woogajjangka",

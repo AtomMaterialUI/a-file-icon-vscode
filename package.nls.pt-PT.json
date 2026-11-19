@@ -1,13 +1,13 @@
 {
-  "command.activateIcons": "vuexHabilitar tema de ícones",
-  "command.changeArrowTheme": "vuexEsconder as setas ao lado dos directórios",
-  "command.changeFolderColor": "vuexAlterar cor dos directórios",
-  "command.changeFolderTheme": "vuexAlterar tema dos directórios",
+  "command.activateIcons": "Habilitar tema de ícones",
+  "command.changeArrowTheme": "Esconder as setas ao lado dos directórios",
+  "command.changeFolderColor": "Alterar cor dos directórios",
+  "command.changeFolderTheme": "Alterar tema dos directórios",
   "command.changeMonochromeColor": "Change Monochrome Color",
   "command.openThemeMixer": "Mix Icon Themes (with Preview)",
-  "command.changeOpacity": "vuexAlterar a opacidade",
-  "command.restoreDefaultConfig": "vuexRestaurar configuração padrão",
-  "command.toggleIconPacks": "vuexConfigurar pacote de ícones",
+  "command.changeOpacity": "Alterar a opacidade",
+  "command.restoreDefaultConfig": "Restaurar configuração padrão",
+  "command.toggleIconPacks": "Configurar pacote de ícones",
   "command.toggleMonochrome": "Toggle Monochrome Icons",
   "configuration.activeIconPacks": "Selecciona um pacote de ícones que habilitam ícones específicos.",
   "configuration.activeIconPacks.angular": "Ícones para Angular.",
@@ -45,5 +45,5 @@
   "configuration.showReloadMessage": "Exibir mensagem da reinicialização.",
   "configuration.showUpdateMessage": "Exibir mensagem de actualização após cada actualização.",
   "configuration.showWelcomeMessage": "Exibir mensagem de boas-vindas após a primeira instalação.",
-  "configuration.title": "Cool Icon"
+  "configuration.title": "Cool Theme"
 }

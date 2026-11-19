@@ -1,6 +1,6 @@
 {
   "activate": "Habilitar",
-  "activated": "O Cool Icon está habilitado.",
+  "activated": "O Cool Theme está habilitado.",
   "arrowThemes": {
     "arrow": "Ícones de flechas",
     "material": "Ícones de Material",
@@ -74,8 +74,8 @@
   "selectSaturation": "Selecione uma opção de saturação",
   "semiTransparent": "Semi-Transparente",
   "specific": "Específicas",
-  "themeInstalled": "O Cool Icon foi instalado.",
-  "themeUpdated": "O Cool Icon foi atualizado.",
+  "themeInstalled": "O Cool Theme foi instalado.",
+  "themeUpdated": "O Cool Theme foi atualizado.",
   "toggleSwitch": {
     "off": "OFF",
     "on": "ON"
