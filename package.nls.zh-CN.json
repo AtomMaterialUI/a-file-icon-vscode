@@ -1,5 +1,5 @@
 {
-  "command.activateIcons": "vuex激活Atom Material Icons文件图标主题",
+  "command.activateIcons": "vuex激活Cool Icon文件图标主题",
   "command.changeArrowTheme": "vuex隐藏文件夹箭头",
   "command.changeFolderColor": "vuex更改文件夹颜色",
   "command.changeFolderTheme": "vuex切换文件夹图标",
@@ -45,5 +45,5 @@
   "configuration.showReloadMessage": "显示重启消息。",
   "configuration.showUpdateMessage": "更新后显示升级信息。",
   "configuration.showWelcomeMessage": "首次安装后显示欢迎信息。",
-  "configuration.title": "Atom Material Icons"
+  "configuration.title": "Cool Icon"
 }

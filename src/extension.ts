@@ -25,7 +25,7 @@ const regenerateTheme = () => {
     configChangeDetector.listenForChanges();
   } catch (error) {
     logger.error(String(error));
-    window.showErrorMessage(`Atom Material Icons: ${error instanceof Error ? error.message : String(error)}`);
+    window.showErrorMessage(`Cool Icon: ${error instanceof Error ? error.message : String(error)}`);
   }
   watchLayerThemes();
   // the theme mixer previews the regenerated theme

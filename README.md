@@ -1,16 +1,16 @@
-# Atom Material Icons Plugin for VSCode
+# Cool Icon for VSCode
 
 <h1 align="center">
   <br>
     <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="200">
   <br><br>
-  Atom Material File Icons for VSCode
+  Cool Icon for VSCode
   <br>
   <br>
 </h1>
 
 
-This plugin is a port of the [Atom File Icons](https://github.com/file-icons/atom) for VSCode.
+Cool Icon is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port of the [Atom File Icons](https://github.com/file-icons/atom) for VSCode.
 
 It replaces the icons and folder icons with better suited icons, related to the file type, framework or language.
 
@@ -65,7 +65,7 @@ Therefore, this extension exposes a bunch of commands that you can invoke via th
 
 ![commandPalette.png](./docs/commandPalette.png)
 
-Just type `Atom Material` in order to see the commands that are available.
+Just type `Cool Icon` in order to see the commands that are available.
 
 ----
 

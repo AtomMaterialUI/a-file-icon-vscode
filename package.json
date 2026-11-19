@@ -237,52 +237,52 @@
     "commands": [
       {
         "command": "a-file-icon-vscode.toggleIconPacks",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.toggleIconPacks%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderTheme",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeFolderTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeFolderColor",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeFolderColor%"
       },
       {
         "command": "a-file-icon-vscode.restoreDefaultConfig",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.restoreDefaultConfig%"
       },
       {
         "command": "a-file-icon-vscode.changeArrowTheme",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeArrowTheme%"
       },
       {
         "command": "a-file-icon-vscode.changeOpacity",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeOpacity%"
       },
       {
         "command": "a-file-icon-vscode.changeSaturation",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeSaturation%"
       },
       {
         "command": "a-file-icon-vscode.toggleMonochrome",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.toggleMonochrome%"
       },
       {
         "command": "a-file-icon-vscode.changeMonochromeColor",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.changeMonochromeColor%"
       },
       {
         "command": "a-file-icon-vscode.openThemeMixer",
-        "category": "Atom Material Icons",
+        "category": "Cool Icon",
         "title": "%command.openThemeMixer%"
       }
     ],
@@ -499,14 +499,14 @@
       {
         "_watch": true,
         "id": "a-file-icon-vscode",
-        "label": "Atom Material Icons",
+        "label": "Cool Icon",
         "path": "./dist/a-file-icon-vscode-icon-theme.json"
       }
     ],
     "productIconThemes": [
       {
         "id": "a-file-icon-vscode-product-icon-theme",
-        "label": "Atom Material Icons",
+        "label": "Cool Icon (Product)",
         "path": "./dist/a-file-icon-vscode-product-icon-theme.json"
       }
     ]
