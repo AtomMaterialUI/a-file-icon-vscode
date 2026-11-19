@@ -9,7 +9,7 @@ class OpacityPicker {
     const response = await this.showQuickPickItems(opacity);
 
     if (response) {
-      this.handleQuickPickActions(response);
+      await this.handleQuickPickActions(response);
     }
   }
 

@@ -116,6 +116,9 @@
   마지막 GitHub Release 태그(없으면 package.json)에서 계산해 VSIX 안에만 넣고, package.json 버전은 그대로 둔다
   (원본의 v5.x 태그는 릴리스가 아니라서 무시).
 - 테스트: `test/run-unit.js` 가 esbuild 로 묶으며 `vscode` 를 `test/mocks/vscode.ts` 로 바꿔 mocha 실행.
+- SonarQube Cloud(`WoogaJJangka_a-file-icon-vscode`)는 CI 단계 없이 Automatic Analysis(GitHub App)로 돈다. 설정은
+  `.sonarcloud.properties`(Automatic Analysis 는 `sonar-project.properties` 를 읽지 않음). 생성 파일·서브모듈·데이터 표는 거기서 뺀다.
+  PR 에 "SonarCloud Code Analysis" 체크가 안 붙으면 GitHub App 설치의 저장소 접근부터 본다.
 
 ## 확인 방법
 - `package.json` 의 `"_watch": true` 는 개발 모드(`--extensionDevelopmentPath`)에서만 테마 파일을 다시 읽는다.

@@ -12,7 +12,7 @@ class FolderColorPicker {
     const response = await this.showQuickPickItems(currentColor);
 
     if (response) {
-      this.handleQuickPickActions(response);
+      await this.handleQuickPickActions(response);
     }
   }
 
