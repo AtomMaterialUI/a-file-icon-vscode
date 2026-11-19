@@ -23,7 +23,7 @@ Korean coding fonts such as D2Coding.
 | Kind          | Name in the VS Code picker              | Base                                               | Status                                                                               |
 |---------------|-----------------------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------|
 | File icons    | **Cool Icons**                          | Atom Material Icons, as PyCharm shows them         | Available, with other icon themes [mixed in](#mixing-icon-themes)                    |
-| Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | Planned ([#20](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/20)), mixing other color themes ([#22](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/22)) |
+| Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), mixing other color themes planned ([#22](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/22)) |
 | Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | Planned ([#23](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/23))       |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
 | Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | Planned ([#21](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/21))       |
@@ -34,6 +34,23 @@ Cool Theme is an unofficial fork of [Atom Material Icons](https://github.com/Ato
 of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspired by the
 [Material Icon Theme](https://github.com/PKief/vscode-material-icon-theme) and
 [Atom Material Icons for JetBrains](https://github.com/mallowigi/a-file-icon-idea).
+
+## Color themes
+
+**Cool Islands Dark** and **Cool Islands Light** are the Islands Dark and Islands Light themes of the JetBrains IDEs
+with the New UI: the colors of the windows, tool windows, tabs, lists and popups, and the
+editor color scheme with the colors PyCharm adds for Python, Markdown, YAML and shell scripts.
+
+They are generated from the theme files of [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)
+the way the IDE reads them (parent themes, named colors, `*` keys, parent schemes, inherited attributes), with a map of
+which JetBrains color each VS Code color takes:
+
+- Python looks like PyCharm: keywords, `self`, keyword arguments, builtins, `__dunder__` names, decorators and
+  docstrings have their PyCharm colors, and constants, attributes and method calls keep the text color, as in PyCharm.
+- With a language server (Pylance, TypeScript…), its semantic tokens get the same colors.
+- Bracket pairs keep the text color: the JetBrains IDEs do not color them. Turn
+  `editor.bracketPairColorization.enabled` off to remove the VS Code setting itself.
+- VS Code cannot draw the rounded islands: the panels get the island color and the space between them the window color.
 
 ## File icon features
 

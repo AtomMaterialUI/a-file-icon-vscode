@@ -36,7 +36,8 @@
     "version": "bun run changelog && git add CHANGELOG.md",
     "vsce": "vsce package --yarn",
     "vscode:prepublish": "bun run lint && bun run compile && bun run package-web",
-    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js"
+    "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
+    "sync:colors": "ts-node ./src/scripts/themes/syncJetbrainsColors.ts"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.3",
@@ -68,6 +69,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-sort-keys-fix": "^1.1.2",
     "eslint-plugin-unicorn": "^56.0.1",
+    "fast-xml-parser": "4.5.3",
     "glob": "^11.0.0",
     "i18next": "^24.0.2",
     "mocha": "^11.0.0",
@@ -508,6 +510,18 @@
         "id": "a-file-icon-vscode-product-icon-theme",
         "label": "Cool Material Icons",
         "path": "./dist/a-file-icon-vscode-product-icon-theme.json"
+      }
+    ],
+    "themes": [
+      {
+        "label": "Cool Islands Dark",
+        "path": "./dist/cool-islands-dark-color-theme.json",
+        "uiTheme": "vs-dark"
+      },
+      {
+        "label": "Cool Islands Light",
+        "path": "./dist/cool-islands-light-color-theme.json",
+        "uiTheme": "vs"
       }
     ]
   },
