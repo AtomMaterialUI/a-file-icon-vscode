@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: more language colors of the JetBrains color schemes in Cool Islands Dark/Light: regular expressions (every key of
+  the IDE: classes, escapes, meta characters, brackets, group names, flags; plain characters are strings), JavaScript and
+  TypeScript (regex literals, member functions, `console`/`window`/`Math`… in the globals color), XML (tags, names,
+  namespace prefixes, prologue), HTML custom elements and the separator of properties files
+- fix: the brackets of HTML tags have the color of the tag, as in the IDE (they had the plain text color in the dark theme)
+
+#### 1.1.0 (2026-11-20)
+
 - feat: **Cool Islands Icons** product icon theme: the JetBrains New UI icons (tool windows, tree arrows, editor and panel
   actions, find, problems, run and debug, source control, symbols), built into a font by `bun run build:product-icons`
 - feat: mix other product icon themes into Cool Islands Icons: `productIconThemeLayers` (`fill` / `override` / `off`,
