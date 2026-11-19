@@ -37,7 +37,8 @@
     "vsce": "vsce package --yarn",
     "vscode:prepublish": "bun run lint && bun run compile && bun run package-web",
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
-    "sync:colors": "ts-node ./src/scripts/themes/syncJetbrainsColors.ts"
+    "sync:colors": "ts-node ./src/scripts/themes/syncJetbrainsColors.ts",
+    "build:product-icons": "ts-node ./src/scripts/productIcons/buildJetbrainsFont.ts"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.3",
@@ -51,6 +52,7 @@
     "lodash.merge": "4.6.2"
   },
   "devDependencies": {
+    "@resvg/resvg-js": "2.4.1",
     "@types/fs-extra": "^11.0.4",
     "@types/glob": "^8.1.0",
     "@types/lodash.merge": "^4.6.9",
@@ -73,6 +75,7 @@
     "glob": "^11.0.0",
     "i18next": "^24.0.2",
     "mocha": "^11.0.0",
+    "oslllo-potrace": "3.0.0",
     "oslllo-svg-fixer": "^5.0.0",
     "prettier": "^3.4.1",
     "puppeteer": "^23.9.0",
@@ -553,6 +556,55 @@
           "minimum": 0,
           "type": "number"
         },
+        "a-file-icon-vscode.productIconByName": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "default": {},
+          "description": "%configuration.productIconByName%",
+          "type": "object"
+        },
+        "a-file-icon-vscode.productIconThemeLayers": {
+          "default": [],
+          "description": "%configuration.productIconThemeLayers%",
+          "items": {
+            "anyOf": [
+              {
+                "description": "%configuration.productIconThemeLayers.theme%",
+                "type": "string"
+              },
+              {
+                "additionalProperties": false,
+                "properties": {
+                  "mode": {
+                    "default": "fill",
+                    "description": "%configuration.productIconThemeLayers.mode%",
+                    "enum": [
+                      "fill",
+                      "override",
+                      "off"
+                    ],
+                    "enumDescriptions": [
+                      "%configuration.productIconThemeLayers.mode.fill%",
+                      "%configuration.productIconThemeLayers.mode.override%",
+                      "%configuration.productIconThemeLayers.mode.off%"
+                    ],
+                    "type": "string"
+                  },
+                  "theme": {
+                    "description": "%configuration.productIconThemeLayers.theme%",
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "theme"
+                ],
+                "type": "object"
+              }
+            ]
+          },
+          "type": "array"
+        },
         "a-file-icon-vscode.saturation": {
           "default": 1,
           "description": "%configuration.saturation%",
@@ -593,6 +645,11 @@
       }
     ],
     "productIconThemes": [
+      {
+        "id": "cool-islands-product-icons",
+        "label": "Cool Islands Icons",
+        "path": "./dist/cool-islands-product-icon-theme.json"
+      },
       {
         "id": "a-file-icon-vscode-product-icon-theme",
         "label": "Cool Material Icons",

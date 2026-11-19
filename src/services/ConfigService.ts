@@ -13,6 +13,7 @@ import type { IconConfiguration } from 'src/models/IconConfiguration';
 import type { FolderTheme, ArrowTheme, AtomConfig, IconPack, IconSettings, IconThemeLayer } from 'src/@types/config';
 import type { IconAssociations } from 'src/@types/associations';
 import type { ColorThemeLayer } from 'src/themes/colorLayers';
+import type { ProductIconLayer } from 'src/productIcons/productIconLayers';
 
 /** Theme files generated before associations were stored have no value for them */
 const EMPTY_DEFAULTS: Partial<IconSettings> = {
@@ -126,6 +127,23 @@ export class ConfigService implements AtomConfig {
 
   set colorThemeByKey(v) {
     this.setConfigValue('colorThemeByKey', v, ConfigurationTarget.Global);
+  }
+
+  get productIconThemeLayers(): ProductIconLayer[] {
+    const value = this.getConfigValue<ProductIconLayer[]>('productIconThemeLayers');
+    return Array.isArray(value) ? value : getDefaultConfig().productIconThemeLayers;
+  }
+
+  set productIconThemeLayers(v: ProductIconLayer[]) {
+    this.setConfigValue('productIconThemeLayers', v, ConfigurationTarget.Global);
+  }
+
+  get productIconByName(): Record<string, string> | undefined {
+    return this.getConfigValue<Record<string, string>>('productIconByName');
+  }
+
+  set productIconByName(v) {
+    this.setConfigValue('productIconByName', v, ConfigurationTarget.Global);
   }
 
   get iconThemeByName(): Record<string, string> | undefined {
@@ -333,6 +351,8 @@ export class ConfigService implements AtomConfig {
     this.monochrome = defaultConfig.monochrome;
     this.monochromeColor = defaultConfig.monochromeColor;
     this.opacity = defaultConfig.opacity;
+    this.productIconThemeLayers = defaultConfig.productIconThemeLayers;
+    this.productIconByName = undefined;
     this.saturation = defaultConfig.saturation;
     this.showFontMessage = true;
     this.showReloadMessage = true;

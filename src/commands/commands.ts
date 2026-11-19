@@ -64,9 +64,11 @@ const changeMonochromeColor = async () => {
   if (!configService.monochrome) configService.monochrome = true;
 };
 
-const openThemeMixer = async () => {
+/** The tab can be given when the command is run from code: `executeCommand('…openThemeMixer', 'product')` */
+const openThemeMixer = async (tab?: unknown) => {
   logger.info('Open the theme mixer');
-  if (extensionContext) ThemeMixerPanel.show(extensionContext, 'icons');
+  const tabs = new Set<unknown>(['colors', 'icons', 'product']);
+  if (extensionContext) ThemeMixerPanel.show(extensionContext, tabs.has(tab) ? (tab as 'colors' | 'icons' | 'product') : 'icons');
 };
 
 const openColorMixer = async () => {
@@ -79,7 +81,7 @@ const restoreDefaultConfig = async () => {
   configService.resetConfig();
 };
 
-const extensionCommands: Record<string, () => Promise<void>> = {
+const extensionCommands: Record<string, (...parameters: unknown[]) => Promise<void>> = {
   changeArrowTheme,
   changeFolderColor,
   changeFolderTheme,
@@ -100,7 +102,7 @@ const extensionCommands: Record<string, () => Promise<void>> = {
 export const registerCommands = (context: ExtensionContext) => {
   extensionContext = context;
   return Object.keys(extensionCommands).map((commandName) => {
-    const callCommand = () => extensionCommands[commandName]();
+    const callCommand = (...parameters: unknown[]) => extensionCommands[commandName](...parameters);
     return commands.registerCommand(
       `${EXTENSION_KEY}.${commandName}`,
       callCommand,

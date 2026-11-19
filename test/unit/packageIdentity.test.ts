@@ -45,7 +45,10 @@ describe('package identity', () => {
     );
     assert.deepEqual(
       packageJson.contributes.productIconThemes.map(({ id, label, path }) => ({ id, label, path })),
-      [{ id: `${EXTENSION_KEY}-product-icon-theme`, label: 'Cool Material Icons', path: `./dist/${JSON_PRODUCT_FILE_NAME}` }],
+      [
+        { id: 'cool-islands-product-icons', label: 'Cool Islands Icons', path: './dist/cool-islands-product-icon-theme.json' },
+        { id: `${EXTENSION_KEY}-product-icon-theme`, label: 'Cool Material Icons', path: `./dist/${JSON_PRODUCT_FILE_NAME}` },
+      ],
     );
   });
 

@@ -34,6 +34,11 @@ projects for the exact terms (for example, Font Awesome 4.7 icons are CC BY 4.0,
   [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community), Apache License 2.0,
   Copyright 2000-2024 JetBrains s.r.o. and contributors. See [assets/icons/NOTICE.md](./assets/icons/NOTICE.md) and
   [assets/icons/LICENSE-APACHE-2.0.txt](./assets/icons/LICENSE-APACHE-2.0.txt).
+- `productIcons/cool-islands-icons.woff` (Cool Islands Icons) — a font made from the New UI icons of
+  [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community) (`platform/icons/src/expui` and the
+  terminal plugin), at the commit given in `themes/jetbrains-source.json`, Apache License 2.0, Copyright 2000-2026
+  JetBrains s.r.o. and contributors. The icons were changed: traced into one-color glyphs by
+  `src/scripts/productIcons/buildJetbrainsFont.ts`.
 
 ## Colors from the JetBrains IDEs
 

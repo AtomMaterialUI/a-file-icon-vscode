@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: **Cool Islands Icons** product icon theme: the JetBrains New UI icons (tool windows, tree arrows, editor and panel
+  actions, find, problems, run and debug, source control, symbols), built into a font by `bun run build:product-icons`
+- feat: mix other product icon themes into Cool Islands Icons: `productIconThemeLayers` (`fill` / `override` / `off`,
+  Cool Material Icons included) and `productIconByName` (icon ids or globs), with a Product icons tab in the Mix Themes
+  page and a reload notification
 - perf: a settings change no longer blocks the extension host (and so every other extension) for 6 to 9 seconds while
   the icon theme is regenerated: unchanged icons are not written again, the regeneration waits for the end of a burst
   of events and ignores the settings of other extensions, and it runs after the activation (about 1.3 s now)
