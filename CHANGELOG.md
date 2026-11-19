@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- perf: a Mix Themes page that is not shown is no longer kept alive: VS Code drops the hidden page and loads it again when
+  shown (its tab and scroll position come back), and a hidden page is not sent states to build any more
+- perf: at every start the extension no longer parses the generated theme files (about 900 KB of json) to compare them with
+  the settings: it reads a small `dist/.state.json` written beside them, and reads the theme files only when they are not
+  the ones the state was written for
+- perf: the installed color themes and product icon themes are no longer listed (a read of the manifest of every extension)
+  when no theme is mixed in, and the list is kept until an extension is installed, updated or removed
+- chore: the debug output of `i18next` is off; `COOL_THEME_KIT_MEMORY=1` makes the extension log the memory of its extension
+  host and the time of its start and regeneration to its output channel (nothing is logged without it)
+
 - feat: `accentColor` replaces the blue of Cool Islands Dark and Light (focus ring, buttons, links, active tab, selection),
   with a color picker and swatches on the Colors tab of the Mix Themes page. It wins over the color layers and loses to
   `colorThemeByKey`; the text on the accent stays readable (black or white when needed)

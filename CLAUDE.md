@@ -120,6 +120,15 @@
   층으로 고를 수 있다. 화살표 스타일(`arrowTheme`)은 Material 테마에만 적용. 섞기 화면 제품 아이콘 탭(`openThemeMixer` 에 'product' 인자).
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은
   `package.json` 기본값과 `getDefaultConfig` 를 같이 고친다.
+- 시작 때 설정과 생성된 테마를 비교하느라 테마 json(아이콘 735 KB + 제품 180 KB)을 통째로 파싱하지 않는다: `helpers/themeState.ts` 가
+  `dist/.state.json`(테마 파일의 크기·수정 시각 + 그 파일을 만든 설정·층 지문)을 같이 쓰고, `ConfigChangeDetector` 는 파일이 상태와 같을 때만
+  상태를 믿는다(다르거나 없으면 예전처럼 파일을 읽는다). 상태는 `.vscodeignore` 로 VSIX 에서 뺀다(런타임에 생김).
+- 설치된 색·제품 아이콘 테마 목록은 `extensions.onDidChange` 때만 다시 읽고(`forgetInstalled*Themes`), 섞을 테마가 없으면 읽지 않는다.
+  섞기 화면은 `retainContextWhenHidden: false`: 숨기면 VS Code 가 페이지를 버리고 다시 열 때 `ready` 로 상태를 받는다. 탭·스크롤은
+  `media/themeMixer.js` 의 `setState`, 요청된 탭은 `ThemeMixerPanel.tabPending`. 숨겨진 패널은 `refresh()` 에서 상태를 만들지 않는다.
+- 메모리·시간 측정: `COOL_THEME_KIT_MEMORY=1` 로 VS Code 를 띄우면 출력 채널에 `MEMORY` 줄이 남는다(활성화 끝·재생성 끝, GC 뒤 `heapUsed`·`rss`).
+  격리 프로필의 `logs/*/window1/exthost/output_logging_*/1-Cool Theme Kit.log`. 재생성 시간에는 이 GC 가 들어간다(웜 스타트 기준 베이스라인 ≈ 50 ms).
+  보유 메모리(37 MB)는 VS Code 확장 호스트가 대부분이라 파싱 같은 일시적 할당은 `heapUsed` 에 안 보인다.
 - dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67). 내용이 같으면 쓰지 않는다: 아이콘 ~2,500개를
   다시 쓰면 Windows 에서 확장 호스트가 6~9초 멈춘다(포크 #28). 아이콘 파일 이름의 해시(`getFileConfigHash`)는 SVG 필터 설정
   (색·불투명도·채도·모노크롬)만으로 만들고, 생성기가 이번에 쓰지 않은 `~해시`·`custom-` 아이콘은 지운다.

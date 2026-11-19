@@ -167,6 +167,8 @@ export class ThemeMixerPanel {
   private roots = '';
   /** The tab the page opens on, sent once the page is ready */
   private tab: MixerTab = 'icons';
+  /** Whether `tab` was asked for and not yet delivered: a page loaded again after being hidden keeps the tab it had */
+  private tabPending = true;
 
   private constructor(
     private readonly panel: WebviewPanel,
@@ -183,15 +185,21 @@ export class ThemeMixerPanel {
   /** Open the page on a tab, or show it on that tab when it is already open */
   static show(context: ExtensionContext, tab: MixerTab) {
     if (ThemeMixerPanel.current) {
-      ThemeMixerPanel.current.tab = tab;
-      ThemeMixerPanel.current.panel.reveal();
-      ThemeMixerPanel.current.postTab();
+      const current = ThemeMixerPanel.current;
+      current.tab = tab;
+      // a hidden page gets nothing now: it is loaded again when revealed and asks with `ready`
+      const loaded = current.panel.visible;
+      current.panel.reveal();
+      current.tabPending = !loaded;
+      if (loaded) current.postTab();
       return;
     }
     const panel = window.createWebviewPanel(VIEW_TYPE, i18next.t('themeMixer.title'), ViewColumn.Active, {
       enableScripts: true,
       localResourceRoots: ThemeMixerPanel.resourceRoots(),
-      retainContextWhenHidden: true,
+      // A hidden page is dropped by VS Code and loaded again when shown (it asks for its state with `ready`, and keeps its
+      // tab and scroll position with `setState`): keeping it costs the memory of a page for as long as the editor is open
+      retainContextWhenHidden: false,
     });
     ThemeMixerPanel.current = new ThemeMixerPanel(panel, context);
     ThemeMixerPanel.current.tab = tab;
@@ -203,7 +211,10 @@ export class ThemeMixerPanel {
     if (!current) return;
 
     clearTimeout(current.refreshTimer);
-    current.refreshTimer = setTimeout(() => current.post(), 150);
+    // A hidden page does not receive messages: it asks for its state with `ready` when shown again
+    current.refreshTimer = setTimeout(() => {
+      if (current.panel.visible) current.post();
+    }, 150);
   }
 
   /** The folders the page may load icons and fonts from: this extension and the extensions of the other themes */
@@ -237,7 +248,10 @@ export class ThemeMixerPanel {
     try {
       switch (message?.type) {
         case 'ready': {
-          this.postTab();
+          if (this.tabPending) {
+            this.tabPending = false;
+            this.postTab();
+          }
           this.post();
           break;
         }

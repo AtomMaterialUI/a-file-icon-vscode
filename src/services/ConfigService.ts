@@ -328,7 +328,7 @@ export class ConfigService implements AtomConfig {
    * Returns the icon settings if they differ from the ones the current theme file was generated with,
    * or undefined when the theme is up to date.
    */
-  public getIconConfigChanges(config: IconConfiguration): IconSettings | undefined {
+  public getIconConfigChanges(config: Pick<IconConfiguration, 'atomConfig'>): IconSettings | undefined {
     const current = this.getIconSettings();
     const previous = config.atomConfig ?? {};
 
@@ -336,7 +336,7 @@ export class ConfigService implements AtomConfig {
     return changed ? current : undefined;
   }
 
-  public getProductConfigChanges(config: ProductConfiguration) {
+  public getProductConfigChanges(config: Pick<ProductConfiguration, 'atomConfig'>) {
     const changes: Partial<AtomConfig> = {};
 
     if (this.arrowTheme !== config.atomConfig?.arrowTheme) {

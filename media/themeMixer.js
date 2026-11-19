@@ -580,8 +580,23 @@
 
   // ---------------------------------------------------------------- Page
 
+  // The page is dropped by VS Code when its tab is hidden and loaded again when shown: the tab and the scroll position
+  // are kept in the state of the page, the rest comes from the extension (`ready`)
   /** @type {'colors' | 'icons' | 'product'} */
   let tab = (vscode.getState() && vscode.getState().tab) || 'icons';
+  let scroll = (vscode.getState() && vscode.getState().scroll) || 0;
+  let restoreScroll = scroll > 0;
+  const saveState = () => vscode.setState({ scroll, tab });
+
+  let scrollFrame = 0;
+  window.addEventListener('scroll', () => {
+    if (scrollFrame || restoreScroll) return;
+    scrollFrame = requestAnimationFrame(() => {
+      scrollFrame = 0;
+      scroll = Math.round(window.scrollY);
+      saveState();
+    });
+  });
 
   const tabs = () =>
     h('div', { className: 'tabs', role: 'tablist' }, [
@@ -592,7 +607,7 @@
       h('button', {
         'aria-selected': String(tab === id),
         className: tab === id ? 'tab selected' : 'tab',
-        onClick: () => { tab = /** @type {any} */ (id); vscode.setState({ tab }); render(); },
+        onClick: () => { tab = /** @type {any} */ (id); scroll = 0; saveState(); render(); },
         role: 'tab',
         text: t(key),
         type: 'button',
@@ -642,8 +657,10 @@
   window.addEventListener('message', (event) => {
     const message = event.data;
     if (message?.type === 'tab' && ['colors', 'icons', 'product'].includes(message.tab)) {
+      // the tab the panel was opened on; a page loaded again keeps the one it had unless the panel is told otherwise
+      if (tab !== message.tab) scroll = 0;
       tab = message.tab;
-      vscode.setState({ tab });
+      saveState();
       if (state) render();
       return;
     }
@@ -653,6 +670,11 @@
     document.body.classList.remove('pending');
     loadFonts(state.fonts);
     render();
+    if (restoreScroll) {
+      // the first state of a page loaded again: back to where the user was, once the content has its height
+      restoreScroll = false;
+      requestAnimationFrame(() => window.scrollTo(0, scroll));
+    }
   });
 
   send({ type: 'ready' });

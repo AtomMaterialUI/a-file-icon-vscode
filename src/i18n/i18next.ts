@@ -14,7 +14,7 @@ const getCurrentLanguage = () => env.language as EnvLanguage;
 export const initI18next = async () => {
   await i18next
     .init({
-      debug: true,
+      debug: false,
       fallbackLng: 'en',
       interpolation: {
         escapeValue: false,
