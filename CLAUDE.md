@@ -95,6 +95,16 @@
   (생성물, **손대지 않는다**)을 만들고, `ColorThemeGenerator` 가 빌드 때 `dist/` 로 쓴다. Python 규칙은 PyCharm `PyHighlighter.java`
   의 키·대체 키 기준(상수·속성 색 없음, 메서드 호출 = 함수 호출). 화면 확인은 격리 VS Code 를 `--remote-debugging-port` 로 띄워
   CDP `Page.captureScreenshot` 으로 캡처(창을 앞으로 가져오지 않아 사용자 작업을 방해하지 않음).
+- 색 테마 섞기(`src/themes/colorLayers.ts` 순수 엔진, `readColorTheme.ts` JSONC·`include`·`tokenColors` 경로 읽기,
+  `services/ColorThemeService.ts` 설치된 테마 목록·섞기·다시 로드 알림): `colorThemeLayers`(테마 id 또는 `{theme, ui, syntax, applyTo}`,
+  `fill`/`override`/`off`, 같은 종류의 Islands 에만 — `applyTo` 로 바꿈)·`colorThemeByKey`(색 id glob, `scope:`, `semantic:`).
+  우선순위: byKey(뒤가 이김) > override 층(앞이 이김) > Islands > fill 층(앞이 이김). 문법 override 는 Islands 문법을 통째로 대신하고,
+  문법 fill 은 Islands 규칙이 덮지 않는 scope 만 앞에 붙인다. 아이콘 설정이 아니라 `ICON_SETTING_KEYS` 에 넣지 않는다.
+  `regenerateTheme` 마다 `ColorThemeGenerator.createJsonThemes(mix)` 가 **내용이 바뀐 테마만** 쓰고, 선택된 테마가 바뀌면
+  알림 하나(`showReloadMessage`)로 창 다시 로드를 권한다. 테마 id 는 `workbench.colorTheme` 값 = 기여한 `id` ?? label
+  (VS Code 1.147 기본 테마 id 는 "Dark Modern" 처럼 "Default" 없이). JSONC 는 `jsonc-parser` 대신 자체 `stripJsonComments`
+  (jsonc-parser 의 UMD 빌드는 esbuild 번들에서 깨짐). 섞기 화면은 아이콘/색 탭(`openColorMixer` 명령은 색 탭으로 연다),
+  색 탭 상태는 `panels/colorMixerState.ts`. 격리 확인에서 탭 전환은 클릭 대신 이 명령으로.
 - 아이콘 팩(`enabledFor`) 항목은 생성 때 일반 항목 뒤에 적용돼 같은 확장자를 덮어쓴다(css → css2). 기본 팩은
   `package.json` 기본값과 `getDefaultConfig` 를 같이 고친다.
 - dist 쓰기는 `helpers/fsUtils.writeFileAtomic`(임시 파일 + rename)만 쓴다(#67).

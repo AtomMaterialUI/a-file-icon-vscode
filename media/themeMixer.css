@@ -220,3 +220,74 @@ summary {
 .pending .preview {
   opacity: 0.5;
 }
+
+/* Icons / Colors tabs */
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 0 0 12px;
+  border-bottom: 1px solid var(--vscode-widget-border, var(--vscode-panel-border));
+}
+
+.tab {
+  margin-bottom: -1px;
+  padding: 6px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: var(--vscode-descriptionForeground);
+  background: transparent;
+}
+
+.tab:hover:not(:disabled) {
+  color: var(--vscode-foreground);
+  background: transparent;
+}
+
+.tab.selected {
+  border-bottom-color: var(--vscode-focusBorder);
+  color: var(--vscode-foreground);
+}
+
+/* Colors preview: a swatch and the hex of each color, a line of code on the background of each theme */
+.preview.colors th {
+  max-width: 200px;
+}
+
+.preview.colors td {
+  padding: 3px 10px 3px 0;
+  white-space: nowrap;
+}
+
+.swatch {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  margin-right: 6px;
+  border: 1px solid var(--vscode-widget-border, rgb(128 128 128 / 40%));
+  vertical-align: middle;
+}
+
+.swatch.none {
+  border-style: dashed;
+}
+
+.hex {
+  color: var(--vscode-descriptionForeground);
+  font-family: var(--vscode-editor-font-family), 'D2Coding', monospace;
+  font-size: 0.9em;
+}
+
+.code {
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-family: var(--vscode-editor-font-family), 'D2Coding', 'Malgun Gothic', 'Apple SD Gothic Neo', monospace;
+  font-size: var(--vscode-editor-font-size);
+  line-height: 1.5;
+  white-space: pre;
+}
+
+.pending .preview.colors {
+  opacity: 0.5;
+}

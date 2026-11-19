@@ -29,6 +29,7 @@ export const getDefaultConfig = (): AtomConfig => {
       IconPack.Tests,
     ],
     arrowTheme: ArrowTheme.Material,
+    colorThemeLayers: [],
     folderColor: DEFAULT_FOLDER_COLOR,
     folderTheme: FolderTheme.Specific,
     hideFileIcons: false,

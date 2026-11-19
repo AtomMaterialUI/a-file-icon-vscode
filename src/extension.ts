@@ -4,6 +4,7 @@ import { VERSION_KEY } from 'src/helpers/constants';
 import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
+import { colorThemeService } from 'src/services/ColorThemeService';
 import { configService } from 'src/services/ConfigService';
 import { fontCheckService } from 'src/services/FontCheckService';
 import { logger } from 'src/services/LoggingService';
@@ -28,17 +29,24 @@ const regenerateTheme = () => {
     logger.error(String(error));
     window.showErrorMessage(`Cool Theme: ${error instanceof Error ? error.message : String(error)}`);
   }
+  try {
+    colorThemeService.regenerate();
+  } catch (error) {
+    logger.error(String(error));
+    window.showErrorMessage(`Cool Theme: ${error instanceof Error ? error.message : String(error)}`);
+  }
   watchLayerThemes();
   // the theme mixer previews the regenerated theme
   ThemeMixerPanel.refresh();
 };
 
 /**
- * The other icon themes rewrite their json when their own settings change: regenerate this theme then.
+ * The other icon themes rewrite their json when their own settings change, and a color theme file changes when its
+ * extension is updated or developed: regenerate the themes then.
  * Polling the modification time works the same on every platform, unlike fs.watch.
  */
 const watchLayerThemes = () => {
-  const paths = new Set(findLayerThemes(configService.getIconSettings()).map((theme) => theme.path));
+  const paths = new Set([...findLayerThemes(configService.getIconSettings()).map((theme) => theme.path), ...colorThemeService.watchedPaths()]);
 
   for (const path of watchedThemes) {
     if (paths.has(path)) continue;

@@ -66,7 +66,12 @@ const changeMonochromeColor = async () => {
 
 const openThemeMixer = async () => {
   logger.info('Open the theme mixer');
-  if (extensionContext) ThemeMixerPanel.show(extensionContext);
+  if (extensionContext) ThemeMixerPanel.show(extensionContext, 'icons');
+};
+
+const openColorMixer = async () => {
+  logger.info('Open the theme mixer on its Colors tab');
+  if (extensionContext) ThemeMixerPanel.show(extensionContext, 'colors');
 };
 
 const restoreDefaultConfig = async () => {
@@ -81,6 +86,7 @@ const extensionCommands: Record<string, () => Promise<void>> = {
   changeMonochromeColor,
   changeOpacity,
   changeSaturation,
+  openColorMixer,
   openThemeMixer,
   restoreDefaultConfig,
   toggleIconPacks,

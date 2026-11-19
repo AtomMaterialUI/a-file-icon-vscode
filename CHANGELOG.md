@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: mix other installed color themes into Cool Islands: `colorThemeLayers` (`fill` / `override` / `off` for the
+  workbench colors and the syntax colors separately, into the Cool Islands theme of the same kind or `applyTo`) and
+  `colorThemeByKey` (single color ids or globs, `scope:` TextMate scopes and `semantic:` selectors from a theme). A
+  notification offers to reload the window when the selected theme changes
+- feat: the Mix Themes page has a Colors tab with a preview of the result, Cool Islands and each mixed theme; new
+  command Mix Color Themes (with Preview)
+
 - feat: the extension is now **Cool Theme**: a JetBrains (PyCharm New UI) style base theme for VS Code, with other
   installed themes layered on top. The file icon theme is **Cool Icons** and the product icon theme **Cool Material
   Icons** in the pickers; their ids, the extension id and the settings do not change
