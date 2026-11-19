@@ -14,6 +14,7 @@ import { colorThemeService, listColorThemes } from 'src/services/ColorThemeServi
 import { configService } from 'src/services/ConfigService';
 import { listProductThemes, productIconService } from 'src/services/ProductIconService';
 import { logger } from 'src/services/LoggingService';
+import { isDefaultAccent, normalizeAccent } from 'src/themes/accent';
 import { normalizeColorLayers, parseColorKey, serializeColorLayers } from 'src/themes/colorLayers';
 import { ColorThemeGenerator, kindOf } from 'src/themes/ColorThemeGenerator';
 import { COLOR_THEMES, THEMES_FOLDER } from 'src/themes/colorThemes';
@@ -63,6 +64,7 @@ type ViewIcon =
 
 /** Messages of the webview */
 type ViewMessage =
+  | { accent: unknown; type: 'accentColor' }
   | { byKey: unknown; type: 'colorByKey' }
   | { byName: unknown; type: 'byName' }
   | { byName: unknown; type: 'productByName' }
@@ -71,6 +73,9 @@ type ViewMessage =
   | { type: 'defaultSamples' | 'ready' | 'workspaceSamples' };
 
 const TRANSLATED = [
+  'accent',
+  'accentHint',
+  'accentReset',
   'add',
   'addLayer',
   'applyAuto',
@@ -265,6 +270,12 @@ export class ThemeMixerPanel {
           configService.setConfigValueWhereDefined('productIconByName', valid.length > 0 ? Object.fromEntries(valid) : undefined, ConfigurationTarget.Global);
           break;
         }
+        case 'accentColor': {
+          // a color picker only gives #rrggbb; anything else (or the Islands blue) clears the setting
+          const accent = normalizeAccent(message.accent);
+          configService.setConfigValueWhereDefined('accentColor', isDefaultAccent(accent) ? undefined : accent, ConfigurationTarget.Global);
+          break;
+        }
         case 'colorByKey': {
           const byKey: Record<string, string> = {};
           for (const entry of (Array.isArray(message.byKey) ? message.byKey : []) as Array<Record<string, unknown> | undefined>) {
@@ -402,6 +413,7 @@ export class ThemeMixerPanel {
     const colorKind = islands ? kindOf(islands) : (light ? 'light' : 'dark');
     const extensionPath = getExtensionPath();
     const colors = colorMixerState({
+      accent: normalizeAccent(configService.accentColor),
       byKey: configService.colorThemeByKey,
       generator: new ColorThemeGenerator({ dist: join(extensionPath, 'dist'), themes: join(extensionPath, THEMES_FOLDER) }),
       installed: listColorThemes(),

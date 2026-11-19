@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- feat: `accentColor` replaces the blue of Cool Islands Dark and Light (focus ring, buttons, links, active tab, selection),
+  with a color picker and swatches on the Colors tab of the Mix Themes page. It wins over the color layers and loses to
+  `colorThemeByKey`; the text on the accent stays readable (black or white when needed)
 - feat: **Cool Islands Icons** product icon theme: the JetBrains New UI icons (tool windows, tree arrows, editor and panel
   actions, find, problems, run and debug, source control, symbols), built into a font by `bun run build:product-icons`
 - feat: mix other product icon themes into Cool Islands Icons: `productIconThemeLayers` (`fill` / `override` / `off`,

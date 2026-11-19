@@ -25,6 +25,8 @@
   "configuration.activeIconPacks.volt": "Icons for Volt.",
   "configuration.activeIconPacks.vue": "Icons for Vue.",
   "configuration.activeIconPacks.vuex": "Icons for Vue and Vuex.",
+  "configuration.accentColor": "The accent color of Cool Islands Dark and Light, as `#rrggbb` (empty: the blue of the JetBrains Islands themes). It replaces the blue of the focus ring, buttons, progress bar, links, the active tab and the selection; git, terminal and debugger colors are not touched. Wins over the layers of `colorThemeLayers` and loses to `colorThemeByKey`. Reload the window to see it. Works in the desktop app only.",
+  "configuration.accentColor.pattern": "Use a color like #8bc34a, or leave it empty for the Islands blue",
   "configuration.arrowTheme": "Configure the style of arrow icons",
   "configuration.arrowTheme.arrow": "Arrows",
   "configuration.arrowTheme.material": "Material (chevrons)",

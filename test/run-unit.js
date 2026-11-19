@@ -1,6 +1,6 @@
 /**
  * Bundles the unit tests with esbuild (aliasing `vscode` to a mock) and runs them with mocha.
- * Usage: bun run test:unit
+ * Usage: bun run test:unit [file filter, e.g. accentColor]
  */
 const { buildSync } = require('esbuild');
 const { readdirSync } = require('node:fs');
@@ -12,7 +12,7 @@ const unitDir = join(__dirname, 'unit');
 const outDir = join(root, 'out', 'unit');
 
 const entryPoints = readdirSync(unitDir)
-  .filter((file) => file.endsWith('.test.ts'))
+  .filter((file) => file.endsWith('.test.ts') && (!process.argv[2] || file.includes(process.argv[2])))
   .map((file) => join(unitDir, file));
 
 buildSync({

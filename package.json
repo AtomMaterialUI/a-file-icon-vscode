@@ -302,6 +302,13 @@
     },
     "configuration": {
       "properties": {
+        "a-file-icon-vscode.accentColor": {
+          "default": "",
+          "markdownDescription": "%configuration.accentColor%",
+          "pattern": "^(#[0-9a-fA-F]{6})?$",
+          "patternErrorMessage": "%configuration.accentColor.pattern%",
+          "type": "string"
+        },
         "a-file-icon-vscode.activeIconPacks": {
           "default": [
             "angular2",

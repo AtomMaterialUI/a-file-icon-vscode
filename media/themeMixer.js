@@ -39,7 +39,7 @@
   let pendingTimer = 0;
 
   const send = (/** @type {any} */ message) => {
-    if (['byName', 'colorByKey', 'colorLayers', 'layers', 'productByName', 'productLayers'].includes(message.type)) {
+    if (['accentColor', 'byName', 'colorByKey', 'colorLayers', 'layers', 'productByName', 'productLayers'].includes(message.type)) {
       document.body.classList.add('pending');
       clearTimeout(pendingTimer);
       pendingTimer = setTimeout(() => document.body.classList.remove('pending'), 30_000);
@@ -354,6 +354,39 @@
     ]);
   };
 
+  /** The accent color: a picker (it fires `change` once, when the picker closes), swatches, and a way back to the Islands blue */
+  const accentSection = () => {
+    const colors = state.colors;
+    const sendAccent = (/** @type {string} */ value) => {
+      colors.accent = value === colors.accentDefault ? '' : value;
+      render();
+      send({ accent: colors.accent, type: 'accentColor' });
+    };
+    const picker = /** @type {HTMLInputElement} */ (h('input', { className: 'accent-picker', type: 'color' }));
+    picker.value = colors.accent || colors.accentDefault;
+    picker.addEventListener('change', () => sendAccent(picker.value));
+
+    const swatches = colors.accentPresets.map((/** @type {string} */ preset) =>
+      h('button', {
+        className: `swatch${(colors.accent || colors.accentDefault) === preset ? ' selected' : ''}`,
+        onclick: () => sendAccent(preset),
+        style: `background:${preset}`,
+        title: preset,
+        type: 'button',
+      }),
+    );
+    return h('section', {}, [
+      h('h2', { text: t('accent') }),
+      h('p', { className: 'hint', text: t('accentHint') }),
+      h('div', { className: 'accent' }, [
+        picker,
+        h('code', { text: colors.accent || colors.accentDefault }),
+        ...swatches,
+        colors.accent ? button(t('accentReset'), () => sendAccent(colors.accentDefault)) : undefined,
+      ]),
+    ]);
+  };
+
   const colorByKeySection = () => {
     const entries = state.colors.byKey;
     const rows = entries.map((/** @type {any} */ entry, /** @type {number} */ index) => {
@@ -572,6 +605,7 @@
     const pages = {
       colors: () => [
         state.colorActive ? undefined : h('p', { className: 'warning', text: t('colorInactive') }),
+        accentSection(),
         colorLayersSection(),
         colorByKeySection(),
         colorPreviewSection(),

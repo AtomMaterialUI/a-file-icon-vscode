@@ -112,6 +112,14 @@ export class ConfigService implements AtomConfig {
     this.setConfigValue('iconThemeLayers', v, ConfigurationTarget.Global);
   }
 
+  get accentColor(): string | undefined {
+    return this.getConfigValue<string>('accentColor');
+  }
+
+  set accentColor(v: string | undefined) {
+    this.setConfigValue('accentColor', v, ConfigurationTarget.Global);
+  }
+
   get colorThemeLayers(): ColorThemeLayer[] {
     const value = this.getConfigValue<ColorThemeLayer[]>('colorThemeLayers');
     return Array.isArray(value) ? value : getDefaultConfig().colorThemeLayers;
@@ -340,6 +348,7 @@ export class ConfigService implements AtomConfig {
 
   public resetConfig() {
     const defaultConfig = getDefaultConfig();
+    this.accentColor = undefined;
     this.activeIconPacks = defaultConfig.activeIconPacks;
     this.arrowTheme = defaultConfig.arrowTheme;
     this.colorThemeLayers = defaultConfig.colorThemeLayers;
