@@ -8,7 +8,13 @@ const read = (file: string) => readFileSync(join(root, file), 'utf8');
 
 type Theme = { id: string; label: string; path: string };
 const packageJson = JSON.parse(read('package.json')) as {
-  contributes: { commands: Array<{ category?: string; command: string }>; iconThemes: Theme[]; productIconThemes: Theme[] };
+  capabilities: { untrustedWorkspaces: { description?: string; restrictedConfigurations?: string[]; supported: boolean | string } };
+  contributes: {
+    commands: Array<{ category?: string; command: string }>;
+    configuration: { properties: Record<string, unknown> };
+    iconThemes: Theme[];
+    productIconThemes: Theme[];
+  };
   displayName: string;
   galleryBanner: { color: string; theme: string };
   icon: string;
@@ -72,6 +78,20 @@ describe('package identity', () => {
         assert.doesNotMatch(value, /^vuex/, `${file} ${key}`);
       }
     }
+  });
+
+  // The associations take SVG file paths (helpers/customIcons.ts) that are copied into the theme: in Restricted Mode
+  // VS Code must ignore the values of the workspace settings (docs/MAINTENANCE.md, security rule 4)
+  it('ignores the icon associations of an untrusted workspace', () => {
+    const { description, restrictedConfigurations, supported } = packageJson.capabilities.untrustedWorkspaces;
+    assert.equal(supported, 'limited');
+    const associations = ['filesAssociations', 'foldersAssociations', 'languagesAssociations'].map((key) => `${EXTENSION_KEY}.${key}`);
+    assert.deepEqual(restrictedConfigurations, associations);
+    for (const key of associations) assert.ok(key in packageJson.contributes.configuration.properties, key);
+    assert.match(description ?? '', /^%(.+)%$/);
+    const nlsKey = description!.slice(1, -1);
+    assert.ok(JSON.parse(read('package.nls.json'))[nlsKey]);
+    assert.ok(JSON.parse(read('package.nls.ko.json'))[nlsKey]);
   });
 
   // logo.png is what the Marketplace and the Extensions view show: it is rendered from logo.svg by `bun run build:logo`

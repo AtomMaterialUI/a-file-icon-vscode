@@ -66,19 +66,25 @@ export const fontFolders = (
   return [join(dataHome, 'fonts'), join(home, '.fonts'), '/usr/share/fonts', '/usr/local/share/fonts'];
 };
 
-/** Whether a font file of the family is in one of the folders (Linux puts them in sub folders) */
-export const isFontInstalled = (family: FontFamily, folders: string[] = fontFolders()): boolean => {
+/** The font families fontconfig knows (Linux, fonts installed anywhere), lower case; empty elsewhere or without fc-list */
+export const fontconfigFamilies = (platform: NodeJS.Platform = process.platform): string => {
+  if (platform !== 'linux') return '';
+  try {
+    return execFileSync('fc-list', [':', 'family'], { encoding: 'utf8', timeout: 3000 }).toLowerCase();
+  } catch {
+    return '';
+  }
+};
+
+/** Whether a font file of the family is in one of the folders (Linux puts them in sub folders), or fontconfig knows it */
+export const isFontInstalled = (
+  family: FontFamily,
+  folders: string[] = fontFolders(),
+  knownFamilies: () => string = fontconfigFamilies,
+): boolean => {
   const matches = (name: string) => FONT_FILE_NAMES[family].test(name);
   if (folders.some((folder) => existsSync(folder) && findFiles(folder, 3, matches))) return true;
-  // fontconfig knows the fonts installed anywhere else
-  if (process.platform === 'linux') {
-    try {
-      return execFileSync('fc-list', [':', 'family'], { encoding: 'utf8', timeout: 3000 }).toLowerCase().includes(family.toLowerCase());
-    } catch {
-      return false;
-    }
-  }
-  return false;
+  return knownFamilies().includes(family.toLowerCase());
 };
 
 /**

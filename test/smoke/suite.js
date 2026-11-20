@@ -16,8 +16,9 @@ const KEY = 'a-file-icon-vscode';
 /**
  * Memory budget: what the extension host keeps more after the cycles than before them (after a garbage collection).
  * A theme json kept by mistake on each regeneration is 1 to 5 MB, so a leak goes over it within the cycles.
+ * Measured on CI (Linux and Windows, 1.95.0 and stable, with and without other theme extensions): 0.2 to 0.8 MB.
  */
-const HEAP_GROWTH_BUDGET_MB = 10;
+const HEAP_GROWTH_BUDGET_MB = 3;
 const CYCLES = 4;
 const PANEL_CYCLES = 3;
 /** Regenerations rewrite the ~2,500 icons when the opacity changes: slow on Windows (fork #28) */

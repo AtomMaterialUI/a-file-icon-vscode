@@ -1,4 +1,5 @@
 {
+  "capabilities.untrustedWorkspaces": "In Restricted Mode, the file, folder and language icon associations of the workspace settings are ignored (they may point to SVG files); the user settings still apply.",
   "command.activateIcons": "Activate Icon Theme",
   "command.changeArrowTheme": "Change Arrows Theme",
   "command.changeFolderColor": "Change Folder Color",

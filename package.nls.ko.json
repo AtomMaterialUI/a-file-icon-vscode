@@ -1,4 +1,5 @@
 {
+  "capabilities.untrustedWorkspaces": "제한 모드에서는 워크스페이스 설정의 파일·폴더·언어 아이콘 연결을 쓰지 않습니다(SVG 파일 경로일 수 있음). 사용자 설정의 연결은 그대로 씁니다.",
   "command.activateIcons": "아이콘 테마 활성화",
   "command.changeArrowTheme": "화살표 테마 변경",
   "command.changeFolderColor": "폴더 색 변경",
