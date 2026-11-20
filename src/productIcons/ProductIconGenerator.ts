@@ -1,6 +1,7 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
-import { dirname, join, resolve } from 'node:path';
+import { dirname, join } from 'node:path';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
+import { resolveThemePath } from 'src/helpers/themePaths';
 import { extensionRoot } from 'src/themes/colorThemes';
 import { stripJsonComments } from 'src/themes/readColorTheme';
 
@@ -28,20 +29,37 @@ export type ProductMix = { byName: MixedProductName[]; layers: MixedProductLayer
 
 /**
  * A product icon theme file, read like VS Code reads it (comments, trailing commas): the paths of its fonts are made
- * absolute, the fonts and definitions that are not valid are left out
+ * absolute, the fonts and definitions that are not valid are left out. Font files outside the folder of the extension
+ * contributing the theme are left out too (VS Code does not load them either), and so are the definitions of a font
+ * left with no file: another font of the theme would show a wrong glyph.
+ * @param theme its id (`workbench.productIconTheme`), its file and the folder of the extension contributing it
  */
-export const readProductTheme = (id: string, path: string): ReadProductTheme => {
+export const readProductTheme = ({ extensionPath, id, path }: { extensionPath: string; id: string; path: string }): ReadProductTheme => {
   const json = JSON.parse(stripJsonComments(readFileSync(path, 'utf8').replace(/^﻿/, ''))) as Partial<ProductIconTheme>;
+  /** the fonts whose files are all outside the extension */
+  const outside = new Set<string>();
+  /** the font of the definitions without `fontId`: the first one with files */
+  let primary: string | undefined;
   const fonts = (Array.isArray(json.fonts) ? json.fonts : []).flatMap((font: Partial<ProductFont> | undefined) => {
     if (!font || typeof font.id !== 'string' || !Array.isArray(font.src)) return [];
-    const sources = font.src.flatMap((item) =>
-      typeof item?.path === 'string' && typeof item.format === 'string' ? [{ format: item.format, path: resolve(dirname(path), item.path) }] : [],
-    );
+    const written = font.src.filter((item) => typeof item?.path === 'string' && typeof item.format === 'string');
+    const sources = written.flatMap((item) => {
+      const source = resolveThemePath(extensionPath, path, item.path);
+      return source ? [{ format: item.format, path: source }] : [];
+    });
+    if (written.length > 0) primary ??= font.id;
+    if (written.length > 0 && sources.length === 0) outside.add(font.id);
     return sources.length > 0 ? [{ ...font, id: font.id, src: sources }] : [];
   });
   const definitions = json.iconDefinitions && typeof json.iconDefinitions === 'object' ? json.iconDefinitions : {};
   const iconDefinitions = Object.fromEntries(
-    Object.entries(definitions).filter(([, value]) => value && typeof value === 'object' && typeof value.fontCharacter === 'string'),
+    Object.entries(definitions).filter(
+      ([, value]) =>
+        value &&
+        typeof value === 'object' &&
+        typeof value.fontCharacter === 'string' &&
+        !outside.has((typeof value.fontId === 'string' ? value.fontId : primary) ?? ''),
+    ),
   );
   return { fonts, iconDefinitions, id };
 };

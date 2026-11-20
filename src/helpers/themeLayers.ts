@@ -16,6 +16,8 @@ export type LanguageLookup = {
 
 /** Another installed file icon theme mixed with this theme */
 export type LayerTheme = {
+  /** Folder of the extension contributing the theme: its icons and fonts are read only from inside it */
+  extensionPath: string;
   /** Theme id, as in `workbench.iconTheme` */
   id: string;
   /** Path of the theme json */

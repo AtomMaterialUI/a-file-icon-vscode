@@ -1,10 +1,11 @@
 /**
  * Read a VS Code color theme file the way VS Code does: JSON with comments and trailing commas, `include` of another
  * theme file (the including file wins), and `tokenColors` given as the path of another file. TextMate `.tmTheme`
- * files are not read: their token colors are left out.
+ * files are not read: their token colors are left out. An `include` or `tokenColors` file outside the folder of the
+ * extension contributing the theme is not read either (VS Code does not load it): the theme is read without it.
  */
 import { readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { resolveThemePath } from 'src/helpers/themePaths';
 
 import { kindOfUiTheme } from './colorLayers';
 
@@ -53,11 +54,16 @@ const readJson = (path: string): ThemeFile => {
   return value && typeof value === 'object' ? (value as ThemeFile) : {};
 };
 
-const tokenRules = (value: unknown, folder: string, depth: number): TokenColor[] => {
+/** A color theme file, and the folder of the extension contributing it: its other files are read only from inside it */
+type ThemeSource = { extensionPath: string; path: string };
+
+/** @param from the file `value` is written in */
+const tokenRules = (value: unknown, from: ThemeSource, depth: number): TokenColor[] => {
   if (typeof value === 'string') {
     if (!value.toLowerCase().endsWith('.json') || depth > MAX_INCLUDES) return [];
-    const file = readJson(join(folder, value));
-    return tokenRules(file.tokenColors, dirname(join(folder, value)), depth + 1);
+    const path = resolveThemePath(from.extensionPath, from.path, value);
+    if (!path) return [];
+    return tokenRules(readJson(path).tokenColors, { extensionPath: from.extensionPath, path }, depth + 1);
   }
   if (!Array.isArray(value)) return [];
   return value.filter(
@@ -68,15 +74,12 @@ const tokenRules = (value: unknown, folder: string, depth: number): TokenColor[]
 const colorsOf = (value: Record<string, unknown> | undefined): Record<string, string> =>
   Object.fromEntries(Object.entries(value ?? {}).filter((entry): entry is [string, string] => typeof entry[1] === 'string'));
 
-/**
- * @param uiTheme `uiTheme` of the theme in its package.json (`vs`, `vs-dark`, `hc-black`, `hc-light`): its kind, unless
- *   the file says `type`
- */
-export const readColorTheme = (path: string, uiTheme?: string, depth = 0): ColorThemeData => {
-  const file = readJson(path);
-  const folder = dirname(path);
-  const included: ColorThemeData | undefined =
-    typeof file.include === 'string' && depth < MAX_INCLUDES ? readColorTheme(join(folder, file.include), uiTheme, depth + 1) : undefined;
+const readThemeFile = (source: ThemeSource, uiTheme: string | undefined, depth: number): ColorThemeData => {
+  const file = readJson(source.path);
+  const includePath = typeof file.include === 'string' && depth < MAX_INCLUDES ? resolveThemePath(source.extensionPath, source.path, file.include) : undefined;
+  const included: ColorThemeData | undefined = includePath
+    ? readThemeFile({ extensionPath: source.extensionPath, path: includePath }, uiTheme, depth + 1)
+    : undefined;
 
   const typed: Record<string, ThemeKind> = { dark: 'dark', hc: 'dark', hcDark: 'dark', hcLight: 'light', light: 'light' };
   const kind = typeof file.type === 'string' && typed[file.type] ? typed[file.type] : (included?.kind ?? kindOfUiTheme(uiTheme));
@@ -86,8 +89,14 @@ export const readColorTheme = (path: string, uiTheme?: string, depth = 0): Color
     kind,
     semanticHighlighting: typeof file.semanticHighlighting === 'boolean' ? file.semanticHighlighting : included?.semanticHighlighting,
     semanticTokenColors: { ...included?.semanticTokenColors, ...(file.semanticTokenColors as Record<string, SemanticStyle | string>) },
-    tokenColors: [...(included?.tokenColors ?? []), ...tokenRules(file.tokenColors, folder, depth)],
+    tokenColors: [...(included?.tokenColors ?? []), ...tokenRules(file.tokenColors, source, depth)],
   };
 };
+
+/**
+ * @param theme the theme file and the folder of the extension contributing it, with its `uiTheme` in that extension's
+ *   package.json (`vs`, `vs-dark`, `hc-black`, `hc-light`): its kind, unless the file says `type`
+ */
+export const readColorTheme = (theme: ThemeSource & { uiTheme?: string }): ColorThemeData => readThemeFile(theme, theme.uiTheme, 0);
 
 export { stripJsonComments };

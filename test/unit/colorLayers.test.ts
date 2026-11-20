@@ -176,7 +176,7 @@ describe('reading color themes', () => {
       "semanticTokenColors": { "parameter": "#123456" }
     }`);
 
-    const data = readColorTheme(join(folder, 'theme.json'), 'vs-dark');
+    const data = readColorTheme({ extensionPath: folder, path: join(folder, 'theme.json'), uiTheme: 'vs-dark' });
     assert.equal(data.kind, 'light');
     assert.deepEqual(data.colors, { 'editor.background': '#222222', 'editor.foreground': '#eeeeee' });
     assert.deepEqual(data.tokenColors.map((rule) => rule.scope), ['comment', 'string']);
@@ -184,7 +184,7 @@ describe('reading color themes', () => {
     assert.deepEqual(data.semanticTokenColors, { parameter: '#123456' });
 
     writeFileSync(join(folder, 'plist.json'), '{ "tokenColors": "theme.tmTheme" }');
-    assert.deepEqual(readColorTheme(join(folder, 'plist.json'), 'hc-light'), {
+    assert.deepEqual(readColorTheme({ extensionPath: folder, path: join(folder, 'plist.json'), uiTheme: 'hc-light' }), {
       colors: {},
       kind: 'light',
       semanticHighlighting: undefined,
@@ -201,7 +201,7 @@ describe('reading color themes', () => {
     const installed = [{ extensionPath: folder, id: 'Monokai', kind: 'dark' as const, label: 'Monokai', path: join(folder, 'monokai.json'), uiTheme: 'vs-dark' }];
     const generator = new ColorThemeGenerator({ dist: folder, themes: join(root, THEMES_FOLDER) });
     const layers = [{ syntax: 'override', theme: 'Monokai', ui: 'off' }];
-    const data = readColorTheme(join(folder, 'monokai.json'), 'vs-dark');
+    const data = readColorTheme({ extensionPath: folder, path: join(folder, 'monokai.json'), uiTheme: 'vs-dark' });
 
     const state = colorMixerState({
       byKey: { 'editor.background': 'Monokai', 'scope:nothing': 'Missing' },

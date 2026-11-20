@@ -1,10 +1,11 @@
 import { createHash } from 'node:crypto';
 import { existsSync, readdirSync, readFileSync, rmSync } from 'node:fs';
-import { dirname, extname, join, resolve } from 'node:path';
+import { extname, join } from 'node:path';
 import { FolderTheme } from 'src/@types/config';
 import { RELATIVE_DIST, WILDCARD_PATTERN } from 'src/helpers/constants';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { layerStamp, normalizeByName, normalizeLayers } from 'src/helpers/themeLayers';
+import { resolveThemePath } from 'src/helpers/themePaths';
 import { normalizeName } from 'src/helpers/utils';
 
 import type { AtomConfig } from 'src/@types/config';
@@ -119,6 +120,14 @@ export class LayerReader {
       light: lowerSection(json.light),
     };
     this.usesCurrentColor = json.usesCurrentColor === true;
+  }
+
+  /**
+   * The absolute path of a file of the theme (an svg, a font) written relative to the theme json, or undefined when it
+   * leaves the folder of the extension contributing the theme (VS Code does not load it either)
+   */
+  resolve(path: string): string | undefined {
+    return resolveThemePath(this.theme.extensionPath, this.theme.path, path);
   }
 
   /** The names of one of its maps */
@@ -517,9 +526,10 @@ export class ThemeLayerGenerator {
     return this.definition(reader, reader.lookup('base', hit), 'light');
   }
 
+  /** An svg file of the other theme copied to `dist/layers`; none outside the folder of its extension, like a missing file */
   private svgDefinition(reader: LayerReader, iconPath: string, safeName: string, tone: Tone) {
-    const source = resolve(dirname(reader.theme.path), iconPath);
-    if (!/\.svg$/i.test(source) || !existsSync(source)) return;
+    const source = reader.resolve(iconPath);
+    if (!source || !/\.svg$/i.test(source) || !existsSync(source)) return;
 
     let svg = readFileSync(source, 'utf8');
     // VS Code gives the text color only to the icons of the theme declaring `usesCurrentColor`: elsewhere, black
@@ -552,8 +562,9 @@ export class ThemeLayerGenerator {
   }
 
   /**
-   * A font of the other theme (its first one without an id, as VS Code does) with its files copied to `dist/layers`.
-   * The file names carry a hash of the content, so a new version of the font is not taken from the cache.
+   * A font of the other theme (its first one without an id, as VS Code does) with its files copied to `dist/layers`,
+   * except the ones outside the folder of its extension. The file names carry a hash of the content, so a new version of
+   * the font is not taken from the cache.
    */
   private font(reader: LayerReader, fontId: string | undefined): CopiedFont {
     const fonts = Array.isArray(reader.json.fonts) ? (reader.json.fonts as Array<Partial<IconFont> | undefined>) : [];
@@ -566,7 +577,7 @@ export class ThemeLayerGenerator {
     if (source && typeof source.id === 'string' && Array.isArray(source.src)) {
       const safeName = `${reader.theme.id}-${source.id}`.replaceAll(/[^\w-]/g, '_');
       const files = source.src.flatMap((item) => {
-        const path = typeof item?.path === 'string' ? resolve(dirname(reader.theme.path), item.path) : '';
+        const path = typeof item?.path === 'string' ? reader.resolve(item.path) : undefined;
         if (typeof item?.format !== 'string' || !FONT_FORMATS.has(item.format) || !path || !existsSync(path)) return [];
 
         const content = readFileSync(path);

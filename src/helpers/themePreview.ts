@@ -1,8 +1,7 @@
 import { readFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
 import { DEFAULT_FONT_SIZE, FONT_FORMATS, FONT_SIZE_PATTERN, LayerReader } from 'src/icons/generators/ThemeLayerGenerator';
 
-import type { LanguageLookup } from 'src/helpers/themeLayers';
+import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
 import type { ThemeJson } from 'src/icons/generators/ThemeLayerGenerator';
 import type { IconFont } from 'src/models/IconConfiguration';
 
@@ -27,29 +26,30 @@ export const decodeFontCharacter = (value: string): string =>
     return code > 0 && code <= 0x10_FF_FF ? String.fromCodePoint(code) : '';
   });
 
+/** A file icon theme to preview: its id, its json and the folder of the extension contributing it */
+export type PreviewTheme = Pick<LayerTheme, 'extensionPath' | 'id' | 'path'>;
+
 /**
  * The icons a file icon theme shows in the tree, for the preview of the theme mixer.
- * A theme that cannot be read shows no icon.
+ * A theme that cannot be read shows no icon, and an icon or font outside the folder of its extension is not shown.
  */
 export class ThemePreview {
+  readonly id: string;
   private readonly fonts = new Map<string, PreviewFont | undefined>();
   private readonly json: ThemeJson;
   private readonly reader: LayerReader;
 
-  constructor(
-    readonly id: string,
-    private readonly path: string,
-    languages: LanguageLookup,
-  ) {
+  constructor(theme: PreviewTheme, languages: LanguageLookup) {
     let json: ThemeJson = {};
     try {
-      const parsed: unknown = JSON.parse(readFileSync(path, 'utf8'));
+      const parsed: unknown = JSON.parse(readFileSync(theme.path, 'utf8'));
       if (parsed && typeof parsed === 'object') json = parsed as ThemeJson;
     } catch {
       // not generated yet, or being rewritten
     }
+    this.id = theme.id;
     this.json = json;
-    this.reader = new LayerReader({ id, path, stamp: '' }, json, languages);
+    this.reader = new LayerReader({ extensionPath: theme.extensionPath, id: theme.id, path: theme.path, stamp: '' }, json, languages);
   }
 
   /** The icon of a file (`name`) or of a closed folder (`name/`) */
@@ -60,7 +60,8 @@ export class ThemePreview {
     if (!definition) return undefined;
 
     if (typeof definition.iconPath === 'string') {
-      const path = resolve(dirname(this.path), definition.iconPath);
+      const path = this.reader.resolve(definition.iconPath);
+      if (!path) return undefined;
       // the svg files of these themes are drawn with the color of the text (`currentColor`)
       return this.json.usesCurrentColor === true ? { currentColor: true, kind: 'image', path } : { kind: 'image', path };
     }
@@ -90,7 +91,7 @@ export class ThemePreview {
     return Array.isArray(this.json.fonts) ? (this.json.fonts as Array<Partial<IconFont> | undefined>) : [];
   }
 
-  /** A font of the theme (its first one without an id, as VS Code does) with the files that exist in a known format */
+  /** A font of the theme (its first one without an id, as VS Code does) with its files in a known format inside its extension */
   private font(fontId: string | undefined): PreviewFont | undefined {
     const cacheKey = fontId ?? '';
     if (this.fonts.has(cacheKey)) return this.fonts.get(cacheKey);
@@ -99,11 +100,10 @@ export class ThemePreview {
     const source = fontId === undefined ? fonts[0] : fonts.find((item) => item?.id === fontId);
     let font: PreviewFont | undefined;
     if (source && typeof source.id === 'string' && Array.isArray(source.src)) {
-      const sources = source.src.flatMap((item) =>
-        typeof item?.path === 'string' && typeof item.format === 'string' && FONT_FORMATS.has(item.format)
-          ? [{ format: item.format, path: resolve(dirname(this.path), item.path) }]
-          : [],
-      );
+      const sources = source.src.flatMap((item) => {
+        const path = typeof item?.path === 'string' ? this.reader.resolve(item.path) : undefined;
+        return path && typeof item?.format === 'string' && FONT_FORMATS.has(item.format) ? [{ format: item.format, path }] : [];
+      });
       if (sources.length > 0) {
         font = {
           key: `${this.id}-${source.id}`.replaceAll(/[^\w-]/g, '_'),

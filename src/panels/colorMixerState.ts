@@ -124,7 +124,7 @@ export const colorMixerState = (options: {
     if (!theme) continue;
     let data: ColorThemeData | undefined;
     try {
-      data = readColorTheme(theme.path, theme.uiTheme);
+      data = readColorTheme(theme);
     } catch {
       continue;
     }

@@ -88,7 +88,7 @@ describe('product icon layers', () => {
         "fonts": [{ "id": "f", "src": [{ "path": "./fonts/f.woff", "format": "woff" }] }, { "id": 3 }],
         "iconDefinitions": { "close": { "fontCharacter": "\\\\e001" }, "bad": {}, },
       }`);
-      const theme = readProductTheme('my-theme', join(folder, 'theme', 'theme.json'));
+      const theme = readProductTheme({ extensionPath: folder, id: 'my-theme', path: join(folder, 'theme', 'theme.json') });
       assert.equal(theme.id, 'my-theme');
       assert.deepEqual(theme.fonts, [{ id: 'f', src: [{ format: 'woff', path: join(folder, 'theme', 'fonts', 'f.woff') }] }]);
       assert.deepEqual(Object.keys(theme.iconDefinitions), ['close']);
@@ -137,7 +137,7 @@ describe('product icon layers', () => {
     it('previews the result, Cool Islands Icons and each mixed theme for the Product icons tab', () => {
       writeFileSync(join(folder, 'other.json'), JSON.stringify({ fonts: [{ id: 'o', src: [{ format: 'woff', path: './o.woff' }] }], iconDefinitions: { files: { fontCharacter: '\\41' } } }));
       const installed = [{ extensionPath: folder, id: 'other', label: 'Other Icons', path: join(folder, 'other.json') }];
-      const other = readProductTheme('other', join(folder, 'other.json'));
+      const other = readProductTheme(installed[0]);
       const state = productMixerState({
         byName: { files: 'other' },
         distPath: join(folder, 'dist'),
