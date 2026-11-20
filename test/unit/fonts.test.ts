@@ -3,6 +3,7 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { EDITOR_FONT_FAMILY, fontFolders, isFontInstalled, missingFonts, UI_FONT_FAMILY } from 'src/helpers/fonts';
+import { isCancellation } from 'src/helpers/utils';
 
 const root = join(__dirname, '..', '..');
 const families = (list: string) => list.split(',').map((family) => family.trim().replaceAll("'", ''));
@@ -66,6 +67,16 @@ describe('JetBrains fonts', () => {
       font('JetBrainsMono-Regular.txt');
       assert.equal(isFontInstalled('JetBrains Mono', [folder, join(folder, 'missing')]), false);
     });
+  });
+
+  // the font message still open when the window closes is rejected by VS Code: not an error of the extension (smoke test)
+  it('does not count the cancellation of the font message as an error', () => {
+    const canceled = Object.assign(new Error('Canceled'), { name: 'Canceled' });
+    assert.equal(isCancellation(canceled), true);
+    assert.equal(isCancellation({ message: 'Canceled', name: 'Canceled' }), true);
+    assert.equal(isCancellation(new Error('EISDIR')), false);
+    assert.equal(isCancellation('Canceled'), false);
+    assert.equal(isCancellation(undefined), false);
   });
 
   it('suggests JetBrains Mono, and D2Coding with a Korean interface, when the default font is used without them', () => {

@@ -2,6 +2,7 @@ import { unwatchFile, watchFile } from 'node:fs';
 import { performance } from 'node:perf_hooks';
 import { registerCommands } from 'src/commands/commands';
 import { EXTENSION_KEY, VERSION_KEY } from 'src/helpers/constants';
+import { isCancellation } from 'src/helpers/utils';
 import { findLayerThemes } from 'src/helpers/vscodeUtils';
 import { initI18next } from 'src/i18n/i18next';
 import { configChangeDetector } from 'src/services/ConfigChangeDetector';
@@ -116,8 +117,11 @@ export const activate = async (context: ExtensionContext) => {
     // Start notification
     notificationsService.showStartMessages(status);
 
-    // Suggest the fonts of the default editor font when they are missing (not awaited: it waits for the user)
-    fontCheckService.check(context).catch((error: unknown) => logger.error(String(error)));
+    // Suggest the fonts of the default editor font when they are missing (not awaited: it waits for the user, and the
+    // message left open when the window closes is cancelled)
+    fontCheckService.check(context).catch((error: unknown) => {
+      if (!isCancellation(error)) logger.error(String(error));
+    });
 
     // Subscribe to the extension commands
     context.subscriptions.push(...registerCommands(context));

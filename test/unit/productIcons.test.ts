@@ -2,6 +2,7 @@ import { strict as assert } from 'node:assert';
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { ThemeLayerGenerator } from 'src/icons/generators/ThemeLayerGenerator';
 import { productMixerState } from 'src/panels/productMixerState';
 import { ISLANDS_FONT_FILE, ISLANDS_PRODUCT_DIST_FILE, ISLANDS_PRODUCT_FILE } from 'src/productIcons/islandsProductTheme';
 import { JETBRAINS_ICONS } from 'src/productIcons/jetbrainsMap';
@@ -113,6 +114,24 @@ describe('product icon layers', () => {
       // a theme no longer mixed in leaves no font behind
       assert.equal(generator.createJsonTheme(), true);
       assert.equal(existsSync(join(dist, 'layers', 'product', 'other')), false);
+    });
+
+    // found by the smoke test with other extensions: the icon theme cleaned dist/layers without looking at folders,
+    // failed with EISDIR on layers/product and never regenerated again
+    it('keeps the product icon fonts when the icon theme cleans its mixed icons', () => {
+      const dist = join(folder, 'dist');
+      mkdirSync(join(dist, 'layers', 'product', 'fluent-icons'), { recursive: true });
+      writeFileSync(join(dist, 'layers', 'product', 'fluent-icons', 'fluent.woff2'), 'font');
+      writeFileSync(join(dist, 'layers', 'old~abc.svg'), '<svg/>');
+      writeFileSync(join(dist, 'layers', 'kept~abc.svg'), '<svg/>');
+
+      assert.doesNotThrow(() => ThemeLayerGenerator.clean(dist, new Set(['kept~abc.svg'])));
+      assert.equal(existsSync(join(dist, 'layers', 'old~abc.svg')), false);
+      assert.ok(existsSync(join(dist, 'layers', 'kept~abc.svg')));
+      assert.ok(existsSync(join(dist, 'layers', 'product', 'fluent-icons', 'fluent.woff2')));
+
+      assert.doesNotThrow(() => ThemeLayerGenerator.clean(dist));
+      assert.ok(existsSync(join(dist, 'layers', 'product', 'fluent-icons', 'fluent.woff2')));
     });
 
     it('previews the result, Cool Islands Icons and each mixed theme for the Product icons tab', () => {

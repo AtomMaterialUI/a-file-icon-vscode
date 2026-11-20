@@ -1,0 +1,39 @@
+{
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "Bearer ${GITHUB_PAT:-}",
+        "X-MCP-Readonly": "true",
+        "X-MCP-Toolsets": "repos,pull_requests,actions,code_security,dependabot,secret_protection"
+      }
+    },
+    "sonarqube": {
+      "type": "stdio",
+      "command": "docker",
+      "args": [
+        "run",
+        "--init",
+        "--pull=always",
+        "-i",
+        "--rm",
+        "-e",
+        "SONARQUBE_TOKEN",
+        "-e",
+        "SONARQUBE_PROJECT_KEY",
+        "-e",
+        "SONARQUBE_READ_ONLY",
+        "-e",
+        "SONARQUBE_TOOLSETS",
+        "sonarsource/sonarqube-mcp"
+      ],
+      "env": {
+        "SONARQUBE_TOKEN": "${SONARQUBE_TOKEN:-}",
+        "SONARQUBE_PROJECT_KEY": "WoogaJJangka_a-file-icon-vscode",
+        "SONARQUBE_READ_ONLY": "true",
+        "SONARQUBE_TOOLSETS": "issues,quality-gates,measures,security-hotspots,dependency-risks,coverage,duplications,rules"
+      }
+    }
+  }
+}

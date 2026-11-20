@@ -1,0 +1,79 @@
+name: Compatibility + memory
+
+# The extension in a real VS Code (test/smoke): the lowest VS Code of engines.vscode and the latest one, on Linux and
+# Windows, alone and next to widely installed theme extensions it mixes (test/smoke/run.js COMPAT_EXTENSIONS),
+# with the memory kept after repeated regenerations checked against its budget (docs/MAINTENANCE.md).
+# Weekly as well: a new VS Code or a new version of another extension can break it without a change here.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # every Wednesday
+    - cron: '41 5 * * 3'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    name: VS Code ${{ matrix.vscode }} on ${{ matrix.os }}${{ matrix.extensions && ' with other extensions' || '' }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-latest
+            vscode: 1.95.0
+            extensions: false
+          - os: ubuntu-latest
+            vscode: stable
+            extensions: false
+          - os: ubuntu-latest
+            vscode: 1.95.0
+            extensions: true
+          - os: ubuntu-latest
+            vscode: stable
+            extensions: true
+          - os: windows-latest
+            vscode: stable
+            extensions: false
+
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: '1'
+      VSCODE_VERSION: ${{ matrix.vscode }}
+      WITH_EXTENSIONS: ${{ matrix.extensions && '--with-extensions' || '' }}
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          submodules: true
+          persist-credentials: false
+
+      - name: Setup Node.js ⚙
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - name: Setup bun ⚙
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.2
+
+      - name: Install node_modules 📦
+        run: bun install --frozen-lockfile
+
+      - name: Build ⚒
+        run: bun run build
+
+      - name: Smoke test 💨
+        if: runner.os == 'Linux'
+        run: xvfb-run -a node test/smoke/run.js "$VSCODE_VERSION" $WITH_EXTENSIONS
+
+      - name: Smoke test 💨
+        if: runner.os != 'Linux'
+        shell: bash
+        run: node test/smoke/run.js "$VSCODE_VERSION" $WITH_EXTENSIONS

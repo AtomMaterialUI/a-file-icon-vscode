@@ -21,6 +21,7 @@ environment.yml
 esbuild.js
 eslint.config.mjs
 .claude/**
+.mcp.json
 .commitlintrc.yml
 .gitmodules
 .markdownlint.yaml
@@ -35,6 +36,11 @@ svgo.config.js
 .eslintignore
 .idea/**
 CLAUDE.md
+.c8rc.json
+.sonarcloud.properties
+SECURITY.md
+docs/MAINTENANCE.md
+coverage/**
 # Mixed icons of other installed themes are copied here at runtime: never ship them
 dist/layers/**
 # The theme is regenerated from the icon SVGs at runtime; the rest of the submodule (sources, associations) is not needed

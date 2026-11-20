@@ -1,0 +1,93 @@
+name: SonarQube Cloud
+
+# CI-based analysis of SonarQube Cloud, with the coverage of the unit tests, and the quality gate waited for: a failed
+# gate fails this check (docs/MAINTENANCE.md, "Sonar").
+#
+# Off until it is switched on, because SonarQube Cloud runs either Automatic Analysis or a CI analysis, not both:
+#   1. SonarQube Cloud > the project > Administration > Analysis Method: turn Automatic Analysis off,
+#   2. add the repository secret SONAR_TOKEN (SonarQube Cloud > My Account > Security),
+#   3. only when they differ from the defaults below: the repository variables SONAR_ORGANIZATION, SONAR_PROJECT_KEY.
+# Without SONAR_TOKEN (and for pull requests from forks, which get no secrets) the job is skipped and
+# Automatic Analysis keeps analyzing. Both read the same settings: .sonarcloud.properties.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  enabled:
+    name: CI analysis enabled?
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          if [ -n "$SONAR_TOKEN" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::SONAR_TOKEN is not set: SonarQube Cloud Automatic Analysis is used (see sonar.yml to switch)."
+          fi
+
+  analysis:
+    name: Analysis + quality gate
+    needs: enabled
+    if: needs.enabled.outputs.enabled == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      pull-requests: read
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: '1'
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          # the whole history: the new code of a pull request and the blame of the issues
+          fetch-depth: 0
+          submodules: true
+          persist-credentials: false
+
+      - name: Setup Node.js ⚙
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: 24
+      - name: Setup bun ⚙
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.2
+
+      - name: Install node_modules 📦
+        run: bun install --frozen-lockfile
+
+      - name: Build ⚒
+        run: bun run build
+
+      - name: Unit tests with coverage 🧪
+        run: bun run test:coverage
+
+      # the scanner reads sonar-project.properties: the same settings as Automatic Analysis
+      - name: Analysis settings 📝
+        run: cp .sonarcloud.properties sonar-project.properties
+
+      - name: SonarQube Cloud scan 🔎
+        uses: SonarSource/sonarqube-scan-action@59202af334b4ba7b5db01b701b8e79f8b3bef0f4 # v8.5.0
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.organization=${{ vars.SONAR_ORGANIZATION || 'woogajjangka' }}
+            -Dsonar.projectKey=${{ vars.SONAR_PROJECT_KEY || 'WoogaJJangka_a-file-icon-vscode' }}
+            -Dsonar.javascript.lcov.reportPaths=coverage/lcov.info
+            -Dsonar.qualitygate.wait=true
+            -Dsonar.qualitygate.timeout=600
