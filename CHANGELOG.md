@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### Unreleased
+#### 1.3.0 (2026-11-21)
 
 - feat: a new logo for Cool Theme Kit: Islands panels layered over each other (a light theme, code colors, the file
   icons on the accent blue), in the Cool Islands palette, on a Cool Islands Dark Marketplace banner. `logo.png` is
