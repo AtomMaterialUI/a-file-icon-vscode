@@ -2,8 +2,9 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### Unreleased (fork)
+#### 1.2.1 (2026-11-20)
 
+- ci: the release workflow takes an exact `version` (greater than the latest release) instead of a patch/minor/major change
 - fix: when the extension cannot write in its own folder (a system-wide install, a read-only folder), it says so once per
   version and keeps its default themes, instead of an error at every change of a setting. Other failures are still shown
 - test: `bun run test:smoke [version]` starts a real VS Code with the extension (activation, Mix Themes page, regenerated
