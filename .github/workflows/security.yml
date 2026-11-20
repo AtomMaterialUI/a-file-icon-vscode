@@ -1,0 +1,85 @@
+name: Security
+
+# The security checks of docs/MAINTENANCE.md ("Security"):
+# - the dependencies that ship in the VSIX have no high or critical advisory (the build tools are only reported),
+# - every action of the workflows is pinned to a commit,
+# - CodeQL on the TypeScript/JavaScript of the extension and of its webview, and on the workflows themselves.
+# Weekly as well: new advisories come out without a change of this repository.
+# CodeQL uploads its results to Security > Code scanning: keep the CodeQL "default setup" of the repository off.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    # every Tuesday
+    - cron: '23 4 * * 2'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dependencies:
+    name: Dependencies and actions
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: '1'
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Setup bun ⚙
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
+        with:
+          bun-version: 1.4.2
+
+      - name: Install node_modules 📦
+        run: bun install --frozen-lockfile
+
+      - name: Audit the shipped dependencies 🛡
+        run: bun run audit:shipped
+
+      # a tag can be moved to other code, a commit cannot (Dependabot keeps the pins and their comments up to date)
+      - name: Actions are pinned to a commit 📌
+        run: |
+          unpinned=$(grep -nE '^\s*(-\s*)?uses:\s*\S+@' .github/workflows/*.yml | grep -vE 'uses:\s*(\./|docker://)' | grep -vE '@[0-9a-f]{40}(\s|$)' || true)
+          if [ -n "$unpinned" ]; then
+            echo "::error::Pin these actions to a full commit SHA (with the version in a comment):"
+            echo "$unpinned"
+            exit 1
+          fi
+          echo "Every action is pinned to a commit."
+
+  codeql:
+    name: CodeQL (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      actions: read
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [actions, javascript-typescript]
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          persist-credentials: false
+
+      - name: Initialize CodeQL 🔧
+        uses: github/codeql-action/init@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        with:
+          languages: ${{ matrix.language }}
+          build-mode: none
+          config-file: ./.github/codeql/codeql-config.yml
+
+      - name: Analyze 🔎
+        uses: github/codeql-action/analyze@33d7b85da1a04171e211befe2c739303b9a4c066 # v4.39.3
+        with:
+          category: /language:${{ matrix.language }}

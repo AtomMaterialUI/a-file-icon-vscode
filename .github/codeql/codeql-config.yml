@@ -1,0 +1,15 @@
+name: Cool Theme Kit
+
+# security-extended: the default queries and the lower precision security ones (path injection, webview messages, ...)
+queries:
+  - uses: security-extended
+
+# Generated or third-party code: the icon associations generated from iconGenerator, the submodule, the build output
+paths-ignore:
+  - src/icons/files/upstream.ts
+  - src/icons/folders/upstream.ts
+  - iconGenerator
+  - dist
+  - out
+  - node_modules
+  - coverage

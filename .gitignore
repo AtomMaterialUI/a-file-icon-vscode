@@ -1,5 +1,9 @@
 out
 dist
+coverage
+# written by the CI analysis of SonarQube Cloud from .sonarcloud.properties
+sonar-project.properties
+.scannerwork/
 
 node_modules
 

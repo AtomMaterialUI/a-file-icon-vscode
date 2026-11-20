@@ -1,12 +1,20 @@
 name: Build + Test
 
+# Lint, build, unit tests and the VSIX on every push and pull request, with the size budgets of what VS Code loads
+# (docs/MAINTENANCE.md, "Memory"). The smoke tests in a real VS Code are in smoke.yml, the security checks in security.yml.
+
 on:
   push:
   pull_request:
 
+# read-only token: nothing here writes to the repository
+permissions:
+  contents: read
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
     strategy:
       fail-fast: false
       matrix:
@@ -20,22 +28,24 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
         with:
           submodules: true
+          persist-credentials: false
 
       # same versions as environment.yml
       - name: Setup Node.js ⚙
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: 24
       - name: Setup bun ⚙
-        uses: oven-sh/setup-bun@v2
+        uses: oven-sh/setup-bun@0c5077e51419868618aeaa5fe8019c62421857d6 # v2.2.0
         with:
           bun-version: 1.4.2
 
+      # the lockfile is the reviewed dependency set: a change of it must come with the pull request
       - name: Install node_modules 📦
-        run: bun install
+        run: bun install --frozen-lockfile
 
       - name: Lint 🔍
         run: bun run lint
@@ -50,9 +60,14 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         run: npx --yes @vscode/vsce@3.6.0 package --no-dependencies --allow-missing-repository --skip-license -o a-file-icon-vscode.vsix
 
+      # after vsce package, dist/extension.js is the production bundle users get
+      - name: Size budgets 📏
+        if: matrix.os == 'ubuntu-latest'
+        run: bun run check:size a-file-icon-vscode.vsix
+
       - name: Upload VSIX ⬆
         if: matrix.os == 'ubuntu-latest'
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: vsix
           path: a-file-icon-vscode.vsix

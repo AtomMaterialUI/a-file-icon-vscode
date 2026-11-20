@@ -1,6 +1,7 @@
 # Dependency updates (replaces the renovate.json of the original repository, whose Renovate app is not installed here)
 version: 2
 updates:
+  # the actions are pinned to commits (security.yml checks it): Dependabot moves the SHA and its version comment
   - package-ecosystem: github-actions
     directory: /
     schedule:

@@ -32,7 +32,10 @@
 |---|---|
 | 빌드 (webpack dev + 테마 json 생성 + 아이콘 점검) | `bun run build` |
 | 단위 테스트 (빌드된 `dist` 필요) | `bun run test:unit` (`-- <파일 이름 일부>` 로 골라 돌림) |
-| 실제 VS Code 스모크 (빌드 필요, VS Code 를 `.vscode-test` 에 받음) | `bun run test:smoke -- 1.95.0` / `bun run test:smoke` (stable) |
+| 실제 VS Code 스모크 (빌드 필요, VS Code 를 `.vscode-test` 에 받음) | `bun run test:smoke -- 1.95.0` / `bun run test:smoke` (stable) / `-- stable --with-extensions` (다른 테마 확장과 함께) |
+| 단위 테스트 + 커버리지 (`coverage/lcov.info`, Sonar CI 분석용) | `bun run test:coverage` |
+| 배포 의존성 감사 (번들에 든 패키지의 high/critical 만 실패) | `bun run audit:shipped` |
+| 크기 예산 (번들·테마 json·VSIX, `vsce package` 뒤) | `bun run check:size <경로>.vsix` |
 | lint (`vsce package` 가 먼저 돌림, 0 errors 유지) | `bun run lint` |
 | JetBrains 연결 규칙 동기화 | `bun run sync:upstream` |
 | JetBrains 색 테마 동기화 (고정 커밋 / 최신) | `bun run sync:colors` / `bun run sync:colors -- --latest` |
@@ -139,14 +142,23 @@
   생성기는 파일 시스템 오류를 `{ cause }` 로 감싸서 코드가 남는다.
 - 엔진 하한 `^1.95.0` 은 `@types/vscode ~1.95.0` 로 타입이 지키고, `test/smoke`(`@vscode/test-electron`, 확장 사본 + 빈 프로필)로
   1.95.0·stable 에서 실제로 돌려 확인한다. VS Code 1.95 의 Node 는 20 이라 Node 22 전용 API(`Set.prototype.union` 등)는 쓰지 않는다.
-- CI(`.github/workflows`): `build.yml`(lint·build·test·VSIX), `sync-upstream.yml`(매주 iconGenerator 최신화 → PR,
+- **유지보수 지침(보안·다른 확장과의 호환·메모리)은 `docs/MAINTENANCE.md`**: 규칙, 자동 검사, 예산, 주기 점검, 점검 결과(후속 과제).
+  보안·호환·메모리에 닿는 변경은 그 문서의 규칙을 따르고, 규칙·예산을 바꾸면 문서와 검사(`test/checks/`, `test/smoke/`)를 같이 고친다.
+  모든 워크플로는 기본 `contents: read`, `uses:` 는 커밋 SHA + 버전 주석(`security.yml` 이 검사), 설치는 `bun install --frozen-lockfile`.
+- CI(`.github/workflows`): `build.yml`(lint·build·test·VSIX·크기 예산), `security.yml`(배포 의존성 감사·Actions 고정 검사·CodeQL,
+  매주 화), `smoke.yml`(실제 VS Code 1.95.0·stable, Linux·Windows, 다른 테마 확장과 함께, 재생성 반복 뒤 힙 증가 예산, 매주 수),
+  `sonar.yml`(SonarQube Cloud CI 분석 + 커버리지 + 품질 게이트, `SONAR_TOKEN` 이 있을 때만), `sync-upstream.yml`(매주 iconGenerator 최신화 → PR,
   저장소 설정 "Allow GitHub Actions to create … pull requests" 필요), `release.yml`(수동, 토큰 시크릿 있을 때만 배포). main 이 보호돼 있어 커밋하지 않는다: 다음 버전은 이 저장소의
   마지막 GitHub Release 태그(없으면 package.json)에서 계산해 VSIX 안에만 넣고, package.json 버전은 그대로 둔다
   (원본의 v5.x 태그는 릴리스가 아니라서 무시).
 - 테스트: `test/run-unit.js` 가 esbuild 로 묶으며 `vscode` 를 `test/mocks/vscode.ts` 로 바꿔 mocha 실행.
-- SonarQube Cloud(`WoogaJJangka_a-file-icon-vscode`)는 CI 단계 없이 Automatic Analysis(GitHub App)로 돈다. 설정은
+- SonarQube Cloud(`WoogaJJangka_a-file-icon-vscode`)는 지금 Automatic Analysis(GitHub App)로 돈다. 설정은
   `.sonarcloud.properties`(Automatic Analysis 는 `sonar-project.properties` 를 읽지 않음). 생성 파일·서브모듈·데이터 표는 거기서 뺀다.
+  CI 분석(`sonar.yml`)도 같은 파일을 `sonar-project.properties` 로 복사해 쓴다. 바꾸려면 Automatic Analysis 를 끄고
+  `SONAR_TOKEN` secret 을 넣는다(둘을 같이 켜면 CI 분석이 실패). 절차는 `docs/MAINTENANCE.md` 4장.
   PR 에 "SonarCloud Code Analysis" 체크가 안 붙으면 GitHub App 설치의 저장소 접근부터 본다.
+- 커버리지: `.c8rc.json`. 번들된 테스트를 소스맵으로 되돌리므로 `include` 를 쓰면 숫자가 100% 로 깨진다 → 제외 목록만 쓴다.
+- bun 으로 도는 스크립트에서 `require('esbuild')` 는 tsconfig `baseUrl: "."` 때문에 루트의 `esbuild.js` 로 풀린다 → `node_modules/esbuild` 경로로 부른다.
 
 ## 확인 방법
 - `package.json` 의 `"_watch": true` 는 개발 모드(`--extensionDevelopmentPath`)에서만 테마 파일을 다시 읽는다.
