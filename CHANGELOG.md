@@ -11,6 +11,13 @@ All notable changes to this project will be documented in this file. Dates are d
   and an error was shown)
 - fix: the files of another theme (icons, fonts, included color themes) are read only from inside its own extension,
   as VS Code does
+- fix: in an untrusted folder (Restricted Mode), the file, folder and language icon associations of the folder's
+  settings are ignored, since they may point to SVG files that would be copied into the icon theme; those of the user
+  settings still apply
+- fix: a Mix Themes sample pinned with `iconThemeByName` is found whatever the Unicode form of its name (Korean names
+  on macOS)
+- chore: the build and test tools are updated within their ranges, mocha 12, and puppeteer (used only by an unused
+  screenshot script, removed) is gone: no high or critical advisory left. The smoke test's heap budget is 3 MB
 - ci: checks for security (bundled dependency audit, CodeQL), compatibility (the smoke test next to other icon and
   color theme extensions, on Linux and Windows) and memory, described in `docs/MAINTENANCE.md`
 

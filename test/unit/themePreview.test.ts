@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { serializeLayers } from 'src/helpers/themeLayers';
+import { pinnedTheme, serializeLayers } from 'src/helpers/themeLayers';
 import { decodeFontCharacter, ThemePreview } from 'src/helpers/themePreview';
 
 import type { LanguageLookup } from 'src/helpers/themeLayers';
@@ -130,5 +130,16 @@ describe('theme mixer preview', () => {
       ]),
       ['material-icon-theme', { files: 'override', folders: 'off', theme: 'vs-seti' }],
     );
+  });
+
+  // macOS gives the names of the workspace in NFD: "한글.md" typed in the settings must still pin the sample
+  it('pins a sample to the theme of its iconThemeByName key, whatever the case and Unicode form', () => {
+    const byName = [
+      { key: ' *.MD ', theme: 'vs-seti' },
+      { key: '한글.md'.normalize('NFC'), theme: 'material-icon-theme' },
+    ];
+    assert.equal(pinnedTheme(byName, '*.md'), 'vs-seti');
+    assert.equal(pinnedTheme(byName, '한글.MD'.normalize('NFD')), 'material-icon-theme');
+    assert.equal(pinnedTheme(byName, 'README.md'), undefined);
   });
 });

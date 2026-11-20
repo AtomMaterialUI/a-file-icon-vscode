@@ -23,7 +23,7 @@
 - 프로필 없이 도는 셸(Claude Code)에서는 env 를 PATH 앞에 붙여 쓴다. node.exe 는 env 루트, bun.exe 는 `Library\bin`:
   - Git Bash: `E=/c/Users/siwon/miniconda3/envs/a-file-icon-vscode; export PATH="$E:$E/Library/bin:$PATH"`
   - PowerShell: `conda run -n a-file-icon-vscode --no-capture-output bun run build`
-- 처음 한 번: `git submodule update --init` → `PUPPETEER_SKIP_DOWNLOAD=1 bun install` (puppeteer 의 Chrome 다운로드 생략).
+- 처음 한 번: `git submodule update --init` → `bun install`.
   잠금 파일은 텍스트 `bun.lock`(2026-11-19 `bun.lockb` 에서 변환, Dependabot `bun` 이 읽는 형식).
 - `conda.bat` 인자에 `>=` 를 쓰면 cmd 가 리다이렉트로 읽어 파일이 생긴다. 버전 조건은 `=` 로 쓴다.
 

@@ -2,7 +2,7 @@ import { strict as assert } from 'node:assert';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { EDITOR_FONT_FAMILY, fontFolders, isFontInstalled, missingFonts, UI_FONT_FAMILY } from 'src/helpers/fonts';
+import { EDITOR_FONT_FAMILY, fontconfigFamilies, fontFolders, isFontInstalled, missingFonts, UI_FONT_FAMILY } from 'src/helpers/fonts';
 import { isCancellation } from 'src/helpers/utils';
 
 const root = join(__dirname, '..', '..');
@@ -65,7 +65,14 @@ describe('JetBrains fonts', () => {
       font('JetBrainsMonoNL-Regular.ttf');
       font('JetBrainsMonoNerdFont-Regular.ttf');
       font('JetBrainsMono-Regular.txt');
-      assert.equal(isFontInstalled('JetBrains Mono', [folder, join(folder, 'missing')]), false);
+      // without fontconfig: the machine running the tests may have JetBrains Mono installed (Linux CI)
+      assert.equal(isFontInstalled('JetBrains Mono', [folder, join(folder, 'missing')], () => ''), false);
+    });
+
+    it('asks fontconfig for the fonts that are in none of the folders', () => {
+      assert.equal(isFontInstalled('JetBrains Mono', [folder], () => 'd2coding\njetbrains mono,jetbrains mono nl\n'), true);
+      assert.equal(isFontInstalled('D2Coding', [folder], () => 'jetbrains mono\n'), false);
+      assert.equal(fontconfigFamilies('win32'), '');
     });
   });
 

@@ -43,7 +43,6 @@ jobs:
             extensions: false
 
     env:
-      PUPPETEER_SKIP_DOWNLOAD: '1'
       VSCODE_VERSION: ${{ matrix.vscode }}
       WITH_EXTENSIONS: ${{ matrix.extensions && '--with-extensions' || '' }}
 

@@ -80,6 +80,15 @@ export const normalizeByName = (byName: unknown): Array<{ target: NameTarget; th
   });
 };
 
+/**
+ * The theme an `iconThemeByName` key pins the sample name to, if any: the key as typed (`*.md`, `src/`, `README.md`),
+ * compared like VS Code compares names (NFC + lower case, so a Korean name typed on macOS still matches)
+ */
+export const pinnedTheme = (byName: Array<{ key: string; theme: string }>, sample: string): string | undefined => {
+  const name = normalizeName(sample.trim());
+  return byName.find((entry) => normalizeName(entry.key.trim()) === name)?.theme;
+};
+
 /** Ids of the installed themes the settings mix with this theme */
 export const usedThemeIds = (config: Pick<AtomConfig, 'iconThemeByName' | 'iconThemeLayers'>): string[] => {
   const ids = normalizeLayers(config.iconThemeLayers)

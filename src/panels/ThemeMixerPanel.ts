@@ -2,7 +2,7 @@ import { randomBytes } from 'node:crypto';
 import { join } from 'node:path';
 import i18next from 'i18next';
 import { EXTENSION_KEY, JSON_FILE_NAME } from 'src/helpers/constants';
-import { normalizeByName, normalizeLayers, parseNameKey, serializeLayers } from 'src/helpers/themeLayers';
+import { normalizeByName, normalizeLayers, parseNameKey, pinnedTheme, serializeLayers } from 'src/helpers/themeLayers';
 import { ThemePreview } from 'src/helpers/themePreview';
 import { getExtensionPath, getLanguageLookup, listIconThemes } from 'src/helpers/vscodeUtils';
 import { colorMixerState } from 'src/panels/colorMixerState';
@@ -418,7 +418,7 @@ export class ThemeMixerPanel {
     const rows = this.samples().map((name) => ({
       icons: Object.fromEntries(columnIds.map((id) => [id, view(previews.get(id)?.icon(name, light))])),
       name,
-      pinned: byName.find((entry) => entry.key.trim().toLowerCase() === name.toLowerCase())?.theme,
+      pinned: pinnedTheme(byName, name),
       result: view(result.icon(name, light)),
     }));
 

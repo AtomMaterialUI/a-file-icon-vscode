@@ -38,7 +38,6 @@ jobs:
     env:
       VERSION_CHANGE: ${{ github.event.inputs.versionChange }}
       VERSION_INPUT: ${{ github.event.inputs.version }}
-      PUPPETEER_SKIP_DOWNLOAD: '1'
       GH_TOKEN: ${{ github.token }}
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
       VS_MARKETPLACE_TOKEN: ${{ secrets.VS_MARKETPLACE_TOKEN }}

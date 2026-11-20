@@ -14,7 +14,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 | 회귀 | lint·빌드·아이콘 점검·단위 테스트 | `build.yml` | 모든 push·PR | 하나라도 실패 |
 | 호환 | 실제 VS Code 1.95.0·stable, Linux·Windows | `smoke.yml` | PR·main·매주 수 | 활성화·명령·재생성 실패, 출력 채널에 `ERROR` |
 | 호환 | 다른 테마 확장과 함께 섞기 | `smoke.yml` (`--with-extensions`) | PR·main·매주 수 | 섞은 결과가 테마 파일에 없음, `ERROR` |
-| 메모리 | 재생성 반복 뒤 남는 힙 | `smoke.yml` (`suite.js`) | PR·main·매주 수 | 증가량 ≥ 10 MB |
+| 메모리 | 재생성 반복 뒤 남는 힙 | `smoke.yml` (`suite.js`) | PR·main·매주 수 | 증가량 ≥ 3 MB |
 | 메모리 | 번들·테마 json·VSIX 크기 | `build.yml` → `bun run check:size` | 모든 push·PR | 예산 초과 |
 | 의존성 | 갱신 PR | Dependabot | Actions 매주, bun 매월 | — |
 
@@ -36,9 +36,11 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 
 확장은 사용자 PC 의 확장 호스트에서 사용자 권한으로 돈다. 바깥에서 들어오는 것은 다음과 같고, 모두 믿지 않는 입력으로 다룬다.
 
-- **설정**: 사용자 설정과 워크스페이스 설정(`.vscode/settings.json`). `capabilities.untrustedWorkspaces.supported: true`
-  라서 신뢰하지 않은 워크스페이스(Restricted Mode)의 설정도 읽힌다. `filesAssociations`·`foldersAssociations`·
-  `languagesAssociations` 의 값은 SVG 파일 경로일 수 있다(`helpers/customIcons.ts`).
+- **설정**: 사용자 설정과 워크스페이스 설정(`.vscode/settings.json`). `filesAssociations`·`foldersAssociations`·
+  `languagesAssociations` 의 값은 SVG 파일 경로일 수 있고 그 파일을 테마로 복사한다(`helpers/customIcons.ts`). 그래서
+  `capabilities.untrustedWorkspaces` 는 `"limited"` 이고 이 세 설정은 `restrictedConfigurations` 다: 신뢰하지 않은
+  워크스페이스(Restricted Mode)에서는 VS Code 가 이 설정의 워크스페이스 값을 주지 않는다(사용자 설정 값만). 다른 설정은 그대로 읽힌다.
+  `packageIdentity.test.ts` 가 지킨다.
 - **다른 확장의 테마 파일**: 아이콘·색·제품 아이콘 테마 json, SVG, 글꼴.
 - **웹뷰 메시지**: 섞기 화면(`ThemeMixerPanel`)이 보내는 모든 메시지.
 - **워크스페이스 이름들**: 섞기 미리보기의 샘플 이름.
@@ -143,7 +145,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 | Material 제품 아이콘 json | 176 KB | 230 KB | `check:size` |
 | Islands 제품 아이콘 json / 색 테마 json | 9 KB / 40 KB | 32 KB / 64 KB | `check:size` |
 | VSIX 크기 / 파일 수 | 11.1 MB / 5,602 | 14 MB / 6,500 | `check:size` |
-| 재생성 4회 반복(불투명도·강조색) + 섞기 화면 3회 뒤 힙 증가 | 0.6 MB (Linux 1.95.0), 0.7 MB (Windows stable) | 10 MB | `smoke.yml` |
+| 재생성 4회 반복(불투명도·강조색) + 섞기 화면 3회 뒤 힙 증가 | 0.2~0.8 MB (Linux·Windows, 1.95.0·stable, 다른 확장 유무) | 3 MB | `smoke.yml` |
 
 - 예산은 넘기지 않는다. 기능 때문에 올려야 하면 같은 PR 에서 예산 숫자(`test/checks/sizeBudget.js`, `test/smoke/suite.js`)와
   이 표를 고치고, 늘어난 이유와 측정값을 PR 에 적는다.
@@ -194,23 +196,13 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 
 ## 6. 점검 결과 (2026-11-20)
 
-이 지침을 만들며 찾은 것. 고치면 여기서 지우고 PR 에 적는다.
+이 지침을 만들며 찾은 것. 고치면 여기서 지우고 PR 에 적는다. 지금 남은 것은 없다.
 
-1. **[보안] Restricted Mode 에서도 워크스페이스 설정의 SVG 경로를 읽는다.** `files/folders/languagesAssociations` 값이
-   `~/…`·절대 경로 SVG 면 그 파일을 복사해 아이콘으로 쓴다. `untrustedWorkspaces` 를 `"limited"` 로 바꾸고 이 세 설정을
-   `restrictedConfigurations` 에 넣는 것을 검토한다(신뢰하지 않은 폴더에서는 사용자 설정 값만 쓰임).
-2. **[보안] 빌드·테스트 도구의 advisory**: high 72, critical 3 (puppeteer·tar-fs·ws, svgo, oslllo-svg-fixer → validator,
-   minimatch 등). 배포물에는 없다. `bun audit fix` 와 Dependabot 으로 줄이고, 메이저가 걸린 것(puppeteer 23 → 최신, svgo 3.3.5+)은 따로 PR.
-3. **[규칙] `toLowerCase()` 이름 비교**: `ThemeMixerPanel.state` 의 고정(pin) 표시가 샘플 이름(워크스페이스의 한글 이름일 수 있음)을
-   `toLowerCase()` 로 비교한다. CLAUDE.md 규칙대로 `normalizeName` 으로 바꾼다(macOS 의 NFD 이름).
-4. **[테스트] `fonts.test.ts` "does not take another family…"** 는 JetBrains Mono 가 시스템에 설치된 Linux 에서 실패한다
-   (`isFontInstalled` 가 `fc-list` 로 대체 확인). 테스트에서 `fc-list` 를 빼거나 주입할 수 있게 한다.
-5. **[CI] 스모크 첫 실행(PR #42)**: 힙 증가는 0.6~0.7 MB 였다(시작 힙 34~49 MB, Windows 재생성 평균 1.7초·최대 3.4초).
-   다른 확장과 함께 도는 job 의 값이 나오면 힙 예산(10 MB)을 줄일지 정한다.
-   첫 실행이 찾아서 같은 PR 에서 고친 것:
-   - `ThemeLayerGenerator.clean` 이 `dist/layers` 의 폴더(`layers/product`, 제품 아이콘 글꼴)까지 지우려다 `EISDIR` 로 실패해,
-     제품 아이콘 테마를 한 번 섞으면 그 뒤로 아이콘 테마가 다시 만들어지지 않았다(설정이 반영되지 않고 오류 토스트). 이제 파일만 지운다.
-   - 글꼴 안내 알림이 열린 채 창이 닫히면 VS Code 가 `Canceled` 로 거절하는데 오류로 기록했다. 취소는 기록하지 않는다(`isCancellation`).
+처음 찾은 다섯 가지는 고쳤다:
+- PR #42: 스모크 첫 실행이 찾은 `ThemeLayerGenerator.clean` 의 `EISDIR`(제품 아이콘을 섞은 뒤 아이콘 테마 재생성이 멈춤), 글꼴 알림 취소 기록.
+- 다음 PR: Restricted Mode 의 아이콘 연결 설정(1장 "무엇을 지키나"), 섞기 화면 고정 표시의 이름 비교(`themeLayers.pinnedTheme`),
+  `fonts.test.ts` 의 fontconfig 의존(`isFontInstalled` 에 목록 함수 주입), 빌드·테스트 도구 advisory(범위 안 갱신, 쓰지 않던
+  puppeteer·스크린샷 스크립트 삭제, mocha 12: high 72·critical 3 → moderate 6·low 1), 힙 예산 10 MB → 3 MB(3장 표).
 
 ## 7. Claude Code 로 점검하기 (MCP)
 

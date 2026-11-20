@@ -3,7 +3,7 @@
  *
  * Only the bundles ship in the VSIX (`vsce package --no-dependencies`): the packages esbuild puts into
  * dist/extension.js are the ones users run. An advisory of `high` or `critical` severity for one of them fails;
- * the advisories of the build and test tools (puppeteer, svgo, eslint, ...) are listed but do not fail, they are
+ * the advisories of the build and test tools (svgo, webfont, eslint, ...) are listed but do not fail, they are
  * updated by Dependabot (see docs/MAINTENANCE.md).
  *
  * Usage: `bun run audit:shipped` (needs the network: it runs `bun audit --json`).
