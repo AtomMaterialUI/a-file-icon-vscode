@@ -98,8 +98,8 @@
   의 키·대체 키 기준(상수·속성 색 없음, 메서드 호출 = 함수 호출). 정규식은 `RegExpHighlighter.java`, XML·HTML 은 `XmlHighlighterColors.java`,
   properties 는 `PropertiesHighlighter.java` 의 대체 키를 따른다. 닫힌 플러그인 키(JS.*)는 scheme 에 있는 값만 쓰고 대체 키는 원래 규칙을 둔다.
   Sass·Less·Kotlin·JSX 컴포넌트 키는 VS Code 쪽 scope 를 확정할 수 없거나(VS Code 에 Kotlin 문법 없음) 쓰임을 공개 소스로 확인할 수 없어 넣지 않았다.
-  scope 이름은 VS Code 에 들어 있는 문법(`resources/app/extensions/*/syntaxes`)에서 확인한다. 화면 확인은 격리 VS Code 를 `--remote-debugging-port` 로 띄워
-  CDP `Page.captureScreenshot` 으로 캡처(창을 앞으로 가져오지 않아 사용자 작업을 방해하지 않음).
+  scope 이름은 VS Code 에 들어 있는 문법(`resources/app/extensions/*/syntaxes`)에서 확인한다. 화면 확인은 격리 VS Code(아래 "확인 방법"의 세 옵션)를
+  `--remote-debugging-port` 로 띄워 CDP `Page.captureScreenshot` 으로 캡처(창을 앞으로 가져오지 않아 사용자 작업을 방해하지 않음).
 - 색 테마 섞기(`src/themes/colorLayers.ts` 순수 엔진, `readColorTheme.ts` JSONC·`include`·`tokenColors` 경로 읽기,
   `services/ColorThemeService.ts` 설치된 테마 목록·섞기·다시 로드 알림): `colorThemeLayers`(테마 id 또는 `{theme, ui, syntax, applyTo}`,
   `fill`/`override`/`off`, 같은 종류의 Islands 에만 — `applyTo` 로 바꿈)·`colorThemeByKey`(색 id glob, `scope:`, `semantic:`).
@@ -151,9 +151,15 @@
 ## 확인 방법
 - `package.json` 의 `"_watch": true` 는 개발 모드(`--extensionDevelopmentPath`)에서만 테마 파일을 다시 읽는다.
   사용자 환경을 확인하려면 VSIX 를 격리 프로필에 설치해 본다(사용자 VS Code 를 건드리지 않음):
-  `code --user-data-dir <tmp>/u --extensions-dir <tmp>/x --install-extension <vsix>` →
-  `<tmp>/u/User/settings.json` 에 `"workbench.iconTheme": "a-file-icon-vscode"` → `code --user-data-dir … --extensions-dir … <샘플 폴더>`.
+  `code --user-data-dir <tmp>/u --extensions-dir <tmp>/x --shared-data-dir <tmp>/s --install-extension <vsix>` →
+  `<tmp>/u/User/settings.json` 에 `"workbench.iconTheme": "a-file-icon-vscode"` →
+  `code --user-data-dir … --extensions-dir … --shared-data-dir … <샘플 폴더>`(`Code.exe` 를 바로 띄울 때도 같은 세 옵션).
   설정은 그 settings.json 을 고쳐서 바꾼다(창은 다시 열 필요 없음).
+- **`--shared-data-dir` 는 빼먹지 않는다**(포크 #40): VS Code 1.147 은 GitHub 로그인 같은 일부 상태를 `--user-data-dir` 밖의
+  `~/.vscode-shared/sharedStorage/state.vscdb` 에 두고, 격리 프로필은 암호화 키가 달라 그 토큰을 풀지 못해 지워 버린다
+  → 사용자 VS Code 가 다음 시작 때 GitHub 로그인을 다시 요구하고, 최근 연 폴더에도 샘플 폴더가 쌓인다.
+  격리본 `main.log` 의 `[shared storage] Creating shared storage database at '<tmp>/s…'` 로 확인한다(`~/.vscode-shared` 면 잘못 띄운 것).
+  `--extensionTestsPath` 실행(단위·통합 테스트)은 공유 저장소를 메모리에 둬서 상관없다.
 
 ## git
 - remote: `origin` = 포크 `WoogaJJangka/a-file-icon-vscode`, `upstream` = 원본. 작업 브랜치는 같은 이름의 origin 브랜치를 추적.
