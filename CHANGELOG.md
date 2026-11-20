@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### Unreleased
+
+- feat: a new logo for Cool Theme Kit: Islands panels layered over each other (a light theme, code colors, the file
+  icons on the accent blue), in the Cool Islands palette, on a Cool Islands Dark Marketplace banner. `logo.png` is
+  rendered from `logo.svg` by `bun run build:logo`
+- fix: once a product icon theme had been mixed in, the icon theme was not regenerated any more (settings were ignored
+  and an error was shown)
+- fix: the files of another theme (icons, fonts, included color themes) are read only from inside its own extension,
+  as VS Code does
+- ci: checks for security (bundled dependency audit, CodeQL), compatibility (the smoke test next to other icon and
+  color theme extensions, on Linux and Windows) and memory, described in `docs/MAINTENANCE.md`
+
 #### 1.2.1 (2026-11-20)
 
 - ci: the release workflow takes an exact `version` (greater than the latest release) instead of a patch/minor/major change
