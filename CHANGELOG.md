@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased (fork)
 
+- fix: when the extension cannot write in its own folder (a system-wide install, a read-only folder), it says so once per
+  version and keeps its default themes, instead of an error at every change of a setting. Other failures are still shown
+- test: `bun run test:smoke [version]` starts a real VS Code with the extension (activation, Mix Themes page, regenerated
+  icon and color themes); it passes on the lowest supported VS Code, 1.95.0, and on 1.147.0
+- docs: a compatibility table in the README (desktop, VS Code for the Web, read-only installs)
+
 - perf: a Mix Themes page that is not shown is no longer kept alive: VS Code drops the hidden page and loads it again when
   shown (its tab and scroll position come back), and a hidden page is not sent states to build any more
 - perf: at every start the extension no longer parses the generated theme files (about 900 KB of json) to compare them with

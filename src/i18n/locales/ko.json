@@ -73,6 +73,9 @@
     "reload": "섞은 제품 아이콘 테마 때문에 Cool Islands Icons가 바뀌었습니다. 창을 다시 로드하면 보입니다."
   },
   "readChangelog": "변경 내역 보기",
+  "readOnly": {
+    "message": "Cool Theme Kit이 자기 폴더({{folder}})에 쓸 수 없습니다. 기본 테마는 그대로 쓸 수 있지만, 테마를 바꾸는 설정(아이콘 설정, 강조색, 섞은 테마)은 폴더가 읽기 전용인 동안 적용되지 않습니다."
+  },
   "reload": "다시 시작",
   "saturation": {
     "desaturated": "아이콘 채도 낮추기 (약 70%)",

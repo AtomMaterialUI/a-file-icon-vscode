@@ -599,6 +599,14 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 - **Interface font** (Inter in the JetBrains IDEs): VS Code has no setting for it. Cool Theme Kit gives the editor and
   Markdown preview fonts only.
 
+## Compatibility
+
+| Where                                   | What works                                                                                   |
+|-----------------------------------------|----------------------------------------------------------------------------------------------|
+| VS Code desktop 1.95 or later           | Everything. Checked on 1.95.0 and 1.147.0 (activation, Mix Themes page, regenerated themes). |
+| VS Code for the Web (vscode.dev)        | The themes as they are built: Cool Icons, Cool Islands Dark/Light, the product icons. The settings that change them (icon settings, accent color, mixed themes) are not applied: the extension cannot write its theme files there. |
+| A read-only install (system-wide install, read-only folder) | The same as the web: the default themes work. A notice says once (per version) that the settings are not applied, instead of an error at every change. |
+
 ----
 
 ## Credits
