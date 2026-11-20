@@ -1,17 +1,23 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256" role="img" aria-label="Cool Theme Kit">
+  <!-- Islands panels layered over each other: a light theme, code colors, and the file icons on the accent blue.
+       Run `bun run build:logo` after a change: logo.png is rendered from this file. -->
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#22d3ee"/>
-      <stop offset="1" stop-color="#6366f1"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b2d30"/>
+      <stop offset="1" stop-color="#191a1c"/>
     </linearGradient>
   </defs>
-  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
-  <!-- folder: back panel with tab, then front panel -->
-  <path d="M48 84a12 12 0 0 1 12-12h42a12 12 0 0 1 9 4l14 16h71a12 12 0 0 1 12 12v78a12 12 0 0 1-12 12H60a12 12 0 0 1-12-12z" fill="#ffffff" fill-opacity="0.55"/>
-  <path d="M48 112a12 12 0 0 1 12-12h136a12 12 0 0 1 12 12v66a12 12 0 0 1-12 12H60a12 12 0 0 1-12-12z" fill="#ffffff"/>
-  <!-- sparkle -->
-  <path d="M188 34l9 27 27 9-27 9-9 27-9-27-27-9 27-9z" fill="#fde047"/>
-  <circle cx="82" cy="146" r="8" fill="#22d3ee"/>
-  <circle cx="112" cy="146" r="8" fill="#6366f1"/>
-  <circle cx="142" cy="146" r="8" fill="#f472b6"/>
+  <rect x="4" y="4" width="248" height="248" rx="54" fill="url(#bg)" stroke="#43454a" stroke-width="8"/>
+  <!-- back: Islands Light -->
+  <rect x="30" y="34" width="140" height="112" rx="24" fill="#e9eaee"/>
+  <rect x="50" y="56" width="42" height="12" rx="6" fill="#b4b8bf"/>
+  <!-- middle: code colors -->
+  <rect x="58" y="74" width="140" height="112" rx="24" fill="#26282c" stroke="#191a1c" stroke-width="8"/>
+  <rect x="78" y="96" width="34" height="12" rx="6" fill="#cf8e6d"/>
+  <rect x="118" y="96" width="44" height="12" rx="6" fill="#56a8f5"/>
+  <rect x="78" y="118" width="58" height="12" rx="6" fill="#6aab73"/>
+  <!-- front: accent with a file icon -->
+  <rect x="86" y="114" width="140" height="112" rx="24" fill="#3871e1" stroke="#191a1c" stroke-width="8"/>
+  <path d="M138 136h26l20 20v44a8 8 0 0 1-8 8h-38a8 8 0 0 1-8-8v-56a8 8 0 0 1 8-8z" fill="#ffffff"/>
+  <path d="M164 136v14a6 6 0 0 0 6 6h14z" fill="#a9c4f5"/>
 </svg>

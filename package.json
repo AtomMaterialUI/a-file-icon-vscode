@@ -41,7 +41,8 @@
     "vscode:prepublish": "bun run lint && bun run compile && bun run package-web",
     "watch-web": "webpack --watch --config ./build/web-extension.webpack.config.js",
     "sync:colors": "ts-node ./src/scripts/themes/syncJetbrainsColors.ts",
-    "build:product-icons": "ts-node ./src/scripts/productIcons/buildJetbrainsFont.ts"
+    "build:product-icons": "ts-node ./src/scripts/productIcons/buildJetbrainsFont.ts",
+    "build:logo": "ts-node ./src/scripts/buildLogo.ts"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.3",
@@ -688,7 +689,7 @@
     "workspace"
   ],
   "galleryBanner": {
-    "color": "#263238",
+    "color": "#191a1c",
     "theme": "dark"
   },
   "keywords": [

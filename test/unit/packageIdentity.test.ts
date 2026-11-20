@@ -10,8 +10,11 @@ type Theme = { id: string; label: string; path: string };
 const packageJson = JSON.parse(read('package.json')) as {
   contributes: { commands: Array<{ category?: string; command: string }>; iconThemes: Theme[]; productIconThemes: Theme[] };
   displayName: string;
+  galleryBanner: { color: string; theme: string };
+  icon: string;
   name: string;
   publisher: string;
+  scripts: Record<string, string>;
 };
 
 const DISPLAY_NAME = 'Cool Theme Kit';
@@ -69,5 +72,16 @@ describe('package identity', () => {
         assert.doesNotMatch(value, /^vuex/, `${file} ${key}`);
       }
     }
+  });
+
+  // logo.png is what the Marketplace and the Extensions view show: it is rendered from logo.svg by `bun run build:logo`
+  it('ships a 256 px logo rendered from logo.svg, on a Cool Islands Dark banner', () => {
+    assert.equal(packageJson.icon, 'logo.png');
+    const png = readFileSync(join(root, 'logo.png'));
+    assert.equal(png.toString('latin1', 1, 4), 'PNG');
+    // IHDR: width and height are the first two 32-bit numbers of its data
+    assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [256, 256]);
+    assert.match(packageJson.scripts['build:logo'], /buildLogo\.ts/);
+    assert.deepEqual(packageJson.galleryBanner, { color: '#191a1c', theme: 'dark' });
   });
 });
