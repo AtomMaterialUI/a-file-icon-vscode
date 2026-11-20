@@ -13,10 +13,18 @@ export const testState: {
   /** the other installed extensions */
   extensions: TestExtension[];
   lastTarget?: number;
+  /** the notices shown, oldest first */
+  messages: { kind: 'error' | 'information' | 'warning'; text: string }[];
 } = {
   config: {},
   extensionPath: '',
   extensions: [],
+  messages: [],
+};
+
+const show = (kind: 'error' | 'information' | 'warning') => async (text: string) => {
+  testState.messages.push({ kind, text });
+  return undefined;
 };
 
 export enum ConfigurationTarget {
@@ -75,10 +83,11 @@ const outputChannel = {
 export const window = {
   createOutputChannel: () => outputChannel,
   onDidChangeWindowState: () => disposable,
-  showErrorMessage: async () => undefined,
-  showInformationMessage: async () => undefined,
+  showErrorMessage: show('error'),
+  showInformationMessage: show('information'),
   showInputBox: async () => undefined,
   showQuickPick: async () => undefined,
+  showWarningMessage: show('warning'),
 };
 
 export const commands = {

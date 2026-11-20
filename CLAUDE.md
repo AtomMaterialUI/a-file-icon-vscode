@@ -31,7 +31,8 @@
 | 목적 | 명령 |
 |---|---|
 | 빌드 (webpack dev + 테마 json 생성 + 아이콘 점검) | `bun run build` |
-| 단위 테스트 (빌드된 `dist` 필요) | `bun run test:unit` |
+| 단위 테스트 (빌드된 `dist` 필요) | `bun run test:unit` (`-- <파일 이름 일부>` 로 골라 돌림) |
+| 실제 VS Code 스모크 (빌드 필요, VS Code 를 `.vscode-test` 에 받음) | `bun run test:smoke -- 1.95.0` / `bun run test:smoke` (stable) |
 | lint (`vsce package` 가 먼저 돌림, 0 errors 유지) | `bun run lint` |
 | JetBrains 연결 규칙 동기화 | `bun run sync:upstream` |
 | JetBrains 색 테마 동기화 (고정 커밋 / 최신) | `bun run sync:colors` / `bun run sync:colors -- --latest` |
@@ -133,6 +134,11 @@
   다시 쓰면 Windows 에서 확장 호스트가 6~9초 멈춘다(포크 #28). 아이콘 파일 이름의 해시(`getFileConfigHash`)는 SVG 필터 설정
   (색·불투명도·채도·모노크롬)만으로 만들고, 생성기가 이번에 쓰지 않은 `~해시`·`custom-` 아이콘은 지운다.
   재생성은 `extension.ts` 의 `scheduleRegenerate`(300ms 묶기, 이 확장·`files.associations` 설정만)로만 부른다.
+  재생성 실패는 `services/themeFailure.reportThemeFailure` 로만 알린다: 확장 폴더에 쓸 수 없으면(`helpers/readOnly`, 권한 오류 +
+  폴더에 시험 파일을 못 만듦 — Windows 의 EPERM 은 다른 창이 연 파일 때문일 수도 있어서) 버전마다 한 번 경고, 그 밖은 오류 토스트.
+  생성기는 파일 시스템 오류를 `{ cause }` 로 감싸서 코드가 남는다.
+- 엔진 하한 `^1.95.0` 은 `@types/vscode ~1.95.0` 로 타입이 지키고, `test/smoke`(`@vscode/test-electron`, 확장 사본 + 빈 프로필)로
+  1.95.0·stable 에서 실제로 돌려 확인한다. VS Code 1.95 의 Node 는 20 이라 Node 22 전용 API(`Set.prototype.union` 등)는 쓰지 않는다.
 - CI(`.github/workflows`): `build.yml`(lint·build·test·VSIX), `sync-upstream.yml`(매주 iconGenerator 최신화 → PR,
   저장소 설정 "Allow GitHub Actions to create … pull requests" 필요), `release.yml`(수동, 토큰 시크릿 있을 때만 배포). main 이 보호돼 있어 커밋하지 않는다: 다음 버전은 이 저장소의
   마지막 GitHub Release 태그(없으면 package.json)에서 계산해 VSIX 안에만 넣고, package.json 버전은 그대로 둔다

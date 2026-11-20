@@ -12,8 +12,9 @@ import { logger } from 'src/services/LoggingService';
 import { forgetInstalledProductThemes, productIconService } from 'src/services/ProductIconService';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
+import { initThemeFailure, reportThemeFailure } from 'src/services/themeFailure';
 import { updatesService } from 'src/services/UpdatesService';
-import { extensions, window, workspace } from 'vscode';
+import { extensions, workspace } from 'vscode';
 
 import type { ConfigurationChangeEvent, ExtensionContext } from 'vscode';
 
@@ -46,22 +47,20 @@ const affectsTheme = (event: ConfigurationChangeEvent) =>
 
 /**
  * Regenerate the theme files from the settings. A failure is shown to the user instead of only being logged,
- * otherwise the commands look like they do nothing (#73).
+ * otherwise the commands look like they do nothing (#73); a read-only install is told once (`reportThemeFailure`).
  */
 const regenerateTheme = () => {
   const started = performance.now();
   try {
     configChangeDetector.listenForChanges();
   } catch (error) {
-    logger.error(String(error));
-    window.showErrorMessage(`Cool Theme Kit: ${error instanceof Error ? error.message : String(error)}`);
+    reportThemeFailure(error);
   }
   try {
     colorThemeService.regenerate();
     productIconService.regenerate();
   } catch (error) {
-    logger.error(String(error));
-    window.showErrorMessage(`Cool Theme Kit: ${error instanceof Error ? error.message : String(error)}`);
+    reportThemeFailure(error);
   }
   watchLayerThemes();
   // the theme mixer previews the regenerated theme
@@ -112,6 +111,7 @@ export const activate = async (context: ExtensionContext) => {
     // checking for updates
     logger.debug('Checking for new updates...');
     const status = await updatesService.checkUpdateStatus(context.globalState);
+    initThemeFailure(context.globalState, updatesService.getPluginVersion());
 
     // Start notification
     notificationsService.showStartMessages(status);

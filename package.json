@@ -30,7 +30,7 @@
     "package-web": "webpack --mode production --devtool hidden-source-map --config ./build/web-extension.webpack.config.js",
     "postcompile": "bun run generateJson && bun run check",
     "pretest": "bun run build && tsc -p ./",
-    "test": "node ./out/test/runTest.js",
+    "test:smoke": "node ./test/smoke/run.js",
     "test:unit": "node ./test/run-unit.js",
     "webfont": "ts-node ./src/scripts/icons/webfont.ts",
     "version": "bun run changelog && git add CHANGELOG.md",

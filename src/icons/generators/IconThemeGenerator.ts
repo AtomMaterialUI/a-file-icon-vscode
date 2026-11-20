@@ -89,7 +89,7 @@ export class IconThemeGenerator {
       const json = this.iconConfig;
       writeFileAtomic(join(this.iconPath(), JSON_FILE_NAME), JSON.stringify(json, undefined, 2));
     } catch (error) {
-      throw new Error('Failed to create icon file: ' + error);
+      throw new Error('Failed to create icon file: ' + error, { cause: error });
     }
   }
 

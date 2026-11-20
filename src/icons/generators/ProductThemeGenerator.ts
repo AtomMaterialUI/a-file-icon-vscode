@@ -37,7 +37,7 @@ export class ProductThemeGenerator {
       const json = merge({}, this.originalConfig, this.productConfig);
       writeFileAtomic(join(this.distPath(), JSON_PRODUCT_FILE_NAME), JSON.stringify(json, undefined, 2));
     } catch (error) {
-      throw new Error('Failed to create icon file: ' + error);
+      throw new Error('Failed to create icon file: ' + error, { cause: error });
     }
   }
 

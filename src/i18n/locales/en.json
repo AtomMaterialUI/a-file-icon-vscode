@@ -73,6 +73,9 @@
     "reload": "Cool Islands Icons changed with the product icon themes mixed in. Reload the window to see them."
   },
   "readChangelog": "Read changelog",
+  "readOnly": {
+    "message": "Cool Theme Kit cannot write in its own folder ({{folder}}). The default themes keep working, but the settings that change them (icon settings, accent color, mixed themes) are not applied while the folder is read-only."
+  },
   "reload": "Restart",
   "saturation": {
     "desaturated": "Make icons desaturated (about 70% saturation)",
