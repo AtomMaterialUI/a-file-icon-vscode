@@ -247,8 +247,10 @@ export class ThemeLayerGenerator {
     const folder = join(distributionPath, LAYERS_FOLDER);
     if (!existsSync(folder)) return;
 
-    for (const file of readdirSync(folder)) {
-      if (!keep.has(file)) rmSync(join(folder, file), { force: true });
+    // only the files of this generator: the folders belong to the others (layers/product: the fonts of the product
+    // icon themes), removing one failed with EISDIR and stopped every regeneration of the icon theme
+    for (const entry of readdirSync(folder, { withFileTypes: true })) {
+      if (entry.isFile() && !keep.has(entry.name)) rmSync(join(folder, entry.name), { force: true });
     }
   }
 

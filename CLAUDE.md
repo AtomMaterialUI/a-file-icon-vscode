@@ -82,7 +82,8 @@
   - 우선순위: byName > override 층(앞이 이김, 사용자 `*Associations` 이름은 건드리지 않음) > Atom > fill 층(앞이 이김).
   - 이름 해석은 VS Code 와 같게(파일 이름 > 긴 확장자부터 > 언어). 밝은·고대비 변형은 같은 항목의 것만 쓰고 없으면
     우리 변형을 지운다. SVG 는 필터 적용 복사, Seti 같은 글꼴 테마는 글꼴을 `dist/layers` 에 복사하고 글리프마다
-    `fontId`·`fontSize` 를 명시(VS Code 는 첫 글꼴을 모든 아이콘의 기본으로 씀). 글꼴 색은 채도·모노크롬만(VS Code 가 알파 없는
+    `fontId`·`fontSize` 를 명시(VS Code 는 첫 글꼴을 모든 아이콘의 기본으로 씀). `dist/layers` 정리(`ThemeLayerGenerator.clean`)는 파일만 지운다:
+    `dist/layers/product/` 는 제품 아이콘 생성기의 것(폴더까지 지우려다 EISDIR 로 아이콘 재생성이 멈췄던 버그, 스모크가 찾음). 글꼴 색은 채도·모노크롬만(VS Code 가 알파 없는
     `#rrggbb` 만 받아 불투명도는 못 씀). PNG 는 건너뜀.
     `usesCurrentColor` 테마(VS Code Modern)는 VS Code 가 선택된 테마의 아이콘만 글자색으로 칠하므로, 복사할 때 `currentColor` 를
     어두운 테마 `#cccccc`, 밝은 변형 `#3b3b3b` 로 바꾼다(원본에 밝은 변형이 없어도 만든다).

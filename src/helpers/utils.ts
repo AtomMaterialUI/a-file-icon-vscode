@@ -104,3 +104,10 @@ export const isValidHexColorCode = (color: string) => {
  * Korean name typed or pasted in its decomposed form (NFD, the form of macOS file names) matches the explorer's name.
  */
 export const normalizeName = (name: string): string => name.normalize('NFC').toLowerCase();
+
+/**
+ * Whether an error is VS Code cancelling an operation: a message still waiting for the user when the window closes is
+ * rejected this way. It is not a failure of the extension and is not logged as one.
+ */
+export const isCancellation = (error: unknown): boolean =>
+  typeof error === 'object' && error !== null && (error as { name?: unknown }).name === 'Canceled';

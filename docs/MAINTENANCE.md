@@ -139,7 +139,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 | Material 제품 아이콘 json | 176 KB | 230 KB | `check:size` |
 | Islands 제품 아이콘 json / 색 테마 json | 9 KB / 40 KB | 32 KB / 64 KB | `check:size` |
 | VSIX 크기 / 파일 수 | 11.1 MB / 5,602 | 14 MB / 6,500 | `check:size` |
-| 재생성 4회 반복(불투명도·강조색) + 섞기 화면 3회 뒤 힙 증가 | 첫 CI 실행에서 기록 | 10 MB | `smoke.yml` |
+| 재생성 4회 반복(불투명도·강조색) + 섞기 화면 3회 뒤 힙 증가 | 0.6 MB (Linux 1.95.0), 0.7 MB (Windows stable) | 10 MB | `smoke.yml` |
 
 - 예산은 넘기지 않는다. 기능 때문에 올려야 하면 같은 PR 에서 예산 숫자(`test/checks/sizeBudget.js`, `test/smoke/suite.js`)와
   이 표를 고치고, 늘어난 이유와 측정값을 PR 에 적는다.
@@ -206,7 +206,12 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
    `toLowerCase()` 로 비교한다. CLAUDE.md 규칙대로 `normalizeName` 으로 바꾼다(macOS 의 NFD 이름).
 5. **[테스트] `fonts.test.ts` "does not take another family…"** 는 JetBrains Mono 가 시스템에 설치된 Linux 에서 실패한다
    (`isFontInstalled` 가 `fc-list` 로 대체 확인). 테스트에서 `fc-list` 를 빼거나 주입할 수 있게 한다.
-6. **[CI] 스모크가 처음 CI 에 들어갔다.** 첫 실행의 메모리 표로 3장의 "첫 CI 실행에서 기록" 칸을 채우고, 힙 예산(10 MB)이 너무 넉넉하면 줄인다.
+6. **[CI] 스모크 첫 실행(PR #42)**: 힙 증가는 0.6~0.7 MB 였다(시작 힙 34~49 MB, Windows 재생성 평균 1.7초·최대 3.4초).
+   다른 확장과 함께 도는 job 의 값이 나오면 힙 예산(10 MB)을 줄일지 정한다.
+   첫 실행이 찾아서 같은 PR 에서 고친 것:
+   - `ThemeLayerGenerator.clean` 이 `dist/layers` 의 폴더(`layers/product`, 제품 아이콘 글꼴)까지 지우려다 `EISDIR` 로 실패해,
+     제품 아이콘 테마를 한 번 섞으면 그 뒤로 아이콘 테마가 다시 만들어지지 않았다(설정이 반영되지 않고 오류 토스트). 이제 파일만 지운다.
+   - 글꼴 안내 알림이 열린 채 창이 닫히면 VS Code 가 `Canceled` 로 거절하는데 오류로 기록했다. 취소는 기록하지 않는다(`isCancellation`).
 
 ## 7. Claude Code 로 점검하기 (MCP)
 
