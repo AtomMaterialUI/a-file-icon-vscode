@@ -207,3 +207,35 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 5. **[테스트] `fonts.test.ts` "does not take another family…"** 는 JetBrains Mono 가 시스템에 설치된 Linux 에서 실패한다
    (`isFontInstalled` 가 `fc-list` 로 대체 확인). 테스트에서 `fc-list` 를 빼거나 주입할 수 있게 한다.
 6. **[CI] 스모크가 처음 CI 에 들어갔다.** 첫 실행의 메모리 표로 3장의 "첫 CI 실행에서 기록" 칸을 채우고, 힙 예산(10 MB)이 너무 넉넉하면 줄인다.
+
+## 7. Claude Code 로 점검하기 (MCP)
+
+`/maintenance-check` 명령(`.claude/commands/maintenance-check.md`)이 이 문서대로 점검하고 보고서를 쓴다. GitHub(Actions 실행·로그,
+Code scanning·Secret scanning·Dependabot 알림, PR)와 SonarQube Cloud(품질 게이트·이슈·Hotspot·지표)를 MCP 로 **읽기만** 한다.
+서버 설정은 저장소의 `.mcp.json`(토큰은 환경 변수로만, 둘 다 읽기 전용 모드).
+
+| 명령 | 하는 일 |
+|---|---|
+| `/maintenance-check` | main 기준 점검 |
+| `/maintenance-check 42` | PR #42 기준(그 PR 의 검사·새 코드) |
+| `/maintenance-check main --local` | + `bun run audit:shipped`, 6장 점검 결과가 코드에 남았는지 확인 |
+
+### 처음 한 번
+
+1. **GitHub 토큰**: Fine-grained PAT, 저장소는 이 저장소만, 권한은 모두 Read-only — Actions, Code scanning alerts,
+   Dependabot alerts, Secret scanning alerts, Pull requests, Contents(Metadata 는 자동).
+2. **SonarQube Cloud 토큰**: My Account → Security 의 **user token**(프로젝트 토큰은 권한이 모자란다).
+3. 환경 변수로 넣고 터미널·Claude Code 를 다시 연다(PowerShell, 사용자 환경 변수):
+
+   ```powershell
+   [Environment]::SetEnvironmentVariable('GITHUB_PAT', '<GitHub 토큰>', 'User')
+   [Environment]::SetEnvironmentVariable('SONARQUBE_TOKEN', '<Sonar 토큰>', 'User')
+   ```
+
+4. **Docker Desktop** 을 켠다(`sonarqube` 서버는 `sonarsource/sonarqube-mcp` 이미지로 돈다). Docker 없이 쓰려면 Java 21 + 서버 JAR 를
+   같은 이름의 local 범위로 덮어쓴다: `claude mcp add sonarqube --scope local --env SONARQUBE_TOKEN=… -- java -jar <jar 경로>`.
+5. 이 폴더에서 Claude Code 를 열면 `.mcp.json` 의 서버를 쓸지 묻는다 → 허용. `/mcp` 로 `github`·`sonarqube` 가 connected 인지 본다.
+
+- 토큰이 여러 SonarQube Cloud 조직에 속하면 `SONARQUBE_ORG` 가 필요하다: 위 4번처럼 local 범위로 덮어써서 `--env SONARQUBE_ORG=<조직 키>` 를 더한다.
+- 같은 이름(`github`)의 서버가 사용자 범위에 이미 있으면 local > project > user 순으로 하나만 쓰인다. 쓰기 권한이 있는 서버가 이기지 않게 이름을 확인한다.
+- 이슈·Hotspot 상태를 Claude 가 바꾸게 하려면 `SONARQUBE_READ_ONLY`·`X-MCP-Readonly` 를 끈 별도 서버를 local 범위로 만든다(기본은 읽기 전용).

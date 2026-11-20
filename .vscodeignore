@@ -21,6 +21,7 @@ environment.yml
 esbuild.js
 eslint.config.mjs
 .claude/**
+.mcp.json
 .commitlintrc.yml
 .gitmodules
 .markdownlint.yaml
