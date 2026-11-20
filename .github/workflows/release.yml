@@ -5,6 +5,7 @@ name: Release + Publish
 # `main` is protected (changes need a pull request), so this workflow never commits to it. The version is not stored
 # in package.json: the next one is computed from the latest GitHub release of this repository (or from package.json
 # for the first release) and written only into the VSIX. package.json keeps the version of the first release.
+# An exact `version` can be given instead (e.g. to skip from 1.1.0 to 1.2.1): it must be greater than the latest release.
 #
 # Publishing to the registries only runs when their token secret is set:
 #   OPEN_VSX_TOKEN        -> Open VSX
@@ -22,6 +23,11 @@ on:
           - patch
           - minor
           - major
+      version:
+        type: string
+        description: Or an exact version (e.g. 1.2.1), greater than the latest release; the version change is then ignored
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -31,6 +37,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       VERSION_CHANGE: ${{ github.event.inputs.versionChange }}
+      VERSION_INPUT: ${{ github.event.inputs.version }}
       PUPPETEER_SKIP_DOWNLOAD: '1'
       GH_TOKEN: ${{ github.token }}
       OPEN_VSX_TOKEN: ${{ secrets.OPEN_VSX_TOKEN }}
@@ -56,13 +63,26 @@ jobs:
           BASE=$(gh release view --json tagName --jq '.tagName' 2>/dev/null || true)
           BASE=${BASE#v}
           if [ -z "$BASE" ]; then BASE=$(node -p "require('./package.json').version"); fi
-          IFS=. read -r MAJOR MINOR PATCH <<< "$BASE"
-          case "$VERSION_CHANGE" in
-            major) VERSION="$((MAJOR + 1)).0.0" ;;
-            minor) VERSION="$MAJOR.$((MINOR + 1)).0" ;;
-            patch) VERSION="$MAJOR.$MINOR.$((PATCH + 1))" ;;
-            *) echo "Unknown version change: $VERSION_CHANGE"; exit 1 ;;
-          esac
+          VERSION_INPUT=$(echo "$VERSION_INPUT" | tr -d '[:space:]')
+          VERSION_INPUT=${VERSION_INPUT#v}
+          if [ -n "$VERSION_INPUT" ]; then
+            # an exact version: x.y.z (no pre-release, the Marketplace refuses them), greater than the latest release
+            if ! [[ "$VERSION_INPUT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
+              echo "::error::The version must be x.y.z, got '$VERSION_INPUT'"; exit 1
+            fi
+            if [ "$VERSION_INPUT" = "$BASE" ] || [ "$(printf '%s\n%s\n' "$BASE" "$VERSION_INPUT" | sort -V | tail -n 1)" != "$VERSION_INPUT" ]; then
+              echo "::error::The version $VERSION_INPUT is not greater than the latest release $BASE"; exit 1
+            fi
+            VERSION=$VERSION_INPUT
+          else
+            IFS=. read -r MAJOR MINOR PATCH <<< "$BASE"
+            case "$VERSION_CHANGE" in
+              major) VERSION="$((MAJOR + 1)).0.0" ;;
+              minor) VERSION="$MAJOR.$((MINOR + 1)).0" ;;
+              patch) VERSION="$MAJOR.$MINOR.$((PATCH + 1))" ;;
+              *) echo "Unknown version change: $VERSION_CHANGE"; exit 1 ;;
+            esac
+          fi
           echo "Previous version $BASE, next version $VERSION"
           echo VERSION=$VERSION >> $GITHUB_ENV
           echo NAME=$(node -p "require('./package.json').name") >> $GITHUB_ENV
