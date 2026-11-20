@@ -48,7 +48,7 @@ describe('theme mixer preview', () => {
 
   it('finds the icon of a name like VS Code: name, longest extension, language, then the default', () => {
     const path = theme(svgTheme());
-    const preview = new ThemePreview('svg', path, languages);
+    const preview = new ThemePreview({ extensionPath: folder, id: 'svg', path }, languages);
     const image = (name: string, light = false) => {
       const icon = preview.icon(name, light);
       return icon?.kind === 'image' ? icon.path : icon;
@@ -81,7 +81,7 @@ describe('theme mixer preview', () => {
         _py: { fontCharacter: '\\E037', fontId: 'broken' },
       },
     });
-    const preview = new ThemePreview('vs-seti', path, languages);
+    const preview = new ThemePreview({ extensionPath: folder, id: 'vs-seti', path }, languages);
 
     assert.deepEqual(preview.icon('main.go', false), {
       character: '',
@@ -103,7 +103,7 @@ describe('theme mixer preview', () => {
 
   it('marks the svg files of the themes drawn with the color of the text', () => {
     const path = theme({ ...svgTheme(), usesCurrentColor: true });
-    assert.deepEqual(new ThemePreview('modern', path, languages).icon('index.ts', false), {
+    assert.deepEqual(new ThemePreview({ extensionPath: folder, id: 'modern', path }, languages).icon('index.ts', false), {
       currentColor: true,
       kind: 'image',
       path: join(folder, 'theme', 'icons', 'ts.svg'),
@@ -111,7 +111,7 @@ describe('theme mixer preview', () => {
   });
 
   it('shows nothing for a theme that cannot be read', () => {
-    const preview = new ThemePreview('missing', join(folder, 'missing.json'), languages);
+    const preview = new ThemePreview({ extensionPath: folder, id: 'missing', path: join(folder, 'missing.json') }, languages);
     assert.equal(preview.icon('index.ts', false), undefined);
     assert.equal(preview.icon('src/', false), undefined);
   });

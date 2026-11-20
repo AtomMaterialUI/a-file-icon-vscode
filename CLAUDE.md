@@ -91,6 +91,8 @@
     두 설정을 고치고, 미리보기는 `helpers/themePreview.ts`(`LayerReader` 재사용)로 각 테마 json 과 생성된 우리 json 에서
     이름별 아이콘을 찾는다. 설정 쓰기 → 테마 재생성 → `extension.ts` 의 `regenerateTheme` 가 `ThemeMixerPanel.refresh()`.
     화면 문구는 `en.json` 의 `themeMixer.*`(다른 언어는 영어로 대체됨).
+  - 다른 테마(아이콘·색·제품 아이콘)의 json 이 가리키는 파일(SVG·글꼴·`include`·`tokenColors`)은 `helpers/themePaths.resolveThemePath`
+    로만 푼다: 그 테마를 기여한 확장 폴더(`extensionPath`, 설치된 테마 목록이 가짐) 밖이면 없는 파일처럼 건너뛴다(`docs/MAINTENANCE.md` 1장 규칙 2).
   - 쓰는 테마들의 지문(`layerThemes`, 확장 버전 + json 수정 시각)을 테마 json 에 저장해 바뀌면 다시 만든다
     (`extension.ts` 가 각 json 을 watchFile). 스크립트·parity 테스트는 다른 테마 없이 돈다.
 - 색 테마(Cool Islands Dark/Light, `src/themes/`): `syncJetbrainsColors.ts` 가 `JetBrains/intellij-community` 의 고정 커밋

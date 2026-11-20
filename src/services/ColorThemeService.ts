@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import i18next from 'i18next';
 import { EXTENSION_ID } from 'src/helpers/constants';
+import { isInsideFolder } from 'src/helpers/themePaths';
 import { getExtensionPath } from 'src/helpers/vscodeUtils';
 import { configService } from 'src/services/ConfigService';
 import { logger } from 'src/services/LoggingService';
@@ -40,7 +41,8 @@ type InstalledColorTheme = { extensionPath: string; id: string; kind: ThemeKind;
 
 /**
  * The color themes of the other installed extensions (VS Code's own ones too), which can be mixed with Cool Islands.
- * The id is the value of `workbench.colorTheme`: the `id` of the theme, else its label.
+ * The id is the value of `workbench.colorTheme`: the `id` of the theme, else its label. A theme file outside the folder
+ * of its extension is left out.
  */
 const scanColorThemes = (): InstalledColorTheme[] => {
   const result: InstalledColorTheme[] = [];
@@ -54,13 +56,15 @@ const scanColorThemes = (): InstalledColorTheme[] => {
       const rawLabel = typeof theme.label === 'string' ? theme.label : '';
       const id = typeof theme.id === 'string' ? theme.id : rawLabel;
       if (!id || result.some((item) => item.id === id)) continue;
+      const path = join(extension.extensionPath, theme.path);
+      if (!isInsideFolder(extension.extensionPath, path)) continue;
       const uiTheme = typeof theme.uiTheme === 'string' ? theme.uiTheme : 'vs-dark';
       result.push({
         extensionPath: extension.extensionPath,
         id,
         kind: kindOfUiTheme(uiTheme),
         label: translatedLabel(extension.extensionPath, rawLabel) ?? id,
-        path: join(extension.extensionPath, theme.path),
+        path,
         uiTheme,
       });
     }
@@ -104,7 +108,7 @@ export class ColorThemeService {
         let data: ColorThemeData | undefined;
         if (theme && existsSync(theme.path)) {
           try {
-            data = readColorTheme(theme.path, theme.uiTheme);
+            data = readColorTheme(theme);
           } catch (error) {
             logger.error(`Color theme ${id}: ${String(error)}`);
           }

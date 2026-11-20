@@ -2,6 +2,7 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import i18next from 'i18next';
 import { EXTENSION_ID } from 'src/helpers/constants';
+import { isInsideFolder } from 'src/helpers/themePaths';
 import { getExtensionPath } from 'src/helpers/vscodeUtils';
 import { ISLANDS_PRODUCT_THEME_ID } from 'src/productIcons/islandsProductTheme';
 import { ProductIconGenerator, readProductTheme } from 'src/productIcons/ProductIconGenerator';
@@ -21,7 +22,8 @@ type InstalledProductTheme = { extensionPath: string; id: string; label: string;
 
 /**
  * The product icon themes that can be mixed with Cool Islands Icons: the ones of the other installed extensions, and
- * Cool Material Icons of this extension. The id is the value of `workbench.productIconTheme`.
+ * Cool Material Icons of this extension. The id is the value of `workbench.productIconTheme`. A theme file outside the
+ * folder of its extension is left out.
  */
 const scanProductThemes = (): InstalledProductTheme[] => {
   const result: InstalledProductTheme[] = [];
@@ -32,8 +34,10 @@ const scanProductThemes = (): InstalledProductTheme[] => {
     for (const theme of themes) {
       if (typeof theme?.id !== 'string' || typeof theme.path !== 'string') continue;
       if ((own && theme.id === ISLANDS_PRODUCT_THEME_ID) || result.some((item) => item.id === theme.id)) continue;
+      const path = join(extension.extensionPath, theme.path);
+      if (!isInsideFolder(extension.extensionPath, path)) continue;
       const label = typeof theme.label === 'string' && !/^%.*%$/.test(theme.label) ? theme.label : theme.id;
-      result.push({ extensionPath: extension.extensionPath, id: theme.id, label, path: join(extension.extensionPath, theme.path) });
+      result.push({ extensionPath: extension.extensionPath, id: theme.id, label, path });
     }
   }
   return result.sort((a, b) => a.label.localeCompare(b.label));
@@ -75,7 +79,7 @@ export class ProductIconService {
         let data: ReadProductTheme | undefined;
         if (theme && existsSync(theme.path)) {
           try {
-            data = readProductTheme(id, theme.path);
+            data = readProductTheme(theme);
           } catch (error) {
             logger.error(`Product icon theme ${id}: ${String(error)}`);
           }

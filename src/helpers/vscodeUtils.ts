@@ -2,6 +2,7 @@ import { readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { EXTENSION_ID, EXTENSION_KEY, JSON_FILE_NAME, JSON_PRODUCT_FILE_NAME } from 'src/helpers/constants';
 import { usedThemeIds } from 'src/helpers/themeLayers';
+import { isInsideFolder } from 'src/helpers/themePaths';
 import { env, Uri, extensions, workspace } from 'vscode';
 
 import type { AtomConfig } from 'src/@types/config';
@@ -74,7 +75,8 @@ export const getProductThemeFile = (): ProductConfiguration => {
 };
 /**
  * The installed file icon theme with the given id (`workbench.iconTheme` value), to mix with this theme.
- * Undefined when the id is empty, is this theme, or no installed extension contributes it.
+ * Undefined when the id is empty, is this theme, or no installed extension contributes it (a theme file outside the
+ * folder of its extension is not used).
  */
 export const findIconTheme = (id: string): LayerTheme | undefined => {
   if (!id || id === EXTENSION_KEY) return undefined;
@@ -87,9 +89,10 @@ export const findIconTheme = (id: string): LayerTheme | undefined => {
     if (!theme) continue;
 
     const path = join(extension.extensionPath, theme.path as string);
+    if (!isInsideFolder(extension.extensionPath, path)) continue;
     try {
       const modified = Math.trunc(statSync(path).mtimeMs);
-      return { id, path, stamp: `${extension.id}@${extension.packageJSON?.version ?? ''}:${modified}` };
+      return { extensionPath: extension.extensionPath, id, path, stamp: `${extension.id}@${extension.packageJSON?.version ?? ''}:${modified}` };
     } catch {
       // the extension has not generated its theme yet
       return undefined;
@@ -103,7 +106,8 @@ export type InstalledIconTheme = { extensionPath: string; id: string; label: str
 
 /**
  * The file icon themes of the other installed extensions, which can be mixed with this theme.
- * A label still written as a `%key%` of the extension's translations shows the theme id instead.
+ * A label still written as a `%key%` of the extension's translations shows the theme id instead. A theme file outside
+ * the folder of its extension is left out.
  */
 export const listIconThemes = (): InstalledIconTheme[] => {
   const result: InstalledIconTheme[] = [];
@@ -117,8 +121,10 @@ export const listIconThemes = (): InstalledIconTheme[] => {
       if (typeof theme?.id !== 'string' || typeof theme.path !== 'string' || theme.id === EXTENSION_KEY) continue;
       if (result.some((item) => item.id === theme.id)) continue;
 
+      const path = join(extension.extensionPath, theme.path);
+      if (!isInsideFolder(extension.extensionPath, path)) continue;
       const label = typeof theme.label === 'string' && !/^%.*%$/.test(theme.label) ? theme.label : theme.id;
-      result.push({ extensionPath: extension.extensionPath, id: theme.id, label, path: join(extension.extensionPath, theme.path) });
+      result.push({ extensionPath: extension.extensionPath, id: theme.id, label, path });
     }
   }
   return result.sort((a, b) => a.label.localeCompare(b.label));

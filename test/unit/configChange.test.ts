@@ -606,6 +606,34 @@ describe('ConfigChangeDetector', () => {
       }
     });
 
+    // docs/MAINTENANCE.md, 1. 보안, rule 2: VS Code loads no icon from outside the folder of the extension of a theme
+    it('skips the icons outside the folder of the extension of the theme, like missing ones', () => {
+      const outside = mkdtempSync(join(tmpdir(), 'afi-outside-'));
+      themePaths.push(outside);
+      writeFileAtomic(join(outside, 'secret.svg'), SVG('#abcdef'));
+      installTheme('material-icon-theme', {
+        ...fallbackTheme,
+        fileNames: { ...fallbackTheme.fileNames, 'absolute.zzz': 'fb-absolute', 'escape.zzz': 'fb-escape' },
+        iconDefinitions: {
+          ...fallbackTheme.iconDefinitions,
+          'fb-absolute': { iconPath: join(outside, 'secret.svg') },
+          // from <extension>/dist to the other folder of the temporary folder
+          'fb-escape': { iconPath: `../../${basename(outside)}/secret.svg` },
+        },
+      });
+      configChangeDetector.listenForChanges();
+      const theme = readTheme();
+
+      assert.equal(theme.fileNames?.['escape.zzz'], undefined);
+      assert.equal(theme.fileNames?.['absolute.zzz'], undefined);
+      // `./../icons` from the folder of the theme json is still in the extension
+      assert.equal(readIcon(theme, theme.fileNames?.['zz-unknown'] ?? ''), SVG('#123456'));
+      const layers = join(testState.extensionPath, 'dist', 'layers');
+      for (const file of readdirSync(layers, { withFileTypes: true }).filter((entry) => entry.isFile())) {
+        assert.ok(!readFileSync(join(layers, file.name), 'utf8').includes('#abcdef'), file.name);
+      }
+    });
+
     it('applies the filters of this theme to the icons of the other themes', () => {
       installFallbackTheme();
       applySettings({ opacity: 0.5 });
@@ -833,6 +861,25 @@ describe('ConfigChangeDetector', () => {
         assert.equal(theme.fileNames?.['zz-no-font'], undefined);
         assert.equal(theme.fileExtensions?.zzq, undefined);
         assert.equal(theme.fonts, undefined);
+      });
+
+      it('skips a font outside the folder of the extension of the theme, and its glyphs', () => {
+        const outside = mkdtempSync(join(tmpdir(), 'afi-outside-'));
+        themePaths.push(outside);
+        writeFileAtomic(join(outside, 'secret.woff'), 'secret font');
+        const src = [{ format: 'woff', path: `../../${basename(outside)}/secret.woff` }];
+        installSeti({ ...setiTheme, fonts: [{ ...setiTheme.fonts[0], src }] });
+        applySettings({ iconThemeLayers: ['vs-seti'] });
+        const theme = readTheme();
+
+        assert.equal(theme.fileExtensions?.zzq, undefined);
+        assert.equal(theme.fileNames?.['zz-named'], undefined);
+        assert.equal(theme.fonts, undefined);
+        const layers = join(testState.extensionPath, 'dist', 'layers');
+        const files = existsSync(layers) ? readdirSync(layers, { withFileTypes: true }).filter((entry) => entry.isFile()) : [];
+        for (const file of files) {
+          assert.notEqual(readFileSync(join(layers, file.name), 'utf8'), 'secret font', file.name);
+        }
       });
 
       it('gives the default glyph of an override layer, and the color filters to the glyphs', () => {

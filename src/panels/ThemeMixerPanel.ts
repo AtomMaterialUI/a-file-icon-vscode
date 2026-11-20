@@ -397,9 +397,10 @@ export class ThemeMixerPanel {
 
     const languages = getLanguageLookup();
     const light = [ColorThemeKind.Light, ColorThemeKind.HighContrastLight].includes(window.activeColorTheme.kind);
-    const result = new ThemePreview(EXTENSION_KEY, join(getExtensionPath(), 'dist', JSON_FILE_NAME), languages);
+    const extensionPath = getExtensionPath();
+    const result = new ThemePreview({ extensionPath, id: EXTENSION_KEY, path: join(extensionPath, 'dist', JSON_FILE_NAME) }, languages);
     const previews = new Map(
-      themes.filter((theme) => columnIds.includes(theme.id)).map((theme) => [theme.id, new ThemePreview(theme.id, theme.path, languages)]),
+      themes.filter((theme) => columnIds.includes(theme.id)).map((theme) => [theme.id, new ThemePreview(theme, languages)]),
     );
 
     const fonts = new Map<string, PreviewFont>();
@@ -425,7 +426,6 @@ export class ThemeMixerPanel {
     // the selected Cool Islands theme, else the one of the kind of the selected color theme
     const islands = COLOR_THEMES.find((info) => info.label === selectedColorTheme);
     const colorKind = islands ? kindOf(islands) : (light ? 'light' : 'dark');
-    const extensionPath = getExtensionPath();
     const colors = colorMixerState({
       accent: normalizeAccent(configService.accentColor),
       byKey: configService.colorThemeByKey,

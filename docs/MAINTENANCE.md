@@ -56,7 +56,11 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
    - `JSON.parse`(JSONC 는 `stripJsonComments`)로만 읽는다. `require`·`eval`·`new Function` 으로 읽지 않는다.
    - `include` 같은 따라가기에는 깊이 제한(`MAX_INCLUDES`)을 둔다.
    - 확장자를 확인하고(SVG·허용된 글꼴 형식만, PNG 는 건너뜀) 복사본은 `dist/layers/` 에만 쓴다. 다른 확장의 폴더에는 쓰지 않는다.
-   - 경로는 그 테마의 확장 폴더 안으로 풀리는 것만 쓴다(VS Code 자신도 확장 폴더 밖 경로를 거부한다). → 아래 "점검 결과" 1번.
+   - 경로는 그 테마의 확장 폴더(`extensionPath`) 안으로 풀리는 것만 쓴다(VS Code 자신도 확장 폴더 밖 경로를 거부한다).
+     테마 json 의 경로(아이콘 SVG·글꼴 `src`·`include`·`tokenColors`)는 `helpers/themePaths.resolveThemePath`, 테마 json 자체는
+     `isInsideFolder` 로만 푼다(`path.relative` 비교라 `../`·절대 경로·다른 드라이브는 거부, Windows 는 대소문자·NFC 무시).
+     밖으로 나가는 경로는 없는 파일처럼 건너뛴다: 테마는 섞이고 그 아이콘·글꼴·`include` 만 빠진다(제품 아이콘은 그 글꼴을
+     쓰는 아이콘도 빠짐). 다른 테마 경로를 읽는 곳을 새로 만들면 이 helper 를 쓰고 `test/unit/themePaths.test.ts` 에 경우를 더한다.
 3. **파일 쓰기**: `dist/` 쓰기는 `helpers/fsUtils.writeFileAtomic` 만. 파일 이름은 해시·정규화한 이름만 쓰고, 다른 테마나
    설정에서 온 문자열을 그대로 경로 조각으로 쓰지 않는다.
 4. **경로를 받는 설정**: 새 설정이 파일 경로·명령·URL 을 받으면 `package.json` 의
@@ -192,21 +196,16 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 
 이 지침을 만들며 찾은 것. 고치면 여기서 지우고 PR 에 적는다.
 
-1. **[보안] 다른 테마의 경로를 확장 폴더 안으로 막지 않는다.** `ThemeLayerGenerator.svgDefinition`·글꼴 복사,
-   `ProductIconGenerator`, `readColorTheme` 의 `include`·`tokenColors`, `themePreview` 가 `resolve(dirname(테마), 경로)` 를
-   그대로 쓴다. SVG·글꼴 확장자만 확인하므로 `../../` 로 그 확장 밖의 파일이 `dist/layers` 로 복사될 수 있다(복사본은 이 확장
-   폴더에 있어서 아이콘·웹뷰 미리보기로 보인다).
-   다른 확장은 이미 코드를 실행할 수 있어 위험은 낮지만, VS Code 와 같게 "확장 폴더 안" 검사를 한 곳(helper)에 두고 단위 테스트를 붙인다.
-2. **[보안] Restricted Mode 에서도 워크스페이스 설정의 SVG 경로를 읽는다.** `files/folders/languagesAssociations` 값이
+1. **[보안] Restricted Mode 에서도 워크스페이스 설정의 SVG 경로를 읽는다.** `files/folders/languagesAssociations` 값이
    `~/…`·절대 경로 SVG 면 그 파일을 복사해 아이콘으로 쓴다. `untrustedWorkspaces` 를 `"limited"` 로 바꾸고 이 세 설정을
    `restrictedConfigurations` 에 넣는 것을 검토한다(신뢰하지 않은 폴더에서는 사용자 설정 값만 쓰임).
-3. **[보안] 빌드·테스트 도구의 advisory**: high 72, critical 3 (puppeteer·tar-fs·ws, svgo, oslllo-svg-fixer → validator,
+2. **[보안] 빌드·테스트 도구의 advisory**: high 72, critical 3 (puppeteer·tar-fs·ws, svgo, oslllo-svg-fixer → validator,
    minimatch 등). 배포물에는 없다. `bun audit fix` 와 Dependabot 으로 줄이고, 메이저가 걸린 것(puppeteer 23 → 최신, svgo 3.3.5+)은 따로 PR.
-4. **[규칙] `toLowerCase()` 이름 비교**: `ThemeMixerPanel.state` 의 고정(pin) 표시가 샘플 이름(워크스페이스의 한글 이름일 수 있음)을
+3. **[규칙] `toLowerCase()` 이름 비교**: `ThemeMixerPanel.state` 의 고정(pin) 표시가 샘플 이름(워크스페이스의 한글 이름일 수 있음)을
    `toLowerCase()` 로 비교한다. CLAUDE.md 규칙대로 `normalizeName` 으로 바꾼다(macOS 의 NFD 이름).
-5. **[테스트] `fonts.test.ts` "does not take another family…"** 는 JetBrains Mono 가 시스템에 설치된 Linux 에서 실패한다
+4. **[테스트] `fonts.test.ts` "does not take another family…"** 는 JetBrains Mono 가 시스템에 설치된 Linux 에서 실패한다
    (`isFontInstalled` 가 `fc-list` 로 대체 확인). 테스트에서 `fc-list` 를 빼거나 주입할 수 있게 한다.
-6. **[CI] 스모크 첫 실행(PR #42)**: 힙 증가는 0.6~0.7 MB 였다(시작 힙 34~49 MB, Windows 재생성 평균 1.7초·최대 3.4초).
+5. **[CI] 스모크 첫 실행(PR #42)**: 힙 증가는 0.6~0.7 MB 였다(시작 힙 34~49 MB, Windows 재생성 평균 1.7초·최대 3.4초).
    다른 확장과 함께 도는 job 의 값이 나오면 힙 예산(10 MB)을 줄일지 정한다.
    첫 실행이 찾아서 같은 PR 에서 고친 것:
    - `ThemeLayerGenerator.clean` 이 `dist/layers` 의 폴더(`layers/product`, 제품 아이콘 글꼴)까지 지우려다 `EISDIR` 로 실패해,

@@ -106,8 +106,8 @@ export const productMixerState = (options: {
     const theme = find(id);
     if (!theme) continue;
     try {
-      // read with absolute font paths: the folder does not matter
-      columns.push({ folder: dirname(theme.path), id, label: theme.label, theme: readProductTheme(id, theme.path) });
+      // read with absolute font paths, the ones outside its extension left out: the folder does not matter
+      columns.push({ folder: dirname(theme.path), id, label: theme.label, theme: readProductTheme(theme) });
     } catch {
       // a theme that cannot be read has no column
     }
