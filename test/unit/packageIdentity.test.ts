@@ -25,6 +25,9 @@ const packageJson = JSON.parse(read('package.json')) as {
 };
 
 const DISPLAY_NAME = 'Cool Theme Kit';
+// The Marketplace keeps the display name of a removed extension taken: "Cool Theme Kit" was the name of the removed
+// `cool-icon-vscode`, so the listing has a longer name until the Marketplace frees it. Everything else says Cool Theme Kit
+const MARKETPLACE_DISPLAY_NAME = 'Cool Theme Kit (JetBrains Look)';
 /** The settings of every group of the Settings editor */
 const settings: Record<string, unknown> = Object.assign({}, ...packageJson.contributes.configuration.map((group) => group.properties));
 const nlsFiles = readdirSync(root).filter((file) => /^package\.nls(\.[\w-]+)?\.json$/.test(file));
@@ -39,7 +42,8 @@ describe('package identity', () => {
   });
 
   it('shows Cool Theme Kit as the extension name, command category and settings title', () => {
-    assert.equal(packageJson.displayName, DISPLAY_NAME);
+    assert.equal(packageJson.displayName, MARKETPLACE_DISPLAY_NAME);
+    assert.ok(packageJson.displayName.startsWith(`${DISPLAY_NAME} `));
     for (const command of packageJson.contributes.commands) {
       assert.equal(command.category, DISPLAY_NAME, command.command);
     }

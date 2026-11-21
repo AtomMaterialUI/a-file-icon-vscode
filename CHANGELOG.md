@@ -7,6 +7,9 @@ All notable changes to this project will be documented in this file. Dates are d
 The first version of `woogajjangka.cool-theme-kit`. The versions below it (1.0.0 to 1.3.0) were released as
 `woogajjangka.cool-icon-vscode`.
 
+The Marketplace still holds the name "Cool Theme Kit" for the removed extension, so this one is listed as
+**Cool Theme Kit (JetBrains Look)** for now. Commands, settings and notifications say Cool Theme Kit.
+
 - feat!: the extension id is now `woogajjangka.cool-theme-kit`, the name of the extension, and the repository is
   `WoogaJJangka/cool-theme-kit`. The old extension `woogajjangka.cool-icon-vscode` is removed from the Marketplace:
   install this one and uninstall the old one (Cool Theme Kit offers to when it finds it installed). The setting ids and
