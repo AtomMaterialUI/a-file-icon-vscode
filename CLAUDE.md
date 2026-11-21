@@ -1,4 +1,4 @@
-# a-file-icon-vscode — Claude Code 작업 메모
+# cool-theme-kit — Claude Code 작업 메모
 
 `AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme Kit"("Cool Theme" 은 Marketplace 에 이미 있어 게시가 거부돼 2026-11-20 바꿈)
 (확장 ID `woogajjangka.cool-theme-kit`, 0.1.0(2026-11-21, 새 식별자의 첫 버전)부터. 그 전(1.0.0~1.3.0) `woogajjangka.cool-icon-vscode` 는 Marketplace 에서 지웠고,
@@ -22,11 +22,11 @@
 - 단계별 로드맵은 포크 이슈 #19~#23, 진행 상황은 메모리(`project-status`).
 
 ## 환경 (Node·bun 은 conda env)
-- conda env `a-file-icon-vscode` = Node 24 + bun 1.4 (`environment.yml`). 이 PC 에는 시스템 Node 가 없다.
+- conda env `cool-theme-kit` = Node 24 + bun 1.4 (`environment.yml`, 2026-11-21 `a-file-icon-vscode` 에서 이름 바꿈, 폴더도 `D:devprojectsol-theme-kit` 으로 옮김). 이 PC 에는 시스템 Node 가 없다.
   새 PC: `conda env create -f environment.yml`, 바뀌면 `conda env update -f environment.yml --prune`.
 - 프로필 없이 도는 셸(Claude Code)에서는 env 를 PATH 앞에 붙여 쓴다. node.exe 는 env 루트, bun.exe 는 `Library\bin`:
-  - Git Bash: `E=/c/Users/siwon/miniconda3/envs/a-file-icon-vscode; export PATH="$E:$E/Library/bin:$PATH"`
-  - PowerShell: `conda run -n a-file-icon-vscode --no-capture-output bun run build`
+  - Git Bash: `E=/c/Users/siwon/miniconda3/envs/cool-theme-kit; export PATH="$E:$E/Library/bin:$PATH"`
+  - PowerShell: `conda run -n cool-theme-kit --no-capture-output bun run build`
 - 처음 한 번: `git submodule update --init` → `bun install`.
   잠금 파일은 텍스트 `bun.lock`(2026-11-19 `bun.lockb` 에서 변환, Dependabot `bun` 이 읽는 형식).
 - `conda.bat` 인자에 `>=` 를 쓰면 cmd 가 리다이렉트로 읽어 파일이 생긴다. 버전 조건은 `=` 로 쓴다.
