@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="160">
+  <img src="https://raw.githubusercontent.com/WoogaJJangka/cool-theme-kit/main/logo.png?sanitize=true" alt="logo" width="160">
   <br>
   Cool Theme Kit for VS Code
 </h1>
@@ -31,6 +31,10 @@
 You can also select the themes with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences:
 Product Icon Theme**, and the fonts with the **Use the JetBrains Fonts** command. Everything is undone the same way:
 select another theme, or run **Stop Using the JetBrains Fonts**.
+
+> **Moving from `woogajjangka.cool-icon-vscode`?** That was the id of Cool Theme Kit before 2.0.0, and it is no longer on
+> the Marketplace. Install this extension (`woogajjangka.cool-theme-kit`) and uninstall the old one: Cool Theme Kit
+> offers to when it finds it. The settings did not change, so yours still apply.
 
 | Cool Islands Light                                                    | Mix Themes page                                                   |
 |-----------------------------------------------------------------------|-------------------------------------------------------------------|
@@ -642,7 +646,7 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 
 ## Reporting a problem
 
-[Open an issue](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/new/choose), in English or Korean:
+[Open an issue](https://github.com/WoogaJJangka/cool-theme-kit/issues/new/choose), in English or Korean:
 
 - **Bug report**: run **Cool Theme Kit: Copy Diagnostics (for a Bug Report)** and paste what it copies. It lists the
   versions of the extension, VS Code and the OS, the selected themes, the editor font, the other theme extensions

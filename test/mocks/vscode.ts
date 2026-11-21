@@ -28,10 +28,13 @@ export const testState: {
   /** what `env.clipboard.writeText` wrote last, and the URLs `env.openExternal` opened */
   clipboard: string;
   opened: string[];
+  /** the commands run with `commands.executeCommand`, with their arguments */
+  executed: unknown[][];
 } = {
   answers: [],
   clipboard: '',
   config: {},
+  executed: [],
   extensionPath: '',
   extensions: [],
   messages: [],
@@ -144,6 +147,9 @@ export const window = {
 export const registeredCommands = new Map<string, (...parameters: unknown[]) => unknown>();
 
 export const commands = {
+  executeCommand: async (...parameters: unknown[]) => {
+    testState.executed.push(parameters);
+  },
   registerCommand: (id: string, callback: (...parameters: unknown[]) => unknown) => {
     registeredCommands.set(id, callback);
     return disposable;

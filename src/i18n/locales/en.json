@@ -70,6 +70,11 @@
   "material": "Material",
   "neverShowAgain": "Never show again",
   "none": "None",
+  "oldExtension": {
+    "found": "Cool Theme Kit moved to a new extension id, and the old one (woogajjangka.cool-icon-vscode) is still installed: both give the same settings and themes. Uninstall the old one? Your settings stay.",
+    "removed": "The old Cool Theme Kit extension is uninstalled.",
+    "uninstall": "Uninstall the Old One"
+  },
   "opacity": {
     "inputPlaceholder": "Opacity value (between 0 and 1)",
     "opaque": "Make icons opaque",

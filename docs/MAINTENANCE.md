@@ -99,7 +99,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
   and approve pull requests" 는 켠다(`sync-upstream.yml`). Fork 의 PR 워크플로는 승인 후 실행.
 - main 브랜치 보호(classic)의 필수 검사, 2026-11-21 현재: `ubuntu-latest`·`windows-latest`(Build + Test), `Analysis + quality gate`
   (Sonar, 아래 4장). 더 둘 만한 것: `Dependencies and actions`, `CodeQL (javascript-typescript)`, `CodeQL (actions)`, 스모크 job 들.
-  확인: `gh api repos/WoogaJJangka/a-file-icon-vscode/branches/main/protection/required_status_checks`.
+  확인: `gh api repos/WoogaJJangka/cool-theme-kit/branches/main/protection/required_status_checks`.
 
 ## 2. 다른 확장과의 호환
 
@@ -177,7 +177,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
     "Something went wrong while trying to get the pullrequest with key" 로 실패하고, main 분석은 된다.
     1. GitHub App **SonarQubeCloud** 가 WoogaJJangka 계정에 설치돼 있다(GitHub → Settings → Applications → Installed GitHub Apps).
     2. SonarCloud 조직 `woogajjangka` 가 그 설치에 **bound** 다(SonarCloud → 조직 → Administration → Organization settings →
-       Organization binding 이 "Bound", 프로젝트 → General settings → Repository binding 이 `WoogaJJangka/a-file-icon-vscode`).
+       Organization binding 이 "Bound", 프로젝트 → General settings → Repository binding 이 `WoogaJJangka/cool-theme-kit`).
     App 만 GitHub 에서 다시 설치하면 2번이 안 된다. 고치는 순서: App 을 Uninstall → SonarCloud Organization binding 의 **GitHub** 버튼으로
     새로 설치(GitHub 이 `installation_id` 를 들고 SonarCloud 로 돌아와야 연결된다). App 을 지우면 SonarCloud 로그인도 풀린다.
   - Automatic Analysis 는 2026-11-18 PR #7 뒤로 GitHub 에서 소식을 못 받아 **실패 표시 없이** 멈춰 있었다(사흘, PR #8~#46 이 분석되지 않음).

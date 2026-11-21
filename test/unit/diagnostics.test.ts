@@ -105,7 +105,7 @@ describe('Copy Diagnostics', () => {
         { extensionPath: '', id: 'PKief.material-icon-theme', packageJSON: { contributes: { iconThemes: [{ id: 'material-icon-theme' }] }, version: '5.40.0' } },
         { extensionPath: '', id: 'vscode.theme-defaults', packageJSON: { contributes: { themes: [{ id: 'Dark Modern' }] }, version: '1.0.0' } },
         { extensionPath: '', id: 'ms-python.python', packageJSON: { contributes: { commands: [] }, version: '2026.1.0' } },
-        { extensionPath: '', id: 'woogajjangka.cool-icon-vscode', packageJSON: { contributes: { themes: [{}] }, version: '1.4.0' } },
+        { extensionPath: '', id: 'woogajjangka.cool-theme-kit', packageJSON: { contributes: { themes: [{}] }, version: '1.4.0' } },
       ];
       testState.messages = [];
       testState.answers = [];

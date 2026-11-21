@@ -12,7 +12,7 @@ allowed-tools: Read, Grep, Glob, Bash(git status:*), Bash(git log:*), Bash(git f
 - 숫자(예: `42`): 그 PR. 커밋은 PR 의 head, Sonar 는 그 PR 분석.
 - `--local` 이 있으면 3단계의 로컬 검사도 한다.
 
-저장소 `WoogaJJangka/a-file-icon-vscode`, SonarQube Cloud 프로젝트 `WoogaJJangka_a-file-icon-vscode`.
+저장소 `WoogaJJangka/cool-theme-kit`, SonarQube Cloud 프로젝트 `WoogaJJangka_a-file-icon-vscode`.
 
 ## 지킬 것
 

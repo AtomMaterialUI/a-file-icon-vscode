@@ -2,8 +2,12 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
-#### Unreleased
+#### 2.0.0 (2026-11-21)
 
+- feat!: the extension id is now `woogajjangka.cool-theme-kit`, the name of the extension, and the repository is
+  `WoogaJJangka/cool-theme-kit`. The old extension `woogajjangka.cool-icon-vscode` is removed from the Marketplace:
+  install this one and uninstall the old one (Cool Theme Kit offers to when it finds it installed). The setting ids and
+  theme ids do not change, so your settings still apply.
 - feat: **Copy Diagnostics (for a Bug Report)** copies what a bug report needs (versions, the selected themes, the
   editor font, the other theme extensions, the settings changed from the defaults, with the home folder written `~`)
   and offers to open the bug report form. New issue forms: bug report, "Looks different from PyCharm" and idea, in

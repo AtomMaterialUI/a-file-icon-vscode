@@ -3,7 +3,7 @@ export const EXTENSION_KEY = 'a-file-icon-vscode';
 /** `publisher` of package.json: the extension id is `publisher.name`, so keep these three in sync (see packageIdentity.test.ts) */
 export const PUBLISHER_ID = 'woogajjangka';
 /** `name` of package.json. Not EXTENSION_KEY: the marketplace needs a name that is unique across publishers */
-export const PACKAGE_NAME = 'cool-icon-vscode';
+export const PACKAGE_NAME = 'cool-theme-kit';
 export const FONT_NAME = `${EXTENSION_KEY}.woff`;
 export const EXTENSION_ID = `${PUBLISHER_ID}.${PACKAGE_NAME}`;
 export const VERSION_KEY = `${EXTENSION_KEY}.version`;
