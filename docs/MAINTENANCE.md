@@ -97,8 +97,9 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
   (`security.yml` 의 고급 설정과 같이 쓰면 결과 업로드가 거부된다).
 - Settings → Actions → General: Workflow permissions 는 "Read repository contents", "Allow GitHub Actions to create
   and approve pull requests" 는 켠다(`sync-upstream.yml`). Fork 의 PR 워크플로는 승인 후 실행.
-- main 브랜치 보호의 필수 검사: `ubuntu-latest`·`windows-latest`(Build + Test), `Dependencies and actions`,
-  `CodeQL (javascript-typescript)`, `CodeQL (actions)`, 스모크 job 들, Sonar 검사(아래 4장).
+- main 브랜치 보호(classic)의 필수 검사, 2026-11-21 현재: `ubuntu-latest`·`windows-latest`(Build + Test), `Analysis + quality gate`
+  (Sonar, 아래 4장). 더 둘 만한 것: `Dependencies and actions`, `CodeQL (javascript-typescript)`, `CodeQL (actions)`, 스모크 job 들.
+  확인: `gh api repos/WoogaJJangka/a-file-icon-vscode/branches/main/protection/required_status_checks`.
 
 ## 2. 다른 확장과의 호환
 
@@ -172,7 +173,15 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 - **분석 방식: CI 분석**(`sonar.yml`, 2026-11-21 부터). Automatic Analysis 는 꺼져 있고 저장소 secret `SONAR_TOKEN`(SonarQube Cloud →
   My Account → Security 의 user token)으로 돈다. PR·main push 마다 빌드 → 커버리지 단위 테스트 → 스캔 → 품질 게이트를 기다리고,
   게이트가 실패하면 "Analysis + quality gate" 검사가 실패한다. 수동 실행: `gh workflow run sonar.yml --ref main`.
+  - PR 분석에는 두 연결이 다 있어야 한다(SonarCloud 가 GitHub 에서 PR 정보를 가져온다). 하나라도 없으면 PR 스캔이
+    "Something went wrong while trying to get the pullrequest with key" 로 실패하고, main 분석은 된다.
+    1. GitHub App **SonarQubeCloud** 가 WoogaJJangka 계정에 설치돼 있다(GitHub → Settings → Applications → Installed GitHub Apps).
+    2. SonarCloud 조직 `woogajjangka` 가 그 설치에 **bound** 다(SonarCloud → 조직 → Administration → Organization settings →
+       Organization binding 이 "Bound", 프로젝트 → General settings → Repository binding 이 `WoogaJJangka/a-file-icon-vscode`).
+    App 만 GitHub 에서 다시 설치하면 2번이 안 된다. 고치는 순서: App 을 Uninstall → SonarCloud Organization binding 의 **GitHub** 버튼으로
+    새로 설치(GitHub 이 `installation_id` 를 들고 SonarCloud 로 돌아와야 연결된다). App 을 지우면 SonarCloud 로그인도 풀린다.
   - Automatic Analysis 는 2026-11-18 PR #7 뒤로 GitHub 에서 소식을 못 받아 **실패 표시 없이** 멈춰 있었다(사흘, PR #8~#46 이 분석되지 않음).
+    원인은 위 연결이 끊긴 것이었다(2026-11-21 위 순서로 다시 연결, PR #48 에서 PR 분석·게이트 통과 확인).
     CI 분석은 멈추면 워크플로가 실패하거나 건너뛰었다는 notice 가 남는다. `SONAR_TOKEN` 이 없거나 만료되면 job 이 건너뛰므로
     "SONAR_TOKEN is not set" notice 가 보이면 토큰부터 본다.
   - Automatic Analysis 를 다시 켜면 CI 스캔이 "You are running CI analysis while Automatic Analysis is enabled" 로 실패한다.
@@ -190,7 +199,9 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
     호스트 프레임에서 `postMessage(…, window.origin)` 로 넘긴다(1.95·1.147 `webview/browser/pre/index.html` 확인).
   - 빌드 스크립트가 받는 JetBrains 커밋(URL·로그에 들어감): `scripts/jetbrainsSource.checkedCommit`(40자 hex 만).
   - 외부 프로그램은 PATH 검색 대신 고정 경로(`fonts.ts` 의 `fc-list`).
-- **필수 검사**: "Analysis + quality gate" 를 main 보호의 필수 검사로 둔다(PR 에서 게이트가 처음 통과한 뒤).
+- **필수 검사**: "Analysis + quality gate" 는 main 보호의 필수 검사다(2026-11-21, PR #48 에서 PR 분석이 처음 통과한 뒤 지정).
+  게이트가 실패하거나 PR 분석이 깨지면(위 두 연결) PR 을 머지할 수 없다. `SONAR_TOKEN` 을 못 받는 실행(Dependabot·fork PR)은 job 이
+  건너뛰어지고, GitHub 는 건너뛴 필수 검사를 통과로 본다.
 
 ## 5. 주기 점검
 
