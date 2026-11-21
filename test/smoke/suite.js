@@ -100,6 +100,31 @@ exports.run = async () => {
     await vscode.window.tabGroups.close(tab);
   });
 
+  await step('changes no font by being installed, and each part of the kit only when chosen', async () => {
+    const editor = () => vscode.workspace.getConfiguration('editor').inspect('fontFamily');
+    const markdown = () => vscode.workspace.getConfiguration('markdown.preview').inspect('fontFamily');
+    const workbench = () => vscode.workspace.getConfiguration('workbench');
+    assert.doesNotMatch(editor().defaultValue, /JetBrains Mono/);
+    assert.doesNotMatch(markdown().defaultValue, /^Inter/);
+
+    // the buttons of the walkthrough
+    await vscode.commands.executeCommand(`${KEY}.useTheme`, 'icons');
+    await vscode.commands.executeCommand(`${KEY}.useTheme`, 'product');
+    await vscode.commands.executeCommand(`${KEY}.useTheme`, 'unknown');
+    assert.equal(workbench().get('iconTheme'), KEY);
+    assert.equal(workbench().get('productIconTheme'), 'cool-islands-product-icons');
+
+    await vscode.commands.executeCommand(`${KEY}.useJetBrainsFonts`);
+    assert.match(editor().globalValue ?? '', /^'JetBrains Mono', 'D2Coding'/);
+    assert.match(markdown().globalValue ?? '', /^Inter, /);
+    await vscode.commands.executeCommand(`${KEY}.removeJetBrainsFonts`);
+    assert.equal(editor().globalValue, undefined);
+    assert.equal(markdown().globalValue, undefined);
+
+    await workbench().update('iconTheme', undefined, vscode.ConfigurationTarget.Global);
+    await workbench().update('productIconTheme', undefined, vscode.ConfigurationTarget.Global);
+  });
+
   const settings = () => vscode.workspace.getConfiguration(KEY);
 
   await step('regenerates the icon theme after a change of a setting', async () => {

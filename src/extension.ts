@@ -89,6 +89,10 @@ const watchLayerThemes = () => {
   }
 };
 
+const logFontError = (error: unknown) => {
+  if (!isCancellation(error)) logger.error(String(error));
+};
+
 const unwatchLayerThemes = () => {
   for (const path of watchedThemes) unwatchFile(path, scheduleRegenerate);
   watchedThemes.clear();
@@ -117,11 +121,9 @@ export const activate = async (context: ExtensionContext) => {
     // Start notification
     notificationsService.showStartMessages(status);
 
-    // Suggest the fonts of the default editor font when they are missing (not awaited: it waits for the user, and the
-    // message left open when the window closes is cancelled)
-    fontCheckService.check(context).catch((error: unknown) => {
-      if (!isCancellation(error)) logger.error(String(error));
-    });
+    // Offer the JetBrains fonts to a user of Cool Islands, or suggest the missing ones (not awaited: it waits for the
+    // user, and the message left open when the window closes is cancelled)
+    fontCheckService.check(context).catch(logFontError);
 
     // Subscribe to the extension commands
     context.subscriptions.push(...registerCommands(context));
@@ -133,6 +135,7 @@ export const activate = async (context: ExtensionContext) => {
       // Observe changes in the settings the theme reads: VS Code fires this event for every setting of every extension
       workspace.onDidChangeConfiguration((event) => {
         if (affectsTheme(event)) scheduleRegenerate();
+        if (event.affectsConfiguration('workbench.colorTheme')) fontCheckService.colorThemeChanged().catch(logFontError);
       }),
       // The fallback icon theme can be installed, updated or removed
       extensions.onDidChange(() => {

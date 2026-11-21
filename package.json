@@ -304,355 +304,392 @@
         "category": "Cool Theme Kit",
         "command": "a-file-icon-vscode.openColorMixer",
         "title": "%command.openColorMixer%"
+      },
+      {
+        "category": "Cool Theme Kit",
+        "command": "a-file-icon-vscode.useJetBrainsFonts",
+        "title": "%command.useJetBrainsFonts%"
+      },
+      {
+        "category": "Cool Theme Kit",
+        "command": "a-file-icon-vscode.removeJetBrainsFonts",
+        "title": "%command.removeJetBrainsFonts%"
+      },
+      {
+        "category": "Cool Theme Kit",
+        "command": "a-file-icon-vscode.useTheme",
+        "title": "%command.useTheme%"
       }
     ],
-    "configurationDefaults": {
-      "editor.fontFamily": "'JetBrains Mono', 'D2Coding', Consolas, Menlo, 'Droid Sans Mono', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans Mono CJK KR', 'Courier New', monospace",
-      "markdown.preview.fontFamily": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Ubuntu, 'Droid Sans', sans-serif"
-    },
-    "configuration": {
-      "properties": {
-        "a-file-icon-vscode.accentColor": {
-          "default": "",
-          "markdownDescription": "%configuration.accentColor%",
-          "pattern": "^(#[0-9a-fA-F]{6})?$",
-          "patternErrorMessage": "%configuration.accentColor.pattern%",
-          "type": "string"
-        },
-        "a-file-icon-vscode.activeIconPacks": {
-          "default": [
-            "angular2",
-            "nest",
-            "next",
-            "ngrx",
-            "pycharm",
-            "rails",
-            "recoil",
-            "redux",
-            "tests"
-          ],
-          "description": "%configuration.activeIconPacks%",
-          "type": "array",
-          "items": {
-            "enum": [
-              "angular",
+    "configuration": [
+      {
+        "title": "%configuration.title%",
+        "order": 0,
+        "properties": {
+          "a-file-icon-vscode.showWelcomeMessage": {
+            "default": true,
+            "description": "%configuration.showWelcomeMessage%",
+            "type": "boolean"
+          },
+          "a-file-icon-vscode.showUpdateMessage": {
+            "default": false,
+            "description": "%configuration.showUpdateMessage%",
+            "type": "boolean"
+          },
+          "a-file-icon-vscode.showReloadMessage": {
+            "default": true,
+            "description": "%configuration.showReloadMessage%",
+            "type": "boolean"
+          }
+        }
+      },
+      {
+        "title": "%configuration.title.icons%",
+        "order": 1,
+        "properties": {
+          "a-file-icon-vscode.activeIconPacks": {
+            "default": [
               "angular2",
-              "css",
               "nest",
               "next",
               "ngrx",
-              "phalcon",
               "pycharm",
               "rails",
-              "react",
               "recoil",
               "redux",
-              "tests",
-              "volt",
-              "vue",
-              "vuex"
+              "tests"
+            ],
+            "description": "%configuration.activeIconPacks%",
+            "type": "array",
+            "items": {
+              "enum": [
+                "angular",
+                "angular2",
+                "css",
+                "nest",
+                "next",
+                "ngrx",
+                "phalcon",
+                "pycharm",
+                "rails",
+                "react",
+                "recoil",
+                "redux",
+                "tests",
+                "volt",
+                "vue",
+                "vuex"
+              ],
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "a-file-icon-vscode.filesAssociations": {
+            "default": {},
+            "description": "%configuration.files.associations%",
+            "type": "object"
+          },
+          "a-file-icon-vscode.foldersAssociations": {
+            "default": {},
+            "description": "%configuration.folders.associations%",
+            "type": "object"
+          },
+          "a-file-icon-vscode.languagesAssociations": {
+            "default": {},
+            "description": "%configuration.languages.associations%",
+            "type": "object"
+          },
+          "a-file-icon-vscode.folderColor": {
+            "default": "#90a4ae",
+            "description": "%configuration.folders.color%",
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+            "type": "string"
+          },
+          "a-file-icon-vscode.folderTheme": {
+            "default": "specific",
+            "description": "%configuration.folders.theme%",
+            "enum": [
+              "specific",
+              "classic",
+              "none"
+            ],
+            "enumDescriptions": [
+              "%configuration.folders.theme.specific%",
+              "%configuration.folders.theme.classic%",
+              "%configuration.folders.theme.none%"
             ],
             "type": "string"
           },
-          "uniqueItems": true
-        },
-        "a-file-icon-vscode.arrowTheme": {
-          "default": "material",
-          "description": "%configuration.arrowTheme%",
-          "enum": [
-            "material",
-            "triangle",
-            "plusMinus",
-            "arrow",
-            "none"
-          ],
-          "enumDescriptions": [
-            "%configuration.arrowTheme.material%",
-            "%configuration.arrowTheme.triangle%",
-            "%configuration.arrowTheme.plusMinus%",
-            "%configuration.arrowTheme.arrow%",
-            "%configuration.arrowTheme.none%"
-          ],
-          "type": "string"
-        },
-        "a-file-icon-vscode.colorThemeByKey": {
-          "additionalProperties": {
+          "a-file-icon-vscode.hideFileIcons": {
+            "default": false,
+            "description": "%configuration.hideFileIcons%",
+            "type": "boolean"
+          },
+          "a-file-icon-vscode.monochrome": {
+            "default": false,
+            "description": "%configuration.monochrome%",
+            "type": "boolean"
+          },
+          "a-file-icon-vscode.monochromeColor": {
+            "default": "#90a4ae",
+            "description": "%configuration.monochromeColor%",
+            "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
             "type": "string"
           },
-          "default": {},
-          "description": "%configuration.colorThemeByKey%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.colorThemeLayers": {
-          "default": [],
-          "description": "%configuration.colorThemeLayers%",
-          "items": {
-            "anyOf": [
-              {
-                "description": "%configuration.colorThemeLayers.theme%",
-                "type": "string"
-              },
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "applyTo": {
-                    "description": "%configuration.colorThemeLayers.applyTo%",
-                    "enum": [
-                      "dark",
-                      "light",
-                      "both"
-                    ],
-                    "type": "string"
-                  },
-                  "syntax": {
-                    "default": "fill",
-                    "description": "%configuration.colorThemeLayers.syntax%",
-                    "enum": [
-                      "fill",
-                      "override",
-                      "off"
-                    ],
-                    "enumDescriptions": [
-                      "%configuration.colorThemeLayers.mode.fill%",
-                      "%configuration.colorThemeLayers.mode.override%",
-                      "%configuration.colorThemeLayers.mode.off%"
-                    ],
-                    "type": "string"
-                  },
-                  "theme": {
-                    "description": "%configuration.colorThemeLayers.theme%",
-                    "type": "string"
-                  },
-                  "ui": {
-                    "default": "fill",
-                    "description": "%configuration.colorThemeLayers.ui%",
-                    "enum": [
-                      "fill",
-                      "override",
-                      "off"
-                    ],
-                    "enumDescriptions": [
-                      "%configuration.colorThemeLayers.mode.fill%",
-                      "%configuration.colorThemeLayers.mode.override%",
-                      "%configuration.colorThemeLayers.mode.off%"
-                    ],
-                    "type": "string"
-                  }
+          "a-file-icon-vscode.opacity": {
+            "default": 1,
+            "description": "%configuration.opacity%",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "a-file-icon-vscode.saturation": {
+            "default": 1,
+            "description": "%configuration.saturation%",
+            "maximum": 1,
+            "minimum": 0,
+            "type": "number"
+          },
+          "a-file-icon-vscode.iconThemeLayers": {
+            "default": [
+              "material-icon-theme"
+            ],
+            "description": "%configuration.iconThemeLayers%",
+            "items": {
+              "anyOf": [
+                {
+                  "description": "%configuration.iconThemeLayers.theme%",
+                  "type": "string"
                 },
-                "required": [
-                  "theme"
-                ],
-                "type": "object"
-              }
-            ]
-          },
-          "type": "array"
-        },
-        "a-file-icon-vscode.filesAssociations": {
-          "default": {},
-          "description": "%configuration.files.associations%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.folderColor": {
-          "default": "#90a4ae",
-          "description": "%configuration.folders.color%",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-          "type": "string"
-        },
-        "a-file-icon-vscode.foldersAssociations": {
-          "default": {},
-          "description": "%configuration.folders.associations%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.folderTheme": {
-          "default": "specific",
-          "description": "%configuration.folders.theme%",
-          "enum": [
-            "specific",
-            "classic",
-            "none"
-          ],
-          "enumDescriptions": [
-            "%configuration.folders.theme.specific%",
-            "%configuration.folders.theme.classic%",
-            "%configuration.folders.theme.none%"
-          ],
-          "type": "string"
-        },
-        "a-file-icon-vscode.hideFileIcons": {
-          "default": false,
-          "description": "%configuration.hideFileIcons%",
-          "type": "boolean"
-        },
-        "a-file-icon-vscode.iconThemeByName": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "default": {},
-          "description": "%configuration.iconThemeByName%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.iconThemeLayers": {
-          "default": [
-            "material-icon-theme"
-          ],
-          "description": "%configuration.iconThemeLayers%",
-          "items": {
-            "anyOf": [
-              {
-                "description": "%configuration.iconThemeLayers.theme%",
-                "type": "string"
-              },
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "files": {
-                    "default": "fill",
-                    "description": "%configuration.iconThemeLayers.files%",
-                    "enum": [
-                      "fill",
-                      "override",
-                      "off"
-                    ],
-                    "enumDescriptions": [
-                      "%configuration.iconThemeLayers.mode.fill%",
-                      "%configuration.iconThemeLayers.mode.override%",
-                      "%configuration.iconThemeLayers.mode.off%"
-                    ],
-                    "type": "string"
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "files": {
+                      "default": "fill",
+                      "description": "%configuration.iconThemeLayers.files%",
+                      "enum": [
+                        "fill",
+                        "override",
+                        "off"
+                      ],
+                      "enumDescriptions": [
+                        "%configuration.iconThemeLayers.mode.fill%",
+                        "%configuration.iconThemeLayers.mode.override%",
+                        "%configuration.iconThemeLayers.mode.off%"
+                      ],
+                      "type": "string"
+                    },
+                    "folders": {
+                      "default": "fill",
+                      "description": "%configuration.iconThemeLayers.folders%",
+                      "enum": [
+                        "fill",
+                        "override",
+                        "off"
+                      ],
+                      "enumDescriptions": [
+                        "%configuration.iconThemeLayers.mode.fill%",
+                        "%configuration.iconThemeLayers.mode.override%",
+                        "%configuration.iconThemeLayers.mode.off%"
+                      ],
+                      "type": "string"
+                    },
+                    "theme": {
+                      "description": "%configuration.iconThemeLayers.theme%",
+                      "type": "string"
+                    }
                   },
-                  "folders": {
-                    "default": "fill",
-                    "description": "%configuration.iconThemeLayers.folders%",
-                    "enum": [
-                      "fill",
-                      "override",
-                      "off"
-                    ],
-                    "enumDescriptions": [
-                      "%configuration.iconThemeLayers.mode.fill%",
-                      "%configuration.iconThemeLayers.mode.override%",
-                      "%configuration.iconThemeLayers.mode.off%"
-                    ],
-                    "type": "string"
-                  },
-                  "theme": {
-                    "description": "%configuration.iconThemeLayers.theme%",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "theme"
-                ],
-                "type": "object"
-              }
-            ]
+                  "required": [
+                    "theme"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
           },
-          "type": "array"
-        },
-        "a-file-icon-vscode.languagesAssociations": {
-          "default": {},
-          "description": "%configuration.languages.associations%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.monochrome": {
-          "default": false,
-          "description": "%configuration.monochrome%",
-          "type": "boolean"
-        },
-        "a-file-icon-vscode.monochromeColor": {
-          "default": "#90a4ae",
-          "description": "%configuration.monochromeColor%",
-          "pattern": "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-          "type": "string"
-        },
-        "a-file-icon-vscode.opacity": {
-          "default": 1,
-          "description": "%configuration.opacity%",
-          "maximum": 1,
-          "minimum": 0,
-          "type": "number"
-        },
-        "a-file-icon-vscode.productIconByName": {
-          "additionalProperties": {
-            "type": "string"
-          },
-          "default": {},
-          "description": "%configuration.productIconByName%",
-          "type": "object"
-        },
-        "a-file-icon-vscode.productIconThemeLayers": {
-          "default": [],
-          "description": "%configuration.productIconThemeLayers%",
-          "items": {
-            "anyOf": [
-              {
-                "description": "%configuration.productIconThemeLayers.theme%",
-                "type": "string"
-              },
-              {
-                "additionalProperties": false,
-                "properties": {
-                  "mode": {
-                    "default": "fill",
-                    "description": "%configuration.productIconThemeLayers.mode%",
-                    "enum": [
-                      "fill",
-                      "override",
-                      "off"
-                    ],
-                    "enumDescriptions": [
-                      "%configuration.productIconThemeLayers.mode.fill%",
-                      "%configuration.productIconThemeLayers.mode.override%",
-                      "%configuration.productIconThemeLayers.mode.off%"
-                    ],
-                    "type": "string"
-                  },
-                  "theme": {
-                    "description": "%configuration.productIconThemeLayers.theme%",
-                    "type": "string"
-                  }
-                },
-                "required": [
-                  "theme"
-                ],
-                "type": "object"
-              }
-            ]
-          },
-          "type": "array"
-        },
-        "a-file-icon-vscode.saturation": {
-          "default": 1,
-          "description": "%configuration.saturation%",
-          "maximum": 1,
-          "minimum": 0,
-          "type": "number"
-        },
-        "a-file-icon-vscode.showFontMessage": {
-          "default": true,
-          "description": "%configuration.showFontMessage%",
-          "type": "boolean"
-        },
-        "a-file-icon-vscode.showReloadMessage": {
-          "default": true,
-          "description": "%configuration.showReloadMessage%",
-          "type": "boolean"
-        },
-        "a-file-icon-vscode.showUpdateMessage": {
-          "default": false,
-          "description": "%configuration.showUpdateMessage%",
-          "type": "boolean"
-        },
-        "a-file-icon-vscode.showWelcomeMessage": {
-          "default": true,
-          "description": "%configuration.showWelcomeMessage%",
-          "type": "boolean"
+          "a-file-icon-vscode.iconThemeByName": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "description": "%configuration.iconThemeByName%",
+            "type": "object"
+          }
         }
       },
-      "title": "%configuration.title%",
-      "type": "object"
-    },
+      {
+        "title": "%configuration.title.colors%",
+        "order": 2,
+        "properties": {
+          "a-file-icon-vscode.accentColor": {
+            "default": "",
+            "markdownDescription": "%configuration.accentColor%",
+            "pattern": "^(#[0-9a-fA-F]{6})?$",
+            "patternErrorMessage": "%configuration.accentColor.pattern%",
+            "type": "string"
+          },
+          "a-file-icon-vscode.colorThemeLayers": {
+            "default": [],
+            "description": "%configuration.colorThemeLayers%",
+            "items": {
+              "anyOf": [
+                {
+                  "description": "%configuration.colorThemeLayers.theme%",
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "applyTo": {
+                      "description": "%configuration.colorThemeLayers.applyTo%",
+                      "enum": [
+                        "dark",
+                        "light",
+                        "both"
+                      ],
+                      "type": "string"
+                    },
+                    "syntax": {
+                      "default": "fill",
+                      "description": "%configuration.colorThemeLayers.syntax%",
+                      "enum": [
+                        "fill",
+                        "override",
+                        "off"
+                      ],
+                      "enumDescriptions": [
+                        "%configuration.colorThemeLayers.mode.fill%",
+                        "%configuration.colorThemeLayers.mode.override%",
+                        "%configuration.colorThemeLayers.mode.off%"
+                      ],
+                      "type": "string"
+                    },
+                    "theme": {
+                      "description": "%configuration.colorThemeLayers.theme%",
+                      "type": "string"
+                    },
+                    "ui": {
+                      "default": "fill",
+                      "description": "%configuration.colorThemeLayers.ui%",
+                      "enum": [
+                        "fill",
+                        "override",
+                        "off"
+                      ],
+                      "enumDescriptions": [
+                        "%configuration.colorThemeLayers.mode.fill%",
+                        "%configuration.colorThemeLayers.mode.override%",
+                        "%configuration.colorThemeLayers.mode.off%"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "theme"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "a-file-icon-vscode.colorThemeByKey": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "description": "%configuration.colorThemeByKey%",
+            "type": "object"
+          }
+        }
+      },
+      {
+        "title": "%configuration.title.product%",
+        "order": 3,
+        "properties": {
+          "a-file-icon-vscode.productIconThemeLayers": {
+            "default": [],
+            "description": "%configuration.productIconThemeLayers%",
+            "items": {
+              "anyOf": [
+                {
+                  "description": "%configuration.productIconThemeLayers.theme%",
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "mode": {
+                      "default": "fill",
+                      "description": "%configuration.productIconThemeLayers.mode%",
+                      "enum": [
+                        "fill",
+                        "override",
+                        "off"
+                      ],
+                      "enumDescriptions": [
+                        "%configuration.productIconThemeLayers.mode.fill%",
+                        "%configuration.productIconThemeLayers.mode.override%",
+                        "%configuration.productIconThemeLayers.mode.off%"
+                      ],
+                      "type": "string"
+                    },
+                    "theme": {
+                      "description": "%configuration.productIconThemeLayers.theme%",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "theme"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "a-file-icon-vscode.productIconByName": {
+            "additionalProperties": {
+              "type": "string"
+            },
+            "default": {},
+            "description": "%configuration.productIconByName%",
+            "type": "object"
+          },
+          "a-file-icon-vscode.arrowTheme": {
+            "default": "material",
+            "description": "%configuration.arrowTheme%",
+            "enum": [
+              "material",
+              "triangle",
+              "plusMinus",
+              "arrow",
+              "none"
+            ],
+            "enumDescriptions": [
+              "%configuration.arrowTheme.material%",
+              "%configuration.arrowTheme.triangle%",
+              "%configuration.arrowTheme.plusMinus%",
+              "%configuration.arrowTheme.arrow%",
+              "%configuration.arrowTheme.none%"
+            ],
+            "type": "string"
+          }
+        }
+      },
+      {
+        "title": "%configuration.title.fonts%",
+        "order": 4,
+        "properties": {
+          "a-file-icon-vscode.showFontMessage": {
+            "default": true,
+            "description": "%configuration.showFontMessage%",
+            "type": "boolean"
+          }
+        }
+      }
+    ],
     "iconThemes": [
       {
         "_watch": true,
@@ -683,6 +720,83 @@
         "label": "Cool Islands Light",
         "path": "./dist/cool-islands-light-color-theme.json",
         "uiTheme": "vs"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "a-file-icon-vscode.useTheme",
+          "when": "false"
+        }
+      ]
+    },
+    "walkthroughs": [
+      {
+        "id": "coolThemeKit",
+        "title": "%walkthrough.title%",
+        "description": "%walkthrough.description%",
+        "steps": [
+          {
+            "id": "icons",
+            "title": "%walkthrough.icons.title%",
+            "description": "%walkthrough.icons.description%",
+            "media": {
+              "image": "logo.png",
+              "altText": "%walkthrough.icons.title%"
+            },
+            "completionEvents": [
+              "onSettingChanged:workbench.iconTheme"
+            ]
+          },
+          {
+            "id": "colors",
+            "title": "%walkthrough.colors.title%",
+            "description": "%walkthrough.colors.description%",
+            "media": {
+              "image": "logo.png",
+              "altText": "%walkthrough.colors.title%"
+            },
+            "completionEvents": [
+              "onSettingChanged:workbench.colorTheme"
+            ]
+          },
+          {
+            "id": "product",
+            "title": "%walkthrough.product.title%",
+            "description": "%walkthrough.product.description%",
+            "media": {
+              "image": "logo.png",
+              "altText": "%walkthrough.product.title%"
+            },
+            "completionEvents": [
+              "onSettingChanged:workbench.productIconTheme"
+            ]
+          },
+          {
+            "id": "fonts",
+            "title": "%walkthrough.fonts.title%",
+            "description": "%walkthrough.fonts.description%",
+            "media": {
+              "image": "logo.png",
+              "altText": "%walkthrough.fonts.title%"
+            },
+            "completionEvents": [
+              "onCommand:a-file-icon-vscode.useJetBrainsFonts"
+            ]
+          },
+          {
+            "id": "mix",
+            "title": "%walkthrough.mix.title%",
+            "description": "%walkthrough.mix.description%",
+            "media": {
+              "image": "logo.png",
+              "altText": "%walkthrough.mix.title%"
+            },
+            "completionEvents": [
+              "onCommand:a-file-icon-vscode.openThemeMixer"
+            ]
+          }
+        ]
       }
     ]
   },

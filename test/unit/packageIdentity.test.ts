@@ -11,7 +11,8 @@ const packageJson = JSON.parse(read('package.json')) as {
   capabilities: { untrustedWorkspaces: { description?: string; restrictedConfigurations?: string[]; supported: boolean | string } };
   contributes: {
     commands: Array<{ category?: string; command: string }>;
-    configuration: { properties: Record<string, unknown> };
+    configuration: Array<{ properties: Record<string, unknown>; title: string }>;
+    walkthroughs: Array<{ description: string; steps: Array<{ completionEvents: string[]; description: string; id: string; title: string }>; title: string }>;
     iconThemes: Theme[];
     productIconThemes: Theme[];
   };
@@ -24,6 +25,8 @@ const packageJson = JSON.parse(read('package.json')) as {
 };
 
 const DISPLAY_NAME = 'Cool Theme Kit';
+/** The settings of every group of the Settings editor */
+const settings: Record<string, unknown> = Object.assign({}, ...packageJson.contributes.configuration.map((group) => group.properties));
 const nlsFiles = readdirSync(root).filter((file) => /^package\.nls(\.[\w-]+)?\.json$/.test(file));
 const localeFiles = readdirSync(join(root, 'src', 'i18n', 'locales')).map((file) => join('src', 'i18n', 'locales', file));
 
@@ -87,7 +90,7 @@ describe('package identity', () => {
     assert.equal(supported, 'limited');
     const associations = ['filesAssociations', 'foldersAssociations', 'languagesAssociations'].map((key) => `${EXTENSION_KEY}.${key}`);
     assert.deepEqual(restrictedConfigurations, associations);
-    for (const key of associations) assert.ok(key in packageJson.contributes.configuration.properties, key);
+    for (const key of associations) assert.ok(key in settings, key);
     assert.match(description ?? '', /^%(.+)%$/);
     const nlsKey = description!.slice(1, -1);
     assert.ok(JSON.parse(read('package.nls.json'))[nlsKey]);
@@ -103,5 +106,44 @@ describe('package identity', () => {
     assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], [256, 256]);
     assert.match(packageJson.scripts['build:logo'], /buildLogo\.ts/);
     assert.deepEqual(packageJson.galleryBanner, { color: '#191a1c', theme: 'dark' });
+  });
+
+  it('groups the settings by kind in the Settings editor, each group named in English and Korean', () => {
+    const groups = packageJson.contributes.configuration;
+    assert.equal(groups[0].title, '%configuration.title%');
+    const titles = groups.map((group) => group.title.slice(1, -1));
+    for (const file of ['package.nls.json', 'package.nls.ko.json']) {
+      const nls = JSON.parse(read(file)) as Record<string, string>;
+      for (const title of titles) assert.ok(nls[title], `${file}: ${title}`);
+    }
+    const keys = groups.flatMap((group) => Object.keys(group.properties));
+    assert.equal(new Set(keys).size, keys.length, 'a setting in two groups');
+  });
+
+  // the walkthrough lets the user choose each part of the kit alone: its links must run commands of this extension
+  it('links the walkthrough to the commands of the extension', () => {
+    const commandIds = new Set(packageJson.contributes.commands.map(({ command }) => command));
+    const kinds = new Set(['dark', 'icons', 'light', 'product']);
+    const [walkthrough] = packageJson.contributes.walkthroughs;
+    for (const file of ['package.nls.json', 'package.nls.ko.json']) {
+      const nls = JSON.parse(read(file)) as Record<string, string>;
+      const text = (value: string) => nls[value.slice(1, -1)] ?? assert.fail(`${file}: ${value}`);
+      text(walkthrough.title);
+      text(walkthrough.description);
+      for (const step of walkthrough.steps) {
+        text(step.title);
+        const links = [...text(step.description).matchAll(/\(command:([\w.-]+)(?:\?([^)]+))?\)/g)];
+        assert.ok(links.length > 0, `${file}: ${step.id} has no button`);
+        for (const [, command, parameters] of links) {
+          if (!command.startsWith(`${EXTENSION_KEY}.`)) continue;
+          assert.ok(commandIds.has(command), `${file}: ${command}`);
+          if (command.endsWith('.useTheme')) assert.ok(kinds.has((JSON.parse(decodeURIComponent(parameters)) as string[])[0]), parameters);
+        }
+        for (const event of step.completionEvents) {
+          const command = /^onCommand:(.+)$/.exec(event)?.[1];
+          if (command) assert.ok(commandIds.has(command), event);
+        }
+      }
+    }
   });
 });
