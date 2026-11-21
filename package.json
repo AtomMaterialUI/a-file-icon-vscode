@@ -31,6 +31,7 @@
     "postcompile": "bun run generateJson && bun run check",
     "pretest": "bun run build && tsc -p ./",
     "test:smoke": "node ./test/smoke/run.js",
+    "screenshots": "node ./test/screenshots/capture.js",
     "test:unit": "node ./test/run-unit.js",
     "test:coverage": "c8 node ./test/run-unit.js",
     "audit:shipped": "bun ./test/checks/auditShipped.js",

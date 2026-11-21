@@ -1,22 +1,43 @@
-# Cool Theme Kit for VS Code
-
 <h1 align="center">
+  <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="160">
   <br>
-    <img src="https://raw.githubusercontent.com/WoogaJJangka/a-file-icon-vscode/main/logo.png?sanitize=true" alt="logo" width="200">
-  <br><br>
   Cool Theme Kit for VS Code
-  <br>
-  <br>
 </h1>
 
+<p align="center">
+  The look of PyCharm and the other JetBrains IDEs (New UI, Islands themes) for VS Code:<br>
+  file icons, color themes, product icons and fonts, each one optional, with your other themes mixed in.
+</p>
 
-Cool Theme Kit brings the look of the JetBrains IDEs (PyCharm with the New UI and its Islands themes) to VS Code, and lets
-you put other installed themes on top of it, where you want them.
+![Cool Islands Dark with Cool Icons and Cool Islands Icons](docs/screenshots/cool-islands-dark.png)
 
-VS Code uses a single file icon theme, color theme and product icon theme at a time. Cool Theme Kit gives each of them a
-JetBrains base and mixes the themes you choose into it: in layers ordered by priority, and for single names as
-exceptions. Korean is a first-class language: the interface is translated, and Korean names and text are checked with
-Korean coding fonts such as D2Coding.
+- **Made for people coming from PyCharm or IntelliJ IDEA.** The file icons are the ones PyCharm shows with the Atom
+  Material Icons plugin, and the colors and icons are generated from the JetBrains sources, not drawn by hand.
+- **Take only what you want.** Installing the extension changes nothing: choose the file icons, the colors, the product
+  icons and the fonts one by one. A user of the file icons alone keeps their own colors and font.
+- **Keep your other themes.** VS Code uses one theme of each kind; Cool Theme Kit mixes other installed themes into its
+  own, by priority and with exceptions, on a page with a preview (no JSON to write).
+- **Korean first.** The interface and settings are translated, Korean file names are matched in any Unicode form, and
+  the fonts put D2Coding and the Korean system fonts behind JetBrains Mono, so Hangul stays aligned.
+
+## Getting started
+
+1. Install **Cool Theme Kit**. The **Get Started with Cool Theme Kit** walkthrough opens on the Welcome page (or run
+   **Welcome: Open Walkthrough...**).
+2. Click the parts you want. Each button applies one part only:
+
+![The Get Started walkthrough of Cool Theme Kit](docs/screenshots/walkthrough.png)
+
+You can also select the themes with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences:
+Product Icon Theme**, and the fonts with the **Use the JetBrains Fonts** command. Everything is undone the same way:
+select another theme, or run **Stop Using the JetBrains Fonts**.
+
+| Cool Islands Light                                                    | Mix Themes page                                                   |
+|-----------------------------------------------------------------------|-------------------------------------------------------------------|
+| ![Cool Islands Light](docs/screenshots/cool-islands-light.png)        | ![The Mix Themes page](docs/screenshots/mix-icon-themes.png)      |
+
+What VS Code itself cannot do (rounded floating panels, the interface font, colored product icons) is listed in
+[Differences with the JetBrains plugin](#differences-with-the-jetbrains-plugin) and [Compatibility](#compatibility).
 
 ## Themes
 
@@ -27,10 +48,6 @@ Korean coding fonts such as D2Coding.
 | Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | [Available](#product-theme), with other product icon themes [mixed in](#mixing-product-icon-themes) |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
 | Fonts         | **Use the JetBrains Fonts** command     | JetBrains Mono, then Korean fallbacks              | [Available](#fonts-and-korean), when you choose them                                 |
-
-Each part is separate, and installing the extension applies none of them: use only the file icons if that is all you
-want. The **Get Started with Cool Theme Kit** walkthrough (on the Welcome page) has a button for each part. Or select
-them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
 
 Cool Theme Kit is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port
 of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspired by the
@@ -432,7 +449,11 @@ paints the icons of the selected theme with the text color.
 ### Mix Themes page
 
 The **Mix Themes (with Preview)** command opens a page to edit the layer settings without writing json, with a tab for
-the icons and one for the colors.
+the icons, one for the colors and one for the product icons.
+
+| Colors                                                                   | Product icons                                                                    |
+|--------------------------------------------------------------------------|----------------------------------------------------------------------------------|
+| ![The Colors tab](docs/screenshots/mix-color-themes.png)                 | ![The Product icons tab](docs/screenshots/mix-product-icon-themes.png)           |
 
 - **Icons**: add, order and remove the layers and choose their mode for files and folders, and give single names their
   own theme. Its preview lists sample names (the default ones, the files and folders at the top of the workspace, or
@@ -603,6 +624,10 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 - Associations based on the parent folder (`tests/*.ts`): VS Code matches only file names and extensions.
 - **Interface font** (Inter in the JetBrains IDEs): VS Code has no setting for it. Cool Theme Kit gives the editor and
   Markdown preview fonts only.
+- **Rounded, floating panels** of the Islands themes: a color theme gives colors only. The panels get the island color
+  and the space between them the window color. Extensions that inject CSS into VS Code can round them, but they change
+  the installation of VS Code (which then reports itself as corrupted), so Cool Theme Kit does not do it.
+- **Colored product icons**: VS Code draws product icons with a font, in one color that the color theme gives.
 
 ## Compatibility
 

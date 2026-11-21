@@ -39,7 +39,8 @@ CLAUDE.md
 .c8rc.json
 .sonarcloud.properties
 SECURITY.md
-docs/MAINTENANCE.md
+# Documentation and the README images: vsce points the images of the packaged README to the repository on GitHub
+docs/**
 coverage/**
 # Mixed icons of other installed themes are copied here at runtime: never ship them
 dist/layers/**
