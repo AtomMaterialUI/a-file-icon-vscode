@@ -97,8 +97,9 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
   (`security.yml` 의 고급 설정과 같이 쓰면 결과 업로드가 거부된다).
 - Settings → Actions → General: Workflow permissions 는 "Read repository contents", "Allow GitHub Actions to create
   and approve pull requests" 는 켠다(`sync-upstream.yml`). Fork 의 PR 워크플로는 승인 후 실행.
-- main 브랜치 보호의 필수 검사: `ubuntu-latest`·`windows-latest`(Build + Test), `Dependencies and actions`,
-  `CodeQL (javascript-typescript)`, `CodeQL (actions)`, 스모크 job 들, Sonar 검사(아래 4장).
+- main 브랜치 보호(classic)의 필수 검사, 2026-11-21 현재: `ubuntu-latest`·`windows-latest`(Build + Test), `Analysis + quality gate`
+  (Sonar, 아래 4장). 더 둘 만한 것: `Dependencies and actions`, `CodeQL (javascript-typescript)`, `CodeQL (actions)`, 스모크 job 들.
+  확인: `gh api repos/WoogaJJangka/a-file-icon-vscode/branches/main/protection/required_status_checks`.
 
 ## 2. 다른 확장과의 호환
 
@@ -198,7 +199,9 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
     호스트 프레임에서 `postMessage(…, window.origin)` 로 넘긴다(1.95·1.147 `webview/browser/pre/index.html` 확인).
   - 빌드 스크립트가 받는 JetBrains 커밋(URL·로그에 들어감): `scripts/jetbrainsSource.checkedCommit`(40자 hex 만).
   - 외부 프로그램은 PATH 검색 대신 고정 경로(`fonts.ts` 의 `fc-list`).
-- **필수 검사**: "Analysis + quality gate" 를 main 보호의 필수 검사로 둔다(PR 에서 게이트가 처음 통과한 뒤).
+- **필수 검사**: "Analysis + quality gate" 는 main 보호의 필수 검사다(2026-11-21, PR #48 에서 PR 분석이 처음 통과한 뒤 지정).
+  게이트가 실패하거나 PR 분석이 깨지면(위 두 연결) PR 을 머지할 수 없다. `SONAR_TOKEN` 을 못 받는 실행(Dependabot·fork PR)은 job 이
+  건너뛰어지고, GitHub 는 건너뛴 필수 검사를 통과로 본다.
 
 ## 5. 주기 점검
 
