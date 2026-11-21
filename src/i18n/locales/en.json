@@ -40,6 +40,10 @@
     "toggleIcons": "Pick a folder theme",
     "wrongHexCode": "Invalid HEX color code!"
   },
+  "diagnostics": {
+    "copied": "The diagnostics of Cool Theme Kit are in the clipboard: paste them into the bug report. Read them first: the settings can contain file and folder names.",
+    "openIssue": "Open a Bug Report"
+  },
   "fonts": {
     "get": "Get {{font}}",
     "missing": "The editor uses the fonts of the JetBrains IDEs, but these are not installed: {{fonts}}. Until then, the editor uses the next font of the list.",

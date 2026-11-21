@@ -79,6 +79,7 @@
   "command.removeJetBrainsFonts": "JetBrains 글꼴 그만 쓰기",
   "command.useJetBrainsFonts": "JetBrains 글꼴 쓰기",
   "command.useTheme": "키트의 테마 쓰기",
+  "command.copyDiagnostics": "진단 정보 복사(버그 신고용)",
   "configuration.title.colors": "색 테마",
   "configuration.title.fonts": "글꼴",
   "configuration.title.icons": "파일 아이콘",

@@ -23,12 +23,20 @@ export const testState: {
   messages: { kind: 'error' | 'information' | 'warning'; text: string }[];
   /** the titles of the buttons the user clicks, one per notice in order; a notice with none left is dismissed */
   answers: string[];
+  /** the package.json of this extension, as `extensions.getExtension(…).packageJSON` gives it */
+  packageJSON: Record<string, unknown>;
+  /** what `env.clipboard.writeText` wrote last, and the URLs `env.openExternal` opened */
+  clipboard: string;
+  opened: string[];
 } = {
   answers: [],
+  clipboard: '',
   config: {},
   extensionPath: '',
   extensions: [],
   messages: [],
+  opened: [],
+  packageJSON: {},
   sections: new Set(),
 };
 
@@ -108,7 +116,7 @@ export const extensions = {
   get all(): TestExtension[] {
     return testState.extensions;
   },
-  getExtension: () => ({ extensionPath: testState.extensionPath }),
+  getExtension: () => ({ extensionPath: testState.extensionPath, packageJSON: testState.packageJSON }),
   onDidChange: () => disposable,
 };
 
@@ -142,9 +150,27 @@ export const commands = {
   },
 };
 
+export enum UIKind {
+  Desktop = 1,
+  Web = 2,
+}
+
+export const version = '1.147.0';
+
 export const env = {
+  appName: 'Visual Studio Code',
+  clipboard: {
+    writeText: async (text: string) => {
+      testState.clipboard = text;
+    },
+  },
   language: 'en',
-  openExternal: async () => true,
+  openExternal: async (url: unknown) => {
+    testState.opened.push(String(url));
+    return true;
+  },
+  remoteName: undefined as string | undefined,
+  uiKind: UIKind.Desktop,
 };
 
 export const Uri = {

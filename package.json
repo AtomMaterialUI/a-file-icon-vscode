@@ -320,6 +320,11 @@
         "category": "Cool Theme Kit",
         "command": "a-file-icon-vscode.useTheme",
         "title": "%command.useTheme%"
+      },
+      {
+        "category": "Cool Theme Kit",
+        "command": "a-file-icon-vscode.copyDiagnostics",
+        "title": "%command.copyDiagnostics%"
       }
     ],
     "configuration": [

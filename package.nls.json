@@ -79,6 +79,7 @@
   "command.removeJetBrainsFonts": "Stop Using the JetBrains Fonts",
   "command.useJetBrainsFonts": "Use the JetBrains Fonts",
   "command.useTheme": "Use a Theme of the Kit",
+  "command.copyDiagnostics": "Copy Diagnostics (for a Bug Report)",
   "configuration.title.colors": "Color Themes",
   "configuration.title.fonts": "Fonts",
   "configuration.title.icons": "File Icons",

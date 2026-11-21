@@ -40,6 +40,10 @@
     "toggleIcons": "폴더 테마 선택",
     "wrongHexCode": "올바른 HEX 색 코드가 아닙니다!"
   },
+  "diagnostics": {
+    "copied": "Cool Theme Kit 진단 정보를 클립보드에 복사했습니다. 버그 신고에 붙여 넣으세요. 설정에 파일·폴더 이름이 들어 있을 수 있으니 먼저 읽어 보세요.",
+    "openIssue": "버그 신고 열기"
+  },
   "fonts": {
     "get": "{{font}} 받기",
     "missing": "에디터가 JetBrains IDE 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다.",

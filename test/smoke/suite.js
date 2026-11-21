@@ -125,6 +125,14 @@ exports.run = async () => {
     await workbench().update('productIconTheme', undefined, vscode.ConfigurationTarget.Global);
   });
 
+  await step('copies the diagnostics for a bug report', async () => {
+    await vscode.env.clipboard.writeText('');
+    await vscode.commands.executeCommand(`${KEY}.copyDiagnostics`);
+    const text = await vscode.env.clipboard.readText();
+    assert.match(text, new RegExp(String.raw`\| Cool Theme Kit \| ${extension.packageJSON.version.replaceAll('.', String.raw`\.`)} \|`));
+    assert.ok(text.includes(vscode.version), 'the VS Code version');
+  });
+
   const settings = () => vscode.workspace.getConfiguration(KEY);
 
   await step('regenerates the icon theme after a change of a setting', async () => {
