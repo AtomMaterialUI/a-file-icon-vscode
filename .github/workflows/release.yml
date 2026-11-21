@@ -90,13 +90,13 @@ jobs:
           echo DISPLAY_NAME=$(node -p "require('./package.json').displayName") >> $GITHUB_ENV
 
       - name: Install node_modules 📦
-        run: bun install --frozen-lockfile
+        run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Build ⚒️
         run: |
           bun run build
           bun run test:unit
-          npx --yes @vscode/vsce@3.6.0 package ${{ env.VERSION }} --no-update-package-json --no-git-tag-version --no-dependencies -o ${{ env.NAME }}-${{ env.VERSION }}.vsix
+          npx --yes --ignore-scripts @vscode/vsce@3.6.0 package ${{ env.VERSION }} --no-update-package-json --no-git-tag-version --no-dependencies -o ${{ env.NAME }}-${{ env.VERSION }}.vsix
 
       # Publish first: when it fails, no tag or release is left behind
       - name: Publish to Visual Studio Marketplace 🌐

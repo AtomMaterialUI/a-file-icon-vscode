@@ -111,3 +111,19 @@ export const normalizeName = (name: string): string => name.normalize('NFC').toL
  */
 export const isCancellation = (error: unknown): boolean =>
   typeof error === 'object' && error !== null && (error as { name?: unknown }).name === 'Canceled';
+
+/**
+ * Sort order of `Array.prototype.sort()` without a compare function, written out: UTF-16 code units, not
+ * `localeCompare`, so that what is sorted (theme fingerprints, generated files) does not depend on the locale.
+ */
+export const compareCodeUnits = (a: string, b: string): number => {
+  if (a < b) return -1;
+  return a > b ? 1 : 0;
+};
+
+/** The text without the slashes at its end, in linear time (a `/\/+$/` replace backtracks on many slashes) */
+export const trimTrailingSlashes = (text: string): string => {
+  let end = text.length;
+  while (end > 0 && text[end - 1] === '/') end--;
+  return text.slice(0, end);
+};

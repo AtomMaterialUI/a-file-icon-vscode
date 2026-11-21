@@ -1,5 +1,5 @@
 import { EXTENSION_KEY } from 'src/helpers/constants';
-import { normalizeName } from 'src/helpers/utils';
+import { compareCodeUnits, normalizeName, trimTrailingSlashes } from 'src/helpers/utils';
 
 import type { AtomConfig, IconThemeLayer, LayerMode } from 'src/@types/config';
 
@@ -63,7 +63,7 @@ export const parseNameKey = (key: string): NameTarget | undefined => {
     return extension ? { kind: 'extension', name: extension } : undefined;
   }
   if (name.endsWith('/')) {
-    const folder = name.replace(/\/+$/, '');
+    const folder = trimTrailingSlashes(name);
     return folder ? { kind: 'folder', name: folder } : undefined;
   }
   return name ? { kind: 'file', name } : undefined;
@@ -95,12 +95,12 @@ export const usedThemeIds = (config: Pick<AtomConfig, 'iconThemeByName' | 'iconT
     .filter((layer) => layer.files !== 'off' || layer.folders !== 'off')
     .map((layer) => layer.theme);
   for (const { theme } of normalizeByName(config.iconThemeByName)) ids.push(theme);
-  return [...new Set(ids)].sort();
+  return [...new Set(ids)].sort(compareCodeUnits);
 };
 
 /** Fingerprint of the themes mixed with this theme, stored in the theme json to regenerate it when one changes */
 export const layerStamp = (themes: LayerTheme[]): string =>
   themes
     .map((theme) => `${theme.id}=${theme.stamp}`)
-    .sort()
+    .sort(compareCodeUnits)
     .join('|');

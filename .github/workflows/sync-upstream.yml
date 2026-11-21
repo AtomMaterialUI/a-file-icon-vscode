@@ -40,7 +40,7 @@ jobs:
           echo "commit=$(git -C iconGenerator log -1 --format='%h %cs %s')" >> "$GITHUB_OUTPUT"
 
       - name: Install node_modules 📦
-        run: bun install --frozen-lockfile
+        run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Sync associations 🔄
         run: bun run sync:upstream

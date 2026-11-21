@@ -41,7 +41,7 @@ jobs:
 
       # the lockfile is the reviewed dependency set: a change of it must come with the pull request
       - name: Install node_modules 📦
-        run: bun install --frozen-lockfile
+        run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Lint 🔍
         run: bun run lint
@@ -54,7 +54,7 @@ jobs:
 
       - name: Package VSIX 📦
         if: matrix.os == 'ubuntu-latest'
-        run: npx --yes @vscode/vsce@3.6.0 package --no-dependencies --allow-missing-repository --skip-license -o a-file-icon-vscode.vsix
+        run: npx --yes --ignore-scripts @vscode/vsce@3.6.0 package --no-dependencies --allow-missing-repository --skip-license -o a-file-icon-vscode.vsix
 
       # after vsce package, dist/extension.js is the production bundle users get
       - name: Size budgets 📏

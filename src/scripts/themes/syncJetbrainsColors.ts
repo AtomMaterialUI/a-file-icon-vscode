@@ -10,6 +10,7 @@
  */
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { checkedCommit } from 'src/scripts/jetbrainsSource';
 import { COLOR_THEMES, extensionRoot, THEMES_FOLDER } from 'src/themes/colorThemes';
 import { convertJetbrainsTheme } from 'src/themes/convertJetbrainsTheme';
 import { parseAdditionalAttributes, parseSchemes, resolveScheme, resolveUiTheme } from 'src/themes/jetbrainsTheme';
@@ -96,7 +97,7 @@ const generate = async (commit: string) => {
 const main = async () => {
   const pinned = JSON.parse(readFileSync(sourcePath, 'utf8')) as Source;
   const latest = process.argv.includes('--latest') ? await latestCommit() : undefined;
-  const commit = latest?.commit ?? pinned.commit;
+  const commit = checkedCommit(latest?.commit ?? pinned.commit);
   console.log(`${REPOSITORY}@${commit}`);
 
   const outputs = await generate(commit);
@@ -110,8 +111,8 @@ const main = async () => {
   }
   // Pin the new commit only when it changed a theme: master moves every hour
   if (latest && changed) {
-    writeFileSync(sourcePath, `${JSON.stringify({ ...pinned, commit: latest.commit, date: latest.date }, undefined, 2)}\n`);
-    console.log(`pinned ${latest.commit}`);
+    writeFileSync(sourcePath, `${JSON.stringify({ ...pinned, commit, date: latest.date }, undefined, 2)}\n`);
+    console.log(`pinned ${commit}`);
   }
   if (!changed) console.log('themes unchanged');
 };

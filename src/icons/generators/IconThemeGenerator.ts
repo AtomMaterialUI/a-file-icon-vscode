@@ -30,6 +30,18 @@ const customValues = (associations?: Record<string, string>) =>
  */
 const isGeneratedIcon = (file: string) => /~-?\d+\.svg$/.test(file) || file.startsWith('custom-');
 
+/**
+ * `name.svg` (or `name~old.svg`) -> `name<hash>.svg`: the name up to its first `.` or `~`, then the hash of the filter
+ * settings. Names that start with `.`/`~` or have no `.svg` are kept. Same result as the former
+ * `replace(/(^[^.~]+)(.*)\.svg/, …)`, without its backtracking.
+ */
+export const hashedIconName = (file: string, hash: string): string => {
+  const stem = file.search(/[.~]/);
+  const svg = file.lastIndexOf('.svg');
+  if (stem <= 0 || svg < stem) return file;
+  return `${file.slice(0, stem)}${hash}.svg${file.slice(svg + '.svg'.length)}`;
+};
+
 /** The installed icon themes mixed with this theme, and the languages of the file names and extensions */
 export type ThemeLayers = { languages: LanguageLookup; themes: LayerTheme[] };
 
@@ -233,7 +245,7 @@ export class IconThemeGenerator {
     for (const iconFile of readdirSync(foldersPath)) {
       if (openIcons.has(iconFile)) continue;
 
-      const hashedFile = iconFile.replace(/(^[^.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`);
+      const hashedFile = hashedIconName(iconFile, fileConfigHash);
       this.writeIcon(destination, hashedFile, this.applyFilters(join(foldersPath, iconFile)));
     }
   }
@@ -279,7 +291,7 @@ export class IconThemeGenerator {
 
     for (const iconFile of iconFiles) {
       // apply color, opacity and saturation
-      const hashedFile = iconFile.replace(/(^[^.~]+)(.*)\.svg/, `$1${fileConfigHash}.svg`);
+      const hashedFile = hashedIconName(iconFile, fileConfigHash);
       const filePath = join(source, iconFile);
       const svg = this.applyFilters(filePath);
 

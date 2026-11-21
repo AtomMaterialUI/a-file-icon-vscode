@@ -148,7 +148,8 @@
   1.95.0·stable 에서 실제로 돌려 확인한다. VS Code 1.95 의 Node 는 20 이라 Node 22 전용 API(`Set.prototype.union` 등)는 쓰지 않는다.
 - **유지보수 지침(보안·다른 확장과의 호환·메모리)은 `docs/MAINTENANCE.md`**: 규칙, 자동 검사, 예산, 주기 점검, 점검 결과(후속 과제).
   보안·호환·메모리에 닿는 변경은 그 문서의 규칙을 따르고, 규칙·예산을 바꾸면 문서와 검사(`test/checks/`, `test/smoke/`)를 같이 고친다.
-  모든 워크플로는 기본 `contents: read`, `uses:` 는 커밋 SHA + 버전 주석(`security.yml` 이 검사), 설치는 `bun install --frozen-lockfile`.
+  모든 워크플로는 기본 `contents: read`, `uses:` 는 커밋 SHA + 버전 주석(`security.yml` 이 검사), 설치는 `bun install --frozen-lockfile --ignore-scripts`
+  (`npx` 도 `--ignore-scripts`).
 - CI(`.github/workflows`): `build.yml`(lint·build·test·VSIX·크기 예산), `security.yml`(배포 의존성 감사·Actions 고정 검사·CodeQL,
   매주 화), `smoke.yml`(실제 VS Code 1.95.0·stable, Linux·Windows, 다른 테마 확장과 함께, 재생성 반복 뒤 힙 증가 예산, 매주 수),
   `sonar.yml`(SonarQube Cloud CI 분석 + 커버리지 + 품질 게이트, `SONAR_TOKEN` 이 있을 때만), `sync-upstream.yml`(매주 iconGenerator 최신화 → PR,
@@ -156,11 +157,10 @@
   마지막 GitHub Release 태그(없으면 package.json)에서 계산해 VSIX 안에만 넣고, package.json 버전은 그대로 둔다
   (원본의 v5.x 태그는 릴리스가 아니라서 무시).
 - 테스트: `test/run-unit.js` 가 esbuild 로 묶으며 `vscode` 를 `test/mocks/vscode.ts` 로 바꿔 mocha 실행.
-- SonarQube Cloud(`WoogaJJangka_a-file-icon-vscode`)는 지금 Automatic Analysis(GitHub App)로 돈다. 설정은
-  `.sonarcloud.properties`(Automatic Analysis 는 `sonar-project.properties` 를 읽지 않음). 생성 파일·서브모듈·데이터 표는 거기서 뺀다.
-  CI 분석(`sonar.yml`)도 같은 파일을 `sonar-project.properties` 로 복사해 쓴다. 바꾸려면 Automatic Analysis 를 끄고
-  `SONAR_TOKEN` secret 을 넣는다(둘을 같이 켜면 CI 분석이 실패). 절차는 `docs/MAINTENANCE.md` 4장.
-  PR 에 "SonarCloud Code Analysis" 체크가 안 붙으면 GitHub App 설치의 저장소 접근부터 본다.
+- SonarQube Cloud(`WoogaJJangka_a-file-icon-vscode`)는 2026-11-21 부터 **CI 분석**(`sonar.yml`, secret `SONAR_TOKEN`, 커버리지 포함,
+  게이트 실패 = 검사 실패)으로 돈다. Automatic Analysis 는 꺼 둔다(켜면 CI 스캔이 실패). 이전의 Automatic Analysis 는 실패 표시 없이
+  사흘 멈춰 있었다. 설정은 `.sonarcloud.properties`(CI 가 `sonar-project.properties` 로 복사). 생성 파일·서브모듈·데이터 표는 거기서 뺀다.
+  자주 나오는 지적(정렬 비교 함수, 정규식 백트래킹, 웹뷰 메시지 출처 등)의 답은 `docs/MAINTENANCE.md` 4장.
 - 커버리지: `.c8rc.json`. 번들된 테스트를 소스맵으로 되돌리므로 `include` 를 쓰면 숫자가 100% 로 깨진다 → 제외 목록만 쓴다.
 - bun 으로 도는 스크립트에서 `require('esbuild')` 는 tsconfig `baseUrl: "."` 때문에 루트의 `esbuild.js` 로 풀린다 → `node_modules/esbuild` 경로로 부른다.
 

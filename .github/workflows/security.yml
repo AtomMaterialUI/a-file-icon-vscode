@@ -36,7 +36,7 @@ jobs:
           bun-version: 1.4.2
 
       - name: Install node_modules 📦
-        run: bun install --frozen-lockfile
+        run: bun install --frozen-lockfile --ignore-scripts
 
       - name: Audit the shipped dependencies 🛡
         run: bun run audit:shipped
