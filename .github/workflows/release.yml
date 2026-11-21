@@ -3,8 +3,9 @@ name: Release + Publish
 # Builds the VSIX with the next version, publishes it and creates a GitHub release.
 #
 # `main` is protected (changes need a pull request), so this workflow never commits to it. The version is not stored
-# in package.json: the next one is computed from the latest GitHub release of this repository (or from package.json
-# for the first release) and written only into the VSIX. package.json keeps the version of the first release.
+# in package.json: the next one is computed from the latest GitHub release of this extension (a release with a VSIX
+# named after the `name` of package.json: the releases 1.1.0 to 1.3.0 are those of the old id `cool-icon-vscode`) and
+# written only into the VSIX. The first release of the extension is the version of package.json (0.1.0).
 # An exact `version` can be given instead (e.g. to skip from 1.1.0 to 1.2.1): it must be greater than the latest release.
 #
 # Publishing to the registries only runs when their token secret is set:
@@ -60,10 +61,13 @@ jobs:
 
       - name: Compute the next version 🔢
         run: |
-          # The tags of the original project (v5.x) are not releases of this repository: only releases count
-          BASE=$(gh release view --json tagName --jq '.tagName' 2>/dev/null || true)
+          # The tags of the original project (v5.x) are not releases of this repository: only releases count, and only
+          # those of this extension (their VSIX is named after package.json), newest first
+          NAME=$(node -p "require('./package.json').name")
+          BASE=$(gh api "repos/$GITHUB_REPOSITORY/releases?per_page=100" --jq "[.[] | select(.draft | not) | select(any(.assets[]; .name | startswith(\"$NAME-\"))) | .tag_name][0] // empty")
           BASE=${BASE#v}
-          if [ -z "$BASE" ]; then BASE=$(node -p "require('./package.json').version"); fi
+          FIRST=false
+          if [ -z "$BASE" ]; then BASE=$(node -p "require('./package.json').version"); FIRST=true; fi
           VERSION_INPUT=$(echo "$VERSION_INPUT" | tr -d '[:space:]')
           VERSION_INPUT=${VERSION_INPUT#v}
           if [ -n "$VERSION_INPUT" ]; then
@@ -71,10 +75,14 @@ jobs:
             if ! [[ "$VERSION_INPUT" =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)$ ]]; then
               echo "::error::The version must be x.y.z, got '$VERSION_INPUT'"; exit 1
             fi
-            if [ "$VERSION_INPUT" = "$BASE" ] || [ "$(printf '%s\n%s\n' "$BASE" "$VERSION_INPUT" | sort -V | tail -n 1)" != "$VERSION_INPUT" ]; then
+            if [ "$FIRST" = true ] && [ "$VERSION_INPUT" = "$BASE" ]; then
+              : # the first release may be the version of package.json itself
+            elif [ "$VERSION_INPUT" = "$BASE" ] || [ "$(printf '%s\n%s\n' "$BASE" "$VERSION_INPUT" | sort -V | tail -n 1)" != "$VERSION_INPUT" ]; then
               echo "::error::The version $VERSION_INPUT is not greater than the latest release $BASE"; exit 1
             fi
             VERSION=$VERSION_INPUT
+          elif [ "$FIRST" = true ]; then
+            VERSION=$BASE
           else
             IFS=. read -r MAJOR MINOR PATCH <<< "$BASE"
             case "$VERSION_CHANGE" in
@@ -86,7 +94,7 @@ jobs:
           fi
           echo "Previous version $BASE, next version $VERSION"
           echo VERSION=$VERSION >> $GITHUB_ENV
-          echo NAME=$(node -p "require('./package.json').name") >> $GITHUB_ENV
+          echo NAME=$NAME >> $GITHUB_ENV
           echo DISPLAY_NAME=$(node -p "require('./package.json').displayName") >> $GITHUB_ENV
 
       - name: Install node_modules 📦

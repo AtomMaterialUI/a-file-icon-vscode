@@ -126,7 +126,7 @@ export const activate = async (context: ExtensionContext) => {
     // user, and the message left open when the window closes is cancelled)
     fontCheckService.check(context).catch(logFontError);
 
-    // The extension id changed in 2.0.0: a copy of the old one would register the same settings and themes
+    // The extension id changed after 1.3.0: a copy of the old one would register the same settings and themes
     offerToUninstallOldExtension().catch((error: unknown) => {
       if (!isCancellation(error)) logger.error(String(error));
     });

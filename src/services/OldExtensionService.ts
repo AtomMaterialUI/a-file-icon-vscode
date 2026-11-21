@@ -6,7 +6,7 @@ import { commands, extensions, window } from 'vscode';
 import type { MessageItem } from 'vscode';
 
 /**
- * The id of this extension before 2.0.0. It was removed from the Marketplace, and an installed copy contributes the
+ * The id of this extension from 1.0.0 to 1.3.0. It was removed from the Marketplace, and an installed copy contributes the
  * same settings and theme ids as this one: VS Code then keeps only one of each, and the old copy writes its own themes.
  */
 const OLD_EXTENSION_ID = 'woogajjangka.cool-icon-vscode';

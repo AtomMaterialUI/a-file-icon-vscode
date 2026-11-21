@@ -2,7 +2,7 @@
   "name": "cool-theme-kit",
   "displayName": "Cool Theme Kit",
   "description": "JetBrains (PyCharm New UI) style theme for VS Code: file icons, colors and product icons, with other installed themes layered on top by priority",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/WoogaJJangka/cool-theme-kit.git"
