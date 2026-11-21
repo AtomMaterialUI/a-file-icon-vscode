@@ -1,4 +1,4 @@
-name: a-file-icon-vscode
+name: cool-theme-kit
 channels:
   - conda-forge
   - defaults
