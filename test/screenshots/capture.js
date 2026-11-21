@@ -154,8 +154,12 @@ const connect = async () => {
   const pending = new Map();
   socket.addEventListener('message', (event) => {
     const message = JSON.parse(event.data);
-    pending.get(message.id)?.(message);
+    // only the answer to a request of this script: events have no id, and an id is a number this script gave
+    if (!Number.isInteger(message.id)) return;
+    const resolve = pending.get(message.id);
+    if (typeof resolve !== 'function') return;
     pending.delete(message.id);
+    resolve(message);
   });
   const send = (method, params = {}) =>
     new Promise((resolve) => {
