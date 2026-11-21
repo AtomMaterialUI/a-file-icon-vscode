@@ -8,9 +8,9 @@
  * Usage: bun run sync:colors              the commit pinned in themes/jetbrains-source.json
  *        bun run sync:colors -- --latest  the latest commit of master; the pin only moves when a theme changes
  */
-import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import { checkedCommit } from 'src/scripts/jetbrainsSource';
+import { checkedCommit, checkedDate } from 'src/scripts/jetbrainsSource';
 import { COLOR_THEMES, extensionRoot, THEMES_FOLDER } from 'src/themes/colorThemes';
 import { convertJetbrainsTheme } from 'src/themes/convertJetbrainsTheme';
 import { parseAdditionalAttributes, parseSchemes, resolveScheme, resolveUiTheme } from 'src/themes/jetbrainsTheme';
@@ -68,7 +68,7 @@ const latestCommit = async (): Promise<{ commit: string; date: string }> => {
   });
   if (!response.ok) throw new Error(`Latest commit: HTTP ${response.status}`);
   const body = (await response.json()) as { commit: { committer: { date: string } }; sha: string };
-  return { commit: body.sha, date: body.commit.committer.date.slice(0, 10) };
+  return { commit: checkedCommit(body.sha), date: checkedDate(body.commit.committer.date) };
 };
 
 const generate = async (commit: string) => {
@@ -94,6 +94,16 @@ const generate = async (commit: string) => {
   return outputs;
 };
 
+/** The text of a file, or undefined when there is none: read once, no separate existence check (CodeQL js/file-system-race) */
+const readIfExists = (path: string): string | undefined => {
+  try {
+    return readFileSync(path, 'utf8');
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') return undefined;
+    throw error;
+  }
+};
+
 const main = async () => {
   const pinned = JSON.parse(readFileSync(sourcePath, 'utf8')) as Source;
   const latest = process.argv.includes('--latest') ? await latestCommit() : undefined;
@@ -104,7 +114,7 @@ const main = async () => {
   let changed = false;
   for (const [file, content] of outputs) {
     const path = join(themesPath, file);
-    if (existsSync(path) && readFileSync(path, 'utf8') === content) continue;
+    if (readIfExists(path) === content) continue;
     writeFileSync(path, content);
     changed = true;
     console.log(`wrote ${THEMES_FOLDER}/${file}`);

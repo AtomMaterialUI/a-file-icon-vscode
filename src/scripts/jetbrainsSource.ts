@@ -11,3 +11,13 @@ export const checkedCommit = (commit: unknown): string => {
   }
   return commit;
 };
+
+/**
+ * The day of a commit from the GitHub API (`commit.committer.date`, ISO 8601) as `YYYY-MM-DD` for
+ * `themes/jetbrains-source.json`: parsed and written again, so nothing but a valid date reaches the file.
+ */
+export const checkedDate = (date: unknown): string => {
+  const time = typeof date === 'string' && /^\d{4}-\d{2}-\d{2}T/.test(date) ? Date.parse(date) : Number.NaN;
+  if (Number.isNaN(time)) throw new Error('jetbrains-source: the commit date must be an ISO 8601 date');
+  return new Date(time).toISOString().slice(0, 10);
+};

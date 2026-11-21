@@ -50,9 +50,8 @@ const toBlackAndWhite = (value: string) => {
 
 /** A New UI SVG as a glyph SVG: one filled path, in the box of the icon */
 const toGlyph = async (svg: string): Promise<string> => {
-  const blackAndWhite = svg
-    .replaceAll(/<!--[\s\S]*?-->/g, '')
-    .replaceAll(/(fill|stroke)="([^"]*)"/g, (_all, attribute: string, value: string) => `${attribute}="${toBlackAndWhite(value)}"`);
+  // XML comments are left in: resvg skips them, and recoloring a fill inside one changes nothing
+  const blackAndWhite = svg.replaceAll(/(fill|stroke)="([^"]*)"/g, (_all, attribute: string, value: string) => `${attribute}="${toBlackAndWhite(value)}"`);
   const size = Number(/viewBox="0 0 ([\d.]+)/.exec(blackAndWhite)?.[1] ?? 16);
   const bitmap = new Resvg(blackAndWhite, { background: '#ffffff', fitTo: { mode: 'width', value: RESOLUTION } }).render().asPng();
   const traced: string = await new Potrace(bitmap, { svgSize: size / RESOLUTION }).trace();

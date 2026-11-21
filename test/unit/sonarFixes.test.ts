@@ -1,7 +1,7 @@
 import * as assert from 'node:assert/strict';
 import { compareCodeUnits, trimTrailingSlashes } from 'src/helpers/utils';
 import { hashedIconName } from 'src/icons/generators/IconThemeGenerator';
-import { checkedCommit } from 'src/scripts/jetbrainsSource';
+import { checkedCommit, checkedDate } from 'src/scripts/jetbrainsSource';
 import { parseColorKey } from 'src/themes/colorLayers';
 
 // The rewrites of the SonarQube Cloud findings must keep the results of the code they replace
@@ -40,6 +40,14 @@ describe('rewritten helpers', () => {
     assert.equal(checkedCommit(sha), sha);
     for (const bad of [undefined, 42, '', 'master', sha.slice(1), `${sha}\n`, `${sha}/../x`, sha.toUpperCase()]) {
       assert.throws(() => checkedCommit(bad));
+    }
+  });
+
+  it('checkedDate keeps only the day of an ISO 8601 commit date', () => {
+    assert.equal(checkedDate('2026-11-19T04:05:06Z'), '2026-11-19');
+    assert.equal(checkedDate('2026-11-19T23:30:00-02:00'), '2026-11-20');
+    for (const bad of [undefined, 42, '', '2026-11-19', 'yesterday', '2026-13-45T00:00:00Z', '2026-11-19T\n']) {
+      assert.throws(() => checkedDate(bad));
     }
   });
 });
