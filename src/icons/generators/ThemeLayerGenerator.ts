@@ -6,7 +6,7 @@ import { RELATIVE_DIST, WILDCARD_PATTERN } from 'src/helpers/constants';
 import { writeFileAtomic } from 'src/helpers/fsUtils';
 import { layerStamp, normalizeByName, normalizeLayers } from 'src/helpers/themeLayers';
 import { resolveThemePath } from 'src/helpers/themePaths';
-import { normalizeName } from 'src/helpers/utils';
+import { normalizeName, trimTrailingSlashes } from 'src/helpers/utils';
 
 import type { AtomConfig } from 'src/@types/config';
 import type { LanguageLookup, LayerTheme } from 'src/helpers/themeLayers';
@@ -199,7 +199,7 @@ export class LayerReader {
   hitTreeItem(name: string): Hit | undefined {
     const lower = normalizeName(name.trim());
     if (lower.endsWith('/')) {
-      const folder = lower.replace(/\/+$/, '');
+      const folder = trimTrailingSlashes(lower);
       return (folder ? this.hitFolder('folderNames', folder) : undefined) ?? this.hitDefault('folder');
     }
     return (lower ? this.hitFile(lastSegment(lower)) : undefined) ?? this.hitDefault('file');

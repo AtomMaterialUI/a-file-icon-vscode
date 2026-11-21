@@ -11,6 +11,9 @@ import { join } from 'node:path';
 
 const FONT_FILE = /\.(otf|ttc|ttf|woff2?)$/i;
 
+/** Where the distributions install fontconfig's `fc-list` */
+const FC_LIST_PATHS = ['/usr/bin/fc-list', '/usr/local/bin/fc-list', '/bin/fc-list'];
+
 /**
  * File names of the fonts: JetBrainsMono-Regular.ttf, JetBrainsMono[wght].ttf, D2Coding-Ver1.3.3-20180524-all.ttc…
  * Not JetBrainsMonoNL or the Nerd Font builds: their family names ("JetBrains Mono NL", "JetBrainsMono Nerd Font") are
@@ -69,8 +72,11 @@ export const fontFolders = (
 /** The font families fontconfig knows (Linux, fonts installed anywhere), lower case; empty elsewhere or without fc-list */
 export const fontconfigFamilies = (platform: NodeJS.Platform = process.platform): string => {
   if (platform !== 'linux') return '';
+  // a fixed path, not a lookup in PATH (a writable folder there could put another `fc-list` first)
+  const fcList = FC_LIST_PATHS.find((path) => existsSync(path));
+  if (!fcList) return '';
   try {
-    return execFileSync('fc-list', [':', 'family'], { encoding: 'utf8', timeout: 3000 }).toLowerCase();
+    return execFileSync(fcList, [':', 'family'], { encoding: 'utf8', timeout: 3000 }).toLowerCase();
   } catch {
     return '';
   }

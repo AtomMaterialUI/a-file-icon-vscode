@@ -9,6 +9,8 @@
  * From the strongest to the weakest: by key > accent color > override layers (the first listed wins) > Islands > fill
  * layers (the first listed wins). Pure functions: the themes are read by the caller.
  */
+import { compareCodeUnits } from 'src/helpers/utils';
+
 import { accentColors } from './accent';
 
 import type { SemanticStyle, TokenColor, VsCodeColorTheme } from './convertJetbrainsTheme';
@@ -102,9 +104,10 @@ export const serializeColorLayers = (layers: NormalizedColorLayer[]): ColorTheme
 /** `scope:comment` -> TextMate scope, `semantic:parameter` -> semantic token selector, anything else -> color id glob */
 export const parseColorKey = (key: string): ColorKeyTarget | undefined => {
   const text = key.trim();
-  const prefix = /^(scope|semantic):\s*(.+)$/i.exec(text);
+  const prefix = /^(scope|semantic):/i.exec(text);
   if (prefix) {
-    const value = prefix[2].trim();
+    const value = text.slice(prefix[0].length).trim();
+    if (!value) return undefined;
     return prefix[1].toLowerCase() === 'scope' ? { kind: 'scope', scope: value } : { kind: 'semantic', selector: value };
   }
   if (!/^[\w*?.-]+$/.test(text)) return undefined;
@@ -128,7 +131,7 @@ export const usedColorThemeIds = (layers: unknown, byKey: unknown): string[] => 
     .filter((layer) => layer.ui !== 'off' || layer.syntax !== 'off')
     .map((layer) => layer.theme);
   for (const { theme } of normalizeColorByKey(byKey)) ids.push(theme);
-  return [...new Set(ids)].sort();
+  return [...new Set(ids)].sort(compareCodeUnits);
 };
 
 /** Whether a layer applies to the Islands theme of this kind */

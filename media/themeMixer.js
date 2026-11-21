@@ -655,6 +655,8 @@
   };
 
   window.addEventListener('message', (event) => {
+    // VS Code hands the messages of the extension to this page from the page's own origin (its webview host frame)
+    if (event.origin !== window.origin) return;
     const message = event.data;
     if (message?.type === 'tab' && ['colors', 'icons', 'product'].includes(message.tab)) {
       // the tab the panel was opened on; a page loaded again keeps the one it had unless the panel is told otherwise

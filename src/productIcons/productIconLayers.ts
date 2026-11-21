@@ -6,6 +6,8 @@
  * From the strongest to the weakest: by name (a later entry wins) > override layers (the first listed wins) > Cool Islands
  * Icons > fill layers (the first listed wins). The fonts of the other themes are copied next to the generated theme.
  */
+import { compareCodeUnits } from 'src/helpers/utils';
+
 const MODES = new Set<unknown>(['fill', 'off', 'override']);
 
 const globPattern = (glob: string) =>
@@ -67,7 +69,7 @@ export const usedProductThemeIds = (layers: unknown, byName: unknown): string[] 
     .filter((layer) => layer.mode !== 'off')
     .map((layer) => layer.theme);
   for (const { theme } of normalizeProductByName(byName)) ids.push(theme);
-  return [...new Set(ids)].sort();
+  return [...new Set(ids)].sort(compareCodeUnits);
 };
 
 /**

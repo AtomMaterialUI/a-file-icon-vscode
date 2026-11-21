@@ -15,6 +15,8 @@ import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { Resvg } from '@resvg/resvg-js';
+import { compareCodeUnits } from 'src/helpers/utils';
+import { checkedCommit } from 'src/scripts/jetbrainsSource';
 import { extensionRoot, THEMES_FOLDER } from 'src/themes/colorThemes';
 import { ISLANDS_FONT_ID, ISLANDS_FONT_FILE, ISLANDS_PRODUCT_FILE } from 'src/productIcons/islandsProductTheme';
 import { expuiPath, JETBRAINS_ICONS } from 'src/productIcons/jetbrainsMap';
@@ -79,15 +81,16 @@ const contactSheet = (icons: string[], files: string[]): Uint8Array => {
 };
 
 const main = async () => {
-  const source = JSON.parse(readFileSync(join(root, THEMES_FOLDER, 'jetbrains-source.json'), 'utf8')) as { commit: string };
-  console.log(`${REPOSITORY}@${source.commit}`);
+  const source = JSON.parse(readFileSync(join(root, THEMES_FOLDER, 'jetbrains-source.json'), 'utf8')) as { commit: unknown };
+  const commit = checkedCommit(source.commit);
+  console.log(`${REPOSITORY}@${commit}`);
 
-  const icons = [...new Set(Object.values(JETBRAINS_ICONS))].sort();
+  const icons = [...new Set(Object.values(JETBRAINS_ICONS))].sort(compareCodeUnits);
   const work = mkdtempSync(join(tmpdir(), 'cool-islands-icons-'));
   try {
     const files: string[] = [];
     for (const icon of icons) {
-      const response = await fetch(`https://raw.githubusercontent.com/${REPOSITORY}/${source.commit}/${expuiPath(icon)}`);
+      const response = await fetch(`https://raw.githubusercontent.com/${REPOSITORY}/${commit}/${expuiPath(icon)}`);
       if (!response.ok) throw new Error(`${icon}: HTTP ${response.status}`);
       const file = join(work, `${glyphName(icon)}.svg`);
       writeFileSync(file, await toGlyph(await response.text()));

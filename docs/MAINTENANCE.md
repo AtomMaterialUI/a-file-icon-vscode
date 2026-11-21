@@ -10,7 +10,7 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 | 보안 | 배포되는 의존성의 취약점 | `security.yml` → `bun run audit:shipped` | PR·main·매주 화 | 번들(`dist/`)에 들어가는 패키지에 high/critical |
 | 보안 | Actions 를 커밋으로 고정 | `security.yml` | PR·main·매주 화 | `uses:` 가 40자 SHA 가 아님 |
 | 보안 | 코드·워크플로 정적 분석 | `security.yml` CodeQL (`javascript-typescript`, `actions`) | PR·main·매주 화 | Code scanning 경고(PR 검사에 표시) |
-| 보안·품질 | 버그·취약점·Hotspot·중복·(커버리지) | SonarQube Cloud (Automatic Analysis, 또는 `sonar.yml`) | PR·main | 품질 게이트 실패 |
+| 보안·품질 | 버그·취약점·Hotspot·중복·커버리지 | SonarQube Cloud CI 분석 `sonar.yml` | PR·main | 품질 게이트 실패 |
 | 회귀 | lint·빌드·아이콘 점검·단위 테스트 | `build.yml` | 모든 push·PR | 하나라도 실패 |
 | 호환 | 실제 VS Code 1.95.0·stable, Linux·Windows | `smoke.yml` | PR·main·매주 수 | 활성화·명령·재생성 실패, 출력 채널에 `ERROR` |
 | 호환 | 다른 테마 확장과 함께 섞기 | `smoke.yml` (`--with-extensions`) | PR·main·매주 수 | 섞은 결과가 테마 파일에 없음, `ERROR` |
@@ -72,7 +72,8 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 6. **의존성**
    - 실행 때 쓰는 의존성은 최소로 둔다. 2026-11 현재 번들에 들어가는 것: `fs-extra`, `graceful-fs`, `i18next`, `jsonfile`,
      `lodash.merge`, `universalify`. 새 실행 의존성은 PR 에 이유를 적고 `audit:shipped`·크기 예산으로 확인한다.
-   - CI 는 `bun install --frozen-lockfile` 이다. `bun.lock` 이 바뀌는 PR 은 무엇이 바뀌는지 본다.
+   - CI 는 `bun install --frozen-lockfile --ignore-scripts` 이다(의존성의 설치 스크립트를 돌리지 않음, 지금 쓰는 것 중 설치 스크립트가
+     있는 건 `esbuild` 뿐이고 그것 없이도 동작한다). VSIX 를 만드는 `npx` 도 `--ignore-scripts`. `bun.lock` 이 바뀌는 PR 은 무엇이 바뀌는지 본다.
    - 배포 패키지의 advisory 를 받아들일 때는 `test/checks/auditShipped.js` 의 `ACCEPTED` 에 GHSA id·이유·재검토 날짜를 적는다.
 7. **GitHub Actions**
    - 워크플로 기본 권한은 `contents: read`. 쓰기가 필요한 job 에만 그 권한을 준다(`release.yml`, `sync-upstream.yml`, CodeQL 의 `security-events`).
@@ -168,21 +169,28 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 
 ## 4. SonarQube Cloud
 
-- 설정 파일은 `.sonarcloud.properties` 하나다. Automatic Analysis 도, CI 분석(`sonar.yml`)도 이것을 읽는다
-  (CI 는 `sonar-project.properties` 로 복사해서 쓴다). 생성 파일·서브모듈·데이터 표는 여기서 뺀다.
-- **품질 게이트**(SonarQube Cloud 화면): "Sonar way" 를 쓴다. 새 코드에 대해 신뢰성·보안 등급 A, Security Hotspot 100% 검토,
-  중복 3% 이하. 커버리지 조건은 CI 분석일 때만 의미가 있다(Automatic Analysis 는 커버리지를 못 받는다).
-  처음에 커버리지 조건 때문에 막히면 게이트를 복사해 커버리지만 60% 로 낮춘 게이트를 이 프로젝트에 쓴다.
+- **분석 방식: CI 분석**(`sonar.yml`, 2026-11-21 부터). Automatic Analysis 는 꺼져 있고 저장소 secret `SONAR_TOKEN`(SonarQube Cloud →
+  My Account → Security 의 user token)으로 돈다. PR·main push 마다 빌드 → 커버리지 단위 테스트 → 스캔 → 품질 게이트를 기다리고,
+  게이트가 실패하면 "Analysis + quality gate" 검사가 실패한다. 수동 실행: `gh workflow run sonar.yml --ref main`.
+  - Automatic Analysis 는 2026-11-18 PR #7 뒤로 GitHub 에서 소식을 못 받아 **실패 표시 없이** 멈춰 있었다(사흘, PR #8~#46 이 분석되지 않음).
+    CI 분석은 멈추면 워크플로가 실패하거나 건너뛰었다는 notice 가 남는다. `SONAR_TOKEN` 이 없거나 만료되면 job 이 건너뛰므로
+    "SONAR_TOKEN is not set" notice 가 보이면 토큰부터 본다.
+  - Automatic Analysis 를 다시 켜면 CI 스캔이 "You are running CI analysis while Automatic Analysis is enabled" 로 실패한다.
+  - 조직 키·프로젝트 키가 `woogajjangka`·`WoogaJJangka_a-file-icon-vscode` 와 다르면 저장소 변수 `SONAR_ORGANIZATION`·`SONAR_PROJECT_KEY`.
+- 설정 파일은 `.sonarcloud.properties` 하나다. CI 가 `sonar-project.properties` 로 복사해서 쓴다(Automatic Analysis 로 돌아가도 그대로 읽힘).
+  생성 파일·서브모듈·데이터 표는 여기서 뺀다.
+- **품질 게이트**(SonarQube Cloud 화면): "Sonar way" 를 쓴다. 새 코드에 대해 신뢰성·보안 등급 A(버그·취약점 0개), Security Hotspot 100% 검토,
+  중복 3% 이하, 커버리지 80% 이상(2026-11-21 첫 CI 분석: 새 코드 90.2%, 전체 86.4%).
 - **New Code 정의**: "Number of days" 30일. `package.json` 버전은 릴리스 때 바뀌지 않아서("Previous version" 이 움직이지 않음) 쓰지 않는다.
 - **Hotspot**: 웹뷰, 파일 쓰기, 정규식(ReDoS), 경로 처리가 주로 나온다. 검토하고 "Safe" 로 닫을 때는 이유를 남긴다.
-- **CI 분석으로 바꾸기**(커버리지와 게이트를 CI 실패로 막으려면):
-  1. SonarQube Cloud → 프로젝트 → Administration → Analysis Method 에서 Automatic Analysis 를 끈다.
-  2. 저장소 secret `SONAR_TOKEN` 을 넣는다(SonarQube Cloud → My Account → Security).
-  3. 조직 키·프로젝트 키가 `woogajjangka`·`WoogaJJangka_a-file-icon-vscode` 와 다르면 저장소 변수 `SONAR_ORGANIZATION`·`SONAR_PROJECT_KEY`.
-  그러면 `sonar.yml` 의 "Analysis + quality gate" 가 돌고 게이트가 실패하면 그 검사가 실패한다. `SONAR_TOKEN` 이 없으면
-  그 job 은 건너뛰고 Automatic Analysis 가 계속 돈다. 둘을 같이 켜면 CI 분석이 실패하므로 1번을 먼저 한다.
-- **필수 검사**: Automatic Analysis 면 "SonarCloud Code Analysis", CI 분석이면 "Analysis + quality gate" 를 main 보호의 필수 검사로 둔다.
-  PR 에 체크가 안 붙으면 GitHub App 설치의 저장소 접근부터 본다.
+- 자주 나오는 지적과 이 저장소의 답:
+  - 비교 함수 없는 `sort()`(S2871): `helpers/utils.compareCodeUnits`(같은 순서를 적어 둔 것, 로캘에 따라 바뀌지 않음).
+  - 끝의 `/` 지우기 같은 정규식 백트래킹(S8786): `trimTrailingSlashes` 처럼 반복문으로.
+  - 웹뷰 `message` 의 출처(S2819): `event.origin !== window.origin` 이면 버린다. VS Code 는 확장의 메시지를 웹뷰 페이지와 같은 출처의
+    호스트 프레임에서 `postMessage(…, window.origin)` 로 넘긴다(1.95·1.147 `webview/browser/pre/index.html` 확인).
+  - 빌드 스크립트가 받는 JetBrains 커밋(URL·로그에 들어감): `scripts/jetbrainsSource.checkedCommit`(40자 hex 만).
+  - 외부 프로그램은 PATH 검색 대신 고정 경로(`fonts.ts` 의 `fc-list`).
+- **필수 검사**: "Analysis + quality gate" 를 main 보호의 필수 검사로 둔다(PR 에서 게이트가 처음 통과한 뒤).
 
 ## 5. 주기 점검
 
