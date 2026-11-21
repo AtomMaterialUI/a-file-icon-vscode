@@ -32,8 +32,8 @@ You can also select the themes with **Preferences: File Icon Theme**, **Preferen
 Product Icon Theme**, and the fonts with the **Use the JetBrains Fonts** command. Everything is undone the same way:
 select another theme, or run **Stop Using the JetBrains Fonts**.
 
-> **Moving from `woogajjangka.cool-icon-vscode`?** That was the id of Cool Theme Kit before 2.0.0, and it is no longer on
-> the Marketplace. Install this extension (`woogajjangka.cool-theme-kit`) and uninstall the old one: Cool Theme Kit
+> **Moving from `woogajjangka.cool-icon-vscode`?** That was the id of Cool Theme Kit from 1.0.0 to 1.3.0, and it is no longer
+> on the Marketplace. Install this extension (`woogajjangka.cool-theme-kit`) and uninstall the old one: Cool Theme Kit
 > offers to when it finds it. The settings did not change, so yours still apply.
 
 | Cool Islands Light                                                    | Mix Themes page                                                   |

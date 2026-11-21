@@ -1,7 +1,7 @@
 # a-file-icon-vscode — Claude Code 작업 메모
 
 `AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme Kit"("Cool Theme" 은 Marketplace 에 이미 있어 게시가 거부돼 2026-11-20 바꿈)
-(확장 ID `woogajjangka.cool-theme-kit`, 2.0.0(2026-11-21)부터. 그 전 `woogajjangka.cool-icon-vscode` 는 Marketplace 에서 지웠고,
+(확장 ID `woogajjangka.cool-theme-kit`, 0.1.0(2026-11-21, 새 식별자의 첫 버전)부터. 그 전(1.0.0~1.3.0) `woogajjangka.cool-icon-vscode` 는 Marketplace 에서 지웠고,
 둘 다 설치돼 있으면 `services/OldExtensionService` 가 옛 것을 지우라고 권한다. 저장소도 같은 날 `WoogaJJangka/cool-theme-kit` 으로 바꿈).
 - 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme Kit", 파일 아이콘 테마 = "Cool Icons", 색 = "Cool Islands Dark/Light",
   제품 아이콘 = "Cool Islands Icons"(id `cool-islands-product-icons`)·"Cool Material Icons". 테마 id·설정 id 는 바꾸지 않는다(사용자 설정이 가리킴).
