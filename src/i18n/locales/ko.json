@@ -70,6 +70,11 @@
   "material": "Material",
   "neverShowAgain": "다시 표시 안 함",
   "none": "없음",
+  "oldExtension": {
+    "found": "Cool Theme Kit이 새 확장 id로 옮겨 왔는데, 옛 확장(woogajjangka.cool-icon-vscode)이 아직 설치돼 있습니다. 두 확장이 같은 설정과 테마를 등록합니다. 옛 확장을 제거할까요? 설정은 그대로 남습니다.",
+    "removed": "옛 Cool Theme Kit 확장을 제거했습니다.",
+    "uninstall": "옛 확장 제거"
+  },
   "opacity": {
     "inputPlaceholder": "불투명도 값 (0부터 1 사이)",
     "opaque": "아이콘을 불투명하게",

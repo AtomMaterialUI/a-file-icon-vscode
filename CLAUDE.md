@@ -1,7 +1,8 @@
 # a-file-icon-vscode — Claude Code 작업 메모
 
 `AtomMaterialUI/a-file-icon-vscode`(VS Code용 Atom Material Icons, 2025-01 이후 방치)의 포크. 마켓 표시 이름 "Cool Theme Kit"("Cool Theme" 은 Marketplace 에 이미 있어 게시가 거부돼 2026-11-20 바꿈)
-(확장 ID `woogajjangka.cool-icon-vscode`, 2026-11-19 에 "Cool Icon" 에서 바꿈).
+(확장 ID `woogajjangka.cool-theme-kit`, 2.0.0(2026-11-21)부터. 그 전 `woogajjangka.cool-icon-vscode` 는 Marketplace 에서 지웠고,
+둘 다 설치돼 있으면 `services/OldExtensionService` 가 옛 것을 지우라고 권한다. 저장소도 같은 날 `WoogaJJangka/cool-theme-kit` 으로 바꿈).
 - 이름 규칙: 확장·명령 분류·설정 제목·알림 = "Cool Theme Kit", 파일 아이콘 테마 = "Cool Icons", 색 = "Cool Islands Dark/Light",
   제품 아이콘 = "Cool Islands Icons"(id `cool-islands-product-icons`)·"Cool Material Icons". 테마 id·설정 id 는 바꾸지 않는다(사용자 설정이 가리킴).
   `test/unit/packageIdentity.test.ts` 가 지킨다. 한국어 조사는 읽는 소리 기준: "Cool Theme Kit이/과", "Cool Icons가/와".
@@ -185,7 +186,7 @@
   `--extensionTestsPath` 실행(단위·통합 테스트)은 공유 저장소를 메모리에 둬서 상관없다.
 
 ## git
-- remote: `origin` = 포크 `WoogaJJangka/a-file-icon-vscode`, `upstream` = 원본. 작업 브랜치는 같은 이름의 origin 브랜치를 추적.
+- remote: `origin` = 포크 `WoogaJJangka/cool-theme-kit`(2026-11-21 까지 `a-file-icon-vscode`, 옛 주소는 GitHub 가 넘겨 줌), `upstream` = 원본. 작업 브랜치는 같은 이름의 origin 브랜치를 추적.
   머지된 PR 의 브랜치는 GitHub 가 자동으로 지운다(저장소 설정) → 로컬에서도 `git fetch --prune` 후 `git branch -d`.
 - 이 문서·코드 주석의 #74·#71·#70·#67 같은 번호는 원본 저장소 이슈다. 포크 이슈는 #17 부터(로드맵 #19~#23).
 - 의존성 갱신은 `.github/dependabot.yml`(Actions 매주, bun 매월 묶음). 원본의 Renovate·semantic-release·techstack 설정은 지웠다.

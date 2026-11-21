@@ -169,7 +169,7 @@ const connect = async () => {
   return { close: () => socket.close(), send };
 };
 
-const EXTENSION_ID = 'woogajjangka.cool-icon-vscode';
+const EXTENSION_ID = 'woogajjangka.cool-theme-kit';
 
 /**
  * The commands of the captures, each on a key of the profile: the command palette could pick another command with a

@@ -1,11 +1,11 @@
 {
-  "name": "cool-icon-vscode",
+  "name": "cool-theme-kit",
   "displayName": "Cool Theme Kit",
   "description": "JetBrains (PyCharm New UI) style theme for VS Code: file icons, colors and product icons, with other installed themes layered on top by priority",
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/WoogaJJangka/a-file-icon-vscode.git"
+    "url": "https://github.com/WoogaJJangka/cool-theme-kit.git"
   },
   "author": {
     "name": "siwon Jeon",
@@ -14,7 +14,7 @@
   "license": "MIT",
   "main": "./dist/extension",
   "icon": "logo.png",
-  "homepage": "https://github.com/WoogaJJangka/a-file-icon-vscode/blob/main/README.md",
+  "homepage": "https://github.com/WoogaJJangka/cool-theme-kit/blob/main/README.md",
   "scripts": {
     "build": "bun run compile:dev && bun run postcompile",
     "changelog": "changelog-machine --config changelog.config.json",
@@ -97,7 +97,7 @@
   "badges": [],
   "browser": "./dist/web/extension.js",
   "bugs": {
-    "url": "https://github.com/WoogaJJangka/a-file-icon-vscode/issues"
+    "url": "https://github.com/WoogaJJangka/cool-theme-kit/issues"
   },
   "capabilities": {
     "untrustedWorkspaces": {
@@ -836,7 +836,7 @@
     "customization"
   ],
   "publisher": "woogajjangka",
-  "qna": "https://github.com/WoogaJJangka/a-file-icon-vscode/issues",
+  "qna": "https://github.com/WoogaJJangka/cool-theme-kit/issues",
   "activationEvents": [
     "onStartupFinished"
   ],

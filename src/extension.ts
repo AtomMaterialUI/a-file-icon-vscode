@@ -13,6 +13,7 @@ import { logger } from 'src/services/LoggingService';
 import { forgetInstalledProductThemes, productIconService } from 'src/services/ProductIconService';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { notificationsService } from 'src/services/NotificationsService';
+import { offerToUninstallOldExtension } from 'src/services/OldExtensionService';
 import { initThemeFailure, reportThemeFailure } from 'src/services/themeFailure';
 import { updatesService } from 'src/services/UpdatesService';
 import { extensions, workspace } from 'vscode';
@@ -124,6 +125,11 @@ export const activate = async (context: ExtensionContext) => {
     // Offer the JetBrains fonts to a user of Cool Islands, or suggest the missing ones (not awaited: it waits for the
     // user, and the message left open when the window closes is cancelled)
     fontCheckService.check(context).catch(logFontError);
+
+    // The extension id changed in 2.0.0: a copy of the old one would register the same settings and themes
+    offerToUninstallOldExtension().catch((error: unknown) => {
+      if (!isCancellation(error)) logger.error(String(error));
+    });
 
     // Subscribe to the extension commands
     context.subscriptions.push(...registerCommands(context));

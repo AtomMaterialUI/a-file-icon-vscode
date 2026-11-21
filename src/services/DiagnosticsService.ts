@@ -11,7 +11,7 @@ import type { DiagnosticsInput } from 'src/helpers/diagnostics';
 import type { MessageItem } from 'vscode';
 
 /** Where a new bug report starts: the bug report form of the repository */
-const NEW_ISSUE_URL = 'https://github.com/WoogaJJangka/a-file-icon-vscode/issues/new?template=bug_report.yml';
+const NEW_ISSUE_URL = 'https://github.com/WoogaJJangka/cool-theme-kit/issues/new?template=bug_report.yml';
 
 type Contributes = { configuration?: unknown; iconThemes?: unknown[]; productIconThemes?: unknown[]; themes?: unknown[] };
 type PackageJson = { contributes?: Contributes; version?: string };

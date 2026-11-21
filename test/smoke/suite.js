@@ -10,7 +10,7 @@ const { setFlagsFromString } = require('node:v8');
 const { runInNewContext } = require('node:vm');
 const vscode = require('vscode');
 
-const EXTENSION_ID = 'woogajjangka.cool-icon-vscode';
+const EXTENSION_ID = 'woogajjangka.cool-theme-kit';
 const KEY = 'a-file-icon-vscode';
 
 /**

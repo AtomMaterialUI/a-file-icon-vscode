@@ -7,7 +7,7 @@ body:
       value: |
         Thanks for the report. English or Korean, both are fine. / 영어·한국어 모두 괜찮습니다.
 
-        A security problem? Do not post it here: see [SECURITY.md](https://github.com/WoogaJJangka/a-file-icon-vscode/blob/main/SECURITY.md).
+        A security problem? Do not post it here: see [SECURITY.md](https://github.com/WoogaJJangka/cool-theme-kit/blob/main/SECURITY.md).
   - type: textarea
     id: what
     attributes:
