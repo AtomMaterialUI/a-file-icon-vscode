@@ -22,7 +22,7 @@
 - 단계별 로드맵은 포크 이슈 #19~#23, 진행 상황은 메모리(`project-status`).
 
 ## 환경 (Node·bun 은 conda env)
-- conda env `cool-theme-kit` = Node 24 + bun 1.4 (`environment.yml`, 2026-11-21 `a-file-icon-vscode` 에서 이름 바꿈, 폴더도 `D:devprojectsol-theme-kit` 으로 옮김). 이 PC 에는 시스템 Node 가 없다.
+- conda env `cool-theme-kit` = Node 24 + bun 1.4 (`environment.yml`, 2026-11-21 `a-file-icon-vscode` 에서 이름 바꿈, 폴더도 `D:\dev\projects\cool-theme-kit` 으로 옮김). 이 PC 에는 시스템 Node 가 없다.
   새 PC: `conda env create -f environment.yml`, 바뀌면 `conda env update -f environment.yml --prune`.
 - 프로필 없이 도는 셸(Claude Code)에서는 env 를 PATH 앞에 붙여 쓴다. node.exe 는 env 루트, bun.exe 는 `Library\bin`:
   - Git Bash: `E=/c/Users/siwon/miniconda3/envs/cool-theme-kit; export PATH="$E:$E/Library/bin:$PATH"`
