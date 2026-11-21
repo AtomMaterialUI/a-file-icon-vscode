@@ -2,22 +2,63 @@ import { strict as assert } from 'node:assert';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
-import { EDITOR_FONT_FAMILY, fontconfigFamilies, fontFolders, isFontInstalled, missingFonts, UI_FONT_FAMILY } from 'src/helpers/fonts';
+import {
+  EDITOR_FONT_FAMILY,
+  fontconfigFamilies,
+  fontFolders,
+  isFontInstalled,
+  isJetBrainsFont,
+  JETBRAINS_FONT_SETTINGS,
+  missingFonts,
+  shouldOfferFonts,
+  UI_FONT_FAMILY,
+} from 'src/helpers/fonts';
 import { isCancellation } from 'src/helpers/utils';
+import { COLOR_THEMES } from 'src/themes/colorThemes';
 
 const root = join(__dirname, '..', '..');
 const families = (list: string) => list.split(',').map((family) => family.trim().replaceAll("'", ''));
 
 describe('JetBrains fonts', () => {
   const packageJson = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as {
-    contributes: { configurationDefaults: Record<string, string> };
+    contributes: { configurationDefaults?: Record<string, string> };
   };
 
-  it('gives the fonts as defaults only, so a font the user sets wins', () => {
-    assert.deepEqual(packageJson.contributes.configurationDefaults, {
-      'editor.fontFamily': EDITOR_FONT_FAMILY,
-      'markdown.preview.fontFamily': UI_FONT_FAMILY,
-    });
+  // a user of the file icons alone keeps the font of VS Code: the fonts are written only when the user chooses them
+  it('changes no font by being installed', () => {
+    const defaults = Object.keys(packageJson.contributes.configurationDefaults ?? {});
+    assert.deepEqual(defaults.filter((key) => /font/i.test(key)), []);
+  });
+
+  it('writes the editor and Markdown preview font lists', () => {
+    assert.deepEqual(
+      JETBRAINS_FONT_SETTINGS.map(({ key, section, value }) => [`${section}.${key}`, value]),
+      [
+        ['editor.fontFamily', EDITOR_FONT_FAMILY],
+        ['markdown.preview.fontFamily', UI_FONT_FAMILY],
+      ],
+    );
+  });
+
+  it('knows its font lists, also with other spaces, and not another font', () => {
+    assert.equal(isJetBrainsFont(EDITOR_FONT_FAMILY), true);
+    assert.equal(isJetBrainsFont(`  ${EDITOR_FONT_FAMILY.replaceAll(', ', ',\n  ')} `), true);
+    assert.equal(isJetBrainsFont(UI_FONT_FAMILY, UI_FONT_FAMILY), true);
+    assert.equal(isJetBrainsFont(UI_FONT_FAMILY), false);
+    assert.equal(isJetBrainsFont("'Roboto Mono', 'D2Coding', monospace"), false);
+    assert.equal(isJetBrainsFont(undefined), false);
+  });
+
+  it('offers the fonts once, to a user of Cool Islands with no editor font of their own', () => {
+    const islandsThemes = COLOR_THEMES.map((theme) => theme.label);
+    const offer = { asked: false, colorTheme: 'Cool Islands Dark', enabled: true, islandsThemes, userFont: false };
+    assert.equal(shouldOfferFonts(offer), true);
+    assert.equal(shouldOfferFonts({ ...offer, colorTheme: 'Cool Islands Light' }), true);
+    assert.equal(shouldOfferFonts({ ...offer, colorTheme: 'Dark Modern' }), false);
+    assert.equal(shouldOfferFonts({ ...offer, colorTheme: undefined }), false);
+    assert.equal(shouldOfferFonts({ ...offer, asked: true }), false);
+    assert.equal(shouldOfferFonts({ ...offer, userFont: true }), false);
+    assert.equal(shouldOfferFonts({ ...offer, enabled: false }), false);
   });
 
   it('puts the JetBrains font first, then Korean fonts for Hangul, then a generic family', () => {
@@ -86,11 +127,11 @@ describe('JetBrains fonts', () => {
     assert.equal(isCancellation(undefined), false);
   });
 
-  it('suggests JetBrains Mono, and D2Coding with a Korean interface, when the default font is used without them', () => {
+  it('suggests JetBrains Mono, and D2Coding with a Korean interface, when the JetBrains fonts are used without them', () => {
     const none = () => false;
-    assert.deepEqual(missingFonts({ installed: none, language: 'en', userFont: false }), ['JetBrains Mono']);
-    assert.deepEqual(missingFonts({ installed: none, language: 'ko', userFont: false }), ['JetBrains Mono', 'D2Coding']);
-    assert.deepEqual(missingFonts({ installed: (family) => family === 'JetBrains Mono', language: 'ko', userFont: false }), ['D2Coding']);
-    assert.deepEqual(missingFonts({ installed: none, language: 'ko', userFont: true }), []);
+    assert.deepEqual(missingFonts({ installed: none, language: 'en', usesJetBrainsFont: true }), ['JetBrains Mono']);
+    assert.deepEqual(missingFonts({ installed: none, language: 'ko', usesJetBrainsFont: true }), ['JetBrains Mono', 'D2Coding']);
+    assert.deepEqual(missingFonts({ installed: (family) => family === 'JetBrains Mono', language: 'ko', usesJetBrainsFont: true }), ['D2Coding']);
+    assert.deepEqual(missingFonts({ installed: none, language: 'ko', usesJetBrainsFont: false }), []);
   });
 });

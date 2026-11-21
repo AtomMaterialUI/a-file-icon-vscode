@@ -12,8 +12,10 @@
 - VS Code 는 종류마다 테마를 하나만 고를 수 있다 → **JetBrains 기본 위에 다른 설치된 테마를 우선순위·예외로 얹는다**
   (파일 아이콘의 `iconThemeLayers`·`iconThemeByName` 과 같은 규칙을 색·제품 아이콘에도). 섞은 결과는 테마 파일을 다시
   써서 반영하고, VS Code 가 다시 읽지 않는 것(색·제품 아이콘)은 창 다시 로드를 권한다.
-- 폰트: 사용자가 지정하지 않은 곳만 `configurationDefaults` 로 JetBrains 글꼴(JetBrains Mono, UI 쪽은 Inter) + 한글 대체 글꼴.
-  VS Code 화면(UI) 글꼴은 확장이 못 바꾼다.
+- **묶음이지만 opt-in(2026-11-21 사용자 결정)**: 설치만으로는 아무것도 바꾸지 않고, 사용자가 고른 것만 적용한다. 아이콘만 쓰는
+  사람의 글꼴·색을 건드리지 않는다. Get Started 안내(`contributes.walkthroughs`)에 부분마다 버튼(`useTheme` 명령, `useJetBrainsFonts`).
+- 폰트: JetBrains 글꼴(JetBrains Mono, Markdown 미리보기는 Inter) + 한글 대체 글꼴을 사용자가 고를 때만 사용자 설정에 쓴다
+  (`configurationDefaults` 는 쓰지 않는다, `fonts.test.ts`). VS Code 화면(UI) 글꼴은 확장이 못 바꾼다.
 - 한국어 호환이 중요하다: 사용자 글꼴 `'Roboto Mono', 'D2Coding', monospace` 로 한글 이름·주석·화면 문구가 깨지지 않는지 확인.
 - 단계별 로드맵은 포크 이슈 #19~#23, 진행 상황은 메모리(`project-status`).
 
@@ -70,10 +72,14 @@
   다른 언어의 남는 키를 잡는다.
 - 이름 비교는 `helpers/utils.normalizeName`(NFC + 소문자, VS Code 와 같은 소문자 비교에 한글 NFD 대응)만 쓴다. `toLowerCase()` 를
   따로 쓰지 않는다.
-- 글꼴(`helpers/fonts.ts`): `package.json` `configurationDefaults` 의 `editor.fontFamily`·`markdown.preview.fontFamily` 는 여기
-  상수와 같아야 한다(`fonts.test.ts`). `FontCheckService` 는 사용자가 에디터 글꼴을 안 정했을 때만 글꼴 폴더에서 JetBrains Mono
-  (한국어 화면이면 D2Coding 도)를 찾고, 없으면 같은 조합에 대해 한 번만 알린다(globalState `fontMessageShown`).
-  VS Code UI 글꼴은 확장이 못 바꾼다.
+- 글꼴(`helpers/fonts.ts` 상수 `JETBRAINS_FONT_SETTINGS`, `services/FontCheckService.ts`): `useJetBrainsFonts` 명령이 사용자 설정
+  (Global)에 `editor.fontFamily`·`markdown.preview.fontFamily` 를 쓰고(사용자 값이 있으면 모달로 묻는다), `removeJetBrainsFonts` 는
+  우리 목록과 같은 값만 지운다. Cool Islands 색 테마가 선택돼 있고 사용자가 에디터 글꼴을 안 정했으면 시작 때·`workbench.colorTheme`
+  변경 때 한 번 권한다(globalState `fontOfferShown`). 에디터가 우리 목록을 쓸 때만 글꼴 폴더에서 JetBrains Mono(한국어 화면이면
+  D2Coding 도)를 찾고, 없으면 같은 조합에 대해 한 번만 알린다(globalState `fontMessageShown`, 명령으로 고르면 매번).
+  명령은 설정을 쓰면 끝나고 알림은 기다리지 않는다(스모크가 `executeCommand` 로 부름). VS Code UI 글꼴은 확장이 못 바꾼다.
+- 설정은 `contributes.configuration` 배열로 종류별 묶음(일반·파일 아이콘·색 테마·제품 아이콘·글꼴). 새 설정은 맞는 묶음에 넣고
+  묶음 제목은 `configuration.title.*`(영어·한국어).
 - 테마 섞기(방향: Atom 이 기본, 다른 테마는 겹쳐 쓰기): VS Code 는 아이콘 테마를 하나만 쓰므로, 생성 마지막에
   `ThemeLayerGenerator` 가 설치된 다른 테마 json 을 읽어 섞고 SVG 를 필터 적용해 `dist/layers/` 에 복사한다.
   - `iconThemeLayers`(기본 `["material-icon-theme"]`): 테마 id 또는 `{theme, files, folders}`, 모드는 `fill`(아무 테마도

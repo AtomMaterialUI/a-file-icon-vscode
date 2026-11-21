@@ -42,7 +42,14 @@
   },
   "fonts": {
     "get": "Get {{font}}",
-    "missing": "Cool Theme Kit gives the editor the fonts of the JetBrains IDEs. Not installed: {{fonts}}. Until then, the editor uses the next font of the list."
+    "missing": "The editor uses the fonts of the JetBrains IDEs, but these are not installed: {{fonts}}. Until then, the editor uses the next font of the list.",
+    "notNow": "No, Thanks",
+    "notUsed": "The user settings have no JetBrains fonts of Cool Theme Kit to remove.",
+    "offer": "Cool Islands goes with the fonts of the JetBrains IDEs: JetBrains Mono in the editor, with Korean fonts for Hangul. Write them to your user settings? \"Stop Using the JetBrains Fonts\" removes them.",
+    "removed": "The JetBrains fonts were removed from the user settings: the editor uses its own font again.",
+    "replace": "Replace",
+    "replaceQuestion": "Replace the fonts of your user settings ({{fonts}}) with the JetBrains fonts?",
+    "use": "Use the JetBrains Fonts"
   },
   "grayscale": {
     "disable": "Disable monochromatic icons",

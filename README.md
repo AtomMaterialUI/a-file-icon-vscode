@@ -26,9 +26,11 @@ Korean coding fonts such as D2Coding.
 | Color theme   | **Cool Islands Dark / Light**           | JetBrains Islands Dark / Light                     | [Available](#color-themes), with other color themes [mixed in](#mixing-color-themes) |
 | Product icons | **Cool Islands Icons**                  | JetBrains New UI icons                             | [Available](#product-theme), with other product icon themes [mixed in](#mixing-product-icon-themes) |
 | Product icons | **Cool Material Icons**                 | Material Design Icons, from the original extension | Available                                                                            |
-| Fonts         | Defaults for the settings you leave empty | JetBrains Mono, then Korean fallbacks            | [Available](#fonts-and-korean)                                                       |
+| Fonts         | **Use the JetBrains Fonts** command     | JetBrains Mono, then Korean fallbacks              | [Available](#fonts-and-korean), when you choose them                                 |
 
-Select them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
+Each part is separate, and installing the extension applies none of them: use only the file icons if that is all you
+want. The **Get Started with Cool Theme Kit** walkthrough (on the Welcome page) has a button for each part. Or select
+them with **Preferences: File Icon Theme**, **Preferences: Color Theme** and **Preferences: Product Icon Theme**.
 
 Cool Theme Kit is an unofficial fork of [Atom Material Icons](https://github.com/AtomMaterialUI/a-file-icon-vscode), a port
 of the [Atom File Icons](https://github.com/file-icons/atom) for VS Code, inspired by the
@@ -124,10 +126,12 @@ theme change, a notification offers to reload the window. The **Mix Color Themes
 
 ## Fonts and Korean
 
-Where you have not chosen a font, Cool Theme Kit gives the fonts of the JetBrains IDEs. They are only defaults: a font you
-set in your settings always wins.
+Cool Theme Kit changes no font by itself. The **Use the JetBrains Fonts** command (also a button of the walkthrough)
+writes the fonts of the JetBrains IDEs to your user settings, after asking before it replaces a font you set there;
+**Stop Using the JetBrains Fonts** removes them again (only these lists, never a font of your own). When you select a
+Cool Islands color theme and have no editor font of your own, a notification offers them, once.
 
-| Setting                       | Default given by Cool Theme Kit                                                                                   |
+| Setting                       | Written by **Use the JetBrains Fonts**                                                                            |
 |-------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | `editor.fontFamily`           | `'JetBrains Mono', 'D2Coding', Consolas, Menlo, 'Droid Sans Mono', 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans Mono CJK KR', 'Courier New', monospace` |
 | `markdown.preview.fontFamily` | `Inter, -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Malgun Gothic', 'Apple SD Gothic Neo', 'Noto Sans KR', Ubuntu, 'Droid Sans', sans-serif` |
@@ -136,8 +140,9 @@ set in your settings always wins.
   Inter draw the Hangul they do not have. D2Coding comes first among them because its Hangul is exactly two columns
   wide, so Korean text stays aligned.
 - The terminal, the debug console, the inlay hints and the code lens use the editor font, as VS Code does by default.
-- An extension cannot install fonts: when JetBrains Mono is missing (and D2Coding, with a Korean interface), a
-  notification links to their download pages, once (`a-file-icon-vscode.showFontMessage` turns it off).
+- An extension cannot install fonts: when the editor uses these fonts and JetBrains Mono is missing (and D2Coding, with
+  a Korean interface), a notification links to their download pages, once (`a-file-icon-vscode.showFontMessage` turns
+  it and the offer off).
 - An extension cannot change the font of the VS Code interface (menus, side bar, tabs) either: it stays the font of the
   system, with Malgun Gothic or Apple SD Gothic Neo for Korean.
 

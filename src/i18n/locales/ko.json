@@ -42,7 +42,14 @@
   },
   "fonts": {
     "get": "{{font}} 받기",
-    "missing": "Cool Theme Kit은 에디터에 JetBrains IDE와 같은 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다."
+    "missing": "에디터가 JetBrains IDE 글꼴을 쓰는데, 이 PC에 없는 글꼴이 있습니다: {{fonts}}. 설치하기 전까지는 목록의 다음 글꼴로 보입니다.",
+    "notNow": "괜찮습니다",
+    "notUsed": "사용자 설정에 Cool Theme Kit이 넣은 JetBrains 글꼴이 없습니다.",
+    "offer": "Cool Islands에는 JetBrains IDE 글꼴이 어울립니다. 에디터는 JetBrains Mono, 한글은 한국어 글꼴로 보입니다. 사용자 설정에 이 글꼴을 쓸까요? \"JetBrains 글꼴 그만 쓰기\" 명령으로 되돌릴 수 있습니다.",
+    "removed": "사용자 설정에서 JetBrains 글꼴을 지웠습니다. 에디터는 원래 글꼴로 돌아갑니다.",
+    "replace": "바꾸기",
+    "replaceQuestion": "사용자 설정의 글꼴({{fonts}})을 JetBrains 글꼴로 바꿀까요?",
+    "use": "JetBrains 글꼴 쓰기"
   },
   "grayscale": {
     "disable": "단색 아이콘 끄기",

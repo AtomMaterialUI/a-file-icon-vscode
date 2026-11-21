@@ -1,8 +1,8 @@
 /**
- * Fonts of the JetBrains IDEs for the places where the user has not chosen a font.
- * `contributes.configurationDefaults` of package.json gives them as defaults (see fonts.test.ts): a font the user sets
- * always wins. VS Code draws each character with the first font of the list that has it, so the Korean fonts after the
- * Latin ones draw the Hangul that JetBrains Mono and Inter do not have.
+ * Fonts of the JetBrains IDEs, written to the user settings only when the user asks for them (the "Use the JetBrains
+ * Fonts" command, the walkthrough, or the offer made once with a Cool Islands color theme): installing the extension
+ * changes no font (fonts.test.ts). VS Code draws each character with the first font of the list that has it, so the
+ * Korean fonts after the Latin ones draw the Hangul that JetBrains Mono and Inter do not have.
  */
 import { execFileSync } from 'node:child_process';
 import { existsSync, readdirSync } from 'node:fs';
@@ -93,16 +93,43 @@ export const isFontInstalled = (
   return knownFamilies().includes(family.toLowerCase());
 };
 
+/** The font settings this extension writes, and the value of each */
+export const JETBRAINS_FONT_SETTINGS = [
+  { key: 'fontFamily', section: 'editor', value: EDITOR_FONT_FAMILY },
+  { key: 'fontFamily', section: 'markdown.preview', value: UI_FONT_FAMILY },
+] as const;
+
+/** Whether a font setting is the given JetBrains font list of this extension (a copy with other spaces counts) */
+export const isJetBrainsFont = (value: unknown, font: string = EDITOR_FONT_FAMILY): boolean =>
+  typeof value === 'string' && value.replaceAll(/\s+/g, ' ').trim() === font;
+
 /**
- * The fonts of the default editor font to suggest: JetBrains Mono, and D2Coding for a Korean interface (the system
- * Korean fonts are not monospaced). None when the user chose the editor font.
+ * Whether to offer the JetBrains fonts, once: with a Cool Islands color theme selected and no editor font of the user's
+ * own. A user of the file icons alone keeps the font of VS Code.
+ */
+export const shouldOfferFonts = (options: {
+  asked: boolean;
+  colorTheme: unknown;
+  enabled: boolean;
+  islandsThemes: readonly string[];
+  userFont: boolean;
+}): boolean =>
+  options.enabled &&
+  !options.asked &&
+  !options.userFont &&
+  typeof options.colorTheme === 'string' &&
+  options.islandsThemes.includes(options.colorTheme);
+
+/**
+ * The fonts of the JetBrains editor font to suggest: JetBrains Mono, and D2Coding for a Korean interface (the system
+ * Korean fonts are not monospaced). None when the editor does not use the JetBrains font list.
  */
 export const missingFonts = (options: {
   installed: (family: FontFamily) => boolean;
   language: string;
-  userFont: boolean;
+  usesJetBrainsFont: boolean;
 }): FontFamily[] => {
-  if (options.userFont) return [];
+  if (!options.usesJetBrainsFont) return [];
   const wanted: FontFamily[] = ['JetBrains Mono'];
   if (options.language.toLowerCase().startsWith('ko')) wanted.push('D2Coding');
   return wanted.filter((family) => !options.installed(family));

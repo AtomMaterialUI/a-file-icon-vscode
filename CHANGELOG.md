@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. Dates are displayed in UTC.
 
+#### Unreleased
+
+- feat!: the JetBrains fonts are opt-in. Installing the extension no longer changes `editor.fontFamily` and
+  `markdown.preview.fontFamily` (they were `configurationDefaults`), so a user of the file icons alone keeps the font of
+  VS Code. The **Use the JetBrains Fonts** command writes them to the user settings (asking before it replaces a font
+  set there), **Stop Using the JetBrains Fonts** removes them, and selecting a Cool Islands color theme without an
+  editor font of your own offers them once. If you used the fonts of an earlier version, accept that offer or run the
+  command to keep them.
+- feat: a **Get Started with Cool Theme Kit** walkthrough with a button for each part of the kit (file icons, color
+  theme, product icons, fonts, mixing), each applied only when chosen.
+- feat: the settings are grouped by kind in the Settings editor: File Icons, Color Themes, Product Icons, Fonts.
+
 #### 1.3.0 (2026-11-21)
 
 - feat: a new logo for Cool Theme Kit: Islands panels layered over each other (a light theme, code colors, the file
