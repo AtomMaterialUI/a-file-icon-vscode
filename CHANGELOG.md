@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. Dates are d
 
 #### Unreleased
 
+- feat: **Copy Diagnostics (for a Bug Report)** copies what a bug report needs (versions, the selected themes, the
+  editor font, the other theme extensions, the settings changed from the defaults, with the home folder written `~`)
+  and offers to open the bug report form. New issue forms: bug report, "Looks different from PyCharm" and idea, in
+  English and Korean.
+
 - feat!: the JetBrains fonts are opt-in. Installing the extension no longer changes `editor.fontFamily` and
   `markdown.preview.fontFamily` (they were `configurationDefaults`), so a user of the file icons alone keeps the font of
   VS Code. The **Use the JetBrains Fonts** command writes them to the user settings (asking before it replaces a font

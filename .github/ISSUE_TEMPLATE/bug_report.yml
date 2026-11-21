@@ -1,0 +1,41 @@
+name: Bug report / 버그 신고
+description: Something in Cool Theme Kit does not work. 한국어로 써도 됩니다.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for the report. English or Korean, both are fine. / 영어·한국어 모두 괜찮습니다.
+
+        A security problem? Do not post it here: see [SECURITY.md](https://github.com/WoogaJJangka/a-file-icon-vscode/blob/main/SECURITY.md).
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened? / 무엇이 잘못됐나요?
+      description: What you saw, and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce / 재현 방법
+      placeholder: |
+        1. Select Cool Islands Dark
+        2. Open a file named …
+        3. …
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Diagnostics / 진단 정보
+      description: |
+        Run **Cool Theme Kit: Copy Diagnostics (for a Bug Report)** from the Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+        and paste it here. Read it first: the settings can contain file and folder names.
+        Without the command (VS Code for the Web), write your VS Code version, OS and the selected themes.
+        / 명령 팔레트에서 **Cool Theme Kit: 진단 정보 복사(버그 신고용)** 을 실행하고 여기에 붙여 넣으세요.
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / 화면
+      description: Drag images here. A screenshot shows most problems of a theme at once.

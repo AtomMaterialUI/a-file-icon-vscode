@@ -10,6 +10,7 @@ import { saturationPicker } from 'src/pickers/SaturationPicker';
 import { ThemeMixerPanel } from 'src/panels/ThemeMixerPanel';
 import { ISLANDS_PRODUCT_THEME_ID } from 'src/productIcons/islandsProductTheme';
 import { logger, configService } from 'src/services';
+import { copyDiagnostics } from 'src/services/DiagnosticsService';
 import { fontCheckService } from 'src/services/FontCheckService';
 import { COLOR_THEMES } from 'src/themes/colorThemes';
 import { commands, ConfigurationTarget, window, workspace } from 'vscode';
@@ -117,6 +118,7 @@ const extensionCommands: Record<string, (...parameters: unknown[]) => Promise<vo
   changeMonochromeColor,
   changeOpacity,
   changeSaturation,
+  copyDiagnostics,
   openColorMixer,
   openThemeMixer,
   removeJetBrainsFonts,

@@ -1,0 +1,45 @@
+name: Looks different from PyCharm / PyCharm과 다르게 보여요
+description: An icon, a color or a product icon that is not what the JetBrains IDE shows, or a file or folder with no icon.
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Cool Theme Kit follows what PyCharm (New UI, Islands themes, Atom Material Icons plugin) shows.
+        Screenshots of both side by side are the fastest way to fix a difference.
+        / PyCharm과 VS Code 화면을 나란히 올려 주시면 가장 빨리 고칠 수 있습니다.
+
+        Some differences come from VS Code itself and cannot be fixed (rounded panels, the interface font, colored
+        product icons): see [Differences with the JetBrains plugin](https://github.com/WoogaJJangka/a-file-icon-vscode#differences-with-the-jetbrains-plugin).
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What looks different? / 무엇이 다른가요?
+      options:
+        - File or folder icon / 파일·폴더 아이콘
+        - Missing icon / 아이콘 없음
+        - Editor colors (syntax) / 코드 색
+        - Workbench colors / 화면 색
+        - Product icons (toolbar, activity bar) / 제품 아이콘
+        - Fonts / 글꼴
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where? / 어디서요?
+      description: The file or folder names, the language and a few lines of code, or the part of the window.
+    validations:
+      required: true
+  - type: textarea
+    id: jetbrains
+    attributes:
+      label: In the JetBrains IDE / JetBrains IDE 화면
+      description: A screenshot, and the IDE, its version and theme (for example PyCharm 2026.3, Islands Dark).
+  - type: textarea
+    id: vscode
+    attributes:
+      label: In VS Code / VS Code 화면
+      description: |
+        A screenshot, and the diagnostics: run **Cool Theme Kit: Copy Diagnostics (for a Bug Report)** from the
+        Command Palette and paste it here.

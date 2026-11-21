@@ -1,0 +1,16 @@
+name: Idea / 제안
+description: Something Cool Theme Kit could do. 한국어로 써도 됩니다.
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like? / 무엇이 있으면 좋을까요?
+      description: What you want to do, and why the kit does not let you do it today.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: What do you do now? / 지금은 어떻게 하고 있나요?
+      description: Another extension, a setting, a workaround.

@@ -2,8 +2,8 @@
 
 ## Supported versions
 
-Only the latest release of Cool Theme Kit (Visual Studio Marketplace, Open VSX and the GitHub releases of this
-repository) gets security fixes.
+Only the latest release of Cool Theme Kit (Visual Studio Marketplace and the GitHub releases of this repository) gets
+security fixes.
 
 ## Reporting a vulnerability
 

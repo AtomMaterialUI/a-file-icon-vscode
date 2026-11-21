@@ -611,6 +611,8 @@ Here's a list of the available commands:
 | **Icon Packs**                    | Select icon packs that enable additional icons (e.g. for Angular, React, Ngrx...). |
 | **Mix Themes (with Preview)**      | Mix other installed icon and color themes, with a preview of the result.           |
 | **Mix Color Themes (with Preview)** | The same page, on its Colors tab.                                                 |
+| **Use the JetBrains Fonts** / **Stop Using the JetBrains Fonts** | Write the JetBrains font lists to your user settings, or remove them. |
+| **Copy Diagnostics (for a Bug Report)** | Copy what a bug report needs, to paste into an issue. See [Reporting a problem](#reporting-a-problem). |
 | **Restore Default Configuration** | Reset the default configurations of the icon theme.                                |
 | **Toggle Monochrome Icons**       | Switch between colored and monochrome icons.                                       |
 
@@ -637,6 +639,18 @@ Some options of the JetBrains plugin cannot be built with the VS Code icon theme
 | VS Code for the Web (vscode.dev)        | The themes as they are built: Cool Icons, Cool Islands Dark/Light, the product icons. The settings that change them (icon settings, accent color, mixed themes) are not applied: the extension cannot write its theme files there. |
 | A read-only install (system-wide install, read-only folder) | The same as the web: the default themes work. A notice says once (per version) that the settings are not applied, instead of an error at every change. |
 | An untrusted folder (Restricted Mode)   | Everything, except the `filesAssociations`, `foldersAssociations` and `languagesAssociations` of the folder's settings, which may point to SVG files: only those of your user settings apply until you trust the folder. |
+
+## Reporting a problem
+
+[Open an issue](https://github.com/WoogaJJangka/a-file-icon-vscode/issues/new/choose), in English or Korean:
+
+- **Bug report**: run **Cool Theme Kit: Copy Diagnostics (for a Bug Report)** and paste what it copies. It lists the
+  versions of the extension, VS Code and the OS, the selected themes, the editor font, the other theme extensions
+  installed, and the settings of Cool Theme Kit you changed. It sends nothing itself, and it writes your home folder
+  `~`, but read it before you post it: the settings can contain file and folder names.
+- **Looks different from PyCharm**: an icon, a color or a product icon that is not what the JetBrains IDE shows.
+  Screenshots of both side by side are the fastest way to a fix.
+- A security problem goes to [private vulnerability reporting](SECURITY.md), not to an issue.
 
 ----
 
