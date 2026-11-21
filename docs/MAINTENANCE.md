@@ -172,7 +172,11 @@ Cool Theme Kit 을 고칠 때 지키는 규칙과, 그 규칙을 지키는지 �
 - **분석 방식: CI 분석**(`sonar.yml`, 2026-11-21 부터). Automatic Analysis 는 꺼져 있고 저장소 secret `SONAR_TOKEN`(SonarQube Cloud →
   My Account → Security 의 user token)으로 돈다. PR·main push 마다 빌드 → 커버리지 단위 테스트 → 스캔 → 품질 게이트를 기다리고,
   게이트가 실패하면 "Analysis + quality gate" 검사가 실패한다. 수동 실행: `gh workflow run sonar.yml --ref main`.
+  - PR 분석에는 GitHub App **SonarQube Cloud**(github.com/apps/sonarqubecloud)가 이 저장소에 설치돼 있어야 한다(SonarCloud 가 PR 정보를
+    가져온다). 없으면 PR 스캔이 "Something went wrong while trying to get the pullrequest with key" 로 실패하고, main 분석은 된다.
+    확인: GitHub → Settings → Applications → Installed GitHub Apps.
   - Automatic Analysis 는 2026-11-18 PR #7 뒤로 GitHub 에서 소식을 못 받아 **실패 표시 없이** 멈춰 있었다(사흘, PR #8~#46 이 분석되지 않음).
+    원인은 위 App 의 설치가 풀린 것이었다(2026-11-21 다시 설치).
     CI 분석은 멈추면 워크플로가 실패하거나 건너뛰었다는 notice 가 남는다. `SONAR_TOKEN` 이 없거나 만료되면 job 이 건너뛰므로
     "SONAR_TOKEN is not set" notice 가 보이면 토큰부터 본다.
   - Automatic Analysis 를 다시 켜면 CI 스캔이 "You are running CI analysis while Automatic Analysis is enabled" 로 실패한다.
