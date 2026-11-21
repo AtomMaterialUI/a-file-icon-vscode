@@ -74,9 +74,21 @@ jobs:
       - name: Unit tests with coverage 🧪
         run: bun run test:coverage
 
-      # the scanner reads sonar-project.properties: the same settings as Automatic Analysis
+      # the scanner reads sonar-project.properties: the same settings as Automatic Analysis.
+      # A pull request is named here: without it the scanner asks SonarQube Cloud to look the pull request up on GitHub,
+      # which fails ("Something went wrong while trying to get the pullrequest") when its GitHub App binding is broken.
+      # The values come through env (never inlined in the script); git branch names cannot hold a line break.
       - name: Analysis settings 📝
-        run: cp .sonarcloud.properties sonar-project.properties
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_BRANCH: ${{ github.head_ref }}
+          PR_BASE: ${{ github.base_ref }}
+        run: |
+          cp .sonarcloud.properties sonar-project.properties
+          if [ -n "$PR_NUMBER" ]; then
+            printf '\nsonar.pullrequest.key=%s\nsonar.pullrequest.branch=%s\nsonar.pullrequest.base=%s\n' \
+              "$PR_NUMBER" "$PR_BRANCH" "$PR_BASE" >> sonar-project.properties
+          fi
 
       - name: SonarQube Cloud scan 🔎
         uses: SonarSource/sonarqube-scan-action@59202af334b4ba7b5db01b701b8e79f8b3bef0f4 # v8.5.0
